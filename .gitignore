@@ -48,3 +48,27 @@ debug-tts.cjs
 
 # Maven
 .mvn/
+
+# Downloaded skill repos (use separately)
+Anthropic-Cybersecurity-Skills/
+Graft/
+OpenMontage/
+OpenViking/
+agency-agents/
+agentmemory/
+anthropic-skills/
+awesome-design-md/
+awesome-harness-engineering/
+awesome-mcp-servers/
+browser-use/
+codebase-memory-mcp/
+diagram-design/
+openai-plugins/
+playwright-cli/
+role-specific-plugins/
+scientific-agent-skills/
+taste-skill/
+vercel-agent-skills/
+vercel-skills-cli/
+web-interface-guidelines/
+.skills-registry/
