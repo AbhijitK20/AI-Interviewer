@@ -39,8 +39,21 @@ uploads/
 # Database
 *.db
 
-# Debug
+# Debug files
+debug-tts.js
 debug-tts.cjs
+
+# PID files
+*.pid
+
+# Local scripts (not needed in repo)
+setup.sh
+start.sh
+stop.sh
+use-skill.sh
+
+# Workflow notes
+.github/WORKFLOW_NOTE.md
 
 # Python
 *.egg-info/
