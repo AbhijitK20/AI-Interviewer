@@ -3,7 +3,8 @@ services:
     name: ai-interviewer-backend
     runtime: docker
     plan: free
-    dockerfilePath: ./backend/Dockerfile
+    rootDir: backend
+    dockerfilePath: ./Dockerfile
     envVars:
       - key: SPRING_PROFILES_ACTIVE
         value: production
@@ -24,7 +25,8 @@ services:
     name: ai-interviewer-ai-service
     runtime: docker
     plan: free
-    dockerfilePath: ./ai-service/Dockerfile
+    rootDir: ai-service
+    dockerfilePath: ./Dockerfile
     envVars:
       - key: LLM_PROVIDER
         value: gemini
