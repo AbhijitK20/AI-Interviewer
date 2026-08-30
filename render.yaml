@@ -1,15 +1,12 @@
 services:
   - type: web
     name: ai-interviewer-backend
-    runtime: java
+    runtime: docker
     plan: free
-    buildCommand: mvn clean package -DskipTests
-    startCommand: java -jar target/*.jar --server.port=$PORT
+    dockerfilePath: ./backend/Dockerfile
     envVars:
       - key: SPRING_PROFILES_ACTIVE
         value: production
-      - key: JAVA_VERSION
-        value: openjdk21
       - key: SPRING_DATASOURCE_URL
         value: jdbc:mysql://gateway01.ap-southeast-1.prod.aws.tidbcloud.com:4000/ai_interviewer?ssl=true&sslMode=VERIFY_IDENTITY&createDatabaseIfNotExist=true&serverTimezone=UTC
       - key: SPRING_DATASOURCE_USERNAME
@@ -25,10 +22,9 @@ services:
 
   - type: web
     name: ai-interviewer-ai-service
-    runtime: python
+    runtime: docker
     plan: free
-    buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    dockerfilePath: ./ai-service/Dockerfile
     envVars:
       - key: LLM_PROVIDER
         value: gemini
