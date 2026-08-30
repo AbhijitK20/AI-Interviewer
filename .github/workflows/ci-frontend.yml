@@ -5,7 +5,7 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  frontend-build:
     runs-on: ubuntu-latest
     defaults:
       run:
