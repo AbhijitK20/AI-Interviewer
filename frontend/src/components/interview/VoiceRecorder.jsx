@@ -211,10 +211,10 @@ const VoiceRecorder = ({ onTranscript, onRecordingChange, disabled = false }) =>
     return () => {
       isRecordingRef.current = false
       if (restartTimeoutRef.current) clearTimeout(restartTimeoutRef.current)
-      if (recognitionRef.current) try { recognitionRef.current.stop() } catch (e) {}
-      if (mediaRecorderRef.current && mediaRecorderRef.current.state !== 'inactive') try { mediaRecorderRef.current.stop() } catch (e) {}
+      if (recognitionRef.current) try { recognitionRef.current.stop() } catch (_e) { /* ignore */ }
+      if (mediaRecorderRef.current && mediaRecorderRef.current.state !== 'inactive') try { mediaRecorderRef.current.stop() } catch (_e) { /* ignore */ }
       if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current)
-      if (audioContextRef.current) try { audioContextRef.current.close() } catch (e) {}
+      if (audioContextRef.current) try { audioContextRef.current.close() } catch (_e) { /* ignore */ }
       if (streamRef.current) streamRef.current.getTracks().forEach((t) => t.stop())
     }
   }, [])

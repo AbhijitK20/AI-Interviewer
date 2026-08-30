@@ -14,8 +14,8 @@ const VoicePlayer = ({ text, voice = 'en-US-AriaNeural', rate = 1.0, autoPlay = 
   const animRef = useRef(null)
 
   const stopAll = useCallback(() => {
-    try { sourceRef.current?.stop() } catch {}
-    try { audioCtxRef.current?.close() } catch {}
+    try { sourceRef.current?.stop() } catch (_e) { /* ignore */ }
+    try { audioCtxRef.current?.close() } catch (_e) { /* ignore */ }
     if (animRef.current) cancelAnimationFrame(animRef.current)
     sourceRef.current = null
     audioCtxRef.current = null
