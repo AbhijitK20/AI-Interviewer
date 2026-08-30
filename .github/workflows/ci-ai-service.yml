@@ -5,7 +5,7 @@ on:
     branches: [main]
 
 jobs:
-  check:
+  ai-service-check:
     runs-on: ubuntu-latest
     defaults:
       run:
