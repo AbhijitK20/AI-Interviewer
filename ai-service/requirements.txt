@@ -1,0 +1,16 @@
+# Core (required at startup)
+fastapi>=0.115.6
+uvicorn[standard]>=0.34.0
+pydantic>=2.10.4
+python-dotenv>=1.0.1
+python-multipart>=0.0.20
+
+# Voice service (lazy imports, used when providers are configured)
+httpx>=0.28.1
+edge-tts>=7.0.0
+
+# LLM providers (lazy imports, used when LLM_PROVIDER=openai or gemini)
+langchain>=0.3.14
+langchain-core>=0.3.29
+langchain-openai>=0.3.0
+langchain-google-genai>=2.0.8

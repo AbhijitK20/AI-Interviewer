@@ -1,0 +1,21 @@
+name: Keep Alive (Prevent Render Spin-Down)
+
+on:
+  schedule:
+    # Run every 14 minutes (Render spins down after 15 min)
+    - cron: '*/14 * * * *'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  keep-alive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Backend
+        run: |
+          echo "Pinging backend to keep alive..."
+          curl -s -o /dev/null -w "Backend: HTTP %{http_code}\n" ${{ secrets.BACKEND_URL }}/api/auth/login || echo "Backend unreachable"
+          
+      - name: Ping AI Service
+        run: |
+          echo "Pinging AI service to keep alive..."
+          curl -s -o /dev/null -w "AI Service: HTTP %{http_code}\n" ${{ secrets.AI_SERVICE_URL }}/health || echo "AI Service unreachable"
