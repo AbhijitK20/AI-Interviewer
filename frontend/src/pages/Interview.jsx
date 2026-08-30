@@ -334,7 +334,7 @@ const Interview = () => {
           {showProctoring && (
             <ProctoringMonitor
               onViolation={(v) => console.log('Violation:', v)}
-              enabled={false}
+              enabled={showProctoring}
             />
           )}
 
