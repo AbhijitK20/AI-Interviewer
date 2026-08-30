@@ -3,8 +3,6 @@ name: CI - AI Service
 on:
   pull_request:
     branches: [main]
-    paths:
-      - 'ai-service/**'
 
 jobs:
   check:
