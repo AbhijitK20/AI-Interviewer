@@ -11,17 +11,11 @@ services:
       - key: JAVA_VERSION
         value: openjdk21
       - key: SPRING_DATASOURCE_URL
-        fromDatabase:
-          name: ai-interviewer-db
-          property: connectionString
+        value: jdbc:mysql://gateway01.ap-southeast-1.prod.aws.tidbcloud.com:4000/ai_interviewer?ssl=true&sslMode=VERIFY_IDENTITY&createDatabaseIfNotExist=true&serverTimezone=UTC
       - key: SPRING_DATASOURCE_USERNAME
-        fromDatabase:
-          name: ai-interviewer-db
-          property: user
+        value: 4HWh5suR69uiJcE.root
       - key: SPRING_DATASOURCE_PASSWORD
-        fromDatabase:
-          name: ai-interviewer-db
-          property: password
+        value: VQ6wHPQ7YHRuqmjF
       - key: AI_SERVICE_URL
         sync: false
       - key: JWT_SECRET
@@ -38,19 +32,9 @@ services:
     envVars:
       - key: LLM_PROVIDER
         value: gemini
-      - key: GOOGLE_API_KEY
-        sync: false
       - key: LLM_MODEL
         value: gemini-2.5-flash
       - key: TTS_PROVIDER
         value: edge
       - key: STT_PROVIDER
         value: deepgram
-      - key: DEEPGRAM_API_KEY
-        sync: false
-
-  - type: postgres
-    name: ai-interviewer-db
-    plan: free
-    databaseName: ai_interviewer
-    ipAllowList: []
