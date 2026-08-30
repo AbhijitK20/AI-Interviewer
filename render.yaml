@@ -8,11 +8,11 @@ services:
       - key: SPRING_PROFILES_ACTIVE
         value: production
       - key: SPRING_DATASOURCE_URL
-        value: jdbc:mysql://gateway01.ap-southeast-1.prod.aws.tidbcloud.com:4000/ai_interviewer?ssl=true&sslMode=VERIFY_IDENTITY&createDatabaseIfNotExist=true&serverTimezone=UTC
+        sync: false
       - key: SPRING_DATASOURCE_USERNAME
-        value: 4HWh5suR69uiJcE.root
+        sync: false
       - key: SPRING_DATASOURCE_PASSWORD
-        value: VQ6wHPQ7YHRuqmjF
+        sync: false
       - key: AI_SERVICE_URL
         sync: false
       - key: JWT_SECRET
