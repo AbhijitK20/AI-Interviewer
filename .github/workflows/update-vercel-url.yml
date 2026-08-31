@@ -1,29 +1,25 @@
 name: Update Vercel URL in README
 
 on:
-  deployment_status:
-    types: [completed]
+  push:
+    branches: [main]
+    paths:
+      - 'frontend/**'
 
 jobs:
   update-readme:
-    if: github.event.deployment_status.state == 'success'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Get Vercel URL
-        id: vercel
+      - name: Update README with latest Vercel URL
         run: |
-          URL="${{ github.event.deployment_status.target_url }}"
-          echo "url=$URL" >> $GITHUB_OUTPUT
-          echo "Vercel URL: $URL"
+          # The production URL stays the same
+          PROD_URL="https://ai-interviewer-rho-hazel.vercel.app"
+          sed -i "s|https://[^)]*vercel.app|$PROD_URL|g" README.md
+          echo "Vercel URL in README: $PROD_URL"
 
-      - name: Update README
-        run: |
-          sed -i "s|https://[^)]*vercel.app|${{ steps.vercel.outputs.url }}|g" README.md
-          sed -i "s|\[Live Demo\](https://[^)]*)|[Live Demo](${{ steps.vercel.outputs.url }})|g" README.md
-
-      - name: Commit changes
+      - name: Commit if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
