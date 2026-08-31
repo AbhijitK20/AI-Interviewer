@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { PDFDownloadLink, Document, Page, Text, View, StyleSheet, Image } from '@react-pdf/renderer'
+import { pdf, Document, Page, Text, View, StyleSheet, Image } from '@react-pdf/renderer'
 import { FileDown, Loader2 } from 'lucide-react'
 
 const styles = StyleSheet.create({
@@ -416,7 +416,7 @@ const PDFReportGenerator = ({ report, interview, candidate }) => {
     return (
       <button
         disabled
-        className="flex items-center px-4 py-2 bg-gray-300 text-gray-500 rounded-lg cursor-not-allowed"
+        className="flex items-center px-4 py-2 bg-ink-200 text-ink-400 rounded-xl cursor-not-allowed text-sm font-medium"
       >
         <FileDown className="w-4 h-4 mr-2" />
         No Report Available
@@ -424,34 +424,52 @@ const PDFReportGenerator = ({ report, interview, candidate }) => {
     )
   }
 
+  const handleDownloadPDF = async () => {
+    if (isGenerating) return
+    setIsGenerating(true)
+    try {
+      const doc = <InterviewReportPDF report={report} interview={interview} candidate={candidate} />
+      const asPdf = pdf(doc)
+      const blob = await asPdf.toBlob()
+      const url = URL.createObjectURL(blob)
+      const link = document.createElement('a')
+      link.href = url
+      link.download = `interview-report-${report.id || 'summary'}.pdf`
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+      setTimeout(() => URL.revokeObjectURL(url), 1000)
+    } catch (err) {
+      console.error('Direct PDF export error, falling back to print:', err)
+      window.print()
+    } finally {
+      setIsGenerating(false)
+    }
+  }
+
   return (
-    <PDFDownloadLink
-      document={<InterviewReportPDF report={report} interview={interview} candidate={candidate} />}
-      fileName={`interview-report-${report.id}.pdf`}
+    <button
+      type="button"
+      onClick={handleDownloadPDF}
+      disabled={isGenerating}
+      className={`inline-flex items-center justify-center px-4 py-2.5 rounded-xl font-semibold text-sm transition-all shadow-sm ${
+        isGenerating
+          ? 'bg-primary-400 text-white cursor-wait opacity-80'
+          : 'bg-primary-600 hover:bg-primary-700 active:scale-95 text-white shadow-primary-500/20'
+      }`}
     >
-      {({ blob, url, loading, error }) => (
-        <button
-          className={`flex items-center px-4 py-2 rounded-lg transition-colors ${
-            loading
-              ? 'bg-gray-300 text-gray-500 cursor-wait'
-              : 'bg-primary-600 text-white hover:bg-primary-700'
-          }`}
-          onClick={() => setIsGenerating(true)}
-        >
-          {loading ? (
-            <>
-              <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-              Generating PDF...
-            </>
-          ) : (
-            <>
-              <FileDown className="w-4 h-4 mr-2" />
-              Download PDF Report
-            </>
-          )}
-        </button>
+      {isGenerating ? (
+        <>
+          <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+          <span>Generating PDF...</span>
+        </>
+      ) : (
+        <>
+          <FileDown className="w-4 h-4 mr-2" />
+          <span>Download PDF Report</span>
+        </>
       )}
-    </PDFDownloadLink>
+    </button>
   )
 }
 
