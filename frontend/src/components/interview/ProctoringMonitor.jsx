@@ -1,6 +1,17 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { Shield, ShieldAlert, ShieldCheck, Eye, Users, Monitor, AlertTriangle, CheckCircle2, Activity } from 'lucide-react'
 
+const VIOLATION_WEIGHTS = {
+  noFace: 20,
+  multipleFaces: 15,
+  gazeAway: 5,
+  tabSwitch: 10,
+  fullscreenExit: 10,
+}
+
+const GAZE_AWAY_THRESHOLD_MS = 3000
+const NO_FACE_THRESHOLD_MS = 5000
+
 const ProctoringMonitor = ({ onViolation, enabled = true }) => {
   const [isActive, setIsActive] = useState(false)
   const [violations, setViolations] = useState([])
@@ -27,6 +38,15 @@ const ProctoringMonitor = ({ onViolation, enabled = true }) => {
   const lastBlinkTimeRef = useRef(0)
   const gazeHistoryRef = useRef([])
 
+  const gazeAwayStartRef = useRef(null)
+  const gazeViolationLoggedRef = useRef(false)
+  const noFaceStartRef = useRef(null)
+  const noFaceViolationLoggedRef = useRef(false)
+  const multipleFacesViolationLoggedRef = useRef(false)
+  const tabSwitchCountRef = useRef(0)
+  const fullscreenExitedRef = useRef(false)
+  const cleanupListenersRef = useRef(null)
+
   const addViolation = useCallback((type, message, severity = 'warning') => {
     const violation = {
       id: Date.now(),
@@ -39,7 +59,6 @@ const ProctoringMonitor = ({ onViolation, enabled = true }) => {
     onViolation?.(violation)
   }, [onViolation])
 
-  // Eye Aspect Ratio for blink detection
   const eyeAspectRatio = (eye) => {
     if (!eye || eye.length < 6) return 1
     const [p1, p2, p3, p4, p5, p6] = eye
@@ -93,12 +112,11 @@ const ProctoringMonitor = ({ onViolation, enabled = true }) => {
           .withFaceExpressions()
 
         const faceCount = detections.length
+        const now = Date.now()
 
         let gazeDirection = 'center'
         let isLookingAway = false
-        let expression = 'neutral'
-        let blinkRate = status.blinkRate
-        let scoreDeductions = 0
+        let blinkRate = 0
 
         if (faceCount === 1) {
           const det = detections[0]
@@ -106,7 +124,6 @@ const ProctoringMonitor = ({ onViolation, enabled = true }) => {
           const leftEye = landmarks.getLeftEye()
           const rightEye = landmarks.getRightEye()
 
-          // Gaze estimation using eye positions
           const leftCenter = leftEye.reduce((a, p) => ({ x: a.x + p.x / leftEye.length, y: a.y + p.y / leftEye.length }), { x: 0, y: 0 })
           const rightCenter = rightEye.reduce((a, p) => ({ x: a.x + p.x / rightEye.length, y: a.y + p.y / rightEye.length }), { x: 0, y: 0 })
 
@@ -115,7 +132,6 @@ const ProctoringMonitor = ({ onViolation, enabled = true }) => {
           const faceCenterX = faceBox.x + faceBox.width / 2
           const faceWidth = faceBox.width
 
-          // Relative eye position within face (negative = looking left, positive = right)
           const gazeRatio = (eyeMidX - faceCenterX) / faceWidth
 
           gazeHistoryRef.current.push(gazeRatio)
@@ -124,33 +140,38 @@ const ProctoringMonitor = ({ onViolation, enabled = true }) => {
 
           if (avgGaze < -0.12) {
             gazeDirection = 'left'
-            isLookingAway = true
-            scoreDeductions += 5
           } else if (avgGaze > 0.12) {
             gazeDirection = 'right'
-            isLookingAway = true
-            scoreDeductions += 5
           } else {
             gazeDirection = 'center'
           }
 
-          // Facial expression detection (nervousness cues)
-          if (det.expressions) {
-            const exp = det.expressions
-            const maxExpr = Object.entries(exp).sort((a, b) => b[1] - a[1])[0]
-            expression = maxExpr[0]
-            if (expression === 'fearful' || expression === 'sad') {
-              scoreDeductions += 3
+          const gazeIsAway = gazeDirection !== 'center'
+
+          if (gazeIsAway) {
+            if (gazeAwayStartRef.current === null) {
+              gazeAwayStartRef.current = now
+              gazeViolationLoggedRef.current = false
             }
+            const awayDuration = now - gazeAwayStartRef.current
+            if (awayDuration >= GAZE_AWAY_THRESHOLD_MS) {
+              isLookingAway = true
+              if (!gazeViolationLoggedRef.current) {
+                addViolation('gaze_away', `Gaze away for ${Math.round(awayDuration / 1000)}s - candidate may be distracted`, 'warning')
+                gazeViolationLoggedRef.current = true
+              }
+            }
+          } else {
+            gazeAwayStartRef.current = null
+            gazeViolationLoggedRef.current = false
+            isLookingAway = false
           }
 
-          // Blink detection
           const leftEAR = eyeAspectRatio(leftEye)
           const rightEAR = eyeAspectRatio(rightEye)
           const ear = (leftEAR + rightEAR) / 2
 
           if (ear < 0.2) {
-            const now = Date.now()
             if (now - lastBlinkTimeRef.current > 400) {
               lastBlinkTimeRef.current = now
               blinkHistoryRef.current.push(now)
@@ -163,17 +184,55 @@ const ProctoringMonitor = ({ onViolation, enabled = true }) => {
             const seconds = span / 1000
             blinkRate = seconds > 0 ? Math.round((blinkHistoryRef.current.length / seconds) * 60) : 0
           }
+
+          multipleFacesViolationLoggedRef.current = false
+        } else if (faceCount === 0) {
+          if (noFaceStartRef.current === null) {
+            noFaceStartRef.current = now
+            noFaceViolationLoggedRef.current = false
+          }
+          const noFaceDuration = now - noFaceStartRef.current
+          if (noFaceDuration >= NO_FACE_THRESHOLD_MS && !noFaceViolationLoggedRef.current) {
+            addViolation('no_face', `No face detected for ${Math.round(noFaceDuration / 1000)}s - candidate may have left`, 'critical')
+            noFaceViolationLoggedRef.current = true
+          }
+          gazeAwayStartRef.current = null
+          gazeViolationLoggedRef.current = false
+        } else {
+          if (!multipleFacesViolationLoggedRef.current) {
+            addViolation('multiple_faces', 'Multiple faces detected - possible assistance', 'critical')
+            multipleFacesViolationLoggedRef.current = true
+          }
+          noFaceStartRef.current = null
+          noFaceViolationLoggedRef.current = false
+          gazeAwayStartRef.current = null
+          gazeViolationLoggedRef.current = false
         }
 
-        // Compute integrity score
+        if (faceCount > 0 && !multipleFacesViolationLoggedRef.current) {
+          noFaceStartRef.current = null
+          noFaceViolationLoggedRef.current = false
+        }
+
         let score = 100
-        if (faceCount === 0) score -= 25
-        else if (faceCount > 1) score -= 30
-        if (isLookingAway) score -= 5
-        if (status.tabSwitchCount > 0) score -= Math.min(20, status.tabSwitchCount * 5)
-        if (status.fullscreenExited) score -= 10
-        score -= scoreDeductions
+
+        if (faceCount === 0 && noFaceStartRef.current && (now - noFaceStartRef.current) > NO_FACE_THRESHOLD_MS) {
+          score -= VIOLATION_WEIGHTS.noFace
+        }
+
+        if (faceCount > 1) score -= VIOLATION_WEIGHTS.multipleFaces
+
+        if (faceCount === 1 && gazeAwayStartRef.current && (now - gazeAwayStartRef.current) > GAZE_AWAY_THRESHOLD_MS) {
+          score -= VIOLATION_WEIGHTS.gazeAway
+        }
+
+        score -= Math.min(30, tabSwitchCountRef.current * VIOLATION_WEIGHTS.tabSwitch)
+
+        if (fullscreenExitedRef.current) score -= VIOLATION_WEIGHTS.fullscreenExit
+
         score = Math.max(0, Math.min(100, score))
+
+        const activity = score >= 80 ? 'neutral' : score >= 50 ? 'distracted' : 'suspicious'
 
         setIntegrityScore(score)
         setStatus((prev) => ({
@@ -181,23 +240,14 @@ const ProctoringMonitor = ({ onViolation, enabled = true }) => {
           facesDetected: faceCount,
           gazeDirection,
           isLookingAway,
-          expression,
+          expression: activity,
           blinkRate,
           multipleFaces: faceCount > 1,
           noFaceDetected: faceCount === 0,
+          tabSwitchCount: tabSwitchCountRef.current,
+          fullscreenExited: fullscreenExitedRef.current,
         }))
 
-        // Check for violations (only after camera is confirmed working)
-        if (faceCount === 0 && detections.length > 0) {
-          // Camera is working but no face - only warn once
-          if (!status.noFaceDetected) {
-            addViolation('no_face', 'No face detected - candidate may have left', 'warning')
-          }
-        } else if (faceCount > 1) {
-          addViolation('multiple_faces', 'Multiple faces detected - possible assistance', 'critical')
-        }
-
-        // Draw detections
         if (canvasRef.current && videoRef.current) {
           const canvas = canvasRef.current
           const ctx = canvas.getContext('2d')
@@ -208,18 +258,17 @@ const ProctoringMonitor = ({ onViolation, enabled = true }) => {
 
           detections.forEach((detection) => {
             const box = detection.detection.box
-            const isSuspicious = isLookingAway || faceCount > 1
+            const isSuspicious = (faceCount === 1 && isLookingAway) || faceCount > 1
             ctx.strokeStyle = isSuspicious ? '#f59e0b' : '#10b981'
             ctx.lineWidth = 2
             ctx.strokeRect(box.x, box.y, box.width, box.height)
 
-            // Draw gaze direction indicator
             if (faceCount === 1) {
               const leftEye = detection.landmarks.getLeftEye()
               const rightEye = detection.landmarks.getRightEye()
-              const leftCenter = leftEye.reduce((a, p) => ({ x: a.x + p.x / leftEye.length, y: a.y + p.y / leftEye.length }), { x: 0, y: 0 })
-              const rightCenter = rightEye.reduce((a, p) => ({ x: a.x + p.x / rightEye.length, y: a.y + p.y / rightEye.length }), { x: 0, y: 0 })
-              const eyeMid = { x: (leftCenter.x + rightCenter.x) / 2, y: (leftCenter.y + rightCenter.y) / 2 }
+              const lCenter = leftEye.reduce((a, p) => ({ x: a.x + p.x / leftEye.length, y: a.y + p.y / leftEye.length }), { x: 0, y: 0 })
+              const rCenter = rightEye.reduce((a, p) => ({ x: a.x + p.x / rightEye.length, y: a.y + p.y / rightEye.length }), { x: 0, y: 0 })
+              const eyeMid = { x: (lCenter.x + rCenter.x) / 2, y: (lCenter.y + rCenter.y) / 2 }
               ctx.fillStyle = '#6366f1'
               ctx.beginPath()
               ctx.arc(eyeMid.x, eyeMid.y, 3, 0, 2 * Math.PI)
@@ -229,18 +278,16 @@ const ProctoringMonitor = ({ onViolation, enabled = true }) => {
         }
       }, 1000)
 
-      // Monitor tab visibility
       const handleVisibilityChange = () => {
         if (document.hidden) {
-          setStatus((prev) => ({ ...prev, tabSwitchCount: prev.tabSwitchCount + 1 }))
+          tabSwitchCountRef.current += 1
           addViolation('tab_switch', 'Candidate switched tabs', 'warning')
         }
       }
 
-      // Monitor fullscreen
       const handleFullscreenChange = () => {
         if (!document.fullscreenElement) {
-          setStatus((prev) => ({ ...prev, fullscreenExited: true }))
+          fullscreenExitedRef.current = true
           addViolation('fullscreen_exit', 'Exited fullscreen mode', 'info')
         }
       }
@@ -248,7 +295,7 @@ const ProctoringMonitor = ({ onViolation, enabled = true }) => {
       document.addEventListener('visibilitychange', handleVisibilityChange)
       document.addEventListener('fullscreenchange', handleFullscreenChange)
 
-      return () => {
+      cleanupListenersRef.current = () => {
         document.removeEventListener('visibilitychange', handleVisibilityChange)
         document.removeEventListener('fullscreenchange', handleFullscreenChange)
       }
@@ -266,6 +313,13 @@ const ProctoringMonitor = ({ onViolation, enabled = true }) => {
       streamRef.current.getTracks().forEach((track) => track.stop())
       streamRef.current = null
     }
+    cleanupListenersRef.current?.()
+    cleanupListenersRef.current = null
+    gazeAwayStartRef.current = null
+    gazeViolationLoggedRef.current = false
+    noFaceStartRef.current = null
+    noFaceViolationLoggedRef.current = false
+    multipleFacesViolationLoggedRef.current = false
     setIsActive(false)
   }, [])
 
