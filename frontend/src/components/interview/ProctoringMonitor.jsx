@@ -295,9 +295,64 @@ const ProctoringMonitor = ({ onViolation, enabled = true }) => {
       document.addEventListener('visibilitychange', handleVisibilityChange)
       document.addEventListener('fullscreenchange', handleFullscreenChange)
 
+      // Clipboard monitoring
+      let clipboardViolationLogged = false
+      const handleCopy = () => {
+        if (!clipboardViolationLogged) {
+          addViolation('clipboard', 'Clipboard copy detected - possible external content usage', 'warning')
+          clipboardViolationLogged = true
+        }
+      }
+      const handlePaste = (e) => {
+        if (!clipboardViolationLogged) {
+          addViolation('clipboard', 'Clipboard paste detected - possible external content usage', 'warning')
+          clipboardViolationLogged = true
+        }
+      }
+      document.addEventListener('copy', handleCopy)
+      document.addEventListener('paste', handlePaste)
+
+      // Screen sharing detection
+      let screenShareViolationLogged = false
+      const handleScreenShareStart = () => {
+        if (!screenShareViolationLogged) {
+          addViolation('screen_share', 'Screen sharing detected - possible recording', 'critical')
+          screenShareViolationLogged = true
+        }
+      }
+
+      // Monitor for getDisplayMedia API
+      const originalGetDisplayMedia = navigator.mediaDevices?.getDisplayMedia
+      if (originalGetDisplayMedia) {
+        navigator.mediaDevices.getDisplayMedia = async function() {
+          handleScreenShareStart()
+          return originalGetDisplayMedia.call(this, ...arguments)
+        }
+      }
+
+      // Keyboard shortcut detection (Ctrl+C, Ctrl+V, Alt+Tab)
+      const handleKeyDown = (e) => {
+        if (e.ctrlKey && (e.key === 'c' || e.key === 'v')) {
+          // Copy/paste already handled by copy/paste events
+        }
+        if (e.altKey && e.key === 'Tab') {
+          if (!clipboardViolationLogged) {
+            addViolation('alt_tab', 'Alt+Tab detected - switching applications', 'warning')
+            clipboardViolationLogged = true
+          }
+        }
+      }
+      document.addEventListener('keydown', handleKeyDown)
+
       cleanupListenersRef.current = () => {
         document.removeEventListener('visibilitychange', handleVisibilityChange)
         document.removeEventListener('fullscreenchange', handleFullscreenChange)
+        document.removeEventListener('copy', handleCopy)
+        document.removeEventListener('paste', handlePaste)
+        document.removeEventListener('keydown', handleKeyDown)
+        if (originalGetDisplayMedia) {
+          navigator.mediaDevices.getDisplayMedia = originalGetDisplayMedia
+        }
       }
     } catch (err) {
       console.error('Error starting proctoring:', err)
