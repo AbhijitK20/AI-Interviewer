@@ -65,11 +65,13 @@ const ProctoringMonitor = ({ onViolation, enabled = true }) => {
     violationCountsRef.current[type] = (violationCountsRef.current[type] || 0) + 1
     const count = violationCountsRef.current[type]
 
-    // Show warning popup
-    setWarningPopup({ type, message, severity, count })
+    // Show warning popup (replaces previous)
+    setWarningPopup({ type, message, severity, count, id: Date.now() })
 
     // Auto-dismiss popup after 4 seconds
-    setTimeout(() => setWarningPopup(null), 4000)
+    setTimeout(() => {
+      setWarningPopup((prev) => (prev && prev.id === violation.id ? null : prev))
+    }, 4000)
 
     // After 3 repeated violations of same type, signal to end interview
     if (count >= 3) {
