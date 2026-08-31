@@ -1,185 +1,116 @@
-import { useState, useRef, useEffect } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
-import { OrbitControls } from '@react-three/drei'
+import { useState, useEffect, useRef } from 'react'
 import { User, Volume2, VolumeX } from 'lucide-react'
-import * as THREE from 'three'
-
-const AvatarHead = ({ isSpeaking, emotion = 'neutral' }) => {
-  const headRef = useRef()
-  const mouthRef = useRef()
-  const leftEyeRef = useRef()
-  const rightEyeRef = useRef()
-  const leftBrowRef = useRef()
-  const rightBrowRef = useRef()
-  const blinkTimer = useRef(0)
-
-  const getEmotionColor = () => {
-    switch (emotion) {
-      case 'happy': return '#f59e0b'
-      case 'serious': return '#6b7280'
-      case 'encouraging': return '#10b981'
-      default: return '#94a3b8'
-    }
-  }
-
-  useFrame((state) => {
-    if (!headRef.current) return
-
-    // Subtle head movement
-    headRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.3) * 0.08
-    headRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.2) * 0.04
-
-    // Mouth animation when speaking
-    if (mouthRef.current) {
-      if (isSpeaking) {
-        const mouthOpen = Math.abs(Math.sin(state.clock.elapsedTime * 10)) * 0.15
-        mouthRef.current.scale.y = 0.3 + mouthOpen
-        mouthRef.current.scale.x = 1 + mouthOpen * 0.5
-      } else {
-        mouthRef.current.scale.y = THREE.MathUtils.lerp(mouthRef.current.scale.y, 0.3, 0.1)
-        mouthRef.current.scale.x = THREE.MathUtils.lerp(mouthRef.current.scale.x, 1, 0.1)
-      }
-    }
-
-    // Natural blinking
-    blinkTimer.current += state.clock.getDelta()
-    if (blinkTimer.current > 3 + Math.random() * 2) {
-      blinkTimer.current = 0
-    }
-    const blinkProgress = blinkTimer.current < 0.15 ? 1 : 0
-    if (leftEyeRef.current) leftEyeRef.current.scale.y = 0.1 + blinkProgress * 0.9
-    if (rightEyeRef.current) rightEyeRef.current.scale.y = 0.1 + blinkProgress * 0.9
-
-    // Subtle eyebrow movement
-    if (leftBrowRef.current) leftBrowRef.current.position.y = 0.38 + Math.sin(state.clock.elapsedTime * 0.5) * 0.005
-    if (rightBrowRef.current) rightBrowRef.current.position.y = 0.38 + Math.sin(state.clock.elapsedTime * 0.5) * 0.005
-  })
-
-  return (
-    <group ref={headRef}>
-      {/* Head - Main sphere with skin material */}
-      <mesh position={[0, 0, 0]}>
-        <sphereGeometry args={[0.85, 64, 64]} />
-        <meshPhysicalMaterial
-          color="#e8c4a0"
-          roughness={0.7}
-          metalness={0.05}
-          clearcoat={0.1}
-          clearcoatRoughness={0.4}
-        />
-      </mesh>
-
-      {/* Hair */}
-      <mesh position={[0, 0.35, -0.1]}>
-        <sphereGeometry args={[0.88, 32, 32, 0, Math.PI * 2, 0, Math.PI * 0.55]} />
-        <meshPhysicalMaterial color="#2c1810" roughness={0.9} metalness={0} />
-      </mesh>
-
-      {/* Left Eye */}
-      <group position={[-0.28, 0.12, 0.75]}>
-        <mesh ref={leftEyeRef}>
-          <sphereGeometry args={[0.09, 16, 16]} />
-          <meshStandardMaterial color="#ffffff" />
-        </mesh>
-        <mesh position={[0, 0, 0.04]}>
-          <sphereGeometry args={[0.045, 16, 16]} />
-          <meshStandardMaterial color="#1e3a5f" />
-        </mesh>
-        <mesh position={[0, 0, 0.06]}>
-          <sphereGeometry args={[0.02, 8, 8]} />
-          <meshStandardMaterial color="#000000" />
-        </mesh>
-      </group>
-
-      {/* Right Eye */}
-      <group position={[0.28, 0.12, 0.75]}>
-        <mesh ref={rightEyeRef}>
-          <sphereGeometry args={[0.09, 16, 16]} />
-          <meshStandardMaterial color="#ffffff" />
-        </mesh>
-        <mesh position={[0, 0, 0.04]}>
-          <sphereGeometry args={[0.045, 16, 16]} />
-          <meshStandardMaterial color="#1e3a5f" />
-        </mesh>
-        <mesh position={[0, 0, 0.06]}>
-          <sphereGeometry args={[0.02, 8, 8]} />
-          <meshStandardMaterial color="#000000" />
-        </mesh>
-      </group>
-
-      {/* Eyebrows */}
-      <mesh ref={leftBrowRef} position={[-0.28, 0.38, 0.78]} rotation={[0, 0, 0.1]}>
-        <boxGeometry args={[0.18, 0.025, 0.02]} />
-        <meshStandardMaterial color="#2c1810" />
-      </mesh>
-      <mesh ref={rightBrowRef} position={[0.28, 0.38, 0.78]} rotation={[0, 0, -0.1]}>
-        <boxGeometry args={[0.18, 0.025, 0.02]} />
-        <meshStandardMaterial color="#2c1810" />
-      </mesh>
-
-      {/* Nose */}
-      <mesh position={[0, 0, 0.85]}>
-        <coneGeometry args={[0.06, 0.15, 8]} />
-        <meshPhysicalMaterial color="#d4a574" roughness={0.8} />
-      </mesh>
-
-      {/* Mouth */}
-      <mesh ref={mouthRef} position={[0, -0.28, 0.8]}>
-        <boxGeometry args={[0.25, 0.06, 0.05]} />
-        <meshStandardMaterial color="#c0392b" roughness={0.6} />
-      </mesh>
-
-      {/* Ears */}
-      <mesh position={[-0.82, 0.05, 0]}>
-        <sphereGeometry args={[0.1, 16, 16]} />
-        <meshPhysicalMaterial color="#e8c4a0" roughness={0.7} />
-      </mesh>
-      <mesh position={[0.82, 0.05, 0]}>
-        <sphereGeometry args={[0.1, 16, 16]} />
-        <meshPhysicalMaterial color="#e8c4a0" roughness={0.7} />
-      </mesh>
-
-      {/* Neck */}
-      <mesh position={[0, -0.9, 0]}>
-        <cylinderGeometry args={[0.2, 0.25, 0.35, 16]} />
-        <meshPhysicalMaterial color="#e8c4a0" roughness={0.7} />
-      </mesh>
-
-      {/* Shoulders */}
-      <mesh position={[0, -1.2, 0]}>
-        <boxGeometry args={[1.4, 0.25, 0.4]} />
-        <meshStandardMaterial color="#1e3a5f" roughness={0.8} />
-      </mesh>
-
-      {/* Collar */}
-      <mesh position={[0, -1.05, 0.15]}>
-        <boxGeometry args={[0.3, 0.08, 0.1]} />
-        <meshStandardMaterial color="#ffffff" roughness={0.5} />
-      </mesh>
-    </group>
-  )
-}
 
 const DigitalAvatar = ({ isSpeaking, emotion, name = 'AI Interviewer', message }) => {
   const [isMuted, setIsMuted] = useState(false)
+  const [blinkState, setBlinkState] = useState(false)
+  const [mouthOpen, setMouthOpen] = useState(0)
+  const animRef = useRef(null)
+
+  // Natural blinking animation
+  useEffect(() => {
+    const blinkInterval = setInterval(() => {
+      setBlinkState(true)
+      setTimeout(() => setBlinkState(false), 150)
+    }, 3000 + Math.random() * 2000)
+    return () => clearInterval(blinkInterval)
+  }, [])
+
+  // Mouth animation when speaking
+  useEffect(() => {
+    if (isSpeaking) {
+      const mouthInterval = setInterval(() => {
+        setMouthOpen(Math.random() * 0.4 + 0.1)
+      }, 100)
+      return () => clearInterval(mouthInterval)
+    } else {
+      setMouthOpen(0)
+    }
+  }, [isSpeaking])
+
+  const getEmotionGradient = () => {
+    switch (emotion) {
+      case 'happy': return 'from-amber-100 to-orange-100'
+      case 'serious': return 'from-slate-100 to-slate-200'
+      case 'encouraging': return 'from-emerald-100 to-teal-100'
+      default: return 'from-slate-100 to-slate-200'
+    }
+  }
 
   return (
-    <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 shadow-card">
-      {/* Avatar Canvas */}
-      <div className="h-72">
-        <Canvas camera={{ position: [0, 0, 3.5], fov: 40 }}>
-          <ambientLight intensity={0.4} />
-          <directionalLight position={[3, 3, 5]} intensity={0.8} color="#ffffff" />
-          <directionalLight position={[-3, 2, 3]} intensity={0.4} color="#e0e7ff" />
-          <pointLight position={[0, -1, 3]} intensity={0.3} color="#f59e0b" />
-          <AvatarHead isSpeaking={isSpeaking} emotion={emotion} />
-          <OrbitControls
-            enableZoom={false}
-            enablePan={false}
-            minPolarAngle={Math.PI / 3}
-            maxPolarAngle={Math.PI / 1.8}
-          />
-        </Canvas>
+    <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 shadow-card">
+      {/* Avatar Container */}
+      <div className="relative h-80 flex items-center justify-center overflow-hidden">
+        {/* Background gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-indigo-950/50 via-slate-900/50 to-purple-950/50" />
+        
+        {/* Professional Avatar SVG */}
+        <div className="relative z-10">
+          <svg viewBox="0 0 200 240" className="w-48 h-56 drop-shadow-2xl">
+            {/* Shoulders */}
+            <ellipse cx="100" cy="210" rx="70" ry="30" fill="#1e3a5f" />
+            <ellipse cx="100" cy="215" rx="65" ry="25" fill="#1e3a5f" />
+            
+            {/* Collar */}
+            <path d="M 75 195 Q 100 185 125 195 L 120 200 Q 100 192 80 200 Z" fill="white" />
+            
+            {/* Neck */}
+            <rect x="88" y="175" width="24" height="30" rx="10" fill="#e8c4a0" />
+            
+            {/* Head */}
+            <ellipse cx="100" cy="130" rx="45" ry="55" fill="#e8c4a0" />
+            
+            {/* Hair */}
+            <path d="M 55 110 Q 55 70 100 65 Q 145 70 145 110 Q 140 95 100 90 Q 60 95 55 110" fill="#2c1810" />
+            <ellipse cx="100" cy="85" rx="42" ry="25" fill="#2c1810" />
+            
+            {/* Ears */}
+            <ellipse cx="55" cy="130" rx="8" ry="12" fill="#e8c4a0" />
+            <ellipse cx="145" cy="130" rx="8" ry="12" fill="#e8c4a0" />
+            
+            {/* Eyebrows */}
+            <line x1="72" y1="108" x2="90" y2="106" stroke="#2c1810" strokeWidth="3" strokeLinecap="round" />
+            <line x1="110" y1="106" x2="128" y2="108" stroke="#2c1810" strokeWidth="3" strokeLinecap="round" />
+            
+            {/* Eyes */}
+            <g opacity={blinkState ? 0.1 : 1}>
+              <ellipse cx="82" cy="118" rx="8" ry="6" fill="white" />
+              <circle cx="83" cy="118" r="4" fill="#1e3a5f" />
+              <circle cx="84" cy="117" r="1.5" fill="black" />
+              <circle cx="85" cy="116" r="0.5" fill="white" />
+              
+              <ellipse cx="118" cy="118" rx="8" ry="6" fill="white" />
+              <circle cx="117" cy="118" r="4" fill="#1e3a5f" />
+              <circle cx="116" cy="117" r="1.5" fill="black" />
+              <circle cx="115" cy="116" r="0.5" fill="white" />
+            </g>
+            
+            {/* Nose */}
+            <path d="M 97 128 Q 100 138 103 128" fill="none" stroke="#d4a574" strokeWidth="2" strokeLinecap="round" />
+            
+            {/* Mouth - animated */}
+            <ellipse cx="100" cy="148" rx={8 + mouthOpen * 4} ry={1.5 + mouthOpen * 3} fill="#c0392b" />
+            
+            {/* Chin */}
+            <ellipse cx="100" cy="165" rx="25" ry="8" fill="#e8c4a0" opacity="0.5" />
+          </svg>
+        </div>
+        
+        {/* Speaking indicator dots */}
+        {isSpeaking && (
+          <div className="absolute bottom-16 left-1/2 -translate-x-1/2 flex space-x-1">
+            {[...Array(5)].map((_, i) => (
+              <div
+                key={i}
+                className="w-1 bg-indigo-400 rounded-full animate-pulse"
+                style={{
+                  height: `${4 + Math.random() * 12}px`,
+                  animationDelay: `${i * 0.1}s`,
+                }}
+              />
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Avatar Info Overlay */}
@@ -208,22 +139,6 @@ const DigitalAvatar = ({ isSpeaking, emotion, name = 'AI Interviewer', message }
             )}
           </button>
         </div>
-
-        {/* Speaking Indicator */}
-        {isSpeaking && (
-          <div className="flex justify-center space-x-1 mt-3">
-            {[...Array(5)].map((_, i) => (
-              <div
-                key={i}
-                className="w-1 bg-primary-400 rounded-full animate-pulse"
-                style={{
-                  height: `${6 + Math.random() * 14}px`,
-                  animationDelay: `${i * 0.1}s`,
-                }}
-              />
-            ))}
-          </div>
-        )}
       </div>
 
       {/* Message Bubble */}
