@@ -1,0 +1,15 @@
+name: Auto Deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to Render
+        run: echo "Render auto-deploys from GitHub on push to main"
+
+      - name: Deploy to Vercel
+        run: echo "Vercel auto-deploys from GitHub on push to main"
