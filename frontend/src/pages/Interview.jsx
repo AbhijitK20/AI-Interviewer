@@ -351,7 +351,14 @@ const Interview = () => {
           {/* Proctoring Monitor */}
           {showProctoring && (
             <ProctoringMonitor
-              onViolation={(v) => console.log('Violation:', v)}
+              onViolation={(v) => {
+                console.log('Violation:', v)
+                if (v.type === 'interview_end') {
+                  // End interview after 3 repeated violations
+                  alert('Interview terminated: Too many violations detected.')
+                  navigate('/')
+                }
+              }}
               enabled={showProctoring}
             />
           )}
