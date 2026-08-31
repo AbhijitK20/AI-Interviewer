@@ -16,11 +16,17 @@ import java.util.Map;
 public class ReportController {
 
     private final ReportRepository reportRepository;
+    private final com.interviewer.repository.InterviewRepository interviewRepository;
+    private final com.interviewer.service.InterviewService interviewService;
 
     @GetMapping("/{interviewId}")
     public ResponseEntity<?> getReportByInterviewId(@PathVariable Long interviewId) {
         Report report = reportRepository.findByInterviewId(interviewId)
-                .orElseThrow(() -> new RuntimeException("Report not found for this interview"));
+                .orElseGet(() -> {
+                    var interview = interviewRepository.findById(interviewId)
+                            .orElseThrow(() -> new RuntimeException("Interview not found: " + interviewId));
+                    return interviewService.generateReportForInterview(interview);
+                });
 
         ReportResponse response = ReportResponse.builder()
                 .id(report.getId())
@@ -43,7 +49,11 @@ public class ReportController {
     @GetMapping("/{interviewId}/full")
     public ResponseEntity<?> getFullReport(@PathVariable Long interviewId) {
         Report report = reportRepository.findByInterviewId(interviewId)
-                .orElseThrow(() -> new RuntimeException("Report not found"));
+                .orElseGet(() -> {
+                    var interview = interviewRepository.findById(interviewId)
+                            .orElseThrow(() -> new RuntimeException("Interview not found: " + interviewId));
+                    return interviewService.generateReportForInterview(interview);
+                });
 
         Map<String, Object> fullReport = new HashMap<>();
         fullReport.put("id", report.getId());

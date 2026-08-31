@@ -164,12 +164,46 @@ const styles = StyleSheet.create({
   },
 })
 
+const safeParseArr = (data) => {
+  if (!data) return []
+  if (Array.isArray(data)) return data
+  if (typeof data === 'string') {
+    try {
+      let parsed = JSON.parse(data)
+      if (typeof parsed === 'string') {
+        try { parsed = JSON.parse(parsed) } catch {}
+      }
+      if (Array.isArray(parsed)) return parsed
+      if (parsed && typeof parsed === 'object') return Object.values(parsed)
+      if (typeof parsed === 'string') return parsed.split(/\r?\n|,/).map(s => s.trim().replace(/^[-*•\d.)]\s*/, '')).filter(Boolean)
+    } catch {
+      return data.split(/\r?\n|,/).map(s => s.trim().replace(/^[-*•\d.)]\s*/, '')).filter(Boolean)
+    }
+  }
+  return []
+}
+
+const safeParseObjList = (data) => {
+  if (!data) return []
+  if (Array.isArray(data)) return data
+  if (typeof data === 'string') {
+    try {
+      let parsed = JSON.parse(data)
+      if (typeof parsed === 'string') parsed = JSON.parse(parsed)
+      if (Array.isArray(parsed)) return parsed
+    } catch {
+      return []
+    }
+  }
+  return []
+}
+
 const InterviewReportPDF = ({ report, interview, candidate }) => {
-  const radarData = report.skillRadarData ? JSON.parse(report.skillRadarData) : []
-  const categoryScores = report.categoryScores ? JSON.parse(report.categoryScores) : []
-  const strengths = report.strengths ? JSON.parse(report.strengths) : []
-  const weaknesses = report.weaknesses ? JSON.parse(report.weaknesses) : []
-  const questionBreakdown = report.questionBreakdown ? JSON.parse(report.questionBreakdown) : []
+  const radarData = safeParseObjList(report?.skillRadarData)
+  const categoryScores = safeParseObjList(report?.categoryScores)
+  const strengths = safeParseArr(report?.strengths)
+  const weaknesses = safeParseArr(report?.weaknesses)
+  const questionBreakdown = safeParseObjList(report?.questionBreakdown)
 
   return (
     <Document>

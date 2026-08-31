@@ -122,20 +122,22 @@ Return as JSON with fields: required_skills, experience_level, key_responsibilit
             if weaknesses:
                 all_weaknesses.extend(self._parse_list_field(weaknesses))
 
-        # Build skill radar data
-        skill_radar = {
-            "Technical Knowledge": technical_total // max(technical_count, 1),
-            "Communication": min(100, average_score + 10),
-            "Problem Solving": min(100, average_score + 5),
-            "Domain Expertise": technical_total // max(technical_count, 1),
-            "Critical Thinking": behavioral_total // max(behavioral_count, 1),
-        }
+        # Build skill radar data (array of {skill, score} for Recharts)
+        tech_score = technical_total // max(technical_count, 1)
+        beh_score = behavioral_total // max(behavioral_count, 1)
+        skill_radar = [
+            {"skill": "Technical Knowledge", "score": tech_score},
+            {"skill": "Communication", "score": min(100, average_score + 10)},
+            {"skill": "Problem Solving", "score": min(100, average_score + 5)},
+            {"skill": "Domain Expertise", "score": tech_score},
+            {"skill": "Critical Thinking", "score": beh_score},
+        ]
 
-        category_scores = {
-            "Technical": technical_total // max(technical_count, 1),
-            "Behavioral": behavioral_total // max(behavioral_count, 1),
-            "Overall": average_score,
-        }
+        category_scores = [
+            {"category": "Technical", "score": tech_score},
+            {"category": "Behavioral", "score": beh_score},
+            {"category": "Overall", "score": average_score},
+        ]
 
         # Determine recommendation
         if average_score >= 80:
@@ -180,7 +182,7 @@ Return as JSON with fields: required_skills, experience_level, key_responsibilit
             "category_scores": category_scores,
             "strengths": unique_strengths,
             "weaknesses": unique_weaknesses,
-            "recommendations": f"Focus on: {', '.join(unique_weaknesses[:3]) if unique_weaknesses else 'continued growth'}",
+            "recommendations": "Focus on: " + (", ".join(str(w) for w in unique_weaknesses[:3]) if unique_weaknesses else "continued growth"),
             "recommendation_level": recommendation_level,
             "question_breakdown": question_breakdown,
         }

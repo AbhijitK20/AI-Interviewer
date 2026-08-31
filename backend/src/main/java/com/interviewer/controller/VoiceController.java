@@ -37,7 +37,7 @@ public class VoiceController {
     public ResponseEntity<byte[]> synthesizeSpeech(@RequestBody Map<String, Object> request) {
         String text = (String) request.get("text");
         String voice = (String) request.getOrDefault("voice", "en-US-AriaNeural");
-        Double rate = (Double) request.getOrDefault("rate", 1.0);
+        Double rate = request.get("rate") instanceof Number ? ((Number) request.get("rate")).doubleValue() : 1.0;
 
         try {
             byte[] audioData = voiceService.synthesizeSpeech(text, voice, rate);
