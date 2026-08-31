@@ -9,6 +9,7 @@ import BodyLanguageAnalyzer from '../components/interview/BodyLanguageAnalyzer'
 import ProctoringMonitor from '../components/interview/ProctoringMonitor'
 import SpeechEmotionAnalyzer from '../components/interview/SpeechEmotionAnalyzer'
 import DigitalAvatar from '../components/interview/DigitalAvatar'
+import AntiCheatModal from '../components/interview/AntiCheatModal'
 
 const Interview = () => {
   const { id } = useParams()
@@ -26,11 +27,17 @@ const Interview = () => {
   const [avatarSpeaking, setAvatarSpeaking] = useState(false)
   const [audioStream, setAudioStream] = useState(null)
   const [bodyAnalysis, setBodyAnalysis] = useState(null)
+  const [showAntiCheat, setShowAntiCheat] = useState(false)
+  const [antiCheatAccepted, setAntiCheatAccepted] = useState(false)
 
   const audioStreamRef = useRef(null)
 
   useEffect(() => {
     fetchInterview()
+    // Show anti-cheat modal on first load
+    if (!antiCheatAccepted) {
+      setShowAntiCheat(true)
+    }
     return () => {
       if (audioStreamRef.current) {
         audioStreamRef.current.getTracks().forEach(track => track.stop())
@@ -144,6 +151,17 @@ const Interview = () => {
 
   return (
     <div className="max-w-7xl mx-auto">
+      {/* Anti-Cheat Modal */}
+      {showAntiCheat && (
+        <AntiCheatModal
+          onAccept={() => {
+            setAntiCheatAccepted(true)
+            setShowAntiCheat(false)
+          }}
+          onCancel={() => navigate('/')}
+        />
+      )}
+
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
         {/* Main Interview Area */}
         <div className="xl:col-span-2">
