@@ -122,7 +122,7 @@ const BodyLanguageAnalyzer = ({ onAnalysisUpdate, enabled = true }) => {
       return true
     } catch (err) {
       console.error('Error initializing pose detection:', err)
-      setError('Failed to initialize body language analysis')
+      setError('Failed to initialize body language analysis. Make sure camera permission is granted and try refreshing.')
       return false
     }
   }, [])
@@ -296,10 +296,15 @@ const BodyLanguageAnalyzer = ({ onAnalysisUpdate, enabled = true }) => {
   const startAnalysis = useCallback(async () => {
     setError(null)
     resetState()
-    const success = await initializePose()
-    if (success) {
-      await cameraRef.current.start()
-      setIsActive(true)
+    try {
+      const success = await initializePose()
+      if (success) {
+        await cameraRef.current.start()
+        setIsActive(true)
+      }
+    } catch (err) {
+      console.error('Body language analysis error:', err)
+      setError('Camera access denied or MediaPipe failed to load. Check browser permissions.')
     }
   }, [initializePose, resetState])
 

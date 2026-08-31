@@ -1,4 +1,4 @@
-# Contributing Guide
+open# Contributing Guide
 
 ## Git Workflow (Important!)
 
