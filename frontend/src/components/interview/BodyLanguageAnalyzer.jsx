@@ -1,6 +1,12 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { Camera, CameraOff, AlertCircle, Activity, Sparkles } from 'lucide-react'
 
+const PRESENCE_WINDOW = 30
+const EYE_CONTACT_WINDOW = 150
+const FIDGET_WINDOW = 30
+const ABSENCE_TIMEOUT_MS = 3000
+const STILLNESS_TIMEOUT_MS = 5000
+
 const BodyLanguageAnalyzer = ({ onAnalysisUpdate, enabled = true }) => {
   const [isActive, setIsActive] = useState(false)
   const [error, setError] = useState(null)
@@ -18,9 +24,37 @@ const BodyLanguageAnalyzer = ({ onAnalysisUpdate, enabled = true }) => {
   const canvasRef = useRef(null)
   const poseRef = useRef(null)
   const cameraRef = useRef(null)
-  const animationFrameRef = useRef(null)
   const poseHistoryRef = useRef([])
   const lastAnalysisTimeRef = useRef(0)
+
+  const posePresenceWindowRef = useRef([])
+  const absenceStartRef = useRef(null)
+  const eyeContactHistoryRef = useRef([])
+  const prevLandmarksRef = useRef(null)
+  const engagementHistoryRef = useRef([])
+  const lastMovementTimeRef = useRef(Date.now())
+  const analyzePostureRef = useRef(null)
+
+  const resetState = useCallback(() => {
+    const blank = {
+      posture: 'unknown',
+      engagement: 0,
+      eyeContact: 0,
+      fidgeting: 0,
+      confidence: 0,
+      presence: 0,
+      alerts: [],
+    }
+    setAnalysis(blank)
+    onAnalysisUpdate?.(blank)
+    posePresenceWindowRef.current = []
+    absenceStartRef.current = null
+    eyeContactHistoryRef.current = []
+    prevLandmarksRef.current = null
+    engagementHistoryRef.current = []
+    lastMovementTimeRef.current = Date.now()
+    poseHistoryRef.current = []
+  }, [onAnalysisUpdate])
 
   const initializePose = useCallback(async () => {
     try {
@@ -66,7 +100,7 @@ const BodyLanguageAnalyzer = ({ onAnalysisUpdate, enabled = true }) => {
             radius: 3,
           })
 
-          analyzePosture(results.poseLandmarks)
+          analyzePostureRef.current?.(results.poseLandmarks)
         }
 
         ctx.restore()
@@ -95,12 +129,14 @@ const BodyLanguageAnalyzer = ({ onAnalysisUpdate, enabled = true }) => {
 
   const analyzePosture = useCallback((landmarks) => {
     const now = Date.now()
-    if (now - lastAnalysisTimeRef.current < 1000) return
+    if (now - lastAnalysisTimeRef.current < 300) return
     lastAnalysisTimeRef.current = now
 
     const nose = landmarks[0]
     const leftShoulder = landmarks[11]
     const rightShoulder = landmarks[12]
+    const leftHip = landmarks[23]
+    const rightHip = landmarks[24]
     const leftEar = landmarks[7]
     const rightEar = landmarks[8]
     const leftWrist = landmarks[15]
@@ -112,79 +148,142 @@ const BodyLanguageAnalyzer = ({ onAnalysisUpdate, enabled = true }) => {
       x: (leftShoulder.x + rightShoulder.x) / 2,
       y: (leftShoulder.y + rightShoulder.y) / 2,
     }
-    const headCenter = { x: nose.x, y: nose.y }
+    const hipCenter = {
+      x: (leftHip.x + rightHip.x) / 2,
+      y: (leftHip.y + rightHip.y) / 2,
+    }
+    const shoulderWidth = Math.abs(leftShoulder.x - rightShoulder.x) || 0.1
 
-    // Posture
-    const headOffset = Math.abs(headCenter.x - shoulderCenter.x)
-    const postureScore = headOffset < 0.1 ? 'good' : headOffset < 0.2 ? 'fair' : 'poor'
+    const poseDetected = nose.visibility > 0.5 && leftShoulder.visibility > 0.3 && rightShoulder.visibility > 0.3
 
-    // Engagement
-    const faceVisible = nose.visibility > 0.5 && leftEar.visibility > 0.3 && rightEar.visibility > 0.3
-    const engagementScore = faceVisible ? Math.min(100, 70 + nose.visibility * 30) : 30
+    posePresenceWindowRef.current.push(poseDetected)
+    if (posePresenceWindowRef.current.length > PRESENCE_WINDOW) posePresenceWindowRef.current.shift()
 
-    // Eye contact
-    const earDiff = Math.abs(leftEar.z - rightEar.z)
-    const eyeContactScore = earDiff < 0.05 ? 90 : earDiff < 0.1 ? 70 : 50
+    const presenceCount = posePresenceWindowRef.current.filter(Boolean).length
+    const presenceRatio = posePresenceWindowRef.current.length > 0
+      ? presenceCount / posePresenceWindowRef.current.length
+      : 0
 
-    // Hand gesture detection (hands near face = thinking/covering, hands visible = expressive)
-    const leftHandVisible = leftWrist.visibility > 0.5
-    const rightHandVisible = rightWrist.visibility > 0.5
-    const handFaceDistance = Math.min(
-      Math.hypot(leftWrist.x - nose.x, leftWrist.y - nose.y),
-      Math.hypot(rightWrist.x - nose.x, rightWrist.y - nose.y)
-    )
-    const handsNearFace = handFaceDistance < 0.25 && (leftHandVisible || rightHandVisible)
-    const expressiveGestures = (leftHandVisible && Math.hypot(leftWrist.x - leftElbow.x, leftWrist.y - leftElbow.y) > 0.15) ||
-                               (rightHandVisible && Math.hypot(rightWrist.x - rightElbow.x, rightWrist.y - rightElbow.y) > 0.15)
+    let presence = Math.round(presenceRatio * 100)
 
-    // Fidgeting
-    poseHistoryRef.current.push({
-      timestamp: now,
-      shoulderY: shoulderCenter.y,
-      headX: headCenter.x,
-      handY: (leftWrist.y + rightWrist.y) / 2,
-    })
-    if (poseHistoryRef.current.length > 30) poseHistoryRef.current.shift()
-
-    let fidgetScore = 0
-    if (poseHistoryRef.current.length >= 10) {
-      const recent = poseHistoryRef.current.slice(-10)
-      const shoulderVariance = calculateVariance(recent.map((p) => p.shoulderY))
-      const headVariance = calculateVariance(recent.map((p) => p.headX))
-      const handVariance = calculateVariance(recent.map((p) => p.handY))
-      fidgetScore = Math.min(100, (shoulderVariance + headVariance + handVariance) * 700)
+    if (!poseDetected) {
+      if (absenceStartRef.current === null) {
+        absenceStartRef.current = now
+      }
+      const absentDuration = now - absenceStartRef.current
+      if (absentDuration > ABSENCE_TIMEOUT_MS) {
+        presence = 0
+      } else {
+        presence = Math.round(presence * Math.max(0, 1 - absentDuration / ABSENCE_TIMEOUT_MS))
+      }
+    } else {
+      absenceStartRef.current = null
     }
 
-    // Confidence
-    const confidenceScore = Math.round(
-      (postureScore === 'good' ? 40 : postureScore === 'fair' ? 25 : 10) +
-      engagementScore * 0.3 +
-      eyeContactScore * 0.2 +
-      (100 - fidgetScore) * 0.1
+    let posture = 'unknown'
+    if (poseDetected) {
+      const spineDx = shoulderCenter.x - hipCenter.x
+      const spineDy = shoulderCenter.y - hipCenter.y
+      const spineAngle = Math.abs(Math.atan2(spineDx, spineDy) * (180 / Math.PI))
+
+      const headTilt = (nose.x - shoulderCenter.x) / shoulderWidth
+
+      if (spineAngle < 12 && Math.abs(headTilt) < 0.15) {
+        posture = 'upright'
+      } else if (spineAngle >= 20) {
+        posture = 'slouching'
+      } else if (Math.abs(headTilt) >= 0.15) {
+        posture = 'leaning'
+      } else {
+        posture = 'upright'
+      }
+    }
+
+    const headYaw = (nose.x - (leftEar.x + rightEar.x) / 2) / shoulderWidth
+    const headPitch = (nose.y - shoulderCenter.y) / (Math.abs(hipCenter.y - shoulderCenter.y) || 0.1)
+
+    const faceVisible = nose.visibility > 0.5 && leftEar.visibility > 0.3 && rightEar.visibility > 0.3
+    const faceOrientation = faceVisible ? Math.max(0, 1 - Math.abs(headYaw) * 2) : 0
+    const pitchNormal = headPitch > 0.2 && headPitch < 0.8 ? 1 : 0.5
+
+    const handLeftDisp = leftWrist.visibility > 0.5
+      ? Math.hypot(leftWrist.x - leftElbow.x, leftWrist.y - leftElbow.y)
+      : 0
+    const handRightDisp = rightWrist.visibility > 0.5
+      ? Math.hypot(rightWrist.x - rightElbow.x, rightWrist.y - rightElbow.y)
+      : 0
+    const gestureActivity = Math.min(1, (handLeftDisp + handRightDisp) / 0.4)
+
+    const stillnessPenalty = (now - lastMovementTimeRef.current) > STILLNESS_TIMEOUT_MS ? 0.5 : 1
+
+    const engagementRaw = (faceOrientation * 35 + presenceRatio * 35 + pitchNormal * 15 + gestureActivity * 15) * stillnessPenalty
+    const engagement = Math.round(Math.min(100, Math.max(0, engagementRaw)))
+
+    engagementHistoryRef.current.push(engagement)
+    if (engagementHistoryRef.current.length > 10) engagementHistoryRef.current.shift()
+    const smoothedEngagement = Math.round(
+      engagementHistoryRef.current.reduce((a, b) => a + b, 0) / engagementHistoryRef.current.length
     )
 
-    // Presence score (overall composure)
-    const presence = Math.round(
-      engagementScore * 0.4 +
-      eyeContactScore * 0.3 +
-      (100 - fidgetScore) * 0.2 +
-      (postureScore === 'good' ? 10 : postureScore === 'fair' ? 5 : 0)
+    const eyeContactRaw = faceVisible
+      ? Math.max(0, Math.min(100, 100 - Math.abs(headYaw) * 300 - Math.abs(headPitch - 0.45) * 100))
+      : 0
+    eyeContactHistoryRef.current.push(eyeContactRaw)
+    if (eyeContactHistoryRef.current.length > EYE_CONTACT_WINDOW) eyeContactHistoryRef.current.shift()
+    const eyeContact = Math.round(
+      eyeContactHistoryRef.current.reduce((a, b) => a + b, 0) / eyeContactHistoryRef.current.length
+    )
+
+    let fidgeting = 0
+    if (prevLandmarksRef.current) {
+      const prev = prevLandmarksRef.current
+      const handDisp = Math.hypot(leftWrist.x - prev.leftWrist.x, leftWrist.y - prev.leftWrist.y)
+        + Math.hypot(rightWrist.x - prev.rightWrist.x, rightWrist.y - prev.rightWrist.y)
+      const headDisp = Math.hypot(nose.x - prev.nose.x, nose.y - prev.nose.y)
+      const shoulderDisp = Math.hypot(shoulderCenter.x - prev.shoulderCenter.x, shoulderCenter.y - prev.shoulderCenter.y)
+      const totalDisp = handDisp + headDisp + shoulderDisp
+
+      if (totalDisp > 0.005) {
+        lastMovementTimeRef.current = now
+      }
+
+      const rawFidget = Math.min(100, totalDisp * 500)
+      poseHistoryRef.current.push(rawFidget)
+      if (poseHistoryRef.current.length > FIDGET_WINDOW) poseHistoryRef.current.shift()
+
+      fidgeting = Math.round(
+        poseHistoryRef.current.reduce((a, b) => a + b, 0) / poseHistoryRef.current.length
+      )
+    }
+
+    prevLandmarksRef.current = {
+      nose: { x: nose.x, y: nose.y },
+      leftWrist: { x: leftWrist.x, y: leftWrist.y },
+      rightWrist: { x: rightWrist.x, y: rightWrist.y },
+      shoulderCenter: { x: shoulderCenter.x, y: shoulderCenter.y },
+    }
+
+    const postureScore = posture === 'upright' ? 40 : posture === 'leaning' ? 25 : posture === 'slouching' ? 10 : 0
+    const confidenceScore = Math.round(
+      postureScore + smoothedEngagement * 0.3 + eyeContact * 0.2 + (100 - fidgeting) * 0.1
     )
 
     const alerts = []
-    if (postureScore === 'poor') alerts.push({ type: 'warning', message: 'Poor posture - sit up straight' })
-    if (engagementScore < 50) alerts.push({ type: 'warning', message: 'Low engagement - face the camera' })
-    if (fidgetScore > 60) alerts.push({ type: 'info', message: 'Excessive movement detected' })
-    if (handsNearFace) alerts.push({ type: 'info', message: 'Hands near face - possibly nervous' })
-    if (expressiveGestures) alerts.push({ type: 'success', message: 'Good expressive gestures' })
+    if (posture === 'slouching') alerts.push({ type: 'warning', message: 'Slouching detected - sit up straight' })
+    if (posture === 'leaning') alerts.push({ type: 'warning', message: 'Leaning - maintain centered posture' })
+    if (smoothedEngagement < 50) alerts.push({ type: 'warning', message: 'Low engagement - face the camera' })
+    if (fidgeting > 60) alerts.push({ type: 'info', message: 'Excessive movement detected' })
+    if (!poseDetected && absenceStartRef.current && (now - absenceStartRef.current) > 2000) {
+      alerts.push({ type: 'warning', message: 'No person detected in frame' })
+    }
 
     const newAnalysis = {
-      posture: postureScore,
-      engagement: Math.round(engagementScore),
-      eyeContact: Math.round(eyeContactScore),
-      fidgeting: Math.round(fidgetScore),
+      posture,
+      engagement: smoothedEngagement,
+      eyeContact,
+      fidgeting,
       confidence: confidenceScore,
-      presence: presence,
+      presence,
       alerts,
     }
 
@@ -192,40 +291,48 @@ const BodyLanguageAnalyzer = ({ onAnalysisUpdate, enabled = true }) => {
     onAnalysisUpdate?.(newAnalysis)
   }, [onAnalysisUpdate])
 
-  const calculateVariance = (values) => {
-    const mean = values.reduce((a, b) => a + b, 0) / values.length
-    return values.reduce((sum, val) => sum + Math.pow(val - mean, 2), 0) / values.length
-  }
+  analyzePostureRef.current = analyzePosture
 
   const startAnalysis = useCallback(async () => {
     setError(null)
+    resetState()
     const success = await initializePose()
     if (success) {
       await cameraRef.current.start()
       setIsActive(true)
     }
-  }, [initializePose])
+  }, [initializePose, resetState])
 
   const stopAnalysis = useCallback(() => {
-    if (cameraRef.current) cameraRef.current.stop()
+    if (cameraRef.current) {
+      cameraRef.current.stop()
+      cameraRef.current = null
+    }
     if (poseRef.current) {
       poseRef.current.close()
       poseRef.current = null
     }
-    if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current)
+    prevLandmarksRef.current = null
+    resetState()
     setIsActive(false)
-  }, [])
+  }, [resetState])
 
   useEffect(() => {
-    if (enabled && !isActive) startAnalysis()
-    return () => { stopAnalysis() }
+    if (enabled && !isActive) {
+      startAnalysis()
+    }
+    return () => {
+      if (cameraRef.current) cameraRef.current.stop()
+      if (poseRef.current) poseRef.current.close()
+      prevLandmarksRef.current = null
+    }
   }, [enabled])
 
   const getPostureColor = (posture) => {
     switch (posture) {
-      case 'good': return 'text-emerald-500'
-      case 'fair': return 'text-amber-500'
-      case 'poor': return 'text-red-500'
+      case 'upright': return 'text-emerald-500'
+      case 'leaning': return 'text-amber-500'
+      case 'slouching': return 'text-red-500'
       default: return 'text-ink-400'
     }
   }
