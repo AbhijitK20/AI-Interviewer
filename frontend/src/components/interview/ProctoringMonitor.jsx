@@ -344,7 +344,7 @@ const ProctoringMonitor = ({ onViolation, enabled = true }) => {
       }
       document.addEventListener('keydown', handleKeyDown)
 
-      return () => {
+      cleanupListenersRef.current = () => {
         document.removeEventListener('visibilitychange', handleVisibilityChange)
         document.removeEventListener('fullscreenchange', handleFullscreenChange)
         document.removeEventListener('copy', handleCopy)
@@ -353,11 +353,6 @@ const ProctoringMonitor = ({ onViolation, enabled = true }) => {
         if (originalGetDisplayMedia) {
           navigator.mediaDevices.getDisplayMedia = originalGetDisplayMedia
         }
-      }
-
-      cleanupListenersRef.current = () => {
-        document.removeEventListener('visibilitychange', handleVisibilityChange)
-        document.removeEventListener('fullscreenchange', handleFullscreenChange)
       }
     } catch (err) {
       console.error('Error starting proctoring:', err)
