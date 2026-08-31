@@ -29,6 +29,9 @@ const ProctoringMonitor = ({ onViolation, enabled = true }) => {
     fullscreenExited: false,
   })
 
+  const [warningPopup, setWarningPopup] = useState(null)
+  const violationCountsRef = useRef({})
+
   const videoRef = useRef(null)
   const canvasRef = useRef(null)
   const detectorRef = useRef(null)
@@ -57,6 +60,23 @@ const ProctoringMonitor = ({ onViolation, enabled = true }) => {
     }
     setViolations((prev) => [...prev.slice(-9), violation])
     onViolation?.(violation)
+
+    // Track violation counts
+    violationCountsRef.current[type] = (violationCountsRef.current[type] || 0) + 1
+    const count = violationCountsRef.current[type]
+
+    // Show warning popup (replaces previous)
+    setWarningPopup({ type, message, severity, count, id: Date.now() })
+
+    // Auto-dismiss popup after 4 seconds
+    setTimeout(() => {
+      setWarningPopup((prev) => (prev && prev.id === violation.id ? null : prev))
+    }, 4000)
+
+    // After 3 repeated violations of same type, signal to end interview
+    if (count >= 3) {
+      onViolation?.({ ...violation, type: 'interview_end', message: `Interview ended: 3 repeated ${type} violations`, severity: 'critical' })
+    }
   }, [onViolation])
 
   const eyeAspectRatio = (eye) => {
@@ -537,6 +557,34 @@ const ProctoringMonitor = ({ onViolation, enabled = true }) => {
           </div>
         )}
       </div>
+
+      {/* Warning Popup */}
+      {warningPopup && (
+        <div className={`fixed top-4 right-4 z-50 max-w-sm animate-fade-in ${
+          warningPopup.severity === 'critical'
+            ? 'bg-red-500 text-white'
+            : warningPopup.severity === 'warning'
+            ? 'bg-amber-500 text-white'
+            : 'bg-blue-500 text-white'
+        } rounded-2xl shadow-2xl p-4`}>
+          <div className="flex items-start gap-3">
+            <AlertTriangle className="w-5 h-5 flex-shrink-0 mt-0.5" />
+            <div>
+              <p className="font-semibold text-sm">{warningPopup.message}</p>
+              <p className="text-xs opacity-90 mt-1">
+                Violation {warningPopup.count} of 3
+                {warningPopup.count >= 3 && ' — Interview will be terminated'}
+              </p>
+            </div>
+          </div>
+          <div className="mt-2 h-1 bg-white/30 rounded-full overflow-hidden">
+            <div
+              className="h-full bg-white rounded-full transition-all duration-1000"
+              style={{ width: `${(warningPopup.count / 3) * 100}%` }}
+            />
+          </div>
+        </div>
+      )}
     </div>
   )
 }

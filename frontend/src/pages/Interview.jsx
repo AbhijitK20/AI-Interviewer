@@ -351,7 +351,19 @@ const Interview = () => {
           {/* Proctoring Monitor */}
           {showProctoring && (
             <ProctoringMonitor
-              onViolation={(v) => console.log('Violation:', v)}
+              onViolation={async (v) => {
+                console.log('Violation:', v)
+                if (v.type === 'interview_end') {
+                  // End interview properly before navigating away
+                  try {
+                    await api.post(`/interviews/${id}/end`)
+                  } catch (e) {
+                    console.error('Failed to end interview:', e)
+                  }
+                  alert('Interview terminated: Too many violations detected.')
+                  navigate('/')
+                }
+              }}
               enabled={showProctoring}
             />
           )}
