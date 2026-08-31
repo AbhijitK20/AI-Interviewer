@@ -23,7 +23,7 @@ const AntiCheatModal = ({ onAccept, onCancel }) => {
         if (navigator.mediaDevices && navigator.mediaDevices.getDisplayMedia) {
           setChecks(prev => ({ ...prev, screenShare: false }))
         }
-      } catch (e) {}
+      } catch (_e) { /* ignore */ }
     }
     checkScreenShare()
 
