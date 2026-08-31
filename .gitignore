@@ -93,3 +93,5 @@ web-interface-guidelines/
 codeaudit/
 libcst/
 medusa/
+VulnHunter/
+nuclei/
