@@ -164,23 +164,96 @@ const styles = StyleSheet.create({
   },
 })
 
+const cleanString = (str) => {
+  if (typeof str !== 'string') return String(str || '')
+  let s = str.trim()
+  let prev = ''
+  while (s !== prev) {
+    prev = s
+    s = s.replace(/^[\[\]"'\\]+/, '').replace(/[\[\]"'\\]+$/, '').trim()
+  }
+  s = s.replace(/\\"/g, '"').replace(/\\\\/g, '\\')
+  return s
+}
+
 const safeParseArr = (data) => {
   if (!data) return []
-  if (Array.isArray(data)) return data
-  if (typeof data === 'string') {
-    try {
-      let parsed = JSON.parse(data)
-      if (typeof parsed === 'string') {
-        try { parsed = JSON.parse(parsed) } catch {}
+
+  let items = []
+  if (Array.isArray(data)) {
+    items = data
+  } else if (typeof data === 'string') {
+    let current = data.trim()
+    for (let i = 0; i < 5; i++) {
+      try {
+        const parsed = JSON.parse(current)
+        if (Array.isArray(parsed)) {
+          items = parsed
+          break
+        }
+        if (parsed && typeof parsed === 'object') {
+          items = Object.values(parsed)
+          break
+        }
+        if (typeof parsed === 'string') {
+          current = parsed
+          continue
+        }
+      } catch {
+        break
       }
-      if (Array.isArray(parsed)) return parsed
-      if (parsed && typeof parsed === 'object') return Object.values(parsed)
-      if (typeof parsed === 'string') return parsed.split(/\r?\n|,/).map(s => s.trim().replace(/^[-*•\d.)]\s*/, '')).filter(Boolean)
-    } catch {
-      return data.split(/\r?\n|,/).map(s => s.trim().replace(/^[-*•\d.)]\s*/, '')).filter(Boolean)
+    }
+    if (items.length === 0) {
+      items = current.split(/\r?\n|","|",\s*"|,\s*/)
     }
   }
-  return []
+
+  const result = []
+  const processItem = (item) => {
+    if (!item) return
+    if (Array.isArray(item)) {
+      item.forEach(processItem)
+      return
+    }
+    if (typeof item === 'string') {
+      const trimmed = item.trim()
+      if (trimmed === '[]' || trimmed === '""' || trimmed === "''" || !trimmed) return
+      if ((trimmed.startsWith('[') && trimmed.endsWith(']')) || (trimmed.startsWith('{') && trimmed.endsWith('}'))) {
+        try {
+          const parsed = JSON.parse(trimmed)
+          if (Array.isArray(parsed)) {
+            parsed.forEach(processItem)
+            return
+          }
+        } catch {}
+      }
+      const cleaned = cleanString(trimmed)
+      if (cleaned && cleaned !== '[]' && cleaned !== '""') {
+        result.push(cleaned)
+      }
+    } else {
+      result.push(String(item))
+    }
+  }
+
+  items.forEach(processItem)
+  return Array.from(new Set(result))
+}
+
+const cleanRecommendations = (text) => {
+  if (!text || typeof text !== 'string') return ''
+  let cleaned = text
+    .replace(/\[\s*\]/g, '')
+    .replace(/\\"/g, '')
+    .replace(/[\[\]"]/g, '')
+    .replace(/,\s*,+/g, ',')
+    .replace(/,\s*$/, '')
+    .replace(/:\s*,+/g, ': ')
+    .trim()
+  if (cleaned.endsWith(':')) {
+    cleaned += ' continued growth and practice'
+  }
+  return cleaned
 }
 
 const safeParseObjList = (data) => {
@@ -204,6 +277,7 @@ const InterviewReportPDF = ({ report, interview, candidate }) => {
   const strengths = safeParseArr(report?.strengths)
   const weaknesses = safeParseArr(report?.weaknesses)
   const questionBreakdown = safeParseObjList(report?.questionBreakdown)
+  const recommendations = cleanRecommendations(report?.recommendations)
 
   return (
     <Document>
@@ -322,7 +396,7 @@ const InterviewReportPDF = ({ report, interview, candidate }) => {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Recommendations</Text>
           <View style={styles.recommendationBox}>
-            <Text style={styles.recommendationText}>{report.recommendations}</Text>
+            <Text style={styles.recommendationText}>{recommendations}</Text>
           </View>
         </View>
 

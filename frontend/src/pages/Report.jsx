@@ -30,44 +30,98 @@ import {
 import PDFReportGenerator from '../components/report/PDFReportGenerator'
 import { useAuth } from '../context/AuthContext'
 
-// Recursively unwrap JSON-encoded strings until we get an array
+// Clean any string from lingering JSON quotes/brackets/backslashes
+const cleanString = (str) => {
+  if (typeof str !== 'string') return String(str || '')
+  let s = str.trim()
+  let prev = ''
+  while (s !== prev) {
+    prev = s
+    s = s.replace(/^[\[\]"'\\]+/, '').replace(/[\[\]"'\\]+$/, '').trim()
+  }
+  s = s.replace(/\\"/g, '"').replace(/\\\\/g, '\\')
+  return s
+}
+
+// Deep unwrap and parse arrays, handling any level of stringified JSON, escaped quotes, or bracket leftovers
 const safeParseArray = (data) => {
   if (!data) return []
-  if (Array.isArray(data)) return data.map((item) => (typeof item === 'string' ? item : String(item)))
 
-  if (typeof data === 'string') {
-    let current = data
-    // Keep unwrapping JSON-encoded strings (handles double/triple encoding)
+  let items = []
+  if (Array.isArray(data)) {
+    items = data
+  } else if (typeof data === 'string') {
+    let current = data.trim()
     for (let i = 0; i < 5; i++) {
       try {
         const parsed = JSON.parse(current)
         if (Array.isArray(parsed)) {
-          return parsed.map((item) => (typeof item === 'string' ? item : String(item)))
+          items = parsed
+          break
         }
-        if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
-          return Object.values(parsed).map(String)
+        if (parsed && typeof parsed === 'object') {
+          items = Object.values(parsed)
+          break
         }
         if (typeof parsed === 'string') {
           current = parsed
           continue
         }
-        break
       } catch {
         break
       }
     }
-    // If we couldn't parse it as JSON, treat the raw string as content
-    // Strip any leftover JSON bracket/quote artifacts
-    const cleaned = current
-      .replace(/^\s*\[?\s*"?/, '')
-      .replace(/"?\s*\]?\s*$/, '')
-    if (!cleaned) return []
-    return cleaned
-      .split(/",\s*"|\\",\s*\\"/)
-      .map((s) => s.replace(/^["\\[\]]+|["\\[\]]+$/g, '').trim())
-      .filter(Boolean)
+    if (items.length === 0) {
+      items = current.split(/\r?\n|","|",\s*"|,\s*/)
+    }
   }
-  return []
+
+  const result = []
+  const processItem = (item) => {
+    if (!item) return
+    if (Array.isArray(item)) {
+      item.forEach(processItem)
+      return
+    }
+    if (typeof item === 'string') {
+      const trimmed = item.trim()
+      if (trimmed === '[]' || trimmed === '""' || trimmed === "''" || !trimmed) return
+      if ((trimmed.startsWith('[') && trimmed.endsWith(']')) || (trimmed.startsWith('{') && trimmed.endsWith('}'))) {
+        try {
+          const parsed = JSON.parse(trimmed)
+          if (Array.isArray(parsed)) {
+            parsed.forEach(processItem)
+            return
+          }
+        } catch {}
+      }
+      const cleaned = cleanString(trimmed)
+      if (cleaned && cleaned !== '[]' && cleaned !== '""') {
+        result.push(cleaned)
+      }
+    } else {
+      result.push(String(item))
+    }
+  }
+
+  items.forEach(processItem)
+  return Array.from(new Set(result))
+}
+
+const cleanRecommendations = (text) => {
+  if (!text || typeof text !== 'string') return ''
+  let cleaned = text
+    .replace(/\[\s*\]/g, '')
+    .replace(/\\"/g, '')
+    .replace(/[\[\]"]/g, '')
+    .replace(/,\s*,+/g, ',')
+    .replace(/,\s*$/, '')
+    .replace(/:\s*,+/g, ': ')
+    .trim()
+  if (cleaned.endsWith(':')) {
+    cleaned += ' continued growth and practice'
+  }
+  return cleaned
 }
 
 // Parse chart data (array of objects) with fallback defaults
@@ -81,7 +135,6 @@ const safeParseChartData = (data, defaultData = []) => {
       try {
         const parsed = JSON.parse(current)
         if (Array.isArray(parsed) && parsed.length > 0) return parsed
-        // Handle dict format like {"Technical": 70} → [{category: "Technical", score: 70}]
         if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
           const key0 = Object.keys(parsed)[0] || ''
           const labelKey = key0.toLowerCase().includes('skill') ? 'skill' : 'category'
@@ -98,7 +151,6 @@ const safeParseChartData = (data, defaultData = []) => {
     }
   }
 
-  // Handle plain object (dict) format
   if (data && typeof data === 'object' && !Array.isArray(data)) {
     return Object.entries(data).map(([k, v]) => ({ category: k, score: Number(v) || 0 }))
   }
@@ -383,7 +435,7 @@ const Report = () => {
               <h2 className="text-lg font-bold text-ink-900">Recommendations & Next Steps</h2>
             </div>
             <p className="text-ink-700 text-sm leading-relaxed mb-4 whitespace-pre-line">
-              {report.recommendations || 'Continue practicing hands-on problem solving and system architecture.'}
+              {cleanRecommendations(report.recommendations) || 'Continue practicing hands-on problem solving and system architecture.'}
             </p>
           </div>
 

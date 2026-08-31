@@ -207,13 +207,21 @@ Return as JSON with fields: required_skills, experience_level, key_responsibilit
 
     def _parse_list_field(self, value) -> List[str]:
         if isinstance(value, list):
-            return [str(v) for v in value]
+            result = []
+            for v in value:
+                if isinstance(v, str) and (v.strip().startswith("[") or v.strip().startswith("{")):
+                    result.extend(self._parse_list_field(v))
+                else:
+                    result.append(str(v))
+            return result
         if isinstance(value, str):
             value = value.strip()
             try:
                 parsed = json.loads(value)
                 if isinstance(parsed, list):
-                    return [str(v) for v in parsed]
+                    return self._parse_list_field(parsed)
+                elif isinstance(parsed, str):
+                    return self._parse_list_field(parsed)
             except Exception:
                 pass
             return [value] if value else []
