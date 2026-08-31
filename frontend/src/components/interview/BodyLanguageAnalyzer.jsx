@@ -212,6 +212,12 @@ const BodyLanguageAnalyzer = ({ onAnalysisUpdate, enabled = true }) => {
 
     const stillnessPenalty = (now - lastMovementTimeRef.current) > STILLNESS_TIMEOUT_MS ? 0.5 : 1
 
+    // Calculate pose presence ratio for engagement metric
+    const presenceCount = posePresenceWindowRef.current.filter(Boolean).length
+    const presenceRatio = posePresenceWindowRef.current.length > 0
+      ? presenceCount / posePresenceWindowRef.current.length
+      : 0
+
     const engagementRaw = (faceOrientation * 35 + presenceRatio * 35 + pitchNormal * 15 + gestureActivity * 15) * stillnessPenalty
     const engagement = Math.round(Math.min(100, Math.max(0, engagementRaw)))
 
