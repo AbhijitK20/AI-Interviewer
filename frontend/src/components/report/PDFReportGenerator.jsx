@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { PDFDownloadLink, Document, Page, Text, View, StyleSheet, Image } from '@react-pdf/renderer'
+import { pdf, Document, Page, Text, View, StyleSheet, Image } from '@react-pdf/renderer'
 import { FileDown, Loader2 } from 'lucide-react'
 
 const styles = StyleSheet.create({
@@ -164,12 +164,122 @@ const styles = StyleSheet.create({
   },
 })
 
+const cleanString = (str) => {
+  if (typeof str !== 'string') return String(str || '')
+  let s = str.trim()
+  let prev = ''
+  while (s !== prev) {
+    prev = s
+    s = s.replace(/^[[\]"'\\]+/, '').replace(/[[\]"'\\]+$/, '').trim()
+  }
+  s = s.replace(/\\"/g, '"').replace(/\\\\/g, '\\')
+  return s
+}
+
+const safeParseArr = (data) => {
+  if (!data) return []
+
+  let items = []
+  if (Array.isArray(data)) {
+    items = data
+  } else if (typeof data === 'string') {
+    let current = data.trim()
+    for (let i = 0; i < 5; i++) {
+      try {
+        const parsed = JSON.parse(current)
+        if (Array.isArray(parsed)) {
+          items = parsed
+          break
+        }
+        if (parsed && typeof parsed === 'object') {
+          items = Object.values(parsed)
+          break
+        }
+        if (typeof parsed === 'string') {
+          current = parsed
+          continue
+        }
+      } catch {
+        break
+      }
+    }
+    if (items.length === 0) {
+      items = current.split(/\r?\n|","|",\s*"|,\s*/)
+    }
+  }
+
+  const result = []
+  const processItem = (item) => {
+    if (!item) return
+    if (Array.isArray(item)) {
+      item.forEach(processItem)
+      return
+    }
+    if (typeof item === 'string') {
+      const trimmed = item.trim()
+      if (trimmed === '[]' || trimmed === '""' || trimmed === "''" || !trimmed) return
+      if ((trimmed.startsWith('[') && trimmed.endsWith(']')) || (trimmed.startsWith('{') && trimmed.endsWith('}'))) {
+        try {
+          const parsed = JSON.parse(trimmed)
+          if (Array.isArray(parsed)) {
+            parsed.forEach(processItem)
+            return
+          }
+        } catch {
+          // ignore parsing error
+        }
+      }
+      const cleaned = cleanString(trimmed)
+      if (cleaned && cleaned !== '[]' && cleaned !== '""') {
+        result.push(cleaned)
+      }
+    } else {
+      result.push(String(item))
+    }
+  }
+
+  items.forEach(processItem)
+  return Array.from(new Set(result))
+}
+
+const cleanRecommendations = (text) => {
+  if (!text || typeof text !== 'string') return ''
+  let cleaned = text
+    .replace(/\[\s*\]/g, '')
+    .replace(/\\"/g, '')
+    .replace(/[[\]"]/g, '')
+    .replace(/,\s*,+/g, ',')
+    .replace(/,\s*$/, '')
+    .replace(/:\s*,+/g, ': ')
+    .trim()
+  if (cleaned.endsWith(':')) {
+    cleaned += ' continued growth and practice'
+  }
+  return cleaned
+}
+
+const safeParseObjList = (data) => {
+  if (!data) return []
+  if (Array.isArray(data)) return data
+  if (typeof data === 'string') {
+    try {
+      let parsed = JSON.parse(data)
+      if (typeof parsed === 'string') parsed = JSON.parse(parsed)
+      if (Array.isArray(parsed)) return parsed
+    } catch {
+      return []
+    }
+  }
+  return []
+}
+
 const InterviewReportPDF = ({ report, interview, candidate }) => {
-  const radarData = report.skillRadarData ? JSON.parse(report.skillRadarData) : []
-  const categoryScores = report.categoryScores ? JSON.parse(report.categoryScores) : []
-  const strengths = report.strengths ? JSON.parse(report.strengths) : []
-  const weaknesses = report.weaknesses ? JSON.parse(report.weaknesses) : []
-  const questionBreakdown = report.questionBreakdown ? JSON.parse(report.questionBreakdown) : []
+  const _radarData = safeParseObjList(report?.skillRadarData)
+  const categoryScores = safeParseObjList(report?.categoryScores)
+  const strengths = safeParseArr(report?.strengths)
+  const weaknesses = safeParseArr(report?.weaknesses)
+  const questionBreakdown = safeParseObjList(report?.questionBreakdown)
+  const recommendations = cleanRecommendations(report?.recommendations)
 
   return (
     <Document>
@@ -288,7 +398,7 @@ const InterviewReportPDF = ({ report, interview, candidate }) => {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Recommendations</Text>
           <View style={styles.recommendationBox}>
-            <Text style={styles.recommendationText}>{report.recommendations}</Text>
+            <Text style={styles.recommendationText}>{recommendations}</Text>
           </View>
         </View>
 
@@ -308,7 +418,7 @@ const PDFReportGenerator = ({ report, interview, candidate }) => {
     return (
       <button
         disabled
-        className="flex items-center px-4 py-2 bg-gray-300 text-gray-500 rounded-lg cursor-not-allowed"
+        className="flex items-center px-4 py-2 bg-ink-200 text-ink-400 rounded-xl cursor-not-allowed text-sm font-medium"
       >
         <FileDown className="w-4 h-4 mr-2" />
         No Report Available
@@ -316,34 +426,52 @@ const PDFReportGenerator = ({ report, interview, candidate }) => {
     )
   }
 
+  const handleDownloadPDF = async () => {
+    if (isGenerating) return
+    setIsGenerating(true)
+    try {
+      const doc = <InterviewReportPDF report={report} interview={interview} candidate={candidate} />
+      const asPdf = pdf(doc)
+      const blob = await asPdf.toBlob()
+      const url = URL.createObjectURL(blob)
+      const link = document.createElement('a')
+      link.href = url
+      link.download = `interview-report-${report.id || 'summary'}.pdf`
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+      setTimeout(() => URL.revokeObjectURL(url), 1000)
+    } catch (err) {
+      console.error('Direct PDF export error, falling back to print:', err)
+      window.print()
+    } finally {
+      setIsGenerating(false)
+    }
+  }
+
   return (
-    <PDFDownloadLink
-      document={<InterviewReportPDF report={report} interview={interview} candidate={candidate} />}
-      fileName={`interview-report-${report.id}.pdf`}
+    <button
+      type="button"
+      onClick={handleDownloadPDF}
+      disabled={isGenerating}
+      className={`inline-flex items-center justify-center px-4 py-2.5 rounded-xl font-semibold text-sm transition-all shadow-sm ${
+        isGenerating
+          ? 'bg-primary-400 text-white cursor-wait opacity-80'
+          : 'bg-primary-600 hover:bg-primary-700 active:scale-95 text-white shadow-primary-500/20'
+      }`}
     >
-      {({ blob, url, loading, error }) => (
-        <button
-          className={`flex items-center px-4 py-2 rounded-lg transition-colors ${
-            loading
-              ? 'bg-gray-300 text-gray-500 cursor-wait'
-              : 'bg-primary-600 text-white hover:bg-primary-700'
-          }`}
-          onClick={() => setIsGenerating(true)}
-        >
-          {loading ? (
-            <>
-              <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-              Generating PDF...
-            </>
-          ) : (
-            <>
-              <FileDown className="w-4 h-4 mr-2" />
-              Download PDF Report
-            </>
-          )}
-        </button>
+      {isGenerating ? (
+        <>
+          <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+          <span>Generating PDF...</span>
+        </>
+      ) : (
+        <>
+          <FileDown className="w-4 h-4 mr-2" />
+          <span>Download PDF Report</span>
+        </>
       )}
-    </PDFDownloadLink>
+    </button>
   )
 }
 
