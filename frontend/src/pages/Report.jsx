@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, lazy, Suspense, Component } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import api from '../services/api'
 import {
@@ -25,10 +25,38 @@ import {
   BookOpen,
   Calendar,
   Clock,
+  FileDown,
   Sparkles,
 } from 'lucide-react'
-import PDFReportGenerator from '../components/report/PDFReportGenerator'
+const PDFReportGenerator = lazy(() => import('../components/report/PDFReportGenerator'))
 import { useAuth } from '../context/AuthContext'
+
+class PDFErrorBoundary extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { hasError: false }
+  }
+  static getDerivedStateFromError() {
+    return { hasError: true }
+  }
+  componentDidCatch(err) {
+    console.error('PDFReportGenerator failed:', err)
+  }
+  render() {
+    if (this.state.hasError) {
+      return (
+        <button
+          onClick={() => window.print()}
+          className="inline-flex items-center justify-center px-4 py-2.5 rounded-xl font-semibold text-sm bg-primary-600 hover:bg-primary-700 active:scale-95 text-white shadow-sm shadow-primary-500/20 transition-all"
+        >
+          <FileDown className="w-4 h-4 mr-2" />
+          <span>Download PDF Report</span>
+        </button>
+      )
+    }
+    return this.props.children
+  }
+}
 
 // Clean any string from lingering JSON quotes/brackets/backslashes
 const cleanString = (str) => {
@@ -257,7 +285,11 @@ const Report = () => {
           <ArrowLeft className="h-4 w-4 mr-1.5" />
           Back to Dashboard
         </Link>
-        <PDFReportGenerator report={report} interview={interview} candidate={user} />
+        <PDFErrorBoundary>
+          <Suspense fallback={<div className="h-10 w-48 bg-ink-200 animate-pulse rounded-xl" />}>
+            <PDFReportGenerator report={report} interview={interview} candidate={user} />
+          </Suspense>
+        </PDFErrorBoundary>
       </div>
 
       {/* Main Overview Banner */}
