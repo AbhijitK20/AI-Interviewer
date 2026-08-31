@@ -90,3 +90,6 @@ vercel-agent-skills/
 vercel-skills-cli/
 web-interface-guidelines/
 .skills-registry/
+codeaudit/
+libcst/
+medusa/
