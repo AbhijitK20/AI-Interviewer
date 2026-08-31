@@ -159,12 +159,8 @@ const BodyLanguageAnalyzer = ({ onAnalysisUpdate, enabled = true }) => {
     posePresenceWindowRef.current.push(poseDetected)
     if (posePresenceWindowRef.current.length > PRESENCE_WINDOW) posePresenceWindowRef.current.shift()
 
-    const presenceCount = posePresenceWindowRef.current.filter(Boolean).length
-    const presenceRatio = posePresenceWindowRef.current.length > 0
-      ? presenceCount / posePresenceWindowRef.current.length
-      : 0
-
-    let presence = Math.round(presenceRatio * 100)
+    // Presence is NOT computed here - it will be calculated after engagement/eyeContact/fidgeting below
+    let presence = 0
 
     if (!poseDetected) {
       if (absenceStartRef.current === null) {
@@ -174,7 +170,7 @@ const BodyLanguageAnalyzer = ({ onAnalysisUpdate, enabled = true }) => {
       if (absentDuration > ABSENCE_TIMEOUT_MS) {
         presence = 0
       } else {
-        presence = Math.round(presence * Math.max(0, 1 - absentDuration / ABSENCE_TIMEOUT_MS))
+        presence = Math.round(Math.max(0, 100 - absentDuration / ABSENCE_TIMEOUT_MS * 100))
       }
     } else {
       absenceStartRef.current = null
@@ -267,6 +263,13 @@ const BodyLanguageAnalyzer = ({ onAnalysisUpdate, enabled = true }) => {
     const confidenceScore = Math.round(
       postureScore + smoothedEngagement * 0.3 + eyeContact * 0.2 + (100 - fidgeting) * 0.1
     )
+
+    // Recalculate presence as a composite score (only if pose detected)
+    if (poseDetected) {
+      presence = Math.round(Math.min(100, Math.max(0,
+        postureScore * 0.3 + smoothedEngagement * 0.3 + eyeContact * 0.2 + (100 - fidgeting) * 0.2
+      )))
+    }
 
     const alerts = []
     if (posture === 'slouching') alerts.push({ type: 'warning', message: 'Slouching detected - sit up straight' })
