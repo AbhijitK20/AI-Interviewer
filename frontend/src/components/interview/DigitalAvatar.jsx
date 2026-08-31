@@ -1,126 +1,160 @@
-import { useState, useRef, useEffect, useCallback } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { OrbitControls, useGLTF, Html } from '@react-three/drei'
-import { User, Volume2, VolumeX, Loader2 } from 'lucide-react'
+import { OrbitControls } from '@react-three/drei'
+import { User, Volume2, VolumeX } from 'lucide-react'
 import * as THREE from 'three'
 
-// Simple animated avatar head component
 const AvatarHead = ({ isSpeaking, emotion = 'neutral' }) => {
   const headRef = useRef()
   const mouthRef = useRef()
   const leftEyeRef = useRef()
   const rightEyeRef = useRef()
+  const leftBrowRef = useRef()
+  const rightBrowRef = useRef()
+  const blinkTimer = useRef(0)
+
+  const getEmotionColor = () => {
+    switch (emotion) {
+      case 'happy': return '#f59e0b'
+      case 'serious': return '#6b7280'
+      case 'encouraging': return '#10b981'
+      default: return '#94a3b8'
+    }
+  }
 
   useFrame((state) => {
     if (!headRef.current) return
 
     // Subtle head movement
-    headRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.5) * 0.1
-    headRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.3) * 0.05
+    headRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.3) * 0.08
+    headRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.2) * 0.04
 
     // Mouth animation when speaking
     if (mouthRef.current) {
       if (isSpeaking) {
-        const mouthOpen = Math.abs(Math.sin(state.clock.elapsedTime * 8)) * 0.3
-        mouthRef.current.scale.y = 0.5 + mouthOpen
+        const mouthOpen = Math.abs(Math.sin(state.clock.elapsedTime * 10)) * 0.15
+        mouthRef.current.scale.y = 0.3 + mouthOpen
+        mouthRef.current.scale.x = 1 + mouthOpen * 0.5
       } else {
-        mouthRef.current.scale.y = 0.5
+        mouthRef.current.scale.y = THREE.MathUtils.lerp(mouthRef.current.scale.y, 0.3, 0.1)
+        mouthRef.current.scale.x = THREE.MathUtils.lerp(mouthRef.current.scale.x, 1, 0.1)
       }
     }
 
-    // Blinking
-    if (leftEyeRef.current && rightEyeRef.current) {
-      const blink = Math.sin(state.clock.elapsedTime * 0.5) > 0.98 ? 0.1 : 1
-      leftEyeRef.current.scale.y = blink
-      rightEyeRef.current.scale.y = blink
+    // Natural blinking
+    blinkTimer.current += state.clock.getDelta()
+    if (blinkTimer.current > 3 + Math.random() * 2) {
+      blinkTimer.current = 0
     }
-  })
+    const blinkProgress = blinkTimer.current < 0.15 ? 1 : 0
+    if (leftEyeRef.current) leftEyeRef.current.scale.y = 0.1 + blinkProgress * 0.9
+    if (rightEyeRef.current) rightEyeRef.current.scale.y = 0.1 + blinkProgress * 0.9
 
-  const getEmotionColor = () => {
-    switch (emotion) {
-      case 'happy': return '#fbbf24'
-      case 'serious': return '#6b7280'
-      case 'encouraging': return '#34d399'
-      default: return '#94a3b8'
-    }
-  }
+    // Subtle eyebrow movement
+    if (leftBrowRef.current) leftBrowRef.current.position.y = 0.38 + Math.sin(state.clock.elapsedTime * 0.5) * 0.005
+    if (rightBrowRef.current) rightBrowRef.current.position.y = 0.38 + Math.sin(state.clock.elapsedTime * 0.5) * 0.005
+  })
 
   return (
     <group ref={headRef}>
-      {/* Head */}
+      {/* Head - Main sphere with skin material */}
       <mesh position={[0, 0, 0]}>
-        <sphereGeometry args={[1, 32, 32]} />
-        <meshStandardMaterial color="#f5d0b0" roughness={0.8} />
+        <sphereGeometry args={[0.85, 64, 64]} />
+        <meshPhysicalMaterial
+          color="#e8c4a0"
+          roughness={0.7}
+          metalness={0.05}
+          clearcoat={0.1}
+          clearcoatRoughness={0.4}
+        />
       </mesh>
 
       {/* Hair */}
-      <mesh position={[0, 0.4, -0.1]}>
-        <sphereGeometry args={[1.05, 32, 32, 0, Math.PI * 2, 0, Math.PI / 2]} />
-        <meshStandardMaterial color="#4a3728" roughness={0.9} />
+      <mesh position={[0, 0.35, -0.1]}>
+        <sphereGeometry args={[0.88, 32, 32, 0, Math.PI * 2, 0, Math.PI * 0.55]} />
+        <meshPhysicalMaterial color="#2c1810" roughness={0.9} metalness={0} />
       </mesh>
 
       {/* Left Eye */}
-      <mesh ref={leftEyeRef} position={[-0.3, 0.15, 0.85]}>
-        <sphereGeometry args={[0.12, 16, 16]} />
-        <meshStandardMaterial color="#ffffff" />
-      </mesh>
-      <mesh position={[-0.3, 0.15, 0.95]}>
-        <sphereGeometry args={[0.06, 16, 16]} />
-        <meshStandardMaterial color="#2d3748" />
-      </mesh>
+      <group position={[-0.28, 0.12, 0.75]}>
+        <mesh ref={leftEyeRef}>
+          <sphereGeometry args={[0.09, 16, 16]} />
+          <meshStandardMaterial color="#ffffff" />
+        </mesh>
+        <mesh position={[0, 0, 0.04]}>
+          <sphereGeometry args={[0.045, 16, 16]} />
+          <meshStandardMaterial color="#1e3a5f" />
+        </mesh>
+        <mesh position={[0, 0, 0.06]}>
+          <sphereGeometry args={[0.02, 8, 8]} />
+          <meshStandardMaterial color="#000000" />
+        </mesh>
+      </group>
 
       {/* Right Eye */}
-      <mesh ref={rightEyeRef} position={[0.3, 0.15, 0.85]}>
-        <sphereGeometry args={[0.12, 16, 16]} />
-        <meshStandardMaterial color="#ffffff" />
-      </mesh>
-      <mesh position={[0.3, 0.15, 0.95]}>
-        <sphereGeometry args={[0.06, 16, 16]} />
-        <meshStandardMaterial color="#2d3748" />
-      </mesh>
+      <group position={[0.28, 0.12, 0.75]}>
+        <mesh ref={rightEyeRef}>
+          <sphereGeometry args={[0.09, 16, 16]} />
+          <meshStandardMaterial color="#ffffff" />
+        </mesh>
+        <mesh position={[0, 0, 0.04]}>
+          <sphereGeometry args={[0.045, 16, 16]} />
+          <meshStandardMaterial color="#1e3a5f" />
+        </mesh>
+        <mesh position={[0, 0, 0.06]}>
+          <sphereGeometry args={[0.02, 8, 8]} />
+          <meshStandardMaterial color="#000000" />
+        </mesh>
+      </group>
 
       {/* Eyebrows */}
-      <mesh position={[-0.3, 0.35, 0.9]} rotation={[0, 0, 0.1]}>
-        <boxGeometry args={[0.25, 0.05, 0.05]} />
-        <meshStandardMaterial color="#4a3728" />
+      <mesh ref={leftBrowRef} position={[-0.28, 0.38, 0.78]} rotation={[0, 0, 0.1]}>
+        <boxGeometry args={[0.18, 0.025, 0.02]} />
+        <meshStandardMaterial color="#2c1810" />
       </mesh>
-      <mesh position={[0.3, 0.35, 0.9]} rotation={[0, 0, -0.1]}>
-        <boxGeometry args={[0.25, 0.05, 0.05]} />
-        <meshStandardMaterial color="#4a3728" />
+      <mesh ref={rightBrowRef} position={[0.28, 0.38, 0.78]} rotation={[0, 0, -0.1]}>
+        <boxGeometry args={[0.18, 0.025, 0.02]} />
+        <meshStandardMaterial color="#2c1810" />
       </mesh>
 
       {/* Nose */}
-      <mesh position={[0, 0, 1]}>
-        <coneGeometry args={[0.08, 0.2, 8]} />
-        <meshStandardMaterial color="#e8c39e" />
+      <mesh position={[0, 0, 0.85]}>
+        <coneGeometry args={[0.06, 0.15, 8]} />
+        <meshPhysicalMaterial color="#d4a574" roughness={0.8} />
       </mesh>
 
       {/* Mouth */}
-      <mesh ref={mouthRef} position={[0, -0.35, 0.9]}>
-        <boxGeometry args={[0.4, 0.1, 0.1]} />
-        <meshStandardMaterial color="#c0392b" />
+      <mesh ref={mouthRef} position={[0, -0.28, 0.8]}>
+        <boxGeometry args={[0.25, 0.06, 0.05]} />
+        <meshStandardMaterial color="#c0392b" roughness={0.6} />
       </mesh>
 
       {/* Ears */}
-      <mesh position={[-1, 0, 0]}>
-        <sphereGeometry args={[0.15, 16, 16]} />
-        <meshStandardMaterial color="#f5d0b0" />
+      <mesh position={[-0.82, 0.05, 0]}>
+        <sphereGeometry args={[0.1, 16, 16]} />
+        <meshPhysicalMaterial color="#e8c4a0" roughness={0.7} />
       </mesh>
-      <mesh position={[1, 0, 0]}>
-        <sphereGeometry args={[0.15, 16, 16]} />
-        <meshStandardMaterial color="#f5d0b0" />
+      <mesh position={[0.82, 0.05, 0]}>
+        <sphereGeometry args={[0.1, 16, 16]} />
+        <meshPhysicalMaterial color="#e8c4a0" roughness={0.7} />
       </mesh>
 
       {/* Neck */}
-      <mesh position={[0, -1.2, 0]}>
-        <cylinderGeometry args={[0.3, 0.4, 0.5, 16]} />
-        <meshStandardMaterial color="#f5d0b0" />
+      <mesh position={[0, -0.9, 0]}>
+        <cylinderGeometry args={[0.2, 0.25, 0.35, 16]} />
+        <meshPhysicalMaterial color="#e8c4a0" roughness={0.7} />
       </mesh>
 
       {/* Shoulders */}
-      <mesh position={[0, -1.6, 0]}>
-        <boxGeometry args={[1.8, 0.4, 0.6]} />
-        <meshStandardMaterial color="#3b82f6" />
+      <mesh position={[0, -1.2, 0]}>
+        <boxGeometry args={[1.4, 0.25, 0.4]} />
+        <meshStandardMaterial color="#1e3a5f" roughness={0.8} />
+      </mesh>
+
+      {/* Collar */}
+      <mesh position={[0, -1.05, 0.15]}>
+        <boxGeometry args={[0.3, 0.08, 0.1]} />
+        <meshStandardMaterial color="#ffffff" roughness={0.5} />
       </mesh>
     </group>
   )
@@ -128,47 +162,36 @@ const AvatarHead = ({ isSpeaking, emotion = 'neutral' }) => {
 
 const DigitalAvatar = ({ isSpeaking, emotion, name = 'AI Interviewer', message }) => {
   const [isMuted, setIsMuted] = useState(false)
-  const [isLoading, setIsLoading] = useState(true)
-
-  useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 1000)
-    return () => clearTimeout(timer)
-  }, [])
 
   return (
-    <div className="relative bg-gradient-to-b from-gray-800 to-gray-900 rounded-lg overflow-hidden">
+    <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 shadow-card">
       {/* Avatar Canvas */}
-      <div className="h-64">
-        {isLoading ? (
-          <div className="h-full flex items-center justify-center">
-            <Loader2 className="w-8 h-8 text-primary-500 animate-spin" />
-          </div>
-        ) : (
-          <Canvas camera={{ position: [0, 0, 4], fov: 45 }}>
-            <ambientLight intensity={0.6} />
-            <directionalLight position={[5, 5, 5]} intensity={0.8} />
-            <pointLight position={[-5, 5, 5]} intensity={0.4} color="#3b82f6" />
-            <AvatarHead isSpeaking={isSpeaking} emotion={emotion} />
-            <OrbitControls
-              enableZoom={false}
-              enablePan={false}
-              minPolarAngle={Math.PI / 3}
-              maxPolarAngle={Math.PI / 1.5}
-            />
-          </Canvas>
-        )}
+      <div className="h-72">
+        <Canvas camera={{ position: [0, 0, 3.5], fov: 40 }}>
+          <ambientLight intensity={0.4} />
+          <directionalLight position={[3, 3, 5]} intensity={0.8} color="#ffffff" />
+          <directionalLight position={[-3, 2, 3]} intensity={0.4} color="#e0e7ff" />
+          <pointLight position={[0, -1, 3]} intensity={0.3} color="#f59e0b" />
+          <AvatarHead isSpeaking={isSpeaking} emotion={emotion} />
+          <OrbitControls
+            enableZoom={false}
+            enablePan={false}
+            minPolarAngle={Math.PI / 3}
+            maxPolarAngle={Math.PI / 1.8}
+          />
+        </Canvas>
       </div>
 
       {/* Avatar Info Overlay */}
-      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 rounded-full bg-primary-600 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-full bg-gradient-brand flex items-center justify-center shadow-lg">
               <User className="w-5 h-5 text-white" />
             </div>
             <div>
-              <p className="text-white font-medium">{name}</p>
-              <p className="text-gray-400 text-xs">
+              <p className="text-white font-semibold text-sm">{name}</p>
+              <p className="text-white/60 text-xs">
                 {isSpeaking ? 'Speaking...' : 'Listening...'}
               </p>
             </div>
@@ -179,9 +202,9 @@ const DigitalAvatar = ({ isSpeaking, emotion, name = 'AI Interviewer', message }
             className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
           >
             {isMuted ? (
-              <VolumeX className="w-5 h-5 text-white" />
+              <VolumeX className="w-4 h-4 text-white" />
             ) : (
-              <Volume2 className="w-5 h-5 text-white" />
+              <Volume2 className="w-4 h-4 text-white" />
             )}
           </button>
         </div>
@@ -192,9 +215,9 @@ const DigitalAvatar = ({ isSpeaking, emotion, name = 'AI Interviewer', message }
             {[...Array(5)].map((_, i) => (
               <div
                 key={i}
-                className="w-1 bg-primary-500 rounded-full animate-pulse"
+                className="w-1 bg-primary-400 rounded-full animate-pulse"
                 style={{
-                  height: `${8 + Math.random() * 16}px`,
+                  height: `${6 + Math.random() * 14}px`,
                   animationDelay: `${i * 0.1}s`,
                 }}
               />
@@ -206,8 +229,8 @@ const DigitalAvatar = ({ isSpeaking, emotion, name = 'AI Interviewer', message }
       {/* Message Bubble */}
       {message && (
         <div className="absolute top-4 left-4 right-4">
-          <div className="bg-white/95 rounded-lg p-3 shadow-lg max-w-sm">
-            <p className="text-sm text-gray-800">{message}</p>
+          <div className="bg-white/95 backdrop-blur-sm rounded-xl p-3 shadow-lg border border-ink-100 max-w-sm">
+            <p className="text-sm text-ink-800 leading-relaxed">{message}</p>
           </div>
         </div>
       )}
