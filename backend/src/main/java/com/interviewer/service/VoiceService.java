@@ -75,11 +75,12 @@ public class VoiceService {
 
     public List<Map<String, String>> getAvailableVoices() {
         return Arrays.asList(
-            Map.of("id", "en-US-AriaNeural", "name", "Aria (Female)", "language", "en-US"),
+            Map.of("id", "en-US-AndrewNeural", "name", "Andrew (Natural Male)", "language", "en-US"),
             Map.of("id", "en-US-GuyNeural", "name", "Guy (Male)", "language", "en-US"),
             Map.of("id", "en-US-JennyNeural", "name", "Jenny (Female)", "language", "en-US"),
-            Map.of("id", "en-GB-SoniaNeural", "name", "Sonia (Female, UK)", "language", "en-GB"),
-            Map.of("id", "en-IN-NeerjaNeural", "name", "Neerja (Female, India)", "language", "en-IN")
+            Map.of("id", "en-US-AriaNeural", "name", "Aria (Female)", "language", "en-US"),
+            Map.of("id", "en-GB-SoniaNeural", "name", "Sonia (British Female)", "language", "en-GB"),
+            Map.of("id", "en-IN-NeerjaNeural", "name", "Neerja (Indian Female)", "language", "en-IN")
         );
     }
 }

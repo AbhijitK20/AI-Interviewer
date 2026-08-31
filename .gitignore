@@ -43,6 +43,9 @@ uploads/
 debug-tts.js
 debug-tts.cjs
 
+# Migration guides (local only)
+CODERABBIT_BACKUP.md
+
 # PID files
 *.pid
 

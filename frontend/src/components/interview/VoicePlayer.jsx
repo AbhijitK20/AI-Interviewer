@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { Volume2, VolumeX, Play, Pause } from 'lucide-react'
 
-const VoicePlayer = ({ text, voice = 'en-US-AriaNeural', rate = 1.0, autoPlay = false, onSpeakingChange }) => {
+const VoicePlayer = ({ text, voice = 'en-US-AndrewNeural', rate = 0.9, autoPlay = false, onSpeakingChange }) => {
   const [isPlaying, setIsPlaying] = useState(false)
   const [isMuted, setIsMuted] = useState(false)
   const [progress, setProgress] = useState(0)

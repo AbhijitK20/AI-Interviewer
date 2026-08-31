@@ -22,15 +22,18 @@ class VoiceService:
 
         return self._mock_transcribe()
 
-    async def synthesize(self, text: str, voice: str = "en-US-AriaNeural", rate: float = 1.0) -> bytes:
-        if self.tts_provider == "mock":
-            return self._mock_synthesize()
+    async def synthesize(self, text: str, voice: str = "en-US-GuyNeural", rate: float = 0.9) -> bytes:
+        # Try ElevenLabs first (best quality)
+        if self.tts_provider == "elevenlabs" and self.elevenlabs_api_key:
+            result = await self._synthesize_elevenlabs(text, voice)
+            if result and len(result) > 100:
+                return result
 
-        if self.tts_provider == "edge":
-            return await self._synthesize_edge(text, voice, rate)
-
-        if self.tts_provider == "elevenlabs":
-            return await self._synthesize_elevenlabs(text, voice)
+        # Fall back to edge-tts (free, good quality)
+        if self.tts_provider in ("edge", "elevenlabs", "mock"):
+            result = await self._synthesize_edge(text, voice, rate)
+            if result and len(result) > 100:
+                return result
 
         return self._mock_synthesize()
 
@@ -96,11 +99,31 @@ class VoiceService:
 
     async def _synthesize_edge(self, text: str, voice: str, rate: float) -> bytes:
         try:
-            # Use edge-tts library
             import edge_tts
             import io
 
-            communicate = edge_tts.Communicate(text, voice, rate=f"+{int((rate-1)*100)}%")
+            # Use more natural voice settings
+            # en-US-GuyNeural and en-US-AndrewNeural sound more human
+            natural_voices = {
+                "en-US-AriaNeural": "en-US-AndrewNeural",  # More natural male
+                "en-US-GuyNeural": "en-US-AndrewNeural",   # Natural male
+                "en-US-JennyNeural": "en-US-JennyNeural",  # Good female
+                "en-GB-SoniaNeural": "en-GB-SoniaNeural",  # British female
+                "en-IN-NeerjaNeural": "en-IN-NeerjaNeural", # Indian female
+            }
+            natural_voice = natural_voices.get(voice, "en-US-AndrewNeural")
+
+            # Slightly slower rate for more natural speech
+            adjusted_rate = max(0.85, min(rate, 1.1))
+            rate_pct = int((adjusted_rate - 1) * 100)
+            rate_str = f"+{rate_pct}%" if rate_pct >= 0 else f"{rate_pct}%"
+
+            communicate = edge_tts.Communicate(
+                text,
+                natural_voice,
+                rate=rate_str,
+                pitch="+0Hz"
+            )
 
             audio_buffer = io.BytesIO()
             async for chunk in communicate.stream():
@@ -152,9 +175,10 @@ class VoiceService:
 
     def get_available_voices(self) -> List[Dict[str, str]]:
         return [
-            {"id": "en-US-AriaNeural", "name": "Aria (Female)", "language": "en-US"},
+            {"id": "en-US-AndrewNeural", "name": "Andrew (Natural Male)", "language": "en-US"},
             {"id": "en-US-GuyNeural", "name": "Guy (Male)", "language": "en-US"},
             {"id": "en-US-JennyNeural", "name": "Jenny (Female)", "language": "en-US"},
-            {"id": "en-GB-SoniaNeural", "name": "Sonia (Female, UK)", "language": "en-GB"},
-            {"id": "en-IN-NeerjaNeural", "name": "Neerja (Female, India)", "language": "en-IN"},
+            {"id": "en-US-AriaNeural", "name": "Aria (Female)", "language": "en-US"},
+            {"id": "en-GB-SoniaNeural", "name": "Sonia (British Female)", "language": "en-GB"},
+            {"id": "en-IN-NeerjaNeural", "name": "Neerja (Indian Female)", "language": "en-IN"},
         ]
