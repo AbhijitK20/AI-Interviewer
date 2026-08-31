@@ -37,7 +37,7 @@ const cleanString = (str) => {
   let prev = ''
   while (s !== prev) {
     prev = s
-    s = s.replace(/^[\[\]"'\\]+/, '').replace(/[\[\]"'\\]+$/, '').trim()
+    s = s.replace(/^[[\]"'\\]+/, '').replace(/[[\]"'\\]+$/, '').trim()
   }
   s = s.replace(/\\"/g, '"').replace(/\\\\/g, '\\')
   return s
@@ -93,7 +93,9 @@ const safeParseArray = (data) => {
             parsed.forEach(processItem)
             return
           }
-        } catch {}
+        } catch {
+          // ignore parsing error
+        }
       }
       const cleaned = cleanString(trimmed)
       if (cleaned && cleaned !== '[]' && cleaned !== '""') {
@@ -113,7 +115,7 @@ const cleanRecommendations = (text) => {
   let cleaned = text
     .replace(/\[\s*\]/g, '')
     .replace(/\\"/g, '')
-    .replace(/[\[\]"]/g, '')
+    .replace(/[[\]"]/g, '')
     .replace(/,\s*,+/g, ',')
     .replace(/,\s*$/, '')
     .replace(/:\s*,+/g, ': ')

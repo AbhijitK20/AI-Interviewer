@@ -170,7 +170,7 @@ const cleanString = (str) => {
   let prev = ''
   while (s !== prev) {
     prev = s
-    s = s.replace(/^[\[\]"'\\]+/, '').replace(/[\[\]"'\\]+$/, '').trim()
+    s = s.replace(/^[[\]"'\\]+/, '').replace(/[[\]"'\\]+$/, '').trim()
   }
   s = s.replace(/\\"/g, '"').replace(/\\\\/g, '\\')
   return s
@@ -225,7 +225,9 @@ const safeParseArr = (data) => {
             parsed.forEach(processItem)
             return
           }
-        } catch {}
+        } catch {
+          // ignore parsing error
+        }
       }
       const cleaned = cleanString(trimmed)
       if (cleaned && cleaned !== '[]' && cleaned !== '""') {
@@ -245,7 +247,7 @@ const cleanRecommendations = (text) => {
   let cleaned = text
     .replace(/\[\s*\]/g, '')
     .replace(/\\"/g, '')
-    .replace(/[\[\]"]/g, '')
+    .replace(/[[\]"]/g, '')
     .replace(/,\s*,+/g, ',')
     .replace(/,\s*$/, '')
     .replace(/:\s*,+/g, ': ')
@@ -272,7 +274,7 @@ const safeParseObjList = (data) => {
 }
 
 const InterviewReportPDF = ({ report, interview, candidate }) => {
-  const radarData = safeParseObjList(report?.skillRadarData)
+  const _radarData = safeParseObjList(report?.skillRadarData)
   const categoryScores = safeParseObjList(report?.categoryScores)
   const strengths = safeParseArr(report?.strengths)
   const weaknesses = safeParseArr(report?.weaknesses)

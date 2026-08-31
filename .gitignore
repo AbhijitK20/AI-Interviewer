@@ -11,6 +11,8 @@ dist/
 build/
 *.class
 *.jar
+.vite/
+frontend/.vite/
 
 # Environment
 .env
