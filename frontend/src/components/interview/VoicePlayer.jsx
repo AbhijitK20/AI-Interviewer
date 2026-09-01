@@ -6,6 +6,7 @@ const VoicePlayer = ({ text, voice = 'en-US-AndrewNeural', rate = 0.9, autoPlay 
   const [isLoading, setIsLoading] = useState(false)
   const [isMuted, setIsMuted] = useState(false)
   const [progress, setProgress] = useState(0)
+  const [audioSource, setAudioSource] = useState('')
 
   const audioCtxRef = useRef(null)
   const sourceRef = useRef(null)
@@ -38,6 +39,7 @@ const VoicePlayer = ({ text, voice = 'en-US-AndrewNeural', rate = 0.9, autoPlay 
     setIsPlaying(false)
     setIsLoading(false)
     setProgress(0)
+    setAudioSource('')
     onSpeakingChange?.(false)
   }, [onSpeakingChange])
 
@@ -120,6 +122,8 @@ const VoicePlayer = ({ text, voice = 'en-US-AndrewNeural', rate = 0.9, autoPlay 
     try {
       const token = localStorage.getItem('token')
       const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080'
+      console.log('[VoicePlayer] Trying server TTS:', apiUrl)
+      console.log('[VoicePlayer] Token exists:', !!token)
       if (token && text) {
         const response = await fetch(`${apiUrl}/api/voice/synthesize`, {
           method: 'POST',
@@ -130,8 +134,11 @@ const VoicePlayer = ({ text, voice = 'en-US-AndrewNeural', rate = 0.9, autoPlay 
           body: JSON.stringify({ text, voice, rate }),
         })
 
+        console.log('[VoicePlayer] Server response:', response.status, response.headers.get('content-type'))
+
         if (response.ok) {
           const audioBlob = await response.blob()
+          console.log('[VoicePlayer] Audio blob size:', audioBlob.size)
           if (audioBlob.size > 100) {
             const AudioContextClass = window.AudioContext || window.webkitAudioContext
             const audioCtx = new AudioContextClass()
@@ -139,17 +146,20 @@ const VoicePlayer = ({ text, voice = 'en-US-AndrewNeural', rate = 0.9, autoPlay 
 
             const arrayBuffer = await audioBlob.arrayBuffer()
             const audioBuffer = await audioCtx.decodeAudioData(arrayBuffer)
+            console.log('[VoicePlayer] Playing SERVER audio, duration:', audioBuffer.duration, 'sec')
 
+            setAudioSource('server')
             playFromBuffer(audioCtx, audioBuffer, 0)
             return
           }
         }
       }
     } catch (err) {
-      console.warn('Server TTS failed, falling back to browser speech:', err.message)
+      console.warn('[VoicePlayer] Server TTS failed, falling back to browser speech:', err.message)
     }
 
-    // Fallback to browser speech
+    console.log('[VoicePlayer] Using BROWSER speechSynthesis fallback')
+    setAudioSource('browser')
     speakWithBrowser()
   }, [text, voice, rate, stopAll, playFromBuffer, speakWithBrowser])
 
@@ -222,7 +232,7 @@ const VoicePlayer = ({ text, voice = 'en-US-AndrewNeural', rate = 0.9, autoPlay 
         )}
       </div>
       <p className="text-xs text-ink-400">
-        {isLoading ? 'Loading voice...' : isPlaying ? 'AI Interviewer is speaking...' : 'Click play to hear the question'}
+        {isLoading ? 'Loading voice...' : isPlaying ? `AI Interviewer is speaking... (${audioSource})` : 'Click play to hear the question'}
       </p>
     </div>
   )
