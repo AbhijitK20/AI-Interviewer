@@ -54,7 +54,7 @@ Evaluation criteria:
 
 Be specific about WHAT is missing, not just that it's missing."""
 
-            llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", google_api_key=self.api_key, temperature=0.3)
+            llm = ChatGoogleGenerativeAI(model="gemini-3.5-flash-lite", google_api_key=self.api_key, temperature=0.3)
             response = await llm.ainvoke([HumanMessage(content=prompt)])
             
             import json

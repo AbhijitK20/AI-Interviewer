@@ -31,7 +31,7 @@ services:
       - key: LLM_PROVIDER
         value: gemini
       - key: LLM_MODEL
-        value: gemini-2.5-flash
+        value: gemini-3.5-flash-lite
       - key: TTS_PROVIDER
         value: edge
       - key: STT_PROVIDER
