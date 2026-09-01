@@ -110,6 +110,8 @@ class VoiceService:
         try:
             from google import genai
             from google.genai import types
+            import struct
+            import io
 
             client = genai.Client(api_key=self.gemini_api_key)
 
@@ -134,14 +136,44 @@ class VoiceService:
                 parts = response.candidates[0].content.parts
                 for part in parts:
                     if hasattr(part, 'inline_data') and part.inline_data:
-                        return part.inline_data.data
+                        raw_pcm = part.inline_data.data
+                        mime = getattr(part.inline_data, 'mime_type', '')
+                        # Convert raw PCM to WAV for browser playback
+                        return self._pcm_to_wav(raw_pcm, sample_rate=24000, channels=1, sample_width=2)
                     if hasattr(part, 'audio') and part.audio:
-                        return part.audio
+                        raw_pcm = part.audio
+                        return self._pcm_to_wav(raw_pcm, sample_rate=24000, channels=1, sample_width=2)
 
         except Exception as e:
             print(f"Gemini TTS error: {e}")
 
         return self._mock_synthesize()
+
+    def _pcm_to_wav(self, pcm_data: bytes, sample_rate: int = 24000, channels: int = 1, sample_width: int = 2) -> bytes:
+        """Convert raw PCM audio to WAV format for browser playback."""
+        import struct
+        import io
+
+        data_size = len(pcm_data)
+        output = io.BytesIO()
+
+        # WAV header
+        output.write(b'RIFF')
+        output.write(struct.pack('<I', 36 + data_size))  # file size - 8
+        output.write(b'WAVE')
+        output.write(b'fmt ')
+        output.write(struct.pack('<I', 16))  # chunk size
+        output.write(struct.pack('<H', 1))  # PCM format
+        output.write(struct.pack('<H', channels))
+        output.write(struct.pack('<I', sample_rate))
+        output.write(struct.pack('<I', sample_rate * channels * sample_width))  # byte rate
+        output.write(struct.pack('<H', channels * sample_width))  # block align
+        output.write(struct.pack('<H', sample_width * 8))  # bits per sample
+        output.write(b'data')
+        output.write(struct.pack('<I', data_size))
+        output.write(pcm_data)
+
+        return output.getvalue()
 
     async def _synthesize_edge(self, text: str, voice: str, rate: float) -> bytes:
         try:
