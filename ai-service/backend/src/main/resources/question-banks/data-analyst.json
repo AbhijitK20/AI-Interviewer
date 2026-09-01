@@ -1,0 +1,1202 @@
+[
+  {
+    "text": "What is the primary difference between an INNER JOIN and a LEFT JOIN in SQL?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "An INNER JOIN returns only the rows where there is a match in both tables. A LEFT JOIN returns all rows from the left table, and the matched rows from the right table, filling with NULLs where there is no match."
+  },
+  {
+    "text": "How do you handle missing values in a dataset using Pandas in Python?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "You can identify missing values using df.isnull().sum() and handle them either by dropping them with df.dropna() or by imputing them with specific values or the mean/median using df.fillna()."
+  },
+  {
+    "text": "Tell me about a time you had to explain a complex data concept to a non-technical stakeholder. How did you ensure they understood?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Describe a specific situation using the STAR method, emphasizing how you avoided jargon, used visual aids or relatable analogies, and checked for understanding."
+  },
+  {
+    "text": "Imagine a stakeholder asks you to add 15 different KPIs to a single executive dashboard. How would you respond?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Explain that too many KPIs create clutter and dilute focus. Offer to help them prioritize the top 3-5 metrics that directly tie to their core business objectives."
+  },
+  {
+    "text": "Write a SQL query to find the second highest salary from an Employee table.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Use a subquery with MAX or the LIMIT/OFFSET clause depending on the SQL dialect, such as SELECT MAX(salary) FROM Employee WHERE salary < (SELECT MAX(salary) FROM Employee)."
+  },
+  {
+    "text": "What is the difference between data normalization and data denormalization?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Normalization organizes data into multiple related tables to reduce redundancy and improve data integrity. Denormalization combines tables to improve read performance at the cost of some redundancy."
+  },
+  {
+    "text": "How do you detect and treat outliers in a numerical dataset?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Outliers can be detected using visual tools like boxplots or statistical methods like the Interquartile Range (IQR) or Z-score. Depending on the context, they can be removed, capped, or imputed."
+  },
+  {
+    "text": "Describe a time when you found a significant error in your analysis after sharing it with leadership. What steps did you take?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Highlight accountability and speed. Explain how you immediately notified stakeholders, corrected the error, provided the updated analysis, and implemented a preventive check."
+  },
+  {
+    "text": "If daily active users suddenly drop by 20% overnight, what is your step-by-step troubleshooting process?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "First, verify data pipeline and tracking implementation errors. Next, segment the drop by platform, geography, and user cohort to isolate the root cause."
+  },
+  {
+    "text": "Given a Pandas DataFrame of sales data, write code to calculate the rolling 7-day average of revenue.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Sort the dataframe by date and use df['revenue'].rolling(window=7).mean() to compute the moving average."
+  },
+  {
+    "text": "Explain the concept of window functions in SQL and provide a common use case.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Window functions perform calculations across a set of table rows that are somehow related to the current row without collapsing the result set. A common use case is calculating running totals or ranking items using RANK()."
+  },
+  {
+    "text": "What are the core principles of effective data visualization design?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Key principles include choosing the right chart type for the data, minimizing clutter, using color purposefully to highlight key insights, and ensuring clear labeling."
+  },
+  {
+    "text": "Describe a project where you successfully improved a business process using data insights.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use the STAR method to detail the inefficiency, the exploratory analysis you performed, the actionable recommendation you made, and the resulting business impact."
+  },
+  {
+    "text": "You notice that two different marketing reports show conflicting numbers for total conversions. How do you resolve this discrepancy?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Investigate the underlying SQL definitions, attribution windows, and data filtering criteria used in both reports to identify the source of the mismatch and align on a single source of truth."
+  },
+  {
+    "text": "Write an Excel formula to perform a vertical lookup that can return values to the left of the lookup column.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use XLOOKUP(lookup_value, lookup_array, return_array) which safely replaces older combinations of INDEX and MATCH."
+  },
+  {
+    "text": "What is the difference between a HAVING clause and a WHERE clause in SQL?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A WHERE clause filters rows before any groupings and aggregations are applied. A HAVING clause filters the results after grouping and aggregations have taken place."
+  },
+  {
+    "text": "How do you handle categorical variables with high cardinality in a dataset?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "High cardinality variables can be handled by grouping infrequent categories into an 'Other' bucket, using target encoding, or applying dimensionality reduction techniques."
+  },
+  {
+    "text": "Tell me about a time when you had conflicting priorities from multiple stakeholders. How did you manage their expectations?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Explain how you evaluated urgency, business impact, and effort, communicated trade-offs clearly to stakeholders, and aligned everyone on a realistic delivery schedule."
+  },
+  {
+    "text": "A product manager wants to track user engagement. How would you define a comprehensive set of KPIs for a SaaS subscription product?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Define KPIs covering acquisition (sign-ups), activation (onboarding completion), retention (churn rate and DAU/MAU ratio), and monetization (MRR and ARPU)."
+  },
+  {
+    "text": "Write a Python function using Pandas to pivot a long-format sales table into a wide-format summary table by region and product category.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use df.pivot_table(index='region', columns='product_category', values='sales', aggfunc='sum') to reshape the data."
+  },
+  {
+    "text": "Explain how indexing works in relational databases and when it might negatively impact performance.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Indexes create a sorted data structure (like a B-tree) that speeds up data retrieval SELECT queries. However, they can degrade performance on INSERT, UPDATE, and DELETE operations because the index must also be updated."
+  },
+  {
+    "text": "What are the best practices for designing an interactive dashboard in Tableau?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Keep layouts clean and hierarchical, use global filters thoughtfully to avoid slow query performance, limit color usage to encode meaning, and design for the target screen size."
+  },
+  {
+    "text": "Describe a time when you received critical feedback on your work. How did you respond and adapt?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Show receptiveness to feedback, detail what you learned from the critique, and explain how you applied that lesson to improve your subsequent analytical output."
+  },
+  {
+    "text": "You are asked to forecast next quarter's revenue with limited historical data. What approach do you take?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Acknowledge the data limitation, use simple moving averages or exponential smoothing, incorporate qualitative market trends, and explicitly state confidence intervals and assumptions."
+  },
+  {
+    "text": "Write a SQL query using a Common Table Expression (CTE) to find customers who have placed orders above the average order value.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "WITH AvgOrder AS (SELECT AVG(amount) as avg_amt FROM orders) SELECT DISTINCT customer_id FROM orders, AvgOrder WHERE orders.amount > AvgOrder.avg_amt."
+  },
+  {
+    "text": "What is cohort analysis and how is it used in business trend analysis?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Cohort analysis groups users based on a shared characteristic or acquisition date over time. It helps track retention, behavioral changes, and lifetime value across different user generations."
+  },
+  {
+    "text": "How do you optimize a slow-running SQL query?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Analyze the execution plan, add appropriate indexes on columns used in JOINs and WHERE clauses, avoid SELECT *, eliminate unnecessary subqueries, and rewrite correlated subqueries as joins."
+  },
+  {
+    "text": "Tell me about a time you identified a business opportunity or risk that nobody else had noticed. What did you do?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Highlight proactive exploratory data analysis, the insight discovered, the business case built, and how you presented it to decision-makers to drive action."
+  },
+  {
+    "text": "Management wants to measure customer satisfaction, but direct survey response rates are very low. How do you proxy satisfaction using behavioral data?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use behavioral proxies such as feature adoption frequency, support ticket volume, session duration, and repeat purchase rate to construct a composite health score."
+  },
+  {
+    "text": "Write a Python script using Regex to extract email domains from a pandas Series of messy text strings.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Use df['text'].str.extract(r'@([\\w.-]+)') to pull out the domain portion after the @ symbol."
+  },
+  {
+    "text": "What is the difference between data leakage and overfitting in predictive modeling?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Data leakage occurs when information from outside the training dataset is inappropriately used to create a model, leading to overly optimistic performance. Overfitting happens when a model learns the training data too well, including noise, failing to generalize to new data."
+  },
+  {
+    "text": "How do Level of Detail (LOD) expressions work in Tableau, and when would you use them?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "LOD expressions (FIXED, INCLUDE, EXCLUDE) allow you to compute values at a granularity different from the visual level of detail in the view, enabling complex cohort or baseline comparisons."
+  },
+  {
+    "text": "Describe a time when you had to work with messy, incomplete, or poorly documented data. How did you ensure your analysis remained reliable?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Describe your data cleaning methodology, validation checks against known totals, communication of data caveats to stakeholders, and documentation of assumptions."
+  },
+  {
+    "text": "A key metric has been steadily declining for three weeks, but the department head blames seasonality without checking data. How do you address this diplomatically?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Acknowledge the hypothesis of seasonality, then present a year-over-year or normalized trend analysis that isolates seasonal effects from structural declines to foster an objective discussion."
+  },
+  {
+    "text": "Write a SQL query to identify duplicate rows in a table and return only the duplicate records.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use a CTE or subquery with ROW_NUMBER() partitioned by the identifying columns, then filter where the row number is greater than 1."
+  },
+  {
+    "text": "What are ACID properties in database management systems, and why do they matter for data analysis?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "ACID stands for Atomicity, Consistency, Isolation, and Durability. They ensure reliable transaction processing, which guarantees data integrity in source systems before analysts query the data warehouse."
+  },
+  {
+    "text": "Explain how Simpson's Paradox can distort business insights.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Simpson's Paradox occurs when a trend appears in different groups of data but disappears or reverses when these groups are combined. Analysts must segment data correctly to avoid making flawed strategic decisions based on aggregated views."
+  },
+  {
+    "text": "Tell me about a time you missed a deadline or failed an analytical project. What happened and what did you learn?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Demonstrate honesty, ownership, root-cause analysis of the failure (e.g., scope creep, bad data), and the concrete process changes implemented to prevent repetition."
+  },
+  {
+    "text": "You are given a dataset with severe class imbalance (e.g., 99% non-fraud, 1% fraud). Which metrics and evaluation methods should you avoid and which should you use?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Avoid using overall accuracy as it is misleading. Instead, use Precision, Recall, F1-Score, and Precision-Recall curves or ROC-AUC."
+  },
+  {
+    "text": "Write a Python script using Pandas and Scipy to calculate the Pearson correlation coefficient and p-value between two columns.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "from scipy.stats import pearsonr; corr, p_val = pearsonr(df['col1'], df['col2'])"
+  },
+  {
+    "text": "What is the difference between star schema and snowflake schema in data warehousing?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A star schema features a central fact table surrounded by denormalized dimension tables. A snowflake schema normalizes those dimension tables into multiple related sub-tables, reducing redundancy but increasing join complexity."
+  },
+  {
+    "text": "How do you design and evaluate an A/B test for a new website checkout flow?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Define the primary conversion metric, calculate required sample size based on statistical power and significance level, randomize user assignment, run the test for a full business cycle, and evaluate using hypothesis testing (e.g., t-test or z-test)."
+  },
+  {
+    "text": "Describe a time when you persuaded a senior leader to change direction based on your data insights.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Highlight strong business acumen, concise communication, anticipation of objections, and how the data story directly tied to the leader's strategic goals."
+  },
+  {
+    "text": "An executive wants to know the lifetime value (LTV) of customers acquired through a specific marketing channel. How do you calculate this?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Calculate Average Revenue Per User (ARPU) multiplied by the gross margin, divided by the churn rate for that specific cohort, and factor in the discount rate."
+  },
+  {
+    "text": "Write a SQL query to calculate the running total of sales partitioned by store and ordered by date.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "SELECT store_id, date, sales, SUM(sales) OVER (PARTITION BY store_id ORDER BY date) as running_total FROM store_sales;"
+  },
+  {
+    "text": "What is the role of ETL (Extract, Transform, Load) pipelines in modern data architectures?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "ETL pipelines move data from disparate source systems, clean and structure it during the transformation stage, and load it into a centralized data warehouse for reporting and analysis."
+  },
+  {
+    "text": "Explain the difference between parametric and non-parametric statistical tests, providing examples of each.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Parametric tests (e.g., Student's t-test, ANOVA) assume data follows a specific distribution, usually normal. Non-parametric tests (e.g., Mann-Whitney U, Wilcoxon) make no distributional assumptions and are used for skewed or ordinal data."
+  },
+  {
+    "text": "Tell me about a time you had to deal with ambiguous project requirements. How did you clarify scope and deliver value?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Describe how you asked targeted clarifying questions, drafted a project proposal outlining assumptions and deliverables, and secured stakeholder sign-off before diving into analysis."
+  },
+  {
+    "text": "You are asked to build a dashboard for a sales team that rarely logs into tools. How do you drive adoption and engagement?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Involve them in the design process, automate weekly summary emails with key metrics directly to their inbox, and provide a short, user-friendly training video."
+  },
+  {
+    "text": "Write a Python function using list comprehensions or pandas to clean a column of currency strings (e.g., '$1,200.50') into floats.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "df['clean_currency'] = df['currency_str'].str.replace('$', '').str.replace(',', '').astype(float)"
+  },
+  {
+    "text": "What is data governance, and why is it critical for enterprise analytics teams?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Data governance encompasses the people, processes, and policies ensuring data availability, usability, integrity, and security across an organization, preventing compliance risks and data silos."
+  },
+  {
+    "text": "How do you determine if a relationship between two categorical variables is statistically significant?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use a Chi-Square test of independence to compare observed frequencies against expected frequencies, evaluating the resulting p-value against the chosen significance level (alpha)."
+  },
+  {
+    "text": "Describe a situation where you automated a repetitive reporting task. What tools did you use and what was the time savings?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Detail the manual process, the automation script or tool built (e.g., Python, SQL stored procedure, Tableau data source), and quantify the weekly hours saved."
+  },
+  {
+    "text": "A business unit wants to track user churn, but 'churn' is defined differently by sales, product, and finance. How do you resolve this?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Facilitate a cross-functional alignment meeting, document each department's definition and rationale, propose a standardized enterprise definition, and create tiered reporting if necessary."
+  },
+  {
+    "text": "Write a SQL query using SELF JOIN to find all employees who earn more than their managers.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "SELECT e.name FROM employee e JOIN employee m ON e.manager_id = m.id WHERE e.salary > m.salary;"
+  },
+  {
+    "text": "What is the difference between population variance and sample variance, and why does the formula differ?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Population variance divides by N, while sample variance divides by N-1 (Bessel's correction). N-1 is used for samples to correct for bias and accurately estimate the population variance when degrees of freedom are lost."
+  },
+  {
+    "text": "How do you approach exploratory data analysis (EDA) on a completely new dataset?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Check dimensions, data types, and missing values; inspect summary statistics (mean, median, min, max); visualize distributions and correlations; and identify potential outliers or data anomalies."
+  },
+  {
+    "text": "Tell me about a time when you disagreed with a coworker's methodology or conclusions. How did you handle the situation?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Emphasize professional curiosity, focusing on data and reproducibility rather than ego, reviewing their code or assumptions together, and reaching a consensus based on evidence."
+  },
+  {
+    "text": "You are building a churn prediction model, but historical data shows a change in user behavior due to a recent pandemic. How do you handle this structural break?",
+    "type": "SITUATIONAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Filter out pre-break data if it no longer reflects reality, feature-engineer time-dependent indicators, or use regime-switching models that account for structural shifts in the underlying time series."
+  },
+  {
+    "text": "Write a Pandas snippet to group data by two columns and calculate multiple aggregate metrics (mean and sum) simultaneously.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "df.groupby(['col1', 'col2']).agg({'metric1': 'mean', 'metric2': 'sum'})"
+  },
+  {
+    "text": "What is the difference between covariance and correlation?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Covariance indicates the direction of the linear relationship between two variables, but its magnitude depends on the units of measurement. Correlation is a standardized version of covariance bounded between -1 and +1, making it unitless and comparable."
+  },
+  {
+    "text": "Explain how database partitioning works and when it is necessary.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Partitioning splits a large table into smaller, more manageable pieces based on a key (like date or region) while keeping them accessible as a single table, drastically improving query performance for large datasets."
+  },
+  {
+    "text": "Describe a project where you had to balance data accuracy speed and delivery deadlines.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Explain how you assessed the MVP requirements, prioritized core data integrity checks over nice-to-haves, and communicated known limitations to stakeholders while meeting the deadline."
+  },
+  {
+    "text": "An e-commerce client has high website traffic but low conversion rates. What metrics would you analyze to diagnose the bottleneck?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Analyze funnel drop-off rates across stages (product view -> cart addition -> checkout start -> payment), bounce rates by traffic source, site speed, and cart abandonment reasons."
+  },
+  {
+    "text": "Write a SQL query to return the top 3 highest-paid employees in each department using window functions.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "WITH Ranked AS (SELECT name, department, salary, DENSE_RANK() OVER (PARTITION BY department ORDER BY salary DESC) as rnk FROM employees) SELECT * FROM Ranked WHERE rnk <= 3;"
+  },
+  {
+    "text": "What is the difference between descriptive, diagnostic, predictive, and prescriptive analytics?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Descriptive tells what happened; diagnostic explains why it happened; predictive forecasts what is likely to happen; prescriptive recommends actions on what should be done."
+  },
+  {
+    "text": "How do you detect multicollinearity in a regression model, and why is it a problem?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Multicollinearity occurs when predictor variables are highly correlated. It can be detected using correlation matrices and Variance Inflation Factor (VIF). It destabilizes coefficient estimates and makes the model hard to interpret."
+  },
+  {
+    "text": "Tell me about a time you made a mistake in your data collection or analysis and how you fixed it.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Highlight ownership, prompt self-correction, transparency with stakeholders, and the creation of a checklist or unit test to prevent the same mistake from recurring."
+  },
+  {
+    "text": "You are asked to measure the ROI of a multi-million-dollar brand awareness campaign. How do you approach this?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Acknowledge the challenge of direct attribution. Propose brand lift studies, geo-lift experiments, share-of-voice tracking, and econometric marketing mix modeling (MMM)."
+  },
+  {
+    "text": "Write an Excel formula using INDEX and MATCH to lookup a value from a table.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "=INDEX(return_range, MATCH(lookup_value, lookup_range, 0))"
+  },
+  {
+    "text": "What is the difference between a database view and a materialized view?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "A standard view is a saved SQL query that runs dynamically every time it is queried. A materialized view stores the query result physically on disk and must be refreshed periodically, trading storage for faster query performance."
+  },
+  {
+    "text": "How do you test for normality in a distribution, and why does it matter?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Test normality using visual checks (Q-Q plots, histograms) or statistical tests (Shapiro-Wilk, Kolmogorov-Smirnov). It matters because many parametric statistical tests assume normally distributed residuals."
+  },
+  {
+    "text": "Describe a time when you had to mentor or support a junior analyst or peer. What approach did you take?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Detail how you assessed their skill gaps, provided constructive guidance, encouraged autonomous problem-solving, and fostered a supportive learning environment."
+  },
+  {
+    "text": "A stakeholder wants to run an A/B test but the traffic is too low to reach statistical significance within a reasonable timeframe. What alternatives do you suggest?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Suggest quasi-experimental designs, multi-armed bandit algorithms, sequential testing, or switching from conversion rate to a more frequent proxy metric to increase statistical power."
+  },
+  {
+    "text": "Write a Python script using Pandas to merge two dataframes on multiple keys and handle overlapping column names with suffixes.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "pd.merge(df1, df2, on=['key1', 'key2'], suffixes=('_left', '_right'))"
+  },
+  {
+    "text": "What is the difference between L1 (Lasso) and L2 (Ridge) regularization?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "L1 regularization adds the absolute value of coefficients as a penalty, which can drive some coefficients to zero for feature selection. L2 adds the squared magnitude of coefficients, shrinking them towards zero without eliminating them."
+  },
+  {
+    "text": "How do you ensure data quality and integrity in automated reporting pipelines?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Implement automated data validation tests (great_expectations, dbt tests) checking for null counts, uniqueness, schema changes, and unexpected value ranges before downstream dashboards update."
+  },
+  {
+    "text": "Tell me about a time you had to deal with uncooperative cross-functional team members who were reluctant to share data. How did you resolve it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Explain how you built trust, understood their concerns (e.g., workload, security), communicated mutual benefits, and established clear data-sharing protocols."
+  },
+  {
+    "text": "Your company is launching a product in a new international market. What leading indicators would you monitor in the first 30 days?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Monitor localized sign-up rates, early activation funnel completion, app download velocity, customer support ticket volume by language, and initial engagement frequency."
+  },
+  {
+    "text": "Write a SQL query to calculate the month-over-month percentage growth in revenue.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "WITH Monthly AS (SELECT DATE_TRUNC('month', date) as mth, SUM(rev) as total FROM sales GROUP BY 1) SELECT mth, total, LAG(total, 1) OVER (ORDER BY mth) as prev, (total - LAG(total, 1) OVER (ORDER BY mth)) * 100.0 / LAG(total, 1) OVER (ORDER BY mth) as mom_growth FROM Monthly;"
+  },
+  {
+    "text": "What is survival analysis, and when would a data analyst use it?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Survival analysis measures the time until a specific event of interest occurs (e.g., customer churn, equipment failure). Analysts use it to account for censored data where subjects leave the study before the event happens."
+  },
+  {
+    "text": "How do you handle cyclical or seasonal patterns when forecasting time-series data?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use decomposition methods (additive or multiplicative), seasonal ARIMA (SARIMA) models, or machine learning algorithms with time-based feature engineering (day of week, month, holiday flags)."
+  },
+  {
+    "text": "Describe a time when you had to manage multiple high-priority tasks under tight deadlines. How did you organize your work?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Highlight prioritization frameworks (Eisenhower matrix), time-blocking, transparent communication of timelines to stakeholders, and maintaining quality under pressure."
+  },
+  {
+    "text": "A dataset contains sensitive Personally Identifiable Information (PII). What steps must you take before analyzing or sharing it?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Anonymize or pseudonymize the data by hashing, masking, or removing direct identifiers (names, SSNs, emails) in compliance with regulations like GDPR and CCPA."
+  },
+  {
+    "text": "Write a Pandas snippet to filter a DataFrame for rows where a date column falls within the last 30 days.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "df[df['date'] >= (pd.Timestamp.now() - pd.Timedelta(days=30))]"
+  },
+  {
+    "text": "What is the difference between a Type I and a Type II error in hypothesis testing?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A Type I error (false positive) rejects a true null hypothesis. A Type II error (false negative) fails to reject a false null hypothesis."
+  },
+  {
+    "text": "How do you approach designing a brand new data warehouse from scratch?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Understand business requirements and key analytical use cases, choose a cloud data warehouse (Snowflake, BigQuery), design the dimensional model (star schema), establish ETL pipelines, and set up governance and access controls."
+  },
+  {
+    "text": "Tell me about a time when your analysis disproved a long-held belief or assumption held by company leadership. How did you present the findings?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Emphasize diplomacy, objective presentation of data, anticipation of pushback, and framing the insight as a new opportunity for optimization rather than proving anyone wrong."
+  },
+  {
+    "text": "An executive wants to predict next month's churn using raw transaction logs. Outline your analytical approach from start to finish.",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Define churn, aggregate transaction logs into user-level behavioral features (recency, frequency, monetary value), split data into train/test sets, train a classification model, evaluate metrics, and deploy insights."
+  },
+  {
+    "text": "Write a SQL query using a CASE statement to segment customers into spending tiers (High, Medium, Low).",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "SELECT customer_id, CASE WHEN total_spend > 1000 THEN 'High' WHEN total_spend BETWEEN 500 AND 1000 THEN 'Medium' ELSE 'Low' END as tier FROM customer_spend;"
+  },
+  {
+    "text": "What is the difference between supervised and unsupervised machine learning?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Supervised learning uses labeled data to train models to predict outcomes or classify inputs. Unsupervised learning uses unlabeled data to find hidden patterns, clusters, or structures within the dataset."
+  },
+  {
+    "text": "How do you evaluate the performance of a classification model beyond simple accuracy?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use a confusion matrix to examine True Positives, False Positives, True Negatives, and False Negatives, and derive Precision, Recall, F1-Score, and ROC-AUC curves."
+  },
+  {
+    "text": "Describe a situation where you had to learn a new tool or programming language very quickly to complete a project.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Detail your learning strategy (documentation, online tutorials, building small prototypes), how you applied it to the project, and successfully delivered on time."
+  },
+  {
+    "text": "A stakeholder asks you to 'find something interesting' in the company database. How do you narrow down this vague request?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Ask clarifying questions about current business pain points, strategic goals, or operational friction points to frame exploratory analysis around actionable business questions."
+  },
+  {
+    "text": "Write a Python script using Pandas to find the top 5 most frequent values in a categorical column.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "df['column_name'].value_counts().head(5)"
+  },
+  {
+    "text": "What is the difference between left-skewed and right-skewed distributions, and how do they affect the mean and median?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "In a right-skewed distribution, the tail is on the right, and mean > median. In a left-skewed distribution, the tail is on the left, and mean < median."
+  },
+  {
+    "text": "Explain how database transactions ensure data consistency.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Transactions group multiple SQL operations into a single unit of work. If all operations succeed, the transaction commits; if any operation fails, it rolls back entirely, preventing partial updates and corrupted data states."
+  },
+  {
+    "text": "Tell me about a time you identified a flaw in your own analytical methodology halfway through a project. What did you do?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Highlight scientific integrity, transparent communication with stakeholders about the adjustment, and the revised steps taken to ensure robust final results."
+  },
+  {
+    "text": "You are analyzing customer feedback survey scores, but the ratings are heavily clustered at 5 out of 5, offering little variance. How do you extract insights?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Analyze free-text comments using Natural Language Processing (sentiment analysis, TF-IDF, topic modeling) and segment users by behavior to see what separates vocal promoters from silent ones."
+  },
+  {
+    "text": "Write a SQL query to find all users who registered in the last 7 days but have not made any purchases.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "SELECT user_id FROM users WHERE registration_date >= CURRENT_DATE - INTERVAL '7 days' AND user_id NOT IN (SELECT DISTINCT user_id FROM orders);"
+  },
+  {
+    "text": "What is the curse of dimensionality, and why is it a concern in data analysis?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "As the number of features (dimensions) increases, the data space becomes increasingly sparse, making distance metrics less meaningful and models prone to severe overfitting unless dimensionality reduction techniques are applied."
+  },
+  {
+    "text": "How do you handle missing timestamps or gaps in time-series data before visualization?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Resample the time series to a regular frequency and fill the missing periods with zero, forward-fill, or interpolation depending on the business context."
+  },
+  {
+    "text": "Describe a time when you successfully collaborated with a team member whose working style was completely different from yours.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Emphasize adaptability, mutual respect, identifying complementary strengths, and establishing clear communication channels to achieve the project goal."
+  },
+  {
+    "text": "Your query on a massive table is timing out. What steps do you take to resolve the performance issue?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Check for missing indexes, avoid SELECT * and heavy joins, filter data early using WHERE clauses before aggregating, and consider querying partitioned tables or pre-aggregated summary tables."
+  },
+  {
+    "text": "Write a Python script using Pandas to replace all negative values in a numerical column with zero.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "df['column'] = df['column'].apply(lambda x: max(0, x)) or df.loc[df['column'] < 0, 'column'] = 0"
+  },
+  {
+    "text": "What is the difference between an unmanaged report and a self-service BI environment?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Unmanaged reports are static and built entirely by data teams. A self-service BI environment provides business users with clean, governed data sources and tools (like Tableau or Looker) to build their own ad-hoc reports."
+  },
+  {
+    "text": "Explain the concept of statistical power and how it influences sample size determination in experiments.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Statistical power (1 - beta) is the probability of correctly rejecting a false null hypothesis. Higher power requires larger sample sizes to detect smaller effect sizes reliably without increasing false negatives."
+  },
+  {
+    "text": "Tell me about a time when you had to manage a project with an extremely aggressive timeline. How did you ensure success?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Describe how you scoped down to an MVP, eliminated non-essential tasks, worked efficiently, and maintained open communication with stakeholders regarding delivery milestones."
+  },
+  {
+    "text": "A department manager wants to tie employee bonuses to a KPI that is easily manipulated by staff behavior. How do you advise leadership?",
+    "type": "SITUATIONAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Explain Goodhart's Law ('When a measure becomes a target, it ceases to be a good measure'). Recommend a balanced scorecard of complementary lagging and leading indicators to prevent gaming."
+  },
+  {
+    "text": "Write a SQL query to find the median salary from an Employee table without using built-in median functions.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "SELECT AVG(salary) FROM (SELECT salary, ROW_NUMBER() OVER (ORDER BY salary) as rn, COUNT(*) OVER () as cnt FROM employee) x WHERE rn BETWEEN cnt.0 / 2.0 AND cnt.0 / 2.0 + 1;"
+  },
+  {
+    "text": "What is the difference between batch processing and stream processing of data?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Batch processing collects and processes data in scheduled groups over fixed intervals, suitable for large historical loads. Stream processing analyzes data in real-time as it is generated, ideal for immediate fraud detection or monitoring."
+  },
+  {
+    "text": "How do you identify seasonality and trend components in a time-series dataset?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use time series decomposition to separate the series into trend, seasonal, and residual components, or analyze autocorrelation and partial autocorrelation function (ACF/PACF) plots."
+  },
+  {
+    "text": "Describe a time when you received vague requirements and turned them into a clear analytical roadmap.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Outline how you asked probing questions, drafted a clear project scope document with milestones, and secured alignment before starting the analysis."
+  },
+  {
+    "text": "An executive questions the statistical validity of your A/B test results because the sample size feels too small. How do you explain your methodology?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Walk them through your pre-test power calculation, explaining how minimum detectable effect, alpha, and beta levels dictated the required sample size."
+  },
+  {
+    "text": "Write a Python script using Pandas to strip whitespace from all string columns in a DataFrame.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "df[df.select_dtypes(['object']).columns] = df.select_dtypes(['object']).apply(lambda x: x.str.strip())"
+  },
+  {
+    "text": "What is the difference between data profiling and data auditing?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Data profiling examines datasets to collect summary statistics and structure metadata. Data auditing evaluates data against specific business rules, compliance standards, and quality thresholds."
+  },
+  {
+    "text": "Explain how principal component analysis (PCA) works and when you would use it.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "PCA is an unsupervised dimensionality reduction technique that transforms correlated variables into a smaller set of uncorrelated variables called principal components, maximizing variance to simplify complex datasets."
+  },
+  {
+    "text": "Tell me about a time you had to present bad news to stakeholders through your analysis. How did you frame it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Emphasize objectivity, clarity, avoiding blame, and pairing the bad news with constructive, data-backed recommendations on how to mitigate the issue moving forward."
+  },
+  {
+    "text": "A marketing team wants to attribute a sale to the last touchpoint, while the sales team wants first-touch attribution. How do you mediate?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Explain the limitations of both single-touch models. Propose a multi-touch attribution (MTA) model or data-driven attribution that credits touchpoints proportionally across the entire customer journey."
+  },
+  {
+    "text": "Write a SQL query to calculate the 3-day moving average of daily transactions.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "SELECT date, tx_count, AVG(tx_count) OVER (ORDER BY date ROWS BETWEEN 2 PRECEDING AND CURRENT ROW) as moving_avg FROM daily_tx;"
+  },
+  {
+    "text": "What is the difference between operational reporting and strategic reporting?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Operational reports monitor day-to-day business activities and short-term metrics. Strategic reports provide high-level summaries and long-term trend analysis for executive decision-making."
+  },
+  {
+    "text": "How do you detect and handle seasonality bias when comparing year-over-year performance?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Compare corresponding periods (e.g., this March vs. last March) rather than consecutive months, and use trailing twelve-month (TTM) metrics to smooth out short-term seasonal fluctuations."
+  },
+  {
+    "text": "Describe a time when you discovered an insight that contradicted company strategy. What actions did you take?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Highlight courage, rigorous validation of findings, consultation with peers, and presenting the insights constructively to leadership to inform strategic adjustments."
+  },
+  {
+    "text": "You notice a sudden spike in database query execution time across all dashboards. How do you diagnose the bottleneck?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Check database server resource utilization (CPU, memory, disk I/O), inspect active connections and locking queries, and review recent changes to ETL jobs or dashboard query loads."
+  },
+  {
+    "text": "Write a Python script using Pandas to find rows where a specific string appears in any column of a DataFrame.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "df[df.apply(lambda row: row.astype(str).str.contains('target_string').any(), axis=1)]"
+  },
+  {
+    "text": "What is the difference between structured, semi-structured, and unstructured data?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Structured data is highly organized in relational tables (SQL). Semi-structured data has organizational markers like JSON or XML. Unstructured data has no predefined model, such as audio, video, or free text."
+  },
+  {
+    "text": "Explain how bootstrapping works in statistics and why it is useful.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Bootstrapping is a resampling technique where samples are drawn from the dataset with replacement to estimate the sampling distribution of a statistic without making strict parametric assumptions."
+  },
+  {
+    "text": "Tell me about a time you had to deal with an unrealistic deadline imposed by management. How did you negotiate scope?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Explain how you demonstrated feasibility through data, presented a phased delivery plan, and negotiated dropping non-critical features to meet the deadline safely."
+  },
+  {
+    "text": "An executive wants a single score to measure overall business health. How do you design a composite business health index?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Select core metrics across revenue, growth, retention, and satisfaction; normalize each metric onto a standard scale (0-100); assign weighted importance based on strategic goals; and aggregate into a single index."
+  },
+  {
+    "text": "Write a SQL query using FULL OUTER JOIN to find unmatched records in both tables.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "SELECT * FROM table1 FULL OUTER JOIN table2 ON table1.id = table2.id WHERE table1.id IS NULL OR table2.id IS NULL;"
+  },
+  {
+    "text": "What is the difference between exploratory data analysis and confirmatory data analysis?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Exploratory data analysis (EDA) is open-ended and used to discover patterns and hypotheses. Confirmatory data analysis is structured and used to test specific hypotheses and evaluate statistical significance."
+  },
+  {
+    "text": "How do you handle zero-inflation in count data when building predictive models?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Use zero-inflated Poisson (ZIP) or zero-inflated negative binomial (ZINB) regression models, which account for excessive zeros by combining a binary model (logistic regression) with a count model."
+  },
+  {
+    "text": "Describe a time when you automated a data report that previously required manual CSV downloads. What was the impact?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Detail the manual workflow, the automated pipeline built, error reduction achieved, and hours saved per week."
+  },
+  {
+    "text": "A sales team claims that discounting products drives higher net revenue, but finance disagrees. How do you investigate?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Analyze historical transaction data comparing discount depth against volume and customer lifetime value, calculating net profit margin after accounting for COGS and acquisition costs."
+  },
+  {
+    "text": "Write a Pandas snippet to calculate the z-score of a numerical column and filter out rows where the absolute z-score exceeds 3.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "df['z_score'] = (df['col'] - df['col'].mean()) / df['col'].std(); df_filtered = df[df['z_score'].abs() <= 3]"
+  },
+  {
+    "text": "What is the difference between a database schema and a database instance?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A schema is the logical blueprint and structure of a database (tables, fields, relationships). An instance is the running database environment containing the actual data at a specific moment in time."
+  },
+  {
+    "text": "Explain how p-hacking occurs and how data analysts can avoid it.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "P-hacking is the misuse of data analysis to find patterns that reach statistical significance (p < 0.05) by running multiple tests or selectively reporting favorable subsets. Avoid it by pre-registering hypotheses and correcting for multiple comparisons."
+  },
+  {
+    "text": "Tell me about a time you had to present technical findings to an audience with mixed technical literacy. How did you structure your presentation?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Describe starting with the high-level business takeaway, using intuitive visuals, reserving technical details for an appendix, and pacing for the least technical audience member."
+  },
+  {
+    "text": "You are asked to evaluate the success of a feature launched six months ago. What analytical framework do you apply?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Compare pre- and post-launch adoption rates, analyze retention curves of users who engaged with the feature versus those who didn't, and assess impact on primary business goals."
+  },
+  {
+    "text": "Write a SQL query to unpivot a table of monthly sales columns into rows.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "SELECT store_id, 'Jan' as month, jan_sales as sales FROM store UNION ALL SELECT store_id, 'Feb', feb_sales FROM store;"
+  },
+  {
+    "text": "What is the difference between data wrangling and data munging?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The terms are largely synonymous, referring to the process of cleaning, structuring, and enriching raw data into a usable format for analysis, though munging sometimes implies more manual scripting."
+  },
+  {
+    "text": "How do you evaluate whether a feature should be included in a business dashboard?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Assess whether it answers a recurring business question, drives actionable decision-making, has a reliable data source, and doesn't duplicate existing metrics."
+  },
+  {
+    "text": "Describe a situation where your initial analysis was proven wrong by subsequent data. What did you learn?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Highlight intellectual humility, openness to new evidence, root-cause analysis of why the initial model missed the mark, and how you updated your analytical approach."
+  },
+  {
+    "text": "An executive wants to know why customer acquisition cost (CAC) increased by 15% this month. Outline your diagnostic investigation.",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Deconstruct CAC into total marketing spend divided by total acquisitions. Segment spend by channel, ad creative, and campaign, and evaluate conversion rate drops across the acquisition funnel."
+  },
+  {
+    "text": "Write a Python script using Pandas to parse a date string column with mixed formats into a standardized datetime object.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "df['date'] = pd.to_datetime(df['date_str'], errors='coerce', infer_datetime_format=True)"
+  },
+  {
+    "text": "What is the difference between primary keys and foreign keys in relational databases?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A primary key uniquely identifies each record in a table and cannot contain nulls. A foreign key is a field in one table that links to the primary key of another table to establish relationships."
+  },
+  {
+    "text": "Explain the concept of survivorship bias and give a business example.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Survivorship bias is the logical error of focusing only on successful outcomes while ignoring failures because they are no longer visible. A business example is studying only successful startups to determine success factors while ignoring bankrupt ones."
+  },
+  {
+    "text": "Tell me about a time you had to balance speed and accuracy on a high-visibility project.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Describe how you prioritized essential validation checks, communicated confidence intervals, and delivered a reliable preliminary analysis on time while working on deeper validation afterward."
+  },
+  {
+    "text": "Your stakeholder wants to compare two metrics with vastly different scales (e.g., revenue in millions and conversion rate in percentages) on the same chart. How do you visualize this effectively?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Avoid dual-axis charts when possible due to readability issues. Instead, use small multiples (side-by-side charts with separate axes) or index both metrics to a baseline of 100."
+  },
+  {
+    "text": "Write a SQL query to find customers who made purchases in every month of the past year.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "SELECT customer_id FROM orders WHERE order_date >= CURRENT_DATE - INTERVAL '1 year' GROUP BY customer_id HAVING COUNT(DISTINCT DATE_TRUNC('month', order_date)) = 12;"
+  },
+  {
+    "text": "What is the difference between transactional databases (OLTP) and analytical databases (OLAP)?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "OLTP (Online Transaction Processing) systems are optimized for fast, day-to-day write and update operations. OLAP (Online Analytical Processing) systems are optimized for complex read queries and large aggregations."
+  },
+  {
+    "text": "How do you detect multicollinearity using Variance Inflation Factor (VIF)?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Calculate VIF for each predictor variable by regressing it against all other predictors. A VIF exceeding 5 or 10 typically indicates high multicollinearity requiring feature removal or regularization."
+  },
+  {
+    "text": "Describe a time when you took the initiative to improve a data process without being asked.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Detail the inefficiency identified, the solution you designed and implemented, and the positive feedback or time savings experienced by your team."
+  },
+  {
+    "text": "A product team wants to measure the impact of a redesign. Users are complaining, but metrics show increased clicks. How do you reconcile this?",
+    "type": "SITUATIONAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Investigate whether increased clicks indicate higher engagement or 'rage clicks' caused by poor UI navigation. Combine quantitative clickstream data with qualitative user feedback sessions."
+  },
+  {
+    "text": "Write a Pandas snippet to melt a wide DataFrame into a long format.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "pd.melt(df, id_vars=['id'], value_vars=['col1', 'col2'], var_name='category', value_name='value')"
+  },
+  {
+    "text": "What is the difference between deterministic and probabilistic data matching?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Deterministic matching links records based on exact matches of unique identifiers (e.g., email). Probabilistic matching uses algorithms (like Fellegi-Sunter) to calculate the likelihood that records refer to the same entity based on partial or fuzzy matches."
+  },
+  {
+    "text": "Explain how confidence intervals work and why they are more informative than point estimates.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A confidence interval provides a range of values calculated from data that is likely to contain the true population parameter with a given probability (e.g., 95%), offering context about estimate uncertainty that point estimates lack."
+  },
+  {
+    "text": "Tell me about a time you had to deal with a team member who missed deadlines and put your project at risk.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Emphasize empathy, private communication to understand roadblocks, offering support or reallocating tasks, and proactively managing stakeholder expectations."
+  },
+  {
+    "text": "A stakeholder requests a dashboard containing 50 charts. How do you redesign it into an effective executive view?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Apply a hierarchical dashboard design: put top 3-5 KPIs and high-level trends on the main landing page, and use drill-down filters or tabs for granular exploratory charts."
+  },
+  {
+    "text": "Write a SQL query to identify users with consecutive daily logins for at least 3 days.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "WITH numbered AS (SELECT user_id, login_date, ROW_NUMBER() OVER (PARTITION BY user_id ORDER BY login_date) as rn FROM logins) SELECT DISTINCT user_id FROM numbered GROUP BY user_id, (login_date - rn * INTERVAL '1 day') HAVING COUNT(*) >= 3;"
+  },
+  {
+    "text": "What is the difference between data profiling and data cleansing?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Data profiling examines the dataset to understand its quality, structure, and anomalies. Data cleansing is the actual process of fixing, removing, or imputing those identified errors and inconsistencies."
+  },
+  {
+    "text": "How do you evaluate the business impact of seasonality in retail sales data?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Calculate year-over-year growth rates, apply seasonal decomposition models, and compare actual performance against seasonally adjusted baseline forecasts."
+  },
+  {
+    "text": "Describe a time when you successfully led a data project from inception to delivery.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use the STAR method to describe requirement gathering, technical execution, stakeholder management, and the measurable business impact of the delivered project."
+  },
+  {
+    "text": "An executive wants to increase prices by 10% to boost revenue. What analysis do you perform before they make the decision?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Estimate price elasticity of demand by analyzing historical price changes or conducting conjoint analysis to forecast whether volume loss will offset the higher margin."
+  },
+  {
+    "text": "Write a Python script using Pandas to compute the cumulative sum of sales grouped by store ID.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "df['cumulative_sales'] = df.groupby('store_id')['sales'].cumsum()"
+  },
+  {
+    "text": "What is the difference between a star schema and a constellation schema (fact constellation)?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "A star schema features a single fact table surrounded by dimension tables. A constellation schema contains multiple fact tables that share common dimension tables, used in complex enterprise data warehouses."
+  },
+  {
+    "text": "Explain the concept of false discovery rate (FDR) and why it matters in multiple hypothesis testing.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "FDR is the expected proportion of false positives among all rejected null hypotheses. In multiple testing, as the number of tests increases, the chance of finding false positives grows, necessitating adjustments like Benjamini-Hochberg."
+  },
+  {
+    "text": "Tell me about a time when you had to present data insights that were ignored or rejected by stakeholders. How did you react?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Demonstrate professionalism, seek to understand their rationale or constraints, document their feedback, and look for future opportunities to re-evaluate with new data."
+  },
+  {
+    "text": "You are asked to analyze user drop-off during a checkout funnel. What specific metrics and segments do you examine?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Examine conversion rates between each step (cart -> shipping -> payment), and segment by device type, browser, traffic source, and user account status (guest vs. registered)."
+  },
+  {
+    "text": "Write a SQL query to calculate the percentage contribution of each product category to total sales.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "SELECT category, SUM(sales) * 100.0 / SUM(SUM(sales)) OVER() as pct FROM product_sales GROUP BY category;"
+  },
+  {
+    "text": "What is the difference between data lineage and data cataloging?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Data lineage tracks the end-to-end lifecycle and transformation path of data from source to consumption. Data cataloging creates an inventory of metadata, making data assets discoverable and documented across an organization."
+  },
+  {
+    "text": "How do you detect and correct for survivor bias in historical customer datasets?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Include churned or inactive customer records in historical analyses rather than filtering them out, and use longitudinal modeling techniques to account for censored observations."
+  },
+  {
+    "text": "Describe a time when you had to work with a stakeholder who changed their requirements repeatedly. How did you manage scope creep?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Explain how you established a change request process, documented original project scope, and communicated timeline or resource trade-offs whenever new requirements were added."
+  },
+  {
+    "text": "Your company's customer acquisition costs have doubled, but lifetime value has remained flat. What strategic recommendation do you provide?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Advise pausing underperforming acquisition channels, reallocating budget to high-ROI retention and upselling programs, and auditing marketing funnel efficiency."
+  },
+  {
+    "text": "Write a Pandas snippet to extract the year and month from a datetime column into separate columns.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "df['year'] = df['date'].dt.year; df['month'] = df['date'].dt.month"
+  },
+  {
+    "text": "What is the difference between an unindexed table scan and an index scan in SQL?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "An unindexed table scan (sequential scan) checks every single row in the table, which is slow for large datasets. An index scan uses an index B-tree to quickly locate specific rows, drastically improving query performance."
+  },
+  {
+    "text": "Explain how to calculate and interpret the Gini coefficient in data analysis.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "The Gini coefficient measures inequality in a distribution, ranging from 0 (perfect equality) to 1 (maximal inequality). In analytics, it is often used in decision trees (impurity measure) or income inequality assessment."
+  },
+  {
+    "text": "Tell me about a time you identified an operational inefficiency and implemented a data-driven solution.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use the STAR method to detail the operational bottleneck, the exploratory analysis you performed, the solution built, and the resulting efficiency gains."
+  },
+  {
+    "text": "Management wants to cut marketing spend by 20% without impacting total revenue. How do you determine which campaigns to cut?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Analyze marginal ROAS (Return on Ad Spend) and customer acquisition cost by campaign to identify campaigns operating below the break-even threshold and cut those first."
+  },
+  {
+    "text": "Write a SQL query to calculate the rolling 3-month total revenue.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "SELECT month, revenue, SUM(revenue) OVER (ORDER BY month ROWS BETWEEN 2 PRECEDING AND CURRENT ROW) as rolling_3m FROM monthly_revenue;"
+  },
+  {
+    "text": "What is the difference between predictive analytics and prescriptive analytics?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Predictive analytics forecasts what is likely to happen in the future based on historical data patterns. Prescriptive analytics goes a step further by recommending specific actions to optimize outcomes."
+  },
+  {
+    "text": "How do you handle text data containing spelling errors and variations during data cleaning?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use text normalization techniques such as lowercasing, removing punctuation, stemming/lemmatization, and fuzzy string matching algorithms (like Levenshtein distance) to group similar terms."
+  },
+  {
+    "text": "Describe a time when you had to explain a negative metric trend to an anxious leadership team. How did you structure your message?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Emphasize transparency, leading with the objective data, providing root-cause diagnostic context, and immediately presenting a clear, actionable remediation plan."
+  },
+  {
+    "text": "An e-commerce platform notices that users who use the search bar have a higher conversion rate than those who browse. The CEO wants to force all users to use search. How do you advise them?",
+    "type": "SITUATIONAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Explain correlation vs. causation: high-converting users might use search because they already know what they want to buy. Forcing search on browsers could frustrate them and harm conversion rates; suggest an A/B test instead."
+  },
+  {
+    "text": "Write a Python script using Pandas to compute the percentage of missing values in each column of a DataFrame.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "df.isnull().mean() * 100"
+  },
+  {
+    "text": "What is the difference between a primary index and a secondary index?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A primary index is automatically created on the primary key and defines the physical storage order of rows in some databases (clustered). A secondary index is created on non-primary columns to speed up specific queries."
+  },
+  {
+    "text": "Explain the concept of attribution modeling in digital marketing analysis.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Attribution modeling assigns credit for conversions across multiple touchpoints in a customer journey using models like first-touch, last-touch, linear, time-decay, or data-driven algorithmic approaches."
+  },
+  {
+    "text": "Tell me about a time you worked with a cross-functional team where communication broke down. How did you restore alignment?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Describe how you scheduled a sync meeting, identified misaligned assumptions, established shared documentation, and set clear communication protocols moving forward."
+  },
+  {
+    "text": "Your company is experiencing high employee turnover in the analytics department. What metrics and data would you analyze to present to HR?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Analyze tenure length, salary benchmarks against market rates, promotion frequency, overtime hours, exit interview feedback, and manager-level retention rates."
+  },
+  {
+    "text": "Write a SQL query to find the top 2 highest sales records for each region.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "WITH RankedSales AS (SELECT region, sale_id, amount, ROW_NUMBER() OVER (PARTITION BY region ORDER BY amount DESC) as rnk FROM sales) SELECT * FROM RankedSales WHERE rnk <= 2;"
+  },
+  {
+    "text": "What is the difference between data mining and data warehousing?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Data warehousing is the centralized storage and management of integrated historical data from various sources. Data mining is the process of discovering patterns, anomalies, and correlations within that data using machine learning and statistics."
+  },
+  {
+    "text": "How do you test for homoscedasticity in regression analysis, and what happens if it is violated?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Test homoscedasticity (constant variance of residuals) using visual residual plots or statistical tests like Breusch-Pagan. If violated (heteroscedasticity), standard errors are biased, leading to invalid hypothesis testing."
+  },
+  {
+    "text": "Describe a time when you had to prioritize multiple ad-hoc requests from different department heads. How did you decide what to work on first?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Explain how you evaluated business impact, urgency, and stakeholder alignment, communicated trade-offs, and sometimes escalated to leadership to establish consensus on priorities."
+  },
+  {
+    "text": "A business stakeholder wants to evaluate campaign success based on vanity metrics like impressions and likes. How do you guide them toward meaningful KPIs?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Acknowledge that impressions measure top-of-funnel reach, but gently pivot the discussion to downstream metrics that tie directly to business value, such as conversion rate, customer acquisition cost, and ROI."
+  },
+  {
+    "text": "Write a Python script using Pandas to drop duplicate rows based on a subset of columns while keeping the last occurrence.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "df.drop_duplicates(subset=['col1', 'col2'], keep='last')"
+  },
+  {
+    "text": "What is the difference between database normalization forms (1NF, 2NF, 3NF)?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "1NF requires atomic cell values and unique column names. 2NF requires 1NF plus the removal of partial dependencies on composite primary keys. 3NF requires 2NF plus the removal of transitive dependencies where non-key columns depend on other non-key columns."
+  },
+  {
+    "text": "Explain how Bayesian inference differs from frequentist inference in data analysis.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Frequentist inference treats parameters as fixed unknown constants and calculates probabilities based on repeated sampling. Bayesian inference treats parameters as random variables and updates prior beliefs with observed data to calculate a posterior distribution."
+  },
+  {
+    "text": "Tell me about a time you had to deal with missing or incomplete data that threatened the success of your analysis. How did you overcome it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Describe your data imputation strategy, validation against secondary sources, transparent documentation of assumptions, and successful delivery of the analysis."
+  },
+  {
+    "text": "You are asked to build a dashboard for a retail chain with hundreds of store managers. How do you ensure data security and proper access control?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Implement Row-Level Security (RLS) in the BI tool or data warehouse so each store manager can only view data corresponding to their specific store location."
+  },
+  {
+    "text": "Write a SQL query to calculate the customer retention rate month-over-month.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "WITH MonthlyActive AS (SELECT DISTINCT customer_id, DATE_TRUNC('month', order_date) as mth FROM orders) SELECT m2.mth, COUNT(DISTINCT m2.customer_id) * 100.0 / COUNT(DISTINCT m1.customer_id) as retention_rate FROM MonthlyActive m1 LEFT JOIN MonthlyActive m2 ON m1.customer_id = m2.customer_id AND m2.mth = m1.mth + INTERVAL '1 month' GROUP BY m2.mth;"
+  }
+]

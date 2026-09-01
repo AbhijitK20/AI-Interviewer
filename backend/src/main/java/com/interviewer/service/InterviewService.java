@@ -27,6 +27,7 @@ public class InterviewService {
     private final EvaluationRepository evaluationRepository;
     private final ReportRepository reportRepository;
     private final AiServiceClient aiServiceClient;
+    private final QuestionBankService questionBankService;
     private final ObjectMapper objectMapper;
 
     private String toJson(Object obj) {
@@ -85,10 +86,29 @@ public class InterviewService {
     }
 
     private List<Question> generateQuestions(JobDescription jd, Resume resume, int count) {
+        // Try question bank first (fast, no API calls)
+        String roleTitle = jd.getTitle();
+        List<Map<String, String>> bankQuestions = questionBankService.getQuestionsForRole(roleTitle, count);
+
+        if (!bankQuestions.isEmpty() && bankQuestions.size() >= count) {
+            List<Question> questions = new ArrayList<>();
+            for (Map<String, String> bq : bankQuestions) {
+                Question q = Question.builder()
+                        .text(bq.get("text"))
+                        .type(Question.Type.valueOf(bq.getOrDefault("type", "TECHNICAL")))
+                        .difficulty(Question.Difficulty.valueOf(bq.getOrDefault("difficulty", "MEDIUM")))
+                        .expectedAnswer(bq.get("expected_answer"))
+                        .active(true)
+                        .build();
+                questions.add(q);
+            }
+            return questionRepository.saveAll(questions);
+        }
+
+        // Fallback to AI generation
         try {
             List<Question> aiQuestions = aiServiceClient.generateQuestions(jd, resume, count);
             if (aiQuestions != null && !aiQuestions.isEmpty()) {
-                // Persist AI-generated questions so they can be referenced by sessions
                 for (Question q : aiQuestions) {
                     if (q.getActive() == null) {
                         q.setActive(true);

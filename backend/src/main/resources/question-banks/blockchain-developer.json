@@ -1,0 +1,614 @@
+[
+  {
+    "text": "What is the difference between transfer and transferFrom in ERC-20?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Transfer sends tokens directly from the caller's address to a recipient. TransferFrom allows a spender who has been granted an allowance to transfer tokens on behalf of the token owner."
+  },
+  {
+    "text": "Explain the role of the EVM in executing smart contracts.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The EVM is a Turing-complete virtual machine that executes bytecode instructions in a sandboxed environment. Every Ethereum node runs an instance of the EVM to ensure consensus on state changes."
+  },
+  {
+    "text": "What is a gas limit and why is it necessary?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Gas limit is the maximum amount of gas a user is willing to spend on a transaction. It prevents infinite loops and halts malicious or poorly written code from locking up network resources indefinitely."
+  },
+  {
+    "text": "Name three common token standards on Ethereum.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "ERC-20 for fungible tokens, ERC-721 for non-fungible tokens, and ERC-1155 for multi-token standards supporting both fungible and non-fungible assets."
+  },
+  {
+    "text": "What is the purpose of the fallback function in Solidity?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The fallback function is executed when a contract receives a call that does not match any other function signature, or when ETH is sent directly without data and no receive function exists."
+  },
+  {
+    "text": "Tell me about a time you had to debug a smart contract under pressure.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Describe a specific instance, your systematic approach to isolating the issue using testnets or local nodes, and the positive outcome of resolving it."
+  },
+  {
+    "text": "How do you stay updated with rapid changes in the blockchain ecosystem?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Mention following core developers, reading EIPs, participating in security forums like Immunefi, and experimenting with new tools on testnets."
+  },
+  {
+    "text": "Why did you choose to specialize in blockchain development?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Highlight passion for decentralization, trustless systems, cryptography, and the unique engineering challenges of immutable application logic."
+  },
+  {
+    "text": "What would you do if you notice a subtle bug in a teammate's PR right before deployment?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Immediately flag the issue on the PR, explain the risk clearly, and collaborate on a fix or run additional test cases before allowing deployment."
+  },
+  {
+    "text": "Write a simple Solidity function to check if an address is a contract.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Check `account.code.length > 0`. Note that this returns false inside constructors of the contract being created."
+  },
+  {
+    "text": "What is the difference between memory, storage, and calldata in Solidity?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Storage is persistent state data stored on-chain. Memory is temporary data cleared after function execution. Calldata is a non-modifiable, non-persistent area where function arguments are stored, optimized for external calls."
+  },
+  {
+    "text": "Explain Proof of Stake consensus and how finality is achieved.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Validators lock up collateral to propose and attest to blocks. Finality is reached through checkpoint mechanisms like Casper FFG, where blocks are justified and finalized over successive epochs."
+  },
+  {
+    "text": "How does an Automated Market Maker (AMM) like Uniswap v2 determine token prices?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "AMMs use the constant product formula x * y = k. The price of token x relative to y is determined by the ratio of their respective balances in the liquidity pool."
+  },
+  {
+    "text": "What is a reentrancy attack and how do you prevent it?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Reentrancy occurs when an external contract calls back into the vulnerable contract before state variables are updated. Prevention involves using checks-effects-interactions patterns or mutex locks like OpenZeppelin ReentrancyGuard."
+  },
+  {
+    "text": "Describe how optimistic rollups achieve scalability.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Optimistic rollups execute transactions off-chain and post compressed transaction data to L1. They assume transactions are valid by default and rely on fraud proofs submitted during a challenge period if invalid states are detected."
+  },
+  {
+    "text": "Explain the difference between view, pure, and payable function modifiers.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "View functions read state without modifying it. Pure functions neither read nor write state variables. Payable functions allow the contract to accept native cryptocurrency along with the function call."
+  },
+  {
+    "text": "What is the role of an oracle in decentralized finance?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Oracles fetch and verify off-chain real-world data, such as asset prices or weather data, and feed them into on-chain smart contracts so they can react to external events."
+  },
+  {
+    "text": "How do you test smart contracts using Hardhat and JavaScript/TypeScript?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use Hardhat network for local EVM execution, write unit tests using Mocha and Chai, deploy test fixtures with ethers.js, and measure code coverage using solidity-coverage."
+  },
+  {
+    "text": "What is front-running and how can MEV protect or exploit it?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Front-running occurs when bots observe pending transactions in the mempool and insert their own transaction with a higher gas price to profit. MEV extractors exploit this, while privacy tools protect users."
+  },
+  {
+    "text": "Explain the concept of impermanent loss in liquidity pools.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Impermanent loss is the temporary loss of funds experienced by liquidity providers compared to simply holding tokens in a wallet, caused by divergence in token prices relative to when they were deposited."
+  },
+  {
+    "text": "Describe a time when a smart contract audit found a critical vulnerability in your code. How did you handle it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Acknowledge the finding professionally, collaborate with auditors to understand the attack vector, patch the code swiftly, add regression tests, and audit the patch."
+  },
+  {
+    "text": "How do you prioritize features versus security when facing a tight mainnet launch deadline?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Emphasize that security is non-negotiable. Scope down non-essential features or delay the launch rather than deploying untested or audited smart contract code."
+  },
+  {
+    "text": "Tell me about a disagreement you had with a team member regarding architecture choices for a DApp.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Focus on constructive technical debate, weighing trade-offs like gas cost versus upgradeability, and arriving at a consensus backed by data."
+  },
+  {
+    "text": "You inherit a monolithic, undocumented smart contract system that needs refactoring. What is your step-by-step approach?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Write comprehensive integration tests for current behavior, map state variables and dependency graphs, refactor incrementally into modular components, and maintain test coverage throughout."
+  },
+  {
+    "text": "A flash loan arbitrage bot is draining liquidity from your protocol due to stale oracle prices. How do you triage and fix this?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Pause the protocol if an emergency pause mechanism exists, investigate the transaction via block explorer, replace the spot price oracle with TWAP or Chainlink, and deploy an upgraded contract."
+  },
+  {
+    "text": "Write an ERC-20 token contract with a custom mint function restricted to the owner.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Inherit OpenZeppelin's ERC20 and Ownable contracts, and implement a `mint(address to, uint256 amount) public onlyOwner` that calls `_mint(to, amount)`."
+  },
+  {
+    "text": "Write a Solidity function that implements a pull-over-push payment withdrawal pattern.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Maintain a mapping of `balances`. Users call a `withdraw()` function to transfer funds to themselves rather than the contract pushing ETH to them automatically."
+  },
+  {
+    "text": "Write a gas-optimized loop in Solidity to sum an array of uint256.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Cache array length in memory, use unchecked arithmetic for the loop counter if overflow is impossible, and read from storage efficiently."
+  },
+  {
+    "text": "Explain delegatecall and how it enables upgradeable proxy patterns.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Delegatecall executes code of another contract in the context of the calling contract, meaning `msg.sender` and storage are preserved. Proxy patterns use this to forward calls from a storage-holding proxy to a logic contract."
+  },
+  {
+    "text": "How do zero-knowledge rollups (ZK-rollups) ensure validity proofs without publishing all transaction data?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "ZK-rollups generate cryptographic validity proofs (like zk-SNARKs or zk-STARKs) off-chain proving correct state transition execution, allowing L1 to verify the math instantly without re-executing transactions."
+  },
+  {
+    "text": "What are storage collisions in upgradeable proxy contracts and how are they avoided?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Storage collisions happen when proxy and logic contracts write to the same storage slots. They are avoided using unstructured storage patterns (like EIP-1967) or diamond storage to isolate proxy admin variables."
+  },
+  {
+    "text": "Explain the mechanics of flash loans and how atomicity guarantees security.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Flash loans allow borrowing any amount of assets without collateral, provided the loan is repaid with interest within the same transaction block. Atomicity ensures if repayment fails, the entire transaction reverts."
+  },
+  {
+    "text": "What are validator slashing conditions in Ethereum Proof of Stake?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Slashing penalizes malicious or severely malfunctioning validators by destroying a portion of their staked ETH. Conditions include double-signing (proposing two blocks for the same slot) and surround-voting."
+  },
+  {
+    "text": "How do Merkle trees and Merkle proofs work in verifying blockchain state?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Merkle trees hash pairs of data nodes recursively up to a single root hash. A Merkle proof allows lightweight clients to verify that a specific transaction is included in a block without downloading the entire block data."
+  },
+  {
+    "text": "Describe advanced gas optimization techniques at the EVM bytecode level.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Techniques include packing storage variables into 32-byte slots, using custom assembly (Yul) for bitwise operations, minimizing SLOAD/SSTORE operations, and replacing division with bit shifts."
+  },
+  {
+    "text": "What is the difference between optimistic fraud proofs and validity proofs in Layer 2 scaling?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Optimistic proofs assume valid state and rely on challengers submitting fraud proofs during a challenge period. Validity proofs mathematically prove state correctness on-chain instantly via cryptographic zero-knowledge circuits."
+  },
+  {
+    "text": "How do automated liquidation mechanisms work in lending protocols like Aave or Compound?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "When a borrower's health factor drops below 1 due to collateral depreciation or debt appreciation, liquidators can repay part of the borrower's debt in exchange for seized collateral at a discount."
+  },
+  {
+    "text": "Explain the nuances of EIP-712 typed structured data hashing and signing.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "EIP-712 standardizes off-chain message signing by introducing typed structured data hashing, preventing phishing and replay attacks across different chains and applications by incorporating domain separators."
+  },
+  {
+    "text": "Describe a scenario where your smart contract architecture failed under high gas price volatility and how you redesigned it.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Explain how volatile gas prices broke time-sensitive liquidations or oracle updates, and detail the architectural shift to batching or off-chain keeper networks like Chainlink Keepers."
+  },
+  {
+    "text": "How do you manage complex multi-sig upgrade ceremonies and stakeholder trust for production protocols?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Discuss implementing time-locks, geographically distributed key holders, clear operational runbooks, and transparent communication with token holders prior to executing upgrades."
+  },
+  {
+    "text": "An auditor finds a theoretical time-lock bypass vulnerability in your governance contract hours before deployment. Walk through your escalation and resolution process.",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Halt the deployment pipeline, convene with core team and auditors, verify the vulnerability, implement the fix, rerun test suites and static analysis, and schedule a re-audit before proceeding."
+  },
+  {
+    "text": "Write a minimal upgradeable proxy contract in Solidity using EIP-1967 storage slots.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Implement fallback and receive functions with assembly delegatecall to the implementation address stored at `bytes32(uint256(keccak256('eip1967.proxy.implementation')) - 1)`."
+  },
+  {
+    "text": "Write a Solidity Yul assembly snippet to efficiently read a storage variable.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Use `assembly { let val := sload(slot.slot) }` or equivalent slot pointer extraction to bypass Solidity compiler overhead for gas optimization."
+  },
+  {
+    "text": "Analyze the deep security implications of cross-chain bridge message passing and trust assumptions.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Bridges rely on federated multisigs, light client verification, or optimistic validation. Trust assumptions center on validator honesty or cryptography; compromise of consensus leads to catastrophic asset theft on destination chains."
+  },
+  {
+    "text": "Explain how Maximal Extractable Value (MEV) searchers utilize bundle construction and private RPCs.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Searchers identify arbitrage or liquidation opportunities, package transactions into atomic bundles via builders like Flashbots, and submit them directly to validators via private RPCs to bypass public mempool front-running."
+  },
+  {
+    "text": "What are the intricacies of writing gas-efficient ZK-circuit constraints in languages like Circom?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Minimizing non-linear constraints (multiplications), optimizing signal bit-lengths, utilizing efficient hash functions like Poseidon instead of SHA-256, and ensuring proper under-constrained signal checks."
+  },
+  {
+    "text": "Discuss the mathematical and game-theoretic attack vectors in AMM design, such as Just-In-Time (JIT) liquidity.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "JIT liquidity involves flash-minting concentrated liquidity in Uniswap v3 right before a large swap and removing it immediately after, capturing fees while imposing toxic order flow on passive LPs."
+  },
+  {
+    "text": "How do Account Abstraction (ERC-4337) bundlers and paymasters revolutionize transaction lifecycle management?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "ERC-4337 decouples accounts from private keys via UserOperations. Bundlers aggregate and submit them to entrypoint contracts, while paymasters enable sponsored gas fees and flexible recovery mechanisms without native ETH."
+  },
+  {
+    "text": "Walk through designing a decentralized governance system resistant to flash-loan voting and bribery attacks.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Implement snapshot voting based on historical token balances (checkpoints), vote-escrow (veToken) models requiring long-term lockups, and time-locks to mitigate flash loan governance takeovers."
+  },
+  {
+    "text": "As lead architect, you discover a zero-day exploit vector in a live protocol with $100M TVL. Outline your immediate crisis response plan.",
+    "type": "SITUATIONAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Trigger emergency circuit breakers or pause functions, coordinate with white-hat rescue groups and security firms to drain or secure funds to safe multi-sigs, draft a post-mortem, and plan the remediation."
+  },
+  {
+    "text": "Write a custom EVM bytecode disassembler parser in Python or JavaScript that identifies potential uninitialized storage pointer vulnerabilities.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "Parse opcode streams looking for MSTORE operations followed by SSTORE without proper initialization bounds, flagging potential storage overwrite vectors."
+  },
+  {
+    "text": "What is a smart contract?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A smart contract is a self-executing program stored on a blockchain whose terms and logic are written directly into code, automatically executing when predetermined conditions are met."
+  },
+  {
+    "text": "What does decentralized mean?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Decentralization refers to the transfer of control and decision-making from a centralized entity to a distributed network of nodes, removing single points of failure."
+  },
+  {
+    "text": "How do you transfer Ether in Solidity?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Ether can be transferred using `transfer()`, `send()`, or `call()`. The `call()` method with value is currently recommended by Solidity best practices."
+  },
+  {
+    "text": "What is a blockchain testnet?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A testnet is an alternative blockchain instance used for testing and experimentation without risking real cryptocurrency, using valueless test tokens."
+  },
+  {
+    "text": "What is a public key in cryptography?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A public key is a cryptographic code derived from a private key that can be shared publicly to receive funds or verify digital signatures."
+  },
+  {
+    "text": "How do you handle team disagreements over code formatting?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Establish automated tools like Prettier and ESLint or Solhint, so formatting is handled by CI/CD without subjective human debate."
+  },
+  {
+    "text": "What steps do you take when onboarding to a new codebase?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Read documentation, run existing tests locally, review architectural diagrams, and pick up a small bug fix or documentation improvement to understand the workflow."
+  },
+  {
+    "text": "Why is clear code documentation important in smart contracts?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Smart contracts are immutable and govern high-value assets. Clear NatSpec comments and documentation ensure auditors and users understand intended behavior."
+  },
+  {
+    "text": "A junior developer asks for help optimizing a contract loop. What is your reaction?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Welcome the question, review the code together, explain gas implications of loops, and guide them toward gas-efficient patterns."
+  },
+  {
+    "text": "Write a simple Solidity contract with a greeting state variable.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Define a string variable `greeting`, a constructor to set it, and a getter function to return it."
+  },
+  {
+    "text": "What is a mapping in Solidity?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A mapping is a hash table structure in Solidity that associates keys to values, where keys are not stored, only their keccak256 hashes."
+  },
+  {
+    "text": "Explain the concept of immutability in smart contracts.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Once deployed, smart contract code cannot be altered unless upgradeable proxy patterns were implemented beforehand, ensuring trustless execution."
+  },
+  {
+    "text": "What is a transaction hash?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A transaction hash is a unique alphanumeric string generated by hashing transaction data, serving as a cryptographic proof of transaction submission."
+  },
+  {
+    "text": "How do you use events in Solidity?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Events allow logging data to the Ethereum blockchain logs, which DApps can listen to via RPC providers for efficient UI updates."
+  },
+  {
+    "text": "What is the role of Hardhat in blockchain development?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Hardhat is a development environment that helps developers compile, deploy, test, and debug Ethereum software with built-in task runners and local nodes."
+  },
+  {
+    "text": "What is Foundry and how does it compare to Hardhat?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Foundry is a fast, portable toolkit written in Rust that allows writing tests directly in Solidity, whereas Hardhat uses JavaScript/TypeScript."
+  },
+  {
+    "text": "Explain constructor arguments and deployment initialization.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Constructors run once during contract deployment to initialize state variables, taking parameters that configure the contract instance."
+  },
+  {
+    "text": "What is the purpose of OpenZeppelin libraries?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "OpenZeppelin provides secure, battle-tested implementations of standard contracts like ERC-20, ERC-721, access control, and upgrade proxies."
+  },
+  {
+    "text": "How do modifiers work in Solidity?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Modifiers are reusable pieces of code used to change or guard function behavior, such as enforcing access control checks before execution."
+  },
+  {
+    "text": "What is a multi-signature wallet?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A multi-sig wallet requires multiple private key signatures out of a total set to authorize transactions, enhancing fund security."
+  },
+  {
+    "text": "How do you handle a disagreement with a project manager over deployment timelines?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Communicate risks transparently with data, explain security implications of rushing audits, and negotiate a realistic, safe schedule."
+  },
+  {
+    "text": "Describe how you approach learning a new Layer 2 ecosystem.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Read official documentation, deploy sample contracts via bridge, examine gas fee structures, and test RPC interactions."
+  },
+  {
+    "text": "Tell me about a time you mentored a junior developer on smart contract security.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Describe walking through common vulnerabilities like reentrancy or integer overflows using examples and code reviews."
+  },
+  {
+    "text": "A deployment script fails halfway through on mainnet. What do you do?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Check transaction logs on Etherscan, verify current contract state, assess financial risk, and execute pre-planned recovery or rollback steps."
+  },
+  {
+    "text": "An external API used by your oracle goes down during trading hours. How do you mitigate user impact?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Switch to backup decentralized oracle feeds if configured, or temporarily trigger circuit breakers to prevent exploitation of stale data."
+  },
+  {
+    "text": "Write a Solidity function that implements an owner-only withdrawal mechanism.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use `onlyOwner` modifier, check `address(this).balance`, and transfer funds securely to msg.sender."
+  },
+  {
+    "text": "Write a basic test using Hardhat and Chai to verify a contract sets a variable correctly.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Deploy contract fixture, call setter function, and assert `expect(await contract.variable()).to.equal(value)`."
+  },
+  {
+    "text": "Write a Solidity interface for an ERC-20 token.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Define `interface IERC20` with standard function signatures like `balanceOf`, `transfer`, and `approve`."
+  },
+  {
+    "text": "What is a hash collision in cryptography?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "A hash collision occurs when two different inputs produce the exact same cryptographic hash output."
+  },
+  {
+    "text": "Explain transaction ordering dependence and how it impacts smart contracts.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Transaction ordering dependence happens when contract state depends on the exact order of transactions in a block, leading to front-running vulnerabilities."
+  },
+  {
+    "text": "What are signature replay attacks and how are they prevented?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Replay attacks occur when a valid signed message is rebroadcast maliciously. Prevention involves including nonces and chain IDs in signed payloads."
+  },
+  {
+    "text": "Describe the mechanics of decentralized stablecoins like MakerDAO's DAI.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "DAI is backed by over-collateralized crypto assets locked in vaults, maintaining its peg through automated stability fees and liquidations."
+  },
+  {
+    "text": "How do optimistic verification challenges work in L2s?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Validators can submit fraud proofs during a dispute window to challenge invalid L2 state roots posted to L1."
+  },
+  {
+    "text": "What is state bloat and why is it a challenge for Ethereum?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "State bloat refers to the continuous growth of the Ethereum state database, increasing hardware requirements for running full nodes."
+  },
+  {
+    "text": "Explain how decentralized exchanges utilize concentrated liquidity.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Concentrated liquidity allows LPs to allocate capital within specific custom price ranges, increasing capital efficiency and earning higher fee yields."
+  },
+  {
+    "text": "What are zk-SNARKs and what does non-interactive mean in this context?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Zero-knowledge Succinct Non-Interactive Arguments of Knowledge allow proving statement validity without interaction between prover and verifier."
+  },
+  {
+    "text": "How do proxy admin patterns secure upgradeable contracts?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Proxy admin patterns restrict implementation upgrade calls exclusively to an admin address or governance multi-sig."
+  },
+  {
+    "text": "Explain integer overflow and underflow vulnerabilities in Solidity prior to 0.8.0.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Arithmetic operations exceeding maximum or minimum limits wrapped around silently without reverting, requiring SafeMath libraries."
+  },
+  {
+    "text": "Describe how you handled a critical post-launch bug in a production DeFi protocol.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Detail immediate containment actions, stakeholder communication, patch development, and comprehensive post-mortem analysis."
+  },
+  {
+    "text": "How do you mentor engineers on advanced security concepts like symbolic execution?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Introduce tools like Mythril or Slither, explain path exploration, and integrate static analysis into daily CI pipelines."
+  },
+  {
+    "text": "A critical upgrade proposal is voted down by token holders despite security necessity. How do you respond?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Analyze voter concerns, improve community education and transparency, and propose an alternative governance path or emergency action if warranted."
+  },
+  {
+    "text": "Write a Solidity function implementing a signature verification check using ECDSA.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Use OpenZeppelin's `ECDSA` library to recover the signer address from message hash and signature components (v, r, s)."
+  },
+  {
+    "text": "Write a Foundry fuzz test to check invariant properties of a token vault.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Write invariant functions checking total deposits equal sum of user balances across randomized inputs."
+  },
+  {
+    "text": "What are the deep cryptographic principles behind pairing-friendly elliptic curves in ZK proofs?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Pairing-friendly curves like BN254 or BLS12-381 enable bilinear maps from two groups to a third group, crucial for verifying polynomial commitments in pairings."
+  },
+  {
+    "text": "Explain the architecture of cross-chain interoperability protocols like Chainlink CCIP.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "CCIP uses decentralized oracle networks, risk management networks, and token pools to securely transmit messages and value across chains."
+  },
+  {
+    "text": "How do builder-validator separation (BBS) and MEV-Boost work in post-merge Ethereum?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "MEV-Boost decouples block proposers from block builders, allowing specialized builders to optimize transaction ordering and sell bundles to validators."
+  },
+  {
+    "text": "Discuss the security trade-offs of optimistic vs. zero-knowledge bridging mechanisms.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Optimistic bridges offer lower computational overhead but suffer from withdrawal latency due to challenge periods; ZK bridges provide instant finality but have high proving costs."
+  },
+  {
+    "text": "What are the intricacies of storage layout rules in upgradeable proxy contracts across compiler versions?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Storage layouts must remain strictly append-only across implementation upgrades; layout shifts alter slot mapping, causing data corruption."
+  },
+  {
+    "text": "Design a secure governance slashing mechanism for a decentralized oracle network under economic Byzantine failure models.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Incorporate cryptographic proof of misbehavior, multi-tier collateral slashing, delayed unstaking periods, and randomized node sampling."
+  },
+  {
+    "text": "You discover an active exploit draining funds from an integrated protocol partner. What is your coordination protocol?",
+    "type": "SITUATIONAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Immediately notify partner security teams, pause shared integrations or bridges, issue public warnings if necessary, and assist in asset recovery."
+  },
+  {
+    "text": "Write a complete Foundry test suite implementing stateful fuzzing invariants for an AMM pool.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "Define actor contracts, setup handler contracts for swaps and liquidity actions, and implement invariant functions checking constant product rules."
+  }
+]

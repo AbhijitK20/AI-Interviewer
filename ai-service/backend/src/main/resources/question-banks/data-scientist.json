@@ -1,0 +1,1082 @@
+[
+  {
+    "text": "What is the difference between Type I and Type II errors?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A Type I error is a false positive, rejecting a true null hypothesis, while a Type II error is a false negative, failing to reject a false null hypothesis. The probability of a Type I error is denoted by alpha, and Type II by beta. Balancing these requires careful consideration of sample size and significance thresholds."
+  },
+  {
+    "text": "Explain the concept of p-value in hypothesis testing.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A p-value measures the probability of obtaining test results at least as extreme as the results actually observed, under the assumption that the null hypothesis is correct. A lower p-value indicates stronger evidence against the null hypothesis. It is compared against a pre-determined significance level alpha to make decisions."
+  },
+  {
+    "text": "What is linear regression and what are its core assumptions?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Linear regression models the linear relationship between a dependent continuous variable and one or more independent variables. Core assumptions include linearity, independence of errors, homoscedasticity, normality of error distribution, and little to no multicollinearity. Violating these assumptions can lead to biased coefficient estimates and invalid inference."
+  },
+  {
+    "text": "Define logistic regression and explain its output.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Logistic regression is a classification algorithm used to predict the probability of a categorical dependent variable using a logit link function. Its output ranges between 0 and 1, representing the probability of the positive class. A threshold, typically 0.5, is applied to convert probabilities into discrete class labels."
+  },
+  {
+    "text": "What is the curse of dimensionality?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The curse of dimensionality refers to various phenomena that arise when analyzing and organizing data in high-dimensional spaces that do not occur in low-dimensional settings. As dimensions increase, data becomes increasingly sparse, distance metrics lose meaning, and models face severe risks of overfitting. Dimensionality reduction techniques like PCA are often used to mitigate this."
+  },
+  {
+    "text": "Tell me about a time you had to explain a complex technical concept to a non-technical stakeholder.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Look for a structured STAR response demonstrating empathy, avoidance of jargon, and use of relatable analogies. The candidate should explain how they verified the stakeholder's understanding and achieved alignment on project goals. Success is measured by the stakeholder's ability to make informed business decisions based on the explanation."
+  },
+  {
+    "text": "Describe a situation where you had to work with incomplete or missing data.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "The candidate should use the STAR method to outline the context of missing data, the exploratory analysis performed to understand the missingness mechanism, and the imputation or dropping strategy chosen. They should highlight how they validated that their handling of missing data did not introduce severe bias."
+  },
+  {
+    "text": "How do you handle a disagreement with a team member regarding a model architecture choice?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "The response should highlight professional communication, reliance on empirical evidence, and willingness to run comparative experiments. The candidate should demonstrate that they prioritize the best business and technical outcome over personal ego. Collaboration and compromise should be central themes."
+  },
+  {
+    "text": "Imagine a stakeholder wants to launch an A/B test with a sample size that is clearly too small. How would you handle this?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "The candidate should explain the concept of statistical power and Type II errors politely to the stakeholder. They should propose alternatives such as extending the test duration, increasing traffic allocation, or utilizing sequential testing frameworks. Educating the business partner while protecting scientific rigor is crucial."
+  },
+  {
+    "text": "Write a Python function to calculate the mean and median of a list of numbers without using built-in statistics libraries.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "The function should iterate through the list to sum elements for the mean and sort the list to find the middle element(s) for the median. Edge cases like empty lists should be handled gracefully with appropriate exceptions or returns. Time complexity will be O(N log N) due to sorting for the median."
+  },
+  {
+    "text": "What is Central Limit Theorem and why is it important?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The Central Limit Theorem states that the sampling distribution of the sample mean approaches a normal distribution as the sample size gets larger, regardless of the population's underlying distribution. This is foundational because it allows data scientists to make statistical inferences and construct confidence intervals using normal distribution properties for various metrics."
+  },
+  {
+    "text": "Explain precision and recall. When would you optimize for one over the other?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Precision measures the accuracy of positive predictions, while recall measures the ability to find all actual positive instances. You optimize for precision when false positives are costly, such as in spam filtering. You optimize for recall when false negatives are dangerous, such as in cancer detection."
+  },
+  {
+    "text": "What is K-Means clustering and how do you choose K?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "K-Means is an unsupervised learning algorithm that partitions data into K distinct clusters by minimizing within-cluster variance. K is typically chosen using the Elbow Method by plotting variance explained against K, or via the Silhouette Score which measures cluster cohesion and separation. Domain knowledge also heavily guides the choice of K."
+  },
+  {
+    "text": "What is a confusion matrix?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A confusion matrix is a table used to evaluate the performance of a classification model by comparing actual target values against predicted values. It breaks results down into true positives, true negatives, false positives, and false negatives. It serves as the foundation for calculating metrics like accuracy, precision, recall, and F1-score."
+  },
+  {
+    "text": "What is regularization in machine learning and why is it used?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Regularization adds a penalty term to the loss function to discourage overly complex models, thereby preventing overfitting and improving generalization on unseen data. Common types include L1 (Lasso) which drives coefficients to zero for feature selection, and L2 (Ridge) which shrinks coefficients toward zero."
+  },
+  {
+    "text": "Tell me about a time when a machine learning model you built failed in production. What went wrong and how did you fix it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "The candidate should describe a realistic failure scenario, such as data drift or unexpected input types, using the STAR framework. They should emphasize root cause analysis, prompt incident mitigation, and the implementation of monitoring safeguards to prevent recurrence."
+  },
+  {
+    "text": "Describe a project where you had to manage conflicting project priorities or tight deadlines.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "The response should highlight scoping techniques, such as defining Minimum Viable Products (MVPs), transparent communication with stakeholders, and time management. The candidate should demonstrate how they delivered value iteratively without burning out or compromising quality."
+  },
+  {
+    "text": "How do you stay up-to-date with advancements in data science and machine learning?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Look for specific channels like research papers (ArXiv, NeurIPS), newsletters, podcasts, hands-on side projects, or community engagement. The candidate should show genuine curiosity and a structured approach to continuous learning."
+  },
+  {
+    "text": "Suppose a model's accuracy drops significantly a week after deployment. What are your immediate troubleshooting steps?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Check for data drift and concept drift by comparing incoming production feature distributions with training distributions. Verify data pipeline integrity to ensure features are being calculated and ingested correctly without corruption. Roll back or deploy an immediate fallback if necessary."
+  },
+  {
+    "text": "Write a SQL query to find the second highest salary from an Employee table.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "SELECT MAX(Salary) FROM Employee WHERE Salary < (SELECT MAX(Salary) FROM Employee); Alternatively, using window functions: SELECT Salary FROM (SELECT Salary, DENSE_RANK() OVER (ORDER BY Salary DESC) as rnk FROM Employee) t WHERE rnk = 2. Both handle basic data structures efficiently."
+  },
+  {
+    "text": "What is the difference between L1 and L2 regularization?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "L1 regularization (Lasso) adds the absolute value of coefficients as a penalty, which can drive some coefficients completely to zero, performing implicit feature selection. L2 regularization (Ridge) adds the squared magnitude of coefficients as a penalty, shrinking coefficients smoothly toward zero without eliminating them. ElasticNet combines both penalties."
+  },
+  {
+    "text": "Explain the concept of statistical power and how it relates to sample size in A/B testing.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Statistical power (1 - beta) is the probability that a test correctly rejects a false null hypothesis, typically targeted at 80% or higher. Power increases with larger sample sizes, higher significance levels (alpha), and larger effect sizes. Failing to account for power can lead to underpowered tests that miss true business impacts."
+  },
+  {
+    "text": "What are ROC and AUC curves, and how do you interpret them?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The ROC curve plots the True Positive Rate against the False Positive Rate across various classification thresholds. AUC measures the entire two-dimensional area underneath the ROC curve, representing the model's ability to discriminate between positive and negative classes. An AUC of 0.5 suggests random guessing, while 1.0 represents a perfect classifier."
+  },
+  {
+    "text": "How does Random Forest work, and why is it generally less prone to overfitting than a single decision tree?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Random Forest is an ensemble method that builds multiple decision trees using bootstrapped subsets of data and random subsets of features at each split, then averages their predictions. It reduces variance through averaging and decorrelates individual trees, preventing the overfitting that plagues deep, unconstrained single decision trees."
+  },
+  {
+    "text": "What is multicollinearity and how do you detect and handle it?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Multicollinearity occurs when independent variables in a regression model are highly correlated, destabilizing coefficient estimates. It can be detected using correlation matrices and Variance Inflation Factor (VIF) scores exceeding 5 or 10. It is handled by dropping correlated features, applying PCA, or using regularized regression models like Ridge."
+  },
+  {
+    "text": "Describe a time when your exploratory data analysis uncovered an unexpected insight that changed the direction of a project.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The response should follow the STAR format, showing rigorous data investigation, skepticism toward initial assumptions, and agility in pivoting model features or business strategies. The candidate should emphasize the business value derived from this pivot."
+  },
+  {
+    "text": "Tell me about a time you received critical feedback on your code or analytical approach. How did you react and what did you change?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Look for emotional maturity, lack of defensiveness, and a growth mindset. The candidate should explain how they evaluated the feedback, thanked the reviewer, and implemented code reviews or testing practices to improve future outputs."
+  },
+  {
+    "text": "Describe a situation where you had to balance model accuracy with model interpretability.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The candidate should discuss a context like finance or healthcare where black-box models are restricted. They should explain how they weighed gradient boosting or deep learning against logistic regression or decision trees, or how they utilized post-hoc explainability tools like SHAP to bridge the gap."
+  },
+  {
+    "text": "You notice a severe novelty effect in an A/B test. What actions do you take?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Recognize that user behavior spikes initially due to curiosity before stabilizing. I would extend the test duration to allow novelty effects to wear off, segment the data by cohort (new vs returning users), and analyze metrics over a rolling window to ensure true long-term impact is captured."
+  },
+  {
+    "text": "Write a Python function to implement gradient descent for a simple linear regression model.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The function should take features X, targets y, learning rate, and epochs. It iteratively computes predictions, calculates gradients of the Mean Squared Error loss function with respect to weights and bias, and updates parameters. It should return the optimized weights, bias, and a history of loss values."
+  },
+  {
+    "text": "What is feature selection, and what are filter, wrapper, and embedded methods?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Feature selection identifies the most relevant variables to improve model performance and reduce overfitting. Filter methods evaluate features independently using statistical tests like correlation or chi-square. Wrapper methods use a predictive model to evaluate subsets of features (e.g., recursive feature elimination). Embedded methods perform selection during training, such as Lasso regression."
+  },
+  {
+    "text": "Explain Gradient Boosting and contrast it with Bagging.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Bagging (like Random Forest) trains models in parallel on bootstrapped samples and averages predictions to reduce variance. Gradient Boosting trains models sequentially, where each new model is trained to predict the residual errors made by the previous ensemble, primarily reducing bias. Boosting is sensitive to noise and hyperparameter tuning compared to bagging."
+  },
+  {
+    "text": "What is hierarchical clustering, and what is the difference between agglomerative and divisive approaches?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Hierarchical clustering builds a hierarchy of clusters represented as a dendrogram. Agglomerative clustering is a bottom-up approach where each data point starts as its own cluster and pairs are successively merged. Divisive clustering is a top-down approach where all data points start in one cluster and are recursively split."
+  },
+  {
+    "text": "How do you evaluate a regression model? Contrast MAE, MSE, and R-squared.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "MAE (Mean Absolute Error) gives average magnitude of errors and is robust to outliers. MSE (Mean Squared Error) squares errors, heavily penalizing large outliers. R-squared represents the proportion of variance in the dependent variable predictable from the independent variables, though it can artificially inflate with added features unless adjusted."
+  },
+  {
+    "text": "What is Simpson's Paradox and why does it matter in data science?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Simpson's Paradox occurs when a trend appears in different groups of data but reverses or disappears when these groups are combined. It matters because failing to control for confounding variables or subgroup heterogeneity can lead to completely flawed business decisions and misleading analytical insights."
+  },
+  {
+    "text": "Tell me about a time you mentored a junior data scientist or shared knowledge with your team.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The candidate should share a specific example of conducting code reviews, running workshops, or pairing on a complex modeling task. They should highlight patience, structured guidance, and the resulting growth or successful project delivery of the mentee."
+  },
+  {
+    "text": "Describe a project where requirements changed midway through. How did you manage scope creep and maintain stakeholder alignment?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Using the STAR method, the candidate should explain how they reassessed timelines, communicated trade-offs clearly to management regarding time-to-delivery versus feature completeness, and refactored the data pipeline or modeling scope pragmatically."
+  },
+  {
+    "text": "Tell me about a time when you identified an opportunity for process improvement in your data workflow.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Look for initiative, automation mindset, and measurable impact (e.g., reducing pipeline runtime by 50% or standardizing feature stores). The candidate should explain how they socialized the improvement and adopted it across the team."
+  },
+  {
+    "text": "You are tasked with building a recommendation system for an e-commerce site with cold-start problems. What strategies do you use?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "For new users, use demographic-based recommendations, trending items, or onboarding preference quizzes. For new items, use content-based filtering leveraging item metadata, text descriptions, and categories. Hybrid approaches effectively bridge the gap until collaborative filtering interaction data accumulates."
+  },
+  {
+    "text": "Write a Python function to perform k-fold cross-validation split indices manually without using scikit-learn.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The function should take data length and k as inputs, shuffle indices randomly, and partition the index array into k nearly equal-sized folds. It should loop to yield training and validation index splits for each fold, returning a list of tuples containing train and validation indices."
+  },
+  {
+    "text": "Explain SHAP (SHapley Additive exPlanations) values and how they provide model interpretability.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "SHAP values are rooted in cooperative game theory and allocate credit for a model's prediction across individual features fairly. They provide additive feature attribution, explaining how each feature pushes the model output away from the base value. SHAP values offer both global importance and local instance-level interpretability."
+  },
+  {
+    "text": "What is propensity score matching, and when is it used in A/B testing or observational studies?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Propensity score matching is a statistical technique used to estimate the effect of an intervention by accounting for covariates that predict receiving the treatment. It is used in observational studies or quasi-experiments when random assignment is impossible, balancing treatment and control groups to reduce confounding bias."
+  },
+  {
+    "text": "How do you detect and handle concept drift versus data drift in production machine learning systems?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Data drift occurs when the distribution of input features changes over time ($P(X)$), while concept drift occurs when the statistical relationship between features and the target variable changes ($P(Y|X)$). Detection uses statistical tests like Population Stability Index (PSI) or Kolmogorov-Smirnov test. Handling requires model retraining, windowing training data, or building adaptive online learning models."
+  },
+  {
+    "text": "Explain the mechanics of Support Vector Machines (SVM) and the kernel trick.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "SVMs find an optimal hyperplane that maximizes the margin between different classes in a feature space. The kernel trick allows SVMs to operate in high-dimensional implicit feature spaces without explicitly computing coordinates in that space, by using kernel functions (like RBF or polynomial) to calculate dot products efficiently."
+  },
+  {
+    "text": "What is the difference between parametric and non-parametric statistical tests? Provide examples of each.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Parametric tests assume underlying data distributions (usually normal) and estimate population parameters, such as Student's t-test and ANOVA. Non-parametric tests make minimal assumptions about data distribution and evaluate ranked or ordinal data, such as the Mann-Whitney U test and Kruskal-Wallis test."
+  },
+  {
+    "text": "Describe a time when you had to troubleshoot a complex production issue with conflicting logs and unclear root causes.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "The candidate should use the STAR method to demonstrate systematic debugging, logical hypothesis elimination, collaboration with DevOps or data engineering teams, and calm under pressure. They should explain how they implemented logging safeguards to ensure future visibility."
+  },
+  {
+    "text": "Tell me about a time when you advocated for an unconventional data science methodology against pushback from leadership.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Look for courage, strong communication, risk management, and the ability to design a controlled proof-of-concept (POC) to de-risk the proposal. The candidate should highlight how they won trust and delivered superior results."
+  },
+  {
+    "text": "Describe a situation where a model you developed exhibited algorithmic bias or fairness issues. How did you identify and remediate it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "The response must address ethical AI considerations using the STAR framework. The candidate should discuss auditing disparate impact across demographic subgroups, adjusting training data or decision thresholds, and adopting fairness metrics."
+  },
+  {
+    "text": "An A/B test has been running for two weeks, and the p-value is fluctuating right around 0.05. The product manager wants to stop the test and declare a winner. What do you advise?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Advise against stopping the test immediately due to peeking and the problem of multiple comparisons, which dramatically inflates False Positive rates. Explain sample ratio mismatch (SRM) and statistical power, and recommend waiting until the pre-calculated required sample size is reached before making a final decision."
+  },
+  {
+    "text": "Write a Python function to compute the Fast Fourier Transform (FFT) or implement matrix factorization (like SVD) from scratch using power iteration.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Implement SVD components using power iteration to find dominant eigenvalues and eigenvectors for a matrix A. The function should iteratively multiply random vectors by $A^T A$, orthogonalize results using Gram-Schmidt, and extract singular values and vectors efficiently."
+  },
+  {
+    "text": "Explain the mathematical formulation and optimization challenges of XGBoost compared to standard Gradient Boosting.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "XGBoost uses a second-order Taylor expansion of the loss function, incorporating both first (gradient) and second (hessian) derivatives for faster convergence and smoother optimization. It includes regularization terms for leaf weights and tree complexity in the objective function, and utilizes a novel sparsity-aware split finding algorithm to handle missing data efficiently."
+  },
+  {
+    "text": "How do you conduct causal inference using instrumental variables when confounding variables are unmeasured?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "An instrumental variable (Z) must correlate with the treatment (X) but affect the outcome (Y) only through the treatment, while being uncorrelated with unmeasured confounders (U). Two-Stage Least Squares (2SLS) regression is used: regress X on Z in the first stage to get predicted treatment values, then regress Y on the predicted treatment in the second stage to estimate the unbiased causal effect."
+  },
+  {
+    "text": "What is Bayesian Optimization, and how is it used for hyperparameter tuning in machine learning?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Bayesian optimization builds a probabilistic surrogate model (such as a Gaussian Process) of the objective function mapping hyperparameters to validation performance. It uses an acquisition function (like Expected Improvement) to balance exploration and exploitation, deciding which hyperparameter set to evaluate next and minimizing expensive training iterations."
+  },
+  {
+    "text": "Discuss the trade-offs between Multi-Armed Bandit algorithms and traditional A/B testing in high-traffic production environments.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Traditional A/B tests fix traffic allocations statically, optimizing for statistical power and robust causal inference over fixed durations, but suffer from the 'regret' of showing inferior variants to users. Multi-armed bandits (like Thompson Sampling or UCB) dynamically reallocate traffic toward better-performing variants in real-time, minimizing regret and maximizing conversion rewards, but complicate long-term trend analysis and seasonality estimation."
+  },
+  {
+    "text": "Explain Differential Privacy and how noise injection mechanisms (like Laplace or Gaussian) preserve privacy in machine learning models.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Differential privacy provides a mathematical guarantee that querying a dataset reveals minimal information about any single individual. By adding calibrated random noise (from Laplace or Gaussian distributions proportional to the function's global sensitivity and privacy budget epsilon) to query results or gradients during training, the impact of any single record is masked while population-level patterns remain valid."
+  },
+  {
+    "text": "Tell me about a time you led a high-stakes, ambiguous data science initiative from scratch with no established precedent or historical data.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "The candidate should outline exceptional strategic thinking, stakeholder alignment, iterative experimental design, and risk mitigation using the STAR method. They should detail how they defined success metrics in uncharted territory and scaled the solution successfully."
+  },
+  {
+    "text": "Describe a situation where you had to remediate a catastrophic failure in an enterprise machine learning infrastructure under extreme time pressure.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Look for composure, leadership, cross-functional crisis management, root cause diagnosis, and post-mortem execution. The candidate should emphasize systemic architectural changes made to prevent future enterprise-level failures."
+  },
+  {
+    "text": "Tell me about a time when you had to convince executive leadership to kill a major data science project after months of investment due to poor projected ROI.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "The response must demonstrate business acumen, courage, objectivity, and fiduciary responsibility. The candidate should explain how they presented empirical findings transparently, reframed sunk costs, and redirected engineering resources toward high-yield alternatives."
+  },
+  {
+    "text": "Your real-time fraud detection model experiences a sudden, massive adversarial shift where fraudsters deliberately obfuscate features. How do you redesign the architecture within 48 hours?",
+    "type": "SITUATIONAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Implement an ensemble of anomaly-based unsupervised models (like Isolation Forests or autoencoders) to catch novel patterns not tied to static features. Deploy shadow rules and rate-limiting heuristics instantly, establish an active learning feedback loop with human analysts, and leverage graph neural networks to capture suspicious network topologies."
+  },
+  {
+    "text": "Write a memory-efficient Python generator that streams and parses a 100GB CSV file, performs anomaly detection using a rolling Z-score, and yields streaming alerts.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "The generator should utilize `yield` to process line-by-line without loading the file into RAM. It should maintain a rolling window of mean and standard deviation using collections.deque or Welford's online algorithm, compute rolling Z-scores efficiently in O(1) time per row, and yield alerts when the threshold is breached."
+  },
+  {
+    "text": "What is the difference between Type I and Type II errors in medical testing?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "In medical testing, a Type I error (false positive) means diagnosing a healthy patient with a disease, leading to unnecessary anxiety and treatment. A Type II error (false negative) means failing to diagnose a sick patient, delaying crucial medical intervention."
+  },
+  {
+    "text": "How do you calculate the median of an unsorted array of numbers?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "You can sort the array and pick the middle element (or average the two middle elements if the length is even), which takes O(N log N) time. Alternatively, you can use a quickselect algorithm to find the median in expected O(N) time."
+  },
+  {
+    "text": "What is the primary purpose of data normalization in machine learning?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Data normalization scales numerical features to a standard range, typically [0, 1] or mean 0 and variance 1. This prevents features with larger numeric magnitudes from dominating objective functions and helps gradient descent converge much faster."
+  },
+  {
+    "text": "What does a correlation coefficient of zero imply?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A Pearson correlation coefficient of zero implies that there is no linear relationship between the two variables. However, it does not rule out non-linear relationships, such as a quadratic curve."
+  },
+  {
+    "text": "What is a training dataset versus a test dataset?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The training dataset is used by machine learning algorithms to learn parameters and patterns. The test dataset is kept completely separate and used only to evaluate the final model's generalization performance on unseen data."
+  },
+  {
+    "text": "Tell me about a time you managed multiple data requests from different departments.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "The candidate should explain how they prioritized tasks based on business impact, communicated timelines clearly, and managed expectations across stakeholders using tracking tools."
+  },
+  {
+    "text": "Describe a situation where you had to learn a new tool or library quickly.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Look for proactive learning strategies, such as reading documentation, building a small prototype, and applying the tool to solve an immediate problem successfully."
+  },
+  {
+    "text": "How do you handle repetitive and tedious data cleaning tasks?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "The candidate should describe writing reusable Python functions, creating automation scripts, or building data processing pipelines to streamline workflows."
+  },
+  {
+    "text": "If your primary data source goes down during a critical analysis, what do you do?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Notify engineering teams immediately, check secondary replicas or cached backups, and communicate estimated downtime and impact to stakeholders."
+  },
+  {
+    "text": "Write a SQL query to count the number of occurrences of each category in a table.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "SELECT category, COUNT(*) FROM table_name GROUP BY category; This aggregates counts by each distinct category efficiently."
+  },
+  {
+    "text": "What is the difference between bagging and boosting?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Bagging trains multiple models in parallel on bootstrapped samples and averages their predictions to reduce variance. Boosting trains models sequentially, where each new model focuses on correcting the errors of the previous ones to reduce bias."
+  },
+  {
+    "text": "How do you handle categorical variables with high cardinality?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "High cardinality variables can be handled using target encoding, frequency encoding, embedding layers in neural networks, or grouping rare categories into an 'other' bucket to prevent feature space explosion and overfitting."
+  },
+  {
+    "text": "What is the purpose of cross-validation?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Cross-validation assesses how a model generalizes to an independent dataset by partitioning data into training and validation folds multiple times. It ensures that performance metrics are not dependent on a lucky single train-test split."
+  },
+  {
+    "text": "What is the difference between Type I and Type II errors in the context of spam filtering?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A Type I error in spam filtering is a false positive, where a legitimate email is marked as spam. A Type II error is a false negative, where actual spam reaches the user's primary inbox."
+  },
+  {
+    "text": "Explain how decision trees select splits.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Decision trees choose splits by evaluating metrics like Gini impurity, entropy, or information gain for classification, and variance reduction for regression. They test possible split points for features and select the one that results in the purest child nodes."
+  },
+  {
+    "text": "Tell me about a time you optimized a slow-running SQL query or data script.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The candidate should outline analyzing query execution plans, adding appropriate indexes, rewriting subqueries as joins, and measuring the resulting performance gains."
+  },
+  {
+    "text": "Describe a project where you collaborated with software engineers to deploy a model.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The candidate should discuss containerization with Docker, API creation with FastAPI or Flask, and establishing CI/CD pipelines for seamless deployment."
+  },
+  {
+    "text": "How do you handle ambiguous requirements from a business stakeholder?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The candidate should explain asking clarifying questions, defining success criteria upfront, and prototyping a low-fidelity MVP to align expectations."
+  },
+  {
+    "text": "You notice that a feature in your dataset has a 40% missing value rate. How do you decide whether to drop it or impute it?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Evaluate the feature's potential predictive power using domain knowledge and preliminary tests. If it is crucial, use advanced imputation techniques like KNN or MICE. If it lacks predictive value, drop the feature to avoid introducing noise."
+  },
+  {
+    "text": "Write a Python function to check if a string is a palindrome.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "cleaned = ''.join(c.lower() for c in s if c.isalnum()); return cleaned == cleaned[::-1]. This handles punctuation and case sensitivity while leveraging slicing for conciseness."
+  },
+  {
+    "text": "What is the bias-variance tradeoff?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Bias is the error from erroneous assumptions in the learning algorithm, leading to underfitting. Variance is error from sensitivity to small fluctuations in the training set, leading to overfitting. Balancing them is key to building models that generalize well."
+  },
+  {
+    "text": "Explain the difference between principal component analysis (PCA) and linear discriminant analysis (LDA).",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "PCA is an unsupervised technique that finds orthogonal axes maximizing overall variance in the data without considering class labels. LDA is a supervised technique that finds axes maximizing class separability."
+  },
+  {
+    "text": "What are kernel methods in machine learning?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Kernel methods enable algorithms to operate in high-dimensional feature spaces by computing inner products directly in the original space using kernel functions, avoiding explicit coordinate transformations."
+  },
+  {
+    "text": "How does AdaBoost differ from Gradient Boosting?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "AdaBoost adjusts sample weights at each iteration, giving higher weights to misclassified points for the next tree. Gradient Boosting fits new trees directly to the pseudo-residuals of the combined model using gradient descent."
+  },
+  {
+    "text": "What is survival analysis and where is it applied?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Survival analysis models time until an event of interest occurs, handling censored data where subjects leave before the event. It is widely applied in churn prediction, customer lifetime value, and medical research."
+  },
+  {
+    "text": "Tell me about a time you uncovered an error in published company data or metrics.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "The candidate should describe conducting a thorough audit, communicating findings diplomatically to stakeholders, and establishing automated tests to prevent future errors."
+  },
+  {
+    "text": "Describe a situation where you had to choose between a simpler interpretable model and a complex black-box model.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "The candidate should discuss evaluating business requirements, regulatory constraints, and interpretability needs, ultimately justifying their architectural choice with empirical validation."
+  },
+  {
+    "text": "Tell me about a time you designed a complex A/B testing framework from scratch.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "The response should detail sample size calculation, randomization unit selection, metric definition, and mitigation of interaction effects between experiments."
+  },
+  {
+    "text": "Your model has high training accuracy but poor validation accuracy. What steps do you take?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Diagnose overfitting by checking regularization parameters, collecting more training data, simplifying model architecture, or applying dropout and cross-validation."
+  },
+  {
+    "text": "Write a Python function to implement matrix multiplication from scratch without using NumPy.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "def matmul(A, B): result = [[sum(a*b for a,b in zip(row_a, col_b)) for col_b in zip(*B)] for row_a in A]; return result. This uses list comprehensions and zip to compute dot products."
+  },
+  {
+    "text": "What are Markov Decision Processes and how do they relate to reinforcement learning?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "MDPs provide the mathematical framework for modeling decision-making where outcomes are partly random and partly under the control of a decision maker, forming the foundation of reinforcement learning."
+  },
+  {
+    "text": "Explain the mechanics of Expectation-Maximization (EM) algorithm in Gaussian Mixture Models.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "The EM algorithm alternates between the Expectation step, which computes expected values for latent variables given current parameters, and the Maximization step, which updates parameters to maximize the expected log-likelihood."
+  },
+  {
+    "text": "What is the difference between frequentist and Bayesian statistics?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Frequentist statistics treats parameters as fixed unknown constants and probabilities as long-run frequencies. Bayesian statistics treats parameters as random variables with probability distributions, updating beliefs using Bayes' theorem."
+  },
+  {
+    "text": "How do Generative Adversarial Networks (GANs) maintain training stability?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "GANs maintain stability using techniques like Wasserstein loss with gradient penalty, feature matching, historical averaging, and careful architectural choices to prevent mode collapse and vanishing gradients."
+  },
+  {
+    "text": "Explain the mathematical foundations of collaborative filtering using matrix factorization.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Matrix factorization decomposes the user-item interaction matrix into lower-dimensional latent factor matrices, optimizing squared error regularized by latent feature magnitudes using gradient descent or alternating least squares."
+  },
+  {
+    "text": "Tell me about a time you pioneered a new data science capability that transformed your company's business model.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "The candidate should articulate vision, technical execution, cross-functional leadership, and measurable financial impact on the organization."
+  },
+  {
+    "text": "Describe a time you resolved a major production outage caused by faulty data pipeline dependencies.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "The response should highlight rapid triage, rollback execution, stakeholder communication, and architectural redesign to ensure fault tolerance."
+  },
+  {
+    "text": "Tell me about a time you disagreed with senior leadership on ethical AI practices and how you resolved it.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "The candidate should demonstrate ethical integrity, clear articulation of risk, and constructive engagement with leadership to establish responsible AI guidelines."
+  },
+  {
+    "text": "A newly deployed recommendation model increases short-term engagement but causes long-term user churn. How do you investigate and remediate?",
+    "type": "SITUATIONAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Analyze user cohort retention curves, redefine reward functions to incorporate long-term retention metrics, and re-train the model with balanced optimization goals."
+  },
+  {
+    "text": "Write a Python function to compute the PageRank of nodes in a directed graph from scratch.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "def pagerank(graph, damping=0.85, iterations=100): n = len(graph); ranks = {node: 1/n for node in graph}; for _ in range(iterations): ... implement iterative distribution with damping factor and return ranks."
+  },
+  {
+    "text": "What is the difference between a bar chart and a histogram?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A bar chart compares categorical data with discrete gaps between bars, while a histogram displays the distribution of continuous numerical data grouped into contiguous bins without spaces."
+  },
+  {
+    "text": "How do you calculate the mode of a dataset?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The mode is the value that appears most frequently in a dataset. A dataset can have one mode, multiple modes (multimodal), or no mode if all values appear with the same frequency."
+  },
+  {
+    "text": "What is the purpose of exploratory data analysis (EDA)?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "EDA is used to analyze datasets to summarize their main characteristics, often using visual methods. It helps uncover patterns, spot anomalies, check assumptions, and guide feature engineering."
+  },
+  {
+    "text": "What is a scatter plot used for?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A scatter plot displays values for typically two variables for a set of data, using Cartesian coordinates. It is primarily used to observe and visually assess relationships or correlations between variables."
+  },
+  {
+    "text": "What is outlier detection?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Outlier detection identifies rare items, events, or observations that raise suspicions by differing significantly from the majority of the data. Common methods include Z-scores and IQR bounds."
+  },
+  {
+    "text": "Describe a time you presented data findings to a skeptical audience.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "The candidate should explain how they anticipated objections, backed claims with robust evidence, and maintained a calm, collaborative demeanor."
+  },
+  {
+    "text": "Tell me about a time you managed your time effectively during a high-pressure week.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "The response should highlight task prioritization, breaking down deliverables into manageable chunks, and communicating progress to stakeholders."
+  },
+  {
+    "text": "How do you handle constructive feedback from peers during code reviews?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "The candidate should emphasize openness, willingness to learn, and prompt incorporation of suggested improvements into their code."
+  },
+  {
+    "text": "If a stakeholder asks for an analysis that you know is statistically invalid, how do you respond?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Politely explain the statistical limitations and risks of the requested approach, and propose an alternative valid methodology that answers their underlying business question."
+  },
+  {
+    "text": "Write a Python function to calculate the factorial of a number iteratively.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "def factorial(n): res = 1; for i in range(2, n+1): res *= i; return res. This efficiently computes factorials without recursion depth limits."
+  },
+  {
+    "text": "What is the difference between box plots and violin plots?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Box plots display summary statistics like median and quartiles, while violin plots combine box plots with a kernel density estimation to show the full probability distribution of the data."
+  },
+  {
+    "text": "How do you detect multicollinearity in regression models?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Multicollinearity is detected using correlation matrices to check pairwise correlations and Variance Inflation Factor (VIF) scores, where values above 5 or 10 indicate problematic collinearity."
+  },
+  {
+    "text": "What is the purpose of a confusion matrix in binary classification?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A confusion matrix breaks down prediction results into true positives, true negatives, false positives, and false negatives, enabling the calculation of nuanced performance metrics beyond simple accuracy."
+  },
+  {
+    "text": "Explain what business metrics like Churn Rate and Customer Lifetime Value (LTV) mean.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Churn rate measures the percentage of customers who stop using a service over a given time period. LTV predicts the total net profit a company can expect from a single customer account throughout their relationship."
+  },
+  {
+    "text": "What is the difference between L1 and L2 regularization penalties?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "L1 regularization adds the absolute sum of coefficients, driving some to zero for feature selection. L2 regularization adds the squared sum of coefficients, shrinking them smoothly without eliminating features."
+  },
+  {
+    "text": "Describe a time you had to pivot your analytical approach due to data limitations.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The candidate should use the STAR method to describe identifying data gaps, evaluating alternative data sources, and adjusting their modeling strategy successfully."
+  },
+  {
+    "text": "Tell me about a time you collaborated with a product manager to define key performance indicators (KPIs).",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The response should highlight aligning technical metrics with business goals, facilitating brainstorming sessions, and establishing measurable tracking frameworks."
+  },
+  {
+    "text": "How do you handle working with a team member who is unresponsive or misses deadlines?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The candidate should discuss communicating proactively, understanding potential bottlenecks, escalating appropriately if necessary, and offering support to keep projects on track."
+  },
+  {
+    "text": "You are analyzing customer churn and find that a key demographic feature has 30% missing values. How do you proceed?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Investigate whether the missingness is random or informative. Use imputation techniques if missing at random, or create a binary indicator column if the absence of data itself is predictive."
+  },
+  {
+    "text": "Write a Python function to find the top K frequent elements in a list.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "from collections import Counter; def top_k(nums, k): return [item for item, count in Counter(nums).most_common(k)]. This efficiently counts and returns top items."
+  },
+  {
+    "text": "What is heteroscedasticity and how does it affect regression models?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Heteroscedasticity occurs when the variance of errors differs across levels of independent variables. While coefficient estimates remain unbiased, standard errors become unreliable, invalidating hypothesis tests and confidence intervals."
+  },
+  {
+    "text": "Explain how t-SNE works for dimensionality reduction and visualization.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "t-SNE converts Euclidean distances between data points into conditional probabilities representing similarities, and minimizes the Kullback-Leibler divergence between low-dimensional and high-dimensional distributions to cluster similar points."
+  },
+  {
+    "text": "What are generalized linear models (GLMs)?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "GLMs generalize linear regression by allowing linear models to relate to the response variable via link functions and supporting exponential family error distributions like Poisson or binomial."
+  },
+  {
+    "text": "How do you evaluate clustering models when ground truth labels are missing?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Evaluation uses internal validation metrics like Silhouette Coefficient, Calinski-Harabasz Index, and Davies-Bouldin Index, which measure cluster cohesion and separation without requiring true labels."
+  },
+  {
+    "text": "What is survival analysis censoring?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Censoring occurs when the exact time of the event of interest is not known for all subjects, such as patients leaving a study before experiencing the target event."
+  },
+  {
+    "text": "Tell me about a time you identified and fixed a hidden bias in a predictive model.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "The candidate should detail auditing performance across demographic subgroups, redesigning feature sets, and retraining models to ensure fairness and equity."
+  },
+  {
+    "text": "Describe a situation where you had to present complex statistical results to a non-technical executive board.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "The response should highlight the use of clear visualizations, actionable takeaways, omission of unnecessary jargon, and answering executive questions with confidence."
+  },
+  {
+    "text": "Tell me about a time you led a cross-functional project from conception to production deployment.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "The candidate should cover project scoping, engineering coordination, milestone tracking, stakeholder management, and successful production launch."
+  },
+  {
+    "text": "Your A/B test shows a statistically significant improvement in click-through rate, but revenue per user drops significantly. What do you do?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Pause feature rollout immediately, analyze downstream funnel metrics to identify where drop-offs occur, and re-evaluate primary optimization goals to prevent revenue cannibalization."
+  },
+  {
+    "text": "Write a Python function to compute cosine similarity between two vectors from scratch.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "import math; def cosine_sim(v1, v2): dot = sum(a*b for a,b in zip(v1,v2)); norm1 = math.sqrt(sum(a*a for a in v1)); norm2 = math.sqrt(sum(b*b for b in v2)); return dot / (norm1 * norm2) if norm1 and norm2 else 0.0."
+  },
+  {
+    "text": "What is causal discovery and how does it differ from predictive modeling?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Predictive modeling focuses on associative patterns to forecast outcomes ($P(Y|X)$), whereas causal discovery aims to uncover underlying cause-and-effect relationships ($P(Y|do(X))$) from observational data."
+  },
+  {
+    "text": "Explain the mechanics of Variational Autoencoders (VAEs).",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "VAEs are probabilistic generative models that encode inputs into latent distribution parameters (mean and variance), sample from them using reparameterization trick, and decode to reconstruct inputs while minimizing reconstruction error and KL divergence."
+  },
+  {
+    "text": "What is extreme value theory in statistical modeling?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Extreme value theory models stochastic behavior relating to unusually large or small values, widely used in risk management, finance, and climate modeling to estimate probabilities of rare catastrophe events."
+  },
+  {
+    "text": "How do you manage data pipelines with strict latency requirements in streaming architectures?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Use distributed stream processing frameworks like Apache Kafka and Flink, partition data efficiently, optimize serialization, and implement sliding window aggregations to meet sub-second SLAs."
+  },
+  {
+    "text": "Explain the role of attention mechanisms in modern machine learning architectures.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Attention mechanisms allow models to dynamically focus on relevant parts of input sequences regardless of distance, overcoming bottleneck limitations of recurrent architectures."
+  },
+  {
+    "text": "Tell me about a time you architected a machine learning platform that scaled across an entire enterprise.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "The candidate should detail designing reusable feature stores, standardized model registries, CI/CD deployment pipelines, and governance frameworks."
+  },
+  {
+    "text": "Describe a time you navigated severe organizational resistance to data-driven decision making.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "The response should highlight empathy, building trust through small wins, educating stakeholders, and demonstrating undeniable empirical value over intuition."
+  },
+  {
+    "text": "Tell me about a time you diagnosed a subtle, intermittent bug in a production ML pipeline.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "The candidate should explain deep logging analysis, reproducing race conditions or non-deterministic behavior, and implementing robust automated testing safeguards."
+  },
+  {
+    "text": "A key predictive feature becomes unavailable in production due to third-party API changes. How do you maintain model stability?",
+    "type": "SITUATIONAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Deploy an immediate fallback model that excludes the missing feature, use proxy features from internal data sources, and establish fallback alerts to engineering teams."
+  },
+  {
+    "text": "Write a Python function to implement K-Means clustering from scratch using NumPy.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "import numpy as np; def kmeans(X, k, max_iters=100): centroids = X[np.random.choice(X.shape[0], k, replace=False)]; ... implement distance calculation, assignment, and centroid update loops."
+  },
+  {
+    "text": "What is the difference between a histogram and a box plot?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A histogram shows the frequency distribution of a continuous variable across bins, whereas a box plot summarizes data distribution using quartiles, median, and potential outliers."
+  },
+  {
+    "text": "How do you calculate the range of a dataset?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The range is calculated by subtracting the minimum value in the dataset from the maximum value, providing a simple measure of data dispersion."
+  },
+  {
+    "text": "What is the purpose of data visualization in exploratory analysis?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Data visualization provides a quick, intuitive way to identify trends, patterns, outliers, and relationships in data that summary statistics alone might miss."
+  },
+  {
+    "text": "What is a pie chart best used for?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A pie chart is best used to display relative proportions or percentages of a whole, though it is generally discouraged for comparing many categories."
+  },
+  {
+    "text": "What does a positive covariance indicate?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A positive covariance indicates that two variables tend to move in the same direction, meaning above-average values of one tend to pair with above-average values of the other."
+  },
+  {
+    "text": "Tell me about a time you handled a tight deadline for a dashboard delivery.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "The candidate should outline prioritizing essential charts, automating repetitive queries, and delivering an MVP on time while iterating later."
+  },
+  {
+    "text": "Describe a time you collaborated with team members to resolve a data discrepancy.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "The response should highlight open communication, collaborative investigation of source tables, and aligning on a unified reporting metric."
+  },
+  {
+    "text": "How do you ensure data quality when pulling data from multiple sources?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "The candidate should discuss implementing schema checks, validating row counts, checking for null values, and writing automated unit tests."
+  },
+  {
+    "text": "If two stakeholders request conflicting metrics for the same business report, how do you handle it?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Facilitate a discussion to understand the underlying business definitions, propose a standardized metric that satisfies both use cases, and document the decision clearly."
+  },
+  {
+    "text": "Write a SQL query to retrieve the top 5 customers by total purchase amount.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "SELECT customer_id, SUM(amount) as total FROM purchases GROUP BY customer_id ORDER BY total DESC LIMIT 5; This aggregates totals and sorts efficiently."
+  },
+  {
+    "text": "What is the difference between Pearson and Spearman correlation coefficients?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Pearson correlation measures linear relationships between continuous variables. Spearman correlation measures monotonic relationships by evaluating the ranks of the data rather than raw values."
+  },
+  {
+    "text": "How do you deal with imbalanced classification datasets?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Imbalanced datasets can be handled using resampling techniques like SMOTE or undersampling, adjusting class weights in algorithms, using appropriate evaluation metrics like F1-score or PR-AUC instead of accuracy."
+  },
+  {
+    "text": "What is the role of the validation set in hyperparameter tuning?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The validation set is used to evaluate model performance across different hyperparameter configurations, allowing data scientists to tune models without leaking test set information."
+  },
+  {
+    "text": "Explain the concept of Lift in marketing analytics.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Lift measures the effectiveness of a predictive model or marketing campaign by comparing the results obtained with the model against random selection (e.g., response rate of targeted users vs overall baseline)."
+  },
+  {
+    "text": "What is a density plot and when is it preferred over histograms?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A density plot smooths out the distribution using kernel density estimation, providing a continuous curve that is often preferred over histograms when comparing multiple distributions visually."
+  },
+  {
+    "text": "Tell me about a time you used data visualization to influence a key business decision.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The candidate should explain designing a clear, impactful chart or dashboard that highlighted critical trends and directly prompted leadership to take action."
+  },
+  {
+    "text": "Describe a project where you balanced multiple competing stakeholder requests successfully.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The response should highlight scoping discussions, setting clear timelines, prioritizing high-impact deliverables, and communicating transparently."
+  },
+  {
+    "text": "Tell me about a time you identified a flaw in a dashboard or report after it was published.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The candidate should outline owning the mistake, issuing a corrected version promptly, and implementing validation checks to prevent future occurrences."
+  },
+  {
+    "text": "A business metric drops by 15% overnight. How do you structure your investigation?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Check data pipeline integrity first to rule out logging errors, then segment the drop by geography, device, and user cohorts to isolate the root cause."
+  },
+  {
+    "text": "Write a Python function to compute the moving average of a list of numbers given a window size K.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "def moving_average(nums, k): return [sum(nums[i:i+k])/k for i in range(len(nums)-k+1)]. This computes the rolling average efficiently for valid windows."
+  },
+  {
+    "text": "What are added variable plots (partial regression plots) and how do they help model interpretation?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Partial regression plots display the relationship between the response variable and a specific predictor while controlling for the effects of all other predictors, helping identify individual feature impact and outliers."
+  },
+  {
+    "text": "Explain how Isolation Forests work for anomaly detection.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Isolation Forests isolate anomalies instead of profiling normal data points by randomly selecting features and split values, exploiting the fact that anomalies require fewer splits to isolate."
+  },
+  {
+    "text": "What is targeted regularization and how does elastic net combine L1 and L2 penalties?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Elastic Net combines L1 (Lasso) and L2 (Ridge) penalties linearly, allowing it to perform feature selection while retaining grouped variable selection capabilities that Lasso struggles with."
+  },
+  {
+    "text": "How do you evaluate time series forecasting models without data leakage?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Evaluation requires time-series split cross-validation or rolling origin evaluation, ensuring that training sets strictly precede validation sets in time to prevent look-ahead bias."
+  },
+  {
+    "text": "What is the false discovery rate (FDR) in multiple hypothesis testing?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "FDR is the expected proportion of false discoveries (false positives) among all rejected null hypotheses, controlled using methods like Benjamini-Hochberg procedure."
+  },
+  {
+    "text": "Tell me about a time you designed an interactive dashboard that significantly improved operational efficiency.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "The candidate should detail gathering user requirements, optimizing data queries, designing intuitive UI/UX, and measuring the resulting time savings."
+  },
+  {
+    "text": "Describe a situation where your exploratory analysis disproved a long-held company belief.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "The response should highlight objective data analysis, careful verification of findings, and diplomatic communication of results to stakeholders."
+  },
+  {
+    "text": "Tell me about a time you managed a major analytics migration project.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "The candidate should cover planning migration phases, running dual-run validation checks, managing downtime, and training users on the new system."
+  },
+  {
+    "text": "A stakeholder insists on including 50 highly correlated features in a regression model because 'more data is better.' How do you advise them?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Explain multicollinearity, inflated standard errors, and overfitting risks. Propose feature selection or regularization techniques to demonstrate superior out-of-sample performance."
+  },
+  {
+    "text": "Write a Python function to perform stratified K-fold cross-validation split indices manually.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "def stratified_kfold(y, k): ... group indices by class label, shuffle each group, and distribute them evenly across k folds to maintain class proportions."
+  },
+  {
+    "text": "What are generalized additive models (GAMs) and how do they balance interpretability and flexibility?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "GAMs replace linear coefficients with smooth nonparametric functions of predictors, allowing capture of non-linear relationships while preserving additive interpretability."
+  },
+  {
+    "text": "Explain the mathematics behind network graphs and centrality metrics like PageRank and Betweenness.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Centrality metrics quantify node importance in graphs: PageRank measures random walk stationary probabilities, while Betweenness measures the fraction of shortest paths passing through a node."
+  },
+  {
+    "text": "What is spectral clustering and how does it utilize graph Laplacians?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Spectral clustering uses the eigenvalues of a similarity graph's Laplacian matrix to reduce dimensionality before performing K-means clustering in lower-dimensional space."
+  },
+  {
+    "text": "How do you handle privacy-preserving analytics in distributed data architectures?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Use federated learning, differential privacy, and secure multi-party computation to train models across decentralized devices or servers without centralizing raw data."
+  },
+  {
+    "text": "Explain the statistical mechanics of spatial point processes in geospatial analytics.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Spatial point processes model the stochastic distribution of points in multi-dimensional space, analyzing clustering, dispersion, and intensity patterns."
+  },
+  {
+    "text": "Tell me about a time you architected an end-to-end analytics platform that scaled to petabytes of data.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "The candidate should cover data warehousing, distributed computing frameworks, cost optimization, and governance structures."
+  },
+  {
+    "text": "Describe a time you resolved a critical methodological flaw in a high-profile company report.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "The response should highlight thorough root cause analysis, prompt correction, and establishing rigorous peer review processes."
+  },
+  {
+    "text": "Tell me about a time you presented complex predictive analytics to an adversarial external audience.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "The candidate should demonstrate composure, mastery of subject matter, clear explanations, and handling tough questions with transparency."
+  },
+  {
+    "text": "A critical stakeholder refuses to adopt a newly validated predictive tool because they trust their intuition more. How do you win their trust?",
+    "type": "SITUATIONAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Involve them in a small-scale pilot test, compare model predictions side-by-side with their intuition, and highlight empirical wins to build confidence gradually."
+  },
+  {
+    "text": "Write a Python function to compute the Silhouette Score for clustering results from scratch.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "def silhouette_score_scratch(X, labels): ... compute mean intra-cluster distance (a) and mean nearest-cluster distance (b) for each point, returning the mean of (b - a) / max(a, b)."
+  }
+]

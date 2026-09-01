@@ -1,0 +1,1070 @@
+[
+  {
+    "text": "What does SLI stand for, and how does it differ from an SLO?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "SLI stands for Service Level Indicator, which is a quantitative measure of service performance (e.g., request latency). An SLO (Service Level Objective) is the target reliability for that indicator, set by the business and engineering (e.g., 99% of requests under 200ms)."
+  },
+  {
+    "text": "What is an error budget, and why is it important in SRE?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "An error budget represents the amount of unreliability a service can tolerate within a specific window, derived directly from the SLO. It aligns development and operations by providing a common metric to balance feature velocity with system stability."
+  },
+  {
+    "text": "Describe the basic role of an Incident Commander during a major outage.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The Incident Commander (IC) is responsible for coordinating the overall response, assigning roles, directing communication, and making final triage decisions. The IC delegates technical troubleshooting to others so they can focus purely on coordination."
+  },
+  {
+    "text": "What is the primary goal of a blameless postmortem?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A blameless postmortem focuses on systemic and procedural failures rather than human error. This encourages transparent reporting, fosters psychological safety, and leads to actionable improvements that prevent recurrence."
+  },
+  {
+    "text": "Why do we use synthetic monitoring alongside real-user monitoring (RUM)?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Synthetic monitoring uses scripted transactions to proactively test critical paths even when no real users are active, providing consistent baseline metrics. RUM captures actual user experiences, but synthetic monitoring ensures you discover outages before customers do."
+  },
+  {
+    "text": "What is horizontal scaling vs. vertical scaling?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Horizontal scaling involves adding more instances or nodes to handle load, increasing fault tolerance. Vertical scaling means increasing the computing power (CPU/RAM) of a single instance, which usually has hardware ceilings and causes downtime during upgrades."
+  },
+  {
+    "text": "Name two common tools used for log aggregation in a cloud-native architecture.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Fluentd and Logstash (or Vector) are common log collectors, often paired with Elasticsearch, Grafana Loki, or OpenSearch for storage and querying."
+  },
+  {
+    "text": "What is the difference between a metric, a log, and a trace?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Metrics are numeric values aggregated over time indicating overall health; logs are timestamped discrete events providing context on specific actions; traces track the end-to-end path and latency of a request across distributed services."
+  },
+  {
+    "text": "What is a canary deployment?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A canary deployment releases a new version of software to a small subset of users or infrastructure first. This allows engineers to monitor metrics and errors for regressions before rolling it out to the entire fleet."
+  },
+  {
+    "text": "Tell me about a time you had to troubleshoot a production issue under pressure.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "The candidate should explain the situation, the impact on production, how they managed their stress, the steps taken to isolate the root cause, and the positive outcome or mitigation."
+  },
+  {
+    "text": "How do you prioritize your daily tasks when dealing with conflicting requests from developers and operations?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "A strong answer highlights data-driven decision-making, referencing error budgets, business impact, and alignment with overarching team SLAs and OKRs rather than just urgency."
+  },
+  {
+    "text": "Describe a situation where you had to explain a complex technical outage to a non-technical stakeholder.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Look for the candidate's ability to strip away technical jargon, focus on user impact and timeline, and use clear analogies to communicate effectively."
+  },
+  {
+    "text": "What is your approach to writing documentation for operational runbooks?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "The candidate should emphasize clarity, conciseness, regular testing of runbooks during game days, and structuring them so an on-call engineer at 3 AM can easily follow them."
+  },
+  {
+    "text": "You notice an alert firing repeatedly for a non-critical disk usage warning on a Friday evening. What do you do?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Acknowledge the alert, verify it isn't an imminent risk, create a ticket or quick patch if safe, and document the noisy alert for refinement next week to prevent alert fatigue, avoiding unnecessary weekend heroic efforts."
+  },
+  {
+    "text": "A developer wants to bypass the staging environment and push a hotfix directly to production. How do you handle this?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Balance safety with business urgency by assessing the risk, ensuring basic automated guardrails (like unit tests and fast rollback plans) are in place, and working with them to follow a streamlined emergency deployment process."
+  },
+  {
+    "text": "Write a bash command or Python snippet to find the top 5 IP addresses with the highest request counts from an access log.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Using bash: `awk '{print $1}' access.log | sort | uniq -c | sort -nr | head -n 5`. This correctly parses the first column, counts occurrences, sorts numerically in descending order, and returns the top 5."
+  },
+  {
+    "text": "Write a short Python function that checks if an HTTP response code indicates a server error (5xx) and returns a boolean.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "def is_server_error(status_code):\n    return 500 <= status_code < 600\nThis cleanly checks the 5xx status range using standard numerical comparison."
+  },
+  {
+    "text": "How do you calculate burn rate for an error budget, and why is it useful?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Burn rate measures how fast your error budget is being consumed over time. A burn rate of 1 means you consume 100% of your budget in the exact SLO window, allowing for fast-burn alerting that catches major outages in minutes rather than hours."
+  },
+  {
+    "text": "What is the difference between latency, throughput, and utilization in capacity planning?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Latency is the time it takes to process a request; throughput is the number of requests processed per unit of time; utilization is the percentage of available resource capacity currently being used. Capacity planning balances these to avoid the knee of the curve where latency spikes."
+  },
+  {
+    "text": "Explain how distributed tracing works and name a popular protocol/standard used for it.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Distributed tracing propagates a unique trace ID and span ID across service boundaries via HTTP/RPC headers, recording timing data as requests traverse microservices. OpenTelemetry is the current industry-standard framework for collecting this data."
+  },
+  {
+    "text": "What is infrastructure as code (IaC) drift, and how do you prevent or mitigate it?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "IaC drift occurs when the actual state of cloud resources diverges from the defined code state due to manual hotfixes or out-of-band changes. Mitigation includes automated periodic plan checks, restricting manual access via IAM, and enforcing immutable infrastructure patterns."
+  },
+  {
+    "text": "What is the principle of blast radius reduction in system design and chaos engineering?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Blast radius reduction limits the scope of damage when a component fails or an experiment runs, achieved through techniques like cell-based architecture, regional isolation, and phased feature rollouts."
+  },
+  {
+    "text": "Describe how you would design a multi-region active-active database replication strategy. What are the main challenges?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Active-active replication requires handling conflict resolution (e.g., last-write-wins or CRDTs), managing high network latency across regions, and deciding between strong and eventual consistency models based on business needs."
+  },
+  {
+    "text": "What is the difference between active and passive health checks in load balancing?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Active health checks involve the load balancer proactively pinging endpoints at regular intervals. Passive health checks monitor actual user traffic and responses in real-time, removing nodes that throw consecutive errors without generating extra synthetic load."
+  },
+  {
+    "text": "How does a token bucket algorithm work for rate limiting?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A token bucket holds tokens up to a maximum capacity, refilling at a constant rate. When a request arrives, a token is removed; if the bucket is empty, the request is throttled or rejected, allowing for controlled burst capacity."
+  },
+  {
+    "text": "What is the primary purpose of a load shedding mechanism?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Load shedding protects a system from cascading failures under extreme traffic by actively dropping low-priority or excessive requests, ensuring core functionality stays available for a subset of users rather than crashing the entire service."
+  },
+  {
+    "text": "Explain the concept of toil and how SRE teams manage it.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Toil is manual, repetitive, automation-devoid work that scales linearly with service growth. SRE teams measure toil to keep it under 50% of their time, eliminating it through software engineering and automation."
+  },
+  {
+    "text": "Describe a time when an automation script you wrote failed in production. What did you learn?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The candidate should share a candid example of an automation failure, discuss the immediate remediation, and explain how they improved validation, error handling, dry-run modes, or safety checks afterward."
+  },
+  {
+    "text": "Tell me about a disagreement you had with a software developer over architectural reliability versus feature delivery speed.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Look for empathy, data-backed reasoning, willingness to compromise using error budgets, and a focus on long-term collaborative outcomes rather than winning an argument."
+  },
+  {
+    "text": "How do you handle burnout or alarm fatigue when supporting a high-frequency on-call rotation?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The candidate should mention strategies like rotating on-call duties, ruthlessly tuning alerts to ensure actionability, scheduling remediation sprints, and advocating for incident follow-up tickets."
+  },
+  {
+    "text": "Describe how you mentored a junior engineer who was struggling to grasp distributed systems debugging.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Look for a patient, structured approach\u2014such as pairing on debugging sessions, explaining conceptual models (like CAP theorem or network partitions), and encouraging them to drive the investigation."
+  },
+  {
+    "text": "An automated deployment script successfully deploys a bad configuration that passes all health checks but corrupts application data. What are your immediate steps?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Immediately halt ongoing deployments, roll back the configuration, assess the scope of data corruption, and engage database administrators or utilize point-in-time recovery while communicating the impact to stakeholders."
+  },
+  {
+    "text": "During peak traffic, a critical third-party API starts failing with 504 Gateway Timeouts. Your system has no fallback cache. What do you do?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Implement quick circuit breaking or request throttling to protect your internal resources from thread exhaustion, return cached or graceful degradation responses to users, and coordinate with the vendor."
+  },
+  {
+    "text": "Write a Python script that parses a log file and alerts (prints a warning) if the error rate exceeds 5% in any rolling 1-minute window.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "def check_error_rate(log_entries):\n    from collections import deque\n    window = deque()\n    errors = 0\n    for timestamp, is_error in log_entries:\n        window.append((timestamp, is_error))\n        if is_error: errors += 1\n        while window and timestamp - window[0][0] > 60:\n            _, old_err = window.popleft()\n            if old_err: errors -= 1\n        if len(window) >= 100 and (errors / len(window)) > 0.05:\n            print('WARNING: Error rate exceeded 5%!')\nThis maintains a sliding window of log events and checks the ratio efficiently."
+  },
+  {
+    "text": "Write a Python script using `requests` or standard libraries to implement exponential backoff with jitter when retrying a flaky HTTP endpoint.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "import time, random\ndef retry_with_backoff(url, max_retries=3):\n    for attempt in range(max_retries):\n        try:\n            response = requests.get(url)\n            if response.status_code == 200: return response\n        except Exception:\n            pass\n        sleep_time = (2 ** attempt) + random.uniform(0, 1)\n        time.sleep(sleep_time)\n    raise Exception('Max retries reached')"
+  },
+  {
+    "text": "Design a multi-window multi-burn-rate alerting strategy for an SLO of 99.9%. Explain the math and thresholds.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "A 99.9% SLO allows 0.1% error budget. Multi-window alerts check burn rates over short (e.g., 5 min) and long (e.g., 1 hour) windows. For instance, burning 2% of the total 30-day budget in 1 hour triggers a page, balancing high sensitivity with low false-positive rates."
+  },
+  {
+    "text": "How do you design a robust capacity planning model for a hyper-growth service with unpredictable seasonal spikes?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Combine historical trend analysis with stress testing and queueing theory (Little's Law). Implement automated auto-scaling based on custom business metrics rather than just CPU, and maintain cloud commitments combined with spot instances for elasticity."
+  },
+  {
+    "text": "What is the CAP theorem, and how does it apply when designing a globally distributed consensus store like Etcd or ZooKeeper?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "CAP states a distributed system can only provide two of Consistency, Availability, and Partition Tolerance simultaneously. Since network partitions are inevitable, systems like Etcd choose Consistency and Partition Tolerance (CP), sacrificing availability during a split-brain scenario."
+  },
+  {
+    "text": "Explain how Linux kernel cgroups and namespaces form the foundation of containerization engines like Docker.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Namespaces isolate system resources such as process trees, network interfaces, and mount points so a container sees its own sandbox. Cgroups limit and account for resource usage like CPU, memory, and I/O across those isolated process groups."
+  },
+  {
+    "text": "Describe the architecture of a resilient queuing system (like Kafka or RabbitMQ) designed to withstand broker failures without data loss.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "It requires data replication across multiple availability zones or nodes with configurable acknowledgment settings (`acks=all`), leader election mechanisms (like Raft or ZooKeeper), and persistent storage backed by disk write-ahead logs."
+  },
+  {
+    "text": "How would you architect a zero-downtime database schema migration for a high-throughput table with hundreds of millions of rows?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use the Expand-Contract pattern: Expand by adding the new column/table and dual-writing via application code, backfill historical data in batches asynchronously, and finally Contract by removing the old schema once dependencies are fully cleared."
+  },
+  {
+    "text": "What are cascading failures in complex distributed systems, and what architectural patterns prevent them?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Cascading failures occur when a local failure causes downstream dependencies to overload and fail sequentially. Prevention patterns include timeouts, circuit breakers, bulkheads, rate limiting, and graceful degradation."
+  },
+  {
+    "text": "Describe how you design a chaos engineering game day for a tier-1 payment service.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Define hypotheses about system resilience, establish safety stop conditions, run experiments in staging or carefully scoped production zones (e.g., terminating a database replica or injecting network latency), and measure recovery time and system behavior."
+  },
+  {
+    "text": "Tell me about a time you identified an architectural flaw in a system before it caused a major incident, and how you persuaded stakeholders to fix it.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Look for deep technical insight, proactive threat modeling or load testing, clear risk communication translating technical debt to business impact, and successful cross-functional remediation."
+  },
+  {
+    "text": "Describe a catastrophic production incident you managed where initial troubleshooting steps proved completely wrong. How did you pivot?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Look for emotional resilience, intellectual humility, the ability to step back, re-evaluate telemetry data, and effectively communicate the changing hypothesis to the incident response team."
+  },
+  {
+    "text": "A critical service has been experiencing intermittent memory leaks for months, but management wants feature work prioritized. How do you advocate for reliability?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "The candidate should demonstrate tying technical debt to concrete error budget consumption, customer friction, and financial cost, framing reliability as an enabler of sustainable business growth."
+  },
+  {
+    "text": "You inherit an undocumented, fragile legacy monolith that crashes weekly. The business refuses to rewrite it. What is your systematic strategy to stabilize it?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Implement comprehensive synthetic monitoring and crash dump analysis to find patterns, add automated process supervision (like systemd/monit) for automatic restarts, wrap unstable modules with circuit breakers, and strangle the monolith piece by piece."
+  },
+  {
+    "text": "A misconfigured routing table update causes a partition between two cloud regions, splitting a globally distributed cluster. Split-brain occurs. How do you recover?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Restore network connectivity, identify divergent state or data corruption caused by concurrent writes on both sides of the partition, manually or programmatically reconcile conflicting records using business logic rules, and review quorum configurations."
+  },
+  {
+    "text": "Write a Python script that implements a thread-safe token bucket rate limiter supporting concurrent requests.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "import time, threading\nclass TokenBucket:\n    def __init__(self, capacity, refill_rate):\n        self.capacity = float(capacity)\n        self._tokens = float(capacity)\n        self.refill_rate = float(refill_rate)\n        self.timestamp = time.time()\n        self.lock = threading.Lock()\n\n    def consume(self, tokens=1):\n        with self.lock:\n            now = time.time()\n            delta = now - self.timestamp\n            self.timestamp = now\n            self._tokens = min(self.capacity, self._tokens + delta * self.refill_rate)\n            if self._tokens >= tokens:\n                self._tokens -= tokens\n                return True\n            return False"
+  },
+  {
+    "text": "Write a Python function that parses a dependency graph (represented as an adjacency list) and detects if there are any circular dependencies.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "def has_cycle(graph):\n    visited, rec_stack = set(), set()\n    def dfs(node):\n        visited.add(node)\n        rec_stack.add(node)\n        for neighbor in graph.get(node, []):\n            if neighbor not in visited:\n                if dfs(neighbor): return True\n            elif neighbor in rec_stack: return True\n        rec_stack.remove(node)\n        return False\n    return any(node not in visited and dfs(node) for node in graph)"
+  },
+  {
+    "text": "Explain the internals of eBPF (Extended Berkeley Packet Filter) and how it revolutionizes modern observability and security in Linux systems.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "eBPF allows safe, sandboxed execution of custom bytecode inside the Linux kernel kernel space in response to hooks (kprobes, tracepoints, socket filters) without changing kernel source code or loading traditional kernel modules, enabling high-performance tracing and network filtering."
+  },
+  {
+    "text": "Design a globally distributed, highly available leader-election consensus mechanism without relying on external managed services like ZooKeeper or Consul.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Implement a distributed consensus algorithm like Raft or Paxos across multi-region nodes, handling split-brain scenarios with quorum majorities, robust heartbeat timeouts, and fencing tokens to prevent zombie leader writes."
+  },
+  {
+    "text": "Describe how to design and execute a dark launch or verification framework for shifting traffic across multi-cloud infrastructure with zero perceivable user downtime.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Mirror production traffic asynchronously to the new cloud provider, compare response outputs for parity, gradually route live read traffic via DNS/anycast routing, and validate data replication synchronization before promoting the new cloud as primary."
+  },
+  {
+    "text": "You are leading the post-incident review for an industry-shaking global outage caused by an extremely rare race condition in a core storage engine. How do you investigate, remediate, and share learnings organization-wide?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Look for rigorous forensic analysis (core dumps, lock traces), deep technical remediation (formal verification, redesigning concurrency models), comprehensive blameless root cause publication, and proactive community engagement to share industry learnings."
+  },
+  {
+    "text": "During a massive Black Friday traffic surge, a distributed deadlock occurs across microservices, causing thread pool exhaustion and total system lockup. Standard health checks pass, so orchestration tools aren't restarting pods. How do you recover live?",
+    "type": "SITUATIONAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Immediately deploy emergency rate-limiting or drop ingress traffic via edge gateways, capture thread dumps from active pods for post-analysis, execute rolling hard restarts of clusters in dependency order, and implement circuit breakers or backpressure mechanisms."
+  },
+  {
+    "text": "Write a Python script that implements a consistent hashing ring with virtual nodes to distribute cache keys across multiple backend nodes evenly.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "import hashlib\nclass ConsistentHash:\n    def __init__(self, nodes=None, replicas=3):\n        self.replicas = replicas\n        self.ring = dict()\n        self.sorted_keys = []\n        if nodes:\n            for node in nodes: self.add_node(node)\n\n    def _hash(self, key):\n        return int(hashlib.md5(key.encode('utf-8')).hexdigest(), 16)\n\n    def add_node(self, node):\n        for i in range(self.replicas):\n            virtual_key = f'{node}-{i}'\n            h = self._hash(virtual_key)\n            self.ring[h] = node\n            self.sorted_keys.append(h)\n        self.sorted_keys.sort()\n\n    def get_node(self, key):\n        if not self.ring: return None\n        h = self._hash(key)\n        for sk in self.sorted_keys:\n            if h <= sk: return self.ring[sk]\n        return self.ring[self.sorted_keys[0]]"
+  },
+  {
+    "text": "What is tail latency (e.g., p99 or p99.9), why does it matter in large distributed systems, and how do you mitigate head-of-line blocking?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Tail latency measures the worst-case response times experienced by a small fraction of requests. In distributed systems with fan-out queries, a single slow backend can bottleneck the entire request. Mitigation involves hedging requests, timeouts, and breaking up large payloads."
+  },
+  {
+    "text": "Explain how DNS load balancing works and its limitations in failing over traffic rapidly during an incident.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "DNS load balancing rotates IP addresses returned in DNS queries (e.g., round-robin). Its primary limitation is TTL (Time To Live) caching by recursive resolvers and client devices, which means traffic can continue hitting a dead IP long after a DNS record update."
+  },
+  {
+    "text": "What is the difference between rolling updates and blue-green deployments?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Rolling updates replace instances of the old version with the new version incrementally. Blue-green deployments maintain two identical production environments, switching router or load balancer traffic instantly from the old version (blue) to the new version (green)."
+  },
+  {
+    "text": "Describe how Linux handles OOM (Out of Memory) kills and how you can tune OOM scores for critical database pods.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "When memory is exhausted, the Linux kernel invokes the OOM killer to terminate a process based on memory usage and `oom_score`. You can protect critical services (like databases) by configuring `oom_score_adj` to a negative value, making them less likely to be killed."
+  },
+  {
+    "text": "What is the primary benefit of utilizing service meshes (like Istio or Linkerd) in a microservices architecture?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Service meshes abstract network communication, security (mTLS), observability, and traffic management (retries, circuit breaking) away from application code into dedicated sidecar proxies."
+  },
+  {
+    "text": "How do you ensure data durability when using cloud block storage volumes like AWS EBS or GCP Persistent Disk?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Cloud block storage achieves durability by synchronously replicating data across multiple physical disks within an availability zone. You ensure disaster recovery by complementing this with automated snapshot backups and cross-region replication."
+  },
+  {
+    "text": "What is the purpose of setting both requests and limits for CPU and memory in Kubernetes containers?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Requests determine the guaranteed resources allocated for scheduling pods across nodes. Limits cap the maximum resources a container can consume, preventing noisy neighbors from starving other applications on the same node."
+  },
+  {
+    "text": "Describe how you would approach troubleshooting a sudden spike in CPU utilization on a production web server.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Check system metrics and logs to identify if the spike correlates with traffic growth or a specific endpoint. Use profiling tools (like `top`, `perf`, or language-specific profilers) to isolate hot code paths, memory garbage collection churn, or infinite loops."
+  },
+  {
+    "text": "What is a dead letter queue (DLQ), and when should you use one?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A DLQ is a secondary holding queue where messages that fail processing multiple times are routed. It prevents poison pill messages from blocking primary queue processing and allows engineers to inspect and debug failed payloads later."
+  },
+  {
+    "text": "Tell me about a time when you automated a tedious manual task that your team was performing regularly.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "The candidate should highlight the manual toil, the tool or script they built to automate it, the time saved per week, and how they ensured the automation was reliable and documented."
+  },
+  {
+    "text": "How do you handle a situation where a postmortem action item is repeatedly delayed by engineering teams due to high feature pressure?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Reiterate the risk using error budget data, discuss whether the action item can be scoped down, and escalate through agreed governance channels if the unmitigated risk threatens service reliability."
+  },
+  {
+    "text": "An upstream API provider changes their rate limit policy without warning, causing 429 Too Many Requests errors across your application. How do you coordinate the response?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Immediately communicate the external dependency failure to internal stakeholders, implement aggressive client-side caching and backoff, reach out to the vendor's support escalation channel, and explore alternative routing or degradation modes."
+  },
+  {
+    "text": "Write a Python script that uses sockets or requests to check if a list of web endpoints are reachable and returns a status dictionary.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "import requests\ndef check_endpoints(urls):\n    results = {}\n    for url in urls:\n        try:\n            r = requests.get(url, timeout=3)\n            results[url] = r.status_code == 200\n        except requests.RequestException:\n            results[url] = False\n    return results"
+  },
+  {
+    "text": "What is the difference between optimistic and pessimistic locking in database transactions?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Optimistic locking assumes conflicts are rare, checking for modifications at commit time using a version column and aborting if a conflict occurs. Pessimistic locking locks the database row immediately upon read to prevent concurrent modifications."
+  },
+  {
+    "text": "Explain how BGP (Border Gateway Protocol) Anycast is used in large content delivery networks (CDNs) for high availability and low latency.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "BGP Anycast advertises the exact same IP address from multiple geographically distinct network locations. Routers automatically direct user requests to the topologically nearest routing node, optimizing latency and providing automatic failover if a site goes down."
+  },
+  {
+    "text": "How do you configure and tune Linux TCP keepalive settings to detect broken socket connections quickly in a microservices environment?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Tune parameters like `net.ipv4.tcp_keepalive_time`, `net.ipv4.tcp_keepalive_intvl`, and `net.ipv4.tcp_keepalive_probes` to shorten the detection window for dead TCP peers, preventing hanging connections from consuming thread pools."
+  },
+  {
+    "text": "Describe the architecture of a secure zero-trust network access (ZTNA) model compared to traditional perimeter-based VPNs.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Traditional VPNs grant broad network access once authenticated, exposing lateral movement risks. ZTNA continuously verifies identity, device posture, and context for every individual application request, denying implicit trust entirely."
+  },
+  {
+    "text": "Tell me about a time you had to roll back a major production deployment during peak hours. What steps did you take to ensure data consistency?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Discuss the indicators that triggered the rollback, communication flow during the incident, execution of the rollback plan, verification of backward-compatible database states, and post-incident analysis."
+  },
+  {
+    "text": "A junior engineer executes a destructive database query in production, dropping an active table. You have automated backups. Walk through your step-by-step restoration process.",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Freeze incoming write traffic or put the app in maintenance mode to prevent data divergence, spin up a staging instance from the latest snapshot/point-in-time recovery, extract the missing table data, safely merge it back into production, and conduct a blameless review."
+  },
+  {
+    "text": "Write a Python script that parses standard Prometheus text-format metrics and calculates the average value of a specific metric across all returned label sets.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "def avg_prometheus_metric(metrics_text, target_metric):\n    total, count = 0.0, 0\n    for line in metrics_text.splitlines():\n        if line.startswith(target_metric) and not line.startswith('#'):\n            parts = line.split()\n            if len(parts) >= 2:\n                try:\n                    total += float(parts[-1])\n                    count += 1\n                except ValueError:\n                    pass\n    return total / count if count > 0 else 0.0"
+  },
+  {
+    "text": "What is the role of immutable infrastructure in modern SRE, and how does it prevent configuration drift?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Immutable infrastructure mandates that servers or containers are never modified after creation. If updates or patches are needed, new instances are built from scratch and replaced, completely eliminating configuration drift."
+  },
+  {
+    "text": "Explain how Linux virtual memory management handles page faults and swap space when a system runs low on RAM.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "When an application accesses memory not currently in physical RAM, a page fault occurs, prompting the kernel to load it from disk or swap space. High swap usage causes disk thrashing, drastically slowing down performance."
+  },
+  {
+    "text": "Describe the core tenets of Site Reliability Engineering as defined by Google.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Core tenets include embracing risk, measuring service quality via SLIs/SLOs, managing error budgets, eliminating toil through automation, defining incident response protocols, and sharing responsibility with product development teams."
+  },
+  {
+    "text": "How do you design an effective alerting system that avoids alert fatigue while maintaining high sensitivity to real failures?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Alert on symptoms (like high error rates or latency breach of SLOs) rather than causes (like high CPU), ensure every alert requires human action, and continuously review and prune noisy alerts."
+  },
+  {
+    "text": "What is the difference between vertical pod autoscaling (VPA) and horizontal pod autoscaling (HPA) in Kubernetes?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "HPA scales the number of pod replicas based on metrics like CPU or custom parameters. VPA adjusts the CPU and memory resource requests and limits of existing pods, often requiring pod restarts to apply changes."
+  },
+  {
+    "text": "Tell me about a time when an SLO breach led to freezing feature development. How did developers and management react?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The candidate should explain how the error budget policy was enforced, how management collaborated to reprioritize technical debt, and how the team worked together to restore reliability."
+  },
+  {
+    "text": "You are debugging a network issue where packets are dropping intermittently between two Kubernetes pods in different nodes. How do you troubleshoot?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Check CNI plugin status, inspect network policies, test connectivity using `traceroute` or `tcpdump` within the pod network namespace, and check node-level network interface errors or MTU mismatches."
+  },
+  {
+    "text": "Write a Python script that reads a JSON configuration file and validates that mandatory keys ('host', 'port', 'timeout') exist and have valid types.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "def validate_config(config):\n    required = {'host': str, 'port': int, 'timeout': (int, float)}\n    for key, expected_type in required.items():\n        if key not in config or not isinstance(config[key], expected_type):\n            return False\n    return True"
+  },
+  {
+    "text": "What is the purpose of load testing, and how does it differ from stress testing?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Load testing evaluates system performance under expected peak user traffic to measure latency and throughput. Stress testing pushes the system beyond normal capacity to breaking points to observe failure modes and recovery behavior."
+  },
+  {
+    "text": "Explain how distributed locks work in systems like Redis (Redlock algorithm) and their potential pitfall.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Redlock acquires locks across multiple independent Redis instances to achieve fault tolerance. A major pitfall is that reliance on system clock drift and network delays can violate safety guarantees under heavy load or garbage collection pauses."
+  },
+  {
+    "text": "Describe how you would design a multi-region disaster recovery (DR) strategy with an RPO of 5 minutes and an RTO of 15 minutes.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Achieving a 5-minute RPO requires continuous asynchronous database replication to a secondary region. A 15-minute RTO requires warm standby infrastructure with automated DNS failover and health checking scripts ready to promote the secondary region quickly."
+  },
+  {
+    "text": "Tell me about a time you took ownership of a recurring production failure that no one else wanted to touch.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Look for initiative, persistence, systematic root-cause investigation, and successful permanent remediation that relieved long-term team pain."
+  },
+  {
+    "text": "A cron job running an automated database cleanup query begins locking tables and degrading production query performance during business hours. What do you do?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Immediately locate and terminate the offending database query PID, disable the cron job to prevent re-execution, and reschedule it to run during off-peak maintenance windows with stricter resource timeouts."
+  },
+  {
+    "text": "Write a Python script to parse a comma-separated string of metric thresholds and return a dictionary mapping metric names to their numeric limits.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "def parse_thresholds(threshold_str):\n    result = {}\n    for item in threshold_str.split(','):\n        if ':' in item:\n            name, val = item.split(':')\n            result[name.strip()] = float(val.strip())\n    return result"
+  },
+  {
+    "text": "What is the difference between pull-based and push-based monitoring systems (e.g., Prometheus vs. Datadog agent)?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Pull-based systems scrape metrics from targets, making it easier to control scraping load and verify target health. Push-based systems rely on agents pushing data to a collector, which works well behind NAT or firewall boundaries."
+  },
+  {
+    "text": "Explain how Linux namespaces provide isolation for containers, detailing at least four types of namespaces.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Namespaces wrap global system resources into abstractions. Key types include PID (process IDs), NET (networking interfaces), MNT (mount points), IPC (inter-process communication), UTS (hostname), and USER (UID/GID mappings)."
+  },
+  {
+    "text": "What is the role of chaos engineering in validating auto-scaling policies during unexpected traffic surges?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Chaos engineering injects failures or simulates sudden load spikes to verify that auto-scaling policies react appropriately, scale out fast enough, and don't overwhelm downstream dependencies like databases."
+  },
+  {
+    "text": "Tell me about a time when you had to handle an incident where communication channels broke down and panic ensued.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Look for leadership, ability to establish clear command structures, delegation of communication updates, and calming the team to refocus on methodical troubleshooting."
+  },
+  {
+    "text": "A critical security vulnerability is discovered in a core base image used by 200 microservices. How do you orchestrate the patching process without causing downtime?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Automate rebuilding base images, prioritize services based on exposure and criticality, implement rolling deployments across services with canary verification, and coordinate with engineering teams to fast-track testing."
+  },
+  {
+    "text": "Write a Python function that implements a simple LRU (Least Recently Used) cache using `collections.OrderedDict`.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "from collections import OrderedDict\nclass LRUCache:\n    def __init__(self, capacity: int):\n        self.cache = OrderedDict()\n        self.capacity = capacity\n\n    def get(self, key: int) -> int:\n        if key not in self.cache: return -1\n        self.cache.move_to_end(key)\n        return self.cache[key]\n\n    def put(self, key: int, value: int) -> None:\n        if key in self.cache: self.cache.move_to_end(key)\n        self.cache[key] = value\n        if len(self.cache) > self.capacity:\n            self.cache.popitem(last=False)"
+  },
+  {
+    "text": "What is the significance of the 'Four Golden Signals' in SRE, and what metrics do they represent?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The Four Golden Signals are Latency, Traffic, Errors, and Saturation. They provide a comprehensive baseline to monitor and assess the overall health of any user-facing service."
+  },
+  {
+    "text": "Explain how read-replicas and database sharding help scale database performance under high read and write loads.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Read-replicas offload read queries from the primary database, scaling read throughput. Sharding partitions data horizontally across multiple independent database instances, scaling write throughput and storage capacity beyond a single server's limits."
+  },
+  {
+    "text": "What is a canary analysis, and what statistical methods are typically used to automate it?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Canary analysis compares metrics between baseline and canary versions. Automated tools often use statistical hypothesis testing (like Mann-Whitney U test or Kolmogorov-Smirnov test) to detect metric regressions with confidence intervals."
+  },
+  {
+    "text": "Tell me about a time when you disagreed with management's risk assessment regarding a product launch.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The candidate should explain how they presented empirical risk data, offered constructive alternatives (like phased rollouts), and reached a balanced decision."
+  },
+  {
+    "text": "You are on-call and receive an alert indicating that a critical background worker queue is backing up rapidly, but error rates are zero. What is your diagnostic approach?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Check worker health, concurrency limits, database connection pool saturation, and downstream service latency to determine if workers are running slowly, hung, or if incoming task volume has unexpectedly surged."
+  },
+  {
+    "text": "Write a Python script that parses a structured JSON incident report and extracts all unique tags associated with critical severity incidents.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "def get_critical_tags(incidents):\n    tags = set()\n    for inc in incidents:\n        if inc.get('severity') == 'critical':\n            for tag in inc.get('tags', []):\n                tags.add(tag)\n    return list(tags)"
+  },
+  {
+    "text": "What are the key components of an effective postmortem document template?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Key components include executive summary, timeline of events, root cause analysis, impact assessment, lessons learned, and actionable follow-up tasks with owners and due dates."
+  },
+  {
+    "text": "Explain how DNS load balancing and Anycast routing complement each other in high-availability global architecture.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Anycast routes user traffic to the closest network PoP at the IP layer, while DNS handles domain resolution and regional traffic distribution. Combining them minimizes latency and provides resilient multi-tier failover."
+  },
+  {
+    "text": "What is the difference between horizontal and vertical auto-scaling in containerized cloud environments?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Horizontal scaling increases or decreases the number of container replicas. Vertical scaling increases or decreases CPU and memory resources allocated to existing containers."
+  },
+  {
+    "text": "Tell me about a time when you designed a monitoring dashboard from scratch. What metrics did you choose and why?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Look for adherence to the Four Golden Signals, inclusion of SLO status, clear visualization hierarchy, and tailoring the dashboard for both on-call engineers and executives."
+  },
+  {
+    "text": "An external cloud provider suffers an availability zone outage affecting your persistent storage volumes. No automatic failover occurs. What are your emergency steps?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Acknowledge the zone outage, spin up replacement instances in an unaffected availability zone, attach recent storage snapshots or restore backups, update DNS or load balancers, and communicate status updates."
+  },
+  {
+    "text": "Write a Python function that takes a list of request latencies and returns the p95 and p99 latency values.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "def calculate_percentiles(latencies):\n    if not latencies:\n        return 0, 0\n    sorted_l = sorted(latencies)\n    n = len(sorted_l)\n    p95_idx = int(0.95 * n)\n    p99_idx = int(0.99 * n)\n    return sorted_l[min(p95_idx, n - 1)], sorted_l[min(p99_idx, n - 1)]"
+  },
+  {
+    "text": "What is the role of eBPF in network security and observability within Kubernetes clusters?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "eBPF enables low-overhead, kernel-level packet inspection, security filtering, and tracing across pods without requiring application code changes or sidecar proxies."
+  },
+  {
+    "text": "Explain how circuit breakers protect distributed systems from cascading failures.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A circuit breaker monitors failure rates; when errors exceed a threshold, it trips to open state, immediately failing fast without calling the downstream dependency, allowing it time to recover."
+  },
+  {
+    "text": "What is an error budget policy, and how does it govern feature releases?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "An error budget policy defines actions taken when reliability drops below the SLO. If the budget is exhausted, feature releases are frozen and engineering focuses entirely on reliability fixes."
+  },
+  {
+    "text": "Tell me about a time when you had to investigate a complex production bug that only occurred under high concurrency.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Look for systematic load testing, analysis of thread dumps or race condition logs, and collaboration with developers to implement proper synchronization or locking mechanisms."
+  },
+  {
+    "text": "A scheduled certificate renewal automation fails across your production fleet, and TLS certificates expire in 2 hours. What is your action plan?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Manually generate and deploy the wildcard or service certificates immediately to prevent customer outage, verify endpoint SSL handshake health, and debug the automation script failure afterward."
+  },
+  {
+    "text": "Write a Python function that checks whether an IP address falls within a given CIDR subnet block.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "import ipaddress\ndef is_ip_in_cidr(ip_str, cidr_str):\n    try:\n        return ipaddress.ip_address(ip_str) in ipaddress.ip_network(cidr_str, strict=False)\n    except ValueError:\n        return False"
+  },
+  {
+    "text": "What are the trade-offs between eventual consistency and strong consistency in distributed databases?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Strong consistency guarantees all reads return the latest write at the cost of higher latency and lower availability during partitions. Eventual consistency offers high availability and lower latency, but reads may return stale data temporarily."
+  },
+  {
+    "text": "Explain how Linux cgroups limit CPU and memory usage for containerized workloads.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Cgroups (Control Groups) restrict and account for resource allocation. CPU shares and quotas govern CPU time slices, while memory limits trigger OOM events if exceeded."
+  },
+  {
+    "text": "What is the primary objective of running chaos engineering experiments in a pre-production staging environment?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "To uncover hidden failure modes, validate monitoring alerts, and build confidence in system resilience before introducing faults into live production environments."
+  },
+  {
+    "text": "Tell me about a time when you received harsh feedback during a postmortem review and how you handled it constructively.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Look for emotional maturity, active listening, separating self-worth from the technical incident, and focusing on systemic improvements."
+  },
+  {
+    "text": "During an incident, an engineer suggests applying a quick, undocumented hotfix directly to a production server. How do you respond?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Acknowledge the urgency, but enforce safety guardrails: require peer review, ensure changes are committed to version control, and follow emergency deployment runbooks rather than making untracked manual changes."
+  },
+  {
+    "text": "Write a Python script that simulates an exponential backoff retry loop with a maximum timeout cap.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "import time\ndef retry_operation(func, max_attempts=5, max_wait=30):\n    for attempt in range(max_attempts):\n        try:\n            return func()\n        except Exception:\n            if attempt == max_attempts - 1:\n                raise\n            sleep_time = min(max_wait, 2 ** attempt)\n            time.sleep(sleep_time)"
+  },
+  {
+    "text": "What is the difference between active-passive and active-active high availability architectures?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Active-active utilizes multiple nodes processing traffic concurrently for higher throughput and redundancy. Active-passive runs a primary node handling traffic while a secondary idle node waits to take over upon failure."
+  },
+  {
+    "text": "Explain how distributed consensus algorithms like Raft handle leader election and log replication.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Raft uses randomized election timeouts to choose a leader. The leader accepts client write requests, replicates log entries to follower nodes, and commits entries once a quorum acknowledges them."
+  },
+  {
+    "text": "What is the significance of setting up proper health check endpoints (`/healthz`, `/readyz`) in Kubernetes deployments?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Liveness probes (`/healthz`) determine if a container needs a restart, while readiness probes (`/readyz`) determine if a pod is ready to receive traffic, preventing requests from hitting initializing pods."
+  },
+  {
+    "text": "Tell me about a time when you identified a critical security vulnerability during routine operational reviews.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Look for proactive vigilance, adherence to responsible disclosure, swift collaboration with security teams, and effective remediation."
+  },
+  {
+    "text": "A rogue background process consumes all disk IOPS on a shared database node, slowing down all queries. What are your steps to mitigate?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Identify the offending process via IO monitoring tools (`iotop`, `pidstat`), terminate or nice the process to lower its priority, and implement resource throttling or quotas to prevent recurrence."
+  },
+  {
+    "text": "Write a Python function that parses an access log line and extracts the HTTP method, path, and response status code using regex.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "import re\ndef parse_log_line(line):\n    pattern = r'\"(GET|POST|PUT|DELETE|PATCH) ([^ ]+) HTTP/[^\"]+\" ([0-9]{3})'\n    match = re.search(pattern, line)\n    if match:\n        return match.groups()\n    return None"
+  },
+  {
+    "text": "What is the primary purpose of implementing rate limiting and throttling in public-facing APIs?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "To protect backend services from abusive traffic, Denial of Service (DoS) attacks, and accidental overload, ensuring fair resource distribution across all consumers."
+  },
+  {
+    "text": "Explain how memory leaks manifest in garbage-collected languages (like Java or Go) and how you diagnose them in production.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Memory leaks occur when references to unused objects persist, preventing garbage collection. Diagnosis involves monitoring heap growth metrics, capturing heap dumps, and analyzing object allocation profiles."
+  },
+  {
+    "text": "What is the role of load testing in capacity planning for seasonal traffic spikes like Black Friday?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Load testing simulates expected peak volumes to validate infrastructure limits, identify bottlenecks, and determine exact resource provisioning requirements before high-traffic events."
+  },
+  {
+    "text": "Tell me about a time when you mentored a teammate through their first major incident rotation.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Look for empathy, shadowing practices, constructive debriefs, and building the mentee's confidence in handling high-pressure situations."
+  },
+  {
+    "text": "An internal service mesh control plane experiences a total outage. Existing microservices continue running but cannot update routing tables. What do you do?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Verify that data plane proxies are operating on last-known-good configurations, avoid unnecessary restarts of data plane proxies to prevent crashing, and coordinate with the control plane team to restore service."
+  },
+  {
+    "text": "Write a Python script that counts the frequency of each HTTP status code in a list of log entries.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "from collections import Counter\ndef count_status_codes(status_codes):\n    return dict(Counter(status_codes))"
+  },
+  {
+    "text": "What is the difference between synchronous and asynchronous replication in database clustering?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Synchronous replication waits for confirmation from replicas before committing writes, ensuring zero data loss at the cost of higher latency. Asynchronous replication commits writes locally immediately, offering lower latency with potential data loss risk during failures."
+  },
+  {
+    "text": "Explain how distributed tracing spans and contexts are propagated across asynchronous message queues.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Trace context headers are injected into message metadata when producing to a queue, and extracted by consumer workers when processing messages, linking distributed traces across asynchronous boundaries."
+  },
+  {
+    "text": "What is the significance of setting appropriate timeouts in RPC and HTTP client configurations?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Timeouts prevent client threads from hanging indefinitely when downstream services fail, preventing resource exhaustion and cascading failures."
+  },
+  {
+    "text": "Tell me about a time when you recommended not building a feature or system due to reliability risks.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Look for objective risk assessment, clear communication with product stakeholders, and proposing safer architectural alternatives."
+  },
+  {
+    "text": "A sudden spike in DNS lookup failures prevents your microservices from resolving internal service endpoints. How do you mitigate?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Check CoreDNS or cluster DNS resolver health, inspect upstream resolver connectivity, fallback to cached IP mappings if available, and restart DNS pods if necessary."
+  },
+  {
+    "text": "Write a Python function that validates whether a given string is a valid IPv4 address.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "import socket\ndef is_valid_ipv4(ip_str):\n    try:\n        socket.inet_pton(socket.AF_INET, ip_str)\n        return True\n    except socket.error:\n        return False"
+  },
+  {
+    "text": "What is the purpose of canary testing in modern CI/CD pipelines?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "To safely test new software releases on a small subset of production traffic before rolling them out globally, minimizing blast radius if bugs exist."
+  },
+  {
+    "text": "Explain how Linux disk I/O schedulers (like BFQ or none for NVMe) impact database performance.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "I/O schedulers manage how block requests are queued and dispatched to storage devices. Selecting appropriate schedulers reduces latency and optimizes throughput for high-IOPS databases."
+  },
+  {
+    "text": "What is the role of feature flags in decoupled software deployment and risk management?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Feature flags decouple code deployment from feature release, allowing engineers to toggle functionality on or off dynamically in production without redeploying code."
+  },
+  {
+    "text": "Tell me about a time when you had to rebuild trust with a development team after a rocky operational incident.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Look for accountability, a blameless culture focus, collaborative problem-solving, and establishing mutual reliability goals."
+  },
+  {
+    "text": "A third-party authentication provider goes down, locking out all users attempting to log in. You have a backup local auth mechanism. What are your steps?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Trigger the failover switch to activate the fallback local authentication mechanism, verify login success rates, notify users if degraded, and monitor third-party status updates."
+  },
+  {
+    "text": "Write a Python script that calculates the moving average of a list of numeric sensor or metric readings given a window size.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "def moving_average(data, window_size):\n    if len(data) < window_size:\n        return []\n    res = []\n    curr_sum = sum(data[:window_size])\n    res.append(curr_sum / window_size)\n    for i in range(window_size, len(data)):\n        curr_sum += data[i] - data[i - window_size]\n        res.append(curr_sum / window_size)\n    return res"
+  },
+  {
+    "text": "Write a bash one-liner to parse an access log and output the top 5 most frequently requested URL paths.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "You can use awk and sort, such as: awk '{print $7}' access.log | sort | uniq -c | sort -nr | head -n 5. This extracts the path field, counts occurrences, sorts them numerically in reverse, and prints the top five."
+  },
+  {
+    "text": "Tell me about a time you had to explain a complex technical outage to non-technical stakeholders.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "The candidate should describe how they translated jargon into business impact, focused on user-facing symptoms, explained the mitigation steps clearly, and maintained calm and transparency throughout the communication."
+  },
+  {
+    "text": "You notice CPU utilization on a production database is spiking to 90% during peak hours. What immediate steps do you take?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "First, check for runaway or slow queries using the database's query monitoring tools. Second, verify if traffic or connection limits are being breached, and prepare to scale up read replicas or apply rate limiting if necessary."
+  },
+  {
+    "text": "What is the difference between a metric, a log, and a trace in observability?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Metrics are numeric values aggregated over time that show system health. Logs are discrete time-stamped text records of events. Traces follow a request's journey across distributed services, providing context on latency per hop."
+  },
+  {
+    "text": "How do you calculate error budget consumption from a given SLO?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Error budget is calculated as 100% minus the SLO percentage. Consumption is tracked by measuring the ratio of failed requests or unavailable time against total requests or total time over a rolling window."
+  },
+  {
+    "text": "Write a Python function to check if a given URL is returning a 200 OK status code, with basic error handling.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Using the requests library, wrap requests.get(url, timeout=5) in a try-except block catching RequestException, and return response.status_code == 200 if successful."
+  },
+  {
+    "text": "Describe a situation where automation you wrote saved your team significant time.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "The response should highlight a manual, repetitive task (like certificate renewal or routine log purging), the script or tool created to automate it, and the measured time saved per week or month."
+  },
+  {
+    "text": "An alert fires at 2 AM for high memory usage on a non-critical worker node. How do you decide whether to wake up immediately?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Assess the user impact and blast radius: if it's non-critical and there's no immediate risk of cascading failure or data loss, acknowledge the alert and investigate during normal working hours."
+  },
+  {
+    "text": "What is a blameless postmortem, and why is it important in SRE?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A blameless postmortem focuses on systemic and process failures rather than individual human error when an incident occurs. It fosters psychological safety, encouraging honest reporting and effective preventative action."
+  },
+  {
+    "text": "Define a multi-window, multi-burn-rate alert strategy and explain why it is preferred over simple threshold alerts.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Multi-window multi-burn-rate alerts evaluate the speed at which an error budget is consumed over short and long timeframes (e.g., burning 2% of the budget in 1 hour). This drastically reduces false positives while ensuring rapid notification for severe degradation."
+  },
+  {
+    "text": "Write a Python script using regex to extract and count all unique IP addresses from a standard Apache/Nginx log file.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Open the file, use a compiled regex pattern matching IPv4 addresses at the start of each line, add them to a collections.Counter object, and print the counts."
+  },
+  {
+    "text": "Describe a time when you disagreed with a developer on whether a feature was ready for production. How did you resolve it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The candidate should explain how they relied on data, SLIs, and risk assessment rather than personal opinion, collaborated on finding a compromise (like a staged rollout or feature flag), and ensured reliability wasn't compromised."
+  },
+  {
+    "text": "You are leading an incident response for a complete outage of a core payment gateway. Halfway through, you realize your primary mitigation is failing. What do you do?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Immediately pivot to a secondary fallback plan (like a backup payment processor or degradation mode), communicate the updated timeline to stakeholders, and delegate tasks to parallelize troubleshooting efforts."
+  },
+  {
+    "text": "How do you approach capacity planning for a service experiencing predictable seasonal traffic spikes, such as Black Friday?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Review historical traffic patterns, extrapolate growth trends, perform load and stress testing to find bottleneck points, and provision compute resources or adjust auto-scaling thresholds well in advance."
+  },
+  {
+    "text": "What is toil in SRE, and what are three concrete strategies to reduce it?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Toil is manual, repetitive, tactical work with no enduring value that scales linearly with service growth. Strategies to reduce it include writing automation scripts, building self-service tools for developers, and redesigning systems to be self-healing."
+  },
+  {
+    "text": "Write a robust bash script that checks if a specific systemd service is running, and if not, attempts to restart it and sends a Slack notification.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use systemctl is-active --quiet <service>, check the exit code, run systemctl restart <service> if inactive, and use curl to post a JSON payload to a Slack webhook URL if the restart was triggered."
+  },
+  {
+    "text": "Tell me about a time when a postmortem action item you owned was deprioritized by product management. How did you handle it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The candidate should demonstrate how they translated technical risk into business terms, quantified the potential impact of recurring incidents on user trust, and negotiated to carve out engineering capacity in a future sprint."
+  },
+  {
+    "text": "You notice a memory leak in a production service that causes it to crash every 48 hours. The next release cycle is two weeks away. What is your mitigation plan?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Implement an automated wrapper or health check that gracefully restarts the container or service before memory exhaustion triggers an OOM killer, preventing abrupt request drops while the fix is being developed."
+  },
+  {
+    "text": "Explain the concept of 'Chaos Engineering' and how you would safely introduce it into an organization with low existing reliability maturity.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Chaos engineering is the discipline of experimenting on a system to build confidence in its capability to withstand turbulent conditions in production. Start in non-production environments, define steady-state hypotheses, limit blast radius strictly, and gradually introduce failure injection in production during low-traffic windows."
+  },
+  {
+    "text": "Design a distributed rate limiter in Redis using sliding window logs or token bucket algorithm, and explain its time and space complexity.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Use a Redis sorted set (ZSET) for sliding window logs where scores are timestamps. Add the current timestamp, remove timestamps older than the window, count elements, and set an expiration on the key. Time complexity is O(log N + M) where N is elements in sorted set and M elements removed, space is O(N)."
+  },
+  {
+    "text": "Describe a high-severity incident where you were the Incident Commander. How did you manage pressure, delegate responsibilities, and coordinate remediation?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "The candidate should exhibit strong command-and-control skills, mention delegating distinct roles (scribe, communications, technical lead), maintaining a clear communication cadence, and avoiding getting bogged down in individual debugging."
+  },
+  {
+    "text": "A major cloud provider experiences an availability zone outage affecting your multi-region Kubernetes cluster. Traffic routing via DNS is failing over slowly due to high TTLs. What actions do you take immediately and long-term?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Immediately check global load balancers, manually override DNS records or global traffic manager weights if possible, and scale up healthy regions. Long-term, reduce DNS TTLs, implement active health checks with fast failovers, and review multi-region routing architecture."
+  },
+  {
+    "text": "How do you design SLIs for an asynchronous job processing pipeline where requests are queued and processed later?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "SLIs for async queues should measure end-to-end latency (time from job submission to successful completion), queue depth or lag (how far behind real-time the workers are), and job failure or dead-letter queue rates relative to total throughput."
+  },
+  {
+    "text": "Write a Python script that connects to the Kubernetes API, identifies all pods in a given namespace with restart counts greater than 5, and outputs their names and container logs for debugging.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Use the official kubernetes Python client (config.load_kube_config() and client.CoreV1Api()), list namespaced pods, iterate through container statuses checking restart_count, and use read_namespaced_pod_log to fetch logs for failing pods."
+  },
+  {
+    "text": "What is a cascading failure, and how do you architect distributed systems to prevent them?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "A cascading failure occurs when a failure in one component causes subsequent failures in others due to overloaded resources or retry storms. Prevent them using circuit breakers, timeouts, rate limiting, load shedding, and exponential backoff with jitter."
+  },
+  {
+    "text": "Describe a time when you designed and executed a complex migration with zero downtime. What were the biggest risks and how did you mitigate them?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "The candidate should detail a multi-phase migration (e.g., dual-writing to old and new data stores), risk mitigation strategies like comprehensive rollback plans and feature flags, and how they verified data consistency before final cutover."
+  },
+  {
+    "text": "You inherit an undocumented legacy monolith with high availability requirements and flaky monitoring. Where do you start to bring it up to modern SRE standards?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "First, establish black-box monitoring and basic health-check SLIs to gain visibility. Second, implement comprehensive logging and tracing. Third, identify core failure modes to build basic playbooks and stability safeguards before tackling structural refactoring."
+  },
+  {
+    "text": "How do you calculate capacity headroom when dealing with spiky, non-normal distribution workloads in microservices?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Instead of relying on averages, use percentile metrics (p95, p99) for resource utilization. Perform queueing theory analysis and load testing with synthetic traffic patterns that replicate peak burstiness to determine the exact headroom required before queue delays spike."
+  },
+  {
+    "text": "Explain how distributed tracing propagates context across asynchronous service boundaries (e.g., Kafka producers and consumers).",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Context propagation involves injecting trace headers (like W3C Trace Context) into message metadata (such as Kafka record headers) on the producer side. The consumer extracts these headers upon message receipt to continue the trace span, linking async workflows together."
+  },
+  {
+    "text": "Design a complete chaos engineering framework from scratch in Python or Go that injects latency into microservice communication, including automatic rollback if error budgets are breached.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "The implementation should include an API client interceptor (e.g., gRPC interceptor or HTTP middleware), a control plane to enable/disable failure injection probabilistically, integration with metrics backends to monitor SLO status, and an automated circuit breaker that aborts the chaos experiment if error rates exceed thresholds."
+  },
+  {
+    "text": "Tell me about a time you identified a systemic architectural flaw that nobody else saw, and how you convinced leadership to invest in a major rewrite or refactor.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "The candidate should demonstrate deep architectural insight, the ability to gather empirical data proving the systemic risk, exceptional stakeholder management, and successful negotiation to balance technical debt paydown with business feature delivery."
+  },
+  {
+    "text": "A critical distributed database split-brain occurs in production, causing data divergence across two independent data centers. There are no automatic resolution mechanisms built into the software. What is your exact remediation strategy?",
+    "type": "SITUATIONAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Immediately halt writes across both data centers to freeze state. Isolate the two partitions, export transaction logs from both sides, perform forensic data reconciliation using timestamps or custom conflict-resolution scripts, restore a consistent state to the primary partition, and execute a verified point-in-time recovery before resuming traffic."
+  },
+  {
+    "text": "How do you mathematically model and optimize SLO error budgets and alerting thresholds for a system with an SLA of 99.999%?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "At 5-nines, the allowable downtime is 5.26 minutes per year. You must model queuing dynamics and rare event statistics using Poisson or binomial distributions. Alerting must rely on high-precision multi-window burn rates to filter out statistical noise while catching true availability degradation within seconds."
+  },
+  {
+    "text": "Walk through the internals of Linux kernel networking (e.g., netfilter, socket buffers, epoll) when troubleshooting extreme packet drop under high TCP connection churn.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Discuss socket buffer exhaustion (rmem/wmem), TCP SYN backlog limits (somaxconn), conntrack table saturation in netfilter causing silent drops, and how epoll handles event notifications. Explain how to tune sysctl parameters like net.ipv4.tcp_max_syn_backlog and net.netfilter.nf_conntrack_max."
+  }
+]

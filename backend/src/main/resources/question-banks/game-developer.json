@@ -1,0 +1,1202 @@
+[
+  {
+    "text": "What is a game loop and what are its primary responsibilities?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A game loop is the core operational cycle of a game that runs continuously. Its primary responsibilities are processing input, updating game state, and rendering graphics to the screen."
+  },
+  {
+    "text": "Explain the difference between fixed timestep and variable timestep in game loops.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A fixed timestep updates the game state at a constant, predictable rate, which is crucial for deterministic physics. A variable timestep calculates the elapsed delta time per frame, allowing smoother rendering on varied hardware but introducing potential physics instability."
+  },
+  {
+    "text": "How do you implement a basic fixed-timestep game loop with interpolation in code?",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Accumulate real elapsed time in a loop, running the fixed update multiple times if lag exceeds the target step. Use the remaining fractional accumulator value to linearly interpolate rendering positions between the previous and current physics states."
+  },
+  {
+    "text": "What is the primary purpose of a bounding volume in collision detection?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Bounding volumes (like spheres or boxes) simplify complex geometry into simpler shapes to perform fast preliminary intersection tests before running expensive exact collision checks."
+  },
+  {
+    "text": "Explain the concept of Continuous Collision Detection (CCD) and when it is necessary.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "CCD checks the swept volume of an object along its trajectory between frames rather than just discrete points in time. It is necessary for fast-moving objects to prevent tunneling, where an object passes completely through a thin collider within a single frame."
+  },
+  {
+    "text": "Write a function to detect collision between two Axis-Aligned Bounding Boxes (AABB).",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Check if overlap exists on all axes simultaneously: return boxA.min.x <= boxB.max.x && boxA.max.x >= boxB.min.x && boxA.min.y <= boxB.max.y && boxA.max.y >= boxB.min.y (and similarly for Z)."
+  },
+  {
+    "text": "What is the difference between a Behavior Tree and a Finite State Machine (FSM) in game AI?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "While both manage AI states, FSMs can become unwieldy with complex transitions as states scale. Behavior Trees offer better modularity, reusability, and hierarchical composition through nodes like selectors and sequences."
+  },
+  {
+    "text": "How does the A* pathfinding algorithm work and what is the role of the heuristic?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A* finds the shortest path by combining the actual cost from the start (g) and a heuristic estimated cost to the goal (h). The heuristic guides the search direction efficiently; using an admissible heuristic guarantees finding the optimal path."
+  },
+  {
+    "text": "Implement a simple Node class and heuristic function for an A* grid pathfinder.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Create a Node struct storing gCost, hCost, fCost, position, and parent reference. Write a Manhattan or Euclidean distance function to calculate hCost relative to the target node."
+  },
+  {
+    "text": "What is frustum culling and how does it improve rendering performance?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Frustum culling is the process of discarding objects that fall outside the camera's viewing frustum. This saves GPU processing time by ensuring geometry outside the player's view isn't submitted for rendering."
+  },
+  {
+    "text": "Explain the rendering pipeline stages from raw vertices to pixels on screen.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Vertices pass through input assembly, vertex shading, optional tessellation and geometry shaders, rasterization (converting primitives to fragments), fragment shading, and per-sample operations before reaching the framebuffer."
+  },
+  {
+    "text": "Write a basic vertex shader in GLSL that transforms local positions by MVP matrices.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Declare uniforms for Model, View, and Projection matrices, take an input attribute for position, and assign gl_Position = projection * view * model * vec4(position, 1.0)."
+  },
+  {
+    "text": "What is the difference between TCP and UDP in multiplayer networking?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "TCP is connection-oriented, guarantees packet delivery, and maintains order at the cost of latency. UDP is connectionless, lightweight, and faster, but does not guarantee delivery or order, making it standard for real-time game state updates."
+  },
+  {
+    "text": "Explain client-side prediction and server reconciliation in fast-paced multiplayer games.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Client-side prediction allows the local player to simulate their actions immediately for zero input lag. Server reconciliation corrects the client's state when the authoritative server sends back definitive updates, smoothing out discrepancies."
+  },
+  {
+    "text": "Write a simple client-side interpolation buffer snippet for network snapshot updates.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Store incoming server snapshots in a timestamped queue, drop snapshots older than the render delay time, and linearly interpolate between the two closest snapshots relative to the current interpolation time."
+  },
+  {
+    "text": "What is cache locality and why is it crucial for game optimization?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Cache locality refers to storing and accessing data sequentially in memory so CPU caches can load blocks efficiently. Avoiding cache misses significantly speeds up execution compared to fetching scattered data from main RAM."
+  },
+  {
+    "text": "Explain the Component-Based Architecture (Entity Component System) pattern.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "ECS decouples identity (Entities), data (Components), and behavior (Systems). This composition-over-inheritance approach maximizes cache locality and flexibility compared to deep OOP hierarchies."
+  },
+  {
+    "text": "Write a simple Component container or archetype storage concept in C++.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Use a contiguous array (std::vector) for each component type, mapped by an entity ID index, ensuring tight memory packing for system iteration."
+  },
+  {
+    "text": "Tell me about a time you optimized a critical performance bottleneck in a game.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Describe identifying the bottleneck using profiling tools, explaining the root cause (e.g., GC pressure, draw calls), and detailing the refactoring strategy that solved it."
+  },
+  {
+    "text": "How do you handle disagreements with a designer regarding technical constraints?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Explain listening to the design goal, transparently communicating technical limitations, and collaborating to find an alternative implementation that preserves the intended player experience."
+  },
+  {
+    "text": "You notice a severe frame rate drop right before a major release. Walk through your debugging process.",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Profile the build using performance tools to isolate CPU vs GPU bottlenecks, identify the specific subsystem causing the regression, test a hotfix locally, and push a targeted patch."
+  },
+  {
+    "text": "Your team wants to implement a complex feature that will introduce massive technical debt. How do you respond?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Assess the long-term impact on maintenance, propose a scoped or modular alternative that meets immediate goals with less debt, and discuss trade-offs openly with leads."
+  },
+  {
+    "text": "What is a delta time and why must it be factored into movement calculations?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Delta time is the duration of the last frame. Factoring it into movement ensures that game objects move at a consistent physical speed regardless of fluctuating frame rates."
+  },
+  {
+    "text": "Describe the Observer Design Pattern and give a game development use case.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The Observer pattern allows an object (subject) to notify a list of dependents (observers) about state changes. A common use case is an achievement system listening for player milestone events."
+  },
+  {
+    "text": "Write a simple Observer event dispatcher class in C++.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Create a class holding a list or map of std::function callbacks, with subscribe and broadcast methods to invoke listeners when an event occurs."
+  },
+  {
+    "text": "What is the purpose of spatial partitioning data structures like Quadtrees?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Spatial partitioning divides a game world into hierarchical regions, reducing the complexity of queries like collision detection and rendering culling from O(N^2) to near O(log N)."
+  },
+  {
+    "text": "How does separation steering behavior work in crowd simulation (boids)?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Separation calculates a steering force away from nearby neighbors within a specified radius, preventing agents from crowding or clipping into one another."
+  },
+  {
+    "text": "Write a steering force calculation function for vehicle separation.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Iterate through nearby agents, compute the vector away from each neighbor, scale it inversely by distance, and sum/normalize the resulting steering force vector."
+  },
+  {
+    "text": "What is a shadow map and how does shadow acne occur?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A shadow map renders the scene from the light's perspective into a depth texture. Shadow acne occurs due to precision errors when comparing interpolated depth values across pixels, creating unsightly striped artifacts."
+  },
+  {
+    "text": "Explain Deferred Rendering vs Forward Rendering.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Forward rendering shades each object and light in a single or multi-pass setup, which struggles with high light counts. Deferred rendering stores geometry data in G-buffers first and calculates lighting per-pixel in screen space, scaling efficiently with many lights."
+  },
+  {
+    "text": "What is lag compensation and how do server-side rewinds work?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Lag compensation accounts for network latency by having the server store a history of world states. When a client fires a weapon, the server rewinds player colliders to the timestamp of the shooter to evaluate hits fairly."
+  },
+  {
+    "text": "Explain lockstep networking and its primary restriction.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Lockstep networking transmits only player inputs rather than full game states, executing deterministically on all clients. Its primary restriction is that any non-determinism in floating-point math or game logic causes immediate desynchronization."
+  },
+  {
+    "text": "Describe the Singleton pattern and explain why it is often considered an anti-pattern in game development.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A Singleton ensures a class has only one instance with global access. It is often an anti-pattern because it introduces hidden global state, tight coupling, and difficult unit-testing challenges."
+  },
+  {
+    "text": "What is object pooling and why is it used?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Object pooling pre-allocates a set of reusable objects to avoid frequent dynamic memory allocation and garbage collection spikes during gameplay, improving performance and frame rate stability."
+  },
+  {
+    "text": "Write a generic Object Pool class template in C++.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Maintain a std::vector or queue of inactive objects. Provide an acquire method that pops or activates an item, and a release method that returns it to the pool."
+  },
+  {
+    "text": "Tell me about a time you had to learn a new engine or framework rapidly under pressure.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Share the context, the approach taken (documentation, small test prototypes, code inspection), and how you successfully delivered the feature or project on time."
+  },
+  {
+    "text": "Describe a situation where a feature you built worked locally but failed in production or multiplayer testing.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Explain the discrepancy (e.g., latency, race conditions), how you debugged the distributed environment, and the preventive measures implemented afterward."
+  },
+  {
+    "text": "A junior developer accidentally commits code that breaks the main build right before a demo. How do you handle it?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Revert the broken commit immediately to restore stability, then patiently guide the junior developer through identifying the error and committing a correct fix."
+  },
+  {
+    "text": "You are tasked with reducing memory consumption on a mobile game port by 30%. Where do you start?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Run memory profiling tools to find high-allocation hotspots, audit texture compression formats and maximum resolutions, review audio asset bitrates, and check for memory leaks in object pools."
+  },
+  {
+    "text": "What is the purpose of an impulse solver in physics engines?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "An impulse solver iteratively calculates and applies corrective velocity impulses to colliding rigid bodies to satisfy non-penetration and friction constraints across multiple joints and contacts."
+  },
+  {
+    "text": "Explain how capsule colliders are constructed and why they are favored for character controllers.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A capsule collider consists of a cylinder capped with two hemispheres. They are favored for characters because their rounded shape prevents snagging on sharp floor corners and geometry seams."
+  },
+  {
+    "text": "Write a ray-sphere intersection test function.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Calculate vector from ray origin to sphere center, project it onto ray direction, find closest approach distance squared, and compare against sphere radius squared to determine intersection."
+  },
+  {
+    "text": "What is utility-based AI and how does it differ from behavior trees?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Utility AI evaluates multiple possible actions using scoring functions based on world context, choosing the action with the highest overall score. This allows for more nuanced, emergent decision-making compared to rigid behavior trees."
+  },
+  {
+    "text": "Explain influence maps and their application in strategy games.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Influence maps divide the map into a grid where each cell holds values representing military strength, control, or danger. AI uses them to evaluate tactical positioning, expansion zones, and defensive lines."
+  },
+  {
+    "text": "What is physically based rendering (PBR) and what are its key advantages?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "PBR models surface reflectance and light interaction based on real-world physics principles (such as energy conservation and microfacet theory), ensuring consistent visuals across different lighting environments."
+  },
+  {
+    "text": "Explain the concept of texture mipmapping and how it saves performance.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Mipmapping pre-calculates smaller, downscaled versions of a texture. When objects are far away, the GPU samples smaller mip levels, reducing texture shimmering and memory bandwidth usage."
+  },
+  {
+    "text": "Write a shader snippet implementing Lambertian diffuse lighting.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Calculate dot product between normal vector and normalized light direction, clamp result to zero with max(0.0, dot(normal, lightDir)), and multiply with base color and light color."
+  },
+  {
+    "text": "What is head-of-line blocking in networking and how do game protocols mitigate it?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Head-of-line blocking occurs when a lost packet halts the processing of subsequent packets until it is retransmitted. Games mitigate this by using unreliable UDP channels for independent state updates where packet loss doesn't block other streams."
+  },
+  {
+    "text": "Explain remote procedure calls (RPCs) and command patterns in networking.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "RPCs allow code execution on a remote machine across a network. Combining RPCs with the command pattern encapsulates player actions into serializable data packets sent to the server for execution."
+  },
+  {
+    "text": "What is a memory allocator custom pool and why would you write one?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "A custom memory allocator pre-reserves a large memory block and manages chunks manually, bypassing OS overhead and fragmentation to ensure deterministic, ultra-fast allocations in game loops."
+  },
+  {
+    "text": "Explain the Flyweight design pattern and its use in rendering particle systems.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The Flyweight pattern shares intrinsic state across multiple objects rather than duplicating data. In particle systems, shared mesh and texture data are stored once while unique transforms and colors vary per instance."
+  },
+  {
+    "text": "Describe a time you had to refactor a massive, monolithic script or system. How did you break it down?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Detail writing comprehensive test coverage first, breaking responsibilities into smaller classes incrementally, and ensuring gameplay parity at each refactoring step."
+  },
+  {
+    "text": "How do you handle crunch time or high-pressure milestones without burning out?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Emphasize prioritizing tasks, communicating realistic estimates early, maintaining work-life boundaries, and collaborating with producers to descope non-critical items."
+  },
+  {
+    "text": "A critical third-party plugin is abandoned and breaks on the latest OS update. What do you do?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Assess if source code is available to patch it internally, research alternative plugins with active support, or scope out building a lightweight custom replacement if necessary."
+  },
+  {
+    "text": "Players report experiencing stuttering every few minutes during gameplay. How would you investigate?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use a profiler to check for periodic spikes caused by garbage collection, asset streaming, dynamic loading, or heavy physics calculations occurring at specific intervals."
+  },
+  {
+    "text": "What is the difference between dynamic and static friction in rigid body physics?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Static friction resists the initial motion of a resting object and is typically higher than dynamic friction, which resists the movement of an object that is already sliding."
+  },
+  {
+    "text": "Explain the concept of sweep-and-prune in broad-phase collision detection.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Sweep-and-prune projects bounding box intervals onto world axes and sorts them. Since overlapping intervals on all axes indicate potential collisions, it quickly filters out non-colliding pairs in O(N log N) time."
+  },
+  {
+    "text": "Write a 2D vector normalization function in C++.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Calculate magnitude as sqrt(x*x + y*y). If magnitude is greater than zero, divide x and y by magnitude and return the new vector; otherwise return zero vector."
+  },
+  {
+    "text": "What is hierarchical pathfinding and why is it used for large game worlds?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Hierarchical pathfinding groups map nodes into clusters or regions, finding a high-level path across clusters first before calculating detailed local paths. This drastically reduces computation time for long-distance navigation."
+  },
+  {
+    "text": "Explain crowd steering and avoidance using velocity obstacles.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Velocity obstacles define a cone of collision velocities relative to moving agents. Agents choose new velocities outside this forbidden cone to guarantee collision-free movement in real-time crowds."
+  },
+  {
+    "text": "What is global illumination (GI) and what makes real-time GI challenging?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Global illumination accounts for indirect light bouncing off surfaces. Real-time GI is computationally expensive because it requires tracing multiple light bounces across dynamic geometry per frame."
+  },
+  {
+    "text": "Explain instanced rendering and when you should use it.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Instanced rendering draws many instances of the same mesh using a single draw call while varying per-instance attributes (like transforms), which is ideal for forests, crowds, and debris."
+  },
+  {
+    "text": "Write a function to generate a rotation matrix from a quaternion.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Convert quaternion components (x, y, z, w) into a 3x3 or 4x4 matrix using standard mathematical formulas: m00 = 1 - 2*y*y - 2*z*z, m01 = 2*x*y - 2*z*w, etc."
+  },
+  {
+    "text": "What is client-side authorization security vulnerability and how do server-authoritative models prevent it?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Client-side authorization trusts the player's device, making it vulnerable to hacking and cheating. Server-authoritative models run all critical game logic on the server, validating inputs and rejecting impossible actions."
+  },
+  {
+    "text": "Explain snapshot interpolation and tick rates in multiplayer architecture.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The server sends game states at a fixed tick rate (e.g., 20 or 60 times per second). Clients interpolate between received snapshots to render smooth movement despite network jitter."
+  },
+  {
+    "text": "What is data-oriented design (DOD) and how does it contrast with object-oriented programming?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "DOD organizes data layout around how it is accessed and processed by CPU pipelines (favoring arrays of structs or structs of arrays) rather than bundling data and behavior into isolated object instances."
+  },
+  {
+    "text": "Explain the State Design Pattern and provide a game state management example.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The State pattern allows an object to alter its behavior when its internal state changes. A classic example is managing game states like MainMenuState, GameplayState, and PauseState."
+  },
+  {
+    "text": "Tell me about a time you mentored a junior engineer. What approach did you take?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Describe encouraging problem-solving through guiding questions, conducting constructive code reviews, and pairing up on difficult architectural challenges."
+  },
+  {
+    "text": "How do you handle constructive criticism during code reviews when someone points out a flaw in your design?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Treat code reviews objectively, view feedback as an opportunity to improve code quality and learn, and engage in collaborative technical discussion rather than taking it personally."
+  },
+  {
+    "text": "Your lead designer asks for a feature change halfway through a sprint that impacts core systems. How do you respond?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Evaluate the technical impact, communicate timeline risks clearly to the producer and designer, and negotiate whether to adjust scope, postpone the change, or descope another feature."
+  },
+  {
+    "text": "An automated regression test fails intermittently (flaky test) in your CI/CD pipeline. How do you approach fixing it?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Investigate race conditions, asynchronous timing issues, or uninitialized state in tests. Isolate the failing test, add deterministic mocks or wait conditions, and verify stability across multiple runs."
+  },
+  {
+    "text": "What is the center of mass and why is it important in rigid body physics simulation?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The center of mass is the average position of all mass in an object. It is critical because forces applied off-center create torque, determining how objects rotate and tumble."
+  },
+  {
+    "text": "Explain the difference between sweep tests and raycasts in physics queries.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A raycast tests an infinite or finite line segment for intersection. A sweep test casts an entire collider shape along a trajectory, checking when and where the volume first impacts another collider."
+  },
+  {
+    "text": "Write a 3D bounding sphere collision check function.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Calculate the squared distance between centerA and centerB, and return true if distance squared is less than or equal to (radiusA + radiusB) * (radiusA + radiusB)."
+  },
+  {
+    "text": "What is goal-oriented action planning (GOAP) and how does it create flexible AI?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "GOAP uses a planner to dynamically chain actions together based on current world state and desired goals, allowing AI agents to formulate complex, adaptive plans autonomously."
+  },
+  {
+    "text": "Explain blackboard architecture in AI systems.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A blackboard is a shared data repository accessible by multiple AI sub-systems and behaviors, enabling decoupled communication and state sharing across agents."
+  },
+  {
+    "text": "What is physically based lighting units (lux, lumens, candela) and why do game engines use them?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Real photometric units allow artists to light scenes using real-world physical values, making lighting setups predictable, balanced, and visually consistent."
+  },
+  {
+    "text": "Explain post-processing pipelines and list three common effects.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Post-processing applies full-screen image effects on the rendered frame before display. Three common effects are bloom, depth of field, and color grading."
+  },
+  {
+    "text": "Write a post-processing fragment shader snippet for grayscale conversion.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Sample texture color, compute luminance using standard weights (e.g., dot(color.rgb, vec3(0.299, 0.587, 0.114))), and output vec4(vec3(gray), color.a)."
+  },
+  {
+    "text": "What is NAT punch-through and why is it needed in peer-to-peer multiplayer games?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "NAT punch-through is a technique used to establish direct peer-to-peer connections when players are behind Network Address Translators (routers) that block unsolicited incoming traffic."
+  },
+  {
+    "text": "Explain state synchronization vs command synchronization in multiplayer games.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "State synchronization sends periodic world state updates from server to client. Command synchronization sends player inputs across the network and simulates them identically on all peers."
+  },
+  {
+    "text": "What is string interning and how does it help memory management and comparison speed?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "String interning stores only one copy of each distinct string value in memory and assigns an integer ID or pointer, turning slow string comparisons into fast integer comparisons and saving memory."
+  },
+  {
+    "text": "Explain the Command Design Pattern and its benefits for implementing undo/redo systems.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The Command pattern encapsulates requests as objects, storing state and execution logic. This makes implementing undo/redo straightforward by maintaining a history stack of executed command objects."
+  },
+  {
+    "text": "Describe a time you received difficult performance feedback. How did you react and improve?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Acknowledge the feedback professionally, identify actionable areas for growth, create a personal improvement plan, and follow up with leadership to demonstrate progress."
+  },
+  {
+    "text": "How do you handle communication with remote or cross-timezone team members effectively?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Rely on clear asynchronous documentation, well-defined task tracking tickets, concise status updates, and scheduling overlapping sync hours for critical discussions."
+  },
+  {
+    "text": "Your game experiences a massive memory leak on console builds that does not appear in editor tests. How do you debug it?",
+    "type": "SITUATIONAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Attach platform-specific profiling tools (like PIX or console performance suites), take memory snapshots over repeated level loads, track allocation callstacks, and isolate unreleased asset references."
+  },
+  {
+    "text": "A newly implemented gameplay feature causes severe multiplayer desynchronization. Walk through your troubleshooting steps.",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Compare network packet logs between client and server, check for non-deterministic operations (like random number generation or unordered container iterations), and add assertion checks on state hashes."
+  },
+  {
+    "text": "What is restitution in physics engines and how does it affect collisions?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Restitution (bounciness) determines how much kinetic energy is preserved after a collision. A value of 1 means perfectly elastic collision, while 0 means completely inelastic."
+  },
+  {
+    "text": "Explain how joint constraints (like hinge or ball-and-socket) are solved in physics engines.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Joint constraints restrict relative movement between bodies by formulating mathematical equations for distance or angle limits, which are then resolved iteratively using Lagrange multipliers or impulse solvers."
+  },
+  {
+    "text": "Write a 3D vector cross-product function in C++.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Return a new vector where x = y1*z2 - z1*y2, y = z1*x2 - x1*z2, and z = x1*y2 - y1*x2."
+  },
+  {
+    "text": "What is perception checking in game AI and how do line-of-sight tests work?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Perception checking allows AI agents to sense the environment. Line-of-sight tests use raycasts or shape sweeps between the AI's eyes and target to check if geometry blocks vision."
+  },
+  {
+    "text": "Explain flocking behavior and the three core rules formulated by Craig Reynolds.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Reynolds' three rules are separation (avoid crowding neighbors), alignment (match heading with neighbors), and cohesion (stay close to the center of mass of nearby flockmates)."
+  },
+  {
+    "text": "What is normal mapping and how does it simulate surface detail?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A normal map encodes surface tangent-space surface normals into RGB texture channels. Lighting calculations use these sampled normals to simulate high-poly geometry detail on low-poly meshes."
+  },
+  {
+    "text": "Explain clustered shading and how it improves lighting performance in modern engines.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Clustered shading subdivides the camera frustum into 3D grid cells (clusters) and assigns relevant lights to each cell, allowing thousands of dynamic lights to be rendered efficiently."
+  },
+  {
+    "text": "Write a HLSL/GLSL function for Phong specular lighting calculation.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Calculate reflection vector of light direction around normal, compute dot product with view direction, raise result to shininess exponent power, and multiply with specular color."
+  },
+  {
+    "text": "What is entity interpolation vs extrapolation in multiplayer games?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Interpolation delays rendering slightly to smoothly blend between past server snapshots. Extrapolation predicts future positions based on current velocity when network packets are delayed or lost."
+  },
+  {
+    "text": "Explain the role of the master server in matchmaking and session management.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The master server acts as a centralized registry where game servers advertise their availability, allowing clients to query lobbies, find matches, and receive connection credentials."
+  },
+  {
+    "text": "What is profile-guided optimization (PGO) and how does it improve game execution speed?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "PGO compiles code by running representative profiling workloads first, allowing the compiler to optimize branch prediction, function inlining, and code layout based on real execution hot paths."
+  },
+  {
+    "text": "Explain the Prototype Design Pattern and its usefulness in game asset spawning.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The Prototype pattern creates new objects by cloning existing instances rather than constructing them from scratch, streamlining asset spawning and configuration management."
+  },
+  {
+    "text": "Tell me about a time you identified a flaw in a team's workflow and proposed a better solution.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Describe the inefficient workflow, how you gathered data or feedback, the proposed tool or process change, and the resulting productivity improvement."
+  },
+  {
+    "text": "How do you handle working with team members who have vastly different coding styles and philosophies?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Focus on establishing team-wide coding standards, using automated formatters and linters, and respecting collaborative guidelines during reviews."
+  },
+  {
+    "text": "Your build pipeline takes over an hour to complete, frustrating the entire team. How would you optimize it?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Analyze build stages to find bottlenecks, implement parallel compilation and distributed build systems (like Incredibuild or distcc), cache intermediate artifacts, and optimize asset cooking."
+  },
+  {
+    "text": "A critical bug only occurs on 5% of player devices with specific GPU models. How do you track it down?",
+    "type": "SITUATIONAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Collect telemetry and crash dump data, cross-reference affected hardware specifications, set up cloud device testing farms or use remote debugging tools, and isolate driver-specific shader bugs."
+  },
+  {
+    "text": "What is torque and how is it applied in rigid body rotation?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Torque is the rotational equivalent of force. Applying torque changes an object's angular velocity based on its moment of inertia."
+  },
+  {
+    "text": "Explain the concept of speculative contacts in physics simulation.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Speculative contacts predict upcoming collisions before they occur in the current frame, generating contact constraints early to prevent fast-moving objects from tunneling through geometry."
+  },
+  {
+    "text": "Write a function to clamp a float value between a min and max limit.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Return value < min ? min : (value > max ? max : value);"
+  },
+  {
+    "text": "What is influence mapping decay and how is it used in tactical AI?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Influence decay gradually decreases influence values over distance or time from the source, allowing AI to evaluate how fresh or reliable tactical data is across the map."
+  },
+  {
+    "text": "Explain hierarchical state machines (HSM) and how they reduce code duplication.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "HSMs allow states to contain nested sub-states, enabling common behaviors and transitions defined in parent states to be inherited automatically by all children."
+  },
+  {
+    "text": "What is screen-space ambient occlusion (SSAO) and what problem does it solve?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "SSAO approximates how exposed each pixel is to ambient light based on depth buffer data, darkening crevices and contact corners where light is naturally occluded to enhance visual depth."
+  },
+  {
+    "text": "Explain the difference between deferred decals and projected mesh decals.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Projected mesh decals generate bespoke geometry clipping onto surfaces, which is expensive in vertex overhead. Deferred decals write directly into the G-buffer during a screen-space pass without extra geometry."
+  },
+  {
+    "text": "Write a simple math lerp (linear interpolation) function in C++.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Return a * (1.0f - t) + b * t;"
+  },
+  {
+    "text": "What is reliable UDP and how do game networking libraries implement reliability over UDP?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Reliable UDP layers reliability mechanisms (sequence numbers, acknowledgments, and selective retransmissions) on top of raw UDP datagrams to ensure critical game packets arrive without TCP's head-of-line blocking."
+  },
+  {
+    "text": "Explain client prediction rewinding and reconciliation edge cases.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Reconciliation edge cases occur when server corrections cause visible snapping or stuttering for players; developers use smoothing algorithms like interpolation and error correction to mask these snaps."
+  },
+  {
+    "text": "What is SIMD (Single Instruction, Multiple Data) and how do game developers leverage it?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "SIMD instructions allow CPU registers to process multiple data values simultaneously in a single clock cycle, making it ideal for vector math, matrix transformations, and physics loops."
+  },
+  {
+    "text": "Explain the Visitor Design Pattern and when it is useful in game development.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "The Visitor pattern lets you define new operations on object hierarchies without modifying the classes themselves, useful for systems like asset exporters, serialization, or rendering passes."
+  },
+  {
+    "text": "Tell me about a time you disagreed with a technical direction and how you handled the resolution.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Describe presenting data-backed arguments or prototyping an alternative approach, discussing trade-offs respectfully, and committing fully to the final team decision."
+  },
+  {
+    "text": "How do you manage task estimation and ensure you meet project milestones consistently?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Break down large features into granular tasks, factor in buffer time for unknowns, track progress transparently, and communicate blockers or timeline adjustments early."
+  },
+  {
+    "text": "Your game's shader compilation causes severe hitching when new effects appear on screen. How do you fix it?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Implement shader pre-warming during loading screens, use asynchronous pipeline state object (PSO) compilation, or use uber-shaders to compile variants beforehand."
+  },
+  {
+    "text": "A critical memory leak is traced back to a third-party SDK with no source code available. How do you mitigate it?",
+    "type": "SITUATIONAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Isolate SDK usage behind a wrapper interface, periodically restart or reinitialize the SDK module between levels if possible, and coordinate with the vendor for an emergency patch."
+  },
+  {
+    "text": "What is moment of inertia and how does it influence rotational acceleration?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Moment of inertia measures an object's resistance to changes in its rotation rate, depending on mass distribution relative to the axis of rotation."
+  },
+  {
+    "text": "Explain the working principle of GJK (Gilbert-Johnson-Keerthi) collision detection algorithm.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "GJK determines whether the Minkowski difference of two convex shapes contains the origin by iteratively constructing simplexes using support mapping functions."
+  },
+  {
+    "text": "Write a function to calculate the dot product of two 3D vectors.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Return a.x * b.x + a.y * b.y + a.z * b.z;"
+  },
+  {
+    "text": "What is hierarchical task network (HTN) planning in game AI?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "HTN planning decomposes high-level tasks into sub-tasks recursively until primitive actions are reached, offering efficient and structured decision-making for complex agent behaviors."
+  },
+  {
+    "text": "What is a fixed time step in a game loop and why is it important for physics simulations?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A fixed time step ensures the physics update runs at a constant rate regardless of frame rate fluctuations. This prevents deterministic errors, tunneling, and instability in physics calculations."
+  },
+  {
+    "text": "Explain the difference between client-side prediction and server reconciliation in multiplayer games.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Client-side prediction allows the local player to move instantly without waiting for server confirmation, hiding latency. Server reconciliation corrects the client's position if the server's authoritative state differs due to prediction errors."
+  },
+  {
+    "text": "How does frustum culling improve rendering performance?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Frustum culling checks which objects lie outside the camera's viewing frustum and discards them before the drawing phase. This reduces the number of draw calls and vertex processing overhead."
+  },
+  {
+    "text": "Describe the Finite State Machine (FSM) pattern and its primary limitation in complex game AI.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "An FSM represents an AI entity as a set of discrete states with defined transition rules based on triggers. Its primary limitation is the combinatorial explosion of states and transitions as behavior complexity increases."
+  },
+  {
+    "text": "What is the primary purpose of a Spatial Hash Grid in game development?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A spatial hash grid discretizes a continuous 2D or 3D space into grid cells, hashing object positions into buckets. It accelerates broad-phase collision detection and spatial queries by only checking objects in neighboring cells."
+  },
+  {
+    "text": "How do you implement double buffering in a custom rendering engine?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Double buffering uses two memory buffers: a front buffer currently displayed on the monitor and a back buffer where the renderer draws the next frame. Once rendering is complete, the buffers are swapped during the vertical blanking interval to eliminate tearing."
+  },
+  {
+    "text": "Explain the Object Pool design pattern and when you should use it.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The object pool pattern pre-allocates a set of reusable objects rather than instantiating and destroying them dynamically. It should be used for frequently spawned objects like bullets or particles to avoid garbage collection spikes and memory fragmentation."
+  },
+  {
+    "text": "What is delta time and why must it be multiplied by movement vectors?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Delta time is the time elapsed since the last frame was rendered. Multiplying movement vectors by delta time ensures that game objects move at a consistent speed independent of the current frame rate."
+  },
+  {
+    "text": "Write a function in C++ to interpolate linearly between two float values.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "float lerp(float a, float b, float t) { return a + t * (b - a); } This returns a value weighted between a and b based on the interpolation factor t."
+  },
+  {
+    "text": "Tell me about a time you had to optimize a game feature that was causing major frame drops.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The candidate should describe identifying the bottleneck using profiling tools, implementing a targeted fix (such as caching or spatial partitioning), and verifying the performance improvement."
+  },
+  {
+    "text": "If a critical gameplay bug is discovered 24 hours before release, how do you approach it?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Assess the severity and scope of the bug, evaluate safe quick-fixes or workarounds, communicate transparently with producers and QA, and ensure any patch is thoroughly regression tested before shipping."
+  },
+  {
+    "text": "What is the difference between TCP and UDP, and when would you use UDP for multiplayer gameplay?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "TCP guarantees reliable, ordered delivery of packets with retransmission overhead, whereas UDP is connectionless and fast without guarantees. UDP is used for fast-paced multiplayer position updates where stale data is worse than lost data."
+  },
+  {
+    "text": "Explain how an A* pathfinding heuristic works and why it needs to be admissible.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A* combines the exact cost from the start node with a heuristic estimating the cost to the goal. The heuristic must be admissible (never overestimate the true remaining cost) to guarantee finding the shortest path."
+  },
+  {
+    "text": "What causes Z-fighting in 3D graphics, and how can it be mitigated?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Z-fighting occurs when two coplanar or nearly coplanar surfaces have identical depth values, causing flickering as floating-point precision fluctuates. It is mitigated by adjusting near/far clipping planes, using polygon offset, or increasing depth buffer precision."
+  },
+  {
+    "text": "How does an Entity Component System (ECS) differ from traditional Object-Oriented Programming in games?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "ECS separates data (Components) from behavior (Systems) and attaches them to identifier tags (Entities). This improves cache locality and data-oriented design performance compared to deep OOP inheritance hierarchies."
+  },
+  {
+    "text": "What is cache locality and why is it critical for high-performance game loops?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Cache locality refers to storing data sequentially in memory so CPU caches can load contiguous blocks efficiently. High cache locality minimizes costly RAM access latencies during high-frequency update loops."
+  },
+  {
+    "text": "Write a simple ring buffer class in C++ with push and pop methods.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A fixed-size array with head and tail indices wrapping around modulo capacity. Push adds to tail, pop reads from head, handling full/empty states."
+  },
+  {
+    "text": "Describe a situation where you had a strong disagreement with a designer regarding a feature's scope or technical feasibility.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Focus on constructive communication, data-driven reasoning, proposing compromises, and aligning on project goals rather than ego."
+  },
+  {
+    "text": "Imagine a senior designer asks for a complex new mechanic that will significantly bloat your sprint backlog. What do you do?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Analyze the technical requirements, discuss the scope and timeline impact with the producer and designer, and propose a scaled-down prototype or phased implementation."
+  },
+  {
+    "text": "What is lockstep networking and what type of games is it best suited for?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Lockstep networking transmits only input commands from each player to all clients, and each simulation steps forward only when all inputs for that frame arrive. It is best suited for deterministic games with low player counts, like RTS games."
+  },
+  {
+    "text": "Explain the concept of Behaviour Trees and why they replaced FSMs in many modern titles.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Behaviour Trees organize AI tasks hierarchically using composites, decorators, and leaves. They offer better modularity, reusability, and scalability compared to monolithic Finite State Machines."
+  },
+  {
+    "text": "What is a draw call and why is minimizing them important?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A draw call is a command sent from the CPU to the GPU to render a batch of geometry. Minimizing draw calls reduces CPU driver overhead and context switching."
+  },
+  {
+    "text": "How do continuous collision detection (CCD) algorithms prevent tunneling?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "CCD calculates the swept volume or trajectory of fast-moving objects between physics frames rather than just testing discrete end positions, allowing the engine to catch intersections along the path."
+  },
+  {
+    "text": "Write a function to implement a basic 2D bounding box (AABB) intersection test.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "bool checkAABB(Rect a, Rect b) { return (a.x < b.x + b.width && a.x + a.width > b.x && a.y < b.y + b.height && a.y + a.height > b.y); }"
+  },
+  {
+    "text": "Share an experience where you mentored a junior developer or helped unblock a teammate.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Highlight patience, explaining architectural concepts clearly, and fostering independence in the teammate."
+  },
+  {
+    "text": "If you notice a memory leak in production builds but cannot reproduce it locally, how would you investigate?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Integrate remote telemetry, crash reporting tools, and memory profiling hooks into staging or release candidate builds to track allocation call stacks over time."
+  },
+  {
+    "text": "What is the Observer pattern and how is it commonly applied in game event systems?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The Observer pattern defines a one-to-many dependency where an object notifies registered observers of state changes. It is used in games for decoupled event dispatching, like triggering sound effects when player health changes."
+  },
+  {
+    "text": "Explain deferred rendering and its primary advantage over forward rendering.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Deferred rendering separates geometry processing from lighting calculations by storing material attributes in geometry buffers (G-buffers) first. Its primary advantage is handling a large number of dynamic lights efficiently without performance scaling with light-geometry intersections."
+  },
+  {
+    "text": "What is the purpose of interest management in large-scale MMO networking?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Interest management filters network traffic so clients only receive updates about entities within their spatial or logical relevance zone, drastically reducing bandwidth and server overhead."
+  },
+  {
+    "text": "How does the Command design pattern facilitate undo/redo functionality in game tools?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The Command pattern encapsulates requests as objects containing execution logic and inverse state data. This allows command queues to execute, undo, and redo actions seamlessly in level editors."
+  },
+  {
+    "text": "Write a custom quaternion multiplication function in C++ or pseudo-code.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Quaternion mult(Quaternion q1, Quaternion q2) { return Quaternion(w=q1.w*q2.w - dot(q1.v, q2.v), v=q1.w*q2.v + q2.w*q1.v + cross(q1.v, q2.v)); }"
+  },
+  {
+    "text": "Describe a time when a project deadline forced you to cut corners, and how you managed technical debt afterward.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Focus on pragmatic scoping, documenting the shortcuts taken, and scheduling dedicated refactoring sprints post-launch."
+  },
+  {
+    "text": "A player reports that they are consistently lagging behind other players in a physics-heavy multiplayer match. How do you troubleshoot?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Analyze network packet loss, jitter, and bandwidth usage, inspect client-side prediction desyncs, and check if physics deterministic steps are diverging between client and server."
+  },
+  {
+    "text": "What is the difference between quaternion and Euler angle rotations in 3D games?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Euler angles represent rotations around three separate axes and suffer from gimbal lock. Quaternions use four-dimensional complex numbers to represent continuous rotations smoothly without gimbal lock."
+  },
+  {
+    "text": "Explain how Navmesh generation works from 3D level geometry.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Navmesh generation voxelizes walkable surfaces, filters obstacles based on agent radius and height, and polygonizes the free space into a connected mesh of convex polygons used for pathfinding."
+  },
+  {
+    "text": "What is instanced rendering and when should it be used?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Instanced rendering draws many instances of the same mesh with a single draw call by passing per-instance data to the GPU. It is ideal for rendering forests, crowds, or debris particles."
+  },
+  {
+    "text": "How does garbage collection impact game loop performance in managed languages like C#?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Garbage collection pauses execution to reclaim unused memory, causing stuttering or frame drops if allocations are frequent. It is mitigated by object pooling and avoiding heap allocations in update loops."
+  },
+  {
+    "text": "Write an A* heuristic function in C++ using Euclidean distance.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "float heuristic(Vector2 a, Vector2 b) { return sqrt(pow(b.x - a.x, 2) + pow(b.y - a.y, 2)); }"
+  },
+  {
+    "text": "Tell me about a time you had to learn a new engine or graphics API under tight time constraints.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Highlight self-driven learning strategies, studying sample code, breaking down core architectural differences, and delivering results."
+  },
+  {
+    "text": "If your profiling shows that a game's frame rate drops specifically when looking at water shaders, how do you investigate?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use GPU profilers (like RenderDoc or PIX) to inspect fill rate bottlenecks, shader instruction complexity, overdraw counts, and refraction/reflection pass costs."
+  },
+  {
+    "text": "What is the purpose of a Broad-Phase collision detection algorithm?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Broad-phase collision detection quickly filters out pairs of objects that are too far apart to collide, passing only potential collision pairs to the expensive narrow-phase check."
+  },
+  {
+    "text": "Explain entity interpolation and extrapolation in multiplayer movement smoothing.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Interpolation delays rendering slightly to blend smoothly between past server state snapshots. Extrapolation predicts future positions based on velocity when packet updates are delayed or lost."
+  },
+  {
+    "text": "What are compute shaders and how are they used in modern game engines?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Compute shaders are programmable GPU stages designed for general-purpose parallel computing outside the traditional rendering pipeline. They are used for physics simulations, particle updates, GPU culling, and post-processing effects."
+  },
+  {
+    "text": "What is the Flyweight design pattern and how does it save memory in games?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The Flyweight pattern shares intrinsic state (shared data like textures or meshes) across multiple objects while keeping extrinsic state (unique data like position) separate, drastically reducing memory footprint."
+  },
+  {
+    "text": "Write a function to implement ray-sphere intersection testing.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Solve the quadratic equation derived from substituting ray equation into sphere equation. Check if discriminant is non-negative and roots are valid."
+  },
+  {
+    "text": "Describe a project that failed or fell short of expectations, and what lessons you took away from it.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Demonstrate self-reflection, accountability, analysis of systemic failures, and how those lessons improved future development practices."
+  },
+  {
+    "text": "You inherit a legacy codebase with zero unit tests and high coupling. How do you begin refactoring safely?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Write integration or characterization tests around critical paths before changing code, refactor in small incremental steps, and use static analysis tools to monitor regressions."
+  },
+  {
+    "text": "What is the difference between forward kinematics and inverse kinematics in character animation?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Forward kinematics calculates joint positions from root to tip using rotation angles. Inverse kinematics calculates joint angles backwards from a target end-effector position, commonly used for foot placement on uneven terrain."
+  },
+  {
+    "text": "Explain how shadow mapping works and what causes shadow acne.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Shadow mapping renders the scene from the light's perspective into a depth texture, then compares pixel depth during the main pass. Shadow acne occurs due to precision errors in the depth buffer, causing surface pixels to incorrectly self-shadow."
+  },
+  {
+    "text": "What is client authoritative vs server authoritative architecture?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "In client authoritative design, the client dictates game state to the server, making it vulnerable to cheating. In server authoritative design, the server validates all inputs and computes the true game state, preventing most client-side exploits."
+  },
+  {
+    "text": "How do you implement hierarchical state machines and what is code reuse like within them?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Hierarchical state machines allow states to contain sub-states, inheriting transitions and behaviors from parent states. This improves code reuse and avoids duplicating common transition logic across multiple states."
+  },
+  {
+    "text": "Write a thread-safe object pool getter method using mutex locking.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "T* acquire() { std::lock_guard<std::mutex> lock(mtx); if (pool.empty()) expand(); T* obj = pool.back(); pool.pop_back(); return obj; }"
+  },
+  {
+    "text": "Tell me about a time you used profiling data to discover a counter-intuitive performance bottleneck.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Highlight deep analytical skills, proper profiler usage, and discovering unexpected overheads like string formatting or cache misses."
+  },
+  {
+    "text": "A junior team member is consistently missing deadlines due to over-engineering solutions. How do you handle this?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Have a supportive 1-on-1 conversation, emphasize the KISS (Keep It Simple, Stupid) principle, establish incremental milestone reviews, and guide them toward pragmatic task completion."
+  },
+  {
+    "text": "What is a spatial partition tree (like BVH or Quadtree) and how does raycasting benefit from it?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Spatial partition trees recursively subdivide space into hierarchical bounding volumes. Raycasting benefits by skipping entire branches of geometry that the ray does not intersect, reducing ray-triangle tests from O(N) to O(log N)."
+  },
+  {
+    "text": "Explain how PBR (Physically Based Rendering) differs from older lighting models like Blinn-Phong.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "PBR uses energy conservation, microfacet theory, and physically accurate Fresnel reflectance to simulate how light interacts with surfaces across diverse lighting conditions, whereas Blinn-Phong relies on empirical approximations."
+  },
+  {
+    "text": "What is snapshot interpolation and how does it handle packet jitter?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Snapshot interpolation buffers incoming server state updates and renders entities slightly in the past. A playout buffer absorbs packet jitter by smoothing out arrival time variations before interpolation takes place."
+  },
+  {
+    "text": "How does the State design pattern differ from using large switch-case statements in gameplay code?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The State pattern encapsulates state-specific behavior into separate classes adhering to a common interface, adhering to the Open-Closed Principle and avoiding monolithic, error-prone switch-case blocks."
+  },
+  {
+    "text": "Write a spatial hashing function that maps a 2D integer grid coordinate to a hash table index.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "int hashCoords(int x, int y, int tableSize) { int p1 = 73856093; int p2 = 19349663; return ((x * p1) ^ (y * p2)) % tableSize; }"
+  },
+  {
+    "text": "Describe a situation where you had to refactor a messy core system under pressure while maintaining backwards compatibility.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Focus on creating adapter layers, comprehensive testing, phased deprecations, and clear communication with team members."
+  },
+  {
+    "text": "You are tasked with reducing a mobile game's binary size by 40%. Where do you start looking?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Analyze asset build reports to identify uncompressed textures, audio files, and bloated third-party SDKs; implement texture compression formats, asset bundling, and code stripping."
+  },
+  {
+    "text": "What is the purpose of velocity Verlet integration in physics engines compared to Euler integration?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Velocity Verlet is a symplectic numerical integrator that preserves phase space volume and offers better energy conservation and stability over long simulations compared to unstable Euler integration."
+  },
+  {
+    "text": "Explain how ambient occlusion (AO) enhances visual depth in 3D environments.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Ambient occlusion darkens creases, holes, and surfaces that are close to each other where ambient light is blocked, simulating natural light occlusion to add realism and depth."
+  },
+  {
+    "text": "What is UDP hole punching and how does it assist peer-to-peer multiplayer connections?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "UDP hole punching allows two clients behind different NAT firewalls to establish a direct peer-to-peer connection by using a rendezvous server to synchronize outbound packets that open NAT state table mappings."
+  },
+  {
+    "text": "How do you avoid circular dependencies in object-oriented game architectures?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Circular dependencies are avoided by introducing abstraction layers, interfaces, event dispatchers, or moving shared logic into independent service managers."
+  },
+  {
+    "text": "Tell me about a time you successfully advocated for adopting a new tool, engine feature, or workflow.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Highlight gathering benchmarks, creating a proof of concept, presenting ROI clearly, and training team members."
+  },
+  {
+    "text": "If a platform holder rejects your game build during submission due to memory usage spikes on loading screens, how do you fix it?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Profile peak allocation spikes during asset loading, stream assets asynchronously in smaller chunks, and optimize texture/mesh import settings to reduce memory overhead."
+  },
+  {
+    "text": "What is the difference between narrow-phase and broad-phase collision detection?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Broad-phase quickly eliminates non-colliding object pairs using simple bounds, while narrow-phase performs precise geometric intersection tests (like GJK or SAT) on the remaining pairs."
+  },
+  {
+    "text": "Explain how skinning and skeletal animation are calculated on the GPU.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "GPU skinning transforms vertex positions by multiplying them with bone matrix palettes passed as uniforms or textures, weighted by vertex bone weights, offloading CPU computation entirely."
+  },
+  {
+    "text": "What is lag compensation in shooter games and why is it necessary?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Lag compensation rewinds server-side world history to where the shooter perceived their target at the moment of firing, accounting for network latency so players don't have to awkwardly aim ahead of moving targets."
+  },
+  {
+    "text": "What is the Singleton pattern and why is it often considered an anti-pattern in game development?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The Singleton pattern restricts class instantiation to a single global instance. It is considered an anti-pattern because it introduces hidden global state, tight coupling, and difficult unit testing."
+  },
+  {
+    "text": "Write a function to implement a simple easing function (e.g., EaseOutQuad).",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "float easeOutQuad(float t) { return t * (2.0f - t); }"
+  },
+  {
+    "text": "Describe a time when you had to work with an unstable codebase or incomplete documentation.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Focus on resourcefulness, writing diagnostic test scripts, asking targeted questions to domain experts, and documenting findings."
+  },
+  {
+    "text": "An artist complains that their new shader looks correct on PC but completely breaks on mobile hardware. What steps do you take?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Check for mobile-specific limitations like precision qualifiers (lowp/mediump/highp), unsupported texture formats, unsupported shader instructions, and mobile GPU architectural constraints."
+  },
+  {
+    "text": "What is the Separating Axis Theorem (SAT) used for in collision detection?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "SAT states that two convex polyhedra do not intersect if there exists a line along which their projections do not overlap, providing an exact intersection test."
+  },
+  {
+    "text": "Explain how global illumination (GI) is approximated in real-time rendering.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Real-time GI is approximated using techniques like light probes, reflection probes, screen-space reflections, distance field ambient occlusion, or real-time voxel global illumination (VXGI)."
+  },
+  {
+    "text": "What is the role of delta compression in multiplayer state synchronization?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Delta compression transmits only the differences between the current game state and the last acknowledged state received by the client, significantly lowering bandwidth consumption."
+  }
+]

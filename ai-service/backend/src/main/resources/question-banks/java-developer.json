@@ -1,0 +1,1202 @@
+[
+  {
+    "text": "What are the four core principles of Object-Oriented Programming?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The four pillars are encapsulation, inheritance, polymorphism, and abstraction. Encapsulation restricts direct access to data, inheritance allows code reuse through parent-child classes, polymorphism lets objects be treated as their parent type, and abstraction hides complex implementation details."
+  },
+  {
+    "text": "Explain the difference between method overloading and method overriding in Java.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Method overloading occurs within the same class with the same method name but different parameter lists, resolved at compile-time. Method overriding occurs in a subclass providing a specific implementation of a method already defined in its parent class, resolved at runtime."
+  },
+  {
+    "text": "What is the difference between an abstract class and an interface in Java?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "An abstract class can have state (instance variables) and constructors, and a class can extend only one. An interface traditionally contains only constants and abstract methods (though Java 8 added default methods), and a class can implement multiple interfaces."
+  },
+  {
+    "text": "How does Java achieve runtime polymorphism?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Java achieves runtime polymorphism through dynamic method dispatch. When an overridden method is called through a superclass reference, the JVM determines the actual object type at runtime and executes the corresponding method implementation."
+  },
+  {
+    "text": "Can you override a private or static method in Java? Why or why not?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "No, you cannot override private methods because they are not visible outside their class. Static methods also cannot be overridden because they belong to the class, not instance, though they can be hidden by declaring a static method with the same signature in the subclass."
+  },
+  {
+    "text": "How do you implement encapsulation in a Java class?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Encapsulation is implemented by declaring class variables as private and providing public getter and setter methods to access and modify those variables safely, often including validation logic within the setters."
+  },
+  {
+    "text": "What is the diamond problem in multiple inheritance, and how does Java handle it with interfaces?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "The diamond problem occurs when a class inherits from two classes that have a common ancestor with the same method. Java prevents this with classes, but for interfaces with default methods, Java forces the implementing class to explicitly override and resolve the ambiguity using the super keyword."
+  },
+  {
+    "text": "What is the purpose of the 'final' keyword applied to a class, method, and variable?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A final class cannot be subclassed. A final method cannot be overridden by subclasses. A final variable is a constant whose value cannot be reassigned once initialized."
+  },
+  {
+    "text": "Explain the 'Liskov Substitution Principle' and give an example of its violation.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "LSP states that objects of a superclass should be replaceable with objects of its subclasses without altering the correctness of the program. A classic violation is the Square-Rectangle problem, where a Square inheriting from Rectangle overrides setters to enforce equal sides, breaking rectangle behavior."
+  },
+  {
+    "text": "How does object composition differ from inheritance, and when should you prefer composition?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Inheritance is an 'is-a' relationship established at compile-time, while composition is a 'has-a' relationship established at runtime. Composition is preferred because it offers better encapsulation, looser coupling, and avoids the rigid hierarchy and fragility issues of deep inheritance trees."
+  },
+  {
+    "text": "What is Spring Boot and how does it differ from traditional Spring Framework?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Spring Boot is an extension of the Spring Framework that eliminates boilerplate configuration through convention-over-configuration and auto-configuration. It includes embedded servers like Tomcat, whereas traditional Spring requires manual setup of descriptors, XML configurations, and external web containers."
+  },
+  {
+    "text": "Explain how Spring Boot auto-configuration works under the hood.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Auto-configuration is triggered by @EnableAutoConfiguration via @SpringBootApplication. It inspects the classpath, bean definitions, and various property settings using SpringFactoriesLoader to load configuration classes conditionally via annotations like @ConditionalOnClass and @ConditionalOnMissingBean."
+  },
+  {
+    "text": "What is the purpose of the @SpringBootApplication annotation?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "It is a convenience annotation that combines three core annotations: @Configuration (declares the class as a source of bean definitions), @EnableAutoConfiguration (enables Spring Boot's auto-configuration mechanism), and @ComponentScan (enables component scanning in the current package and sub-packages)."
+  },
+  {
+    "text": "How do you handle global exception handling in a Spring Boot REST API?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Global exception handling is implemented using a class annotated with @ControllerAdvice or @RestControllerAdvice. Inside this class, methods are annotated with @ExceptionHandler specifying the target exception types to map them to structured ResponseEntity error objects."
+  },
+  {
+    "text": "What are Spring Profiles and how do you use them?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Spring Profiles provide a way to segregate parts of your application configuration and make it available only in certain environments. They are activated via spring.profiles.active in properties or environment variables, and configured using environment-specific files like application-dev.yml."
+  },
+  {
+    "text": "Explain the difference between @Component, @Service, and @Repository annotations.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "@Component is a generic stereotype for any Spring-managed component. @Service and @Repository are specialized aliases for @Component; @Service denotes business logic components, while @Repository also enables automatic JDBC/ORM exception translation into Spring's DataAccessException hierarchy."
+  },
+  {
+    "text": "How do you secure a Spring Boot application using Spring Security?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Security is configured by defining a SecurityFilterChain bean that configures HTTP security rules, CSRF protection, session management, and authentication providers. Authentication mechanisms like JWT, OAuth2, or form login are integrated into this filter chain."
+  },
+  {
+    "text": "What is Spring Boot Actuator and what are some common production-ready features it provides?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Spring Boot Actuator brings production-ready features to applications through HTTP endpoints or JMX beans. Common endpoints include /health (application health checks), /metrics (JVM and app metrics), /env (environment properties), and /loggers (dynamically managing log levels)."
+  },
+  {
+    "text": "Explain how Spring Boot Starters work and name a few common ones.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Starters are a set of convenient dependency descriptors that you can include in your application to get all the required dependencies bundled together. Common starters include spring-boot-starter-web, spring-boot-starter-data-jpa, and spring-boot-starter-test."
+  },
+  {
+    "text": "How would you implement custom metrics using Micrometer in a Spring Boot application?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Inject the MeterRegistry bean into your service and use it to register and update counters, gauges, or timers. For example, MeterRegistry.counter('orders.placed', 'region', 'US').increment() tracks custom domain metrics exposed via Actuator endpoints to monitoring systems like Prometheus."
+  },
+  {
+    "text": "What is the difference between JPA and Hibernate?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "JPA (Java Persistence API) is a specification/interface defining standard object-relational mapping in Java. Hibernate is a concrete implementation provider of that JPA specification, offering additional proprietary features beyond the standard API."
+  },
+  {
+    "text": "Explain the entity life cycle states in Hibernate.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The four entity states are Transient (newly created, not associated with a persistence context), Persistent (associated with an EntityManager/Session and tracked for changes), Detached (previously persistent, but the session is closed), and Removed (marked for deletion from the database)."
+  },
+  {
+    "text": "What is the N+1 select problem and how do you solve it in Hibernate?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The N+1 problem occurs when an initial query fetches N parent records, and subsequent N queries are executed to fetch child collections. It is solved using JOIN FETCH in JPQL/HQL, specifying @EntityGraph, or tuning fetch modes to eager/batch fetching."
+  },
+  {
+    "text": "Explain the difference between FetchType.LAZY and FetchType.EAGER.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "LAZY loading delays the loading of associated entities until they are explicitly accessed in code, improving initial performance. EAGER loading fetches the associated entities immediately along with the parent query, which can cause performance bottlenecks and unnecessary database hits."
+  },
+  {
+    "text": "What is the difference between Session.get() and Session.load() in Hibernate?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "get() hits the database immediately and returns null if the entity does not exist. load() returns a proxy object immediately without hitting the database, throwing an EntityNotFoundException only when the proxy is accessed if the record is missing."
+  },
+  {
+    "text": "How do optimistic locking and pessimistic locking work in JPA?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Pessimistic locking locks the database rows using SELECT ... FOR UPDATE until the transaction completes, preventing concurrent modifications. Optimistic locking uses a version column (@Version) to detect concurrent updates; if another transaction modifies the record first, an OptimisticLockException is thrown."
+  },
+  {
+    "text": "What is the purpose of the Hibernate first-level and second-level cache?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The first-level cache is associated with the EntityManager/Session and is enabled by default, caching entities within the transaction scope. The second-level cache is session-factory level, sharing cached data across multiple transactions and sessions using providers like Ehcache or Redis."
+  },
+  {
+    "text": "When should you use dirty checking in Hibernate?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Hibernate automatically performs dirty checking for persistent entities by comparing current state against database snapshots upon flush, eliminating the need for explicit update statements. You rely on it for standard transactional updates, but can bypass it using stateless sessions or explicit read-only queries for performance."
+  },
+  {
+    "text": "How do you map a composite primary key in JPA?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Composite primary keys are mapped using either @EmbeddedId with an @Embeddable class containing the key fields, or @IdClass referencing a separate primary key class with matching fields, both requiring equals() and hashCode() implementations."
+  },
+  {
+    "text": "Explain how orphanRemoval works in JPA relationships.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "When orphanRemoval=true is set on a @OneToOne or @OneToMany relationship, removing a child entity from the parent's collection or disassociating it automatically triggers a database delete operation for that child record when the flush occurs."
+  },
+  {
+    "text": "What is the difference between a process and a thread?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A process is an independent execution unit with its own memory space and system resources. A thread is the smallest unit of execution within a process, sharing the same memory space and heap with other threads in that same process."
+  },
+  {
+    "text": "How do you create a thread in Java?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Threads are created by extending the Thread class and overriding run(), or more commonly by implementing the Runnable interface (or Callable for returning results) and passing it to a Thread instance or ExecutorService."
+  },
+  {
+    "text": "What is the difference between Runnable and Callable interfaces?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Runnable's run() method does not return a result and cannot throw checked exceptions. Callable's call() method returns a generic Future result and can throw checked exceptions."
+  },
+  {
+    "text": "Explain the Java Memory Model (JMM) and the 'volatile' keyword.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "The JMM defines how threads interact through memory, establishing the happens-before relationship. The volatile keyword ensures visibility of changes to variables across threads by bypassing CPU caches and reading/writing directly to main memory, preventing instruction reordering."
+  },
+  {
+    "text": "What is deadlock, and what four conditions must hold for it to occur?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Deadlock is a state where two or more threads are blocked forever, waiting for each other. The four Coffman conditions are mutual exclusion, hold and wait, no preemption, and circular wait."
+  },
+  {
+    "text": "How does the ExecutorService framework simplify concurrency management?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "ExecutorService abstracts away direct thread creation and management by using thread pools. It manages thread lifecycle, task queues, and scheduling, allowing developers to submit tasks asynchronously via Runnable or Callable and retrieve results through Future objects."
+  },
+  {
+    "text": "What is the purpose of synchronization and the synchronized keyword in Java?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The synchronized keyword ensures mutual exclusion, allowing only one thread to execute a critical section of code or object monitor at a time, preventing race conditions and thread interference."
+  },
+  {
+    "text": "Explain the function of ThreadLocal and potential memory leaks associated with it.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "ThreadLocal provides thread-local variables, giving each thread its own independently initialized variable copy. Memory leaks occur in thread-pooled environments when ThreadLocal variables are not explicitly removed via remove(), because pooled threads persist and retain references to values in the ThreadLocalMap."
+  },
+  {
+    "text": "What is the ForkJoinPool and when should you use it?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "ForkJoinPool is an ExecutorService designed for work-stealing algorithms, ideal for recursive, divide-and-conquer tasks. Idle threads can 'steal' work from the double-ended queues of busy threads, maximizing CPU utilization on multi-core processors."
+  },
+  {
+    "text": "How do CountDownLatch and CyclicBarrier differ?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "CountDownLatch allows one or more threads to wait until a set of operations performed in other threads completes, and it cannot be reused. CyclicBarrier allows a fixed number of threads to wait for each other at a common barrier point, and it is reusable after the barrier is tripped."
+  },
+  {
+    "text": "What are the main components of JVM architecture?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The JVM architecture consists of the ClassLoader Subsystem (loads, links, initializes classes), Runtime Data Area (Heap, Stack, Method Area, PC Registers, Native Method Stacks), and the Execution Engine (Interpreter, JIT Compiler, Garbage Collector)."
+  },
+  {
+    "text": "Explain how the Garbage Collector works and name different GC algorithms.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "GC automatically identifies and reclaims unreferenced heap objects. Common collectors include Serial GC (single-threaded), Parallel GC (multi-threaded throughput), CMS (low-latency mark-sweep), G1 GC (region-based predictable pauses), and ZGC (ultra-low latency concurrent collector)."
+  },
+  {
+    "text": "What is the difference between Stack memory and Heap memory in the JVM?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Stack memory is thread-private and stores local variables, method call frames, and primitive values, managed on a LIFO basis. Heap memory is shared across all threads and stores all object instances and arrays, managed by the Garbage Collector."
+  },
+  {
+    "text": "What causes a java.lang.OutOfMemoryError and what are the common types?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "OOM occurs when the JVM cannot allocate objects due to insufficient memory. Common types include Java heap space (too many live objects), Metaspace (too many classes loaded), and GC overhead limit exceeded (GC spends too much time freeing very little memory)."
+  },
+  {
+    "text": "What is the role of the JIT (Just-In-Time) compiler?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The JIT compiler improves performance by compiling bytecode into native machine code at runtime. It identifies 'hot' code paths and applies optimizations like method inlining, loop unrolling, and escape analysis."
+  },
+  {
+    "text": "How does escape analysis work in the JVM?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Escape analysis determines if an object's scope escapes the method or thread where it was created. If an object does not escape, the JVM optimizes memory allocation by performing scalar replacement (allocating fields directly on the stack rather than heap) or eliminating synchronization locks."
+  },
+  {
+    "text": "What is the difference between String, StringBuilder, and StringBuffer?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "String is immutable and thread-safe. StringBuilder is mutable and not thread-safe, making it faster for single-threaded string manipulations. StringBuffer is mutable and thread-safe with synchronized methods, suitable for multi-threaded environments."
+  },
+  {
+    "text": "Explain how class loaders work in the JVM (Delegation Model).",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "The class loader follows a hierarchical parent-delegation model: Bootstrap ClassLoader loads core JDK classes, Extension/Platform ClassLoader loads extensions, and Application/System ClassLoader loads classpath classes. A class loader delegates requests to its parent before attempting to load a class itself."
+  },
+  {
+    "text": "What are weak, soft, and phantom references in Java?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Soft references are collected only when JVM is low on memory, ideal for caches. Weak references are collected during the next GC cycle if no strong references remain, used in WeakHashMap. Phantom references are enqueued post-mortem when an object is finalized, used for post-cleanup tracking."
+  },
+  {
+    "text": "How do you diagnose a memory leak in a production Java application?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Diagnose leaks by capturing heap dumps using tools like jmap or JVM flags like -XX:+HeapDumpOnOutOfMemoryError. Analyze the heap dump using Eclipse MAT or VisualVM to inspect dominator trees, GC roots, and object retention paths to identify unexpected object accumulation."
+  },
+  {
+    "text": "What are design patterns and why are they important?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Design patterns are proven, reusable solutions to recurring software design problems. They provide a common vocabulary for developers, promote best practices, and improve code maintainability, flexibility, and architectural robustness."
+  },
+  {
+    "text": "Explain the Singleton design pattern and how to make it thread-safe.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Singleton ensures a class has only one instance and provides a global access point. Thread safety is achieved using Bill Pugh's Initialization-on-demand holder idiom, double-checked locking with a volatile instance variable, or by implementing a single-element Enum."
+  },
+  {
+    "text": "What is the Factory Method design pattern?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The Factory Method pattern defines an interface for creating objects, but delegates the actual instantiation logic to subclasses or a factory class, decoupling client code from concrete class implementations."
+  },
+  {
+    "text": "Describe the Strategy design pattern and provide a Java use case.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Strategy pattern defines a family of algorithms, encapsulates each one into a separate class, and makes them interchangeable at runtime. A common use case is implementing different payment processing strategies (CreditCard, PayPal, Crypto) behind a common PaymentStrategy interface."
+  },
+  {
+    "text": "What is the Observer pattern and how is it supported in Java?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The Observer pattern defines a one-to-many dependency where state changes in one object (subject) automatically notify dependent objects (observers). In Java, it is supported via java.util.Observer (deprecated), PropertyChangeListener, or reactive frameworks like Project Reactor and Spring's ApplicationEventPublisher."
+  },
+  {
+    "text": "Explain the Decorator design pattern with an example.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "The Decorator pattern dynamically attaches new behaviors to objects by placing them inside wrapper classes that contain the target behavior. A classic Java example is java.io.BufferedInputStream wrapping a FileInputStream to add buffering functionality."
+  },
+  {
+    "text": "What is the difference between the Adapter and Proxy design patterns?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "An Adapter pattern converts one interface into another expected by client code to make incompatible classes work together. A Proxy pattern provides a surrogate or placeholder representing another object to control access, lazy-load, or add security without changing its interface."
+  },
+  {
+    "text": "When should you use the Builder pattern over traditional constructors?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The Builder pattern is used when an object requires many constructor parameters, especially optional ones, avoiding telescoping constructor anti-patterns and improving readability by using named fluent setter methods."
+  },
+  {
+    "text": "Explain the Dependency Injection pattern and how Spring implements it.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Dependency Injection is a form of Inversion of Control where objects receive their dependencies from an external assembler rather than creating them internally. Spring implements this through its IoC container, injecting dependencies via constructors, setters, or fields."
+  },
+  {
+    "text": "What is the Circuit Breaker pattern and what problem does it solve?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "The Circuit Breaker pattern prevents cascading failures in distributed microservices by wrapping remote calls. If failures exceed a threshold, the circuit trips to open state, failing fast without calling the failing service, and periodically probes for recovery using tools like Resilience4j."
+  },
+  {
+    "text": "What is the difference between List, Set, and Map interfaces in Java?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "List is an ordered collection that allows duplicate elements. Set is a collection that does not allow duplicate elements. Map stores key-value pairs with unique keys and associated values."
+  },
+  {
+    "text": "How does HashMap work internally in Java?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "HashMap stores key-value pairs in an array of Node buckets. Keys are hashed using hashCode(), and bucket index is calculated using hashing algorithms. Since Java 8, if bucket collisions exceed a threshold (TREEIFY_THRESHOLD = 8), linked lists convert into self-balancing Red-Black trees for O(log n) lookup."
+  },
+  {
+    "text": "What is the difference between Comparable and Comparator?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Comparable provides a single natural sorting sequence implemented directly by the class being compared using compareTo(). Comparator defines external sorting logic using compare(), allowing multiple custom sorting strategies for a class."
+  },
+  {
+    "text": "How does ConcurrentHashMap achieve thread safety without locking the entire map?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "ConcurrentHashMap uses fine-grained synchronization at the bucket level using synchronized blocks and volatile variables (CAS operations - Compare-And-Swap) rather than locking the entire map, allowing concurrent reads and concurrent writes across different buckets."
+  },
+  {
+    "text": "Why must you override equals() and hashCode() together?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "According to the contract, if two objects are equal according to equals(), they must return the same integer hash code. Violating this breaks hash-based collections like HashMap and HashSet, as objects won't be found in their expected buckets."
+  },
+  {
+    "text": "What is the difference between ArrayList and LinkedList?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "ArrayList is backed by a dynamic array, offering O(1) random access but O(n) insertions/deletions in the middle. LinkedList is backed by a doubly-linked list, offering O(1) insertions/deletions when a node reference is present, but O(n) random access traversal."
+  },
+  {
+    "text": "Explain how the load factor and initial capacity affect HashMap performance.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Initial capacity defines the starting number of buckets, and load factor (default 0.75) determines when the map resizes (capacity doubles). Setting an appropriate initial capacity prevents costly rehashing operations, while balance of load factor trades off memory space against lookup time."
+  },
+  {
+    "text": "What is a LinkedHashMap and how does it maintain insertion or access order?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "LinkedHashMap extends HashMap and maintains a doubly-linked list running through all its entries. It can maintain either insertion order (default) or access order (useful for building LRU caches), updating the link pointers during put and get operations."
+  },
+  {
+    "text": "What are fail-fast and fail-safe iterators in Java collections?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Fail-fast iterators (like ArrayList iterator) throw a ConcurrentModificationException immediately if the collection is structurally modified during iteration. Fail-safe iterators (like ConcurrentHashMap iterator) operate on a clone or snapshot of the collection, avoiding exceptions during concurrent modifications."
+  },
+  {
+    "text": "How would you design a thread-safe LRU (Least Recently Used) cache using Java collections?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Extend LinkedHashMap and override removeEldestEntry() to return true when size exceeds capacity. Wrap it with Collections.synchronizedMap() or use ConcurrentHashMap combined with a ReentrantLock to ensure thread safety across concurrent cache reads and writes."
+  },
+  {
+    "text": "What is the Java Stream API and what are its main characteristics?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Stream API provides a declarative approach to processing sequences of elements. Key characteristics include functional-style operations, pipeline processing (intermediate and terminal operations), laziness (evaluation deferred until terminal operation), and supporting parallel execution."
+  },
+  {
+    "text": "What is the difference between intermediate and terminal operations in Streams?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Intermediate operations (e.g., filter, map) return another Stream and are lazy, meaning execution is deferred until a terminal operation is invoked. Terminal operations (e.g., collect, count, forEach) trigger the processing pipeline and return a result or side-effect."
+  },
+  {
+    "text": "Explain the difference between map() and flatMap() in Stream API.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "map() transforms each element in a stream to another single element (1-to-1 mapping). flatMap() transforms each element into a stream of elements and flattens all resulting streams into a single output stream (1-to-many mapping)."
+  },
+  {
+    "text": "How does parallelStream() work, and when should you avoid using it?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "parallelStream() divides stream processing across multiple threads using the common ForkJoinPool. You should avoid it for small datasets (overhead outweighs benefits), tasks with blocking I/O, stateful lambda expressions, or operations with sequential ordering dependencies that cause thread contention."
+  },
+  {
+    "text": "What is the purpose of the Optional class, and what are best practices for using it?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Optional is a container object used to represent null or non-null values, reducing NullPointerExceptions. Best practices include returning Optional from methods, using methods like map(), filter(), or orElseGet(), and avoiding Optional as field attributes, method parameters, or collection elements."
+  },
+  {
+    "text": "How do you collect stream results into a custom Map or grouped structure?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use Collectors.toMap(keyMapper, valueMapper) for maps, and Collectors.groupingBy(classifier) to group elements by a specific property, optionally passing downstream collectors like counting() or mapping()."
+  },
+  {
+    "text": "What are short-circuiting operations in the Stream API?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Short-circuiting operations allow a stream pipeline to process infinite streams or terminate early without processing all elements. Examples include intermediate operations like limit() and skip(), and terminal operations like findFirst(), findAny(), anyMatch(), allMatch(), and noneMatch()."
+  },
+  {
+    "text": "How do you write a custom Collector in Java Streams?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Implement the Collector interface by providing five methods: supplier() (creates container), accumulator() (adds element), combiner() (merges two containers for parallelism), finisher() (transforms result), and characteristics() (specifies collector traits like UNORDERED)."
+  },
+  {
+    "text": "What is lazy evaluation in Streams and how does it optimize performance?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Lazy evaluation delays pipeline execution until a terminal operation runs. This optimizes performance by enabling vertical execution (processing one element through the entire pipeline before moving to the next) and allowing short-circuiting operations to process only the required subset of elements."
+  },
+  {
+    "text": "How do you handle checked exceptions inside Stream lambda expressions?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Lambda expressions cannot throw checked exceptions directly if the functional interface does not declare them. Solutions include wrapping the checked exception in an unchecked RuntimeException inside a try-catch block, or creating a custom functional interface wrapper."
+  },
+  {
+    "text": "What is the difference between process-based and thread-based concurrency?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Process-based concurrency deals with executing independent programs with separate memory spaces, offering high isolation. Thread-based concurrency executes multiple threads within the same process sharing memory, offering faster communication but requiring careful synchronization."
+  },
+  {
+    "text": "Explain how the synchronized keyword works under the hood in the JVM.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "The JVM uses object monitors (monitor enter and monitor exit bytecodes). Every object has an associated monitor lock. When a thread enters a synchronized block, it acquires the monitor; other threads attempting entry are queued until the lock is released."
+  },
+  {
+    "text": "What are Atomic variables (e.g., AtomicInteger) and how do they work?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Atomic variables provide lock-free, thread-safe operations on single variables. They rely on hardware-level CPU instructions like Compare-And-Swap (CAS), which compares memory location with expected value and updates only if they match, avoiding thread blocking."
+  },
+  {
+    "text": "What is the Fork/Join framework and how does work-stealing operate?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "The Fork/Join framework breaks tasks into smaller subtasks recursively. Work-stealing means idle worker threads that have emptied their own task deque can steal tasks from the tail of deques belonging to busier worker threads, maximizing CPU core utilization."
+  },
+  {
+    "text": "What is a ReadWriteLock and when should you use it?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "ReadWriteLock maintains separate locks for read and write operations. Multiple threads can hold read locks simultaneously if no write lock is held, while write locks are exclusive. It is used when reads vastly outnumber writes to improve throughput."
+  },
+  {
+    "text": "Explain the ABA problem in concurrent programming and how to solve it.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "The ABA problem occurs when a memory location's value changes from A to B and back to A, causing a CAS operation to succeed incorrectly despite intervening changes. It is solved using atomic stamped references (AtomicStampedReference) that track version stamps alongside values."
+  },
+  {
+    "text": "What is the CompletableFuture class and how does it support asynchronous programming?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "CompletableFuture represents a future result of an asynchronous computation. It supports fluent non-blocking chaining of callbacks using methods like thenApply(), thenCompose(), and exceptionally(), enabling reactive composition of multiple async tasks."
+  },
+  {
+    "text": "What is thread starvation and how do thread pools prevent it?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Thread starvation occurs when a thread is perpetually denied access to CPU or shared resources, often due to low priority or greedy locking. Thread pools prevent starvation by managing bounded queues and reusing available worker threads fairly across submitted tasks."
+  },
+  {
+    "text": "Explain the happens-before relationship in the Java Memory Model.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Happens-before is a partial ordering guarantee on memory operations. If action A happens-before action B, then memory updates made by A are guaranteed to be visible to B. Rules include monitor release/acquire, volatile writes/reads, and thread start/join."
+  },
+  {
+    "text": "What is a Semaphore and how do you use it for rate limiting?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "A Semaphore maintains a set of permits. Threads call acquire() to take a permit and release() to return it. It is used for rate limiting by restricting the maximum number of concurrent threads allowed to access a shared resource or API endpoint."
+  },
+  {
+    "text": "What is the difference between unit testing and integration testing?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Unit tests verify the behavior of a single component or method in isolation, typically mocking dependencies. Integration tests verify how multiple components, modules, or external systems (like databases and REST APIs) work together."
+  },
+  {
+    "text": "How do you write a unit test with JUnit 5 and Mockito?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use JUnit 5 annotations like @Test, @BeforeEach, and assertions. Use Mockito annotations like @ExtendWith(MockitoExtension.class), @Mock to create mock dependencies, @InjectMocks to inject mocks into the test subject, and when(...).thenReturn(...) to stub behavior."
+  },
+  {
+    "text": "What is the purpose of @SpringBootTest in testing?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "@SpringBootTest starts the entire Spring application context for integration testing. It allows testing full end-to-end wiring, including controllers, services, repositories, and database connections."
+  },
+  {
+    "text": "How do you test database repositories using Spring Data JPA?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use the @DataJpaTest annotation, which configures an in-memory embedded database (like H2), auto-configures Spring Data JPA components, and rolls back transactions after each test method for test isolation."
+  },
+  {
+    "text": "What is mocking and when should you mock an object?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Mocking is creating a simulated object that mimics the behavior of real dependencies in a controlled way. You mock objects when testing in isolation, avoiding slow external networks, file systems, or databases, or to simulate edge cases and error states."
+  },
+  {
+    "text": "Explain Test-Driven Development (TDD) and its cycle.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "TDD is a software development process where tests are written before production code. The cycle is Red (write a failing test), Green (write minimum code to make the test pass), and Refactor (clean up code while keeping tests green)."
+  },
+  {
+    "text": "How do you test asynchronous code in Java?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Asynchronous code is tested using tools like CountDownLatch, CompletableFuture.join(), orAwaitility library. Awaitility allows polling asynchronous conditions with timeouts (e.g., await().until(() -> service.isDone())) to verify completion without arbitrary Thread.sleep() calls."
+  },
+  {
+    "text": "What is code coverage and what are its limitations?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Code coverage measures the percentage of source code executed during test execution (line, branch, method coverage). Its limitation is that high coverage does not guarantee test quality or correctness, as tests may execute code without asserting expected behaviors or edge cases."
+  },
+  {
+    "text": "How do you test REST controllers in Spring Boot without starting an embedded server?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use @WebMvcTest along with MockMvc. @WebMvcTest slices the application context to focus only on web layer components, and MockMvc performs simulated HTTP requests against controllers with mocked service dependencies."
+  },
+  {
+    "text": "What is the difference between @Mock and @Spy in Mockito?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "@Mock creates a completely fabricated mock object where all methods return default empty values unless stubbed. @Spy wraps an actual real object; methods call the real implementation by default unless specifically stubbed otherwise."
+  },
+  {
+    "text": "Tell me about a time when you had to refactor a complex legacy Java class. What was your approach? (STAR)",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Situation: Inherited a monolithic 2000-line service class with tight coupling. Task: Break it down into maintainable components without breaking functionality. Action: Wrote characterization tests first, applied Single Responsibility Principle by extracting smaller services, and used dependency injection. Result: Reduced bug reports by 40% and improved test execution time."
+  },
+  {
+    "text": "Describe a situation where you optimized a poorly performing multithreaded application. (STAR)",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Situation: High CPU usage and thread contention in a background report generation job. Task: Identify bottleneck and optimize throughput. Action: Profiled the application using VisualVM, discovered excessive global locking on a shared cache, replaced it with a ConcurrentHashMap and localized task queues. Result: Increased processing throughput by 300% and eliminated thread deadlocks."
+  },
+  {
+    "text": "Give an example of a disagreement you had with a team member regarding a design pattern or architecture choice. (STAR)",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Situation: Disagreement on whether to use complex event sourcing or a simpler CRUD model for an audit logging service. Task: Reach consensus on architecture. Action: Hosted a collaborative design review, weighed pros and cons against project timelines and maintainability, and built a small proof of concept. Result: Adopted a hybrid approach that satisfied audit requirements within schedule."
+  },
+  {
+    "text": "Tell me about a time you introduced a new technology (e.g., Spring Boot, Kafka) to your team. (STAR)",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Situation: Team struggled with polling databases for asynchronous notification tasks. Task: Propose and integrate a message broker. Action: Researched Apache Kafka, built a pilot service, presented the performance benefits, and hosted a knowledge-sharing workshop. Result: Successfully integrated Kafka into the core architecture, improving event delivery reliability."
+  },
+  {
+    "text": "Describe a time when you diagnosed a critical production bug related to memory leaks. (STAR)",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Situation: Production service crashed weekly with java.lang.OutOfMemoryError. Task: Find root cause and fix permanently. Action: Configured JVM to dump heap on OOM, analyzed dump in Eclipse MAT, found a static cache holding references indefinitely without eviction. Result: Replaced static cache with a time-bound Guava cache, eliminating production crashes."
+  },
+  {
+    "text": "Tell me about a time you had to mentor a junior developer on Java best practices. (STAR)",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Situation: Junior developer struggled with writing clean exception handling and null checks. Task: Guide them toward idiomatic Java. Action: Conducted pair programming sessions, introduced Optional usage, and established constructive code review feedback habits. Result: Junior dev's code quality improved significantly, leading to autonomous feature delivery."
+  },
+  {
+    "text": "Describe a time when you had to meet a tight deadline while maintaining code quality. (STAR)",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Situation: Urgent compliance feature required in two weeks. Task: Deliver feature without accumulating massive technical debt. Action: Applied scope negotiation with stakeholders, prioritized core business requirements, and maintained strict TDD and CI/CD automated gates. Result: Delivered on time with zero critical defects found in QA."
+  },
+  {
+    "text": "Tell me about a time when you received harsh feedback on a code review. How did you handle it? (STAR)",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Situation: Senior reviewer pointed out significant architectural flaws in my pull request. Task: Address feedback professionally. Action: Took time to understand the critique without taking it personally, asked clarifying questions, and refactored the design based on their insights. Result: Learned valuable design patterns and built a stronger collaborative relationship with the reviewer."
+  },
+  {
+    "text": "Describe a time when you improved CI/CD pipelines for a Java project. (STAR)",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Situation: Jenkins builds took over 45 minutes due to monolithic test execution. Task: Optimize CI/CD pipeline speed. Action: Parallelized unit tests, implemented Gradle build caching, and separated heavy integration tests into nightly runs. Result: Reduced build time to 8 minutes, boosting developer productivity."
+  },
+  {
+    "text": "Tell me about a complex data migration task you performed using JPA/Hibernate. (STAR)",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Situation: Migrating millions of legacy records with schema restructuring. Task: Perform migration with zero downtime. Action: Designed a batch-processing service using Spring Batch with chunk-oriented processing and dual-write strategies. Result: Migrated 10+ million records successfully with zero data loss or service interruption."
+  },
+  {
+    "text": "Your production Spring Boot application is experiencing a sudden spike in latency. What steps do you take to troubleshoot?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Check Actuator health and metrics endpoints for CPU/memory bottlenecks, inspect database connection pool exhaustion, analyze thread dumps for deadlocks or thread starvation, check upstream/downstream service health, and review APM traces (e.g., Datadog, Prometheus) to identify slow SQL queries or external API calls."
+  },
+  {
+    "text": "A junior developer writes code that calls a database repository inside a nested loop, causing massive performance degradation. How do you handle this?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Explain the N+1 and database round-trip performance impact constructively during code review. Guide them to refactor the code to fetch all necessary records in a single batch query using 'IN' clauses or collection parameters, and recommend writing unit tests to prevent regression."
+  },
+  {
+    "text": "You notice that a background thread pool keeps growing uncontrollably and threatening server stability. How do you fix this?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Identify if an unbounded thread pool (like Executors.newCachedThreadPool()) or bounded pool with an unbounded queue is used. Replace it with a bounded ThreadPoolExecutor with a fixed maximum pool size and a bounded work queue, along with a custom RejectedExecutionHandler."
+  },
+  {
+    "text": "A critical third-party REST API your application depends on starts throwing intermittent 500 errors. How do you protect your system?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Implement resilience patterns using Resilience4j: add a Circuit Breaker to fail fast when error rates spike, configure retries with exponential backoff for transient glitches, and provide a fallback method returning cached or default data."
+  },
+  {
+    "text": "You inherit a legacy application with zero test coverage and need to add a major feature. What is your strategy?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Write characterization tests (approval tests) around existing behavior before making changes. Incrementally add unit and integration tests around the specific modules you are touching, and refactor safely using the Boy Scout Rule (leave code cleaner than you found it)."
+  },
+  {
+    "text": "Two microservices in your architecture are experiencing circular dependencies causing startup failures in Spring Boot. How do you resolve it?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Redesign the architecture to eliminate the circular dependency by extracting shared logic into a third service or using event-driven communication. Alternatively, use @Lazy injection as a temporary workaround, though architectural refactoring is preferred."
+  },
+  {
+    "text": "A memory leak is suspected in staging, but heap dumps are too large to analyze easily. How do you approach debugging?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use profiling tools like JProfiler or VisualVM to monitor live heap allocation and GC roots. Take targeted heap dumps during peak load, filter out primitive arrays and common framework objects in Eclipse MAT, and inspect custom domain classes holding retention paths."
+  },
+  {
+    "text": "A database migration script fails halfway through deployment in production. What is your recovery plan?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Ensure all database migrations are designed to be idempotent and run within transactional boundaries where possible. Halt deployment, evaluate the failed migration step, run rollback scripts if available, restore from the latest snapshot backup if data corruption occurred, and fix the migration script."
+  },
+  {
+    "text": "Your team wants to introduce a new framework that will require rewriting core modules. How do you evaluate and present the decision?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Conduct a cost-benefit analysis comparing development velocity, maintenance overhead, and team skill set. Build a proof-of-concept (PoC) to measure tangible performance or productivity gains, and present findings in an architectural decision record (ADR)."
+  },
+  {
+    "text": "A scheduled batch job running overnight occasionally overlaps with the next day's run, causing data corruption. How do you fix it?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Implement distributed locking (e.g., using Redis with Redisson or database-level advisory locks) to ensure only one instance of the batch job runs at a time. Alternatively, optimize batch processing speed or adjust scheduling intervals."
+  },
+  {
+    "text": "Write a Java method to reverse a singly linked list.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Iterate through the list using three pointers (prev, current, next), reversing the next pointer of each node at each step until current becomes null, returning prev as the new head."
+  },
+  {
+    "text": "Implement a thread-safe Singleton class in Java using double-checked locking.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Declare a private static volatile instance. Inside getInstance(), check if instance is null; if so, enter a synchronized block on the class, check for null again, and instantiate."
+  },
+  {
+    "text": "Write a Java method using the Stream API to find the top 3 highest-paid employees from a list, grouped by department.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Use employees.stream().collect(Collectors.groupingBy(Employee::getDepartment, Collectors.collectingAndThen(Collectors.sorting(Comparator.comparingDouble(Employee::getSalary).reversed()), list -> list.stream().limit(3).collect(Collectors.toList()))))"
+  },
+  {
+    "text": "Implement a producer-consumer pattern using BlockingQueue in Java.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Create a shared BlockingQueue (e.g., ArrayBlockingQueue). Producer threads call queue.put(item) to insert items, and consumer threads call queue.take() to retrieve items safely with built-in thread blocking."
+  },
+  {
+    "text": "Write a Java method to check if a given string is a valid palindrome, ignoring non-alphanumeric characters and case.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Use two pointers (left and right) moving inward, skipping non-alphanumeric characters using Character.isLetterOrDigit(), and comparing lowercase representations of characters."
+  },
+  {
+    "text": "Implement a custom immutable class in Java.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Declare the class as final with private final fields, provide no setter methods, and ensure any mutable object references passed to constructors or returned from getters are deeply cloned."
+  },
+  {
+    "text": "Write a Java method to find the first non-repeated character in a string using Streams.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Convert string to an IntStream of characters, collect into a LinkedHashMap counting frequencies using Collectors.groupingBy(c -> c, LinkedHashMap::new, Collectors.counting()), then filter for count == 1 and findFirst()."
+  },
+  {
+    "text": "Implement a basic custom HashMap from scratch supporting put and get methods.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "Create an array of Entry/Node linked lists. Implement hashing of keys to find bucket index, handle collisions by appending or updating nodes in the linked list, and handle resizing when load factor exceeds threshold."
+  },
+  {
+    "text": "Write a Java method to detect a cycle in a linked list.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use Floyd's Cycle-Finding Algorithm with two pointers (slow moving 1 step, fast moving 2 steps). If they meet, a cycle exists; if fast reaches null, the list is acyclic."
+  },
+  {
+    "text": "Implement a retry mechanism with exponential backoff using CompletableFuture in Java.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "Create a recursive asynchronous method returning CompletableFuture that attempts execution, catches exceptions, checks retry count, and schedules a delayed retry using ScheduledExecutorService with exponentially increasing backoff."
+  },
+  {
+    "text": "What is the difference between equals() and hashCode() contracts?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "If two objects are equal according to equals(), they must return the same integer hash code. If two objects have the same hash code, they are not required to be equal, but equal hash codes improve hash table performance by reducing collisions."
+  },
+  {
+    "text": "Explain how Spring Boot's dependency management works with Maven or Gradle.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Spring Boot provides a parent POM (spring-boot-starter-parent) or Gradle plugin that curates and manages compatible versions of common third-party libraries, allowing developers to include dependencies without explicitly specifying version numbers."
+  },
+  {
+    "text": "What is dirty checking in Hibernate and how does it work?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Hibernate tracks entity state changes by keeping an in-memory snapshot when entities are loaded into the persistence context. During flush, it compares current entity properties against the snapshot to automatically generate SQL UPDATE statements for modified fields."
+  },
+  {
+    "text": "What is the difference between ReentrantLock and synchronized?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "ReentrantLock offers advanced features like timed lock waits, interruptible lock acquisition, fairness policies, and multiple condition queues, whereas synchronized is built into the JVM language syntax and handles locking automatically."
+  },
+  {
+    "text": "Explain the role of the Metaspace in Java 8 and later versions.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Metaspace replaced PermGen in Java 8 to store class metadata. Unlike PermGen, Metaspace dynamically allocates native memory and expands automatically up to max limits, significantly reducing java.lang.OutOfMemoryError: Metaspace issues."
+  },
+  {
+    "text": "What is the Template Method design pattern?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Template Method defines the skeleton of an algorithm in a superclass method, deferring specific steps or behavior implementation to subclasses without altering the overall algorithm structure."
+  },
+  {
+    "text": "What is a PriorityQueue in Java and how does it order elements?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "PriorityQueue is an unbounded queue based on a priority heap. Elements are ordered according to their natural ordering (via Comparable) or by a custom Comparator provided at queue construction time."
+  },
+  {
+    "text": "How do you use peek() in Java Streams correctly?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "peek() is an intermediate operation primarily intended for debugging, allowing actions like logging for each element as it flows through the stream pipeline. It should not be used for business logic modifications because stream optimizations might skip elements."
+  },
+  {
+    "text": "What is a deadlock and how can you detect it programmatically in Java?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Deadlocks can be detected programmatically using the ThreadMXBean interface by calling findDeadlockedThreads(), which returns an array of thread IDs involved in a deadlock cycle."
+  },
+  {
+    "text": "What is mutation testing and how does it differ from standard code coverage?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Mutation testing introduces small artificial faults (mutants) into source code to check if existing unit tests can detect and fail when the mutant is introduced. Unlike code coverage that only checks if lines run, mutation testing validates the actual assertion quality of tests."
+  },
+  {
+    "text": "Describe a time when you optimized database query performance in a Spring Boot application. (STAR)",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Situation: Slow report generation endpoint taking over 10 seconds. Task: Optimize query and response times. Action: Analyzed SQL execution plans, identified missing composite indexes, and rewrote JPQL queries to use projections and batch fetching. Result: Reduced execution time from 10 seconds to 400 milliseconds."
+  },
+  {
+    "text": "You are tasked with migrating a monolithic Spring application to microservices. What is your roadmap?",
+    "type": "SITUATIONAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Start by identifying bounded contexts using Domain-Driven Design (DDD). Extract peripheral read-only or asynchronous services first using the Strangler Fig pattern, implement API Gateway for routing, set up centralized configuration, distributed tracing, and service discovery."
+  },
+  {
+    "text": "Write a Java method to flatten a nested list of integers (which may contain integers or other lists) into a single flat list.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Iterate through the collection; if an element is an Integer, add it to the result list, and if it is a List, recursively call the flatten method and add all resulting elements."
+  },
+  {
+    "text": "What are default and static methods in Java interfaces, and why were they introduced?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Default methods allow adding new functionality to interfaces without breaking existing implementations. Static methods allow utility methods directly inside interfaces. They were introduced in Java 8 primarily to support adding Stream API methods to collections like Collection and List."
+  },
+  {
+    "text": "What is the purpose of @Transactional in Spring and how does it work?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "@Transactional manages database transaction boundaries automatically. Spring implements this using AOP proxies; when a transactional method is called, the proxy opens a transaction, invokes the method, and commits or rolls back based on exception occurrence."
+  },
+  {
+    "text": "What is the difference between eager and lazy fetching in JPA, and what is the N+1 problem?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "EAGER loading fetches associations immediately, while LAZY delays loading until accessed. The N+1 problem occurs when fetching N parent records lazily triggers N separate subsequent queries for their children, solvable via JOIN FETCH."
+  },
+  {
+    "text": "What is the volatile keyword and what guarantees does it provide?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Volatile ensures visibility of variable updates across threads by disabling CPU cache storage and forcing reads/writes directly to main memory, while also preventing instruction reordering."
+  },
+  {
+    "text": "What is the difference between String pool and heap allocation?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "String pool is a special memory region in the JVM heap used to store unique string literals to save memory. Using the 'new String()' keyword forces allocation of a new object in regular heap memory, bypassing the pool."
+  },
+  {
+    "text": "What is the Command design pattern and what problem does it solve?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Command pattern encapsulates a request as an object, allowing parameterization of clients with different requests, queuing of requests, and support for undoable operations."
+  },
+  {
+    "text": "What is a BlockingQueue and what are its common implementations?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "BlockingQueue is a thread-safe queue that supports operations which wait for the queue to become non-empty when retrieving, or space to become available when storing. Common implementations include ArrayBlockingQueue, LinkedBlockingQueue, and PriorityBlockingQueue."
+  },
+  {
+    "text": "Explain how the reduce() operation works in Java Streams.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "reduce() is a terminal reduction operation that combines elements of a stream into a single summary result using an associative accumulation function, optionally taking an initial identity value."
+  },
+  {
+    "text": "What is a thread dump and how do you analyze one?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "A thread dump is a snapshot of all active threads in the JVM at a given moment. It is analyzed using tools like fastthread.io, VisualVM, or jstack to identify thread states (RUNNABLE, WAITING, BLOCKED), stack traces, and detect deadlocks or thread contention."
+  },
+  {
+    "text": "Describe a time when you diagnosed and resolved a production performance bottleneck in a Spring Boot application. (STAR)",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Situation: Sudden latency spikes during peak hours. Task: Find root cause and resolve. Action: Analyzed APM metrics, discovered database connection pool exhaustion caused by long-running transactions, optimized queries, and increased connection pool limits. Result: Latency dropped by 70% and system stability was restored."
+  },
+  {
+    "text": "You receive a bug report where a method throws a NullPointerException intermittently under heavy load. How do you troubleshoot?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Examine stack trace logs, check for potential race conditions or uninitialized concurrent maps returning null values, review Optional usage, and add defensive null checks or logging to capture state before the exception occurs."
+  },
+  {
+    "text": "Write a Java method to find the longest substring without repeating characters.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Use sliding window approach with a HashMap storing character indices. Maintain left and right pointers, updating the maximum length whenever a new unique substring window is formed."
+  },
+  {
+    "text": "What are wrapper classes in Java and what is autoboxing/unboxing?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Wrapper classes (e.g., Integer, Double) encapsulate primitive types into objects. Autoboxing is the automatic conversion of primitives to wrapper objects by the compiler, and unboxing is the reverse conversion."
+  },
+  {
+    "text": "What is the purpose of Spring Boot Actuator health indicators?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Actuator health indicators check the status of external resources (database, disk space, Redis) and report the overall application health status via the /health endpoint for orchestration platforms like Kubernetes."
+  },
+  {
+    "text": "What is the difference between CascadeType.ALL and CascadeType.PERSIST in JPA?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "CascadeType.PERSIST propagates only persist operations from parent to child entities. CascadeType.ALL propagates all EntityManager operations (persist, merge, remove, refresh, detach)."
+  },
+  {
+    "text": "What is a thread pool and why should you use one instead of creating new threads?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A thread pool manages a reusable pool of worker threads. Using a pool avoids the heavy overhead of thread creation and destruction for every task, and protects system stability by limiting maximum concurrent threads."
+  },
+  {
+    "text": "What is the difference between checked and unchecked exceptions in Java?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Checked exceptions (subclasses of Exception excluding RuntimeException) must be caught or declared in the method signature (compile-time checked). Unchecked exceptions (subclasses of RuntimeException) represent programming bugs and do not require mandatory handling."
+  },
+  {
+    "text": "What is the Facade design pattern?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Facade pattern provides a simplified, unified interface to a complex subsystem, making the subsystem easier to use by hiding its internal complexity."
+  },
+  {
+    "text": "What is a CopyOnWriteArrayList and when should you use it?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "CopyOnWriteArrayList is a thread-safe list where all mutative operations (add, set) create a fresh copy of the underlying array. It is ideal for read-heavy scenarios with very few writes, avoiding synchronization locking overhead during reads."
+  },
+  {
+    "text": "How do you use CompletableFuture.allOf() to run multiple asynchronous tasks in parallel?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "CompletableFuture.allOf(future1, future2, future3) returns a new CompletableFuture that completes when all given futures complete. Results can then be retrieved individually from each future without blocking during execution."
+  },
+  {
+    "text": "Describe a time when you led a critical code refactoring initiative. (STAR)",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Situation: Monolithic codebase slowed down feature delivery. Task: Refactor and modularize core layers. Action: Proposed modular architecture, planned phased refactoring, led team coding sessions, and ensured regression test suites passed. Result: Improved release velocity by 50% and lowered bug count."
+  },
+  {
+    "text": "You notice memory consumption steadily increasing in production without hitting OOM yet. How do you investigate?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Take periodic heap dumps and compare them using Eclipse MAT to identify object types growing continuously. Check for unclosed resources, growing collections, thread-local memory leaks, or slow database connection pools leaking connections."
+  },
+  {
+    "text": "Write a Java method to validate matching parentheses in a string containing '(', ')', '{', '}', '[', ']'.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use a Stack data structure. Push opening brackets onto the stack, and when encountering a closing bracket, pop from the stack and verify it matches the corresponding opening bracket type."
+  },
+  {
+    "text": "What is polymorphism and how does compile-time differ from runtime polymorphism?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Polymorphism allows objects to be treated as instances of their parent class. Compile-time polymorphism is achieved via method overloading, while runtime polymorphism is achieved via method overriding (dynamic method dispatch)."
+  },
+  {
+    "text": "How do you configure custom error responses in a Spring Boot REST API?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Create a global exception handler annotated with @RestControllerAdvice containing methods annotated with @ExceptionHandler that return structured ResponseEntity error payloads."
+  },
+  {
+    "text": "What is the difference between EntityManager.persist() and EntityManager.merge()?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "persist() takes a transient entity and makes it persistent, throwing an exception if the entity already exists. merge() copies the state of a detached entity into a persistent entity instance within the persistence context."
+  },
+  {
+    "text": "What is a CountDownLatch and how does it work?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "CountDownLatch is a synchronization aid that allows one or more threads to wait until a set of operations performed in other threads completes, using a counter initialized to a specific value that decrements with counting down."
+  },
+  {
+    "text": "What is reflection in Java and what are its performance implications?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Reflection allows inspecting and modifying runtime behavior of classes, methods, and fields. Its performance implications include slower execution speed, bypass of compile-time type safety, and increased vulnerability to security restrictions."
+  },
+  {
+    "text": "What is the State design pattern?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "State pattern allows an object to alter its behavior when its internal state changes, appearing as if the object changed its class by delegating calls to state-specific handler objects."
+  },
+  {
+    "text": "What is a ConcurrentSkipListMap and when would you use it?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "ConcurrentSkipListMap is a concurrent, scalable, thread-safe concurrent alternative to TreeMap that maintains keys in sorted order using a concurrent skip list algorithm, useful when sorted key-value iteration is required under concurrency."
+  },
+  {
+    "text": "How do you handle pagination and sorting in Spring Data JPA?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Extend JpaRepository and pass a Pageable object (created via PageRequest.of(page, size, Sort)) to repository query methods, returning a Page<T> object containing pagination metadata and content."
+  },
+  {
+    "text": "Explain the difference between intermediate short-circuiting and non-short-circuiting Stream operations.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Non-short-circuiting operations (like filter, map) process every element in the stream. Short-circuiting operations (like limit, findFirst) can terminate processing early before examining all elements."
+  },
+  {
+    "text": "Describe a time when you resolved a persistent bug that nobody else could reproduce. (STAR)",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Situation: Intermittent failure in a distributed transaction only in production. Task: Reproduce and fix bug. Action: Added detailed correlation ID logging and analyzed race conditions in asynchronous message listeners. Result: Identified a threading race condition and fixed it with proper synchronization."
+  },
+  {
+    "text": "You discover that a junior developer committed sensitive database credentials into a public Git repository. What are your immediate steps?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Immediately revoke and rotate the compromised credentials in the database and environment secrets manager. Purge the sensitive file from Git history using tools like git-filter-repo or BFG Repo-Cleaner, and educate the team on secure secret management."
+  },
+  {
+    "text": "Write a Java method to find the maximum sum subarray (Kadane's Algorithm).",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Iterate through the array maintaining current sum and max sum. If current sum drops below zero, reset it to zero, updating max sum at each step."
+  },
+  {
+    "text": "What is the difference between composition and inheritance in OOP?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Inheritance establishes an 'is-a' relationship at compile-time, while composition establishes a 'has-a' relationship at runtime, promoting better flexibility and loose coupling."
+  },
+  {
+    "text": "What is Spring Boot Starter Actuator and what security precautions should be taken?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Actuator exposes operational metrics and health endpoints. Security precautions include restricting public endpoint access via Spring Security, changing default management ports, and disabling sensitive endpoints."
+  },
+  {
+    "text": "What is the difference between @OneToMany and @ManyToMany mappings in JPA?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "@OneToMany maps a single entity to a collection of child entities using a foreign key in the child table. @ManyToMany maps relationships where multiple instances of both entities relate to each other, requiring a join table."
+  },
+  {
+    "text": "What is a ThreadPoolExecutor and what are its key configuration parameters?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "ThreadPoolExecutor manages thread pools. Key parameters include corePoolSize, maximumPoolSize, keepAliveTime, workQueue, and handler (RejectedExecutionHandler)."
+  },
+  {
+    "text": "What is the difference between transient and volatile keywords in Java?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Transient excludes a field from serialization. Volatile ensures thread visibility and prevents instruction reordering for shared variables across threads."
+  },
+  {
+    "text": "What is the Prototype design pattern?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Prototype pattern creates duplicate objects (clones) while keeping performance in mind, avoiding costly database or network calls required for fresh instantiation."
+  },
+  {
+    "text": "How does ConcurrentHashMap implement thread-safe operations in modern Java?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Modern ConcurrentHashMap uses node-level synchronization with synchronized blocks on bucket heads, combined with CAS operations, avoiding full map locks while maintaining high concurrency."
+  },
+  {
+    "text": "How do you implement custom validation annotations in Spring Boot?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Create a custom annotation annotated with @Constraint(validatedBy = ...), and implement the ConstraintValidator interface defining validation logic in isValid()."
+  },
+  {
+    "text": "What is the difference between peek() and map() in Java Streams?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "map() transforms input elements into new output elements (returning a new Stream type). peek() performs an action on each element without altering the stream contents or return type."
+  },
+  {
+    "text": "Describe a time when you optimized the memory footprint of a Java application. (STAR)",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Situation: High memory consumption caused frequent full GC pauses. Task: Reduce memory footprint. Action: Analyzed heap dumps, found large object allocations due to unoptimized caching, replaced heavy object graphs with lightweight DTOs, and tuned JVM garbage collection flags. Result: Cut memory usage by 40% and eliminated full GC pauses."
+  },
+  {
+    "text": "A critical third-party service is experiencing high latency, causing your application threads to block. How do you mitigate this?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Set strict connection and read timeouts on HTTP clients, wrap calls in a Circuit Breaker with fallback responses, and isolate blocking calls into a separate dedicated thread pool to prevent thread starvation across the main application."
+  },
+  {
+    "text": "Write a Java method to merge two sorted linked lists into a single sorted linked list.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Create a dummy head node, compare current nodes of both lists iteratively, attach the smaller node to the merged list pointer, and append the remaining nodes once one list exhausts."
+  },
+  {
+    "text": "What is method overloading and overriding in Java?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Overloading occurs in the same class with different parameters. Overriding occurs in subclasses with the same method signature."
+  },
+  {
+    "text": "How do you configure database connection pooling in Spring Boot?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Spring Boot uses HikariCP by default. Configure connection pool settings like maximum pool size, idle timeout, and connection timeout using spring.datasource.hikari properties in application.properties."
+  },
+  {
+    "text": "What is the second-level cache in Hibernate and how is it configured?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Second-level cache stores entities across multiple sessions. Configure it by enabling spring.jpa.properties.hibernate.cache.use_second_level_cache=true and supplying a provider like Ehcache or Redis."
+  },
+  {
+    "text": "What is the difference between wait() and sleep() in Java?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "wait() releases the object monitor lock and waits until notified by another thread (called on Object). sleep() pauses thread execution for a specified duration without releasing any locks (called on Thread)."
+  },
+  {
+    "text": "What are lambda expressions and functional interfaces in Java?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Lambda expressions provide a concise way to represent anonymous function implementations. Functional interfaces are interfaces containing exactly one abstract method, which lambda expressions implement."
+  },
+  {
+    "text": "What is the Flyweight design pattern?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Flyweight pattern minimizes memory usage by sharing as much data as possible with similar objects, storing intrinsic state internally while passing extrinsic state externally."
+  },
+  {
+    "text": "How do you implement a custom thread pool rejection policy in Java?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Implement the RejectedExecutionHandler interface, providing a custom rejectedExecution() method that handles tasks when thread pool execution queues are full."
+  },
+  {
+    "text": "How do you write custom queries using Spring Data JPA Specifications?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Implement the Specification interface using Criteria API predicates to build dynamic type-safe queries, and pass them to repositories extending JpaSpecificationExecutor."
+  },
+  {
+    "text": "What is the difference between findFirst() and findAny() in Streams?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "findFirst() returns the first element of a stream, respecting encounter order (especially useful in sequential streams). findAny() returns any element from the stream, optimized for parallel streams where encounter order does not matter."
+  },
+  {
+    "text": "Describe a time when you refactored a brittle integration test suite. (STAR)",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Situation: Integration tests were flaky due to hardcoded database states and port conflicts. Task: Stabilize and speed up test suite. Action: Used Testcontainers for isolated containerized database instances, randomized test ports, and cleaned up state between tests. Result: Eliminated flaky test failures and improved pipeline reliability."
+  }
+]

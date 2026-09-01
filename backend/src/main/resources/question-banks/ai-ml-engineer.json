@@ -1,0 +1,1046 @@
+[
+  {
+    "text": "What is the primary purpose of an activation function in a neural network?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Activation functions introduce non-linearity into the network, allowing it to learn complex patterns and relationships in the data. Without them, a neural network would simply be a series of linear transformations, collapsing into a single linear regression model regardless of depth."
+  },
+  {
+    "text": "How does L1 regularization differ from L2 regularization in machine learning models?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "L1 regularization (Lasso) adds the absolute values of the coefficients as a penalty, which can drive some weights completely to zero and perform feature selection. L2 regularization (Ridge) adds the squared values of the coefficients, penalizing large weights smoothly without forcing them to zero."
+  },
+  {
+    "text": "Explain the vanishing gradient problem and how residual connections help mitigate it.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "The vanishing gradient problem occurs in deep networks when gradients become exponentially small during backpropagation, halting learning in early layers. Residual connections introduce skip connections that bypass layers, allowing gradients to flow directly backward and maintaining signal strength throughout deep architectures."
+  },
+  {
+    "text": "Describe the mathematical formulation of self-attention in Transformer models.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Self-attention computes weights using Query (Q), Key (K), and Value (V) matrices via the formula Attention(Q,K,V) = softmax((QK^T) / sqrt(d_k)) * V. This scales the dot products by the square root of the key dimension to prevent vanishing gradients, yielding a weighted sum of values representing contextual relationships."
+  },
+  {
+    "text": "Tell me about a time you had to deal with a severe data drift issue in production.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A strong answer should detail the monitoring setup that detected the drift, the investigation into root causes (e.g., changing user behavior), and the remediation steps taken, such as retraining the model with recent data or implementing an automated pipeline."
+  },
+  {
+    "text": "Describe a situation where your machine learning model failed to meet business requirements after deployment.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "The candidate should explain the discrepancy between offline metrics and online business impact, how they collaborated with stakeholders to re-align success metrics, and the iterative improvements made to bridge the gap."
+  },
+  {
+    "text": "You notice that your production model latency has suddenly doubled. Walk through your troubleshooting steps.",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "First, check infrastructure metrics like CPU/GPU utilization and memory leaks. Next, inspect input payload sizes for anomalies and review recent deployment logs or upstream data pipeline changes that might have altered feature extraction time."
+  },
+  {
+    "text": "Your stakeholder insists on deploying a highly complex deep learning model when a simple logistic regression achieves 95% of its performance. How do you handle this?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Acknowledge their goal, then present trade-offs regarding inference latency, hosting cost, interpretability, and maintenance overhead. Propose a phased approach or provide an empirical cost-benefit analysis to guide them toward the simpler, more robust solution."
+  },
+  {
+    "text": "Write a Python function to calculate the dot product of two vectors without using external libraries like NumPy.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Iterate through both lists using zip, multiply corresponding elements, and sum the results. Handle edge cases like mismatched vector lengths with appropriate error raising."
+  },
+  {
+    "text": "Implement a Python function that performs min-max normalization on a list of numerical values.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Find the minimum and maximum values of the list. Then, iterate through each element and apply the formula (x - min) / (max - min), handling the edge case where max equals min."
+  },
+  {
+    "text": "What is the difference between batch gradient descent and stochastic gradient descent?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Batch gradient descent computes the gradient using the entire training dataset, making updates slow but stable. Stochastic gradient descent computes gradients using a single sample at a time, resulting in faster updates with high variance, leading to a noisy optimization path."
+  },
+  {
+    "text": "Why is dropout used in neural networks, and how does it work during inference?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Dropout randomly deactivates a percentage of neurons during training to prevent co-adaptation and reduce overfitting. During inference, dropout is turned off, and all neurons are utilized, usually scaling their outputs to match the expected value."
+  },
+  {
+    "text": "What is the purpose of a validation set in machine learning model development?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The validation set is used to tune hyperparameters and evaluate model performance during training without touching the test set. This prevents data leakage and ensures the final model generalizes well to unseen data."
+  },
+  {
+    "text": "Explain the concept of word embeddings in Natural Language Processing.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Word embeddings map words from a vocabulary to dense, low-dimensional vectors of real numbers. They capture semantic and syntactic meanings, where words with similar contexts are located close to each other in the vector space."
+  },
+  {
+    "text": "What is the fundamental difference between supervised and unsupervised learning?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Supervised learning trains models on labeled data where both inputs and target outputs are provided. Unsupervised learning deals with unlabeled data, aiming to find hidden structures, patterns, or groupings within the dataset."
+  },
+  {
+    "text": "How does max pooling reduce the spatial dimensions in a Convolutional Neural Network?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Max pooling slides a window across the feature map and outputs the maximum value within each window region. This downsamples the spatial dimensions, reduces computation, and provides a degree of translation invariance."
+  },
+  {
+    "text": "What is data normalization, and why is it important for gradient-based optimization?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Data normalization scales input features to a similar range, such as 0 to 1 or mean 0 with variance 1. This prevents features with larger scales from dominating the loss function and helps optimization algorithms converge much faster and more stably."
+  },
+  {
+    "text": "What does a precision score measure in a classification model?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Precision measures the proportion of positive identifications that were actually correct, calculated as true positives divided by the sum of true positives and false positives. It is crucial when the cost of false positives is high."
+  },
+  {
+    "text": "What is transfer learning, and why is it beneficial?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Transfer learning involves taking a model pre-trained on a large dataset and fine-tuning it for a related task. It saves computational resources, requires significantly less training data, and usually achieves higher accuracy than training from scratch."
+  },
+  {
+    "text": "What is the role of a feature store in modern MLOps architectures?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A feature store is a centralized repository that stores, manages, and serves machine learning features for training and inference. It ensures consistency between offline training and online serving pipelines and promotes feature reuse across teams."
+  },
+  {
+    "text": "Explain the bias-variance tradeoff in machine learning.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Bias is the error from erroneous assumptions in the learning algorithm, leading to underfitting. Variance is the error from sensitivity to small fluctuations in the training set, leading to overfitting. Balancing them minimizes total error on unseen data."
+  },
+  {
+    "text": "How do you handle severe class imbalance in a classification dataset?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Techniques include resampling (oversampling minority or undersampling majority classes), using synthetic data generation like SMOTE, adjusting class weights in the loss function, and evaluating using metrics like F1-score, precision-recall AUC, rather than raw accuracy."
+  },
+  {
+    "text": "What is batch normalization, and how does it accelerate neural network training?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Batch normalization normalizes layer inputs across a mini-batch to have zero mean and unit variance, reducing internal covariate shift. This allows higher learning rates, reduces sensitivity to initialization, and acts as a mild regularizer."
+  },
+  {
+    "text": "Describe the architecture and workflow of a Generative Adversarial Network (GAN).",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A GAN consists of a generator that creates synthetic data from noise and a discriminator that tries to distinguish real data from generated data. They engage in a minimax game where both networks improve iteratively until the generator produces realistic outputs."
+  },
+  {
+    "text": "What are tokenization and subword tokenization strategies like BPE used for in NLP?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Tokenization breaks text into smaller units like words or subwords. Subword tokenization like Byte-Pair Encoding (BPE) handles out-of-vocabulary words by breaking rare words into frequent subword units, balancing vocabulary size and semantic coverage."
+  },
+  {
+    "text": "Explain the concept of cross-validation and why K-fold cross-validation is preferred over a simple train-test split.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "K-fold cross-validation partitions data into K subsets, training on K-1 and validating on the remaining subset K times. It ensures every data point is used for both training and validation, reducing performance variance and providing a robust estimate of model generalization."
+  },
+  {
+    "text": "What is the difference between early stopping and model checkpointing in training pipelines?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Early stopping halts the training process when validation loss stops improving for a specified number of epochs to prevent overfitting. Model checkpointing saves the model weights to disk at regular intervals or whenever validation metrics improve."
+  },
+  {
+    "text": "How do object detection models like YOLO differ from image classification models?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Image classification assigns a single label to an entire image, whereas object detection predicts both class labels and bounding coordinates for multiple objects within the image in a single forward pass (e.g., YOLO)."
+  },
+  {
+    "text": "What is model quantization, and how does it help in model deployment?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Quantization reduces the precision of model weights and activations, typically converting 32-bit floating-point numbers to 8-bit integers. This significantly reduces model size, memory bandwidth, and inference latency with minimal loss in accuracy."
+  },
+  {
+    "text": "Describe the primary components of an end-to-end MLOps CI/CD pipeline.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "An MLOps pipeline includes data ingestion, automated feature engineering, model training, validation gates, artifact registry, containerized deployment, and continuous monitoring for drift and performance degradation in production."
+  },
+  {
+    "text": "Explain the mechanism of multi-head attention in Transformers and why multiple heads are beneficial.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Multi-head attention projects queries, keys, and values into multiple subspaces, runs scaled dot-product attention in parallel, and concatenates the results. This allows the model to jointly attend to information from different representation subspaces at different positions."
+  },
+  {
+    "text": "How do you detect and mitigate data leakage in a complex machine learning pipeline?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Data leakage occurs when information from outside the training dataset is used to create the model, often via improper scaling or feature engineering before splitting data. Mitigate it by strictly enclosing all transformations inside cross-validation pipelines and separating temporal data chronologically."
+  },
+  {
+    "text": "What are diffusion models, and how do they generate samples compared to VAEs?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Diffusion models generate data by iteratively reversing a forward Markov chain process that gradually adds Gaussian noise to data. Unlike VAEs which use encoder-decoder architectures with latent spaces, diffusion models train a neural network to denoise step-by-step from pure noise."
+  },
+  {
+    "text": "Explain the architecture and advantage of Vision Transformers (ViT) over traditional CNNs.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "ViT applies the Transformer architecture directly to sequences of image patches, treating patches like words in NLP. Unlike CNNs which have inductive biases like translation equivariance and locality, ViT captures global context earlier but requires massive datasets for pre-training to generalize effectively."
+  },
+  {
+    "text": "What is catastrophic forgetting in continual learning, and how can it be prevented?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Catastrophic forgetting happens when a neural network forgets previously learned tasks when trained sequentially on new data. Mitigation strategies include replay buffers, regularization techniques like Elastic Weight Consolidation (EWC), and parameter-efficient fine-tuning architectures."
+  },
+  {
+    "text": "Detail the mathematical differences between Cross-Entropy Loss and Mean Squared Error, and when to use each.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "MSE calculates the average squared difference between predictions and targets, suitable for regression tasks. Cross-Entropy measures the dissimilarity between two probability distributions, ideal for classification tasks where outputs are logits processed through softmax."
+  },
+  {
+    "text": "How does Retrieval-Augmented Generation (RAG) work in large language models, and what are its scaling bottlenecks?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "RAG retrieves relevant external documents using vector search and injects them into the LLM prompt as context. Bottlenecks include retriever recall accuracy, context window limitations, latency of vector database lookups, and managing conflicting retrieved information."
+  },
+  {
+    "text": "Explain the concept of gradient accumulation and when you would implement it.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Gradient accumulation simulates larger batch sizes by summing gradients over several micro-batches before performing an optimizer step. It is used when GPU memory is insufficient to hold a large desired batch size natively."
+  },
+  {
+    "text": "What are the trade-offs between Parameter-Efficient Fine-Tuning (PEFT) methods like LoRA versus full model fine-tuning?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "LoRA freezes original weights and trains low-rank decomposition matrices, drastically reducing GPU memory and storage requirements. Full fine-tuning updates all weights, offering higher potential task adaptation at the cost of massive computational overhead."
+  },
+  {
+    "text": "Discuss the challenges of deploying real-time computer vision models on edge devices with limited power and compute.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Challenges include strict latency requirements, thermal constraints, limited memory bandwidth, and power consumption. Solutions involve model pruning, quantization, hardware-specific compilation (e.g., TensorRT, CoreML), and utilizing lightweight backbone architectures like MobileNet."
+  },
+  {
+    "text": "Derive the backpropagation update rule for a single linear neuron with mean squared error loss.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Using the chain rule, the loss derivative with respect to weight w_i is dL/dw_i = (d L / d y_hat) * (d y_hat / d z) * (d z / d w_i), which evaluates to (y_hat - y) * x_i. The weight update is then w_i := w_i - alpha * (y_hat - y) * x_i."
+  },
+  {
+    "text": "Explain the theoretical foundations and failure modes of Contrastive Learning in self-supervised representation learning.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Contrastive learning trains models by pulling positive pairs and pushing apart negative pairs in latent space using InfoNCE loss. Failure modes include representation collapse, where the encoder maps all inputs to a constant vector, and poor selection of data augmentations."
+  },
+  {
+    "text": "How do Neural Architecture Search (NAS) algorithms operate, and what are the primary computational bottlenecks?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "NAS automates neural network design using reinforcement learning, evolutionary algorithms, or gradient-based methods (e.g., DARTS). The bottleneck is massive computational expense, requiring thousands of candidate models to be trained and evaluated."
+  },
+  {
+    "text": "Analyze the mechanics of flash attention and explain why standard attention scales quadratically in memory.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Standard attention materializes the N x N attention matrix in high-bandwidth memory, causing O(N^2) memory complexity. Flash attention utilizes tiling and recomputation in SRAM to avoid reading/writing the large attention matrix to HBM, reducing memory complexity to O(N)."
+  },
+  {
+    "text": "Describe the mathematical formulation and optimization challenges of Mixture of Experts (MoE) architectures.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "MoE routes input tokens to a subset of feed-forward networks using a gating network. Challenges include load balancing across experts to prevent routing collapse, routing instability, and communication overhead in distributed training across GPUs."
+  },
+  {
+    "text": "Describe a time when you disagreed with a senior engineer or product manager regarding model design or architecture.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Highlight how you prepared objective data or a quick prototype to support your viewpoint, listened to their business constraints, and arrived at a collaborative compromise that balanced technical robustness with product goals."
+  },
+  {
+    "text": "Tell me about a time you inherited a poorly performing or undocumented machine learning model. How did you approach turning it around?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Mention auditing the existing codebase and data pipeline, establishing a reliable baseline evaluation metric, running ablation studies to identify bottlenecks, and incrementally refactoring or retraining the model with better validation."
+  },
+  {
+    "text": "Describe a project where you had to balance competing constraints: model accuracy, inference latency, and compute cost.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Explain how you mapped out Pareto frontiers, tested multiple model sizes, communicated trade-offs clearly to stakeholders, and landed on an optimal configuration that satisfied operational thresholds."
+  },
+  {
+    "text": "Tell me about a time when a model you deployed caused an unexpected outage or severe latency spike in production.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Discuss the immediate incident response, rollback or mitigation steps, the blameless post-mortem analysis, and the long-term guardrails put in place to prevent recurrence."
+  },
+  {
+    "text": "Describe a situation where you had to explain complex machine learning concepts or model outputs to non-technical stakeholders.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Focus on using analogies, visualizing data clearly, focusing on business impact rather than math, and ensuring stakeholders felt confident in the model's reliability."
+  },
+  {
+    "text": "Your model shows high accuracy on offline test sets, but users complain about poor recommendations immediately after deployment.",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Investigate training-serving skew, differences between offline static datasets and online dynamic user interactions, cold-start problems for new users, and potential feedback loops causing data distribution shifts."
+  },
+  {
+    "text": "You are tasked with building a real-time fraud detection system that must process transactions in under 50 milliseconds. How do you design it?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Design a low-latency pipeline using a lightweight tree-based model or small neural network, cache user profile features in an in-memory database like Redis, and deploy the model using an optimized C++ or ONNX runtime."
+  },
+  {
+    "text": "During training, your model's loss curve starts oscillating wildly without converging. What steps do you take to diagnose and fix this?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Check if the learning rate is too high, inspect gradient norms for explosion, review batch normalization configurations, verify data normalization, and check for corrupted data samples or faulty loss function implementations."
+  },
+  {
+    "text": "A new regulation requires your computer vision model to be fully explainable regarding facial feature classifications. How do you approach this?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Incorporate explainability frameworks like Grad-CAM or SHIP to visualize salient regions, consider switching to inherently interpretable models if possible, and establish audit trails documenting decision pathways."
+  },
+  {
+    "text": "Your team needs to train a large LLM, but budget constraints limit you to a single multi-GPU node. What training strategy do you adopt?",
+    "type": "SITUATIONAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Utilize ZeRO (Zero Redundancy Optimizer) stages, mixed-precision training (FP16/BF16), gradient accumulation, and model-parallelism frameworks like Megatron-LM or FSDP (Fully Sharded Data Parallel) to fit the model within memory limits."
+  },
+  {
+    "text": "Write a Python function to tokenize a string and return the frequency count of each word in a dictionary.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Convert text to lowercase, strip punctuation, split by whitespace, and iterate through the resulting list to populate a hash map or use collections.Counter."
+  },
+  {
+    "text": "Implement a Python function to compute the mean squared error between two lists of numerical predictions and targets.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Check that lists have equal length, compute the squared differences between corresponding elements, sum them up, and divide by the length of the list."
+  },
+  {
+    "text": "Write a Python function that implements K-Means clustering assignment step given data points and cluster centroids.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Iterate through each data point, calculate Euclidean distances to all centroids, find the index of the minimum distance, and assign the point to that cluster cluster list."
+  },
+  {
+    "text": "Implement a simple multi-layer perceptron forward pass in Python using NumPy for a single hidden layer with ReLU activation.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Compute linear transformation for hidden layer (X @ W1 + b1), apply ReLU activation (np.maximum(0, hidden)), then compute output layer linear transformation (hidden @ W2 + b2)."
+  },
+  {
+    "text": "Write a Python function to perform non-maximum suppression (NMS) for object detection bounding boxes.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Sort bounding boxes by confidence scores, pick the box with highest score, compute Intersection over Union (IoU) with remaining boxes, discard boxes with IoU above threshold, and repeat."
+  },
+  {
+    "text": "Implement a custom PyTorch Dataset and DataLoader for loading images and labels from memory arrays.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Create a class inheriting from torch.utils.data.Dataset, implementing __init__ to store arrays, __len__ to return dataset size, and __getitem__ to return a specific index tuple with necessary tensor conversions."
+  },
+  {
+    "text": "Write a Python function to compute the cosine similarity between two dense embedding vectors.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Calculate the dot product of the two vectors, divide by the product of their L2 norms (magnitudes), and handle division-by-zero edge cases."
+  },
+  {
+    "text": "Implement a Python function to calculate precision, recall, and F1-score given binary true labels and predictions.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Count true positives, false positives, and false negatives. Compute precision = TP / (TP + FP), recall = TP / (TP + FN), and F1 = 2 * (precision * recall) / (precision + recall)."
+  },
+  {
+    "text": "Write a Python function that implements dropout for a given NumPy array during training mode.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "If training, generate a binary mask using a binomial distribution with probability (1 - p), scale the array by 1 / (1 - p), and multiply element-wise by the mask."
+  },
+  {
+    "text": "Implement a custom PyTorch module for a multi-head self-attention projection layer.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "Define linear layers for Query, Key, and Value projections in __init__. In forward, split tensors into multi-head dimensions, compute scaled dot-product attention, concatenate heads, and apply final linear projection."
+  },
+  {
+    "text": "What is Principal Component Analysis (PCA), and how is it used in feature engineering?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "PCA is an unsupervised dimensionality reduction technique that transforms correlated variables into a smaller set of uncorrelated orthogonal variables called principal components, maximizing variance retention and reducing noise."
+  },
+  {
+    "text": "How do you evaluate the performance of a regression model beyond simple R-squared?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Use Mean Absolute Error (MAE) for robustness against outliers, Mean Squared Error (MSE) or Root Mean Squared Error (RMSE) to penalize larger errors heavily, and Mean Absolute Percentage Error (MAPE) for scale-independent relative error."
+  },
+  {
+    "text": "Explain the difference between L1 and L2 normalization of feature vectors.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "L1 normalization scales feature vectors so that the sum of absolute values equals 1 (Manhattan norm). L2 normalization scales vectors so that the sum of squared values equals 1 (Euclidean norm), often used in cosine similarity calculations."
+  },
+  {
+    "text": "What is the curse of dimensionality in machine learning?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The curse of dimensionality refers to various phenomena that arise when analyzing data in high-dimensional spaces, where data becomes extremely sparse, distance metrics lose meaning, and model overfitting risk increases drastically."
+  },
+  {
+    "text": "How does target encoding work, and what risks are associated with it?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Target encoding replaces categorical feature values with the mean of the target variable for that category. Risks include severe data leakage and overfitting, which are mitigated by smoothing, regularization, or out-of-fold calculation."
+  },
+  {
+    "text": "What is the purpose of TF-IDF in text feature extraction?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "TF-IDF evaluates how important a word is to a document in a corpus. It multiplies Term Frequency (frequency in document) by Inverse Document Frequency (penalizing words that appear across many documents), highlighting characteristic keywords."
+  },
+  {
+    "text": "Explain how residual networks (ResNets) solve degradation problems in deep learning.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "ResNets introduce shortcut connections that jump over layers. Instead of learning underlying mappings directly, layers learn residual functions relative to the input, making it easier to optimize deep networks without accuracy degradation."
+  },
+  {
+    "text": "What is an ROC curve, and what does the Area Under the Curve (AUC) signify?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "An ROC curve plots True Positive Rate against False Positive Rate at various classification thresholds. The AUC signifies the model's ability to distinguish between positive and negative classes across all possible thresholds."
+  },
+  {
+    "text": "How do you identify and treat multicollinearity in regression features?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Detect multicollinearity using correlation matrices or Variance Inflation Factor (VIF). Treat it by removing highly correlated features, combining them into single components via PCA, or applying L2 regularization."
+  },
+  {
+    "text": "What is the significance of the learning rate warmup schedule in deep learning?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Learning rate warmup starts training with a very small learning rate and gradually increases it to the target value. This prevents destabilizing gradient updates during initial iterations when weights are random, ensuring smoother convergence."
+  },
+  {
+    "text": "How do you handle missing values in numerical versus categorical features during preprocessing?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "For numerical features, impute with mean, median, or model-based predictions. For categorical features, impute with mode or a dedicated 'Unknown' category value, or use algorithms that handle missingness natively."
+  },
+  {
+    "text": "What is feature hashing, and when should it be used?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Feature hashing uses a hash function to map categorical features to fixed-size vector indices. It is used for high-cardinality categorical variables or streaming data where maintaining a dynamic vocabulary dictionary is memory-prohibitive."
+  },
+  {
+    "text": "Explain the mechanics of depthwise separable convolutions in MobileNets.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Depthwise separable convolutions factorize standard convolution into a depthwise convolution (applying a single spatial filter per input channel) followed by a pointwise convolution (1x1 convolution combining channels), drastically reducing parameters and computation."
+  },
+  {
+    "text": "What is label smoothing, and how does it prevent overfitting in neural networks?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Label smoothing replaces hard target labels (e.g., 1 and 0) with soft targets (e.g., 0.9 and 0.1). This prevents the network from assigning extreme confidence to predictions, reducing overconfidence and improving generalization."
+  },
+  {
+    "text": "How do attention mechanisms overcome the limitations of recurrent neural networks (RNNs)?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "RNNs process sequences sequentially, creating bottlenecks for long-range dependencies and preventing parallelization. Attention mechanisms compute direct connections between any two tokens in a sequence, enabling parallel training and capturing long-term contexts efficiently."
+  },
+  {
+    "text": "What is model drift, and how do you monitor it in production?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Model drift occurs when model performance degrades over time due to changes in data distributions or relationships between inputs and outputs. Monitor it by tracking prediction distributions, tracking input feature statistics, and comparing against baseline training data using statistical tests like PSI."
+  },
+  {
+    "text": "Explain the role of Anchor Boxes in object detection architectures like Faster R-CNN.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Anchor boxes are predefined bounding boxes of various scales and aspect ratios placed across an image. Models predict offsets and confidence scores relative to these anchors, enabling the detection of objects of multiple shapes and sizes."
+  },
+  {
+    "text": "What is the difference between model parallelism and data parallelism in distributed training?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Data parallelism replicates the entire model across multiple GPUs, dividing the training batch among them. Model parallelism splits the model layers or tensors across multiple GPUs because the model is too large to fit in a single GPU's memory."
+  },
+  {
+    "text": "How do you optimize hyper-parameters for an expensive black-box machine learning model?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use Bayesian optimization, which builds a probabilistic surrogate model (e.g., Gaussian Process) of the objective function and uses an acquisition function to intelligently sample promising hyperparameter configurations with fewer trials."
+  },
+  {
+    "text": "What is knowledge distillation, and how does a student network learn from a teacher network?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Knowledge distillation trains a smaller student network to mimic a larger teacher network. The student is trained using a combined loss function that matches its soft output probabilities (logits scaled by temperature) with the teacher's outputs alongside true labels."
+  },
+  {
+    "text": "Tell me about a time you identified a bias or fairness issue in a deployed machine learning model.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Describe the fairness audit conducted, the demographic disparity discovered, how you communicated the finding to leadership, and the mitigation steps taken such as resampling or adversarial debiasing."
+  },
+  {
+    "text": "Describe a scenario where you had to refactor a messy prototype ML training script into a production-ready pipeline.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Discuss modularizing code into configuration files, dataset classes, training loops, logging, unit tests, and integration with experiment tracking tools like MLflow or Weights & Biases."
+  },
+  {
+    "text": "Tell me about a time you optimized a slow data preprocessing pipeline that was bottlenecking your model training.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Explain how you profiled the pipeline, identified bottlenecks (e.g., I/O operations or single-threaded loops), and applied multiprocessing, caching, or vectorized operations to accelerate throughput."
+  },
+  {
+    "text": "Describe a project where you collaborated closely with Data Engineers to ensure reliable feature ingestion.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Highlight joint planning of schemas, establishing data quality contracts, setting up monitoring alerts for schema drift, and ensuring low-latency feature serving."
+  },
+  {
+    "text": "Tell me about a time you had to pivot your machine learning approach entirely because the initial hypothesis failed.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Explain the initial approach, why metrics showed it wouldn't succeed, how you analyzed failure modes, and how you quickly pivoted to a successful alternative solution under timeline constraints."
+  },
+  {
+    "text": "Your model has an impressive 99% accuracy on a rare disease detection task, but clinical experts report it is completely useless.",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Recognize that accuracy is misleading due to extreme class imbalance (99% negative cases). Explain that the model is likely predicting the majority class entirely, and pivot to evaluating using sensitivity, specificity, and ROC-AUC."
+  },
+  {
+    "text": "You are deploying an LLM application, and users report occasional hallucinations providing incorrect factual information. How do you mitigate this?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Implement Retrieval-Augmented Generation (RAG) with a trusted knowledge base, lower the generation temperature, add strict system prompts, and use guardrail validation models to check factual consistency before outputting."
+  },
+  {
+    "text": "Your automated ML pipeline fails intermittently during data ingestion due to network timeouts from a third-party API. How do you fix this?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Implement exponential backoff retry logic, robust exception handling, fallback caching mechanisms for recent data, and alerting notifications for persistent downstream outages."
+  },
+  {
+    "text": "A newly trained computer vision model performs well in testing but fails when deployed on edge cameras due to variable lighting conditions.",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Apply aggressive data augmentation techniques simulating lighting variations (e.g., brightness, contrast, shadows, histogram equalization) and fine-tune the model on domain-specific edge camera imagery."
+  },
+  {
+    "text": "You notice that two key features in your model are highly correlated, causing unstable feature importance weights. What do you do?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Inspect feature coefficients or permutation importance, remove one of the redundant features, or combine them using domain knowledge or dimensionality reduction techniques."
+  },
+  {
+    "text": "Write a Python function to compute the confusion matrix given true labels and predicted labels for binary classification.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Initialize a 2x2 matrix with zeros. Iterate through true and predicted label pairs, incrementing the corresponding matrix indices for True Negatives, False Positives, False Negatives, and True Positives."
+  },
+  {
+    "text": "Implement a Python function to perform min-max scaling across columns of a 2D NumPy array.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Compute column-wise minimums and maximums using axis=0. Subtract minimums from the array and divide by the range (max - min), handling zero ranges to prevent division by zero."
+  },
+  {
+    "text": "Write a Python generator function that yields mini-batches of data and labels from a dataset given a batch size.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Determine dataset length, loop with a step size equal to batch size, and yield slices of data and labels for each batch iteration."
+  },
+  {
+    "text": "Implement a Python function to calculate the Intersection over Union (IoU) of two bounding boxes.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Calculate coordinates of the intersection rectangle, compute its area, compute areas of both bounding boxes, subtract intersection from union to get total union area, and divide intersection by union."
+  },
+  {
+    "text": "Write a Python function to implement the Softmax activation function for a 1D NumPy array of logits with numerical stability.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Subtract the maximum value from the array for numerical stability, exponentiate the resulting values, and divide by the sum of those exponentiated values."
+  },
+  {
+    "text": "Implement a Python class for a simple Feedforward Neural Network layer with forward and backward passes for weights.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "Store weights and biases. In forward, cache input X and compute XW + b. In backward, take upstream gradient d_out, compute weight gradients (X.T @ d_out), bias gradients (sum d_out), and input gradients for previous layers."
+  },
+  {
+    "text": "Write a Python function to remove stop words from a tokenized list of words given a set of stop words.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Use a list comprehension to filter out words that exist in the provided set of stop words."
+  },
+  {
+    "text": "Implement a Python function to compute the L2 regularization penalty given a model's weight matrices and regularization lambda.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Iterate through weight matrices, sum the squared values of each matrix, sum those sums together, and multiply the final total by lambda divided by two."
+  },
+  {
+    "text": "Write a Python function to calculate text perplexity given a list of token log-probabilities.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Sum the log probabilities, divide by the total number of tokens, negate the average, and exponentiate the result to return the perplexity score."
+  },
+  {
+    "text": "Implement a Python function to perform k-fold cross-validation index splitting for a given dataset size and K value.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Generate an array of indices, shuffle them randomly, split the index array into K roughly equal chunks, and iterate to yield training and validation index sets for each fold."
+  },
+  {
+    "text": "What is the primary purpose of a ReLU activation function in a neural network?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "ReLU introduces non-linearity into the model, allowing it to learn complex patterns without suffering from the vanishing gradient problem associated with saturating activations like sigmoid."
+  },
+  {
+    "text": "Can you explain what a vanishing gradient is and why it happens?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "It occurs in deep networks when gradients shrink exponentially during backpropagation due to repeated multiplication of small derivatives, halting learning in early layers."
+  },
+  {
+    "text": "What is L2 regularization, and how does it help prevent overfitting?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "L2 regularization adds a penalty proportional to the squared magnitude of the model weights to the loss function, discouraging overly complex models and keeping weights small."
+  },
+  {
+    "text": "What is transfer learning in machine learning?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Transfer learning involves taking a pre-trained model on a large dataset and fine-tuning it on a smaller, task-specific dataset to save computational resources and improve performance."
+  },
+  {
+    "text": "What is tokenization in Natural Language Processing?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Tokenization is the process of breaking down a stream of text into smaller units such as words, subwords, or characters, which can then be converted into numerical representations."
+  },
+  {
+    "text": "Describe the basic operation of a 2D convolution layer in computer vision.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A kernel slides across an image spatial domain, performing element-wise multiplication and summing the results to produce a feature map that captures local spatial patterns."
+  },
+  {
+    "text": "What is the difference between model training and model inference?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Training is the process of updating model weights using data and loss gradients, while inference uses the trained model to make predictions on new, unseen data without updating weights."
+  },
+  {
+    "text": "Why do we shuffle training data before feeding it into a neural network?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Shuffling breaks temporal or structural correlations in the batch order, ensuring that gradient updates are independent and preventing the model from learning order-dependent artifacts."
+  },
+  {
+    "text": "What is normalization, and why is it used in feature engineering?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Normalization scales numerical features to a standard range (e.g., 0 to 1), ensuring that features with larger numeric scales do not disproportionately dominate the loss function."
+  },
+  {
+    "text": "What is early stopping?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Early stopping is a regularization technique where training is halted when performance on a validation dataset stops improving, preventing overfitting."
+  },
+  {
+    "text": "What is the role of a learning rate scheduler during model training?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A learning rate scheduler dynamically adjusts the learning rate during training, typically decreasing it over time to help the optimizer settle into optimal minima."
+  },
+  {
+    "text": "What does MLOps stand for and what is its core objective?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "MLOps stands for Machine Learning Operations. Its core objective is to streamline and automate the deployment, monitoring, and lifecycle management of machine learning models in production."
+  },
+  {
+    "text": "What is word embedding in NLP?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Word embedding represents words as dense, continuous vector spaces where semantically similar words are mapped to nearby points."
+  },
+  {
+    "text": "What is image resizing and why is it necessary in computer vision pipelines?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Resizing ensures all input images have uniform dimensions, which is a structural requirement for batching tensors in convolutional neural networks."
+  },
+  {
+    "text": "What is the difference between a validation set and a test set?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The validation set is used during training to tune hyperparameters and prevent overfitting, whereas the test set is kept strictly separate to evaluate the final generalized model performance."
+  },
+  {
+    "text": "Tell me about a time when you had to debug a model that wasn't learning.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "The candidate should share a structured approach: checking data shapes, scaling, learning rates, and loss functions, while demonstrating persistence and systematic debugging."
+  },
+  {
+    "text": "How do you handle disagreements with teammates regarding model architecture choices?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Emphasize reliance on empirical evidence, running quick ablation studies, and open communication to align technical decisions with project goals."
+  },
+  {
+    "text": "Describe a situation where you had to explain a complex machine learning concept to a non-technical stakeholder.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Look for analogies, focusing on business value over math, and confirming understanding through active listening."
+  },
+  {
+    "text": "How do you prioritize your tasks when working on multiple feature engineering pipelines simultaneously?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Focus on identifying high-impact features using baseline models, time-blocking, and aligning with team delivery schedules."
+  },
+  {
+    "text": "What do you do when a feature you engineered doesn't improve model performance?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Accept the result objectively, analyze feature importance scores, document the experiment to avoid redundant work, and pivot to new hypotheses."
+  },
+  {
+    "text": "You notice your model's accuracy drops significantly after deploying it to production. What immediate steps do you take?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Check for data drift, verify input data pipelines and preprocessing steps, and rollback to a stable previous version if necessary while investigating."
+  },
+  {
+    "text": "A stakeholder asks you to train a deep learning model for a simple tabular dataset with only 100 rows. How do you respond?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Explain that deep learning requires massive data, recommend simpler models like logistic regression or tree-based models to avoid severe overfitting, and discuss risks."
+  },
+  {
+    "text": "Write a Python function to compute the Mean Squared Error (MSE) between two lists of numbers.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Candidate provides a clear loop or list comprehension using basic Python or NumPy to sum squared differences and divide by the count."
+  },
+  {
+    "text": "Write a Python function to normalize a list of numerical features to a range of [0, 1].",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Subtract the minimum value from each element and divide by the range (max minus min), handling potential division by zero."
+  },
+  {
+    "text": "Explain the mechanics and advantages of Batch Normalization in deep neural networks.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Batch Normalization normalizes layer inputs across the batch dimension, reducing internal covariate shift, stabilizing gradients, and allowing for higher learning rates."
+  },
+  {
+    "text": "Compare and contrast L1 and L2 regularization in terms of their effect on model weights.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "L1 adds absolute weight penalties leading to sparsity (many weights become zero, aiding feature selection), whereas L2 adds squared penalties shrinking weights smoothly towards zero without zeroing them out."
+  },
+  {
+    "text": "What is Target Encoding, and what is the primary risk associated with it?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Target encoding replaces categorical values with the mean of the target variable for that category. The main risk is target leakage, which can cause severe overfitting if not smoothed or cross-validated."
+  },
+  {
+    "text": "How does fine-tuning differ from feature extraction in transfer learning?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Feature extraction freezes the pre-trained base model weights and only trains a new classifier head, whereas fine-tuning unfreezes some or all of the base layers to adapt them to the new domain."
+  },
+  {
+    "text": "Explain the self-attention mechanism used in Transformer architectures.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Self-attention computes relational weights between all tokens in a sequence using queries, keys, and values, allowing the model to capture long-range contextual dependencies dynamically."
+  },
+  {
+    "text": "What are residual connections in ResNets, and how do they solve degradation problems?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Residual connections add the input of a layer to its output via skip connections, allowing gradients to flow directly through the network and preventing degradation in ultra-deep networks."
+  },
+  {
+    "text": "Describe the concept of data drift and how it impacts deployed machine learning models.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Data drift occurs when the statistical properties of production input data change over time compared to training data, leading to degraded prediction accuracy and untrustworthy model outputs."
+  },
+  {
+    "text": "What is dropout, and during which phase of machine learning is it active?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Dropout randomly sets a fraction of neuron outputs to zero during training iterations to prevent co-adaptation; it is turned off during validation and inference to use full network capacity."
+  },
+  {
+    "text": "How do you handle class imbalance in a classification dataset?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Techniques include resampling (oversampling minority or undersampling majority classes), using weighted loss functions, and evaluating models using metrics like F1-score or PR-AUC rather than accuracy."
+  },
+  {
+    "text": "What is the role of an ML model registry in an MLOps pipeline?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "An ML model registry acts as a centralized repository for versioning, storing, tracking metadata, and promoting trained model artifacts across staging and production environments."
+  },
+  {
+    "text": "What are anchor boxes in object detection models like YOLO?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Anchor boxes are predefined bounding box shapes of various aspect ratios and scales used as references to predict object locations and classes across different grid cells."
+  },
+  {
+    "text": "What is Byte Pair Encoding (BPE) in NLP tokenization?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "BPE is a subword tokenization algorithm that iteratively merges the most frequent pairs of bytes or characters in a corpus, balancing vocabulary size and handling out-of-vocabulary words."
+  },
+  {
+    "text": "What is feature crossing, and why is it useful for linear models?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Feature crossing combines two or more categorical or numerical features to form new interaction features, allowing linear models to capture non-linear relationships without deep architectures."
+  },
+  {
+    "text": "What is model quantization, and why is it used in edge deployment?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Quantization reduces the precision of model weights and activations (e.g., from FP32 to INT8), significantly reducing model size and latency while maintaining minimal accuracy loss."
+  },
+  {
+    "text": "Tell me about a time you had to optimize a model training pipeline that was running out of memory (OOM).",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Describe reducing batch sizes, using gradient accumulation, implementing mixed-precision training, or optimizing data loader workers."
+  },
+  {
+    "text": "How do you handle conflicting priorities between improving model accuracy and reducing inference latency?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Discuss collaborating with product and engineering teams to establish strict SLAs, running benchmarking tests, and proposing compromises like model distillation."
+  },
+  {
+    "text": "Describe a project where you implemented an MLOps pipeline from scratch. What challenges did you face?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Highlight CI/CD for ML, automated testing, version control for data and models, and stakeholder alignment on deployment criteria."
+  },
+  {
+    "text": "How do you stay updated with rapid advancements in AI/ML, and how do you decide what to adopt?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Mention reading research papers, participating in communities, and running proof-of-concept tests to evaluate real-world utility."
+  },
+  {
+    "text": "Tell me about a time when your model exhibited unexpected bias or unfairness. How did you remediate it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Discuss auditing training data representation, reweighting samples, applying fairness constraints, and retraining."
+  },
+  {
+    "text": "Your feature store is showing high latency during online feature retrieval for real-time inference. How do you troubleshoot and fix this?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Analyze cache hit rates, optimize underlying database indices, consider moving frequently accessed features to low-latency key-value stores like Redis, and check network bottlenecks."
+  },
+  {
+    "text": "You are tasked with fine-tuning a large language model on limited hardware (a single GPU). What strategies would you employ?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use Parameter-Efficient Fine-Tuning (PEFT) methods like LoRA, enable mixed-precision training, implement gradient checkpointing, and reduce batch size with gradient accumulation."
+  },
+  {
+    "text": "Write a Python function using NumPy to implement a standard 1D convolution operation.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Iterates over the input array using a sliding window of the kernel length, computes the dot product at each step, and returns the resulting convolved array."
+  },
+  {
+    "text": "Write a Python function to split a dataset into K folds for cross-validation without using scikit-learn.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Shuffles indices, calculates fold sizes, and yields training and validation index splits for each of the K iterations."
+  },
+  {
+    "text": "Write a PyTorch custom dataset class that loads images and their labels from a directory path.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Implements `__init__` to discover file paths and labels, `__len__` to return total sample count, and `__getitem__` to load and return a single transformed image tensor and label."
+  },
+  {
+    "text": "Explain how LoRA (Low-Rank Adaptation) works for fine-tuning large language models.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "LoRA freezes original model weights and injects trainable rank decomposition matrices into layers, drastically reducing the number of trainable parameters while retaining performance."
+  },
+  {
+    "text": "What is the mechanism behind Vision Transformers (ViT), and how do they process images differently from CNNs?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "ViTs split images into patches, linearly embed them, add positional encodings, and pass them through standard transformer encoder layers using self-attention, capturing global context instead of local inductive biases."
+  },
+  {
+    "text": "Describe the mathematical formulation and training objective of Generative Adversarial Networks (GANs).",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "GANs use a min-max game objective where a generator tries to fool a discriminator by synthesizing fake data, while the discriminator tries to distinguish real data from fake."
+  },
+  {
+    "text": "How do you detect and mitigate concept drift versus data drift in production ML systems?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Data drift changes P(X), detected via statistical tests on features; concept drift changes P(Y|X), detected via monitoring declining model performance metrics over time. Mitigation involves automated retraining or model updating."
+  },
+  {
+    "text": "Explain the vanishing and exploding gradient problems in Recurrent Neural Networks (RNNs) and how LSTMs solve them.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "RNNs suffer from vanishing/exploding gradients over long sequences due to repeated weight multiplications. LSTMs introduce a cell state and gating mechanisms (input, forget, output gates) enabling constant error flow."
+  },
+  {
+    "text": "What is weight decay, and how is it mathematically equivalent to L2 regularization in standard SGD versus adaptive optimizers like Adam?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "In SGD, weight decay and L2 regularization are identical. In Adam, L2 regularization applies gradient scaling from past squared gradients, whereas true weight decay directly penalizes weights regardless of historical gradients."
+  },
+  {
+    "text": "Discuss the challenges and techniques of implementing distributed training across multiple GPUs using data parallelism.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Challenges include gradient synchronization overhead and communication bottlenecks. Techniques like AllReduce algorithms, gradient bucketing, and mixed-precision communication (e.g., NCCL) optimize synchronization."
+  },
+  {
+    "text": "What are attention masks in Transformer models, and why are they necessary?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Attention masks prevent models from attending to padding tokens or future tokens (in causal language modeling), ensuring correct sequence context and avoiding information leakage."
+  },
+  {
+    "text": "Explain the concept of knowledge distillation in neural networks.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Knowledge distillation transfers knowledge from a large, complex teacher model to a smaller student model by training the student to mimic the soft probability outputs (logits) of the teacher."
+  },
+  {
+    "text": "How do contrastive learning methods (like SimCLR) learn representations without labeled data?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Contrastive learning pulls representations of differently augmented views of the same image closer together in embedding space while pushing representations of different images apart using a contrastive loss."
+  },
+  {
+    "text": "Describe a time when you had to diagnose and resolve a severe memory leak in a long-running data ingestion and model inference pipeline.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Discuss profiling tools (e.g., memory_profiler, Valgrind), identifying unreleased tensor references in graph computations, and restructuring code for proper garbage collection."
+  },
+  {
+    "text": "Tell me about a time you had to pivot a machine learning project midway due to shifting business requirements or data limitations.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Highlight agility, stakeholder communication, evaluating existing pipeline components that could be reused, and successfully redefining project scope."
+  },
+  {
+    "text": "Your model's offline evaluation metrics look phenomenal, but online A/B testing shows zero impact on business revenue. How do you approach this discrepancy?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Investigate training-serving skew, evaluate whether the offline proxy metric aligns with business goals, check for user experience friction, and audit data logging integrity."
+  },
+  {
+    "text": "A multi-tenant feature store experiences severe contention when multiple training jobs fetch overlapping feature sets concurrently. How would you redesign or optimize access?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Implement distributed batching, leverage localized worker caching, pre-compute and store materialized feature views, and implement rate-limiting or query queuing."
+  },
+  {
+    "text": "Write a Python function to compute multi-head self-attention given queries, keys, values, and an optional mask.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Reshapes Q, K, V into multiple heads, computes scaled dot-product attention scores, applies softmax and masking, multiplies by values, and concatenates heads back together."
+  },
+  {
+    "text": "Write a Python function implementing gradient clipping by global norm to prevent exploding gradients.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Calculates the global L2 norm across all model parameter gradients, checks if it exceeds a threshold, and if so, scales all gradients down proportionally."
+  },
+  {
+    "text": "Derive the backpropagation update equations for a single hidden layer neural network with a sigmoid activation function.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Candidate writes out the chain rule applying the derivative of loss with respect to output, sigmoid derivative sigma'(z) = sigma(z)(1-sigma(z)), and propagating backward to hidden weights."
+  },
+  {
+    "text": "Explain the architectural differences, failure modes, and mitigation strategies for Diffusion Models versus GANs in generative computer vision.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "GANs suffer from mode collapse and training instability due to adversarial dynamics. Diffusion models are more stable via score-matching objectives but suffer from slow iterative inference speeds, mitigated by techniques like DDIM or latent diffusion."
+  },
+  {
+    "text": "How do Mixture of Experts (MoE) architectures scale model capacity without linearly scaling compute costs?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "MoE replaces dense feed-forward layers with multiple expert networks and a routing mechanism that dispatches each token only to a subset of top-k experts, drastically increasing parameter count while keeping active compute per token low."
+  },
+  {
+    "text": "Design a complete real-time MLOps architecture for a fraud detection system handling 100,000 transactions per second with sub-50ms latency SLAs.",
+    "type": "SITUATIONAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Candidate outlines stream ingestion (Kafka), low-latency feature store (Redis), optimized model serving container (Triton/TensorRT), asynchronous logging, shadow deployments, and automated drift detection."
+  },
+  {
+    "text": "Write a custom PyTorch autograd Function implementing a numerically stable binary cross-entropy loss with logits.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "Subclasses torch.autograd.Function, implements forward using `max(x, 0) - x * y + log(1 + exp(-abs(x)))` for stability, and implements backward computing the explicit derivative gradient."
+  }
+]

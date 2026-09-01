@@ -1,0 +1,1202 @@
+[
+  {
+    "text": "What is the primary purpose of a test strategy document in QA?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A test strategy outlines the overarching testing approach, scope, resources, and methodologies for a project. It ensures alignment between stakeholders on how quality will be measured and achieved throughout the development lifecycle."
+  },
+  {
+    "text": "Describe the core difference between black-box and white-box testing.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Black-box testing focuses on validating functionality against requirements without viewing the internal code structure. White-box testing involves examining the internal logic, code paths, and architecture of the application."
+  },
+  {
+    "text": "What is an API and why is API testing important?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "An API allows different software systems to communicate. API testing is crucial because it validates business logic, data security, and system integration early, bypassing the UI layer for faster feedback."
+  },
+  {
+    "text": "Explain the role of a CI/CD pipeline in modern software testing.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A CI/CD pipeline automates the building, testing, and deployment of code. It enables continuous feedback by running automated tests on every code commit, reducing integration issues and deployment risks."
+  },
+  {
+    "text": "What are the essential components of a well-written bug report?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A good bug report includes a clear title, detailed steps to reproduce, expected versus actual results, environment details, and supporting evidence like logs, screenshots, or screen recordings."
+  },
+  {
+    "text": "What is exploratory testing and when should it be used?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Exploratory testing is simultaneous learning, test design, and test execution without a predefined script. It is best used when documentation is sparse, for rapid feedback, or to uncover subtle UI/UX bugs."
+  },
+  {
+    "text": "What is the difference between functional and non-functional testing?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Functional testing verifies that the software behaves according to specified business requirements. Non-functional testing evaluates performance, usability, reliability, and other behavioral aspects of the system."
+  },
+  {
+    "text": "Explain what a smoke test is in the context of QA.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A smoke test is a quick, superficial suite of tests run after a new build is deployed. Its purpose is to check for critical failures and verify that the core functionality works before investing time in deep testing."
+  },
+  {
+    "text": "What is HTTP status code 400 and when is it returned?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "HTTP 400 Bad Request indicates that the server cannot process the request due to malformed request syntax, invalid parameters, or deceptive routing on the client side."
+  },
+  {
+    "text": "What is the difference between load testing and stress testing?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Load testing measures system behavior under expected user volume and traffic. Stress testing pushes the system beyond normal limits to find its breaking point and observe how it recovers."
+  },
+  {
+    "text": "Tell me about a time when you found a critical bug right before a release. How did you handle it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "The candidate should explain how they quickly assessed the bug impact, communicated clearly with product and engineering teams, and helped evaluate whether to hotfix or delay the release."
+  },
+  {
+    "text": "How do you prioritize your daily testing tasks when working on a fast-paced agile sprint?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Look for alignment with sprint goals, risk-based testing principles, collaboration with developers on completed user stories, and focus on high-impact features first."
+  },
+  {
+    "text": "Describe a situation where you had a disagreement with a developer over whether something was a bug. How did you resolve it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "The response should highlight professional communication, referencing requirements or user impact, and finding a collaborative path forward rather than assigning blame."
+  },
+  {
+    "text": "How do you handle a scenario where you receive a user story with vague or missing acceptance criteria?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Proactively reach out to product owners or business analysts during backlog refinement to clarify expectations and write explicit acceptance criteria before testing begins."
+  },
+  {
+    "text": "If a developer tells you a bug cannot be reproduced on their local machine, what steps do you take next?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Verify environment parity, share detailed logs or screen recordings, test on staging if applicable, and pair up with the developer to replicate the exact steps on your machine."
+  },
+  {
+    "text": "Write a function in Python that takes a list of integer test scores and returns the average score.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "def get_average_score(scores): if not scores: return 0 return sum(scores) / len(scores)"
+  },
+  {
+    "text": "Write a function to check if a given string representing a URL starts with https.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "def is_secure_url(url): return url.startswith('https://')"
+  },
+  {
+    "text": "Write a simple function that takes a list of bug statuses and returns a count of open bugs.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "def count_open_bugs(statuses): return statuses.count('Open')"
+  },
+  {
+    "text": "How would you design a test strategy for a legacy monolith system with zero existing automated tests?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Start with exploratory testing to map critical paths, implement boundary and smoke automation on high-risk modules, and gradually build up regression suites while prioritizing bug-prone legacy areas."
+  },
+  {
+    "text": "Explain risk-based testing and how you apply it when time and resources are limited.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Risk-based testing prioritizes test execution based on the probability of failure and the business impact of that failure. Resources are allocated to high-risk, core features first."
+  },
+  {
+    "text": "What is the difference between the Test Pyramid and the Testing Trophy models?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The Test Pyramid emphasizes a large base of unit tests, fewer integration tests, and minimal UI tests. The Testing Trophy, popularized by Kent C. Dodds, places heavy emphasis on integration tests as providing the best ROI."
+  },
+  {
+    "text": "How do you manage test data management challenges in automated test suites?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use programmatic data setup and teardown via API calls, isolate tests so they do not depend on shared state, and use database seeding scripts or factories to generate consistent test data."
+  },
+  {
+    "text": "What is the Page Object Model (POM) design pattern in test automation, and why is it used?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "POM is a design pattern where web pages are represented as classes containing elements and actions. It promotes code reusability, reduces duplication, and makes test maintenance easier when UI changes occur."
+  },
+  {
+    "text": "How do you handle dynamic web elements (elements with changing IDs or XPaths) in UI automation?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use relative XPaths, CSS selectors based on stable attributes like data-testid or class names, or axes-based selectors like containing text or parent-child relationships instead of absolute paths."
+  },
+  {
+    "text": "Explain the difference between implicit, explicit, and fluent waits in Selenium WebDriver.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Implicit waits poll the DOM for a set time before throwing an exception. Explicit waits wait for a specific condition on an element. Fluent waits are explicit waits with custom polling frequency and ignored exceptions."
+  },
+  {
+    "text": "What is idempotent behavior in RESTful APIs, and how do you test for it?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Idempotent operations produce the same result whether executed once or multiple times. Test this by sending identical PUT or DELETE requests multiple times in succession and verifying the server state remains unchanged."
+  },
+  {
+    "text": "How do you perform contract testing for microservices, and why is it useful?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Contract testing verifies interactions between a client and provider service against an agreed-upon contract (e.g., using Pact). It ensures microservices can communicate without needing heavy end-to-end integration environments."
+  },
+  {
+    "text": "What is the difference between JSON Schema validation and functional API validation?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "JSON Schema validation checks the structural compliance of response payloads (types, required fields, formats). Functional validation checks if the business logic and returned data values are correct."
+  },
+  {
+    "text": "Explain how database validation can be integrated into API testing workflows.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "After sending an API request that modifies data (like POST or PUT), connect directly to the database via test hooks to query and confirm that the state was correctly persisted."
+  },
+  {
+    "text": "What are virtual users and throughput in performance testing?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Virtual users simulate concurrent real users interacting with the system. Throughput represents the number of transactions or requests successfully processed by the system per second."
+  },
+  {
+    "text": "How do you identify a performance bottleneck using APM tools like Datadog or New Relic?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Inspect transaction traces, database query latency, CPU and memory utilization metrics, and error rates during a load test to pinpoint slow methods or resource contention."
+  },
+  {
+    "text": "What is the difference between spike testing and endurance testing?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Spike testing evaluates system behavior under sudden, massive increases in user load. Endurance testing runs a moderate load over an extended period to detect memory leaks and performance degradation."
+  },
+  {
+    "text": "Explain the concept of shift-left testing and its benefits in a CI/CD pipeline.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Shift-left testing involves moving testing activities earlier in the development lifecycle (unit testing, static analysis). It catches defects when they are cheaper and easier to fix."
+  },
+  {
+    "text": "How do flaky tests impact a CI/CD pipeline, and what strategies do you use to mitigate them?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Flaky tests erode trust in automation and cause false pipeline failures. Mitigate them by eliminating hardcoded sleeps, handling asynchronous events properly, isolating test data, and quarantining unstable tests."
+  },
+  {
+    "text": "What is the role of branch protection rules and automated checks in Git for QA workflows?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Branch protection rules prevent merging code to main without passing automated tests, code reviews, and linters, ensuring that broken builds never reach production."
+  },
+  {
+    "text": "How do you structure exploratory testing charters to keep them focused and effective?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Charters define the mission, timebox, scope, and specific user personas or features to investigate. This ensures session-based exploratory testing remains targeted rather than random browsing."
+  },
+  {
+    "text": "Describe a time when you influenced the product roadmap or feature design by advocating for testability and user experience.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The candidate should share an example where they pointed out architectural or UX flaws early, proposed changes that improved logging or telemetry, and successfully collaborated to implement them."
+  },
+  {
+    "text": "How do you mentor manual QA engineers on your team to transition into automation engineering?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Look for a supportive, structured approach: starting with keyword-driven frameworks, encouraging pairing sessions, recommending learning resources, and gradually having them automate small regression scripts."
+  },
+  {
+    "text": "Tell me about a time when a performance issue slipped past testing into production. How did you investigate it and prevent recurrence?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The answer should cover root cause analysis, collaboration with ops teams to analyze production metrics, updating performance test scenarios to mimic production traffic, and adding monitoring guards."
+  },
+  {
+    "text": "You notice that your automated regression suite takes 3 hours to run, slowing down the CI/CD pipeline. How do you approach optimizing it?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Analyze test execution times, parallelize test runs across nodes, move slow UI tests down to API or unit level where appropriate, and prune redundant or obsolete tests."
+  },
+  {
+    "text": "An unexpected hotfix needs to go live in 30 minutes, but the automated regression suite hasn't finished. What do you do?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Run a targeted smoke test specifically covering the hotfix area and critical paths, perform high-risk exploratory checks, and coordinate with engineering leadership on the calculated risk."
+  },
+  {
+    "text": "Write a Python function that takes a list of API response dictionaries and filters out those with a status code other than 200.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "def filter_successful_responses(responses): return [r for r in responses if r.get('status') == 200]"
+  },
+  {
+    "text": "Write a function that parses a log file string and returns a dictionary counting occurrences of each log level (INFO, WARN, ERROR).",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "def count_log_levels(log_text): levels = {'INFO': 0, 'WARN': 0, 'ERROR': 0} for level in levels: levels[level] = log_text.count(level) return levels"
+  },
+  {
+    "text": "Write a function that takes a JSON payload and a list of required keys, returning True if all keys are present at the top level.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "def validate_required_keys(payload, required_keys): return all(key in payload for key in required_keys)"
+  },
+  {
+    "text": "Design a comprehensive test strategy for a real-time collaborative editing tool like Google Docs.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Focus on concurrency testing, conflict resolution algorithms (Operational Transformation/CRDTs), WebSocket stability, latency under poor network conditions, cross-browser synchronization, and data integrity."
+  },
+  {
+    "text": "How would you architect an end-to-end test framework from scratch for a multi-tenant SaaS application?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Design a modular framework supporting dynamic tenant provisioning, robust authentication handling (OAuth/JWT), parallel execution, clear separation of page objects, and reporting integrations with CI tools."
+  },
+  {
+    "text": "Explain how you would test a distributed event-driven architecture using Kafka or RabbitMQ.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use message producers to publish test events, consume messages via test subscribers, verify payload schemas, test dead-letter queue behavior for failed messages, and ensure idempotency of message consumers."
+  },
+  {
+    "text": "How do you approach security testing for APIs, specifically looking for OWASP Top 10 vulnerabilities like BOLA and Injection?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Perform dynamic analysis using tools like OWASP ZAP or Burp Suite, test object-level authorization by tampering with resource IDs across different user tokens, and inject payloads into endpoints to check sanitization."
+  },
+  {
+    "text": "Detail how you would simulate network throttling and packet loss during mobile app test automation.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use network emulation tools like Charles Proxy, Proxyman, or Appium network connection settings to simulate 3G, offline modes, and high latency to verify app graceful degradation and retry logic."
+  },
+  {
+    "text": "What is tail latency (p99, p99.9) in performance testing, and why is it critical for high-scale systems?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Tail latency measures the response time experienced by the slowest 1% or 0.1% of requests. In large distributed systems, even a small percentage of slow requests compounds across service calls, ruining user experience."
+  },
+  {
+    "text": "How do you design a chaos engineering experiment to test system resilience in a Kubernetes environment?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Define a steady-state hypothesis, introduce real-world failure injections (such as pod kills, network partitioning, or CPU throttling using tools like Chaos Mesh), and measure how quickly the system recovers."
+  },
+  {
+    "text": "Describe how you would implement automated visual regression testing in a CI pipeline.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Integrate visual testing tools like Percy or Applitools into the UI test suite. The tool captures screenshots during test runs and uses AI-based pixel comparison to flag unexpected visual regressions."
+  },
+  {
+    "text": "Describe a scenario where you had to influence senior engineering leadership to delay a product release due to systemic quality concerns.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "The response should demonstrate strong data-driven storytelling, presenting telemetry, risk matrices, and customer impact analyses rather than opinions, leading to a consensus decision."
+  },
+  {
+    "text": "How do you handle team burnout and test maintenance debt when an automation suite grows out of control?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Acknowledge the debt, advocate for dedicated sprint capacity toward refactoring and deleting low-value tests, establish code review standards for automation, and involve the entire team in test health."
+  },
+  {
+    "text": "A critical third-party payment gateway is experiencing intermittent outages during your test execution window. How do you handle your test suite reporting?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Implement test mocking or service virtualization for the payment gateway during automated runs to ensure pipeline stability while setting up synthetic monitors for the actual third-party dependency."
+  },
+  {
+    "text": "Write a Python function that takes a nested JSON object representing test suite results and returns a list of all test names that failed.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "def get_failed_tests(node, failed=None): if failed is None: failed = [] if isinstance(node, dict): if node.get('status') == 'FAIL': failed.append(node.get('name')) for v in node.values(): get_failed_tests(v, failed) return failed"
+  },
+  {
+    "text": "Write a function that implements a simple token bucket rate limiter to test rate-limiting behavior on an API.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "import time\nclass RateLimiter:\n    def __init__(self, capacity, refill_rate):\n        self.capacity = capacity\n        self.tokens = capacity\n        self.refill_rate = refill_rate\n        self.last_refill = time.time()\n    def allow_request(self):\n        now = time.time()\n        self.tokens = min(self.capacity, self.tokens + (now - self.last_refill) * self.refill_rate)\n        self.last_refill = now\n        if self.tokens >= 1:\n            self.tokens -= 1\n            return True\n        return False"
+  },
+  {
+    "text": "Discuss the architectural challenges of running distributed performance test agents across multiple cloud regions.",
+    "type": "EXPERT",
+    "difficulty": "EXPERT",
+    "expected_answer": "Challenges include orchestrating synchronized start times, aggregating distributed metrics streams in real time, managing cloud resource costs, and avoiding bottlenecks in the test runner controller itself."
+  },
+  {
+    "text": "Design a zero-downtime testing strategy for database schema migrations in a high-throughput distributed system.",
+    "type": "EXPERT",
+    "difficulty": "EXPERT",
+    "expected_answer": "Use expand-contract patterns for schema changes, perform dual-writes and dual-reads during transition phases, and automate backward-compatibility tests to verify old application versions work with new schemas."
+  },
+  {
+    "text": "Write a Python function that detects circular dependencies in a directed graph of microservice test execution order.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "def has_cycle(graph):\n    visited = set()\n    stack = set()\n    def dfs(node):\n        visited.add(node)\n        stack.add(node)\n        for neighbor in graph.get(node, []):\n            if neighbor not in visited:\n                if dfs(neighbor): return True\n            elif neighbor in stack: return True\n        stack.remove(node)\n        return False\n    return any(dfs(node) for node in graph if node not in visited)"
+  },
+  {
+    "text": "How do you prioritize your daily testing tasks in an agile sprint?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Align with sprint goals, apply risk-based testing, collaborate with developers on completed user stories, and focus on high-impact features."
+  },
+  {
+    "text": "Describe a situation where you had a disagreement with a developer over a bug. How did you resolve it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Highlight professional communication, referencing requirements or user impact, and finding a collaborative path forward."
+  },
+  {
+    "text": "How do you handle a user story with vague or missing acceptance criteria?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Proactively reach out to product owners during refinement to clarify expectations and write explicit acceptance criteria."
+  },
+  {
+    "text": "If a developer cannot reproduce a bug locally, what steps do you take next?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Verify environment parity, share detailed logs or recordings, test on staging, and pair up to replicate steps."
+  },
+  {
+    "text": "Write a Python function that takes a list of test scores and returns the average score.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "def get_average_score(scores):\n    if not scores: return 0\n    return sum(scores) / len(scores)"
+  },
+  {
+    "text": "Write a function to check if a URL string starts with https.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "def is_secure_url(url):\n    return url.startswith('https://')"
+  },
+  {
+    "text": "Write a function that counts open bugs from a list of status strings.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "def count_open_bugs(statuses):\n    return statuses.count('Open')"
+  },
+  {
+    "text": "How would you design a test strategy for a legacy monolith with zero automated tests?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Start with exploratory testing, implement smoke automation on high-risk modules, and gradually build up regression suites."
+  },
+  {
+    "text": "Explain risk-based testing and how you apply it when resources are limited.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Prioritize test execution based on probability of failure and business impact, allocating resources to high-risk features first."
+  },
+  {
+    "text": "How do you manage test data in automated test suites?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use programmatic data setup via APIs, isolate tests, and use database seeding scripts or factories for consistency."
+  },
+  {
+    "text": "What is the Page Object Model design pattern and why is it used?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "POM represents web pages as classes containing elements and actions, promoting code reusability and easier maintenance."
+  },
+  {
+    "text": "How do you handle dynamic web elements with changing IDs in UI automation?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use relative XPaths, CSS selectors based on stable data attributes, or axes-based selectors instead of absolute paths."
+  },
+  {
+    "text": "Explain implicit, explicit, and fluent waits in Selenium WebDriver.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Implicit waits poll the DOM globally. Explicit waits target specific conditions. Fluent waits are explicit waits with custom polling."
+  },
+  {
+    "text": "What is idempotent behavior in RESTful APIs, and how do you test it?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Idempotent operations produce the same result when executed multiple times. Test by sending identical PUT requests sequentially."
+  },
+  {
+    "text": "How do you perform contract testing for microservices?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Contract testing verifies client-provider interactions against an agreed contract using tools like Pact to avoid heavy E2E environments."
+  },
+  {
+    "text": "How do you identify performance bottlenecks using APM tools?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Inspect transaction traces, database latency, CPU utilization, and error rates during load tests to pinpoint slow methods."
+  },
+  {
+    "text": "Explain shift-left testing and its benefits in a CI/CD pipeline.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Shift-left moves testing earlier in the lifecycle, catching defects when they are cheaper and easier to fix."
+  },
+  {
+    "text": "How do flaky tests impact CI/CD pipelines, and how do you mitigate them?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Flaky tests cause false failures. Mitigate them by eliminating sleeps, handling async events, and quarantining unstable tests."
+  },
+  {
+    "text": "What is the role of branch protection rules in Git for QA workflows?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "They prevent merging code to main without passing automated tests and code reviews, ensuring broken builds do not reach production."
+  },
+  {
+    "text": "How do you structure exploratory testing charters?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Charters define the mission, timebox, scope, and specific user personas or features to keep sessions targeted."
+  },
+  {
+    "text": "Describe a time you influenced product roadmap by advocating for testability.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Share an example of pointing out architectural flaws early and collaborating to implement better logging and telemetry."
+  },
+  {
+    "text": "How do you mentor manual QA engineers transitioning to automation?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Start with keyword frameworks, encourage pairing sessions, recommend resources, and have them automate small scripts."
+  },
+  {
+    "text": "Tell me about a time a performance issue slipped into production. How did you investigate?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Cover root cause analysis, collaboration with ops, updating test scenarios, and adding monitoring guards."
+  },
+  {
+    "text": "Your automated regression suite takes 3 hours, slowing CI/CD. How do you approach optimizing it?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Analyze execution times, parallelize test runs, move slow UI tests down to API level, and prune redundant tests."
+  },
+  {
+    "text": "A hotfix needs to go live in 30 minutes, but regression hasn't finished. What do you do?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Run a targeted smoke test covering the hotfix area and critical paths, and coordinate on calculated risk with leadership."
+  },
+  {
+    "text": "Write a Python function to filter API responses with status code 200.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "def filter_successful_responses(responses):\n    return [r for r in responses if r.get('status') == 200]"
+  },
+  {
+    "text": "Write a function that parses log text and returns a count of log levels.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "def count_log_levels(log_text):\n    return {lvl: log_text.count(lvl) for lvl in ['INFO', 'WARN', 'ERROR']}"
+  },
+  {
+    "text": "Write a function that validates required top-level keys in a JSON payload.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "def validate_required_keys(payload, required_keys):\n    return all(key in payload for key in required_keys)"
+  },
+  {
+    "text": "Design a test strategy for a real-time collaborative editing tool.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Focus on concurrency testing, conflict resolution algorithms, WebSocket stability, latency under poor network, and data integrity."
+  },
+  {
+    "text": "How would you architect an E2E test framework for a multi-tenant SaaS application?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Design a modular framework supporting dynamic tenant provisioning, robust auth handling, parallel execution, and CI reporting."
+  },
+  {
+    "text": "Explain how you would test a distributed event-driven architecture using Kafka.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use producers to publish test events, consumers to verify payloads, test dead-letter queues, and check consumer idempotency."
+  },
+  {
+    "text": "How do you approach API security testing for OWASP Top 10 vulnerabilities?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Perform DAST using ZAP or Burp, test object-level authorization across user tokens, and inject payloads to check sanitization."
+  },
+  {
+    "text": "Detail how you simulate network throttling and packet loss during mobile testing.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use network proxies like Charles Proxy or Appium settings to simulate 3G and offline modes to verify retry logic."
+  },
+  {
+    "text": "What is tail latency (p99) and why is it critical for high-scale systems?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Tail latency measures the slowest responses. In distributed systems, slow requests compound across calls, ruining UX."
+  },
+  {
+    "text": "How do you design a chaos engineering experiment in a Kubernetes environment?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Define steady-state hypotheses, introduce failures like pod kills using Chaos Mesh, and measure system recovery time."
+  },
+  {
+    "text": "Describe how you implement automated visual regression testing in a CI pipeline.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Integrate visual testing tools like Percy or Applitools to capture screenshots and use AI pixel comparison to flag UI regressions."
+  },
+  {
+    "text": "Describe a scenario where you influenced senior leadership to delay a release due to quality concerns.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Demonstrate data-driven storytelling, presenting telemetry, risk matrices, and customer impact analyses to reach consensus."
+  },
+  {
+    "text": "How do you handle team burnout and test maintenance debt when automation grows out of control?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Acknowledge debt, advocate for sprint capacity toward refactoring, establish review standards, and involve the whole team."
+  },
+  {
+    "text": "A third-party payment gateway fails intermittently during test execution. What do you do?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Implement service virtualization for the payment gateway during automated runs while setting up synthetic monitors for reality."
+  },
+  {
+    "text": "Write a Python function to return all failed test names from a nested JSON test result.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "def get_failed_tests(node, failed=None):\n    if failed is None: failed = []\n    if isinstance(node, dict):\n        if node.get('status') == 'FAIL': failed.append(node.get('name'))\n        for v in node.values(): get_failed_tests(v, failed)\n    return failed"
+  },
+  {
+    "text": "Write a function implementing a token bucket rate limiter for API testing.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "import time\nclass RateLimiter:\n    def __init__(self, cap, rate): self.cap = cap; self.tokens = cap; self.rate = rate; self.last = time.time()\n    def allow(self):\n        now = time.time()\n        self.tokens = min(self.cap, self.tokens + (now - self.last) * self.rate)\n        self.last = now\n        if self.tokens >= 1: self.tokens -= 1; return True\n        return False"
+  },
+  {
+    "text": "Discuss architectural challenges of running distributed performance tests across cloud regions.",
+    "type": "EXPERT",
+    "difficulty": "EXPERT",
+    "expected_answer": "Challenges include synchronized start times, real-time metric aggregation, cloud costs, and test runner controller bottlenecks."
+  },
+  {
+    "text": "Design a zero-downtime testing strategy for database schema migrations.",
+    "type": "EXPERT",
+    "difficulty": "EXPERT",
+    "expected_answer": "Use expand-contract patterns, dual-writes during transitions, and automated backward-compatibility tests for old app versions."
+  },
+  {
+    "text": "Write a Python function that detects circular dependencies in microservice test execution.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "def has_cycle(graph):\n    vis, stack = set(), set()\n    def dfs(n):\n        vis.add(n); stack.add(n)\n        for nb in graph.get(n, []):\n            if nb not in vis and dfs(nb): return True\n            elif nb in stack: return True\n        stack.remove(n); return False\n    return any(n not in vis and dfs(n) for n in graph)"
+  },
+  {
+    "text": "What is the primary purpose of a test strategy document?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A test strategy document outlines the overall testing approach, scope, resources, and timelines for a project. It serves as a high-level guide for the QA team aligned with business objectives."
+  },
+  {
+    "text": "How do you decide whether to automate a test case?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Tests that are repetitive, executed across multiple builds, prone to human error, and stable are prime candidates for automation. One-off tests or those requiring subjective visual validation are better left manual."
+  },
+  {
+    "text": "What is the difference between a GET and a POST HTTP method?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "GET requests data from a server and appends parameters to the URL, making it cacheable and bookmarkable. POST sends data to the server to create or update a resource, with data included in the request body."
+  },
+  {
+    "text": "What is load testing in performance engineering?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Load testing evaluates system behavior under expected concurrent user loads to measure response times and throughput. It ensures the application performs reliably during peak traffic hours."
+  },
+  {
+    "text": "What is a CI/CD pipeline?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Continuous Integration and Continuous Deployment automate the process of building, testing, and deploying code changes. It ensures rapid feedback loops and frequent, reliable software releases."
+  },
+  {
+    "text": "What are the essential components of a good bug report?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A good bug report includes a clear title, environment details, precise steps to reproduce, expected results, actual results, and supporting evidence like logs or screenshots."
+  },
+  {
+    "text": "What is exploratory testing?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Exploratory testing is a hands-on approach where testers simultaneously learn, design, and execute test cases without pre-written scripts. It relies heavily on the tester's intuition and domain knowledge."
+  },
+  {
+    "text": "Can you describe a time when you missed a critical bug and how you handled it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Acknowledge the oversight transparently, explain how the root cause was identified, and discuss the preventative measures implemented, such as adding a regression test case to cover that scenario."
+  },
+  {
+    "text": "How do you prioritize your daily testing tasks when working on tight deadlines?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Prioritization is based on business risk, user impact, and feature dependency. Collaboration with product managers and developers helps align testing efforts with release goals."
+  },
+  {
+    "text": "Write a function to check if a string is a palindrome.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Reverse the string and compare it to the original string. Return true if they match and false otherwise, ignoring case and special characters if required."
+  },
+  {
+    "text": "What do you do if a developer marks a bug as works as designed but you believe it is a defect?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Re-verify the acceptance criteria and product specifications. Discuss the discrepancy calmly with the developer and product owner, referencing user experience or requirements documentation."
+  },
+  {
+    "text": "What is a risk-based testing strategy?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Risk-based testing prioritizes test execution based on the likelihood of failure and the business impact of that failure. It optimizes limited testing resources by targeting high-risk areas first."
+  },
+  {
+    "text": "Explain the Page Object Model design pattern in test automation.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "POM creates an object repository for web UI elements, separating test logic from page structure. This improves code maintainability and reduces duplication if the UI changes."
+  },
+  {
+    "text": "How do you test asynchronous APIs?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Asynchronous APIs can be tested using polling mechanisms to check status endpoints, utilizing webhooks, or leveraging message queue listeners to verify the final state after processing."
+  },
+  {
+    "text": "What is the difference between stress testing and spike testing?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Stress testing pushes a system beyond normal operational capacity to find its breaking point. Spike testing evaluates system performance under sudden, extreme increases in user load."
+  },
+  {
+    "text": "How do you integrate automated tests into a Jenkins pipeline?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Automated tests are integrated using Jenkinsfile scripts, running test suites via build steps or plugins after code compilation. Test results are published using plugins like JUnit parser for visibility."
+  },
+  {
+    "text": "How do you handle flaky tests in your automation suite?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Flaky tests are investigated for asynchronous timing issues, shared state dependencies, or network latency. They should be quarantined, fixed, or rewritten for reliability rather than relying on automatic retries."
+  },
+  {
+    "text": "What is session-based exploratory testing?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Session-based testing combines exploratory testing with accountability by time-boxing testing into focused sessions. It uses charters, debriefs, and metrics to track test coverage and findings."
+  },
+  {
+    "text": "Tell me about a time you convinced a developer to fix a low-priority bug.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Focus on framing the argument around cumulative user experience and brand reputation. Sharing concrete customer feedback or visual proof often helps build consensus."
+  },
+  {
+    "text": "How do you handle disagreements with product managers regarding release readiness?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Present objective quality metrics, known defects with workarounds, and potential business risks clearly. Facilitate a risk assessment meeting so stakeholders can make an informed go no-go decision."
+  },
+  {
+    "text": "Write a script to remove duplicate elements from an array.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Utilize a hash set data structure or a built-in set function to filter unique elements. Iterate through the array, adding items to the set, and return the resulting collection."
+  },
+  {
+    "text": "If a critical regression suite fails in the CI pipeline right before a release, what is your immediate step?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Analyze the failure logs to determine if it is a genuine application bug or a flaky test environment issue. Communicate findings immediately to the team and collaborate on a hotfix or rollback if necessary."
+  },
+  {
+    "text": "How do you design a comprehensive test strategy for a microservices architecture?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "A microservices test strategy requires a test pyramid approach focusing heavily on component and contract testing, alongside end-to-end integration tests, service virtualization, and distributed tracing."
+  },
+  {
+    "text": "How do you implement parallel execution in a large automation framework to reduce feedback time?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Parallel execution is achieved using test runner configurations like TestNG or pytest-xdist combined with containerized grid infrastructure like Selenium Grid or Docker containers to isolate test environments."
+  },
+  {
+    "text": "How do you test GraphQL APIs compared to traditional REST APIs?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "GraphQL uses a single endpoint and flexible query payloads, requiring tests to validate schema definitions, query depth limits, field-level permissions, and batch query performance rather than multiple static endpoints."
+  },
+  {
+    "text": "Explain how you would perform capacity planning using performance test results.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Analyze throughput, response time degradation curves, and resource utilization metrics under various loads. Extrapolate these patterns to forecast hardware scaling needs for anticipated future traffic growth."
+  },
+  {
+    "text": "How do you implement continuous testing in a GitOps workflow?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Continuous testing in GitOps triggers automated test suites upon pull request creation or infrastructure state changes declared in Git repositories, blocking merges if quality gates fail."
+  },
+  {
+    "text": "What advanced debugging techniques do you use when a bug only occurs in production?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Utilize distributed tracing tools, centralized log management systems, error tracking services, and synthetic monitoring to analyze telemetry data and replicate production environment constraints in staging."
+  },
+  {
+    "text": "How do you structure a charter for session-based exploratory testing on a complex feature?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "A strong charter defines the mission, areas to explore, potential failure heuristics, and time-box duration. It provides enough focus to measure coverage while allowing freedom to follow interesting bug paths."
+  },
+  {
+    "text": "Describe a situation where you had to push back on an aggressive release schedule due to quality concerns.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Detail how data, test coverage gaps, and severity metrics were presented to leadership. Emphasize a constructive approach focused on mitigating business risk rather than blocking progress."
+  },
+  {
+    "text": "Tell me about a time you mentored a junior QA engineer on automation best practices.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Explain the mentoring approach, such as code reviews, pair programming, and explaining design principles. Highlight the positive impact on the junior engineer growth and team code quality."
+  },
+  {
+    "text": "Write a function to find the longest substring without repeating characters.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Use a sliding window approach with a hash map to track character indices. Adjust the window start pointer when a duplicate is encountered and update the maximum length."
+  },
+  {
+    "text": "You notice memory leaks occurring during a performance test run. How do you investigate and isolate the root cause?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Monitor heap memory usage trends, capture thread and heap dumps during peak load, and analyze them using profiling tools to identify uncollected object references and leaky code blocks."
+  },
+  {
+    "text": "How do you architect a multi-tenant test framework that supports isolated test execution across multiple environments?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Design the framework with dynamic environment configuration injection, thread-safe data providers, database state isolation per test thread, and centralized secret management for multi-tenant credentials."
+  },
+  {
+    "text": "Describe the architecture and implementation of a custom API mocking service for end-to-end integration testing.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Implement a stateful mock server using tools like WireMock or custom node services that intercept HTTP traffic, evaluate dynamic request payloads, simulate network latency, and maintain transactional mock database states."
+  },
+  {
+    "text": "How would you design a distributed performance testing infrastructure to simulate ten million concurrent users?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Deploy a distributed load generator cluster using Kubernetes and tools like Locust or JMeter master-worker setups across multiple cloud regions, ensuring lightweight network footprints and aggregated real-time metrics collection."
+  },
+  {
+    "text": "Write an algorithm to parse and validate a complex nested JSON schema against custom business rules.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "Implement a recursive descent parser or use schema validation libraries with custom visitor patterns to traverse nodes, validating data types, conditional constraints, and business invariants."
+  },
+  {
+    "text": "A critical zero-day security vulnerability is discovered in a core dependency just hours before a scheduled major release. How do you manage the QA response?",
+    "type": "SITUATIONAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Coordinate an emergency dependency patch, run targeted smoke and security regression suites against the updated build, assess residual risk with stakeholders, and make a rapid, risk-informed deployment decision."
+  },
+  {
+    "text": "What is shift-left testing and how does it impact the test strategy?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Shift-left testing involves starting testing activities earlier in the development lifecycle, such as reviewing requirements and code. It reduces bug remediation costs and aligns quality goals from inception."
+  },
+  {
+    "text": "What is the difference between regression testing and re-testing?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Re-testing verifies that a specific fixed bug no longer reproduces. Regression testing ensures that recent code changes have not negatively impacted existing application functionality."
+  },
+  {
+    "text": "What is an HTTP status code 500?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Status code 500 is an Internal Server Error indicating that the server encountered an unexpected condition that prevented it from fulfilling the request."
+  },
+  {
+    "text": "What is response time in performance testing?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Response time is the total duration taken from the moment a user sends a request to the moment they receive the complete response from the server."
+  },
+  {
+    "text": "What is continuous integration?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Continuous integration is the practice where developers frequently merge code changes into a central repository, where automated builds and tests are run to detect integration issues early."
+  },
+  {
+    "text": "Why is severity different from priority in bug reporting?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Severity measures the technical degree of impact a bug has on the system. Priority determines the business urgency with which the bug needs to be fixed."
+  },
+  {
+    "text": "What is error guessing in exploratory testing?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Error guessing is a test technique where the tester uses intuition, experience, and past system failures to anticipate where bugs are most likely to occur."
+  },
+  {
+    "text": "How do you handle a situation where requirements are constantly changing during a sprint?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Stay adaptable by maintaining modular test cases, communicating frequently with product owners, and focusing testing efforts on core user journeys until requirements stabilize."
+  },
+  {
+    "text": "How do you ensure good communication with remote developers?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Use clear, well-documented bug reports, asynchronous communication tools effectively, and schedule quick sync meetings when complex technical issues need clarification."
+  },
+  {
+    "text": "Write a function to reverse an integer.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Extract digits using modulo and division operators, build the reversed number, and handle potential overflow conditions based on integer limits."
+  },
+  {
+    "text": "A developer asks you to sign off on a feature without completing all test cases due to time constraints. What do you do?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Evaluate the risk of untested paths, perform high-priority exploratory testing, and provide a conditional sign-off detailing the exact test coverage achieved and known risks."
+  },
+  {
+    "text": "What is test coverage and how is it measured?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Test coverage measures the extent to which application code or requirements have been exercised by tests. It can be measured through requirements traceability matrices or code coverage tools."
+  },
+  {
+    "text": "What are explicit and implicit waits in Selenium WebDriver?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Implicit waits tell the driver to poll the DOM for a set time before throwing an exception. Explicit waits wait for a specific condition on an element before proceeding, making them more reliable."
+  },
+  {
+    "text": "How do you handle database state verification in API testing?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Database state can be verified by executing direct SQL queries or calling auxiliary endpoints after API execution to ensure records are correctly created, updated, or deleted."
+  },
+  {
+    "text": "What is throughput in performance testing?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Throughput measures the amount of work a system can handle, typically expressed as requests per second or transactions per minute processed during a test."
+  },
+  {
+    "text": "What is a webhook and how do you test it?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A webhook is a user-defined HTTP callback triggered by event occurrences. Testing involves configuring a mock receiver endpoint to capture payloads and verifying event delivery and content accuracy."
+  },
+  {
+    "text": "How do you manage bug triage meetings effectively?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Bug triage involves reviewing newly reported defects with cross-functional team members, assigning accurate priorities, identifying duplicates, and scheduling fixes for upcoming sprints."
+  },
+  {
+    "text": "What is heuristic-based exploratory testing?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Heuristic-based testing uses rules of thumb and cognitive shortcuts, such as mnemonic frameworks like SFDIPOT, to guide testing and uncover hidden defects efficiently."
+  },
+  {
+    "text": "Describe a time you automated a tedious manual process outside of your testing duties.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Share an example such as writing a script to generate test data or automate environment health checks, highlighting initiative and efficiency gains for the team."
+  },
+  {
+    "text": "How do you handle working with a difficult stakeholder who resists QA processes?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Listen to their concerns, demonstrate how QA adds value and saves time in the long run, and collaborate to find a lightweight process compromise that respects their timeline."
+  },
+  {
+    "text": "Write a function to find the first non-repeating character in a string.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Count character frequencies using a hash map, then iterate through the string again to find the first character with a frequency count of one."
+  },
+  {
+    "text": "A major production incident occurs, and preliminary investigation points to a recent test environment oversight. How do you address this with the team?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Participate in the blameless post-mortem, identify gaps in environment parity or test verification, and update test protocols to ensure the scenario is covered moving forward."
+  },
+  {
+    "text": "How do you approach test data management for enterprise-scale automation suites?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Test data management involves using API hooks for dynamic data creation, database seeding scripts, synthetic data generators, and ensuring test data is isolated and cleaned up after execution."
+  },
+  {
+    "text": "Explain how service virtualization differs from mocking in API test automation.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Mocking typically simulates simple API responses for unit tests. Service virtualization emulates complex behavioral characteristics, state management, and performance constraints of dependent third-party systems."
+  },
+  {
+    "text": "How do you analyze thread dumps to diagnose performance bottlenecks?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Analyze thread dumps to identify threads stuck in blocked, waiting, or runnable states, pinpointing deadlocks, thread starvation, or inefficient synchronization blocks in the application code."
+  },
+  {
+    "text": "How do you implement security testing within a continuous integration pipeline?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Incorporate Static Application Security Testing and Software Composition Analysis tools into early build stages, and Dynamic Application Security Testing tools into staging environments within the CI pipeline."
+  },
+  {
+    "text": "Describe how you establish test metrics that provide actual value to engineering leadership.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Track metrics like defect leakage, test automation ROI, mean time to detect, and requirement test coverage rather than vanity metrics like raw test case execution counts."
+  },
+  {
+    "text": "Tell me about a time you investigated an intermittent bug that took days to reproduce.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Describe the methodical approach taken, such as increasing logging verbosity, analyzing environmental patterns, and isolating variables until the root trigger was discovered."
+  },
+  {
+    "text": "Write an algorithm to implement a thread-safe singleton pattern.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Use double-checked locking with volatile keyword in Java or equivalent synchronization mechanisms in other languages to ensure only one instance is created safely across threads."
+  },
+  {
+    "text": "You discover that a junior team member has committed code that bypasses security checks in automated test scripts. How do you handle this?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Address the issue privately through code review feedback, explain the security implications, and conduct a brief training session on secure coding practices for test scripts."
+  },
+  {
+    "text": "How would you design a fault-tolerant test automation framework that handles network instability gracefully?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Implement robust retry logic with exponential backoff, circuit breakers for flaky external services, comprehensive network error logging, and resilient element locator strategies."
+  },
+  {
+    "text": "Explain the mechanics of distributed transactions testing in a microservices architecture.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Test distributed transactions using Saga patterns or two-phase commit protocols, validating eventual consistency, rollback compensation logic, and handling partial failure states across services."
+  },
+  {
+    "text": "Write a function to evaluate a nested arithmetic expression string with parentheses and operator precedence.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "Use two stacks for operands and operators or convert the infix expression to postfix notation using Shunting-yard algorithm before evaluating the result."
+  },
+  {
+    "text": "What is shift-right testing?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Shift-right testing involves testing software after it has been deployed to production, utilizing techniques like monitoring, canary releases, and user feedback collection."
+  },
+  {
+    "text": "What is smoke testing?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Smoke testing is a preliminary set of tests run on a new build to ensure that critical core functionalities work before committing to deeper testing phases."
+  },
+  {
+    "text": "What is an API endpoint?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "An API endpoint is a specific URL or URI where an API can access the resources it needs from a server to execute requests."
+  },
+  {
+    "text": "What is soak testing in performance engineering?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Soak testing, or endurance testing, evaluates system stability under a significant load over an extended period to identify memory leaks or resource degradation."
+  },
+  {
+    "text": "What is continuous deployment?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Continuous deployment is an extension of continuous integration where every code change that passes automated tests is automatically deployed to production without human intervention."
+  },
+  {
+    "text": "Why is reproducibility important in bug reports?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Reproducibility allows developers to witness the defect firsthand, debug the underlying code efficiently, and verify that the fix resolves the issue correctly."
+  },
+  {
+    "text": "What is bug taxonomy in exploratory testing?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Bug taxonomy is a structured classification of defects based on categories like UI, performance, security, or logic, helping teams analyze defect trends."
+  },
+  {
+    "text": "How do you handle constructive criticism during code reviews?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Approach code reviews with an open mind, view feedback as an opportunity for professional growth, and ask clarifying questions if suggestions are unclear."
+  },
+  {
+    "text": "How do you stay updated with emerging QA trends and technologies?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Read industry blogs, participate in testing communities, attend webinars, and experiment with new tools on personal projects."
+  },
+  {
+    "text": "Write a function to count the number of vowels in a string.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Iterate through the string, check if each character matches vowel criteria, and increment a counter before returning the total count."
+  },
+  {
+    "text": "You notice a test case has been passing consistently for months without changes. What action should you take?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Review the test case to ensure it still provides value, covers active requirements, and isn't a false positive before deciding whether to keep or refactor it."
+  },
+  {
+    "text": "What is a traceability matrix?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A traceability matrix is a document that maps and links user requirements or user stories to their corresponding test cases, ensuring complete test coverage."
+  },
+  {
+    "text": "How do you handle dynamic web elements with changing IDs in automation?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use robust locator strategies like relative XPath expressions, CSS selectors using stable attributes, or custom data-testid attributes added by developers."
+  },
+  {
+    "text": "What is API chaining?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "API chaining is the practice of using data extracted from the response of one API request, such as an authentication token or ID, as input for subsequent requests."
+  },
+  {
+    "text": "What is a bottleneck in performance testing?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A bottleneck is a point of congestion in a system, such as a slow database query or CPU spike, that restricts overall application performance and throughput."
+  },
+  {
+    "text": "What is a build pipeline trigger?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A pipeline trigger is an event condition, such as a Git commit, pull request merge, or scheduled cron job, that automatically starts the CI/CD build and test process."
+  },
+  {
+    "text": "How do you track bug metrics to improve product quality?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Track defect density, open bug aging, and root cause distributions to identify error-prone modules and refine testing focus in future cycles."
+  },
+  {
+    "text": "What is state model testing in exploratory testing?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "State model testing explores application behavior by tracking how user actions transition the system between different internal states and verifying valid transitions."
+  },
+  {
+    "text": "Describe a time you collaborated with developers to solve a complex architectural bug.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Explain how sharing detailed reproduction steps, logs, and discussing system design together led to a successful architectural refactor."
+  },
+  {
+    "text": "How do you handle a situation where automated tests pass locally but fail in the CI pipeline?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Investigate environment differences such as operating systems, network latency, browser versions, or missing dependencies between local machines and CI runners."
+  },
+  {
+    "text": "Write a function to merge two sorted arrays into a single sorted array.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use two pointers to compare elements from both arrays, appending the smaller element to a new result array until all elements are processed."
+  },
+  {
+    "text": "A critical third-party dependency goes down during your test cycle. How do you proceed?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Enable service virtualization or mocks for the third-party dependency to continue testing internal components while monitoring the status of the external service."
+  },
+  {
+    "text": "How do you design an automation test framework supporting Behavior Driven Development?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Integrate BDD frameworks like Cucumber with Gherkin syntax, mapping plain-text feature specifications to step definition code implementations that interact with page objects."
+  },
+  {
+    "text": "How do you test idempotency in REST APIs?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Send the same non-safe API request, such as a PUT or DELETE, multiple times sequentially and verify that subsequent requests return identical status codes and leave server state unchanged."
+  },
+  {
+    "text": "How do you configure dynamic parameterization in distributed performance test scripts?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use CSV data sets, random data generators, and post-processors to extract dynamic variables, ensuring virtual users do not collide or violate uniqueness constraints."
+  }
+]

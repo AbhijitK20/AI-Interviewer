@@ -1,0 +1,1082 @@
+[
+  {
+    "text": "What is the difference between L1 and L2 regularization in machine learning?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "L1 regularization (Lasso) adds the absolute value of coefficients to the loss function, which can drive some weights to zero for feature selection. L2 regularization (Ridge) adds the squared magnitude of coefficients, penalizing large weights smoothly without zeroing them out."
+  },
+  {
+    "text": "Tell me about a time when you had to explain a complex machine learning model to a non-technical stakeholder.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Use the STAR method. Describe the situation, the technical complexity of the model, the simplified analogy or business metric you used to explain it, and the resulting alignment achieved with stakeholders."
+  },
+  {
+    "text": "Imagine a stakeholder wants to deploy a real-time model with sub-millisecond latency, but your deep learning model takes 50ms to infer. How would you approach this?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "First, evaluate if a simpler, non-deep learning model (like gradient boosting or linear models) can achieve similar accuracy with lower latency. If deep learning is required, explore model compression techniques like quantization, pruning, and knowledge distillation, or hardware acceleration."
+  },
+  {
+    "text": "Write a Python function to implement standard scaling (z-score normalization) from scratch using NumPy.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Compute the mean and standard deviation along the specified axis using numpy. Then subtract the mean from the input array and divide by the standard deviation plus a small epsilon for numerical stability."
+  },
+  {
+    "text": "What is the vanishing gradient problem and why does it occur in deep neural networks?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The vanishing gradient problem occurs during backpropagation in deep networks when gradients computed with respect to earlier layers become exponentially small. This happens due to the chain rule multiplying derivatives smaller than one, especially when using saturating activation functions like sigmoid or tanh."
+  },
+  {
+    "text": "Describe a time when your machine learning model failed in production. How did you diagnose and resolve the issue?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Explain the production failure context using STAR, detail the monitoring tools or logs used to diagnose data drift or software bugs, and explain the mitigation and retraining steps taken to prevent recurrence."
+  },
+  {
+    "text": "Your feature store shows high data skew between training data and serving data for a critical numerical feature. What steps do you take?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Investigate the feature engineering pipeline code to ensure transformations are identical between training and inference. Check for logging bugs in production, upstream data pipeline changes, and use statistical tests like KS-test to quantify the drift before retraining or updating imputation logic."
+  },
+  {
+    "text": "Write a Python function using PyTorch to implement a simple multi-layer perceptron with one hidden layer and ReLU activation.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Define a class inheriting from torch.nn.Module, initialize two linear layers in the constructor, and apply torch.relu or F.relu in the forward pass method."
+  },
+  {
+    "text": "Explain how the Transformer architecture utilizes self-attention and why it outperforms RNNs in handling long sequences.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Transformers use scaled dot-product self-attention to relate all tokens in a sequence simultaneously, computing queries, keys, and values. Unlike RNNs which process sequentially and suffer from memory bottlenecks over long horizons, Transformers allow parallel processing and direct path lengths of O(1) between any two tokens."
+  },
+  {
+    "text": "Describe a situation where you disagreed with a senior engineer or product manager regarding model selection or feature engineering. How did you resolve it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Highlight a scenario using STAR where you relied on data, experimentation, or A/B testing to evaluate both approaches objectively, maintaining professional communication and prioritizing business impact."
+  },
+  {
+    "text": "You are training a large vision model on a distributed cluster, and training speed plateaus despite adding more GPUs. How do you troubleshoot?",
+    "type": "SITUATIONAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Analyze system bottlenecks using profiling tools like PyTorch Profiler or TensorBoard. Check for data loading bottlenecks (IO bound), communication overhead in distributed training (AllReduce bandwidth), or improper batch size scaling that causes GPU underutilization."
+  },
+  {
+    "text": "Implement the scaled dot-product attention mechanism from scratch using NumPy or PyTorch.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Compute matrix multiplication of queries and transposed keys, scale by the square root of the key dimension, apply softmax along the correct axis, and multiply the resulting weights by the value matrix."
+  },
+  {
+    "text": "What is the primary difference between batch normalization and layer normalization?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Batch normalization normalizes activations across the batch dimension for each channel independently, making it sensitive to batch size. Layer normalization normalizes across the feature dimensions for each individual sample, making it independent of batch size and heavily used in NLP and Transformer architectures."
+  },
+  {
+    "text": "Give an example of a time when you had to optimize a machine learning pipeline under tight resource or budget constraints.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Describe the resource constraints using STAR, the cost-saving optimization techniques applied such as spot instances, model distillation, or feature pruning, and the final efficiency gains."
+  },
+  {
+    "text": "A computer vision model for autonomous driving exhibits high accuracy in daylight but fails under heavy rain. How do you address this distribution shift?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Collect or simulate diverse rainy weather data to augment the training set. Apply domain adaptation techniques, data augmentation strategies like synthetic fog/rain, or train a multi-modal model combining camera feeds with robust radar and LiDAR data."
+  },
+  {
+    "text": "Write a custom PyTorch Dataset class that loads image paths and labels from a pandas DataFrame and applies optional transforms.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Inherit from torch.utils.data.Dataset, implement __init__ to store the dataframe and transforms, implement __len__ to return dataset size, and implement __getitem__ to load an image via PIL or OpenCV, apply transforms, and return the image tensor and label."
+  },
+  {
+    "text": "Explain how dropout acts as a regularization technique during neural network training.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Dropout randomly zeroes out a percentage of neuron activations during each training forward pass, preventing co-adaptation of features. This forces the network to learn redundant, robust representations and approximates training an ensemble of exponentially many subnetworks."
+  },
+  {
+    "text": "Tell me about a project where you took ownership from conception to production deployment.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use STAR to detail your role in scoping, data gathering, modeling, containerization, deployment, and post-launch monitoring."
+  },
+  {
+    "text": "You notice your model's offline evaluation metrics look fantastic, but online metrics in production are poor. What are potential causes?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Investigate training-serving skew, target leakage during feature engineering, non-representative offline validation splits (temporal or spatial leakage), or changes in user behavior and distribution since the training data was collected."
+  },
+  {
+    "text": "Write a Python function to calculate the F1-score given true binary labels and predicted binary labels without using scikit-learn.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Calculate true positives, false positives, and false negatives using element-wise array operations. Compute precision as TP/(TP+FP), recall as TP/(TP+FN), and the harmonic mean F1 as 2 * (precision * recall) / (precision + recall)."
+  },
+  {
+    "text": "What is the difference between hard parameter sharing and soft parameter sharing in multi-task learning?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Hard parameter sharing involves hidden layers being shared jointly among all tasks, with only the final output layers task-specific, reducing overfitting risk. Soft parameter sharing uses separate models for each task with regularization on distance between model parameters to encourage shared representations."
+  },
+  {
+    "text": "Describe a time when you had to mentor a junior developer or onboard them onto an ML project.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Explain the onboarding strategy using STAR, the documentation or pairing sessions provided, and the growth observed in the junior engineer."
+  },
+  {
+    "text": "An LLM application you built is suffering from hallucinations when answering domain-specific queries. How would you mitigate this?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Implement Retrieval-Augmented Generation (RAG) with a reliable vector database, fine-tune the model on verified domain documents, use strict system prompts enforcing citation of context, and implement output guardrails or moderation classifiers."
+  },
+  {
+    "text": "Write a Python generator function that yields mini-batches of data from a large NumPy array efficiently.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Accept inputs X and y along with batch_size, get total length, loop through indices with step size equal to batch_size, and yield slices of X and y."
+  },
+  {
+    "text": "Explain the concept of model calibration and why it is important for classification models.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Model calibration ensures that predicted probability outputs reflect true statistical likelihoods; for instance, instances predicted with 80% confidence should be correct 80% of the time. This is critical for high-stakes decisions like medical diagnosis or financial risk scoring where raw probabilities guide action thresholds."
+  },
+  {
+    "text": "Tell me about a time when you discovered an ethical issue or bias in a dataset or model. How did you handle it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Describe the discovery using STAR, the fairness metrics evaluated, the steps taken to debias the data or model, and how you communicated ethical risks to leadership."
+  },
+  {
+    "text": "Your real-time scoring service experiences a sudden 10x traffic spike due to marketing campaigns, causing request timeouts. How do you scale it?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Scale out model server replicas using Kubernetes horizontal pod autoscaling based on CPU/GPU or request queue metrics. Implement caching for frequent requests, optimize batching on the inference server, and set up load balancing."
+  },
+  {
+    "text": "Write a Python function to compute cosine similarity between two dense vectors using NumPy.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Compute the dot product of the two vectors divided by the product of their L2 norms (magnitudes), handling potential division by zero."
+  },
+  {
+    "text": "What is contrastive learning and how does it relate to self-supervised learning?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Contrastive learning is a self-supervised technique where a model learns representations by pulling similar (positive) pairs closer together in latent space while pushing dissimilar (negative) pairs apart, enabling representation learning without manual labels."
+  },
+  {
+    "text": "Describe a time when you had to pivot your machine learning approach midway through a project because the initial results were poor.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use STAR to explain the initial approach, why performance plateaued, the alternative hypothesis tested, and the successful outcome of the pivot."
+  },
+  {
+    "text": "An e-commerce recommendation model is showing popularity bias, continuously recommending only top-selling items to niche users. How do you fix this?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Incorporate exploration strategies like multi-armed bandits, penalize popularity scores in ranking loss functions, or use inverse propensity scoring to debias user interaction data."
+  },
+  {
+    "text": "Write a Python function to implement early stopping logic given a stream of validation losses and a patience parameter.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Maintain tracking variables for best loss and patience counter. Iterate through validation losses, check if current loss improves best loss by a margin, and if not, increment counter; return True if counter exceeds patience."
+  },
+  {
+    "text": "Explain the difference between early stopping and weight decay as regularization techniques.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Weight decay adds a penalty to the loss function proportional to the magnitude of weights during all training steps. Early stopping halts training when validation performance stops improving, preventing the model from entering an overfitting regime in later epochs."
+  },
+  {
+    "text": "Tell me about a time when you collaborated with data engineers to improve a data pipeline for model training.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Describe the collaboration using STAR, focusing on communication, requirements definition, and improvements in pipeline throughput or data quality."
+  },
+  {
+    "text": "Your automated MLOps pipeline fails during the weekly retraining job due to out-of-memory errors on the training node. What is your immediate and long-term fix?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Immediate fix: increase node instance memory or reduce training batch size. Long-term fix: implement data streaming, gradient accumulation, distributed training, or data pruning to manage memory footprints efficiently."
+  },
+  {
+    "text": "Write a Python function to tokenize text, remove standard English stop words, and count word frequencies.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Convert text to lowercase, split by whitespace or regex, filter out words present in a stop word set, and use collections.Counter to tally frequencies."
+  },
+  {
+    "text": "What is the role of the temperature parameter in softmax during model training and inference?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Dividing logits by temperature T before softmax scales the distribution; higher T softens probabilities making outputs more uniform, while lower T sharpens probabilities concentrating mass on the highest logit, often used in sampling from generative models."
+  },
+  {
+    "text": "Describe a situation where you had to work with extremely noisy or incomplete training data. How did you handle it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use STAR to explain data cleaning methods, imputation techniques, robust loss functions, or semi-supervised learning strategies used to handle noise."
+  },
+  {
+    "text": "A BERT-based sentiment classification model in production is experiencing a 5x increase in request volume, exceeding throughput limits. How do you optimize inference?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Apply model quantization (FP16 or INT8), use ONNX Runtime or TensorRT for compilation, implement dynamic batching on the inference server, or distill the model into a smaller DistilBERT variant."
+  },
+  {
+    "text": "Write a Python function using NumPy to compute the multi-class cross-entropy loss given predicted probabilities and one-hot encoded true labels.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Clip predicted probabilities with a small epsilon to prevent log(0), compute element-wise multiplication with true labels, sum across classes, and average across batch size."
+  },
+  {
+    "text": "Explain how residual connections in ResNets mitigate the vanishing gradient problem.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Residual connections add the input of a layer directly to its output (F(x) + x). During backpropagation, the gradient flows directly through the identity shortcut connection, ensuring gradients reach earlier layers without exponential decay."
+  },
+  {
+    "text": "Tell me about a time when you identified a performance bottleneck in an ML training loop and how you resolved it.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use STAR to describe profiling the training script, identifying CPU-bound data loading or GPU starvation, and applying optimizations like multi-worker dataloaders or pin_memory."
+  },
+  {
+    "text": "You are tasked with deploying an ML model on edge devices with limited storage and compute (e.g., IoT sensors). What techniques do you consider?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Consider post-training quantization or quantization-aware training, structural pruning of weights, knowledge distillation to a compact architecture, and export to lightweight runtimes like TensorFlow Lite or ONNX Runtime."
+  },
+  {
+    "text": "Write a Python function to calculate precision, recall, and F1-score for each class in a multi-class classification problem.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Build a confusion matrix for all classes, iterate through each class treating it as binary (one-vs-rest), compute TP, FP, FN, and calculate metrics for each class."
+  },
+  {
+    "text": "What is the difference between Transductive and Inductive transfer learning?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Inductive transfer learning involves source and target tasks being different regardless of domain, where labeled target data is used. Transductive transfer learning has the same source and target tasks, but different source and target domains, where source data is heavily labeled and target data is unlabeled."
+  },
+  {
+    "text": "Describe a project where you had to manage conflicting requirements from multiple stakeholders. How did you prioritize?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use STAR to explain stakeholder alignment meetings, balancing accuracy vs. latency or cost trade-offs, and delivering a consensus-driven ML solution."
+  },
+  {
+    "text": "A fraud detection model flags legitimate transactions, causing customer friction. Business wants zero false positives, but security wants high recall. How do you resolve this?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Analyze precision-recall curves to find an optimal decision threshold balancing business cost matrices. Propose a tiered system: low-risk triggers frictionless verification (2FA), while high-risk triggers manual review or blocking."
+  },
+  {
+    "text": "Write a Python function to implement k-means clustering initialization (k-means++) centroid selection given a dataset.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "Select the first centroid uniformly at random. For subsequent centroids, compute squared distances from each point to the nearest existing centroid, convert distances to probabilities, and sample the next centroid accordingly."
+  },
+  {
+    "text": "Explain the mechanics of Layer Normalization versus Instance Normalization in computer vision.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Layer normalization normalizes across channels and spatial dimensions for a single training sample, making it effective for RNNs and Transformers. Instance normalization normalizes across spatial dimensions for each channel and each sample independently, commonly used in style transfer and generative image models to remove contrast variations."
+  },
+  {
+    "text": "Tell me about a time when you made a mistake in your code or experimental setup that went unnoticed initially. How did you catch it and fix it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use STAR to show accountability, root cause analysis, implementation of unit tests or validation checks, and steps taken to ensure it doesn't happen again."
+  },
+  {
+    "text": "Your deployed model is experiencing concept drift due to sudden macroeconomic changes. What is your automated response plan?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Set up monitoring pipelines (e.g., Evidently AI, Arize) to detect statistical drift in features and predictions. Trigger automated alerts, evaluate model performance on recent ground-truth data, and initiate automated retraining pipelines with recent windowed data."
+  },
+  {
+    "text": "Write a Python function to perform min-max scaling on a 2D NumPy array to scale values between a specified range [min_val, max_val].",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Compute column-wise minimum and maximum values. Subtract min, divide by (max - min) to scale between 0 and 1, then multiply by (max_val - min_val) and add min_val."
+  },
+  {
+    "text": "What is the vanishing/exploding gradient problem in Recurrent Neural Networks and how do LSTMs solve it?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "RNNs suffer from vanishing/exploding gradients during backpropagation through time due to repeated multiplication of the recurrent weight matrix. LSTMs solve this via a constant error carousel and gating mechanisms (input, forget, output gates) that allow gradients to flow unimpeded through the cell state."
+  },
+  {
+    "text": "Describe a situation where you had to learn a new machine learning framework or tool rapidly to deliver a project on time.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Use STAR to outline your learning strategy, documentation review, prototyping, and successful delivery using the new technology."
+  },
+  {
+    "text": "You are given an imbalanced dataset with a 99:1 negative-to-positive ratio for rare disease detection. Accuracy is 99% for a dummy classifier. What evaluation metrics and training strategies do you choose?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use Precision-Recall AUC (PR-AUC) and F1-score instead of accuracy or ROC-AUC. Training strategies include focal loss, class weighting, SMOTE oversampling, or anomaly detection approaches."
+  },
+  {
+    "text": "Write a Python function using PyTorch to calculate the Mean Squared Error loss between predictions and targets without using built-in loss modules.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Subtract targets from predictions, square the resulting tensor, and compute the mean using torch.mean()."
+  },
+  {
+    "text": "Explain how YOLO (You Only Look Once) frames object detection as a single regression problem.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "YOLO divides the input image into an S x S grid. Each grid cell predicts B bounding boxes, confidence scores for those boxes, and C class probabilities, reformulating object detection directly from image pixels to bounding box coordinates and classes in one forward pass."
+  },
+  {
+    "text": "Tell me about a time when you received critical feedback on your code or ML model. How did you react and improve?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Use STAR to demonstrate receptiveness to feedback, constructive dialogue, and the resulting improvements in code quality or model design."
+  },
+  {
+    "text": "Your cloud bill for ML model training has tripled over the last month. How do you audit and reduce costs?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Audit GPU utilization using monitoring tools. Switch to spot instances for fault-tolerant training jobs, right-size cluster instances, clean up unused snapshots and stored embeddings in S3, and optimize hyperparameter search spaces."
+  },
+  {
+    "text": "Write a Python function to implement a simple decision tree node split using Gini impurity.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Calculate Gini impurity for parent node as 1 - sum(p_i^2). Iterate through possible split thresholds, calculate weighted Gini impurity of child nodes, and find the split that maximizes information gain."
+  },
+  {
+    "text": "What is the difference between fine-tuning all layers versus freezing feature extractor layers in transfer learning?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Freezing feature extractor layers keeps pretrained weights fixed and trains only the newly added task-specific head, ideal for small target datasets to prevent catastrophic forgetting. Fine-tuning all layers unfreezes the entire network with a smaller learning rate, allowing lower layers to adapt to new domain-specific features."
+  },
+  {
+    "text": "Describe a time when you led a technical design review for a new machine learning system. What was your approach?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use STAR to detail the design document creation, addressing scalability, latency, monitoring, security, and incorporating peer feedback."
+  },
+  {
+    "text": "An upstream database schema change breaks your production feature pipeline, causing missing values during inference. What is your mitigation strategy?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Implement fallback default values or imputation logic for missing features. Set up alerting on feature pipeline failures and work with data engineers to fix upstream schemas and deploy a hotfix."
+  },
+  {
+    "text": "Write a Python function to perform one-hot encoding on a categorical column of a pandas DataFrame without using pd.get_dummies.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Identify unique categories, create binary columns for each category by comparing column values, and concatenate the resulting dataframe with the original."
+  },
+  {
+    "text": "Explain the concept of attention masks in Transformer models and why they are necessary.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Attention masks are matrices added to attention logits to prevent models from attending to padding tokens (padding mask) or future tokens in autoregressive generation (causal mask), ensuring correct context handling and masking out irrelevant information."
+  },
+  {
+    "text": "Tell me about a time when you had to deal with ambiguous project requirements. How did you clarify scope?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use STAR to explain how you gathered requirements from stakeholders, built a minimal proof-of-concept, and defined clear metrics of success."
+  },
+  {
+    "text": "Your computer vision model is vulnerable to adversarial attacks where slight pixel perturbations cause misclassification. How do you defend against this?",
+    "type": "SITUATIONAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Implement adversarial training by augmenting training data with adversarial examples generated via techniques like FGSM or PGD. Use defensive distillation, input reconstruction, or randomized smoothing."
+  },
+  {
+    "text": "Write a Python function using NumPy to compute the 2D convolution of an image with a given kernel.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Get input and kernel dimensions, calculate output dimensions, create an output array, and use nested loops or vectorized slicing to compute element-wise multiplication and summation across regions."
+  },
+  {
+    "text": "What is the difference between Parametric and Non-Parametric machine learning models?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Parametric models (e.g., linear regression, logistic regression) assume a fixed functional form with a finite set of parameters, making training fast and memory efficient. Non-parametric models (e.g., k-NN, decision trees) do not assume a fixed form, allowing the number of parameters to grow with the amount of training data."
+  },
+  {
+    "text": "Describe a time when you automated a manual machine learning workflow or MLOps task. What tools did you use?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use STAR to detail the manual process, the orchestration tool used (e.g., Airflow, Kubeflow, MLflow), and the time saved."
+  },
+  {
+    "text": "A multi-tenant recommendation system has data privacy regulations requiring user embeddings to be scrubbed after inference. How do you design for privacy?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Implement stateless inference where user profiles are fetched dynamically, processed in-memory, and immediately discarded. Utilize differential privacy during model training to prevent memorization of user data."
+  },
+  {
+    "text": "Write a Python function to compute the BLEU score evaluation metric for two tokenized sentences at the unigram level.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Count unigram frequencies in candidate and reference sentences, compute clipped intersection counts, divide by total candidate unigrams, and apply brevity penalty."
+  },
+  {
+    "text": "Explain how Batch Normalization helps during training and why it can sometimes hurt performance during inference.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Batch normalization reduces internal covariate shift by normalizing activations using batch statistics, enabling higher learning rates. It can hurt inference if running statistics (moving averages) are not properly computed or updated, or if batch size during inference is singular and misaligned."
+  },
+  {
+    "text": "Tell me about a time when you had to balance technical debt with delivering a new feature under a tight deadline.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use STAR to explain how you communicated trade-offs to stakeholders, shipped the MVP safely, and scheduled technical debt refactoring."
+  },
+  {
+    "text": "Your model training job is interrupted halfway through a 48-hour run due to a spot instance reclamation. How do you design your training script to handle this?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Implement checkpoint saving every N epochs or steps, saving model state_dict, optimizer state, scheduler state, and current epoch. Configure training scripts to resume from the latest checkpoint automatically upon restart."
+  },
+  {
+    "text": "Write a Python function using PyTorch to implement multi-head self-attention projection layers.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "Initialize linear projections for Query, Key, and Value. Reshape tensors to separate heads, compute attention scores, apply softmax, multiply by values, and project back to original dimension."
+  },
+  {
+    "text": "What is the difference between Model-Agnostic and Model-Specific Explainability methods?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Model-agnostic methods (e.g., SHAP, LIME) can be applied to any machine learning model by treating it as a black box and analyzing input-output behavior. Model-specific methods (e.g., attention weights in transformers, feature importances in tree-based models) rely on internal architectures."
+  },
+  {
+    "text": "Describe a time when you collaborated across departments (e.g., Product, Legal, Engineering) to launch an AI product.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use STAR to highlight cross-functional communication, compliance considerations, and successful launch coordination."
+  },
+  {
+    "text": "A semantic search engine using vector embeddings is returning irrelevant documents for domain-specific queries. How do you improve retrieval accuracy?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Implement hybrid search combining dense vector retrieval with sparse keyword search (BM25). Fine-tune embedding models using contrastive learning on domain corpora, or add re-ranking models like cross-encoders."
+  },
+  {
+    "text": "Write a Python function to compute the exact ROC-AUC score given true binary labels and continuous prediction probabilities.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Sort predictions and corresponding true labels in descending order. Use the trapezoidal rule or Mann-Whitney U statistic calculation to compute the area under the curve."
+  },
+  {
+    "text": "Explain the concept of weight initialization and why initializing all weights to zero fails in neural networks.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Initializing all weights to zero causes all neurons in a layer to compute the exact same output and receive identical gradients during backpropagation, preventing the network from breaking symmetry and learning diverse features."
+  },
+  {
+    "text": "Tell me about a time when you faced a difficult debugging session that lasted days. How did you maintain focus and resolve it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use STAR to describe your systematic debugging methodology, isolating variables, adding logging, and finding the root cause."
+  },
+  {
+    "text": "Your automated feature store is running out of disk space due to excessive historical feature logging. How do you optimize storage retention?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Implement TTL (Time-To-Live) retention policies to purge stale historical features. Compress feature tables using columnar formats like Parquet and partition data efficiently by date and entity."
+  },
+  {
+    "text": "Write a Python function to implement Principal Component Analysis (PCA) dimensionality reduction using NumPy.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Center the data by subtracting the mean, compute the covariance matrix, perform eigendecomposition or SVD on the covariance matrix, select top k eigenvectors, and project data onto the new subspace."
+  },
+  {
+    "text": "What is the difference between Teacher Forcing and Autoregressive generation in sequence models?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Teacher forcing uses ground-truth tokens as inputs during training time to speed up convergence and stabilize gradients. Autoregressive generation feeds the model's own generated predictions from previous time steps as inputs during inference, which can lead to exposure bias if not handled."
+  },
+  {
+    "text": "Describe a time when you took the initiative to improve team engineering standards or CI/CD pipelines for ML.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use STAR to detail the improvements made, such as adding unit tests for models, automated linting, or model card generation."
+  },
+  {
+    "text": "A real-time fraud detection model has a 200ms latency SLA, but feature retrieval from the online store takes 150ms, leaving only 50ms for inference. How do you optimize?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Implement low-latency caching (e.g., Redis) for frequently accessed user features. Optimize database queries in the online feature store, run feature fetching asynchronously, or compress the model for faster inference."
+  },
+  {
+    "text": "Write a Python function to compute the Root Mean Squared Error (RMSE) between two arrays using NumPy.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Compute the squared differences between arrays, take the mean of those differences, and return the square root using np.sqrt()."
+  },
+  {
+    "text": "Explain the concept of Data Augmentation and why it helps prevent overfitting in computer vision.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Data augmentation artificially increases training set diversity by applying label-preserving transformations like rotations, scaling, flips, and color jittering. This prevents the model from memorizing exact pixel layouts and improves generalization."
+  },
+  {
+    "text": "Tell me about a time when you had to present complex experimental results to executive leadership.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use STAR to highlight how you tailored the presentation to focus on ROI, business metrics, and strategic recommendations."
+  },
+  {
+    "text": "Your LLM fine-tuning job crashes with an out-of-memory error even with batch size set to 1. What training strategies do you employ?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Implement parameter-efficient fine-tuning (PEFT) like LoRA or QLoRA, gradient accumulation, activation checkpointing, mixed precision training (FP16/BF16), or fully sharded data parallelism (FSDP)."
+  },
+  {
+    "text": "Write a Python function to split a dataset into training, validation, and test sets given split ratios, ensuring reproducibility.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Set a random seed, shuffle indices of the dataset, and slice indices according to the specified train, validation, and test proportions."
+  },
+  {
+    "text": "What is the difference between Generative and Discriminative models?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Discriminative models (e.g., logistic regression, SVMs) model the conditional probability P(Y|X) directly to separate classes. Generative models (e.g., Gaussian Mixture Models, GANs) model the joint probability P(X, Y) or unconditional P(X), allowing them to generate new data samples."
+  },
+  {
+    "text": "Describe a time when you identified a bias or flaw in an evaluation metric and proposed a better alternative.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use STAR to explain the metric limitation, such as accuracy on imbalanced data, and the introduction of a more robust metric like PR-AUC or business-aligned cost functions."
+  },
+  {
+    "text": "A user-facing generative AI application starts generating toxic content due to prompt injection attacks. How do you secure the system?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Implement robust input sanitization, system prompt hardening (e.g., instructional guardrails), post-generation moderation classifiers, and output filtering layers to intercept and block harmful responses."
+  },
+  {
+    "text": "Write a Python function to implement standard 1D max pooling from scratch using NumPy.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Calculate output length based on input size, kernel size, and stride. Loop through output positions, extract the window slice from the input array, and take the maximum value."
+  },
+  {
+    "text": "Explain the concept of Knowledge Distillation and how a student model learns from a teacher model.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Knowledge distillation trains a smaller student model to mimic a larger, pretrained teacher model by matching the soft probability outputs (logits) produced by the teacher using a high-temperature softmax, transferring richer dark knowledge than hard binary labels."
+  },
+  {
+    "text": "Tell me about a time when you had to work with incomplete specifications and had to make autonomous technical decisions.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use STAR to describe how you scoped assumptions, built prototypes, validated with stakeholders, and delivered successfully."
+  },
+  {
+    "text": "Your model has low bias (high training accuracy) but high variance (low validation accuracy). What strategies do you use to fix this?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Apply regularization (L1/L2, dropout), increase training data size via collection or augmentation, simplify the model architecture, or use early stopping."
+  },
+  {
+    "text": "Write a Python function to compute the TF (Term Frequency) for a tokenized document.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Count occurrences of each token in the document and divide by the total number of tokens in the document."
+  },
+  {
+    "text": "What is the difference between Bagging and Boosting ensemble methods?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Bagging (Bootstrap Aggregating) trains multiple base models in parallel on bootstrapped subsets of data and averages their predictions to reduce variance (e.g., Random Forest). Boosting trains base models sequentially, where each new model focuses on correcting the errors of the previous ones, reducing bias (e.g., Gradient Boosting)."
+  },
+  {
+    "text": "Describe a time when you optimized a slow database query or feature extraction pipeline. What was the impact?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use STAR to detail profiling, indexing, vectorization, or caching techniques applied, and the resulting speedup."
+  },
+  {
+    "text": "An automated CI/CD pipeline for model deployment fails because the new model artifact is larger than the container registry size limit. How do you resolve this?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Apply model compression techniques (quantization, pruning) to reduce artifact size. Alternatively, store large model weights separately in object storage like S3 or GCS and download them during container initialization."
+  },
+  {
+    "text": "Write a Python function using PyTorch to compute binary cross-entropy loss from scratch.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Clip predictions with epsilon, compute -(y * log(p) + (1 - y) * log(1 - p)), and return the mean."
+  },
+  {
+    "text": "Explain how residual connections differ from dense connections in DenseNets.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Residual connections add the input of a layer to its output element-wise (F(x) + x). Dense connections concatenate the outputs of all preceding layers as inputs to all subsequent layers, maximizing information flow and feature reuse throughout the network."
+  },
+  {
+    "text": "Tell me about a time when you had to manage a disagreement within your team regarding technical tooling selection.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use STAR to highlight running a comparative proof-of-concept, establishing evaluation criteria, and achieving team consensus."
+  },
+  {
+    "text": "A time-series forecasting model for inventory management is showing degraded performance due to unhandled seasonality changes. How do you fix it?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Incorporate seasonal decomposition features, switch to models capable of capturing complex seasonality (e.g., Prophet, Transformer-based time series models), or retrain the model with more recent historical seasonal windows."
+  },
+  {
+    "text": "Write a Python function to implement MinHash signature generation for document similarity estimation.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "Represent documents as sets of shingle hashes. For each hash function permutation, find the minimum hash value among the document's shingles and build the signature vector."
+  },
+  {
+    "text": "What is the difference between Stacking and Blending in ensemble learning?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Stacking uses out-of-fold predictions from base models to train a meta-model using cross-validation to prevent overfitting. Blending uses a held-out validation set (blend set) to train the meta-model, avoiding out-of-fold computations but using less data for training."
+  },
+  {
+    "text": "Describe a time when you took ownership of a critical production outage involving an AI service. How did you resolve it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use STAR to detail incident response, rollback procedures, root cause analysis, and preventive measures implemented afterward."
+  },
+  {
+    "text": "Your model server is experiencing high memory fragmentation and out-of-memory crashes over time during inference. What could be the cause and solution?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Memory leaks in custom Python preprocessing code or unmanaged C++ bindings. Use memory profiling tools (e.g., tracemalloc, Valgrind), switch to robust model servers like Triton Inference Server, and periodically restart worker processes."
+  },
+  {
+    "text": "Write a Python function to compute the edit distance (Levenshtein distance) between two strings using dynamic programming.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Initialize a (m+1) x (n+1) matrix, fill base cases for empty strings, and iterate through strings to compute minimum operations (insertion, deletion, substitution)."
+  },
+  {
+    "text": "Explain the concept of Word Embeddings (e.g., Word2Vec) and how they capture semantic relationships.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Word embeddings map words to dense, continuous vector spaces where semantically similar words are located close to each other. They capture relationships through distributional semantics (words appearing in similar contexts have similar vectors) and allow algebraic operations (e.g., king - man + woman = queen)."
+  },
+  {
+    "text": "Tell me about a time when you had to explain technical constraints to a non-technical product manager to adjust project scope.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Use STAR to explain how you framed technical limitations (e.g., data availability or compute cost) into business impacts and aligned on a revised MVP scope."
+  },
+  {
+    "text": "An object detection model deployed in a warehouse fails to detect small items placed in shadows. How do you improve performance?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Apply data augmentation with varied lighting, contrast, and shadow conditions. Use multi-scale feature fusion architectures (like Feature Pyramid Networks) and ensure training data includes sufficient representation of dimly lit objects."
+  },
+  {
+    "text": "Write a Python function to implement standard 1D convolution with padding and stride using NumPy.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Pad the input array with zeros, calculate output size based on stride and kernel size, and use a sliding window to compute dot products between kernel and input slices."
+  },
+  {
+    "text": "What is the difference between L1 and L2 penalty in Elastic Net regularization?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Elastic Net combines both L1 (Lasso) and L2 (Ridge) penalties. L1 drives coefficients to zero for feature selection and handles sparsity, while L2 handles multicollinearity and stabilizes coefficient estimates, balanced by a mixing parameter."
+  },
+  {
+    "text": "Describe a time when you optimized a machine learning model's memory footprint to fit within strict hardware limits.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use STAR to detail memory profiling, quantization, pruning, or model architecture reduction, and successful deployment on target hardware."
+  },
+  {
+    "text": "Your online recommendation system is serving stale recommendations to returning users because cache invalidation is too slow. How do you architecture the caching layer?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Implement write-through or event-driven cache invalidation using message queues (e.g., Kafka) triggered by user interaction events. Use distributed caching (e.g., Redis Cluster) with appropriate TTLs and background pre-computation."
+  },
+  {
+    "text": "Write a Python function to implement k-Nearest Neighbors classification prediction from scratch using NumPy.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Compute Euclidean distances between test samples and all training samples, find indices of the k smallest distances, retrieve corresponding labels, and return the most common label."
+  },
+  {
+    "text": "Explain how the Adam optimizer works and why it is widely preferred over standard Stochastic Gradient Descent.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Adam combines Momentum (moving average of gradients) and RMSprop (moving average of squared gradients) to adaptively scale learning rates for each parameter. This makes it robust to sparse gradients and noisy objectives, leading to faster and more reliable convergence."
+  },
+  {
+    "text": "Tell me about a time when you had to troubleshoot a failing machine learning pipeline in a production environment under pressure.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use STAR to highlight systematic troubleshooting, rollback execution, stakeholder communication, and post-mortem analysis."
+  },
+  {
+    "text": "A speech recognition model has high word error rate for accented speakers. How do you address this bias?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Collect or source diverse audio data from speakers with various accents. Apply speech augmentation techniques (e.g., pitch shifting, time stretching, noise injection) and reweight loss functions to ensure fair representation."
+  },
+  {
+    "text": "Write a Python function to compute the moving average of a 1D NumPy array with a given window size.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Use np.convolve with a uniform window of weights normalized by the window size, or slice and average using cumsum for efficiency."
+  },
+  {
+    "text": "What is the difference between Parameter-Efficient Fine-Tuning (PEFT) and Full Fine-Tuning?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Full fine-tuning updates all parameters of a pretrained model, requiring high GPU memory and compute. PEFT methods (like LoRA or Prefix Tuning) freeze the backbone model and train only a small subset of additional parameters, drastically reducing memory and storage costs."
+  },
+  {
+    "text": "Describe a time when you used data visualization to uncover a hidden insight in an ML dataset.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Use STAR to describe the exploratory data analysis, plotting libraries used, insight discovered, and its impact on feature engineering."
+  },
+  {
+    "text": "Your automated ML monitoring alerts you to an anomaly where prediction latency has doubled over the past week. How do you investigate?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Check infrastructure metrics (CPU/GPU utilization, memory). Analyze input payload sizes (e.g., longer text sequences in NLP). Check for bottlenecks in feature store lookups or inefficient logging statements in inference code."
+  },
+  {
+    "text": "Write a Python function to compute the Inverse Document Frequency (IDF) given a list of tokenized documents and a vocabulary.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Count total documents. For each vocabulary term, count how many documents contain the term, and compute log(total_docs / (doc_frequency + 1)) with smoothing."
+  },
+  {
+    "text": "Explain how Beam Search works in sequence generation tasks like machine translation.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Beam search is a heuristic search algorithm that explores the graph by expanding the most promising k paths (beam width) at each step, rather than exploring all possible paths (exhaustive search) or only the single best path (greedy search)."
+  },
+  {
+    "text": "Tell me about a time when you proposed a novel solution or architecture that improved team productivity or model performance.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use STAR to detail the proposal, experimentation, validation, and adoption across the engineering team."
+  },
+  {
+    "text": "An NLP model for customer support chat routing is drifting due to new product features and slang. How do you establish a continuous learning loop?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Set up active learning pipelines to flag low-confidence predictions for human annotation. Implement automated weekly retraining jobs incorporating newly labeled edge cases, alongside rigorous shadow deployment validation."
+  },
+  {
+    "text": "Write a Python function to implement matrix multiplication from scratch using nested loops in Python.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Check matrix dimensions for compatibility. Initialize a result matrix with zeros, and use three nested loops to compute dot product sums for each row and column."
+  },
+  {
+    "text": "What is the difference between Depthwise Separable Convolutions and Standard Convolutions?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Depthwise separable convolutions split standard convolutions into two steps: a depthwise spatial convolution applied independently for each input channel, followed by a pointwise 1x1 convolution to combine channels. This drastically reduces parameters and computational complexity."
+  },
+  {
+    "text": "Describe a time when you had to refactor a messy, unmaintainable machine learning codebase. How did you approach it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use STAR to highlight writing unit tests first, modularizing scripts into reusable pipelines, and documenting the architecture."
+  },
+  {
+    "text": "Your model deployment fails health checks because initialization takes longer than the orchestrator's timeout threshold. How do you fix this?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Increase the readiness and liveness probe timeout thresholds in the Kubernetes or deployment configuration. Alternatively, optimize model loading time by lazy-loading heavy weights or using memory-mapped model files."
+  },
+  {
+    "text": "Write a Python function to compute the perplexity of a language model given sequence log-probabilities.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Sum the log probabilities across the sequence, divide by total tokens to get average negative log likelihood, and compute exponentiation of that average."
+  },
+  {
+    "text": "Explain the concept of Contrastive Divergence in Training Restricted Boltzmann Machines.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Contrastive Divergence approximates the gradient of the log-likelihood in energy-based models like RBMs by running a short Markov Chain Monte Carlo (Gibbs sampling) initialized at the training data, avoiding intractable partition function calculations."
+  },
+  {
+    "text": "Tell me about a time when you had to manage a project with a shifting scope and aggressive timeline.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use STAR to explain prioritization, agile sprint planning, communication of trade-offs, and successful milestone delivery."
+  },
+  {
+    "text": "A fraud detection system experiences adversarial evasion where fraudsters slightly alter transaction patterns to slip past thresholds. How do you adapt?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Incorporate adversarial training, feature obfuscation, and behavioral anomaly detection rather than static rule checks. Continuously update feature engineering pipelines to capture evolving fraud signatures."
+  },
+  {
+    "text": "Write a Python function to implement a simple Trie data structure for prefix-based word search.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Define a TrieNode class with a dictionary of children and a boolean end_of_word flag. Implement insert and search/starts_with methods traversing character by character."
+  },
+  {
+    "text": "What is the difference between Offline and Online evaluation in machine learning?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Offline evaluation uses historical test datasets and statistical metrics (accuracy, F1, AUC) to assess model performance without user interaction. Online evaluation tests models in production with live traffic using A/B testing, multi-armed bandits, or shadow deployments to measure real business impact."
+  },
+  {
+    "text": "Describe a time when you mentored a teammate through a difficult technical bug or conceptual misunderstanding.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Use STAR to highlight active listening, guiding questions, collaborative pair programming, and the teammate's subsequent success."
+  },
+  {
+    "text": "Your automated data drift detection alerts trigger false alarms every weekend due to natural cyclical drops in user traffic. How do you refine the monitoring?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Incorporate seasonality and day-of-week/time-of-day baselines into drift detection tests (e.g., comparing weekday to weekday rather than rolling 7-day windows). Adjust statistical threshold sensitivities or use robust drift tests."
+  },
+  {
+    "text": "Write a Python function to compute the R-squared (coefficient of determination) regression metric from scratch.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Compute the residual sum of squares (sum of squared differences between true and predicted values) and the total sum of squares (sum of squared differences between true values and their mean). Return 1 - (RSS / TSS)."
+  },
+  {
+    "text": "Explain the concept of Spatial Pyramid Pooling in Convolutional Neural Networks.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Spatial Pyramid Pooling removes the fixed-size constraint of CNNs by pooling features at multiple hierarchical scales (e.g., 4x4, 2x1, 1x1 grids) and concatenating them into a fixed-length vector before fully connected layers, allowing images of any size or aspect ratio."
+  },
+  {
+    "text": "Tell me about a time when you had to advocate for a technical investment (like refactoring or tooling) to non-technical leadership.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use STAR to explain how you translated technical debt into business risk, velocity loss, and cost metrics to secure budget approval."
+  },
+  {
+    "text": "A deep learning recommendation model has slow inference times because feature embeddings are computed on the fly. How do you accelerate inference?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Precompute and store static user and item embeddings in an online vector database or feature store. Perform approximate nearest neighbor (ANN) search for candidate generation rather than full scoring."
+  },
+  {
+    "text": "Write a Python function to implement label encoding mapping categorical strings to integer indices.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Extract unique categories from the array, create a dictionary mapping each unique category to an integer index, and transform the input array using the mapping."
+  },
+  {
+    "text": "What is the difference between Causal Language Modeling and Masked Language Modeling?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Causal Language Modeling (e.g., GPT) predicts the next token given past context using unidirectional attention, making it ideal for generation. Masked Language Modeling (e.g., BERT) predicts masked tokens within bidirectional context, making it ideal for understanding and classification tasks."
+  },
+  {
+    "text": "Describe a time when you handled a conflict with a cross-functional partner regarding project delivery timelines.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use STAR to highlight empathetic listening, transparent communication of technical bottlenecks, and negotiating a phased delivery plan."
+  },
+  {
+    "text": "Your model inference service returns 500 errors during traffic surges due to thread pool exhaustion. How do you re-architect the service?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Implement asynchronous request handling (e.g., FastAPI with async/await, or Tornado). Add request queuing with maximum queue depths and backpressure handling to gracefully shed load or return 429 Too Many Requests."
+  },
+  {
+    "text": "Write a Python function to compute the Jaccard similarity coefficient between two sets.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Compute the size of the intersection of the two sets divided by the size of their union."
+  },
+  {
+    "text": "Explain how the Reparameterization Trick works in Variational Autoencoders (VAEs).",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "The reparameterization trick expresses the latent sample z as a deterministic function of the encoder's outputs (mean and variance) and an independent noise variable epsilon drawn from a standard normal distribution (z = mu + sigma * epsilon). This allows gradients to flow back through the encoder during backpropagation."
+  },
+  {
+    "text": "Tell me about a time when you identified and fixed a security vulnerability in an ML system or pipeline.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use STAR to detail the vulnerability discovery (e.g., insecure deserialization with pickle or unverified input payloads), fix implementation, and security hardening."
+  },
+  {
+    "text": "A deployed churn prediction model shows high accuracy but business stakeholders note it never flags high-value enterprise accounts. What is wrong?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The model is optimized for overall accuracy on an imbalanced dataset where SMB accounts dominate. Enterprise accounts are underrepresented, leading to high false negatives for high-value segments. Switch to cost-sensitive learning or stratified evaluation."
+  },
+  {
+    "text": "Write a Python function to implement standard 2D max pooling using NumPy.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Extract image dimensions, calculate output shape given pool size and stride, and use nested loops or vectorized slicing to find maximum values across sliding windows."
+  },
+  {
+    "text": "What is the difference between Parameter Server and AllReduce architectures in distributed training?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Parameter Server architecture uses centralized nodes to store and update model parameters, while worker nodes compute gradients and push/pull from the server, creating potential network bottlenecks. AllReduce architecture uses decentralized ring or tree topologies where workers communicate gradients directly with peers to synchronize parameters simultaneously."
+  },
+  {
+    "text": "Describe a time when you had to make a high-stakes technical decision with incomplete data. What was the outcome?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use STAR to highlight risk assessment, prototyping, agile iteration, and the successful outcome of the decision."
+  },
+  {
+    "text": "Your feature engineering pipeline runs locally in 5 minutes but times out after 4 hours when scaled up on a distributed Spark cluster. How do you debug?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Check for data skew causing straggler tasks in Spark. Inspect shuffle operations, unpersisted dataframes causing recomputation, or improper partitioning. Use the Spark UI to analyze stage timelines and task execution metrics."
+  },
+  {
+    "text": "Write a Python function to compute the entropy of a categorical probability distribution.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Clip probabilities with epsilon to avoid log(0), compute -sum(p * log2(p)), and return the entropy value."
+  },
+  {
+    "text": "Explain the concept of Target Leakage in machine learning and give an example.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Target leakage occurs when information from the target variable is accidentally included in the feature set during training, leading to unrealistically high offline performance that collapses in production. An example is including a feature 'account_closed_date' when predicting customer churn."
+  },
+  {
+    "text": "Tell me about a time when you received negative feedback on your teamwork or communication style. How did you adapt?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use STAR to show self-awareness, active listening, steps taken to improve communication habits, and positive changes observed by peers."
+  },
+  {
+    "text": "An image classification model begins misclassifying images after an upstream camera sensor upgrade alters image color balance. How do you fix this?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Apply color normalization and histogram matching preprocessing steps to align new sensor outputs with the original training distribution, and collect a fine-tuning dataset using the new camera."
+  },
+  {
+    "text": "Write a Python function to implement a basic linear regression gradient descent step updating weights and bias.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Compute predictions (X * w + b), calculate errors (predictions - y), compute weight gradients (X.T * errors / N) and bias gradients (sum(errors) / N), and update parameters using learning rate."
+  },
+  {
+    "text": "What is the difference between Model Quantization (PTQ) and Quantization-Aware Training (QAT)?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Post-Training Quantization (PTQ) converts a pretrained floating-point model to lower precision (e.g., INT8) after training, which is fast but can cause accuracy drops. Quantization-Aware Training (QAT) simulates quantization effects during the training forward and backward passes, allowing the model to adapt and retain high accuracy."
+  },
+  {
+    "text": "Describe a time when you initiated a cross-team collaboration to solve a recurring technical pain point.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use STAR to highlight problem identification, stakeholder alignment, collaborative execution, and lasting positive impact."
+  },
+  {
+    "text": "Your online recommendation model suffers from a cold-start problem for new users and items. How do you mitigate this?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use content-based filtering, metadata, and demographic features for new users/items. Implement multi-armed bandit exploration strategies or fallback to popularity-based and trending recommendations until interaction data accumulates."
+  },
+  {
+    "text": "Write a Python function to compute the mean reciprocal rank (MRR) evaluation metric for a list of ranked recommendations and relevant item IDs.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Iterate through ranked lists, find the position (1-indexed) of the first relevant item, take the reciprocal (1/rank), and average across all queries."
+  },
+  {
+    "text": "Explain how the Gated Recurrent Unit (GRU) differs from the Long Short-Term Memory (LSTM) network.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "GRUs combine the cell state and hidden state, and use two gates (reset and update) instead of the three gates (input, forget, output) found in LSTMs. This makes GRUs computationally lighter and faster to train while offering comparable performance on many tasks."
+  },
+  {
+    "text": "Tell me about a time when you had to manage a project schedule slip. How did you communicate with stakeholders and adjust deliverables?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use STAR to explain early risk identification, transparent communication, scope renegotiation, and successful delivery of revised milestones."
+  },
+  {
+    "text": "A real-time sentiment analysis API experiences high variance in response times due to variable input text lengths. How do you stabilize latency?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Implement dynamic batching on the inference server, truncate input texts exceeding maximum token lengths, and bucket requests by length to minimize padding overhead."
+  },
+  {
+    "text": "Write a Python function to perform label smoothing given multi-class probabilities and a smoothing factor alpha.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Convert one-hot encoded labels y to smoothed labels by multiplying by (1 - alpha) and adding alpha / num_classes."
+  },
+  {
+    "text": "What is the difference between Associative and Non-Associative memory in Hopfield Networks?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Associative memory refers to the network's ability to retrieve a complete stored pattern when presented with a noisy or partial cue. Non-associative memory or capacity limits describe the threshold beyond which spurious states appear and patterns can no longer be accurately recalled."
+  },
+  {
+    "text": "Describe a time when you went above and beyond your standard responsibilities to ensure the success of an AI project.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Use STAR to highlight proactive initiative, going beyond job scope, and delivering critical project value."
+  },
+  {
+    "text": "Your organization wants to transition from on-premise GPU clusters to a cloud-native Kubernetes MLOps platform. What is your migration strategy?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Containerize existing training and inference workloads using Docker. Set up a Kubernetes cluster with GPU operator support. Migrate pipelines incrementally, starting with stateless inference services before moving heavy distributed training jobs."
+  },
+  {
+    "text": "Write a Python function to compute the Normalized Discounted Cumulative Gain (NDCG@k) for a ranked list of items and relevance scores.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "Compute DCG@k by summing relevance scores divided by log2(rank + 1). Compute Ideal DCG@k by sorting relevance scores descending. Return DCG@k divided by IDCG@k."
+  },
+  {
+    "text": "Explain the concept of Model Drift vs. Data Drift.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Data drift refers to changes in the statistical distribution of input features over time (P(X)). Model drift (or concept drift) refers to changes in the statistical relationship between input features and the target variable (P(Y|X)), meaning the underlying mapping has changed."
+  },
+  {
+    "text": "Tell me about a time when you had to onboard onto an unfamiliar codebase with poor documentation. How did you get up to speed?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Use STAR to highlight exploratory testing, writing unit tests to understand behavior, pairing with peers, and documenting findings."
+  },
+  {
+    "text": "A multimodal LLM application processing user uploaded images and text is suffering from prompt injection via hidden text embedded in images. How do you defend against this?",
+    "type": "SITUATIONAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Implement robust optical character recognition (OCR) pre-scanning filters, sanitize extracted text, use adversarial training on multimodal inputs, and enforce strict system prompt boundaries separating user content from instructions."
+  },
+  {
+    "text": "Write a Python function to implement k-means clustering assignment step (assigning points to nearest centroids) using NumPy.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Compute Euclidean distance matrix between data points and centroids, and use np.argmin along the centroid axis to find the nearest cluster index for each point."
+  }
+]

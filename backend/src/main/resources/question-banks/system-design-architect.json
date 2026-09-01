@@ -1,0 +1,1094 @@
+[
+  {
+    "text": "What is horizontal scaling and how does it differ from vertical scaling?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Horizontal scaling involves adding more machines to your resource pool, while vertical scaling means adding more power (CPU, RAM) to an existing machine. Horizontal scaling provides better fault tolerance and near-infinite scalability, though it introduces complexity in data distribution and coordination."
+  },
+  {
+    "text": "Explain the concept of eventual consistency in distributed databases.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Eventual consistency is a consistency model where, if no new updates are made, all replicas will eventually converge to the same value. It trades immediate consistency for high availability and lower latency, commonly used in modern NoSQL distributed data stores."
+  },
+  {
+    "text": "What is a cache hit and a cache miss?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A cache hit occurs when requested data is successfully found in the cache layer, resulting in fast retrieval. A cache miss happens when the data is not in the cache, requiring a fallback to the slower primary data source to fetch and subsequently cache the data."
+  },
+  {
+    "text": "What is the primary purpose of a database index?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A database index is a data structure, typically a B-tree, that improves the speed of data retrieval operations on a table at the cost of additional storage and slower write performance. It allows the database engine to find rows without scanning the entire table."
+  },
+  {
+    "text": "What is a message queue and why is it used?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A message queue is a form of asynchronous service-to-service communication used to decouple sender and receiver components. It helps smooth out traffic spikes, ensures reliable message delivery, and enables asynchronous background processing."
+  },
+  {
+    "text": "What is a load balancer and what are its core functions?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A load balancer distributes incoming network traffic across multiple backend servers to ensure no single server bears too much demand. Core functions include health checking, SSL termination, sticky sessions, and distributing load using algorithms like round robin."
+  },
+  {
+    "text": "Briefly state what the CAP theorem asserts.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The CAP theorem states that a distributed data store can simultaneously provide at most two of three guarantees: Consistency, Availability, and Partition Tolerance. In real-world distributed systems, network partitions are inevitable, forcing a trade-off between consistency and availability."
+  },
+  {
+    "text": "Describe the Least Recently Used (LRU) cache eviction policy.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "LRU is a cache eviction algorithm that discards the items that have not been accessed for the longest time when the cache reaches its capacity limit. It relies on the assumption that data used recently is likely to be used again soon."
+  },
+  {
+    "text": "What is vertical partitioning in databases?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Vertical partitioning involves splitting a table into multiple tables with fewer columns, often separating frequently accessed columns from rarely accessed ones. This reduces disk I/O and improves query performance for specific workloads."
+  },
+  {
+    "text": "What is the difference between synchronous and asynchronous replication?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Synchronous replication waits for confirmation that data is written to all replicas before acknowledging a write, ensuring strong consistency. Asynchronous replication acknowledges writes immediately after the primary node writes, prioritizing performance over consistency."
+  },
+  {
+    "text": "What is database sharding and when would you use it?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Sharding is the process of breaking down a large database into smaller, faster, more easily managed pieces called shards, distributed across multiple servers. It is used when a single database instance runs out of storage or compute capacity to handle massive write and read volumes."
+  },
+  {
+    "text": "Explain ACID properties in relational databases.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "ACID stands for Atomicity, Consistency, Isolation, and Durability, which are the standard guarantees provided by relational database transactions. They ensure that database operations are reliable, valid, isolated from concurrent interference, and permanently saved."
+  },
+  {
+    "text": "What is cache stampede and how can it be mitigated?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Cache stampede occurs when a heavily used cache item expires, causing numerous concurrent requests to query the database simultaneously. It can be mitigated using techniques like locking, probabilistic early expiration, or background refreshing."
+  },
+  {
+    "text": "What is the difference between SQL and NoSQL databases?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "SQL databases are relational, schema-based, and excel at complex queries and ACID transactions. NoSQL databases are non-relational, highly flexible or schema-less, and are designed for horizontal scalability and high throughput on unstructured data."
+  },
+  {
+    "text": "What is the publish-subscribe messaging pattern?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Pub-Sub is a messaging pattern where message senders (publishers) do not programmatically send messages to specific receivers (subscribers). Instead, published messages are categorized into topics, and subscribers receive messages matching their subscribed topics."
+  },
+  {
+    "text": "What is round-robin load balancing?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Round-robin is a simple load balancing algorithm where client requests are distributed sequentially across a list of backend servers. Once the end of the list is reached, the allocator loops back to the first server."
+  },
+  {
+    "text": "Define network partitioning in the context of the CAP theorem.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A network partition is a communication break or split in a distributed network where two or more sub-networks can no longer communicate with each other. Distributed systems must be resilient to partitions, forcing choices between consistency and availability."
+  },
+  {
+    "text": "What is write-through caching?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Write-through caching is a strategy where data is written to the cache and the underlying database simultaneously during a write operation. This ensures high data consistency between the cache and storage at the cost of higher write latencies."
+  },
+  {
+    "text": "What is database denormalization?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Denormalization is the practice of introducing redundancy into a database by combining tables to avoid costly joins. It optimizes read performance at the expense of write performance and increased storage requirements."
+  },
+  {
+    "text": "What is a dead-letter queue in message systems?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A dead-letter queue is a holding area for messages that cannot be successfully processed or delivered after a maximum number of retry attempts. It allows developers to inspect and debug faulty messages without blocking the main message stream."
+  },
+  {
+    "text": "Tell me about a time you had to scale a system under unexpected high traffic.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Candidate should explain the context, the unexpected spike, their immediate action items, and the architectural or configuration changes made to stabilize the system successfully."
+  },
+  {
+    "text": "How do you prioritize tech debt when designing a new system architecture?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Candidate should discuss balancing business velocity with system maintainability, assessing risk, and communicating trade-offs effectively with stakeholders."
+  },
+  {
+    "text": "Describe a disagreement you had with a team member regarding a database technology choice.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Candidate should highlight active listening, data-driven decision making, objectivity, and reaching a collaborative consensus that served the product goals."
+  },
+  {
+    "text": "How do you keep your knowledge up-to-date with modern scalable architectures?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Candidate should reference reading engineering blogs, studying post-mortems of major outages, experimenting with open-source tools, and attending technical conferences."
+  },
+  {
+    "text": "Write a function to implement a basic Least Recently Used cache using a hash map and a doubly linked list.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Candidate should write clean code demonstrating O(1) time complexity for both get and put operations by combining a hash map for lookups and a doubly linked list for tracking recency."
+  },
+  {
+    "text": "Write a simple rate limiter algorithm using a token bucket approach.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Candidate should implement a function that checks token availability, refills tokens based on elapsed time, and returns a boolean indicating whether a request is allowed."
+  },
+  {
+    "text": "A key-value store is experiencing high latency on writes due to disk flushes. How would you diagnose and fix this?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Candidate should suggest checking disk I/O metrics, optimizing commit log configurations, upgrading to faster SSDs, or scaling horizontally to distribute the write load."
+  },
+  {
+    "text": "Your cache hit ratio drops significantly after a deployment. What steps do you take to investigate?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Candidate should propose checking cache key naming conventions, verifying TTL configurations, reviewing recent code changes affecting data access patterns, and inspecting cache eviction logs."
+  },
+  {
+    "text": "Explain Consistent Hashing and how it minimizes reorganization when nodes are added or removed.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Consistent hashing maps both servers and data keys onto a circular ring space using a hash function. When a node is added or removed, only a small fraction of keys corresponding to the adjacent segment need to be remapped, minimizing cache misses or data migration."
+  },
+  {
+    "text": "Compare optimistic locking and pessimistic locking in database transactions.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Optimistic locking assumes conflicts are rare, checking for modifications at commit time using version numbers, whereas pessimistic locking locks rows immediately upon reading to prevent concurrent modifications, trading concurrency for safety."
+  },
+  {
+    "text": "What is write-behind caching and what are the trade-offs?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Write-behind caching writes data to the cache immediately and defers writing to the persistent data store asynchronously. It offers high write performance and low latency, but risks data loss if the cache fails before data is flushed."
+  },
+  {
+    "text": "Explain the role of write-ahead logging (WAL) in database durability.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "WAL is a technique where changes are recorded in a log on disk before the database is actually modified. This ensures durability because, in the event of a crash, the database can replay the log to recover uncommitted or committed transactions."
+  },
+  {
+    "text": "How do message brokers handle at-least-once versus exactly-once delivery guarantees?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "At-least-once ensures messages are not lost by retrying unacknowledged deliveries, which can cause duplicates. Exactly-once requires idempotency in consumers or complex distributed transactions, making it significantly harder and more expensive to achieve."
+  },
+  {
+    "text": "What is lease-based concurrency control in distributed systems?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A lease is a time-bound lock granted by a resource coordinator to a node, granting exclusive rights to perform specific operations. If the lease expires without renewal, the coordinator can safely reassign the resource, avoiding deadlocks from partitioned nodes."
+  },
+  {
+    "text": "Explain session stickiness in load balancers and its drawbacks.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Session stickiness routes all requests from a specific user to the same backend server based on cookies or IP. Drawbacks include load imbalance across servers and reduced fault tolerance if the designated server crashes."
+  },
+  {
+    "text": "How does the Two-Phase Commit (2PC) protocol work and what are its weaknesses?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "2PC coordinates distributed transactions in two phases: a prepare phase where nodes vote, and a commit phase where the coordinator applies changes. Its main weakness is blocking behavior, where a coordinator failure can leave resource managers locked indefinitely."
+  },
+  {
+    "text": "What is a Bloom filter and what are its primary use cases?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A Bloom filter is a space-efficient probabilistic data structure used to test whether an element is a member of a set. It can yield false positives but never false negatives, making it ideal for avoiding expensive database lookups for non-existent keys."
+  },
+  {
+    "text": "Describe the Vector Clock mechanism for causal consistency.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A vector clock is an array of logical clocks kept by each node in a distributed system to track causality between events. It allows the system to detect concurrent writes and resolve conflicts without relying on synchronized physical clocks."
+  },
+  {
+    "text": "What is database connection pooling and why is it important?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Connection pooling maintains a cache of active database connections so they can be reused for future requests instead of opening and closing a new connection every time. It prevents resource exhaustion on the database server and significantly reduces query latency."
+  },
+  {
+    "text": "How does Raft consensus algorithm handle leader election?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Raft uses randomized election timeouts where followers transition to candidates if they do not hear from a leader, requesting votes from peers. The candidate that gathers votes from a majority of the cluster becomes the new leader for that term."
+  },
+  {
+    "text": "What is backpressure in asynchronous streaming and messaging systems?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Backpressure is a flow control mechanism that allows consumers to signal producers to slow down data generation when they are overwhelmed. It prevents memory exhaustion and system crashes caused by mismatched processing speeds."
+  },
+  {
+    "text": "Explain Layer 4 versus Layer 7 load balancing.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Layer 4 load balancing operates at the transport layer, routing traffic based on IP addresses and TCP/UDP ports without inspecting content. Layer 7 operates at the application layer, inspecting HTTP headers, cookies, and paths to make more intelligent routing decisions."
+  },
+  {
+    "text": "What is the difference between strong consistency and eventual consistency in practice?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Strong consistency guarantees that every read returns the most recent write across all replicas, often increasing latency due to coordination. Eventual consistency allows temporary stale reads across replicas for fast performance until updates propagate."
+  },
+  {
+    "text": "What is a gossip protocol and how is it used for cluster management?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A gossip protocol is a peer-to-peer communication mechanism where nodes periodically exchange state information with random neighbors. It provides decentralized, fault-tolerant cluster membership tracking and failure detection without a central coordinator."
+  },
+  {
+    "text": "How do you choose between a relational database and a NoSQL document store for a new microservice?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Choose relational when data is highly structured, requires complex joins, and demands strict ACID transactions. Choose NoSQL when data is hierarchical, evolves rapidly in schema, and requires massive horizontal write scalability."
+  },
+  {
+    "text": "What is cache invalidation and why is it considered one of the hardest problems in computer science?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Cache invalidation is the process of removing or updating stale cached data when the underlying source changes. It is difficult because systems must coordinate distributed state updates precisely to prevent serving outdated information without hurting performance."
+  },
+  {
+    "text": "Explain the concept of sharding keys and the hot-spotting problem.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A sharding key determines how data is distributed across database shards. Hot-spotting occurs when a poorly chosen key concentrates disproportionate read or write traffic onto a single shard, negating the benefits of horizontal scaling."
+  },
+  {
+    "text": "What is distributed tracing and why is it necessary in microservice architectures?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Distributed tracing tracks a request journey across multiple microservices by passing unique correlation IDs through headers. It is necessary for debugging latency bottlenecks, error propagation, and visualizing complex asynchronous call graphs."
+  },
+  {
+    "text": "Tell me about a time you designed a system that failed under load and how you fixed the architecture.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Candidate should describe the failure mode, take accountability, explain the root cause analysis, and detail the architectural redesign that prevented recurrence."
+  },
+  {
+    "text": "How do you convince a product manager to delay feature work to invest in architectural scalability?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Candidate should emphasize translating technical risk into business impact, discussing user experience, financial cost of outages, and presenting phased incremental solutions."
+  },
+  {
+    "text": "Describe a scenario where you had to choose between consistency and availability in a distributed system.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Candidate should explain the business requirements, the CAP theorem implications, the choice made, and the measures taken to handle the trade-offs."
+  },
+  {
+    "text": "How do you mentor junior engineers on designing fault-tolerant systems?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Candidate should mention encouraging failure-mode analysis, code reviews focusing on edge cases, blameless post-mortems, and hands-on chaos engineering."
+  },
+  {
+    "text": "Design and implement a distributed rate limiter that works across multiple application servers using Redis.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Candidate should write code utilizing Redis sorted sets or atomic commands like INCR with expiration to implement a sliding window or token bucket rate limiter accurately."
+  },
+  {
+    "text": "Write a function implementing consistent hashing to map a list of keys to a set of server nodes.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Candidate should implement a hash ring using a sorted data structure, adding virtual nodes for even distribution, and writing a lookup function to find the appropriate server for any key."
+  },
+  {
+    "text": "Your read-heavy e-commerce product catalog is experiencing high database CPU utilization during sales events. How do you redesign the caching layer?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Candidate should propose introducing a multi-tier caching strategy (CDN, application memory, distributed Redis cluster), implementing cache-aside with asynchronous refresh, and adding rate limiting."
+  },
+  {
+    "text": "A distributed logging pipeline is dropping messages during peak traffic. How would you redesign the message queue and consumer architecture?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Candidate should suggest increasing partition count in the message broker, scaling out consumer groups, adding batching mechanisms, and provisioning buffer storage to absorb traffic spikes."
+  },
+  {
+    "text": "Explain Paxos consensus protocol and how it achieves agreement in an unreliable network.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Paxos achieves consensus through proposers, acceptors, and learners using a two-phase protocol involving prepare-promise and accept-accepted phases. It guarantees safety in asynchronous networks even when messages are delayed or duplicated, though it is notoriously complex to implement."
+  },
+  {
+    "text": "How does Google Spanner achieve external consistency (linearizability) across globally distributed data centers?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Spanner achieves external consistency using TrueTime, an API backed by GPS receivers and atomic clocks that provides bounded uncertainty time intervals. This allows the system to order transactions globally without global locking."
+  },
+  {
+    "text": "What is the difference between linearizability and serializability?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Serializability is a transactional isolation property ensuring that concurrent multi-operation transactions execute as if they were in some serial order. Linearizability is a single-object concurrency property ensuring operations take effect at a specific point in time between invocation and response."
+  },
+  {
+    "text": "Explain distributed deadlocks and how database engines detect and resolve them.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "A distributed deadlock occurs when two or more nodes are waiting for locks held by each other across different machines. Databases detect them using wait-for graphs and resolve them by aborting and rolling back one of the transactions or using timeout mechanisms."
+  },
+  {
+    "text": "What is the CALM theorem and how does it relate to distributed coordination?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "The Consistency As Logical Monotonicity theorem states that a distributed computation can be evaluated deterministically without coordination if and only if it is monotonic. Non-monotonic operations like negation require coordination or distributed locks."
+  },
+  {
+    "text": "How do bloom filters and count-min sketches handle false positives and memory efficiency?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Both use multiple hash functions and bit arrays or frequency matrices to trade accuracy for extreme memory compression. Bloom filters handle set membership with false positives, while count-min sketches estimate frequency with overestimation errors."
+  },
+  {
+    "text": "Explain the architecture of a Log-Structured Merge-tree (LSM-tree) and its write optimization.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "An LSM-tree optimizes write performance by appending all writes to an in-memory sorted buffer (MemTable) and a sequential commit log. Periodically, data is flushed and compacted across sorted files on disk, turning random writes into sequential disk I/O."
+  },
+  {
+    "text": "What are Byzantine failures and how do Byzantine Fault Tolerant (BFT) systems handle them?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Byzantine failures occur when components exhibit arbitrary or malicious behavior, including sending conflicting information to different parts of the system. BFT algorithms use cryptographic signatures and multi-round voting among nodes to reach consensus despite malicious actors."
+  },
+  {
+    "text": "How does the Raft log compaction mechanism work using snapshotting?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Raft snapshotting replaces the entire log up to the last applied index with a compacted state machine snapshot to prevent unbounded log growth. Followers that fall too far behind receive the snapshot directly from the leader instead of replaying historical log entries."
+  },
+  {
+    "text": "Explain multi-raft architectures and why large-scale storage systems adopt them.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Multi-Raft divides a large dataset into multiple smaller shards or ranges, each managed by its own independent Raft consensus group. This avoids the bottleneck of a single cluster-wide consensus group and scales write throughput across numerous independent leaders."
+  },
+  {
+    "text": "Describe how distributed hash tables (DHTs) route queries in peer-to-peer networks like Chord.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Chord uses consistent hashing and finger tables to route lookup queries across a decentralized ring in O(log N) hops. Each node maintains pointers to other nodes at exponentially increasing distances on the identifier circle."
+  },
+  {
+    "text": "What is the PACELC theorem and how does it extend the CAP theorem?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "PACELC extends CAP by stating that if there is a Partition (P), a system must trade off Availability (A) and Consistency (C); Else (E), when the system is running normally, it must choose between Latency (L) and Consistency (C)."
+  },
+  {
+    "text": "How do distributed databases implement MVCC (Multi-Version Concurrency Control) across nodes?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Distributed MVCC maintains multiple immutable versions of data items tagged with timestamps or transaction IDs. Readers access older consistent snapshots without blocking writers, while distributed garbage collection reclaims obsolete versions."
+  },
+  {
+    "text": "Explain the mechanics of zero-copy data transfer in high-throughput network architectures.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Zero-copy avoids redundant data copying between user space and kernel space buffers by utilizing DMA (Direct Memory Access) and system calls like sendfile. This drastically reduces CPU overhead and memory bandwidth consumption in high-performance networking."
+  },
+  {
+    "text": "How do distributed graph databases partition highly connected network topologies?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Distributed graph databases use graph partitioning algorithms like edge-cut or vertex-cut to divide vertices and edges across machines while minimizing cross-network traversal overhead during deep queries."
+  },
+  {
+    "text": "Describe the internals of Kafka's append-only log storage model and zero-copy optimization.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Kafka stores messages in sequential log segments on disk, allowing O(1) disk read and write performance. It leverages OS page cache and the sendfile system call to transfer data directly from disk channels to network sockets with zero CPU copies."
+  },
+  {
+    "text": "What is read repair and anti-entropy in decentralized eventual consistency stores like Cassandra?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Read repair asynchronously updates out-of-sync replicas when a client reads inconsistent data across multiple nodes. Anti-entropy uses background Merkle tree comparisons between replicas to detect and synchronize discrepancies across the entire dataset."
+  },
+  {
+    "text": "How do distributed consensus algorithms handle split-brain scenarios?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Consensus algorithms prevent split-brain by requiring strict majorities (quorums) of nodes to approve any state change or leader election. If a network partition splits the cluster, the minority side cannot collect a quorum and thus halts writes to preserve consistency."
+  },
+  {
+    "text": "Explain the concept of serializability bottlenecks in distributed transactions and how to avoid them.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Serializability bottlenecks occur when global locks or single sequencer nodes limit transaction throughput. Avoid them by using commutative operations, optimistic concurrency control, or partitioning data to ensure transactions remain local."
+  },
+  {
+    "text": "What is deterministic simulation testing and how is it used to verify complex distributed systems?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Deterministic simulation runs a distributed system inside a single process with a simulated clock and network, allowing engineers to inject faults and reproduce rare concurrency bugs reliably by controlling randomness."
+  },
+  {
+    "text": "Describe a time when you had to debug a race condition that only occurred in production under high load.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Candidate should detail the investigative approach, monitoring tools used, creation of a reproducible test environment, and the final architectural fix."
+  },
+  {
+    "text": "How do you handle a major architectural decision when key stakeholders hold conflicting technical visions?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Candidate should discuss running time-boxed proof-of-concepts, establishing objective evaluation criteria, aligning technical choices with business metrics, and securing consensus."
+  },
+  {
+    "text": "Tell me about a time you introduced a zero-downtime migration for a core data storage layer.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Candidate should explain the dual-write pattern, backfill strategies, verification phases, fallback plans, and how consistency was maintained throughout."
+  },
+  {
+    "text": "How do you evaluate and manage technical risks for a mission-critical system with strict SLAs?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Candidate should discuss failure mode and effects analysis (FMEA), redundancy planning, defining realistic error budgets, and establishing rigorous observability frameworks."
+  },
+  {
+    "text": "Implement a distributed lock manager using Redis with redlock algorithm considerations or fencing tokens.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Candidate should write code incorporating atomic set-if-not-exists commands with expiration timers, random value generation for safe release, and issuing monotonic fencing tokens."
+  },
+  {
+    "text": "Write a thread-safe implementation of a lock-free queue or ring buffer in a concurrent programming language.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Candidate should implement a bounded multi-producer multi-consumer queue using atomic compare-and-swap (CAS) operations and memory barriers to ensure lock-free thread safety."
+  },
+  {
+    "text": "A globally distributed financial ledger is experiencing transaction ordering anomalies across regions. How do you redesign the consistency model?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Candidate should suggest integrating hybrid logical clocks or true-time APIs, migrating to linearizable consensus groups, and implementing strict transaction sequencing per account entity."
+  },
+  {
+    "text": "Your multi-tenant SaaS application suffers from cascading failures when one noisy neighbor exhausts database connection pools. How do you isolate the failure?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Candidate should propose implementing tenant-level rate limiting, dedicated database pools or separate shards for enterprise tenants, circuit breakers, and bulkhead isolation patterns."
+  },
+  {
+    "text": "Explain how decentralized cryptographic consensus (Proof of Work vs. Proof of Stake) ensures global state agreement.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Proof of Work secures state agreement by requiring computational puzzle solving proportional to mining difficulty, while Proof of Stake ties block validation rights to economic collateral staked by validators. Both use economic incentives and cryptographic chaining to achieve Byzantine fault tolerance without trusted authorities."
+  },
+  {
+    "text": "How do distributed file systems like HDFS or GFS handle metadata scaling and single point of failure bottlenecks?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Modern distributed file systems address metadata bottlenecks by partitioning namespace trees across multiple metadata servers using consensus protocols (like Raft or Paxos) and active-passive standby architectures for high availability."
+  },
+  {
+    "text": "Describe the internals of Conflict-Free Replicated Data Types (CRDTs) and state-based versus operation-based convergence.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "CRDTs are data structures that can be replicated across nodes and updated independently without coordination, guaranteeing eventual mathematical convergence. State-based CRDTs transmit entire states merged using a join-semilattice, while operation-based CRDTs transmit causal operations requiring reliable delivery."
+  },
+  {
+    "text": "How do modern NewSQL databases combine distributed consensus with relational ACID transactions at scale?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "NewSQL databases combine distributed consensus algorithms (like Raft) for replication and fault tolerance with two-phase commit or Percolator-style transaction protocols to provide strict serializability across sharded tables."
+  },
+  {
+    "text": "Explain how distributed stream processing engines (like Flink or Spark Streaming) guarantee exactly-once semantics across stateful transformations.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "They achieve exactly-once semantics using distributed snapshotting protocols like Chandy-Lamport barrier alignment. State is periodically checkpointed to durable storage, and sinks coordinate with checkpoints to ensure side effects are committed atomically."
+  },
+  {
+    "text": "How do you architect a multi-region active-active database system while minimizing cross-region write latency and avoiding split-brain?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Architecting active-active multi-region systems requires partition-aware consensus protocols with WAN optimization, locality-based routing, asynchronous replication with conflict-resolution strategies, or partitioned data ownership to eliminate cross-region contention."
+  },
+  {
+    "text": "Describe the internal architecture of a high-performance distributed search engine like Elasticsearch regarding inverted indices and segment merging.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Search engines organize data into immutable Lucene segments containing inverted indices mapped on disk. Background threads periodically merge smaller segments into larger ones while optimizing deletions and term dictionaries to maintain query latency."
+  },
+  {
+    "text": "How do hardware-accelerated networking technologies (e.g., RDMA, DPDK) transform distributed systems storage architectures?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "RDMA and DPDK bypass operating system kernel overheads and CPU packet processing stacks, allowing microsecond-level direct memory access between remote servers. This redefines distributed storage by turning network round-trips into speeds approaching local memory access."
+  },
+  {
+    "text": "Tell me about a time you diagnosed and resolved an obscure, intermittent failure in a massive distributed architecture.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Candidate should describe a highly complex troubleshooting journey, creative instrumentation, deep analytical rigor, and the long-term architectural safeguards implemented."
+  },
+  {
+    "text": "How do you lead an organization-wide migration from a monolithic legacy system to a globally distributed cloud-native architecture?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Candidate should articulate a strategic roadmap utilizing the strangler fig pattern, establishing foundational platform teams, managing risk incrementally, and maintaining business momentum."
+  },
+  {
+    "text": "Implement a state-based Conflict-Free Replicated Data Type (CRDT) Grow-Only Set or Observed-Removed Set in a concurrent language.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "Candidate should write robust code implementing a join-semilattice merge function that computes the union of sets or state sets without loss of concurrent modifications."
+  },
+  {
+    "text": "Design the core replication and leader election loop for a mini-Raft consensus node from scratch.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "Candidate should write clean, concurrent code managing term numbers, vote collection, heartbeat timers, and log replication RPC handlers adhering to the Raft specification."
+  },
+  {
+    "text": "A multi-datacenter transactional database is experiencing tail-latency spikes exceeding 2 seconds during peak hours. How do you profile and re-architect the system?",
+    "type": "SITUATIONAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Candidate should propose setting up end-to-end flame graphs, analyzing network queue congestion, isolating slow WAN consensus calls, introducing local read replicas with stale read allowances, and optimizing lock contention."
+  },
+  {
+    "text": "Your peer-to-peer gossip protocol network suffers from broadcast storms and high bandwidth saturation during partition recovery. How do you optimize the epidemic algorithm?",
+    "type": "SITUATIONAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Candidate should suggest implementing anti-entropy digest exchanges instead of full state pushes, introducing randomized fan-out controls, adaptive gossip intervals, and hierarchical clustering to bound message overhead."
+  },
+  {
+    "text": "What is horizontal scaling and how does it differ from vertical scaling in system architecture?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Horizontal scaling involves adding more machines to your pool of resources to handle increased load, while vertical scaling involves adding more power (CPU, RAM) to an existing machine. Horizontal scaling offers better fault tolerance and virtually limitless growth, whereas vertical scaling is simpler to implement initially but hits a physical hardware limit."
+  },
+  {
+    "text": "Explain the concept of eventual consistency and give a real-world example.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Eventual consistency is a consistency model used in distributed computing that guarantees that, if no new updates are made, all replicas will eventually return the same value. A common example is social media post likes, where the count might differ slightly across regions for a few seconds before synchronizing globally."
+  },
+  {
+    "text": "What is the primary purpose of a cache in a high-traffic web application?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A cache stores copies of frequently accessed data in a fast-access storage layer, typically in-memory like Redis or Memcached. Its primary purpose is to reduce latency, decrease load on primary databases, and improve overall throughput for read-heavy operations."
+  },
+  {
+    "text": "What is a relational database and when should you choose it over a non-relational database?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A relational database (RDBMS) stores data in structured tables with predefined schemas and enforces ACID properties using SQL. You should choose it when your application requires complex queries, strict data integrity, and transactions, such as financial ledger systems."
+  },
+  {
+    "text": "What is a message queue and why is it used in distributed systems?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A message queue is a form of asynchronous service-to-service communication used to decouple producers and consumers. It is used to handle traffic spikes, buffer workloads, and ensure reliable message delivery even if the consuming service is temporarily down."
+  },
+  {
+    "text": "What is a load balancer and what are the most common algorithms it uses?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A load balancer distributes incoming network traffic across multiple backend servers to ensure no single server is overwhelmed. Common algorithms include Round Robin, Least Connections, and IP Hash."
+  },
+  {
+    "text": "State the CAP theorem and briefly define its three components.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The CAP theorem states that a distributed data store can simultaneously provide at most two out of three guarantees: Consistency, Availability, and Partition Tolerance. Consistency means every read receives the most recent write, Availability means every request receives a non-error response, and Partition Tolerance means the system continues to operate despite network drops."
+  },
+  {
+    "text": "How does a CDN (Content Delivery Network) improve the scalability of a web application?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A CDN caches static assets like images, videos, and scripts on edge servers located geographically closer to end users. This reduces latency, offloads bandwidth and processing from the origin servers, and significantly increases the system's overall scalability."
+  },
+  {
+    "text": "What is database indexing and how does it speed up queries?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A database index is a data structure, typically a B-tree, that improves the speed of data retrieval operations on a table at the cost of additional storage and slower writes. It allows the database to find rows without performing a full table scan."
+  },
+  {
+    "text": "Explain the difference between write-through and write-back caching strategies.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "In a write-through cache, data is written to the cache and the underlying database simultaneously, ensuring strong consistency at the cost of higher write latency. In a write-back cache, data is written only to the cache first, and asynchronously flushed to the database later, offering fast writes but a risk of data loss if the cache fails."
+  },
+  {
+    "text": "What is connection pooling and why is it important for database scalability?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Connection pooling is a technique of maintaining a cache of database connections so that they can be reused when future requests to the database are required. It avoids the heavy overhead of establishing a new TCP connection and authentication handshake for every single request."
+  },
+  {
+    "text": "Describe the difference between synchronous and asynchronous communication in microservices.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Synchronous communication requires the caller to wait for a response before proceeding, typical of REST or gRPC calls, which can create cascading failures. Asynchronous communication allows the sender to dispatch a message and continue without waiting, typical of message brokers, improving resilience and decoupling."
+  },
+  {
+    "text": "What is sharding and how does it help scale a relational database?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Database sharding is the practice of horizontally partitioning a large database into smaller, independent pieces called shards, each hosted on a separate database server. It scales a database by distributing storage and query load across multiple machines."
+  },
+  {
+    "text": "What is the role of a reverse proxy in system architecture?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A reverse proxy sits in front of backend web servers and forwards client requests to them, acting as an intermediary. It provides benefits such as SSL termination, load balancing, caching, and protection against direct attacks on backend servers."
+  },
+  {
+    "text": "What is the difference between SQL and NoSQL databases in terms of schema flexibility?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "SQL databases require a rigid, predefined schema where all rows in a table must follow the same structure. NoSQL databases offer schema-less or dynamic schemas, allowing different records to have entirely different fields, which is ideal for rapidly evolving data models."
+  },
+  {
+    "text": "How do you handle a cache stampede or thundering herd problem?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A cache stampede occurs when a heavily requested cache key expires, causing concurrent requests to simultaneously hit the backend database. It can be mitigated using techniques like locking, probabilistic early expiration, or utilizing background refresh mechanisms."
+  },
+  {
+    "text": "What is master-slave replication in databases?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Master-slave replication involves a primary database that handles all write operations and one or more secondary databases that replicate the data from the primary for read operations. This scales read performance and provides basic failover capabilities."
+  },
+  {
+    "text": "Explain the concept of database normalization and its primary goal.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Normalization is the process of structuring a relational database in accordance with normal forms to reduce data redundancy and improve data integrity. Its primary goal is to ensure that logical modifications can be made in just one place."
+  },
+  {
+    "text": "What is a message broker and how does it differ from a simple pub-sub system?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A message broker handles message routing, queueing, and delivery with persistent storage, often supporting point-to-point queue semantics. A simple pub-sub system broadcasts messages to all active subscribers instantly without necessarily guaranteeing persistent queuing or message acknowledgment."
+  },
+  {
+    "text": "What is vertical load balancing versus horizontal load balancing?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Vertical load balancing typically refers to managing traffic across multiple processes or cores within a single multi-core server, while horizontal load balancing distributes traffic across entirely distinct physical or virtual machines in a cluster."
+  },
+  {
+    "text": "Tell me about a time you had to explain a complex technical system design to a non-technical stakeholder.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "The candidate should share a specific situation, explain the simplification techniques used without losing core constraints, and highlight the positive outcome of alignment with the business stakeholder."
+  },
+  {
+    "text": "Describe a time when you disagreed with a team member on a system architecture decision. How did you resolve it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "The response should detail the architectural disagreement, the objective methods used to evaluate options such as prototyping or benchmarking, and a constructive resolution focused on system goals."
+  },
+  {
+    "text": "How do you prioritize technical debt when designing and maintaining large-scale systems?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Look for a structured approach involving risk assessment, business impact analysis, and allocating dedicated sprint capacity or refactoring milestones to address critical bottlenecks."
+  },
+  {
+    "text": "Tell me about a time when a system you designed failed in production. What did you do?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "The answer should cover immediate incident response, root cause analysis, implementation of preventative measures, and transparent communication with stakeholders."
+  },
+  {
+    "text": "Describe how you mentor junior engineers on architectural best practices.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Candidates should mention code reviews, pair programming, writing design documentation, and encouraging safe experimentation through small proof-of-concept projects."
+  },
+  {
+    "text": "Your team wants to adopt a trendy new database technology. How do you evaluate if it is appropriate?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "The evaluation should involve assessing specific workload requirements, conducting proof-of-concept benchmarks, evaluating operational maturity, and considering team expertise and support community."
+  },
+  {
+    "text": "You notice a sudden spike in latency on a critical read-heavy endpoint. Walk through your triage steps.",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Check monitoring dashboards for traffic anomalies, inspect database CPU and connection pool usage, check cache hit rates, review recent deployments, and analyze distributed traces to pinpoint the bottleneck."
+  },
+  {
+    "text": "A product manager requests a new real-time reporting feature that requires querying logs directly from the primary OLTP database. How do you respond?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Explain the risks of analytical queries impacting transactional performance on the OLTP database, and propose alternatives like using a read replica, a data warehouse, or an async event pipeline to feed an analytical store."
+  },
+  {
+    "text": "Write a function to implement a simple LRU (Least Recently Used) cache eviction policy in your preferred language.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "The solution should use a combination of a hash map and a doubly linked list to achieve O(1) time complexity for both get and put operations."
+  },
+  {
+    "text": "Write a function that takes a list of URLs and balances requests among a pool of server addresses using a round-robin algorithm.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "The code should maintain an internal counter or pointer that increments modulo the number of available servers, returning the target server for each incoming request."
+  },
+  {
+    "text": "Design a distributed rate limiter using a sliding window log or token bucket algorithm.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A distributed rate limiter can be implemented using Redis with atomic operations or Lua scripts to track token counts or timestamps per client identifier across multiple API gateway instances."
+  },
+  {
+    "text": "How do you handle distributed transactions across multiple microservices without violating CAP theorem constraints?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Distributed transactions across microservices are typically handled using the Saga pattern, which breaks a transaction into a sequence of local transactions and uses compensating actions to undo changes if a step fails, embracing eventual consistency."
+  },
+  {
+    "text": "Explain the mechanics of Consistent Hashing and why it is crucial for distributed caching systems.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Consistent hashing maps both data keys and cache nodes onto a circular hash ring. When a node is added or removed, only a small fraction of keys need to be remapped, minimizing cache misses and reorganization overhead."
+  },
+  {
+    "text": "Compare optimistic locking and pessimistic locking in database design. When should each be used?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Pessimistic locking locks a record upon read to prevent concurrent modifications, ideal for high-contention environments. Optimistic locking assumes conflicts are rare, checking version numbers upon write and aborting if modified, better for low-contention, read-heavy workloads."
+  },
+  {
+    "text": "What is the difference between at-least-once, at-most-once, and exactly-once message delivery semantics in message queues?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "At-least-once guarantees no messages are lost but may deliver duplicates. At-most-once ensures messages are never duplicated but some may be lost. Exactly-once guarantees each message is processed precisely once, usually achieved via idempotent consumers combined with at-least-once delivery."
+  },
+  {
+    "text": "How do Layer 4 and Layer 7 load balancers differ in operation and use cases?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Layer 4 load balancers operate at the transport layer (TCP/UDP), routing traffic based on IP addresses and ports without inspecting application data, offering high throughput. Layer 7 load balancers operate at the application layer (HTTP/HTTPS), inspecting request headers, cookies, and paths for intelligent routing and SSL termination."
+  },
+  {
+    "text": "Explain how multi-master replication works and the primary challenges associated with it.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Multi-master replication allows write operations on multiple database nodes, which then synchronize with each other. The primary challenges are handling write conflicts, divergence, and ensuring convergence across nodes, often requiring complex vector clocks or last-write-wins policies."
+  },
+  {
+    "text": "What is the role of a distributed consensus algorithm like Raft or Paxos in modern system architecture?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Distributed consensus algorithms allow a cluster of machines to agree on a shared state or sequence of operations even if some nodes fail. They are foundational for building reliable distributed databases, configuration stores like ZooKeeper, and leader election mechanisms."
+  },
+  {
+    "text": "How does database query optimization work under the hood using execution plans?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The database query optimizer analyzes multiple possible execution plans for a given query, estimating costs based on statistics like index cardinality and table size, and selects the most efficient plan involving specific join algorithms and index scans."
+  },
+  {
+    "text": "Discuss the trade-offs between using a NoSQL document store versus a wide-column store for high-throughput time-series data.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Document stores like MongoDB offer flexible JSON-like schemas and rich querying capabilities but can struggle with massive write throughput for time-series. Wide-column stores like Cassandra optimize for high write speeds, range queries on clustering keys, and predictable horizontal scalability."
+  },
+  {
+    "text": "What is log-structured merge-tree (LSM-tree) storage, and why is it preferred in write-heavy NoSQL databases?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "An LSM-tree optimizes write performance by buffering writes in an in-memory structure (memtable) before sequentially writing them to immutable disk files (SSTables), which are periodically compacted. This avoids random disk I/O during writes."
+  },
+  {
+    "text": "Explain how Redis clustering handles data partitioning and failover.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Redis Cluster uses hash slots (16384 total) distributed across master nodes to partition data. Failover is managed through a decentralized heartbeat mechanism where master nodes monitor each other and promote a replica to master if a node goes down."
+  },
+  {
+    "text": "What are the common strategies for managing schema migrations in a high-availability distributed database?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Common strategies include the Expand and Contract pattern, where schema changes are deployed in backward-compatible phases (add new column, dual-write, backfill, drop old column) to avoid downtime or locking production tables."
+  },
+  {
+    "text": "How do you implement dead-letter queues in message broker systems and why are they necessary?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A dead-letter queue is a secondary queue where messages that fail processing multiple times are automatically routed. They prevent poison messages from blocking the main processing pipeline and allow engineers to inspect and debug failed payloads."
+  },
+  {
+    "text": "Describe how network partitions impact availability and consistency according to the PACELC theorem.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "PACELC extends CAP by stating that if there is a Partition (P), a system must trade off Availability (A) versus Consistency (C); Else (E), even when the system is running normally, it must trade off Latency (L) versus Consistency (C)."
+  },
+  {
+    "text": "What are bloom filters and how are they used in database storage engines to optimize reads?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A bloom filter is a space-efficient probabilistic data structure used to test whether an element is a member of a set. Databases use them to quickly check if a key exists in an SSTable or disk block before performing expensive disk reads."
+  },
+  {
+    "text": "How do you design a multi-region active-active database deployment while maintaining data integrity?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Active-active multi-region setups require conflict-free replicated data types (CRDTs), asynchronous cross-region replication, and partitioning user data by home region to minimize concurrent cross-region write conflicts."
+  },
+  {
+    "text": "Explain the mechanics of distributed tracing and how it helps diagnose latency bottlenecks in microservices.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Distributed tracing assigns a unique trace ID and span ID to incoming requests, propagating them across service boundaries via HTTP headers. This allows telemetry systems to reconstruct the complete request lifecycle and identify slow service calls."
+  },
+  {
+    "text": "What is database denormalization and when is it an acceptable architectural compromise?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Denormalization involves intentionally introducing redundancy into a database by combining tables to avoid expensive join operations. It is acceptable when read performance needs to be optimized at the expense of increased write complexity and storage."
+  },
+  {
+    "text": "How do you ensure idempotency in API endpoints that process financial transactions?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Idempotency is ensured by requiring clients to pass a unique idempotency key with each request, which the server checks against a database store before processing to ensure duplicate requests return the cached original response."
+  },
+  {
+    "text": "Describe a scenario where you had to redesign a monolith into microservices. What criteria did you use to split the domains?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Candidates should describe domain-driven design principles, identifying bounded contexts, team organizational structures, scalability bottlenecks, and data ownership boundaries."
+  },
+  {
+    "text": "Tell me about a time when a caching layer introduced subtle bugs in your application. How did you diagnose and fix it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The response should highlight stale data issues or cache invalidation flaws, the debugging process using logs or cache inspection tools, and the implementation of robust TTL or event-driven invalidation."
+  },
+  {
+    "text": "How do you manage cross-team dependencies when architecting a platform used by multiple product squads?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Look for strategies such as establishing clear API contracts, versioning policies, self-service infrastructure platforms, and cross-functional architectural review boards."
+  },
+  {
+    "text": "Describe a situation where you had to balance delivery speed with long-term architectural scalability.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The candidate should explain how they made pragmatic short-term concessions while ensuring the design left room for future refactoring without incurring total rewrites."
+  },
+  {
+    "text": "Tell me about a time you optimized a slow database query that was impacting overall system performance.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The answer should cover analyzing execution plans, identifying missing indexes or inefficient table scans, applying optimizations, and measuring the resulting latency drop."
+  },
+  {
+    "text": "Your primary message queue is experiencing severe consumer lag during peak hours. How do you mitigate the issue and prevent cascading failures?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Scale out consumer worker instances horizontally, optimize message processing logic, implement backpressure mechanisms, and shed non-critical background workloads if necessary."
+  },
+  {
+    "text": "A global flash sale causes sudden, unpredictable traffic surges that threaten to overwhelm your database. How do you protect the system?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Enable aggressive caching at the CDN and application layers, introduce rate limiting at the API gateway, use asynchronous queues for order ingestion, and implement a virtual waiting room."
+  },
+  {
+    "text": "You are migrating a legacy relational database to a distributed NoSQL store. Data access patterns change and queries become inefficient. What is your remediation plan?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Analyze query access patterns, redesign table schemas around query requirements (query-driven modeling), introduce secondary indexes, or use a hybrid data store approach where necessary."
+  },
+  {
+    "text": "Implement a distributed lock mechanism using Redis with expiration time to prevent race conditions across multiple server instances.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The code should use the SET key value NX PX milliseconds command to safely acquire a lock with an expiration timeout and a secure random token for safe release."
+  },
+  {
+    "text": "Write a program that simulates a Token Bucket rate limiter allowing a specific burst capacity and refill rate.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The implementation should track current token count and last updated timestamp, calculating the refilled tokens based on elapsed time before evaluating incoming requests."
+  },
+  {
+    "text": "Design a consistent hashing ring with virtual nodes and write a method to find the correct node for a given cache key.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The code should hash physical nodes into multiple virtual points on a sorted ring data structure and use binary search to locate the nearest succeeding node for a given key hash."
+  },
+  {
+    "text": "How would you design a globally distributed real-time chat application handling millions of concurrent connections?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use WebSocket gateways for persistent connections, a message broker like Kafka for message streaming, Redis pub-sub for cross-node message routing, and Cassandra or DynamoDB for scalable message history storage."
+  },
+  {
+    "text": "Explain the architectural differences and use cases for Two-Phase Commit (2PC) versus the Saga pattern in distributed systems.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "2PC provides strong consistency by locking resources across nodes until all agree to commit, but suffers from high latency and blocking failure modes. The Saga pattern uses local transactions with compensating rollbacks, trading strong consistency for high availability and throughput."
+  },
+  {
+    "text": "How do distributed databases achieve serializability while maintaining high write throughput across partitions?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "They often use techniques like TrueTime API (as in Google Spanner) to bound clock uncertainty, combined with multi-version concurrency control (MVCC) and consensus-backed transaction coordinators to order transactions globally without locks."
+  },
+  {
+    "text": "Design a distributed counter that can handle millions of concurrent increments per second with high availability.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use local batching and probabilistic counting on edge nodes or message queues, periodically flushing and aggregating updates into a partitioned datastore or using CRDT-based counters to avoid write bottlenecks."
+  },
+  {
+    "text": "What are vector clocks and how do distributed data stores use them to resolve concurrent updates?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "A vector clock is an array of logical clocks maintained by each node participating in a distributed system. They allow data stores to detect causality violations and identify concurrent writes, leaving conflict resolution to client application logic or merge functions."
+  },
+  {
+    "text": "How does Raft handle leader election and split-brain scenarios during network partitions?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Raft uses randomized election timeouts so nodes timeout at different intervals, reducing split-brain risk. A candidate must receive votes from a strict majority of nodes to win, ensuring only one leader can be elected per term."
+  },
+  {
+    "text": "Discuss the architectural implications of implementing CQRS (Command Query Responsibility Segregation) in a high-scale microservices environment.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "CQRS separates read and write models into distinct data stores, allowing independent scaling, optimized query models, and event-driven synchronization, but introduces complexity with eventual consistency and data duplication."
+  },
+  {
+    "text": "How do you architect a multi-tenant SaaS application with strict data isolation and noisy neighbor prevention?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Achieve data isolation using separate databases per tenant, schema-per-tenant, or row-level security with tenant IDs. Prevent noisy neighbors using resource quotas, rate limiting, containerized resource limits, and prioritized queuing."
+  },
+  {
+    "text": "Explain how distributed joins are executed in massive analytical databases (MPP architectures).",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "MPP databases execute distributed joins using techniques like broadcast joins (sending a small table to all nodes) or hash-partitioned joins (rehashing both tables across nodes by the join key to colocate matching rows)."
+  },
+  {
+    "text": "What is lease-based concurrency control and how is it used in distributed systems like lock managers?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "A lease is a time-bound grant of a resource or lock issued by a coordinator. If the leaseholder fails to renew it before expiration, the coordinator revokes it, preventing deadlocks caused by crashed nodes holding locks indefinitely."
+  },
+  {
+    "text": "Describe how you would design a zero-downtime database migration strategy for a petabyte-scale database.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use a dual-write phase, change data capture (CDC) pipelines to stream updates to the new database, perform historical backfills in chunks, verify data parity with checksums, and gradually shift traffic over."
+  },
+  {
+    "text": "How do distributed storage systems guarantee durability in the face of disk failures and power outages?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "They combine replication across distinct failure domains (fault zones/racks), write-ahead logging (WAL) with fsync guarantees, and erasure coding to reconstruct lost data efficiently without full replication overhead."
+  },
+  {
+    "text": "Tell me about a time when you designed a system that had to handle severe regulatory compliance requirements (e.g., GDPR, HIPAA). How did you approach data privacy and auditing?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "The candidate should discuss data minimization, encryption at rest and in transit, anonymization techniques, robust audit logging, and automated data retention and deletion workflows."
+  },
+  {
+    "text": "Describe a catastrophic outage you were responsible for investigating. How did you lead the post-mortem and systemic redesign?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Look for a blameless post-mortem culture, rigorous identification of root causes across technical and process layers, and the successful implementation of preventive guardrails."
+  },
+  {
+    "text": "You are tasked with redesigning a core payment processing system where zero financial discrepancies are tolerated. Walk through your risk mitigation and architecture strategy.",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Propose double-entry ledger accounting principles, ACID-compliant transactional databases, immutable audit trails, asynchronous reconciliation jobs, and rigorous fuzz testing."
+  },
+  {
+    "text": "A globally distributed caching layer experiences cascading failures due to sudden node churn. How do you re-architect the caching topology to be resilient?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Implement consistent hashing with virtual nodes, circuit breakers on cache clients, fallback local in-memory caches (L1/L2), and graceful degradation strategies to protect underlying databases."
+  },
+  {
+    "text": "Write a complete implementation of a distributed Raft consensus log compaction and snapshot mechanism.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "The code should capture state machine snapshots up to a specific index, truncate older log entries, and support installing snapshots on slow follower nodes."
+  },
+  {
+    "text": "Write a distributed merge-sort algorithm that coordinates sorting large datasets across multiple worker nodes in a cluster.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "The solution should partition data ranges across workers, perform local sorting, and use a distributed k-way merge phase to combine sorted streams efficiently."
+  },
+  {
+    "text": "How would you design Google Docs for real-time collaborative editing supporting offline work and conflict resolution?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Use Conflict-free Replicated Data Types (CRDTs) or Operational Transformation (OT) algorithms to handle concurrent edits, WebSocket connections for real-time sync, and local storage buffers for offline queueing and replay."
+  },
+  {
+    "text": "Design a globally distributed transactional key-value store with linearizable consistency guarantees across multiple data centers.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Implement using hybrid logical clocks or synchronized atomic clocks (TrueTime), Paxos/Raft consensus groups per partition, and two-phase commit coordinators for multi-partition transactions."
+  },
+  {
+    "text": "Tell me about a time you had to make a high-stakes architectural decision with incomplete information and strict time constraints. What was the outcome?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "The candidate should demonstrate risk assessment, identifying irreversible versus reversible decisions, establishing telemetry to monitor assumptions, and pivoting successfully."
+  },
+  {
+    "text": "Design a multi-region real-time fraud detection engine that evaluates streaming financial transactions within 50 milliseconds.",
+    "type": "SITUATIONAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Use stream processing frameworks like Apache Flink with in-memory state stores, partitioned Kafka topics by user ID, and pre-computed machine learning feature stores for ultra-low latency scoring."
+  },
+  {
+    "text": "Implement a distributed transaction coordinator using the Two-Phase Commit protocol with leader failover capabilities.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "The code must manage prepare and commit/abort phases across participant nodes, persist transaction states to handle coordinator crashes, and timeout unresponsive participants safely."
+  }
+]

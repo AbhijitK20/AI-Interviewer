@@ -1,0 +1,1202 @@
+[
+  {
+    "text": "What is the difference between React Native and Flutter in terms of their compilation models?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "React Native uses a JavaScript bridge to communicate with native UI components asynchronously at runtime. Flutter compiles Dart code directly to native ARM machine code and renders widgets using its own high-performance graphics engine called Impeller."
+  },
+  {
+    "text": "How do you manage global state in a React Native application?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Global state in React Native can be managed using lightweight hooks like Context API, or robust external libraries such as Redux Toolkit, Zustand, or MobX depending on the complexity and scale of the application."
+  },
+  {
+    "text": "Explain how BLOC pattern works in Flutter for state management.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The BLOC pattern separates business logic from the UI by using reactive programming with Streams and Sinks. Widgets send Events to the Bloc, which processes them and emits new States for the UI to consume."
+  },
+  {
+    "text": "Describe a time when you optimized a sluggish mobile application. What steps did you take?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "I used profiling tools to identify memory leaks and unnecessary re-renders. By memoizing expensive computations, optimizing image assets, and flattening deep component trees, I improved the frame rate significantly."
+  },
+  {
+    "text": "Write a function in JavaScript to flatten a nested array of objects commonly received from an API.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "You can use recursion with the reduce method to iterate through the array, checking if an element is an array and recursively flattening it until a single-level array is produced."
+  },
+  {
+    "text": "How would you handle a situation where a critical bug is discovered in production right before a major holiday?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "I would immediately assess the impact, isolate the faulty code, and coordinate with the team to write a hotfix. After thorough regression testing, I would expedite the submission process or use over-the-air updates if available."
+  },
+  {
+    "text": "What is an over-the-air update, and how do you implement it in React Native?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "OTA updates allow developers to push JavaScript and asset changes directly to user devices without going through app store review. Tools like Microsoft CodePush or Expo Updates are commonly used to achieve this."
+  },
+  {
+    "text": "How do you implement offline-first data synchronization in a mobile app?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "An offline-first approach uses a local database like SQLite, Realm, or WatermelonDB for data storage. Network mutations are stored in an outbox queue and synced with the backend server once connectivity is restored."
+  },
+  {
+    "text": "What are Widget keys in Flutter, and when should you use them?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Keys preserve the state of widgets when they are moved or reordered in the widget tree. You should use ValueKey or GlobalKey when managing collections of stateful widgets that change dynamically."
+  },
+  {
+    "text": "Tell me about a disagreement you had with a backend developer regarding API payload structures.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I scheduled a quick sync to discuss how nested payloads were impacting client-side performance. We agreed on a normalized JSON structure that reduced data transfer overhead and improved rendering speeds."
+  },
+  {
+    "text": "Write a Dart function to validate if a given string is a valid email address using Regex.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "You can define a standard regex pattern for email validation and use the RegExp.hasMatch method to return a boolean indicating validity."
+  },
+  {
+    "text": "Imagine the app crashes randomly on older Android devices during startup. How do you troubleshoot this?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "I would connect an older physical device, check logcat for native crash logs, analyze ProGuard mapping files, and inspect heavy initialization routines that might exceed memory thresholds on low-end hardware."
+  },
+  {
+    "text": "How do push notifications work on iOS versus Android?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "iOS uses Apple Push Notification service while Android uses Firebase Cloud Messaging. Both require requesting user permissions, registering device tokens, and handling payload delivery through foreground and background event handlers."
+  },
+  {
+    "text": "What is the purpose of the App Store Review Guidelines, and what is the most common reason for rejection?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Guidelines ensure app safety, privacy, and quality. Common rejections include incomplete metadata, crashes during review, missing account deletion options, or improper handling of user data privacy."
+  },
+  {
+    "text": "Explain how you would write an integration test for a login screen in Flutter.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Using the integration_test package, you write a test that pumps the app widget, enters text into email and password fields using tester.enterText, taps the login button, and verifies that the home screen widget appears."
+  },
+  {
+    "text": "Describe a situation where you had to mentor a junior developer on mobile navigation best practices.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "I paired with the junior developer to review deep linking and stack management. I explained the difference between imperative and declarative navigation, helping them refactor their code to prevent memory leaks."
+  },
+  {
+    "text": "Write a React Native custom hook that tracks online and offline network status using NetInfo.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The hook initializes state with NetInfo, adds an event listener on mount to update state when connection changes, and cleans up the subscription on unmount."
+  },
+  {
+    "text": "A client requests a feature that requires continuous background location tracking, but battery drain is a major concern. What do you do?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "I would educate the client on platform restrictions and battery implications, and propose geofencing or significant motion updates instead of continuous GPS polling to optimize power consumption."
+  },
+  {
+    "text": "What is the difference between memoization in React Native and const constructors in Flutter?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "React Native uses useMemo and useCallback to cache computed values and function references across re-renders. Flutter uses const constructors to enable compile-time constants, preventing widgets from rebuilding unnecessarily."
+  },
+  {
+    "text": "How do you handle secure storage of sensitive data like auth tokens on mobile devices?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Sensitive data should be stored using encrypted native keychains such as EncryptedSharedPreferences on Android and Keychain Services on iOS, typically accessed via libraries like react-native-encrypted-storage or flutter_secure_storage."
+  },
+  {
+    "text": "Explain the concept of RenderObjects in Flutter.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "RenderObjects are low-level objects responsible for layout, painting, and hit testing. They form the render tree, which is much more mutable than the widget tree and directly dictates how pixels are drawn on the screen."
+  },
+  {
+    "text": "Tell me about a time you missed a project deadline and how you handled communication with stakeholders.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I noticed unexpected complexity in integrating a third-party SDK early on. I informed stakeholders immediately, provided a revised timeline, and proposed descoping non-essential features to meet the core release date."
+  },
+  {
+    "text": "Write a function that parses a deep link URL and extracts query parameters into a key-value object.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "You can split the URL string by the question mark, split parameters by the ampersand, and then split each parameter by the equals sign to construct a dictionary."
+  },
+  {
+    "text": "You notice your app's bundle size has grown significantly after adding several third-party libraries. How do you approach shrinking it?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I would analyze the bundle using source map explorers, replace bloated libraries with modular or native implementations, remove unused assets, and enable ProGuard or App Bundles for production builds."
+  },
+  {
+    "text": "What are native modules in React Native, and when would you need to write one?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Native modules are custom Java, Kotlin, Objective-C, or Swift code exposed to JavaScript. You need them when interacting with specific hardware sensors or performing heavy computation that exceeds JS thread capabilities."
+  },
+  {
+    "text": "How does the Flutter engine handle garbage collection?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Flutter uses Dart's generational garbage collector, which features a fast young generation collector for short-lived objects and a concurrent marker for old generation objects, minimizing UI jank during GC pauses."
+  },
+  {
+    "text": "What is the difference between Hot Reload and Hot Restart in Flutter?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Hot Reload injects updated source code files into the running Dart Virtual Machine, preserving the current app state. Hot Restart resets the app state completely and restarts the application from main."
+  },
+  {
+    "text": "Describe a situation where you had to refactor legacy code written by someone else that had zero unit tests.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "I started by writing characterization tests to document the existing behavior. Then, I refactored the code in small, incremental steps while running tests continuously to ensure no regressions were introduced."
+  },
+  {
+    "text": "Write a unit test using Jest in React Native that tests a utility function for formatting currency.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Use Jest's describe and test blocks, calling the formatCurrency function with various inputs like numbers and edge cases, and asserting the expected string output using expect().toBe()."
+  },
+  {
+    "text": "An automated CI/CD pipeline fails during the iOS code signing step. How do you troubleshoot this?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I would check that valid distribution certificates, provisioning profiles, and App Store Connect API keys are securely stored as environment secrets in the CI runner and that match or fastlane match is configured correctly."
+  },
+  {
+    "text": "How do you optimize flat lists or lazy lists containing thousands of complex items?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "You optimize lists by using item layout measurements, implementing proper key extractors, avoiding inline function definitions in render items, and recycling view cells efficiently to prevent memory overhead."
+  },
+  {
+    "text": "What are Platform Channels in Flutter?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Platform channels are communication mechanisms that allow Flutter Dart code to pass messages and invoke asynchronous methods on native Android Java/Kotlin and iOS Objective-C/Swift code."
+  },
+  {
+    "text": "Explain how the React Native bridge is being phased out in the New Architecture.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "The New Architecture replaces the asynchronous JSON bridge with JSI, allowing JavaScript to hold direct references to C++ native objects for synchronous, highly efficient bidirectional communication."
+  },
+  {
+    "text": "Tell me about a time when you had to convince your product manager to prioritize technical debt over new features.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I presented data showing how architectural debt was causing frequent production bugs and slowing down feature delivery. By translating technical issues into business impact, we agreed to allocate 20 percent of each sprint to refactoring."
+  },
+  {
+    "text": "Write a function that debounces search input in a React Native text input handler.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The function returns a wrapper that clears any existing setTimeout timer and sets a new timer, executing the callback function only after a specified delay has elapsed without new calls."
+  },
+  {
+    "text": "A user reports that your app drains their phone battery overnight while running in the background. How do you investigate?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "I would use platform profiling tools like Android Studio Battery Historian or Xcode Instruments to inspect wake locks, background network requests, and location polling intervals that might prevent the CPU from sleeping."
+  },
+  {
+    "text": "How do you implement internationalization and localization in mobile apps?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Localization involves externalizing strings into JSON or ARB translation files, detecting device locale settings, and using libraries like react-native-i18n or flutter_localizations to render translated text dynamically."
+  },
+  {
+    "text": "What is tree shaking in Flutter, and how does it help performance?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Tree shaking is a dead-code elimination technique used during compilation. The compiler analyzes the dependency graph and removes unused classes, functions, and assets, resulting in a smaller final binary size."
+  },
+  {
+    "text": "Explain how accessibility features like VoiceOver and TalkBack are supported in mobile development.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Accessibility is supported by adding accessibility labels, hints, and roles to UI components, ensuring proper focus order, and making sure touch targets meet minimum size requirements for screen readers."
+  },
+  {
+    "text": "Describe a situation where a third-party dependency was abandoned and causing security vulnerabilities. How did you resolve it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "I forked the repository, patched the security vulnerability myself, published it internally, and began searching for a modern, actively maintained alternative to replace it during the next maintenance cycle."
+  },
+  {
+    "text": "Write a Dart widget that displays a loading indicator while fetching data from a Future.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "You can use a FutureBuilder widget, checking snapshot.connectionState to return a CircularProgressIndicator when loading and the data view when complete."
+  },
+  {
+    "text": "Your app fails Apple's App Store review because of incomplete metadata or missing privacy manifest files. What is your immediate action plan?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "I would review the rejection notice from Apple, update the PrivacyInfo.xcprivacy file and Info.plist with the required tracking and data usage descriptions, and resubmit the build for review."
+  },
+  {
+    "text": "What are error boundaries in React Native, and how do you handle unhandled exceptions?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Error boundaries are React component classes that catch JavaScript errors anywhere in their child component tree. For native crashes, tools like Sentry or Firebase Crashlytics are integrated to capture unhandled exceptions."
+  },
+  {
+    "text": "How do you manage environment variables and API keys securely in mobile applications?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Environment variables are managed using packages like react-native-config or dart-define, ensuring sensitive keys are injected at build time and never hardcoded directly in the source code repository."
+  },
+  {
+    "text": "Explain the difference between Provider and Riverpod in the Flutter ecosystem.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Provider relies on the widget tree to locate state, which can lead to runtime exceptions if context is lost. Riverpod is compile-safe, does not depend onBuildContext, and allows global providers to be safely mocked and tested."
+  },
+  {
+    "text": "Tell me about a time when you had to onboard a new developer to a complex mobile codebase.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "I prepared a detailed README setup guide, assigned a small, self-contained starter ticket, and held pairing sessions to explain architectural patterns and development workflows."
+  },
+  {
+    "text": "Write a React Native functional component that accepts a title prop and renders a pressable button with custom styling.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Create a component using Pressable, passing the title inside a Text component, and applying StyleSheet styles for padding, background color, and border radius."
+  },
+  {
+    "text": "An important feature works perfectly on iOS simulator but crashes instantly on a physical Android device. How do you debug this?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I would attach the Android device via USB, run adb logcat or Android Studio Logcat to inspect the native stack trace, and check for platform-specific API differences or missing permissions in AndroidManifest.xml."
+  },
+  {
+    "text": "What is deep linking, and what is the difference between custom URI schemes and Universal Links / App Links?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Deep linking opens specific app content via URLs. Custom URI schemes are prone to hijacking and not validated, whereas Universal Links and App Links use verified web domains to securely route users directly into the app."
+  },
+  {
+    "text": "How do you implement biometric authentication, such as FaceID and Fingerprint, in a mobile app?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Biometric authentication is implemented using local authentication packages like local-auth in React Native or local_auth in Flutter, checking hardware availability and prompting users for secure validation."
+  },
+  {
+    "text": "Explain the concept of Gestures and Gesture Detectors in mobile app frameworks.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Gesture detectors interpret raw touch pointer events like taps, pans, and pinches into high-level semantic gestures, managing touch delegation and pointer capture across the component tree."
+  },
+  {
+    "text": "Describe a situation where you optimized an API integration that was causing slow screen transitions.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I discovered the app was making multiple sequential API calls on screen load. I refactored the endpoints to support batching, implemented local caching, and achieved snappy, instantaneous transitions."
+  },
+  {
+    "text": "Write a recursive function in JavaScript to calculate the depth of a nested JSON object.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The function checks if the input is an object, iterates over its keys, and recursively finds the maximum depth among child properties, adding one for each level."
+  },
+  {
+    "text": "Your app has received a sudden surge of 1-star reviews complaining about a broken checkout flow. How do you triage and resolve this?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "I would immediately check crash reporting dashboards for spike anomalies, review analytics funnel drop-offs, rollback the faulty backend flag or release a rapid hotfix if it's a client-side regression."
+  },
+  {
+    "text": "What are React Native TurboModules and Fabric?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "TurboModules enable lazy loading of native modules through the JSI, while Fabric is the new concurrent React-based rendering system that improves startup time and synchronous UI layout calculations."
+  },
+  {
+    "text": "How do you handle pagination and infinite scrolling in mobile applications?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Pagination is handled by tracking page indices or cursors, triggering fetch requests when the user scrolls near the end of a list, and appending new data items while displaying a loading footer."
+  },
+  {
+    "text": "What is the difference between Stateless and Stateful widgets in Flutter?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Stateless widgets are immutable and depend only on their initial configuration configuration. Stateful widgets can maintain mutable state that changes over their lifecycle, triggering UI rebuilds via setState."
+  },
+  {
+    "text": "Tell me about a time when you had to learn a completely new framework or tool under a tight deadline.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "When assigned to build a proof-of-concept in Flutter with no prior experience, I dedicated evenings to official documentation and tutorials, built a working prototype within a week, and successfully presented it to the team."
+  },
+  {
+    "text": "Write a unit test in Flutter using package test to verify a mathematical calculation utility function.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Use the test function with a descriptive string, perform the calculation, and use expect(result, equals(expectedValue)) to verify correctness."
+  },
+  {
+    "text": "An API contract changes unexpectedly, causing your mobile app to crash when parsing missing fields. How do you prevent this defensively?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I would implement runtime schema validation using libraries like Zod or JSON deserialization models with safe default fallbacks, ensuring missing fields never cause unhandled null pointer exceptions."
+  },
+  {
+    "text": "How do you implement background tasks and job scheduling in mobile apps?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Background tasks are managed using native APIs like WorkManager on Android and BackgroundTasks on iOS, wrapped by packages like react-native-background-task or workmanager in Flutter, respecting battery and OS constraints."
+  },
+  {
+    "text": "What are synthetic events in React Native?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Synthetic events are cross-platform wrappers around native platform events, providing a consistent API across iOS and Android regardless of underlying OS differences."
+  },
+  {
+    "text": "Explain how Flutter's widget, element, and render trees interact during rendering.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Widgets are immutable blueprints. Elements are instantiated from widgets to manage the tree structure and lifecycle. RenderObjects perform the actual layout and painting based on Element configurations."
+  },
+  {
+    "text": "Describe a time when you proposed an architectural improvement that was initially rejected. How did you handle it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "I gathered quantitative metrics and built a small benchmark prototype proving the performance gains. I presented the findings again during a team meeting, which led to unanimous approval for adoption."
+  },
+  {
+    "text": "Write a custom React Native hook that manages form state with validation rules.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "The hook maintains state for values and errors, provides a handleChange function that updates values and runs validation rules, and exposes a validateForm function returning a boolean."
+  },
+  {
+    "text": "You are tasked with reducing mobile app startup time by 50 percent. What is your optimization strategy?",
+    "type": "SITUATIONAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "I would profile app startup using trace tools, defer non-essential third-party library initialization, optimize heavy bundle sizes, implement lazy loading for root screens, and eliminate synchronous blocking operations on the main thread."
+  },
+  {
+    "text": "How do you secure network traffic and prevent man-in-the-middle attacks in mobile apps?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Network traffic is secured by enforcing HTTPS, implementing certificate pinning to validate server SSL certificates against trusted hashes, and disabling cleartext HTTP traffic in app configuration files."
+  },
+  {
+    "text": "What is the role of Metro bundler in React Native?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Metro is the JavaScript bundler for React Native. It takes JavaScript files and assets, compiles them into a single bundle file, and supports hot reloading during development."
+  },
+  {
+    "text": "Explain how InheritedWidget works in Flutter.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "InheritedWidget is a base class that efficiently propagates data down the widget tree. When data changes, any dependent child widget whose build method references the InheritedWidget is automatically scheduled for a rebuild."
+  },
+  {
+    "text": "Tell me about a time when you had to deal with a difficult client or stakeholder demanding unrealistic features.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I listened carefully to their core business needs, explained technical and timeline constraints transparently, and offered an MVP alternative that delivered the primary value within the requested deadline."
+  },
+  {
+    "text": "Write a Dart class that implements a simple Singleton pattern.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Create a class with a private constructor, a static final instance variable, and a factory constructor that returns the single instance."
+  },
+  {
+    "text": "An app update introduces a database migration that crashes for users upgrading from two versions ago. How do you recover?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "I would write a robust multi-step migration script handling all intermediate database versions, test it across upgrade paths, and release an immediate patch version with safe fallback error catching."
+  },
+  {
+    "text": "How do you handle memory leaks caused by listeners or subscriptions in mobile apps?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Memory leaks are prevented by explicitly removing event listeners, cancelling API subscriptions, and clearing timers inside component cleanup hooks like useEffect return functions or dispose methods."
+  },
+  {
+    "text": "What is the purpose of ProGuard and R8 in Android development?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "ProGuard and R8 shrink, optimize, and obfuscate Android bytecode, removing unused code and renaming identifiers to reduce APK size and protect the app from reverse engineering."
+  },
+  {
+    "text": "Explain how Flutter handles gesture disambiguation when multiple widgets can handle gestures.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Flutter uses a gesture arena system. Competing gesture recognizers enter the arena, and the arena determines the winning gesture based on movement rules, timing, or pointer release events."
+  },
+  {
+    "text": "Describe a time when you caught a critical bug during code review that others missed.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "While reviewing a pull request, I noticed an unhandled asynchronous race condition in the payment flow that could cause duplicate charges. I left a detailed comment with a suggested fix."
+  },
+  {
+    "text": "Write a React Native functional component that displays an animated fading view using the Animated API.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Initialize an Animated.Value for opacity, use useEffect to trigger an Animated.timing animation on mount, and render an Animated.View with the opacity style."
+  },
+  {
+    "text": "You need to implement real-time chat functionality in your mobile app. Which protocol and architecture do you choose?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "I would choose WebSockets or MQTT for bidirectional real-time communication, combined with a local database like SQLite for offline message persistence and message delivery status queues."
+  },
+  {
+    "text": "How do you test network failure scenarios in mobile application development?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Network failures can be tested by using network throttling tools in developer suites like Charles Proxy or Fiddler, enabling airplane mode on physical devices, or mocking network errors in test suites."
+  },
+  {
+    "text": "What are React Native StyleSheet objects, and why are they preferred over inline styles?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "StyleSheet objects validate style properties and send numeric IDs across the bridge rather than re-creating style objects on every render pass, improving rendering performance."
+  },
+  {
+    "text": "Explain the role of Gradle in Android mobile app builds.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Gradle is a build automation tool used to manage dependencies, compile source code, run tests, and package Android application binaries into APK or AAB formats."
+  },
+  {
+    "text": "Tell me about a time when you successfully resolved a conflict within your development team.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Two team members disagreed strongly on state management approaches. I facilitated an objective pros and cons comparison session, leading to a consensus on adopting a shared solution that satisfied both viewpoints."
+  },
+  {
+    "text": "Write a Flutter widget that implements pull-to-refresh functionality wrapping a ListView.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Wrap the ListView inside a RefreshIndicator widget, providing an asynchronous callback function that fetches updated data and updates state."
+  },
+  {
+    "text": "Your app relies on a third-party mapping SDK that experiences a major outage affecting user navigation. What is your contingency plan?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "I would display a graceful fallback UI informing users of the outage, provide alternative text-based directions if cached, and switch to a secondary mapping provider if pre-configured."
+  },
+  {
+    "text": "How do you handle safe area insets on notched phones and modern devices?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Safe area insets are handled using React Native's SafeAreaView or SafeAreaContext packages, and Flutter's SafeArea widget, preventing UI elements from overlapping notches or home indicator bars."
+  },
+  {
+    "text": "What is tree shaking in React Native, and how is it related to Metro?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Metro bundler works alongside Babel to eliminate dead code imports during bundling, ensuring unused functions and modules are excluded from the final production JavaScript bundle."
+  },
+  {
+    "text": "Explain how Flutter's semantic layer assists with screen readers and accessibility.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Flutter builds a parallel Semantics tree alongside the widget tree. Screen readers interact with this semantics tree to read labels, announce actions, and navigate UI elements for visually impaired users."
+  },
+  {
+    "text": "Describe a time when you had to refactor a massive, monolithic component into smaller reusable modules.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I analyzed the component boundaries, extracted distinct business logic into custom hooks, broke the UI into atomic presentation components, and improved test coverage during the process."
+  },
+  {
+    "text": "Write a JavaScript utility function that deeply clones an object without using external libraries.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The function checks if the input is an object, creates a new object or array, and recursively copies all nested properties to ensure no references are shared."
+  },
+  {
+    "text": "A critical vulnerability is found in a core npm dependency used throughout your React Native application. How do you handle it?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "I would run npm audit, apply automated overrides or resolutions in package.json if patches exist, test the upgrade across the app, and release an immediate security update."
+  },
+  {
+    "text": "How do you perform end-to-end testing in React Native apps?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "End-to-end testing in React Native is performed using automated frameworks like Detox or Appium, which simulate user interactions on real devices or emulators."
+  },
+  {
+    "text": "What is the difference between shallow comparison and deep comparison in state updates?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Shallow comparison checks reference equality for object properties, whereas deep comparison recursively compares all nested values, which is computationally expensive and generally avoided unless necessary."
+  },
+  {
+    "text": "Explain how Flutter handles asynchronous programming using Futures and Streams.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Futures represent a single asynchronous value delivered in the future, while Streams represent a sequence of asynchronous events or data emissions over time."
+  },
+  {
+    "text": "Tell me about a time when you received constructive criticism from a senior engineer and how you applied it.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "A senior engineer pointed out that my error handling lacked graceful user feedback. I thanked them, refactored my code to include comprehensive error states, and adopted that standard moving forward."
+  },
+  {
+    "text": "Write a Dart function that takes a list of integers and returns a new list containing only even numbers.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Use the where method on the list with a predicate condition checking if the number modulo 2 equals zero, then convert the result to a list."
+  },
+  {
+    "text": "You are asked to implement dark mode support across an existing mobile app with hundreds of custom styles. How do you approach this?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I would introduce a centralized theme configuration system using design tokens or context providers, refactor hardcoded color values to dynamic theme variables, and test both light and dark palettes."
+  },
+  {
+    "text": "How do you monitor and track mobile application performance in production?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Performance in production is tracked using APM tools like Firebase Performance Monitoring, Sentry, or Datadog, measuring app startup times, network request latency, and screen render rates."
+  },
+  {
+    "text": "What is the purpose of CocoaPods in iOS and React Native development?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "CocoaPods is a dependency manager for Swift and Objective-C Cocoa projects, used to integrate native iOS libraries and third-party dependencies into Xcode projects."
+  },
+  {
+    "text": "Explain how React Native's bridge serialization overhead impacts performance.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Serialization requires converting JavaScript objects into JSON strings to pass across the asynchronous bridge, where native code parses them back, introducing latency during heavy UI animations."
+  },
+  {
+    "text": "Describe a situation where you had to debug a complex race condition in asynchronous code.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "I added structured logging around async request timestamps, identified that older network responses were resolving after newer ones, and implemented request cancellation tokens to resolve the race condition."
+  },
+  {
+    "text": "Write a React Native functional component that displays an image with a fallback loading skeleton.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Maintain loading state using useState, render a skeleton placeholder view while loading is true, and switch to the Image component once the onLoad event fires."
+  },
+  {
+    "text": "An automated test suite passes locally on your development machine but consistently fails in the CI pipeline. How do you troubleshoot?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I would check for environment discrepancies such as Node version mismatches, missing dependency installations, timezone variations, or flaky asynchronous test timers in the CI environment."
+  },
+  {
+    "text": "How do you handle image caching and optimization in mobile apps?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Image caching and optimization are handled using specialized libraries like react-native-fast-image or cached_network_image in Flutter, which cache images locally on disk and optimize memory usage."
+  },
+  {
+    "text": "What are React Native Portal components, and when are they used?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Portals render children into a different part of the component tree outside the normal DOM hierarchy, commonly used for modals, tooltips, and floating action menus that require top-level z-index stacking."
+  },
+  {
+    "text": "Explain how Flutter's slivers mechanism works for advanced scrolling effects.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Slivers are portions of a scrollable area that can be composed to create custom scrolling behaviors, such as collapsing app bars, sticky headers, and parallax effects within a CustomScrollView."
+  },
+  {
+    "text": "Tell me about a time when you took the initiative to improve the team's development workflow.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I set up pre-commit hooks using Husky and lint-staged to automate code formatting and linting checks, reducing code review friction and ensuring consistent code style across the team."
+  },
+  {
+    "text": "Write a Flutter widget that displays a custom form input with validation error text.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use a TextFormField widget, providing a validator function that returns an error string if invalid, and wrapping it in a Form widget with a global form key."
+  },
+  {
+    "text": "Your team needs to choose between React Native and Flutter for a new cross-platform greenfield project. How do you guide the decision?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "I would evaluate team expertise, required native module integrations, UI design complexity, and long-term maintenance support, presenting a structured matrix to stakeholders to guide the final framework choice."
+  },
+  {
+    "text": "How do you implement deep linking configuration in iOS Associated Domains?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Associated Domains are configured in Xcode capabilities, and an apple-app-site-association JSON file is hosted on your verified web server domain to securely link web URLs with the native app."
+  },
+  {
+    "text": "What is the role of Hermes JavaScript engine in React Native?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Hermes is an open-source JavaScript engine optimized for React Native, featuring ahead-of-time bytecode compilation that significantly improves app startup time, reduces memory usage, and decreases app size."
+  },
+  {
+    "text": "Explain how Riverpod simplifies state management compared to older inherited widget approaches.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Riverpod eliminates runtime context dependencies, prevents duplicate provider creation, allows automatic disposal of unused state, and supports compile-safe dependency injection natively."
+  },
+  {
+    "text": "Describe a situation where you had to handle an irate user due to a recurring software bug.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I listened empathetically, acknowledged their frustration, gathered diagnostic logs to identify the root cause, and followed up personally once the hotfix was successfully deployed."
+  },
+  {
+    "text": "Write a JavaScript utility function that formats a timestamp into a relative time string like '5 minutes ago'.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Calculate the difference between the current time and the target timestamp in seconds, minutes, hours, and days, and return the corresponding formatted string."
+  },
+  {
+    "text": "A push notification campaign causes a massive spike in user traffic that overwhelms your backend API. How do you mitigate this?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "I would implement rate limiting, staged push notification batching on the backend server, and client-side exponential backoff retry mechanisms to handle traffic spikes smoothly."
+  },
+  {
+    "text": "How do you test accessibility compliance in mobile applications?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Accessibility compliance is tested using automated linting tools like Accessibility Inspector in Xcode or Accessibility Scanner in Android Studio, combined with manual screen reader testing."
+  },
+  {
+    "text": "What is the difference between synchronous and asynchronous storage in mobile apps?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Synchronous storage blocks the main thread during read and write operations, whereas asynchronous storage performs operations on background threads, preventing UI freezing."
+  },
+  {
+    "text": "Explain how Flutter's widget build lifecycle works.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The lifecycle includes initialization via createState and initState, dependency updates in didChangeDependencies, building UI in build, updating configuration in didUpdateWidget, and cleanup in dispose."
+  },
+  {
+    "text": "Tell me about a time when you successfully led a major feature release from conception to deployment.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "I drafted the technical specification, coordinated task breakdowns with frontend and backend peers, managed QA testing cycles, and oversaw a smooth phased rollout to production."
+  },
+  {
+    "text": "Write a React Native hook that listens to app lifecycle states like active, background, and inactive.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use AppState.addEventListener to listen for state changes, update local hook state accordingly, and remove the subscription inside the useEffect cleanup function."
+  },
+  {
+    "text": "Your mobile app receives a spike in crash reports mentioning OutOfMemory errors on image-heavy screens. How do you resolve this?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "I would implement downscaling for high-resolution images before rendering, use list recycling and image caching libraries, and ensure off-screen images release their bitmap memory allocations."
+  },
+  {
+    "text": "How do you configure and use ProGuard rules for third-party libraries in Android?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "ProGuard rules are configured by adding specific keep rules (-keep class) in proguard-rules.pro to prevent R8 from obfuscating or removing classes and methods required by reflection-heavy third-party libraries."
+  },
+  {
+    "text": "What is the difference between React Native's LayoutAnimation and Animated API?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "LayoutAnimation handles automatic layout transitions for all upcoming rendering passes globally, whereas the Animated API provides fine-grained imperative or declarative control over specific animated values."
+  },
+  {
+    "text": "Explain how Flutter handles international text rendering and right-to-left languages.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Flutter automatically handles international typography and text directionality based on the ambient Directionality widget and localized Locale settings, supporting RTL layouts seamlessly."
+  },
+  {
+    "text": "What is the difference between a Stateless and a Stateful widget in Flutter?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Stateless widgets are immutable and do not change their state over time, meaning they only depend on their configuration and constructor parameters. Stateful widgets maintain mutable state that can change during the widget lifecycle, triggering UI rebuilds via setState."
+  },
+  {
+    "text": "Explain the role of the Bridge in React Native architecture.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The Bridge is an asynchronous, serialized communication layer between the JavaScript thread and the native mobile threads. It passes JSON messages back and forth, which can sometimes become a performance bottleneck under heavy UI updates."
+  },
+  {
+    "text": "How do you handle local data persistence in Flutter using SQLite?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "You typically use the sqflite package to create databases, define tables, and execute raw or helper-based SQL queries. It requires managing database version upgrades and running queries asynchronously to avoid blocking the main UI thread."
+  },
+  {
+    "text": "What are React Native hooks, and why are they preferred over class components?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Hooks let you use state and lifecycle features without writing class components, resulting in cleaner and more concise code. They also improve code reuse through custom hooks and eliminate issues related to 'this' binding in JavaScript."
+  },
+  {
+    "text": "Describe how Provider works for state management in Flutter.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Provider is a wrapper around InheritedWidget that makes state management easier and more readable. It exposes data down the widget tree using ChangeNotifier and rebuilds only the dependent consumer widgets when notified."
+  },
+  {
+    "text": "What is the purpose of the metro bundler in React Native?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Metro is a JavaScript bundler built for React Native that takes all source code, resolves dependencies, and compiles them into a single JavaScript file. It also supports fast reloading and incremental compilation during development."
+  },
+  {
+    "text": "How do you optimize image loading performance in a Flutter application?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "You can optimize images by using the cacheWidth and cacheHeight parameters on Image.network to decode them at the required display size. Additionally, utilizing packages like cached_network_image reduces network requests and memory usage."
+  },
+  {
+    "text": "Explain the concept of setState batching in React.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "React batches multiple state updates into a single re-render cycle to optimize performance and prevent unnecessary DOM or native UI updates. In asynchronous operations, React 18 automatically batches updates to minimize layout thrashing."
+  },
+  {
+    "text": "What are Flutter keys, and when should you use them?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Keys preserve the state of widgets when they move around the widget tree or when lists are dynamically reordered. ValueKey, ObjectKey, and GlobalKey are common types used to uniquely identify widget instances across rebuilds."
+  },
+  {
+    "text": "How do you implement offline-first architecture in a React Native app?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "You use a local database like WatermelonDB or Realm as the primary source of truth, reading and writing locally first. A background synchronization manager then queues outgoing mutations and syncs with the remote server when network connectivity is restored."
+  },
+  {
+    "text": "Tell me about a time you resolved a difficult performance bottleneck in a mobile app.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Look for a structured debugging approach, such as using profiling tools, identifying unnecessary re-renders or heavy computations, and measuring the resulting frame rate improvement."
+  },
+  {
+    "text": "How do you handle disagreements with a backend team regarding API response structures for mobile optimization?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "The candidate should emphasize collaboration, data-driven reasoning like reducing payload size for cellular networks, and proposing middle-ground solutions such as BFF layers."
+  },
+  {
+    "text": "Describe a scenario where you had to quickly learn a new mobile framework or library under a tight deadline.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Look for proactive learning strategies, reading official documentation, building quick proof-of-concepts, and successfully delivering the feature on time."
+  },
+  {
+    "text": "Your app crashes intermittently on older Android devices in production. How do you approach debugging this?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Check crash reporting tools like Firebase Crashlytics for stack traces, test on legacy emulator profiles, analyze memory leaks and native heap usage, and review third-party native module compatibility."
+  },
+  {
+    "text": "Write a Flutter function that checks internet connectivity and returns a boolean status.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Uses the connectivity_plus package to check the current connection status asynchronously and returns true if mobile or wifi is active."
+  },
+  {
+    "text": "Explain how Redux Toolkit simplifies state management in React Native compared to vanilla Redux.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Redux Toolkit reduces boilerplate by providing built-in utilities like createSlice and createAsyncThunk, which combine action creators and reducers. It also includes Immer under the hood, allowing developers to write mutable-looking code that updates immutably."
+  },
+  {
+    "text": "How do you implement local notifications in a Flutter application?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "You use the flutter_local_notifications plugin to configure platform-specific settings, create notification channels on Android, and schedule or display notifications with custom payloads."
+  },
+  {
+    "text": "What are RenderObjects in Flutter?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "RenderObjects are the low-level layout and painting building blocks of Flutter's rendering pipeline. They compute sizes, perform hit testing, and paint pixels onto the screen based on instructions from the Element tree."
+  },
+  {
+    "text": "How does React Native handle platform-specific code?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "React Native provides the Platform module to check OS types at runtime and file naming conventions with .ios.js and .android.js extensions to automatically load the correct file during bundling."
+  },
+  {
+    "text": "What is the purpose of a BLoC in Flutter architecture?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "BLoC stands for Business Logic Component, using reactive programming with Streams and Sinks to separate business logic from the UI. It takes events as inputs and emits new states as outputs in a predictable, testable manner."
+  },
+  {
+    "text": "Explain how memoization works in React Native using useMemo and useCallback.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "useMemo caches the result of expensive calculations between renders, while useCallback caches function definitions to prevent unnecessary child re-renders caused by reference equality changes."
+  },
+  {
+    "text": "How do you manage schema migrations in Realm for React Native?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "You define a schema version number and provide a migration function in the Realm configuration object. Inside the migration block, you manually update properties, add or remove fields, and transform existing data objects before opening the database."
+  },
+  {
+    "text": "What is tree shaking in Flutter, and how does it affect app size?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Tree shaking is a dead-code elimination process performed during compilation where unused classes, functions, and assets are stripped from the final binary, significantly reducing the app bundle size."
+  },
+  {
+    "text": "How do you handle push notification payloads when the app is completely terminated on iOS?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "iOS launches the app in the background via APNs with specific background flags, invoking native delegate methods like application:didReceiveRemoteNotification:fetchCompletionHandler: to process the payload and update local data before the UI wakes up."
+  },
+  {
+    "text": "Describe a time when you had to refactor a monolithic, poorly structured mobile component.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Should mention breaking down responsibilities into smaller custom hooks or widgets, writing unit tests to ensure no regressions, and communicating the technical debt payoff to stakeholders."
+  },
+  {
+    "text": "How do you mentor junior developers on writing clean, performant mobile code?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Focus on constructive code reviews, pair programming sessions, sharing documentation and styling guidelines, and encouraging them to profile their code using performance tools."
+  },
+  {
+    "text": "An app release is rejected by Apple App Store due to guideline violations regarding user data privacy. What steps do you take?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Review the specific rejection reason, update the privacy manifest and Info.plist usage descriptions, ensure ATT prompts are correctly implemented, and resubmit with a clear explanation letter to App Review."
+  },
+  {
+    "text": "Write a React Native functional component that accepts a list of items and renders aVirtualizedList or FlatList with performance optimizations.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Implements FlatList with keyExtractor, getItemLayout, initialNumToRender, and maxToRenderPerBatch props for optimized rendering."
+  },
+  {
+    "text": "What is the significance of the Widget, Element, and Render tree in Flutter?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Flutter maintains three trees: Widgets are immutable configuration blueprints, Elements manage the lifecycle and position of widgets in the hierarchy, and RenderObjects handle the actual layout, painting, and hit-testing on screen."
+  },
+  {
+    "text": "How do you implement deep linking in React Native for both iOS and Android?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "You configure URL schemes and Associated Domains or App Links in native configuration files (AndroidManifest.xml and Info.plist), then use libraries like React Navigation or react-native-linking to handle incoming URL events and route users to specific screens."
+  },
+  {
+    "text": "Explain the difference between Riverpod and Provider in Flutter.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Riverpod is a complete rewrite of Provider that is compile-safe, does not depend on the Flutter Widget tree, allows multiple providers of the same type, and supports auto-disposing states when no longer observed."
+  },
+  {
+    "text": "What is JSI (JavaScript Interface) in the new React Native architecture?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "JSI is a C++ layer that allows JavaScript code to hold direct references to C++ native objects and invoke native methods synchronously without serializing data over the old asynchronous bridge, eliminating communication bottlenecks."
+  },
+  {
+    "text": "How do you handle secure storage of sensitive tokens like JWTs in mobile apps?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "You use hardware-backed secure enclaves via platform-specific APIs accessed through packages like flutter_secure_storage or react-native-encrypted-storage, avoiding plain-text local storage like AsyncStorage or SharedPreferences."
+  },
+  {
+    "text": "What are Microtasks and Event Loops in Dart?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Dart uses a single-threaded execution model with an event loop. The event loop processes tasks from two queues: the microtask queue for short internal asynchronous actions that take priority, and the event queue for external I/O, user interaction, and timers."
+  },
+  {
+    "text": "How do you implement background fetch in React Native to sync data periodically?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "You use native background task schedulers via libraries like react-native-background-fetch, configuring iOS Background Modes and Android WorkManager to execute JavaScript tasks when the device is idle or charging."
+  },
+  {
+    "text": "What is the purpose of `shouldComponentUpdate` in React class components, and how is it achieved in functional components?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "shouldComponentUpdate allows developers to prevent unnecessary re-renders by returning false if props and state haven't changed. In functional components, this is achieved by wrapping the component in `React.memo`."
+  },
+  {
+    "text": "How do you profile memory leaks in a Flutter application?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "You use Dart DevTools Memory view to take heap snapshots, track object allocations, and identify retained objects that fail to garbage collect due to lingering stream subscriptions or unremoved listeners."
+  },
+  {
+    "text": "What are App Clips and Instant Apps, and how do you implement them?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "App Clips (iOS) and Instant Apps (Android) are lightweight, miniature versions of an app that users can launch instantly without installation. Implementation involves separating core modules into distinct targets with strict bundle size limits and shared codebase repositories."
+  },
+  {
+    "text": "Tell me about a time when an app deployment went wrong in production and how you handled the incident.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Should demonstrate calm crisis management, rolling back the release or pushing an OTA update via CodePush/Shorebird, communicating with stakeholders, and conducting a blameless post-mortem."
+  },
+  {
+    "text": "How do you handle design feedback from stakeholders that conflicts with mobile UX best practices (e.g., Apple Human Interface Guidelines)?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Candidate should explain how they educate stakeholders using platform guidelines, present user data or usability concerns, and offer alternative designs that satisfy business goals while preserving native UX patterns."
+  },
+  {
+    "text": "Your push notification delivery rate drops suddenly for Android users. Walk through your troubleshooting steps.",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Check FCM console metrics, verify APNs/FCM server key validity and expiration, inspect Android notification channel settings, and check if users revoked notification permissions on newer OS versions."
+  },
+  {
+    "text": "Explain how Flutter's garbage collection works.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Flutter uses a generational garbage collector in the Dart VM, separating objects into young and old generations. Young objects are collected quickly via a semi-space scavenger algorithm, while long-lived objects are promoted to the old generation using a mark-sweep algorithm."
+  },
+  {
+    "text": "What is Hermes engine, and what benefits does it bring to React Native?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Hermes is an open-source JavaScript engine optimized for React Native on Android. It improves app startup time, reduces memory usage, and decreases app size by using bytecode pre-compilation instead of parsing JavaScript text at runtime."
+  },
+  {
+    "text": "How do you test asynchronous code and BLoCs in Flutter using the bloc_test package?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "You use blocTest to define test cases that dispatch events to a BLoC and assert that the expected sequence of states is emitted over time, mocking dependencies with mocktail."
+  },
+  {
+    "text": "What is the difference between Synchronous and Asynchronous Native Modules in React Native?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Asynchronous native modules return promises or execute callbacks, preventing UI jank on the main thread. Synchronous native modules execute instantly on the calling thread, which can cause frame drops if the native operation is heavy."
+  },
+  {
+    "text": "How do you implement internationalization (i18n) and localization (l10n) in Flutter?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "You use the flutter_localizations package alongside ARB (Application Resource Bundle) files to define translated strings, generating localizations delegates that adapt to the device language settings."
+  },
+  {
+    "text": "Explain how React Navigation handles screen persistence and state restoration.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "React Navigation supports state persistence by serializing the navigation state tree and saving it to AsyncStorage or persistent storage on app close, then restoring the exact navigation stack upon relaunch."
+  },
+  {
+    "text": "What are isolates in Dart, and when should you use them?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Isolates are independent worker threads in Dart that do not share memory, communicating exclusively via message passing. They are used for heavy computations like JSON parsing of massive payloads or image processing to prevent freezing the UI thread."
+  },
+  {
+    "text": "How do you configure ProGuard/R8 for Android release builds in React Native?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "You enable minification in build.gradle and configure proguard-rules.pro files to prevent obfuscation or stripping of third-party native library classes, reflection methods, and serialization models required at runtime."
+  },
+  {
+    "text": "What is the purpose of the Shadow Tree in React Native's Fabric architecture?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "The Shadow Tree is a C++ representation of the React UI hierarchy used by Yoga to calculate layout dimensions and positions prior to rendering native views, enabling concurrent rendering and synchronous layout measurements."
+  },
+  {
+    "text": "How do you implement infinite scrolling pagination in a React Native FlatList?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "You monitor the onEndReached callback and maintain page offset states to fetch the next batch of data from the API when the user scrolls near the end of the list, using onEndReachedThreshold to trigger the fetch early."
+  },
+  {
+    "text": "Describe a time when you optimized battery consumption for a mobile application.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Should detail identifying excessive GPS polling or background wakelocks, switching to geofencing or batched sensor requests, and verifying battery usage drops using profiling tools."
+  },
+  {
+    "text": "How do you handle a situation where a critical third-party library is abandoned by its maintainer?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Discuss evaluating fork options, migrating to a well-maintained alternative, or writing a custom native wrapper in-house if the dependency is critical to business logic."
+  },
+  {
+    "text": "An automated CI/CD pipeline fails on code signing during iOS app deployment. How do you resolve this?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Check expired distribution certificates or provisioning profiles, ensure environment variables for App Store Connect API keys or p12 certificates are correctly configured in CI, and verify keychain access permissions."
+  },
+  {
+    "text": "Write a Dart function that parses a large JSON string in a separate background isolate.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Uses Isolate.spawn to run a top-level parsing function passing a SendPort for receiving the decoded data map."
+  },
+  {
+    "text": "What is tree-shaking in the context of React Native bundle optimization?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Tree-shaking relies on ES6 module syntax (import/export) to allow bundlers like Metro or webpack to detect and remove unused exports from libraries, reducing the final JavaScript bundle size."
+  },
+  {
+    "text": "Explain how Flutter's Navigator 2.0 (Router API) works.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Navigator 2.0 introduces a declarative routing system where the navigation stack is represented as a list of pages managed by an Router and RouterDelegate, enabling deep linking, browser history sync, and complex page state control."
+  },
+  {
+    "text": "How do you prevent memory leaks caused by subscriptions in React useEffect hooks?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "You return a cleanup function from the useEffect callback that cancels network requests, unsubscribes from event emitters, or clears timers when the component unmounts."
+  },
+  {
+    "text": "What is the difference between surface view and texture view in Android rendering within React Native?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "SurfaceView renders content in a separate window behind the view hierarchy, making it performant for video but hard to animate. TextureView renders directly inside the view hierarchy like any normal view, allowing smooth animations at a slight performance cost."
+  },
+  {
+    "text": "How do you handle certificate pinning in mobile apps to prevent man-in-the-middle attacks?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "You use libraries like http_certificate_pinning or native network security configs to embed the server's SSL certificate or public key hash directly in the app bundle and reject connections from untrusted root CAs."
+  },
+  {
+    "text": "What are React Native Native Modules versus Native Components (View Managers)?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Native Modules expose imperative functions and APIs (like Bluetooth or sensors) to JavaScript. Native Components (View Managers) expose UI views and layout containers written in Swift/Kotlin to be rendered directly within the React UI tree."
+  },
+  {
+    "text": "Explain how Riverpod's `FutureProvider` handles loading and error states automatically.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "FutureProvider evaluates an asynchronous function and wraps the result in an AsyncValue object, which provides built-in properties like isLoading, hasError, and value, allowing widgets to handle async states declaratively."
+  },
+  {
+    "text": "How do you test React Native components using Jest and React Native Testing Library?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "You use render() to mount components and query elements by testID or accessibility role using queries like getByText, simulating user interactions with fireEvent and asserting expected UI output."
+  },
+  {
+    "text": "What is the role of CocoaPods in iOS mobile development for React Native and Flutter?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "CocoaPods is a dependency manager for Swift and Objective-C projects that downloads and links third-party native iOS libraries and frameworks to Xcode workspaces."
+  },
+  {
+    "text": "How do you implement biometric authentication (Face ID / Fingerprint) in mobile apps?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "You use plugins like local_auth for Flutter or react-native-biometrics to prompt users for biometric verification through platform authentication dialogs securely."
+  },
+  {
+    "text": "Tell me about a time when you had to deal with legacy code that lacked tests. How did you ensure quality during updates?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Should describe writing characterization tests around existing behavior before refactoring, introducing unit tests incrementally, and applying safe refactoring patterns."
+  },
+  {
+    "text": "How do you balance feature delivery speed with technical debt in a fast-paced startup environment?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Focus on transparent communication with product managers, tagging critical technical debt in backlog tickets, and allocating a small percentage of sprint time for refactoring."
+  },
+  {
+    "text": "Your app fails Google Play Console pre-launch report due to an accessibility violation. How do you fix it?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Review the accessibility report screenshots, add missing content descriptions to images, increase touch target sizes to at least 48x48 dp, and ensure proper semantic labels are set."
+  },
+  {
+    "text": "Write a React Native functional component that uses useRef to keep track of previous state values.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Uses useRef to store the current value and updates it inside a useEffect hook after render, returning the previous value."
+  },
+  {
+    "text": "What is the difference between Provider and ChangeNotifier in Flutter?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "ChangeNotifier is a class that provides change notification to its listeners using notifyListeners(). Provider is the widget that injects this ChangeNotifier instance into the widget tree so descendant widgets can access and listen to it."
+  },
+  {
+    "text": "Explain how React Native bridge serialization impacts UI performance.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Every message sent across the old React Native bridge must be serialized into JSON on one end and deserialized on the other. Frequent high-frequency events like scroll gestures can overload the bridge queue, leading to dropped frames."
+  },
+  {
+    "text": "How do you implement swipe-to-dismiss functionality for list items in Flutter?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "You wrap the list item widget in a Dismissible widget, providing a unique key, background widgets for left and right swipes, and an onDismissed callback to update the underlying data list."
+  },
+  {
+    "text": "What is the purpose of Gradle in Android development for mobile cross-platform frameworks?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Gradle is an advanced build toolkit and automation system that manages dependencies, compiles Java/Kotlin source code, handles asset packaging, and configures build variants like debug and release."
+  },
+  {
+    "text": "How do you handle push notification actions and rich media attachments on iOS?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "You implement a Notification Service Extension in Xcode to intercept incoming push payloads, download remote images or audio attachments, attach them to the UNNotificationContent, and display rich notifications."
+  },
+  {
+    "text": "What is the virtual DOM in React and its counterpart in React Native?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The virtual DOM in React is an in-memory representation of UI elements that gets diffed and synced with the real DOM. In React Native, the virtual DOM communicates layout updates via the shadow tree to render native views instead of DOM nodes."
+  },
+  {
+    "text": "How do you perform integration testing in Flutter?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "You use the integration_test package to write end-to-end tests that run on real devices or emulators, simulating user taps and swipes while verifying that UI flows function correctly."
+  },
+  {
+    "text": "Explain how Yoga layout engine works in React Native.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Yoga is an open-source C++ implementation of Flexbox that calculates layout positions and dimensions for React Native views across iOS and Android, ensuring consistent cross-platform styling behavior."
+  }
+]

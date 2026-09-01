@@ -1,0 +1,1202 @@
+[
+  {
+    "text": "What is the difference between Type I and Type II error?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A Type I error is a false positive where you reject a true null hypothesis. A Type II error is a false negative where you fail to reject a false null hypothesis."
+  },
+  {
+    "text": "Explain the concept of p-value in hypothesis testing.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The p-value is the probability of obtaining test results at least as extreme as the results actually observed, under the assumption that the null hypothesis is correct. A low p-value suggests strong evidence against the null hypothesis."
+  },
+  {
+    "text": "What is multicollinearity and how does it affect linear regression models?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Multicollinearity occurs when independent variables in a regression model are correlated. It makes coefficient estimates unstable and sensitive to minor changes in the model, inflating standard errors."
+  },
+  {
+    "text": "What is the primary purpose of data normalization before training a regression model?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Normalization puts features on a similar scale, preventing features with large numeric ranges from dominating the objective function and speeding up gradient descent convergence."
+  },
+  {
+    "text": "What is an ROC curve and what does the AUC represent?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "An ROC curve plots true positive rate against false positive rate at various classification thresholds. AUC represents the overall ability of the model to discriminate between positive and negative classes."
+  },
+  {
+    "text": "Explain the curse of dimensionality in machine learning.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "As the number of features increases, the feature space becomes increasingly sparse, requiring exponentially more data to achieve reliable statistical generalization and increasing overfitting risks."
+  },
+  {
+    "text": "What is the difference between L1 and L2 regularization?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "L1 regularization adds the absolute value of coefficients as a penalty, which can drive some coefficients to zero for feature selection. L2 adds the squared magnitude, shrinking coefficients smoothly without zeroing them."
+  },
+  {
+    "text": "Why do we split data into training, validation, and test sets?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Training sets build the model, validation sets tune hyperparameters and prevent overfitting during development, and test sets provide a final unbiased evaluation on unseen data."
+  },
+  {
+    "text": "What is a confusion matrix?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A confusion matrix is a table used to evaluate classification performance, showing counts for true positives, false positives, true negatives, and false negatives."
+  },
+  {
+    "text": "What is the difference between a bar chart and a histogram?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A bar chart compares categorical variables with spaces between bars. A histogram displays the frequency distribution of continuous numerical data with adjacent bars touching."
+  },
+  {
+    "text": "Tell me about a time you had to explain a complex technical concept to a non-technical stakeholder.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Describe a specific situation, the technical concept, the analogy or simplified framing you used, and how the stakeholder successfully understood and applied the information."
+  },
+  {
+    "text": "Describe a project where your initial model failed. How did you diagnose and fix it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Mention the failure mode, the diagnostic steps you took such as error analysis, and the iterative improvements that led to a successful outcome."
+  },
+  {
+    "text": "How do you prioritize multiple competing data science feature requests from different business teams?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Explain your framework using impact versus effort, alignment with company OKRs, and direct communication with stakeholders to manage expectations."
+  },
+  {
+    "text": "Tell me about a time you discovered an error in your data analysis after presenting it. What did you do?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Highlight accountability by explaining how you quickly verified the error, notified stakeholders transparently, corrected the analysis, and implemented safeguards to prevent recurrence."
+  },
+  {
+    "text": "Imagine a key stakeholder completely disagrees with your model predictions. How do you handle this?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Listen to their domain expertise, investigate if there is uncaptured domain knowledge or data leakage, and transparently review model interpretability outputs together."
+  },
+  {
+    "text": "You notice a sudden drop in a key performance metric dashboard that you own. What are your first troubleshooting steps?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Check data pipeline logs for upstream ingestion errors, verify database connectivity, inspect recent schema changes, and validate whether it is a true business shift or tracking bug."
+  },
+  {
+    "text": "Write a Python function to calculate the mean and median of a list of numbers without using external libraries.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Sum elements and divide by length for mean; sort the list and pick the middle element or average of two middle elements for median."
+  },
+  {
+    "text": "Write a Python snippet using pandas to remove duplicate rows based on a specific subset of columns.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Use df.drop_duplicates(subset=col_list, keep=first) to filter out redundant records while keeping the first occurrence."
+  },
+  {
+    "text": "Write a Python function that takes a list of probabilities and returns the binary predictions based on a 0.5 threshold.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Use list comprehension or a loop with a conditional statement like 1 if p >= 0.5 else 0 for each element in the input list."
+  },
+  {
+    "text": "Write a SQL query to find the top 5 highest values in a numeric column from a table named metrics.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "SELECT column_name FROM metrics ORDER BY column_name DESC LIMIT 5;"
+  },
+  {
+    "text": "Explain the Central Limit Theorem and why it is foundational for statistical inference.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The CLT states that the distribution of sample means approaches a normal distribution as sample size increases, regardless of the underlying population distribution. This allows us to use normal distribution properties for confidence intervals and hypothesis tests."
+  },
+  {
+    "text": "How do you detect and handle missing data in a dataset?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Analyze missingness mechanisms (MCAR, MAR, MNAR). Handle via imputation (mean, median, KNN, iterative) or deletion if the missing proportion is low and completely at random."
+  },
+  {
+    "text": "What is the difference between parametric and non-parametric statistical tests?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Parametric tests assume underlying data follows a specific distribution like normal and estimate parameters. Non-parametric tests make no distributional assumptions and rely on data ranks or medians."
+  },
+  {
+    "text": "Explain how Bonferroni correction works and why it is needed in multiple testing.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "When conducting multiple hypothesis tests, the probability of a false positive accumulates. Bonferroni adjusts the significance threshold by dividing alpha by the number of tests to control the family-wise error rate."
+  },
+  {
+    "text": "What are the core assumptions of linear regression?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Linearity of relationships, independence of errors, homoscedasticity of residuals, normality of error distribution, and absence of multicollinearity among predictors."
+  },
+  {
+    "text": "What is logistic regression and why is it classified as a generalized linear model?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Logistic regression predicts binary outcomes by passing a linear combination of features through a logit link function, mapping continuous outputs to probabilities between 0 and 1."
+  },
+  {
+    "text": "Explain the difference between bagging and boosting ensemble methods.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Bagging trains multiple models in parallel on bootstrapped samples and averages their predictions to reduce variance. Boosting trains models sequentially, where each new model focuses on correcting the errors of previous ones to reduce bias."
+  },
+  {
+    "text": "How does gradient descent work in optimizing model parameters?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Gradient descent computes the partial derivatives of the cost function with respect to weights and iteratively steps in the opposite direction of the gradient by a factor determined by the learning rate."
+  },
+  {
+    "text": "What is cross-validation and what is the advantage of k-fold over a simple train-test split?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "K-fold cross-validation partitions data into k subsets, training on k-1 and validating on the remaining fold k times. It provides a more robust performance estimate and utilizes all data for training and testing."
+  },
+  {
+    "text": "What is Simpson's Paradox and how can it impact data analysis?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Simpson's Paradox occurs when a trend appears in different groups of data but reverses or disappears when groups are combined. It highlights the danger of omitting confounding variables in regression and visualization."
+  },
+  {
+    "text": "Describe the design of an A/B test for a new checkout button color on an e-commerce website.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Define the primary metric conversion rate, calculate required sample size based on statistical power and significance, randomize users into control and treatment groups, run the test for a full business cycle, and analyze using a two-proportion z-test."
+  },
+  {
+    "text": "What is sample ratio mismatch (SRM) in A/B testing and how do you diagnose it?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "SRM occurs when the observed traffic split between variant groups significantly deviates from the planned allocation. Diagnose using a Chi-square goodness-of-fit test and investigate redirection bugs or tracking implementation issues."
+  },
+  {
+    "text": "Explain statistical power and how you determine the required sample size for an A/B test.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Statistical power is the probability of correctly rejecting a false null hypothesis, typically set at 80 percent. Sample size is calculated using baseline conversion rate, minimum detectable effect, significance level alpha, and power."
+  },
+  {
+    "text": "What are novelty effects and primacy effects in A/B testing, and how do you mitigate them?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Novelty effects cause initial spikes in metrics due to user curiosity over changes. Primacy effects occur when users resist changes due to habit. Mitigate by running tests longer or filtering analysis to returning users."
+  },
+  {
+    "text": "How do you handle peeking problems in A/B testing?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Peeking at test results continuously inflates the false positive rate. Mitigate by pre-calculating sample size and sticking to it, using sequential testing methods, or applying group sequential boundaries."
+  },
+  {
+    "text": "What is the difference between filter, wrapper, and embedded feature selection methods?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Filter methods evaluate features independently using statistical metrics like correlation. Wrapper methods use a model as a black box to search feature subsets. Embedded methods perform selection during model training, such as Lasso."
+  },
+  {
+    "text": "Explain Recursive Feature Elimination (RFE) and its advantages.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "RFE trains a model, computes feature importance, and recursively removes the least important features until the desired number remains, helping to capture feature interactions and reduce dimensionality."
+  },
+  {
+    "text": "How does mutual information help in feature selection?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Mutual information measures the dependency between two variables, capturing both linear and non-linear relationships, allowing you to select features that share the most predictive information with the target."
+  },
+  {
+    "text": "Why might highly correlated features be problematic even if individual feature importance is high?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Collinear features split feature importance scores, make model coefficients unstable, and offer redundant information that increases model complexity without adding predictive power."
+  },
+  {
+    "text": "How do you select features when dealing with high-dimensional genomic or text data?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use variance thresholding to remove constant features, L1 regularization for sparse solutions, domain-specific filtering, and dimensionality reduction techniques like PCA or embedding models."
+  },
+  {
+    "text": "Explain SHAP values and how they provide local model interpretability.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "SHAP values are based on cooperative game theory, allocating credit to each feature for the difference between the actual prediction and the expected model output for a specific individual prediction."
+  },
+  {
+    "text": "What is the difference between feature importance from tree-based models and permutation importance?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Tree impurity importance measures how much a feature reduces variance or Gini impurity across splits, which can bias toward high-cardinality features. Permutation importance measures drop in model score when feature values are randomly shuffled on a validation set."
+  },
+  {
+    "text": "How does Partial Dependence Plot (PDP) help interpret machine learning models?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "PDP shows the marginal effect of one or two features on the predicted outcome of a machine learning model, helping visualize whether the relationship is linear, monotonic, or complex."
+  },
+  {
+    "text": "What are the limitations of using Global Feature Importance in complex black-box models?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Global importance aggregates effects across the entire dataset, masking local variations where a feature might strongly influence predictions for a specific subgroup but have zero impact overall."
+  },
+  {
+    "text": "Explain LIME (Local Interpretable Model-agnostic Explanations).",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "LIME explains individual predictions by perturbing the input sample, observing prediction changes, and fitting a simple interpretable surrogate model locally around the prediction of interest."
+  },
+  {
+    "text": "What are best practices for designing a dashboard to track key business metrics?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Keep visualizations clean and purposeful, place high-level executive summaries at the top, use consistent color palettes, avoid chart clutter, and ensure fast load times with pre-aggregated data tables."
+  },
+  {
+    "text": "When should you choose a scatter plot over a box plot?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Choose a scatter plot to examine the direct relationship and correlation between two continuous numerical variables. Use a box plot to display the distribution summary and outliers of a numerical variable across categories."
+  },
+  {
+    "text": "How can improper data visualization mislead stakeholders?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Truncating axes, using dual axes with mismatched scales, choosing inappropriate bin sizes in histograms, or using 3D effects can exaggerate trends and create false impressions of statistical significance."
+  },
+  {
+    "text": "What is the purpose of a violin plot compared to a standard box plot?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A violin plot combines a box plot with a kernel density plot, showing the full probability density distribution of the data at different values rather than just summary statistics."
+  },
+  {
+    "text": "How do you effectively visualize high-dimensional data in a 2D plot?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use dimensionality reduction techniques like PCA, t-SNE, or UMAP to project high-dimensional features into two dimensions, and encode additional variables using color, size, or shape markers."
+  },
+  {
+    "text": "How do you handle extreme outliers in a regression dataset?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Investigate if outliers are data entry errors and remove them. If valid, consider robust regression techniques, transformations like log scaling, or tree-based models that are less sensitive to extreme values."
+  },
+  {
+    "text": "What is heteroscedasticity and how do you test for it in regression models?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Heteroscedasticity occurs when the variance of regression errors varies across levels of independent variables. Test using the Breusch-Pagan or White test, and correct by using robust standard errors or transforming the target."
+  },
+  {
+    "text": "Explain Poisson regression and when it should be used instead of linear regression.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Poisson regression models count data where outcomes are non-negative integers. It uses a log link function and models variance proportional to the mean, preventing negative predictions common in standard linear regression."
+  },
+  {
+    "text": "What is ridge regression and how does the tuning parameter alpha affect it?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Ridge regression adds an L2 penalty to the loss function. A higher alpha increases shrinkage, reducing model variance at the cost of slight increases in bias."
+  },
+  {
+    "text": "How do you interpret coefficients in a log-linear regression model where the dependent variable is log-transformed?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "For a log-transformed dependent variable and untransformed independent variable, multiplying the coefficient by 100 gives the approximate percentage change in the dependent variable for a one-unit increase in the predictor."
+  },
+  {
+    "text": "How do you evaluate a classification model when the dataset is severely imbalanced?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Avoid accuracy and use metrics like Precision, Recall, F1-score, Precision-Recall AUC, and Balanced Accuracy. Techniques like SMOTE or threshold tuning can also help."
+  },
+  {
+    "text": "What is the difference between hard voting and soft voting in ensemble classifiers?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Hard voting takes the majority vote of predicted class labels from individual classifiers. Soft voting averages the predicted probability outputs from each model and selects the class with the highest average probability."
+  },
+  {
+    "text": "Explain how Support Vector Machines (SVM) use kernels to handle non-separable data.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Kernel functions implicitly map low-dimensional non-linear data into a higher-dimensional space where a linear hyperplane can successfully separate the classes without computing coordinates explicitly."
+  },
+  {
+    "text": "What is the difference between Generative and Discriminative classifiers?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Generative models learn the joint probability distribution P(X, Y) and model how data is generated. Discriminative models directly learn the conditional probability P(Y|X) focusing on the decision boundary."
+  },
+  {
+    "text": "How does the random forest algorithm prevent overfitting compared to a single decision tree?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Random forests build multiple deep decision trees on bootstrapped subsets of data with random subsets of features considered at each split, averaging their predictions to drastically reduce variance."
+  },
+  {
+    "text": "Tell me about a time when your A/B test results were inconclusive. How did you investigate further?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Describe checking segment performance for heterogeneous effects, verifying power calculations, conducting power post-mortems, and proposing qualitative user research or follow-up segmented testing."
+  },
+  {
+    "text": "Describe a situation where a feature you engineered significantly improved model performance. How did you conceive it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Explain the business context, the exploratory data analysis or domain insight that sparked the idea, the implementation process, and the quantified performance lift."
+  },
+  {
+    "text": "How do you handle pushback from engineering teams regarding model latency or implementation complexity during deployment?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Highlight collaborative problem-solving, discussing trade-offs between model accuracy and inference speed, exploring model distillation or quantization, and aligning on practical architecture."
+  },
+  {
+    "text": "Tell me about a time when you realized a dataset had severe bias. How did you address it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Identify the source of bias, explain the ethical or analytical implications, describe remediation steps such as resampling, reweighting, or collecting additional data, and discuss validation steps."
+  },
+  {
+    "text": "Your A/B test shows a statistically significant positive lift in conversion rate, but revenue drops. How do you advise the business?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Investigate secondary metrics like average order value and item basket size, analyze user segments to see if low-value users drove the conversion lift, and advise against rollout until revenue impact is clarified."
+  },
+  {
+    "text": "An automated feature selection pipeline drops a feature that domain experts insist is crucial for pricing. How do you resolve this?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Check for collinearity where the feature's variance was captured by another variable, test forcing the feature into the model to measure performance impact, and communicate findings back to domain experts."
+  },
+  {
+    "text": "Write a Python function using pandas to compute rolling 7-day moving averages for a time-series dataframe.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use df[column].rolling(window=7).mean() after ensuring the dataframe is sorted by date."
+  },
+  {
+    "text": "Write a Python snippet to calculate precision, recall, and F1-score manually given true labels and predicted labels.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Calculate TP, FP, TN, FN counts; compute precision as TP/(TP+FP), recall as TP/(TP+FN), and F1 as 2*(precision*recall)/(precision+recall)."
+  },
+  {
+    "text": "Write a SQL query using window functions to calculate a 3-row moving average of sales.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "SELECT date, sales, AVG(sales) OVER (ORDER BY date ROWS BETWEEN 2 PRECEDING AND CURRENT ROW) as moving_avg FROM sales_table;"
+  },
+  {
+    "text": "Write a Python function using scikit-learn to train a logistic regression model and extract its coefficients with feature names.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Initialize LogisticRegression(), fit on X and y, and create a dictionary or dataframe pairing X.columns with model.coef_[0]."
+  },
+  {
+    "text": "Explain the mathematical intuition behind the Mann-Whitney U test and when to use it.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "It is a non-parametric test used to determine whether two independent samples were selected from populations having the same distribution, by comparing all pairs of observations between the two groups and calculating rank sums."
+  },
+  {
+    "text": "How do you conduct power analysis and sample size estimation for clustered or hierarchical A/B testing?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Accounting for intra-class correlation (ICC) within clusters is mandatory because standard sample size formulas overestimate statistical power when observations within clusters are correlated, requiring design effect adjustments."
+  },
+  {
+    "text": "What is survival analysis, and how is the Cox Proportional Hazards model formulated?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Survival analysis models time until an event occurs while handling censored data. The Cox model relates the hazard function of an individual to their covariates without making assumptions about the baseline hazard shape."
+  },
+  {
+    "text": "Explain Bayesian A/B testing and how it differs from frequentist hypothesis testing.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Bayesian testing updates prior beliefs with observed data using Bayes' theorem to generate posterior probability distributions, allowing direct statements about the probability that variant B is better than variant A."
+  },
+  {
+    "text": "How do generalized additive models (GAMs) capture non-linear relationships while maintaining interpretability?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "GAMs replace linear coefficients with smooth spline functions for each feature, allowing the model to capture complex non-linear patterns while keeping the additive structure for easy visualization and interpretation."
+  },
+  {
+    "text": "Explain the mathematical formulation of XGBoost objective function and how regularization is incorporated.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "XGBoost uses a second-order Taylor expansion of the loss function, incorporating first and second gradients, and adds penalties for the number of leaves and L1/L2 regularization on leaf weights to control tree complexity."
+  },
+  {
+    "text": "What are multi-armed bandits, and how do Thompson Sampling algorithms solve the exploration-exploitation dilemma?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Multi-armed bandits dynamically allocate traffic to variants to maximize cumulative reward. Thompson Sampling solves this by sampling from the posterior distribution of conversion rates for each arm and picking the arm with the highest sample."
+  },
+  {
+    "text": "How do you detect and mitigate data leakage in a complex machine learning pipeline?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Data leakage occurs when information from outside the training dataset is used to create the model, often through improper feature scaling or target encoding across folds. Prevent by using rigorous pipelines where all transformations are fit exclusively on training folds."
+  },
+  {
+    "text": "Explain the mechanics and use cases of Isolation Forests for anomaly detection.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Isolation Forests isolate anomalies instead of profiling normal data points by randomly selecting features and split values. Anomalies require fewer splits to be isolated and thus have shorter average path lengths across trees."
+  },
+  {
+    "text": "What is Elastic Net regularization, and when is it preferred over Lasso or Ridge?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Elastic Net combines L1 and L2 penalties. It is preferred when there are highly correlated features, because Lasso tends to arbitrarily select only one feature from a group of correlated ones while Elastic Net selects groups together."
+  },
+  {
+    "text": "Describe a scenario where standard A/B testing is impossible and explain how you would use quasi-experimentation like Difference-in-Differences.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Describe a city-level rollout where randomization is infeasible. Explain using Difference-in-Differences to compare the change in outcomes over time between a treated city and a control city, controlling for parallel trends."
+  },
+  {
+    "text": "Tell me about a time when you optimized a high-latency machine learning model in production. What approaches did you take?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Discuss profiling inference bottlenecks, applying model quantization or pruning, caching frequent predictions, and collaborating with MLOps to transition to faster serving runtimes."
+  },
+  {
+    "text": "Your company wants to launch a feature that might cannibalize existing revenue streams. How do you design an experiment and guide executive decision-making?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Design a geo-based or user-level experiment measuring net overall lifetime value and total ecosystem revenue rather than isolated feature metrics, and present a risk-adjusted model to executives."
+  },
+  {
+    "text": "Write a Python function to perform stratified k-fold cross-validation splitting manually without scikit-learn.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Group indices by class labels, shuffle indices within each class group, and distribute them evenly across k folds to maintain class proportions in every fold."
+  },
+  {
+    "text": "Write a Python snippet to compute permutation feature importance from scratch using a trained classifier and validation dataset.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Calculate baseline validation score, loop through each feature column, shuffle its values, re-evaluate model score, and record the drop in performance compared to the baseline."
+  },
+  {
+    "text": "Explain the theoretical foundations and failure modes of dimensionality reduction using t-SNE.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "t-SNE converts Euclidean distances between data points into conditional probabilities that represent similarities, using Kullback-Leibler divergence to minimize divergence between low and high-dimensional distributions. It struggles with preserving global structures and can yield different projections across runs due to random initialization."
+  },
+  {
+    "text": "How do you mathematically formulate and solve causal inference problems using Propensity Score Matching?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Propensity score matching estimates the probability of treatment assignment given observed covariates using logistic regression, and matches treated subjects with control subjects sharing similar propensity scores to estimate average treatment effects while controlling for confounding."
+  },
+  {
+    "text": "Describe the mathematical derivation of Expectation-Maximization (EM) algorithm in Gaussian Mixture Models.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "The E-step computes the expected value of the log-likelihood function with respect to the conditional distribution of latent variables given current parameters. The M-step maximizes this expectation to update parameters, iterating until convergence."
+  },
+  {
+    "text": "How do you handle covariate shift and concept drift in production machine learning systems?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Covariate shift changes input feature distributions P(X) while P(Y|X) remains constant, detectable via domain classifiers. Concept drift changes P(Y|X). Mitigate using continuous monitoring, sliding window training, or adaptive online learning algorithms."
+  },
+  {
+    "text": "Explain the statistical mechanics behind False Discovery Rate (FDR) control using the Benjamini-Hochberg procedure.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Benjamini-Hochberg orders p-values from smallest to largest, finds the largest p-value satisfying k/m times alpha, and rejects all null hypotheses up to that rank to control the expected proportion of false discoveries among rejected hypotheses."
+  },
+  {
+    "text": "Write a Python function from scratch to compute SHAP-like marginal contributions (Shapley values) for a simple linear model.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "Iterate through all possible feature subsets, compute predictions with and without the target feature across permutations, and weight the marginal differences by combinatorial coefficients to compute exact Shapley values."
+  },
+  {
+    "text": "What is the difference between Type I and Type II errors in hypothesis testing?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A Type I error is a false positive where you reject a true null hypothesis. A Type II error is a false negative where you fail to reject a false null hypothesis."
+  },
+  {
+    "text": "Explain the concept of statistical power.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Statistical power is the probability that a test correctly rejects a false null hypothesis. It depends on sample size, effect size, and significance level."
+  },
+  {
+    "text": "What is the primary purpose of a Q-Q plot?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A Q-Q plot compares the quantiles of a dataset against the quantiles of a theoretical distribution like a normal distribution to visually assess normality."
+  },
+  {
+    "text": "How do you handle multicollinearity in linear regression?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "You can handle multicollinearity by removing highly correlated features, using regularization techniques like Ridge or Lasso, or applying dimensionality reduction such as PCA."
+  },
+  {
+    "text": "What is precision-recall curve and when should you use it over ROC curve?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A precision-recall curve plots precision against recall at various thresholds. It is preferred over ROC curves when dealing with highly imbalanced datasets because it focuses heavily on the minority class."
+  },
+  {
+    "text": "Tell me about a time when you explained a complex statistical model to a non-technical stakeholder.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Focus on the use of analogies, avoiding jargon, focusing on business impact, and ensuring the stakeholder understood how the model decisions affected their goals."
+  },
+  {
+    "text": "Describe a situation where your exploratory data analysis completely changed the direction of a project.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Highlight uncovering hidden biases, data leakage, or unexpected distributions that rendered the initial hypothesis invalid and forced a pivot."
+  },
+  {
+    "text": "How would you handle a stakeholder who insists on launching an A/B test with an inadequate sample size?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Explain the risks of underpowered tests, such as high false-negative rates or inflated effect size estimates, and propose extending the test duration or increasing traffic allocation."
+  },
+  {
+    "text": "Write a Python function to calculate the mean and median of a list of numbers without using built-in statistical libraries.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Iterate through the list to sum elements for the mean, and sort the list to find the middle element or average of two middle elements for the median."
+  },
+  {
+    "text": "What is the difference between bootstrapping and jackknifing?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Bootstrapping samples data points with replacement to create many simulated datasets, whereas jackknifing leaves out one observation at a time systematically."
+  },
+  {
+    "text": "Explain the Bonferroni correction and why it is used.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "It is used in multiple hypothesis testing to control the family-wise error rate by dividing the significance level alpha by the total number of comparisons."
+  },
+  {
+    "text": "What is Simpson's Paradox?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "It is a phenomenon where a trend appears in different groups of data but disappears or reverses when these groups are combined."
+  },
+  {
+    "text": "How does L1 regularization drive coefficients to zero while L2 does not?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "L1 penalty absolute values create diamond-shaped constraint regions with sharp corners where cost contours intersect at axis intercepts, setting coefficients to zero. L2 uses circular constraints where intersection points rarely land on zero."
+  },
+  {
+    "text": "What is the difference between logistic regression and linear regression?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Linear regression predicts continuous numerical outcomes, while logistic regression predicts the probability of a categorical binary outcome using the sigmoid function."
+  },
+  {
+    "text": "Describe a time when you made a mistake in model validation and how you caught and fixed it.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Discuss data leakage, cross-validation errors, or train-test contamination, and explain the corrective governance steps implemented afterward."
+  },
+  {
+    "text": "What would you do if your A/B test results showed a statistically significant improvement in conversion rate, but the business metric dropped?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Investigate downstream metrics, segment the data to check for novel effects or cannibalization, and analyze user behavior changes before recommending a rollout."
+  },
+  {
+    "text": "Write a SQL query or Python code snippet to calculate the F1 score given true labels and predicted labels.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Calculate true positives, false positives, and false negatives, derive precision and recall, and compute 2 * (precision * recall) / (precision + recall)."
+  },
+  {
+    "text": "What is a p-value and what is it frequently misinterpreted as?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A p-value is the probability of obtaining test results at least as extreme as the results observed, assuming the null hypothesis is correct. It is often wrongly interpreted as the probability that the null hypothesis is true."
+  },
+  {
+    "text": "Explain the difference between parametric and non-parametric tests.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Parametric tests make assumptions about the underlying population distribution, such as normality. Non-parametric tests make fewer assumptions and operate on ranks or medians."
+  },
+  {
+    "text": "What is the purpose of a covariance matrix in multivariate analysis?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "It summarizes the joint variability of multiple variables, showing how each variable varies with every other variable in the dataset."
+  },
+  {
+    "text": "How does recursive feature elimination work?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "RFE trains a model, ranks features by importance, discards the least important feature, and repeats the process recursively until the desired number of features is reached."
+  },
+  {
+    "text": "Explain SHAP values and how they provide model interpretability.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "SHAP values use cooperative game theory to assign each feature an importance value for a specific prediction, representing how much that feature contributes to pushing the model output away from the base value."
+  },
+  {
+    "text": "When would you choose a violin plot over a standard box plot?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "You choose a violin plot when you want to see the full probability density distribution of the data, especially for multimodal distributions where a box plot might hide nuances."
+  },
+  {
+    "text": "Describe your experience mentoring junior data scientists on hypothesis testing best practices.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Emphasize teaching correct sample size determination, avoiding p-hacking, and ensuring pre-registration of metrics."
+  },
+  {
+    "text": "If you notice severe heteroscedasticity in your linear regression residuals, what corrective actions can you take?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Apply a logarithmic or Box-Cox transformation to the target variable, use weighted least squares, or employ robust standard errors."
+  },
+  {
+    "text": "Write a Python script using pandas to identify and remove outliers using the Interquartile Range method.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Calculate Q1 and Q3 for a column, compute IQR as Q3 minus Q1, and filter out rows where values fall below Q1 minus 1.5 times IQR or above Q3 plus 1.5 times IQR."
+  },
+  {
+    "text": "What is the Central Limit Theorem and why is it important?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "It states that the sampling distribution of the sample mean approaches a normal distribution as the sample size gets larger, regardless of the population distribution, enabling reliable hypothesis testing."
+  },
+  {
+    "text": "Explain the difference between Type I and Type II errors in the context of spam detection.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A Type I error flags a legitimate email as spam. A Type II error lets a spam email land in the primary inbox."
+  },
+  {
+    "text": "What is ANOVA and when would you use it?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Analysis of Variance is used to determine whether there are any statistically significant differences between the means of three or more independent groups."
+  },
+  {
+    "text": "How do filter, wrapper, and embedded feature selection methods differ?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Filter methods use statistical metrics independently of models. Wrapper methods use a model as a black box to evaluate feature subsets. Embedded methods perform feature selection as part of the model training process."
+  },
+  {
+    "text": "What is partial dependence plot and what does it reveal?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A partial dependence plot shows the marginal effect of one or two features on the predicted outcome of a machine learning model, helping visualize linear or non-linear relationships."
+  },
+  {
+    "text": "Why are diverging color palettes preferred for sentiment visualization maps?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Diverging palettes use a neutral midpoint to separate positive and negative values, making it instantly intuitive to distinguish opposing directions."
+  },
+  {
+    "text": "Tell me about a time you disagreed with a product manager regarding the interpretation of an A/B test.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Focus on data-driven persuasion, addressing false discovery rates or novelty effects, and reaching a consensus on decision criteria."
+  },
+  {
+    "text": "You discover that your classification model is heavily biased against a protected demographic group. What steps do you take?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Audit training data for representation bias, evaluate fairness metrics, reweight samples or adjust decision thresholds, and consider removing proxy features."
+  },
+  {
+    "text": "Write a Python function to perform a two-sample t-test from scratch using numpy.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Calculate means, variances, and pooled standard error for two arrays, compute the t-statistic, and estimate the p-value using a t-distribution CDF."
+  },
+  {
+    "text": "What is the difference between Mann-Whitney U test and Student's t-test?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The t-test compares means of normally distributed parametric data. The Mann-Whitney U test is a non-parametric test comparing distributions based on ranked data without normality assumptions."
+  },
+  {
+    "text": "Explain the concept of false discovery rate and how Benjamini-Hochberg procedure controls it.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "FDR is the expected proportion of false positives among all rejected hypotheses. Benjamini-Hochberg sorts p-values and compares them against scaled significance thresholds to control this proportion."
+  },
+  {
+    "text": "What is multicollinearity and why is it a problem in logistic regression?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "It occurs when independent variables are highly correlated. In logistic regression, it inflates standard errors of coefficients, making estimates unstable and hard to interpret."
+  },
+  {
+    "text": "Explain LIME and how it explains black-box model predictions.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Local Interpretable Model-agnostic Explanations trains a simple interpretable model locally around a specific prediction by perturbing input features to approximate the complex model's local behavior."
+  },
+  {
+    "text": "What makes a heatmap ineffective and how can you improve it?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Poor color choice, lack of data labels, or inappropriate scaling can ruin heatmaps. Improving them involves using perceptually uniform color maps and clustering similar rows or columns."
+  },
+  {
+    "text": "Describe a time when you optimized a slow regression model and improved its performance.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Discuss identifying bottlenecks, applying feature selection, scaling data properly, or switching to a more efficient solver."
+  },
+  {
+    "text": "An A/B test has been running for two weeks and shows no significant results, but the team wants to stop it early because traffic is expensive. What do you advise?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Advise against stopping early due to peeking bias and underpowered samples, explaining that true effects might require the full planned duration to detect reliably."
+  },
+  {
+    "text": "Write a Python function to compute variance inflation factor for features in a pandas DataFrame.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Iterate through columns, fit a linear regression of each feature against all other features, extract R-squared, and calculate VIF as 1 divided by (1 minus R-squared)."
+  },
+  {
+    "text": "What is the difference between a one-tailed and a two-tailed hypothesis test?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A one-tailed test checks for an effect in a specific directional outcome. A two-tailed test checks for any effect in either direction."
+  },
+  {
+    "text": "Explain Bayesian A/B testing and how it differs from frequentist approaches.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Bayesian testing updates prior distributions with observed data to generate posterior probability distributions, allowing direct statements about the probability that variant B beats variant A without p-values."
+  },
+  {
+    "text": "What is the assumption of homoscedasticity?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "It assumes that the variance of error terms is constant across all levels of the independent variables."
+  },
+  {
+    "text": "How do you select features for a classification model with millions of sparse features?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use L1 regularization for sparsity, tree-based models with feature importance thresholds, or hashing techniques combined with chi-squared filter methods."
+  },
+  {
+    "text": "What is feature importance impurity-based versus permutation-based?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Impurity-based importance measures how much tree nodes reduce impurity, which can bias toward high-cardinality features. Permutation importance measures score drops when a feature's values are shuffled, offering a more reliable metric."
+  },
+  {
+    "text": "Why are log-scale axes useful in financial or population data visualization?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Log scales convert multiplicative growth into linear trends, making it easier to visualize exponential changes and compare relative percentage differences across wide magnitude ranges."
+  },
+  {
+    "text": "Tell me about a time you built a classification model that suffered from class imbalance. How did you resolve it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Discuss utilizing techniques like SMOTE, class weight adjustments, collecting more data, or switching evaluation metrics from accuracy to ROC-AUC and F1."
+  },
+  {
+    "text": "A business stakeholder asks you to add 50 new features to an existing classification model just because they seem interesting. How do you respond?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Acknowledge their ideas, explain the risks of overfitting and curse of dimensionality, and propose testing a subset of features using rigorous validation metrics."
+  },
+  {
+    "text": "Write a Python snippet to perform stratified k-fold cross-validation.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use StratifiedKFold from scikit-learn, iterate through the train and test splits, and evaluate model performance across each fold while preserving class distributions."
+  },
+  {
+    "text": "What is the Bonferroni correction and what are its drawbacks?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "It controls family-wise error rate by lowering alpha thresholds, but its major drawback is that it is overly conservative, drastically increasing Type II error rates."
+  },
+  {
+    "text": "Explain the concept of statistical power and how you calculate required sample size.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Power is 1 minus beta. Sample size calculation requires specifying significance level alpha, desired power, expected baseline conversion, and minimum detectable effect."
+  },
+  {
+    "text": "What is a chi-square test of independence used for?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "It determines whether there is a significant association between two categorical variables."
+  },
+  {
+    "text": "How does Ridge regression prevent overfitting?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "It adds a penalty proportional to the sum of squared coefficients to the loss function, shrinking coefficient values and reducing model variance."
+  },
+  {
+    "text": "What is the difference between global and local model interpretation methods?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Global methods explain the entire model's general behavior across all data points. Local methods explain why the model made a specific prediction for a single instance."
+  },
+  {
+    "text": "What visualization would you use to show the relationship between three continuous variables?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A bubble chart where point size represents the third variable, or a 3D scatter plot, or a color-coded scatter plot."
+  },
+  {
+    "text": "Describe a project where data visualization was key to securing stakeholder buy-in.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Focus on clarity, telling a compelling data story, and addressing executive concerns through interactive or well-structured dashboards."
+  },
+  {
+    "text": "You are running an A/B test and notice a severe novelty effect during the first few days. What action should you take?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Wait for user behavior to stabilize before drawing conclusions, and exclude or discount the initial days if analyzing long-term retention."
+  },
+  {
+    "text": "Write a Python function to compute the confusion matrix metrics including precision, recall, and accuracy.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Take true and predicted arrays, count TP, TN, FP, FN, and return a dictionary with calculated precision, recall, and accuracy."
+  },
+  {
+    "text": "What is the difference between Z-test and T-test?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A Z-test is used when the population variance is known and sample size is large. A T-test is used when population variance is unknown and sample size is small."
+  },
+  {
+    "text": "Explain the concept of alpha inflation in A/B testing and multiple comparisons.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "As you perform more hypothesis tests at a significance level alpha, the probability of encountering at least one false positive across all tests increases significantly beyond alpha."
+  },
+  {
+    "text": "What is the purpose of the Cook's Distance metric in linear regression?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "It measures the effect of deleting a given observation, identifying influential data points that disproportionately impact regression coefficients."
+  },
+  {
+    "text": "How do tree-based models perform automatic feature selection?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "They evaluate features at every split node to find the attribute that maximizes information gain or impurity reduction, naturally leaving uninformative features unchosen."
+  },
+  {
+    "text": "What is the difference between ROC-AUC and PR-AUC?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "ROC-AUC measures trade-offs between true positive rate and false positive rate, remaining stable across class balances. PR-AUC focuses on precision and recall, making it sensitive to class imbalance."
+  },
+  {
+    "text": "Why are pie charts discouraged for displaying more than three categories?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Human eyes struggle to accurately compare angles and slice areas, whereas bar charts allow easy comparison along a common baseline."
+  },
+  {
+    "text": "Tell me about a time when you detected data leakage in a classification pipeline. How did you fix it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Describe identifying future information or target metadata in training features, rebuilding the preprocessing pipeline inside cross-validation folds, and retraining."
+  },
+  {
+    "text": "Your model has high accuracy on the training set but poor generalization on the test set. Walk through how you diagnose and fix this.",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Diagnose overfitting, then apply regularization, simplify the model architecture, gather more training data, or use better cross-validation."
+  },
+  {
+    "text": "Write a Python script to perform forward stepwise feature selection using linear regression.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "Start with an empty model, iteratively add each remaining feature one by one, fit the model, evaluate AIC or BIC, and keep the feature that improves the score the most until stopping criteria are met."
+  },
+  {
+    "text": "What is the Mann-Whitney U test and when is it appropriate?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "It is a non-parametric test used to determine whether two independent samples were selected from populations having the same distribution."
+  },
+  {
+    "text": "Explain the concept of an odds ratio in logistic regression.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The odds ratio represents the multiplicative change in the odds of the target event occurring for a one-unit increase in the corresponding predictor variable."
+  },
+  {
+    "text": "What is the Kruskal-Wallis test?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "It is a non-parametric method for testing whether samples originate from the same distribution, serving as the non-parametric equivalent of one-way ANOVA."
+  },
+  {
+    "text": "How do you handle categorical variables with high cardinality in regression models?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use target encoding, frequency encoding, embedding layers, or grouping rare categories together to avoid dimensionality explosion."
+  },
+  {
+    "text": "What is calibration in classification models and why is it important?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Model calibration ensures that predicted probabilities match true empirical probabilities. It is crucial when downstream decisions depend on risk thresholds rather than raw class labels."
+  },
+  {
+    "text": "How do you choose between a scatter plot and a hexbin plot for large datasets?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Hexbin plots are chosen over scatter plots when datasets are so large that overlapping points cause severe overplotting, obscuring density patterns."
+  },
+  {
+    "text": "Describe a time when you used visualization to debug a poorly performing machine learning model.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Mention plotting residual errors, confusion matrices, or learning curves to identify bias-variance trade-offs or data anomalies."
+  },
+  {
+    "text": "You are asked to build a model with zero false negatives, but stakeholders also complain if there are too many false positives. How do you approach this trade-off?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Discuss business costs of false negatives versus false positives, tune decision thresholds, and present a cost-benefit curve to stakeholders."
+  },
+  {
+    "text": "Write a Python function to compute the bootstrap confidence interval for a median.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Resample data with replacement multiple times, calculate the median for each bootstrap sample, and extract percentiles corresponding to the confidence interval."
+  },
+  {
+    "text": "What is the difference between a paired t-test and an independent t-test?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A paired t-test compares means from the same group at different times or conditions. An independent t-test compares means from two completely separate groups."
+  },
+  {
+    "text": "Explain the concept of shrinkage in regression analysis.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Shrinkage refers to pushing regression coefficients toward zero to reduce variance and prevent overfitting, commonly achieved through L1 and L2 regularization."
+  },
+  {
+    "text": "What is the Kruskal-Wallis test's null hypothesis?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The null hypothesis is that all populations have identical distribution functions."
+  },
+  {
+    "text": "How does Principal Component Analysis help as a feature selection and dimensionality reduction tool?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "PCA transforms correlated features into a smaller set of uncorrelated orthogonal principal components that retain maximum variance, removing redundancy."
+  },
+  {
+    "text": "What is the difference between sensitivity and specificity in classification?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Sensitivity measures the proportion of actual positives correctly identified. Specificity measures the proportion of actual negatives correctly identified."
+  },
+  {
+    "text": "Why are log transformations helpful in skewed data visualizations?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "They compress long right tails, revealing patterns and distributions in lower-value ranges that would otherwise be compressed into illegible clumps."
+  },
+  {
+    "text": "Tell me about a time you designed an A/B test that failed due to external confounding factors. What did you learn?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Discuss identifying seasonal spikes, marketing campaigns, or technical outages mid-test, and implementing robust tracking and guardrails for future experiments."
+  },
+  {
+    "text": "Your model has great offline metrics, but upon deployment, performance degrades rapidly. How do you investigate?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Investigate train-serve skew, data drift, feature pipeline discrepancies, and population differences between training data and live production traffic."
+  },
+  {
+    "text": "Write a SQL query or Python code to calculate the moving average of a time series.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Use pandas rolling window function like df['col'].rolling(window=7).mean() to compute the moving average."
+  },
+  {
+    "text": "What is the Wilcoxon signed-rank test?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "It is a non-parametric statistical test used to compare two paired groups to assess whether their population mean ranks differ."
+  },
+  {
+    "text": "Explain the concept of statistical power in the context of business decision-making.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "High statistical power ensures companies do not miss profitable product changes, reducing the risk of making expensive Type II errors."
+  },
+  {
+    "text": "What are residual plots and how do you diagnose regression issues with them?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Residual plots graph residuals against fitted values. Patterns like funnels indicate heteroscedasticity, while curves indicate non-linearity."
+  },
+  {
+    "text": "What is genetic programming for feature selection?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "It is an evolutionary algorithm that applies mutation, crossover, and selection to populations of mathematical feature combinations to evolve optimal predictive features."
+  },
+  {
+    "text": "What is the meaning of a coefficient in logistic regression in terms of log-odds?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A coefficient represents the change in the log-odds of the target outcome for a one-unit increase in the independent variable."
+  },
+  {
+    "text": "What is the purpose of jittering in scatter plots?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Jittering adds slight random noise to data points to prevent overplotting when variables have discrete or heavily overlapping values."
+  },
+  {
+    "text": "Describe a time when you had to balance statistical rigor with business speed when delivering a model.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Focus on MVP approaches, phased rollouts, and communicating acceptable risks to stakeholders while maintaining core validation standards."
+  },
+  {
+    "text": "You are asked to predict churn, but the company only has data on users who already churned. How do you approach this selection bias?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Address survival analysis, gather right-censored data, or use propensity score weighting and minority-class modeling techniques to account for missing active user histories."
+  },
+  {
+    "text": "Write a Python function to implement gradient descent for linear regression.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Initialize weights, iteratively compute predictions, calculate gradients of the mean squared error loss with respect to weights, and update weights using a learning rate."
+  },
+  {
+    "text": "What is the difference between parametric bootstrap and non-parametric bootstrap?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Non-parametric bootstrap resamples directly from the empirical data. Parametric bootstrap assumes a specific probability distribution for the data, estimates its parameters, and simulates new samples from that fitted distribution."
+  },
+  {
+    "text": "Explain the concept of false positive rate and its relation to specificity.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "False positive rate is 1 minus specificity, representing the proportion of actual negatives incorrectly classified as positive."
+  },
+  {
+    "text": "What is multicollinearity and how does it affect feature selection?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "It makes feature selection unstable because correlated features share predictive power, causing wrapper and filter methods to arbitrarily pick one over another."
+  },
+  {
+    "text": "What is the difference between Lasso and Elastic Net regression?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Lasso uses only L1 regularization for feature selection. Elastic Net combines both L1 and L2 penalties, handling groups of correlated features better than Lasso."
+  },
+  {
+    "text": "How do partial dependence plots differ from individual conditional expectation plots?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "PDPs show the average marginal effect of a feature across all instances. ICE plots show separate lines for individual instances, revealing heterogeneous effects masked by aggregation."
+  },
+  {
+    "text": "Why are sparklines effective in executive dashboards?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Sparklines are small, word-sized charts that convey historical trends rapidly without taking up valuable dashboard screen space."
+  },
+  {
+    "text": "Tell me about a time when your model interpretation revealed unexpected business insights.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Discuss uncovering counter-intuitive feature relationships, challenging assumptions, and partnering with domain experts to validate the findings."
+  },
+  {
+    "text": "You notice that your A/B test has a sample ratio mismatch. What does this indicate and what do you do?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "SRM indicates an underlying bug in traffic assignment or tracking. Pause the test, investigate browser or logging issues, and invalidate results until fixed."
+  },
+  {
+    "text": "Write a Python function to calculate the area under the ROC curve using numpy.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Sort predictions and true labels, compute true positive and false positive rates at various thresholds, and apply the trapezoidal rule to calculate the area."
+  },
+  {
+    "text": "What is the purpose of the Shapiro-Wilk test?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "It tests the null hypothesis that a sample was drawn from a normal distribution."
+  },
+  {
+    "text": "Explain the concept of Family-Wise Error Rate in multiple testing.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "FWER is the probability of making at least one Type II error across a family of hypothesis tests. Controlling it requires stricter per-test significance thresholds."
+  },
+  {
+    "text": "What is the difference between ordinary least squares and weighted least squares?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "OLS assumes constant error variance. WLS assigns weights to data points to account for heteroscedasticity, giving more reliable estimates when variance varies."
+  }
+]

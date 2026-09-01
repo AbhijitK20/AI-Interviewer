@@ -1,0 +1,200 @@
+[
+  {
+    "text": "What is the difference between a Docker image and a Docker container?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A Docker image is a read-only template containing application code, libraries, and dependencies, serving as the blueprint. A Docker container is a runnable, isolated instance of that image that includes an active write layer."
+  },
+  {
+    "text": "Explain the role of a Pod in Kubernetes.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A Pod is the smallest and basic deployable unit in Kubernetes that represents a single instance of a running process in a cluster. It can contain one or more tightly coupled containers that share storage, network namespaces, and specifications for how to run."
+  },
+  {
+    "text": "What does CI/CD stand for and what is its primary goal?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "CI/CD stands for Continuous Integration and Continuous Delivery/Deployment. Its primary goal is to automate the building, testing, and deployment of software to ensure faster release cycles and higher code quality."
+  },
+  {
+    "text": "What is Infrastructure as Code (IaC)?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "IaC is the practice of managing and provisioning computing infrastructure through machine-readable definition files rather than physical hardware configuration or interactive configuration tools."
+  },
+  {
+    "text": "Why is Linux monitoring crucial in a DevOps environment?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Linux monitoring tracks resource utilization like CPU, memory, disk I/O, and network usage. It helps detect performance bottlenecks, system anomalies, and potential failures before they impact end-users."
+  },
+  {
+    "text": "Describe a time when you automated a manual process. What was the impact?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Candidates should describe identifying a repetitive task, implementing an automation script or tool, and the resulting time savings or error reduction. It highlights proactive problem-solving and efficiency mindset."
+  },
+  {
+    "text": "Tell me about a time you had to troubleshoot a production issue under pressure.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "The response should outline a systematic approach to root-cause analysis, staying calm during an outage, communicating with stakeholders, and implementing a quick mitigation."
+  },
+  {
+    "text": "How do you handle a disagreement with a developer regarding a deployment pipeline failure?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Look for collaboration, empathy, looking at logs together, and emphasizing shared ownership of reliability rather than assigning blame."
+  },
+  {
+    "text": "What would you do if a deployment script accidentally deleted critical configuration files in staging?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Instantly halt the pipeline, notify the team, assess the blast radius, restore the configuration from version control or backups, and write a post-mortem with preventative guards."
+  },
+  {
+    "text": "Write a bash command to find all files larger than 100MB in the current directory and its subdirectories.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "find . -type f -size +100M. This utilizes the find utility filtering by file type and size."
+  },
+  {
+    "text": "Explain the function of Docker layers and how caching works during a build.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Each instruction in a Dockerfile adds a new layer to the image. Docker caches these layers; if a layer's instruction and underlying files haven't changed, Docker reuses the cached layer, speeding up subsequent builds."
+  },
+  {
+    "text": "What is the difference between a Deployment and a StatefulSet in Kubernetes?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Deployments manage stateless applications where pods are interchangeable and ephemeral. StatefulSets maintain a sticky identity for each pod, ensuring unique persistent storage, stable network identifiers, and ordered deployment/scaling."
+  },
+  {
+    "text": "How do rolling updates work in Kubernetes?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A rolling update replaces old pod instances with new ones incrementally. Kubernetes achieves zero downtime by spinning up new pods and only terminating old ones once the new pods pass readiness probes."
+  },
+  {
+    "text": "Explain the concept of idempotency in Infrastructure as Code.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Idempotency means that applying an IaC configuration multiple times yields the exact same target state without unintended side effects. If the infrastructure already matches the desired state, no changes are made."
+  },
+  {
+    "text": "What is the difference between Prometheus push metrics and pull metrics?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Prometheus primarily uses a pull model where the server scrapes metrics from defined targets at regular intervals. A push model, achieved via Pushgateway, is used for short-lived batch jobs that complete before a pull scrape can occur."
+  },
+  {
+    "text": "How do you handle secrets management securely in a CI/CD pipeline?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Secrets should never be hardcoded or logged. They should be injected at runtime using secure secret managers like HashiCorp Vault, AWS Secrets Manager, or CI/CD native encrypted secrets variables."
+  },
+  {
+    "text": "What are Linux cgroups and namespaces, and how do containers use them?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Namespaces provide isolation of system resources (like process IDs, networks, and mount points) for a container. Control groups (cgroups) limit and account for resource usage (CPU, memory, I/O) allocated to those processes."
+  },
+  {
+    "text": "Describe the difference between git merge and git rebase.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Git merge combines branches while preserving the exact history and creating a merge commit. Git rebase moves or combines a sequence of commits to a new base commit, resulting in a clean, linear history."
+  },
+  {
+    "text": "Tell me about a time you introduced a new DevOps tool to your team. How did you drive adoption?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The answer should demonstrate evaluating a pain point, running a proof of concept, writing documentation, hosting a workshop, and addressing team feedback gracefully."
+  },
+  {
+    "text": "Describe a scenario where you had to balance speed of delivery with system security and compliance.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Look for shift-left security practices, integrating vulnerability scanning into early CI pipelines, and collaborating with security teams to automate compliance checks without blocking velocity."
+  },
+  {
+    "text": "How do you handle a production incident where a third-party API service goes down, causing errors in your application?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Implement graceful degradation, activate circuit breakers, display a user-friendly maintenance or fallback message, and set up status page alerts while monitoring the third-party provider's updates."
+  },
+  {
+    "text": "Write a Python script that reads a text file line by line and counts the occurrences of a specific word.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Open the file with 'with open() as f:', iterate through lines, split into words or use .count(), and accumulate the total count for the target word."
+  },
+  {
+    "text": "How do you optimize Docker image size, and why does it matter?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Optimize sizes using multi-stage builds, minimal base images like Alpine or Distroless, and combining RUN commands to reduce layers. Smaller images reduce vulnerability surface areas, speed up pull times, and save storage."
+  },
+  {
+    "text": "Explain how Kubernetes network policies work and give a use case.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Network policies are firewall rules implemented by the Container Network Interface (CNI) that control traffic flow at the IP address or port level between pods. A use case is isolating a database pod so it only accepts traffic from backend API pods."
+  },
+  {
+    "text": "How does Terraform manage state files, and what are the risks of remote state corruption?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Terraform tracks resource metadata in a state file to map real-world resources to configurations. Corruption or concurrent modifications can lead to orphaned resources, split-brain issues, or mismatched deployments, which is why state locking via S3/DynamoDB is critical."
+  },
+  {
+    "text": "Describe the internal architecture and mechanisms of a Linux kernel performance issue like high load average with low CPU utilization.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "This scenario typically indicates high I/O wait or blocked processes waiting for disk or network resources. Processes are in an uninterruptible sleep state (D state), incrementing the load average without actively consuming CPU cycles."
+  },
+  {
+    "text": "You notice a memory leak in a microservice running in production. How would you diagnose and resolve it using Linux tools?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use tools like top, htop, or free to spot rising memory usage, dump core or use language-specific profilers, analyze memory maps via /proc/[pid]/smaps, and coordinate rolling out a hotfix with updated limits."
+  },
+  {
+    "text": "Describe a major production outage you caused or experienced. What was the root cause and long-term fix?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Requires deep introspection, clear identification of systemic weaknesses (e.g., lack of redundancy, missing test cases), and concrete structural changes made to prevent recurrence."
+  },
+  {
+    "text": "An automated pipeline has locked a shared Terraform state file for over 2 hours due to a crashed job, blocking all team deployments. How do you resolve this safely?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Verify that no other Terraform process is running against the remote backend. Manually unlock the state using the backend locking mechanism (e.g., `terraform force-unlock <LOCK_ID>`), inspect the state for partial applies, and plan accordingly."
+  },
+  {
+    "text": "Write a bash script that parses a log file and outputs the top 5 most frequently occurring IP addresses.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "awk '{print $1}' access.log | sort | uniq -c | sort -nr | head -n 5. Extracts IPs, sorts them, counts occurrences, sorts numerically descending, and truncates to top 5."
+  },
+  {
+    "text": "Explain how container escape vulnerabilities happen and how to mitigate them in a Kubernetes environment.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Container escapes happen due to kernel exploits, misconfigured privileged containers, or exposed Docker sockets. Mitigations include running rootless containers, disabling privileged mode, enforcing Pod Security Standards, and using secure runtimes like gVisor."
+  },
+  {
+    "text": "Design a resilient, multi-region disaster recovery architecture for a stateless application running on Kubernetes.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Deploy clusters across multiple regions with global Anycast DNS or latency-based routing via Route53. Use active-active or active-passive topologies, replicate persistent data asynchronously, and automate failover using GitOps and continuous health probing."
+  },
+  {
+    "text": "Write a Python script using the Kubernetes Python client to list all pods in all namespaces that have restarted more than 5 times.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "Initialize config, create CoreV1Api instance, list pods across all namespaces, iterate through pod status container statuses, check restartCount > 5, and print relevant pod names and namespaces."
+  }
+]

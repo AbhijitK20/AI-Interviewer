@@ -1,0 +1,1202 @@
+[
+  {
+    "text": "What is the primary purpose of a product vision statement?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A product vision statement defines the long term future and ultimate destination of a product. It aligns the team and stakeholders around a common goal and guides strategic decision making over several years."
+  },
+  {
+    "text": "How do you define a Minimum Viable Product?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "An MVP is the version of a new product that allows a team to collect the maximum amount of validated learning about customers with the least effort. It focuses on solving the core problem for early adopters."
+  },
+  {
+    "text": "What is the difference between customer needs and customer wants?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Wants are the specific features or solutions customers ask for based on their current worldview. Needs are the underlying fundamental problems or desires they are trying to solve, which often require deeper investigation to uncover."
+  },
+  {
+    "text": "What is a product roadmap used for?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A product roadmap is a high level strategic document that outlines the direction, vision, and progress of a product over time. It communicates the why and what behind the product development effort to stakeholders."
+  },
+  {
+    "text": "Define churn rate in the context of SaaS products.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Churn rate is the percentage of customers or subscribers who cancel or stop using a product over a given time period. It is a critical metric for measuring customer retention and overall product health."
+  },
+  {
+    "text": "What is the main role of a Product Manager in an Agile team?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The Product Manager defines the product backlog, prioritizes features based on customer value and business impact, and acts as the voice of the customer and business to ensure the team builds the right thing."
+  },
+  {
+    "text": "What is a user story in Agile development?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A user story is an informal, general explanation of a software feature written from the perspective of the end user. It typically follows the format: As a user, I want to, so that."
+  },
+  {
+    "text": "What does KPI stand for and why are they important?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "KPI stands for Key Performance Indicator, which is a measurable value that demonstrates how effectively a company is achieving key business objectives. They help product managers track success and make data driven decisions."
+  },
+  {
+    "text": "What is the difference between qualitative and quantitative user research?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Quantitative research involves numerical data and statistics to answer what is happening, often gathered through surveys and analytics. Qualitative research explores opinions, motivations, and behaviors to answer why it is happening, gathered through interviews and observations."
+  },
+  {
+    "text": "What is stakeholder management in product management?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Stakeholder management involves identifying, engaging, and communicating with individuals or groups who have a vested interest in the product. It ensures alignment, manages expectations, and secures necessary resources and buy in."
+  },
+  {
+    "text": "Tell me about a time you had to deal with a difficult stakeholder.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "A strong answer outlines the context of the disagreement, the specific stakeholder concerns, how the candidate actively listened, and the steps taken to align expectations while protecting product integrity."
+  },
+  {
+    "text": "Describe a situation where you had to prioritize multiple urgent feature requests.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "The response should highlight the framework or criteria used to evaluate requests, how stakeholders were consulted, and the resulting prioritized list that maximized business value."
+  },
+  {
+    "text": "Tell me about a time you conducted user interviews that changed your product direction.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Candidates should describe the hypothesis before the interviews, the surprising insights uncovered from users, and how those findings successfully shifted the product strategy or roadmap."
+  },
+  {
+    "text": "Give an example of a goal you set for a product and how you measured it.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "A good response defines a clear objective, the specific metric chosen to measure success, the tracking methodology, and the final outcome achieved against that goal."
+  },
+  {
+    "text": "Tell me about a time you worked with an engineering team to resolve a conflict over a deadline.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "The answer should show empathy for engineering constraints, collaborative problem solving such as scope reduction, and transparent communication with leadership regarding timelines."
+  },
+  {
+    "text": "What would you do if your lead engineer tells you a core feature cannot be built on time?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "I would investigate the root cause of the delay, explore scope reduction or phased rollout options, and communicate transparently with stakeholders to manage expectations while keeping the core value proposition intact."
+  },
+  {
+    "text": "How would you handle a sudden drop in your primary product metric?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "I would first verify the data tracking to rule out technical errors, then segment the data by user cohorts and channels to isolate the anomaly, and finally brainstorm hypotheses to test and fix."
+  },
+  {
+    "text": "Write a simple function in Python to calculate the retention rate given total users and retained users.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "def calculate_retention(total_users, retained_users): if total_users == 0: return 0.0 return (retained_users / total_users) * 100"
+  },
+  {
+    "text": "Explain how you would conduct a competitive analysis for a new feature.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I would identify key competitors, evaluate their feature sets, pricing, user experience, and market positioning using frameworks like SWOT or feature matrices. This helps identify market gaps and unique value propositions for our product."
+  },
+  {
+    "text": "What is the RICE prioritization framework and how do you apply it?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "RICE stands for Reach, Impact, Confidence, and Effort. I apply it by multiplying Reach, Impact, and Confidence scores together, then dividing by Effort to get a numerical score that helps rank competing initiatives objectively."
+  },
+  {
+    "text": "Explain the Kano Model and how it helps in feature prioritization.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The Kano Model categorizes features into must-haves, performance features, and delighters based on customer satisfaction. It helps product managers balance essential baseline functionality with differentiating features to delight users."
+  },
+  {
+    "text": "How do you define and track product-market fit?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Product-market fit is tracked through retention curves flattening over time, high organic growth, and customer surveys such as asking users how disappointed they would be if the product disappeared. A high percentage of very disappointed users indicates strong fit."
+  },
+  {
+    "text": "What is the difference between leading and lagging indicators in product metrics?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Leading indicators are predictive metrics that forecast future success, such as trial signups or feature adoption. Lagging indicators measure the final outcome of past actions, such as total revenue or annual churn rate."
+  },
+  {
+    "text": "Describe the process of writing a comprehensive PRD (Product Requirements Document).",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A PRD outlines the problem statement, user personas, business goals, functional and non-functional requirements, user flows, and success metrics. It serves as the single source of truth for engineering, design, and QA teams."
+  },
+  {
+    "text": "How do you manage scope creep during an active sprint cycle?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I protect the sprint goal by enforcing strict backlog grooming and change control policies. If a new request is critical, I negotiate a trade-off where an equivalent-effort story is removed from the current sprint."
+  },
+  {
+    "text": "What strategies do you use to overcome the loud customer bias in user research?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I balance vocal customers feedback with broad quantitative analytics, cohort analysis, and randomized user interviews to ensure product decisions represent the broader user base rather than just the loudest voices."
+  },
+  {
+    "text": "How do you align cross-functional teams around a product roadmap without direct authority?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I build alignment through influence, transparent data sharing, co-creating solutions with engineering and design leads, and clearly connecting roadmap items to the overarching company vision and customer problems."
+  },
+  {
+    "text": "What is cohort analysis and why is it useful for product managers?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Cohort analysis groups users based on shared characteristics or acquisition dates over time. It is useful because it reveals true behavioral trends and retention patterns rather than relying on vanity metrics like total active users."
+  },
+  {
+    "text": "Describe a time you had to pivot your product strategy based on market feedback.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The candidate should explain the original strategy, the specific market signals or data points that triggered the need for change, how the pivot was communicated to stakeholders, and the resulting business impact."
+  },
+  {
+    "text": "Tell me about a time you used data to disprove an executive or stakeholder assumption.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A strong answer details the stakeholder hypothesis, the analytical experiment or research conducted to test it, the objective presentation of findings, and how the stakeholder accepted the data-driven decision."
+  },
+  {
+    "text": "Describe a situation where a product launch failed or underperformed. What did you learn?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The response should demonstrate accountability, analysis of what went wrong across metrics or go-to-market execution, and concrete lessons applied to subsequent product launches."
+  },
+  {
+    "text": "Tell me about a time you managed a feature backlog with hundreds of conflicting requests.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The candidate should describe the categorization system used, how data was synthesized to rank items, and how they managed expectations with requesters whose ideas were deprioritized."
+  },
+  {
+    "text": "Share an experience where you successfully collaborated with UX designers to simplify a complex workflow.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The answer should highlight user friction points identified, brainstorming sessions with design, iterative prototyping and testing, and the improvement in user completion rates."
+  },
+  {
+    "text": "You inherit a product with massive technical debt and low user satisfaction. What is your 30-day plan?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I would spend the first week interviewing users and analyzing metrics to identify top pain points, the second week auditing technical debt with engineering, the third week balancing bug fixes with quick-win features, and the fourth week presenting a revised roadmap."
+  },
+  {
+    "text": "Your CEO asks you to build a feature you know users do not want. How do you handle it?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I would align with the CEO on the underlying problem they are trying to solve, present user research and data counter-proposals, and if needed, propose a low-effort prototype or test to validate the idea with real users before full development."
+  },
+  {
+    "text": "Two key customer segments want conflicting features for the exact same interface real estate. How do you decide?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I would evaluate which segment aligns better with our core product strategy and business goals, analyze their lifetime value, and explore dynamic UI solutions such as personalization or progressive disclosure to serve both needs."
+  },
+  {
+    "text": "Write a Python function to parse a list of user feedback logs and count occurrences of a specific keyword.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "def count_keyword(logs, keyword): count = 0 for log in logs: if keyword.lower() in log.lower(): count += 1 return count"
+  },
+  {
+    "text": "Write a SQL query to find the top 3 features by usage count from an event tracking table.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "SELECT feature_name, COUNT(*) as usage_count FROM user_events GROUP BY feature_name ORDER BY usage_count DESC LIMIT 3;"
+  },
+  {
+    "text": "How do you build a product strategy from scratch when entering a completely new market?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "I start with deep market segmentation and competitor analysis, followed by customer discovery interviews to identify unmet needs. Then, I define a clear value proposition, positioning, and a phased product roadmap aligned with company capabilities."
+  },
+  {
+    "text": "Explain how you calculate Customer Lifetime Value and how it influences product roadmap decisions.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "LTV is calculated by multiplying average purchase value by purchase frequency and customer lifespan. It influences roadmap decisions by guiding investment toward features that improve retention and monetization for high-value user segments."
+  },
+  {
+    "text": "What is opportunity solution trees and how do you use them in product discovery?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Opportunity solution trees visually map desired business outcomes to customer needs, potential solutions, and experiments. I use them to structure discovery work, ensure traceability from ideas back to strategy, and compare multiple solution paths."
+  },
+  {
+    "text": "How do you design a robust experimentation framework and avoid statistical pitfalls like p-hacking?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "I establish sample size and statistical power calculations before running A/B tests, pre-define primary and guardrail metrics, and avoid peeking at results or stopping tests early to prevent false positives and p-hacking."
+  },
+  {
+    "text": "Describe your approach to managing platform products where the users are other developers or internal teams.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "For platform products, I treat documentation, API reliability, and developer experience as core features. Success is measured by adoption speed, integration time, and low error rates, treating internal or external developers as primary customers."
+  },
+  {
+    "text": "How do you balance short-term revenue goals with long-term product vision and technical health?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "I use capacity allocation models, dedicating a specific percentage of engineering time to technical debt and innovation while reserving the rest for monetization features. Transparent alignment with leadership on trade-offs is essential."
+  },
+  {
+    "text": "Tell me about a time you had to influence a major strategic pivot without having direct authority over the business units.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "The answer should outline a compelling narrative backed by extensive market data, cross-functional coalition building, addressing stakeholder fears, and ultimately securing consensus for a new strategic direction."
+  },
+  {
+    "text": "Describe a complex product trade-off you had to make between speed to market and product scalability.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "The candidate should explain the business context requiring speed, the architectural or technical compromise made, the monitoring put in place, and how and when the technical debt was subsequently paid down."
+  },
+  {
+    "text": "Your product is experiencing rapid growth, but customer support tickets are skyrocketing. How do you triage and resolve this?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "I would categorize support tickets to identify systemic UX flaws or bugs, prioritize immediate fixes for high-frequency issues, improve in-app self-service documentation, and partner with support teams to create automated deflection channels."
+  },
+  {
+    "text": "You discover a critical security vulnerability right before a major scheduled product release. How do you handle the situation?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "I would immediately pause the release, convene engineering and security teams to assess the risk and patch complexity, and communicate transparently with leadership and stakeholders about the justified delay to protect user trust and data."
+  },
+  {
+    "text": "Write a Python function to calculate the Net Promoter Score from an array of integer survey ratings.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "def calculate_nps(ratings): if not ratings: return 0 promoters = sum(1 for r in ratings if r >= 9) detractors = sum(1 for r in ratings if r <= 6) total = len(ratings) return ((promoters - detractors) / total) * 100"
+  },
+  {
+    "text": "How would you architect a monetization strategy for a freemium product transitioning to enterprise tiers?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "I would segment features by value metric such as usage volume, advanced security, collaboration tools, and dedicated support. This ensures self-serve users find low barriers to entry while enterprises pay proportional value for advanced governance and scale."
+  },
+  {
+    "text": "Describe a scenario where you implemented continuous discovery practices in an organization used to waterfall planning.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "The candidate should explain the cultural resistance encountered, small pilot experiments run to prove the value of weekly customer touchpoints, and how continuous discovery eventually became embedded in the product culture."
+  },
+  {
+    "text": "An acquisition requires merging two complex, overlapping product lines with different tech stacks and user bases. What is your integration strategy?",
+    "type": "SITUATIONAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "I would analyze user overlap and feature parity, map out a migration path that minimizes churn, create a sunset plan for redundant systems, and establish a unified product vision that combines the best aspects of both platforms over a phased timeline."
+  },
+  {
+    "text": "Write an advanced SQL query to calculate rolling 30-day active users for a product.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "SELECT d.date, COUNT(DISTINCT e.user_id) as rolling_30d_mau FROM calendar_dates d LEFT JOIN user_events e ON e.event_date BETWEEN d.date - INTERVAL 29 DAY AND d.date GROUP BY d.date;"
+  },
+  {
+    "text": "What is a product vision board?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A product vision board is a strategic agile tool that captures core product elements on a single page, including target group, needs, product, and business goals."
+  },
+  {
+    "text": "What does MVP stand for in product management?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "MVP stands for Minimum Viable Product, representing the simplest version of a product that delivers core value and enables validated learning."
+  },
+  {
+    "text": "What is backlog grooming?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Backlog grooming is the ongoing process of reviewing, updating, and prioritizing items in the product backlog to ensure readiness for upcoming sprints."
+  },
+  {
+    "text": "What is a user persona?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A user persona is a semi-fictional representation of an ideal customer based on research and data, helping teams understand user goals and behaviors."
+  },
+  {
+    "text": "What is feature bloat?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Feature bloat refers to the over-addition of features in a product, which can make it complex, confusing, and difficult for users to navigate."
+  },
+  {
+    "text": "What is a product roadmap milestone?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A milestone is a significant marker or target date on a roadmap that signifies the completion of a major phase or release."
+  },
+  {
+    "text": "What is user acceptance testing?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "UAT is the final phase of software testing where actual users test the product to ensure it meets their requirements and business needs."
+  },
+  {
+    "text": "What is the role of a product launch plan?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A product launch plan coordinates marketing, sales, customer support, and engineering efforts to ensure a successful release and market introduction."
+  },
+  {
+    "text": "What is an acceptance criterion?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Acceptance criteria define the specific conditions and requirements a user story must meet to be considered complete and working correctly."
+  },
+  {
+    "text": "What is customer feedback loop?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A customer feedback loop is the continuous process of collecting, analyzing, and acting upon user feedback to improve the product experience."
+  },
+  {
+    "text": "Tell me about a time you missed a project deadline.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "The answer should describe the cause of the delay, how stakeholders were informed proactively, and what preventive measures were adopted afterward."
+  },
+  {
+    "text": "Describe a time you received critical feedback from your manager.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "A good response highlights listening openly, reflecting on the feedback, and taking concrete actions to improve performance in that area."
+  },
+  {
+    "text": "Tell me about a time you advocated for the user against business pressure.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "The candidate should explain the business push, the user research supporting their stance, and how they reached a balanced resolution."
+  },
+  {
+    "text": "Give an example of how you broke down a large project into smaller phases.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "The response should detail the milestone breakdown, risk reduction strategy, and how incremental value was delivered to users early."
+  },
+  {
+    "text": "Tell me about a time you had to onboard new team members to a product feature.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "The answer should highlight documentation shared, pairing sessions conducted, and how alignment and understanding were verified."
+  },
+  {
+    "text": "What would you do if two engineers disagree strongly on the technical approach for a feature?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "I would encourage them to align on product requirements first, evaluate trade-offs objectively based on scalability and time, and help them make a collaborative decision."
+  },
+  {
+    "text": "How would you respond if a key team member resigned right before a major release?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "I would assess knowledge transfer needs, redistribute critical tasks among remaining team members, and adjust sprint scope if necessary to ensure release stability."
+  },
+  {
+    "text": "Write a Python function to filter out inactive users from a list of user dictionaries.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "def filter_active_users(users): return [u for u in users if u.get('is_active', False)]"
+  },
+  {
+    "text": "Explain the concept of jobs-to-be-done framework.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "JTBD posits that people buy products to make progress in a specific circumstance rather than purchasing based on demographics. It focuses on understanding the underlying functional, emotional, and social motivators."
+  },
+  {
+    "text": "How do you manage dependencies between multiple cross-functional product teams?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I manage dependencies through cross-team planning sessions, shared dependency tracking boards, early interface contract agreements, and proactive communication during quarterly planning."
+  },
+  {
+    "text": "What is the difference between discovery and delivery in product management?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Discovery is the process of figuring out what to build by understanding customer needs and testing ideas. Delivery is the process of building, testing, and shipping those validated solutions to production."
+  },
+  {
+    "text": "How do you calculate customer acquisition cost and why is it important?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "CAC is calculated by dividing total sales and marketing expenses by the number of new customers acquired in a given period. It helps determine marketing efficiency and business unit economics."
+  },
+  {
+    "text": "What is semantic versioning and why do PMs care about it?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "SemVer uses a major.minor.patch version numbering system to communicate breaking changes, new features, and bug fixes. PMs care because it impacts developer ecosystems, API contracts, and user upgrade expectations."
+  },
+  {
+    "text": "How do you prioritize bug fixes versus new feature development?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I prioritize bugs based on user impact, frequency, and security risks. I allocate a balanced percentage of sprint capacity to bug fixes to maintain product stability while continuing strategic feature delivery."
+  },
+  {
+    "text": "What is a product discovery sprint?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A timeboxed period, often one week, dedicated to exploring a problem space, interviewing users, sketching solutions, and testing prototypes before writing any code."
+  },
+  {
+    "text": "How do you measure feature adoption after a release?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I track unique users interacting with the feature, frequency of use, and retention rates over time compared against total eligible active users."
+  },
+  {
+    "text": "What is the role of telemetry and product analytics in modern product teams?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Telemetry provides continuous, objective usage data that validates hypotheses, uncovers user drop-off points, and measures the impact of product changes."
+  },
+  {
+    "text": "How do you handle feature requests from sales that are outside the roadmap?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I evaluate the strategic value, revenue potential, and frequency of similar requests, then negotiate with sales leaders on trade-offs if it requires deprioritizing core roadmap items."
+  },
+  {
+    "text": "Tell me about a time you collaborated with marketing on a go-to-market strategy.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The answer should describe audience segmentation, messaging alignment, campaign rollout milestones, and how launch success was evaluated together."
+  },
+  {
+    "text": "Describe a situation where your team missed a key metric target and how you addressed it.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The candidate should explain the root cause analysis, the corrective actions taken, and how insights were shared transparently with stakeholders."
+  },
+  {
+    "text": "Tell me about a time you had to say no to an important client or partner request.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The answer should highlight empathetic listening, explaining the product strategy rationale, and offering alternative solutions where possible."
+  },
+  {
+    "text": "Describe a time you used prototyping to validate an idea quickly.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The response should detail the fidelity of the prototype, the user testing feedback gathered, and how it saved development time by preventing a bad feature build."
+  },
+  {
+    "text": "Share an experience where you improved cross-functional team velocity.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The candidate should mention process bottlenecks identified, streamlined communication channels established, and the resulting increase in sprint delivery consistency."
+  },
+  {
+    "text": "A competitor launches a major feature that steals your market share. How do you respond?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I would analyze the competitor feature, assess its actual impact on our user retention, avoid knee-jerk copying, and lean into our unique value proposition while fast-tracking our strategic differentiators."
+  },
+  {
+    "text": "Your primary development resource is cut in half mid-quarter. How do you adjust your roadmap?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I would review current commitments with engineering, ruthlessly cut lower-priority initiatives, focus only on high-impact MVP goals, and communicate revised timelines transparently to stakeholders."
+  },
+  {
+    "text": "Write a Python function to aggregate total revenue by customer tier from a list of transactions.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "def revenue_by_tier(transactions): totals = {} for t in transactions: tier = t.get('tier') amount = t.get('amount', 0) totals[tier] = totals.get(tier, 0) + amount return totals"
+  },
+  {
+    "text": "Write a SQL query to calculate month-over-month user growth.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "WITH monthly_users AS (SELECT DATE_TRUNC('month', signup_date) as month, COUNT(*) as new_users FROM users GROUP BY 1) SELECT month, new_users, LAG(new_users, 1) OVER (ORDER BY month) as prev_month FROM monthly_users;"
+  },
+  {
+    "text": "How do you approach pricing strategy for a multi-product SaaS suite?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "I use value-based pricing research, willingness-to-pay surveys, and competitive benchmarking to design bundled versus modular pricing tiers that maximize monetization without cannibalizing individual product adoption."
+  },
+  {
+    "text": "Explain how you manage technical debt in a fast-growing startup.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "I track technical debt alongside product features, allocate a fixed capacity percentage per sprint, and prioritize refactoring based on system reliability risks and feature velocity bottlenecks."
+  },
+  {
+    "text": "What is continuous deployment and how does it change product release management?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Continuous deployment automates pushing every code change to production after passing test suites. It shifts product management from managing big-bang releases to feature flagging, continuous experimentation, and monitoring telemetry."
+  },
+  {
+    "text": "How do you evaluate build versus buy decisions for core product infrastructure?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "I evaluate core competency alignment, total cost of ownership over time, time to market, maintenance overhead, and strategic differentiation to determine whether building internally or licensing a third-party solution is optimal."
+  },
+  {
+    "text": "Describe how you design an escalation framework for critical production outages.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "I collaborate with engineering to define severity levels, automated alerting thresholds, on-call rotations, stakeholder communication protocols, and post-incident review processes to prevent recurrence."
+  },
+  {
+    "text": "How do you measure and optimize funnel conversion rates in a complex onboarding journey?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "I map each step of the conversion funnel, analyze drop-off points using segmentation, run user session recordings, and formulate targeted A/B tests to remove friction and improve completion rates."
+  },
+  {
+    "text": "Tell me about a time you managed a major product deprecation or sunset.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "The answer should cover the strategic rationale, migration paths provided for affected users, proactive communication timeline, and how backlash was successfully managed."
+  },
+  {
+    "text": "Describe a situation where you had to balance conflicting geographical compliance and data privacy regulations across international markets.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "The candidate should detail legal requirements like GDPR or CCPA, architectural changes coordinated with engineering, and how regional product experiences were customized."
+  },
+  {
+    "text": "Your product experiences exponential virality, causing server crashes and extreme latency. How do you handle crisis management?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "I would work with engineering to implement rate limiting, scale cloud resources, communicate status transparently to users via a status page, and prioritize core stability over new feature releases."
+  },
+  {
+    "text": "You are tasked with entering a saturated market where 3 dominant players already exist. What is your go-to-market strategy?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "I would identify an underserved niche or unmet user pain point ignored by incumbents, build a superior product experience tailored specifically to that segment, and leverage a viral growth loop or disruptive pricing model."
+  },
+  {
+    "text": "Write a Python function to detect anomalies in daily active user counts using standard deviation.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "import statistics\ndef detect_dau_anomalies(dau_list):\n    if len(dau_list) < 2: return []\n    mean = statistics.mean(dau_list)\n    stdev = statistics.stdev(dau_list)\n    return [x for x in dau_list if abs(x - mean) > 2 * stdev]"
+  },
+  {
+    "text": "How do you architect an enterprise product governance model across distributed global business units?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "I establish a centralized product council representing key regional stakeholders, define core global platform standards while allowing local customization freedom, and create transparent intake processes for feature requests."
+  },
+  {
+    "text": "Describe a time you navigated an ethical dilemma involving user data monetization.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "The candidate should outline the business pressure to monetize data, privacy implications, how they consulted legal and ethical frameworks, and how they advocated for user trust over short-term revenue."
+  },
+  {
+    "text": "Your core product patent is successfully challenged by a competitor, forcing an immediate redesign of your primary differentiating feature. How do you lead the product team through this crisis?",
+    "type": "SITUATIONAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "I would collaborate with legal to understand IP constraints, align engineering and design on a rapid innovation sprint to engineer around the patent, and communicate a reassuring narrative to customers and investors."
+  },
+  {
+    "text": "Write a Python function to compute the Customer Lifetime Value given churn rate, ARPU, and gross margin.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "def calculate_ltv(arpu, gross_margin, churn_rate):\n    if churn_rate <= 0: return float('inf')\n    return (arpu * gross_margin) / churn_rate"
+  },
+  {
+    "text": "What is product strategy and how does it differ from a product roadmap?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Product strategy defines the long term vision, target market, and value proposition to achieve business goals. A roadmap is a tactical timeline showing when specific features and initiatives will be delivered to execute that strategy."
+  },
+  {
+    "text": "How do you calculate Customer Lifetime Value (LTV) and why is it important?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "LTV is calculated by multiplying average purchase value by purchase frequency and customer lifespan. It helps PMs determine how much they can sustainably spend on customer acquisition and prioritize retention efforts."
+  },
+  {
+    "text": "What is the primary purpose of user research in product management?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "User research uncovers underlying customer pain points, behaviors, and motivations. It ensures the product team builds solutions that genuinely address user needs rather than relying on internal assumptions."
+  },
+  {
+    "text": "Define churn rate and state how it impacts SaaS product growth.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Churn rate is the percentage of customers who stop using a product over a given period. High churn counteracts acquisition efforts, making sustainable growth nearly impossible until retention is stabilized."
+  },
+  {
+    "text": "What does a Minimum Viable Product (MVP) mean in agile development?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "An MVP is the simplest version of a new product with just enough features to satisfy early adopters and gather validated learning about user behavior with minimal effort."
+  },
+  {
+    "text": "What is the difference between quantitative and qualitative user research?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Quantitative research uses numerical data and analytics to show what is happening at scale. Qualitative research uses interviews and observations to explain the why and how behind user behaviors."
+  },
+  {
+    "text": "What is a product backlog and who is responsible for managing it?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A product backlog is a prioritized list of work derived from the product strategy and roadmap. The Product Manager is solely responsible for managing, grooming, and prioritizing the backlog items."
+  },
+  {
+    "text": "What is the purpose of conducting a competitive analysis?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Competitive analysis helps identify market gaps, competitor strengths and weaknesses, and industry benchmarks. It informs positioning and guides differentiation strategies for your own product."
+  },
+  {
+    "text": "Name three key metrics used to measure mobile app engagement.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Daily Active Users to Monthly Active Users ratio, session length, and retention rate are standard engagement metrics. They indicate how regularly and deeply users interact with the app."
+  },
+  {
+    "text": "What is a sprint in agile methodology?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A sprint is a short, time-boxed period, usually two weeks, during which a scrum team works to complete a set amount of work. It enables rapid iteration and frequent feedback loops."
+  },
+  {
+    "text": "What is a user story and what is its standard format?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A user story is an informal, general explanation of a software feature written from the perspective of the end user. The standard format is As a [user], I want [action] so that [benefit]."
+  },
+  {
+    "text": "What does ROI stand for and how do PMs use it?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "ROI stands for Return on Investment, calculated as net profit divided by cost. PMs use it to justify feature development, resource allocation, and project prioritization based on expected financial returns."
+  },
+  {
+    "text": "What is the definition of product-market fit?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Product-market fit occurs when a product successfully satisfies strong market demand with a profitable business model. It is typically evidenced by organic growth and high retention rates."
+  },
+  {
+    "text": "What is a stakeholder in the context of product management?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A stakeholder is any individual or group within or outside the company who has a vested interest in the product outcome. This includes executives, engineering, sales, marketing, and customers."
+  },
+  {
+    "text": "What is the difference between a feature roadmap and an outcome-based roadmap?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A feature roadmap lists specific outputs and deliverables tied to a timeline. An outcome-based roadmap focuses on business goals and user problems to solve, allowing flexibility in how the team achieves them."
+  },
+  {
+    "text": "Tell me about a time you had to pivot a product strategy based on user data.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Describe the initial strategy, the specific user data or metric that contradicted expectations, how you analyzed the insight, and the successful outcome of the strategic pivot."
+  },
+  {
+    "text": "How do you handle a situation where a key stakeholder disagrees with your feature prioritization?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Explain active listening to understand their concerns, sharing objective user and market data, finding common ground, and making a principled decision while maintaining a positive working relationship."
+  },
+  {
+    "text": "Describe a time when you conducted user research that completely changed your product direction.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Share the research methodology used, the surprising insight uncovered, how it contradicted the team hypothesis, and how the subsequent product changes drove better user results."
+  },
+  {
+    "text": "Tell me about a time you worked with an engineering team to resolve a scope creep issue during a sprint.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Detail how you identified the scope creep, communicated with engineers and stakeholders, evaluated trade-offs, and successfully negotiated a revised scope to protect team morale and delivery timelines."
+  },
+  {
+    "text": "How do you balance conflicting feedback from multiple enterprise clients when planning your roadmap?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Discuss aggregating feedback, looking for underlying systemic needs rather than feature requests, mapping them against core product strategy, and communicating transparently with clients about priorities."
+  },
+  {
+    "text": "Your most important enterprise client demands a custom feature that aligns with their business but not your core product strategy. What do you do?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Evaluate the revenue impact against strategic dilution. If it does not fit, offer alternative workflows, explore professional services if applicable, or politely decline while reinforcing the product vision."
+  },
+  {
+    "text": "Write a basic SQL query to find the top 5 users who generated the most revenue in the orders table.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "SELECT user_id, SUM(amount) AS total_revenue FROM orders GROUP BY user_id ORDER BY total_revenue DESC LIMIT 5;"
+  },
+  {
+    "text": "Explain the Kano model and how you apply it to product feature prioritization.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The Kano model categorizes features into basic needs, performance needs, and excitement needs. PMs use it to balance must-have bug fixes with differentiators that delight users."
+  },
+  {
+    "text": "How do you define and track North Star metrics for a B2B SaaS product?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A North Star metric captures the core value delivered to customers that drives long term growth. For B2B SaaS, this is often weekly active teams collaborating on core workflows, tracked via product analytics tools."
+  },
+  {
+    "text": "What is the RICE scoring framework and when should you use it?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "RICE stands for Reach, Impact, Confidence, and Effort. It is a prioritization framework used to quantitatively rank backlog items by dividing the product of the first three variables by effort."
+  },
+  {
+    "text": "Describe the process of conducting a root cause analysis when a core metric suddenly drops.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Start by verifying data integrity, segmenting by platform, geography, or cohort, reviewing recent deployments or marketing campaigns, and using the five whys technique to isolate the exact cause."
+  },
+  {
+    "text": "How do you run effective generative user interviews without leading the witness?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Ask open-ended questions about past behaviors rather than hypothetical future preferences. Listen actively, avoid suggesting solutions, and ask users to walk through how they currently solve the problem."
+  },
+  {
+    "text": "What is the difference between agile, scrum, and kanban?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Agile is a mindset and set of values. Scrum is a specific agile framework with fixed sprints and defined roles. Kanban is a visual workflow management method focused on continuous flow and limiting work in progress."
+  },
+  {
+    "text": "How do you align cross-functional stakeholders with differing priorities using a product roadmap?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Create a tiered roadmap that highlights customer outcomes and business value. Tailor the communication for sales, marketing, and engineering, and use data-driven decision frameworks to justify exclusions."
+  },
+  {
+    "text": "Explain the concept of cohort analysis and give an example of its application.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Cohort analysis groups users based on a shared characteristic or acquisition date to track behavior over time. For example, comparing month-over-month retention for users acquired in January versus February."
+  },
+  {
+    "text": "What are OKRs and how do you write effective ones for a product team?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "OKRs stand for Objectives and Key Results. Objectives are qualitative, ambitious goals, while Key Results are 3-4 measurable, quantitative outcomes used to track achievement of the objective."
+  },
+  {
+    "text": "How do you approach backlog grooming and prioritization with limited engineering resources?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Collaborate with engineering to estimate effort, evaluate items against business impact using frameworks like RICE, prune obsolete tickets, and ruthlessly focus on the top 20 percent of items delivering 80 percent of value."
+  },
+  {
+    "text": "What is the ICE scoring model and how does it compare to RICE?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "ICE stands for Impact, Confidence, and Ease. It is faster to calculate than RICE because it replaces Reach and Effort with Ease, though it is slightly less precise for measuring audience scale."
+  },
+  {
+    "text": "How do you measure the success of a major UI redesign?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Track task completion rates, time on task, error rates, user satisfaction scores, and retention metrics before and after the release to ensure the redesign solved usability issues without hurting engagement."
+  },
+  {
+    "text": "What is an assumption mapping exercise and when should a PM use it?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Assumption mapping plots team assumptions on a 2x2 grid of importance versus certainty. PMs use it at the start of a new initiative to identify risky unknowns that require immediate user validation."
+  },
+  {
+    "text": "How do you manage technical debt within your product roadmap?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Allocate a fixed percentage of capacity, such as 20 percent per sprint, to tech debt. Collaborate with engineering leads to quantify the performance and velocity impact of unaddressed technical debt."
+  },
+  {
+    "text": "What is the difference between product discovery and product delivery?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Discovery is the process of figuring out what to build by exploring user needs and testing prototypes. Delivery is the process of building, scaling, and maintaining the tested solution efficiently."
+  },
+  {
+    "text": "Tell me about a time you had to deliver bad news to executives regarding a delayed product launch.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Explain how you prepared the data, clearly stated the reason for the delay without making excuses, presented a revised mitigation plan, and maintained executive trust through transparent communication."
+  },
+  {
+    "text": "Describe a situation where you had to influence without authority to get an engineering team excited about a feature.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Discuss sharing customer interview clips, framing the problem rather than dictating the solution, involving them early in discovery, and connecting their technical work directly to user impact."
+  },
+  {
+    "text": "How have you handled a feature release that resulted in negative user feedback and high bug counts?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Share how you triaged bugs immediately, communicated transparently with users and stakeholders, established a rapid hotfix cadence, and conducted a post-mortem to prevent future regression."
+  },
+  {
+    "text": "Tell me about a time you used qualitative customer feedback to disprove a quantitative metric trend.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Describe the metric trend that looked positive or negative, the qualitative interviews that revealed a hidden context, and how combining both perspectives led to a more accurate product decision."
+  },
+  {
+    "text": "Describe how you managed a situation where sales promised an unrealistic delivery date to a prospect.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Explain meeting with sales to understand the deal size, assessing engineering capacity, negotiating a realistic phased delivery timeline, and setting up a better cross-functional alignment process moving forward."
+  },
+  {
+    "text": "You notice a 15 percent drop in daily active users week-over-week. Walk me through your step-by-step investigation.",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Verify analytics tracking is working, check for seasonality or holidays, segment data by platform and user cohort, review recent code deployments, and interview customer support to spot recurring complaints."
+  },
+  {
+    "text": "Write a SQL query to calculate the retention rate of users who signed up last month and returned this month.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "SELECT COUNT(DISTINCT b.user_id) * 100.0 / COUNT(DISTINCT a.user_id) FROM signups a LEFT JOIN active_users b ON a.user_id = b.user_id AND b.month = CURRENT_MONTH WHERE a.month = LAST_MONTH;"
+  },
+  {
+    "text": "How do you design a quantitative experimentation framework for a feature with low daily traffic?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "When traffic is low, A-B testing takes too long. PMs should use multi-armed bandit algorithms, sequential testing, or rely more heavily on qualitative usability testing and proxy metrics."
+  },
+  {
+    "text": "Explain how you would balance conflicting strategic goals between monetization and user experience in a freemium app.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Establish guardrail metrics for user retention and satisfaction. Gate advanced features that provide clear economic value to power users while keeping core workflows frictionless for free tier users."
+  },
+  {
+    "text": "What is continuous discovery and how do you integrate it into a fast-paced agile delivery cycle?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Continuous discovery involves small, weekly touchpoints with users by the entire product triad. It runs in parallel with delivery, ensuring teams validate ideas quickly before committing engineering capacity."
+  },
+  {
+    "text": "How do you approach product portfolio management when managing multiple interdependent products in a platform ecosystem?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Define clear platform boundaries, API contracts, and shared services. Prioritize foundational investments that unblock downstream product teams while aligning overall platform OKRs with business growth."
+  },
+  {
+    "text": "Discuss the challenges of pricing strategy for a new B2B SaaS product and how you determine willingness to pay.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use Van Westendorp price sensitivity meters, conjoint analysis, and value-based pricing research. Balance value metric alignment with market competitiveness and low friction adoption."
+  },
+  {
+    "text": "How do you handle feature deprecation and sunsetting without alienating your existing user base?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Analyze usage data to identify low-adoption segments, provide extended notice periods, offer data migration tools or alternative workflows, and communicate empathetically through multiple channels."
+  },
+  {
+    "text": "Explain network effects and how you would engineer them into a marketplace product.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Network effects occur when a product becomes more valuable as more people use it. Engineer them by subsidizing the supply side, reducing friction for multi-homing, and creating localized liquidity loops."
+  },
+  {
+    "text": "How do you audit and improve data instrumentation across an enterprise product suite?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Create a unified event taxonomy, audit existing tracking plans against core product funnels, implement automated data quality monitoring tests, and collaborate with data engineering to resolve tracking discrepancies."
+  },
+  {
+    "text": "Tell me about a time you had to kill a pet project or feature that engineering and leadership were emotionally attached to.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Describe gathering objective usage and financial data showing lack of product-market fit, framing the decision around resource reallocation, and managing stakeholder emotions with empathy and data."
+  },
+  {
+    "text": "Describe a complex cross-functional project where dependencies slipped and how you restructured the delivery plan.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Detail the dependency mapping, the root cause of the slip, how you negotiated scope cuts with parallel teams, and how you kept morale high while delivering a revised MVP on time."
+  },
+  {
+    "text": "Your CEO asks you to build a feature that goes against all your user research and data. How do you manage this conversation?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Acknowledge the executive intent behind the request, present the user research and data objectively, propose a low-risk experiment or prototype to test the idea, and agree on success criteria."
+  },
+  {
+    "text": "Write a SQL query using window functions to find the rolling 3-month average revenue per user.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "SELECT user_id, month, revenue, AVG(revenue) OVER (PARTITION BY user_id ORDER BY month ROWS BETWEEN 2 PRECEDING AND CURRENT ROW) AS rolling_avg FROM monthly_user_revenue;"
+  },
+  {
+    "text": "How would you design a product strategy and roadmap for entering a highly regulated market with incumbent legacy players?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Focus on compliance as a competitive advantage, target an underserved wedge market with a modern user experience, partner with existing regulatory bodies, and build an extensible architecture."
+  },
+  {
+    "text": "Describe how you would establish a experimentation culture and self-serve analytics infrastructure across a 200-person engineering organization.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Invest in a centralized experimentation platform, establish statistical standards like p-values and power calculations, train product teams on metric design, and create governance frameworks to prevent metric tampering."
+  },
+  {
+    "text": "Tell me about a time you rebuilt a dysfunctional product organization culture, aligning fragmented teams around a unified vision.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Share diagnosing the cultural silos, co-creating a new vision with team leads, overhauling the planning and feedback loops, and measuring culture improvement through retention and engagement scores."
+  },
+  {
+    "text": "Write a Python script to parse a log file and output the top 3 most common user error codes.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "from collections import Counter\nwith open('app.log') as f:\n    errors = [line.strip().split()[-1] for line in f if 'ERROR' in line]\nprint(Counter(errors).most_common(3))"
+  },
+  {
+    "text": "What is the difference between a product vision and a mission statement?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A mission statement defines the company's core purpose and what it does today. A product vision outlines the aspirational future state of the product and the impact it aims to create long term."
+  },
+  {
+    "text": "How do you determine if a feature request is a custom one-off or a scalable product requirement?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Evaluate if the underlying pain point is shared across multiple customer segments. If it benefits many users and fits the core strategy, build it; if it is unique to one client, treat it as custom service work."
+  },
+  {
+    "text": "What is an agile retrospective and why is it important?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "An agile retrospective is a meeting held at the end of a sprint where the team reflects on what went well, what could be improved, and action items for continuous process enhancement."
+  },
+  {
+    "text": "What is the role of a Product Manager during user acceptance testing (UAT)?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The PM ensures the delivered product meets the acceptance criteria defined in the user stories, facilitates testing with stakeholders or beta users, and signs off on release readiness."
+  },
+  {
+    "text": "How do you calculate churn rate?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Churn rate is calculated by dividing the number of customers lost during a specific period by the total number of customers at the start of that period, multiplied by 100."
+  },
+  {
+    "text": "Tell me about a time you successfully negotiated feature scope with an engineering lead.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Describe the original scope, the engineering capacity constraints, how you discussed trade-offs collaboratively, and how you arrived at a smaller scope that still delivered core user value."
+  },
+  {
+    "text": "How do you prioritize your own daily schedule when dealing with competing urgent requests?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Explain using time-blocking, distinguishing between urgent and important tasks via the Eisenhower matrix, and communicating clearly with colleagues about when requests will be addressed."
+  },
+  {
+    "text": "A sales representative asks you to bypass the product roadmap to add a minor feature for their prospect. How do you respond?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Listen to the deal requirements, explain the current roadmap commitments, evaluate if the feature serves a broader market need, and negotiate a timeline or alternative workaround."
+  },
+  {
+    "text": "Write a SQL query to select all active users who logged in within the last 7 days.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "SELECT DISTINCT user_id FROM logins WHERE login_date >= CURRENT_DATE - INTERVAL '7 days';"
+  },
+  {
+    "text": "What is the product development lifecycle and what are its main stages?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The PDLC is the framework for taking a product from conception to launch and retirement. Main stages include ideation, definition, prototyping, development, testing, launch, and iteration."
+  },
+  {
+    "text": "How do you evaluate whether to build, buy, or partner for a new product capability?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Evaluate core versus non-core competency, time to market, total cost of ownership, and strategic control. Build if it is a core differentiator, buy or partner if it is commodity functionality."
+  },
+  {
+    "text": "What is the difference between customer satisfaction (CSAT) and Net Promoter Score (NPS)?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "CSAT measures short-term satisfaction with a specific interaction or feature. NPS measures long-term brand loyalty and willingness to recommend the product on a scale of 0 to 10."
+  },
+  {
+    "text": "How do you conduct a competitive teardown of a rival product?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Sign up for the competitor product, map their onboarding flow, evaluate feature parity, analyze pricing tiers, review customer complaints on public forums, and summarize strategic takeaways."
+  },
+  {
+    "text": "What is scrum grooming or backlog refinement and why is it necessary?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Backlog refinement is an ongoing process where the PM and engineering team review user stories, add acceptance criteria, estimate effort, and ensure the backlog is ready for upcoming sprints."
+  },
+  {
+    "text": "How do you manage cross-functional dependencies when two engineering teams rely on each other's deliverables?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Establish joint milestone planning, create clear API contracts early, track inter-team blockers in planning sessions, and escalate bottlenecks to leadership before they jeopardize sprint goals."
+  },
+  {
+    "text": "What is a product scorecard and how do you use it?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A product scorecard tracks key health indicators, financial performance, and user metrics over time. PMs use it to report overall product performance to leadership during quarterly reviews."
+  },
+  {
+    "text": "How do you validate a product hypothesis before writing a single line of code?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use smoke tests, clickable Figma prototypes, landing page sign-up forms, or concierge MVPs to test user demand and behavior without incurring engineering development costs."
+  },
+  {
+    "text": "Tell me about a time you managed stakeholder expectations during a major feature delay.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Explain identifying the delay early, notifying stakeholders with data and reasons, presenting a mitigated recovery plan, and scheduling regular alignment updates until launch."
+  },
+  {
+    "text": "Describe a situation where you had to say no to an influential stakeholder and how you maintained the relationship.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Discuss framing the rejection around strategic focus and resource constraints, showing empathy for their goal, and offering alternative ways to solve their problem later."
+  },
+  {
+    "text": "Two key user personas want conflicting workflows in the same product screen. How do you decide which workflow to prioritize?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Analyze which persona drives core business revenue and engagement, assess if customizable views or progressive disclosure can support both, and prioritize the workflow that aligns with the product vision."
+  },
+  {
+    "text": "Write a SQL query to find the conversion rate from trial signup to paid subscription.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "SELECT (COUNT(DISTINCT paid.user_id) * 100.0) / COUNT(DISTINCT trial.user_id) AS conversion_rate FROM trials trial LEFT JOIN subscriptions paid ON trial.user_id = paid.user_id;"
+  },
+  {
+    "text": "How do you build a product pricing matrix for an enterprise tier featuring usage-based billing?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Combine a base platform fee with usage metrics that scale with customer value, such as API calls or active seats. Test tiers through customer advisory boards to ensure predictability and perceived fairness."
+  },
+  {
+    "text": "Explain how you manage product localization and internationalization for a global rollout.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Separate code from content using localization keys, plan for right-to-left languages and currency formatting, conduct in-market user research, and comply with regional data privacy laws."
+  },
+  {
+    "text": "How do you measure and mitigate user privacy risks when launching a data-driven personalization engine?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Implement privacy by design, ensure explicit user consent workflows, anonymize sensitive telemetry data, and collaborate with legal to comply with regulations like GDPR and CCPA."
+  },
+  {
+    "text": "Tell me about a time you used data analytics to uncover an unexpected user behavior that led to a new product opportunity.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Share the exploratory analysis, the surprising usage pattern discovered, how you validated it through user interviews, and the resulting product feature that captured new value."
+  },
+  {
+    "text": "A critical third-party API provider announces they are shutting down a service your product relies on with 30 days notice. What is your action plan?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Assess the impact on core features, immediately evaluate backup API providers or internal build options, reallocate engineering sprint capacity, and communicate status to leadership and customers."
+  },
+  {
+    "text": "Write a SQL query to rank products by sales volume within each category using window functions.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "SELECT category, product_id, sales_volume, RANK() OVER (PARTITION BY category ORDER BY sales_volume DESC) as rank FROM product_sales;"
+  },
+  {
+    "text": "How do you architect a multi-tenant SaaS data isolation strategy while maintaining high query performance?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Evaluate database-per-tenant, schema-per-tenant, and row-level security models. Balance security and compliance requirements with infrastructure cost and query performance scalability."
+  },
+  {
+    "text": "Design a machine learning feature roadmap for a content recommendation engine starting from scratch.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Start with rule-based heuristics and trending items, collect implicit and explicit feedback data, transition to collaborative filtering, and eventually deploy deep learning models with offline and online evaluation."
+  },
+  {
+    "text": "Tell me about a time you managed a catastrophic product failure during a major launch and led the recovery.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Describe the outage severity, leading the war room with engineering, communicating transparently with the public, stabilizing the system, and conducting a rigorous post-mortem with preventative actions."
+  },
+  {
+    "text": "Write a Python function to calculate the Net Promoter Score from a list of integer survey ratings.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "def calculate_nps(ratings):\n    promoters = sum(1 for r in ratings if r >= 9)\n    detractors = sum(1 for r in ratings if r <= 6)\n    return ((promoters - detractors) / len(ratings)) * 100 if ratings else 0"
+  },
+  {
+    "text": "What is the difference between a product manager and a project manager?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A product manager focuses on the what and why, defining product strategy, vision, and user value. A project manager focuses on the when, how, and who, managing timelines, budgets, and resource allocation."
+  },
+  {
+    "text": "What is user segmentation and why is it useful?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "User segmentation is the practice of dividing users into groups based on shared characteristics. It allows PMs to tailor messaging, feature releases, and user research to specific target audiences."
+  },
+  {
+    "text": "What is a usability test?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A usability test evaluates how easily real users can complete tasks on a product prototype or interface, helping identify design friction and user confusion points."
+  },
+  {
+    "text": "What does KPI stand for and how is it used?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "KPI stands for Key Performance Indicator. It is a quantifiable metric used to evaluate how successfully a product or team is achieving its primary business objectives."
+  }
+]

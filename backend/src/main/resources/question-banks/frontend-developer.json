@@ -1,0 +1,1202 @@
+[
+  {
+    "text": "What is the primary purpose of the useId hook in React?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The useId hook generates unique IDs that remain stable across server and client renders, preventing hydration mismatches. It is primarily used for associating form labels with accessibility attributes."
+  },
+  {
+    "text": "Explain the difference between display: inline-block and display: inline-flex.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Inline-block elements flow with text but respect width and height, whereas inline-flex creates an inline-level flex container. The latter allows its direct children to be laid out using flexbox properties while sitting inline with surrounding text."
+  },
+  {
+    "text": "How does React's virtual DOM differ from the real DOM in terms of updates?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The virtual DOM is a lightweight JavaScript representation of the real DOM. When state changes, React updates the virtual DOM first, compares it with the previous version via diffing, and batches real DOM updates efficiently."
+  },
+  {
+    "text": "What is a React ref and when should you avoid using it?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A ref provides a way to access DOM nodes or React elements created in the render method. You should avoid using refs for things that can be easily achieved through declarative state management."
+  },
+  {
+    "text": "What does the 'A' stand for in WCAG, and why is it important?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The 'A' stands for Accessibility. It ensures digital products are usable by people with disabilities, including visual, auditory, motor, and cognitive impairments, while also improving general UX and SEO."
+  },
+  {
+    "text": "Explain the basic concept of snapshot testing in Jest.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Snapshot testing captures the rendered output of a React component and saves it as a reference file. Future test runs compare the current output against the snapshot to catch unexpected UI regressions."
+  },
+  {
+    "text": "What is the Container/Component pattern in React?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "This pattern separates components into smart containers that handle data fetching and logic, and dumb presentational components that focus purely on rendering UI based on props."
+  },
+  {
+    "text": "How do CSS logical properties differ from physical properties?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Logical properties (like margin-block or padding-inline) map to the flow of text rather than fixed physical edges (like top, left, bottom, right). This makes supporting multiple languages and writing modes much easier."
+  },
+  {
+    "text": "What is the role of the useDeferredValue hook?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "useDeferredValue lets you defer updating a non-critical part of the UI, keeping urgent updates like typing responsive. React will render the old value in the background until the new value is ready."
+  },
+  {
+    "text": "Why is avoiding layout thrashing important for web performance?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Layout thrashing occurs when JavaScript repeatedly triggers synchronous layout reflows and style calculations in a loop. Avoiding it prevents frame drops and maintains smooth 60fps animations and scrolling."
+  },
+  {
+    "text": "Tell me about a time you had to learn a new frontend framework or library quickly under a tight deadline.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Focus on the approach used to digest documentation, build a proof of concept, seek help from senior peers, and successfully deliver the project feature on time."
+  },
+  {
+    "text": "Describe a situation where you advocated for web accessibility in a team meeting.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Highlight the specific accessibility issue identified, how you communicated its impact to designers and product managers, and the collaborative solution implemented."
+  },
+  {
+    "text": "How do you handle receiving critical feedback on your code during a pull request review?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Emphasize maintaining a growth mindset, detaching ego from code, asking clarifying questions, and viewing reviews as collaborative learning opportunities."
+  },
+  {
+    "text": "Share an example of how you optimized a sluggish UI component.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Mention profiling the component, identifying bottlenecks such as unnecessary re-renders or heavy computations, applying a fix like memoization, and measuring the performance improvement."
+  },
+  {
+    "text": "A junior developer asks you why their CSS Grid container is not respecting column definitions. How do you guide them?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Suggest checking for typos in grid-template-columns, ensuring container display is set to grid, checking for uncollapsed auto-fill items, and using browser dev tools to inspect track sizing."
+  },
+  {
+    "text": "Write a custom React hook named useToggle that manages a boolean state toggle.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Provide a clean implementation using useState that returns the boolean state and a function to toggle its value."
+  },
+  {
+    "text": "How does the useTransition hook help keep user interfaces responsive during heavy state transitions?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "useTransition marks state updates as non-blocking transitions, allowing React to interrupt heavy rendering work to process high-priority inputs like keystrokes. It also provides an isPending flag to show loading indicators."
+  },
+  {
+    "text": "Compare CSS Grid and Flexbox: when should you choose a one-dimensional layout over a two-dimensional one?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Flexbox is designed for one-dimensional layouts along a single row or column, ideal for component distribution. CSS Grid is built for two-dimensional layouts, handling both rows and columns simultaneously for complex page structures."
+  },
+  {
+    "text": "What are React fiber reconciliation nodes and how do they optimize rendering?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Fiber is React's internal reconciliation engine that breaks rendering work into incremental units. It allows pausing, aborting, and prioritizing updates to maintain high frame rates."
+  },
+  {
+    "text": "Explain the architectural differences between Redux Toolkit and Zustand for global state management.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Redux Toolkit uses a centralized store with immutable updates, slices, and strict unidirectional data flow. Zustand is a minimalist hook-based store utilizing local subscriptions without providers or boilerplate."
+  },
+  {
+    "text": "How do you test asynchronous code and custom hooks using React Testing Library?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use utilities like findBy queries or waitFor from RTL alongside act wrappers or renderHook to handle async state changes and side effects assertions safely."
+  },
+  {
+    "text": "What is the Compound Component design pattern in React and what are its main benefits?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "This pattern shares state implicitly among multiple child components (like Select and Option) working together. It provides a clean, flexible, and declarative API for consumers."
+  },
+  {
+    "text": "How do CSS containment properties (contain: layout style) improve rendering performance?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Containment tells the browser that a DOM subtree is independent of the rest of the page. This limits browser reflows and repaints to that specific subtree, speeding up rendering calculations."
+  },
+  {
+    "text": "What is the purpose of React.memo, and when can it actually hurt performance?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "React.memo memoizes functional component output to prevent re-renders if props haven't changed. It can hurt performance if props change constantly, forcing React to run shallow prop comparisons on every render for no benefit."
+  },
+  {
+    "text": "Explain how ARIA roles, states, and properties enhance accessibility for screen readers.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "ARIA attributes provide semantic information to assistive technologies when native HTML elements fall short. They describe widget roles, current states (like aria-expanded), and relationships between elements."
+  },
+  {
+    "text": "What is tree shaking and how do modern bundlers perform it?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Tree shaking is a dead-code elimination technique used during bundling. Modern bundlers like Webpack or Vite analyze ES module static import/export statements to remove unused code functions and variables."
+  },
+  {
+    "text": "Describe a time when you had a disagreement with a UX designer regarding accessibility constraints versus visual design.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Focus on how you used WCAG guidelines, user empathy, and open dialogue to reach a compromise that maintained the visual aesthetic while meeting all accessibility requirements."
+  },
+  {
+    "text": "Tell me about a time you diagnosed a complex memory leak in a single-page application.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Highlight the tools used (like Chrome DevTools memory profilers), identifying dangling event listeners or uncleared timers, and the preventative measures established afterward."
+  },
+  {
+    "text": "How do you handle state synchronization between multiple browser tabs in a large React application?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Discuss utilizing the Broadcast Channel API, LocalStorage event listeners, or WebSockets to keep state consistent across active client sessions."
+  },
+  {
+    "text": "Describe how you mentor junior developers on writing robust unit tests.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Emphasize teaching behavior-driven testing over implementation testing, focusing on readability, mock isolation, and maintaining high confidence without fragile tests."
+  },
+  {
+    "text": "A dashboard component re-renders 50 times on every keystroke in a search input. How would you diagnose and fix this?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use React DevTools Profiler to check render triggers, lift or debounce state where appropriate, memoize heavy child components using React.memo, and isolate the search input state."
+  },
+  {
+    "text": "Implement a debounce hook (useDebounce) in React that delays updating a value until a specified delay has passed.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Write a hook using useEffect and setTimeout that updates a debounced state variable only after the timeout clears following value changes."
+  },
+  {
+    "text": "How do you prevent infinite re-render loops when synchronizing useEffect with complex object dependencies?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Avoid passing entire objects or inline functions as dependencies. Instead, extract primitive values, use useMemo or useCallback, or structure state to depend on specific scalar values."
+  },
+  {
+    "text": "Explain how CSS subgrid works and solve a nested layout alignment problem with it.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "CSS subgrid allows nested grid items to inherit the track definitions of their parent grid. This enables child elements to align perfectly across different rows and columns without duplicating track sizing rules."
+  },
+  {
+    "text": "How does React's Concurrent Mode schedule and prioritize work under the hood?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Concurrent Mode utilizes fiber architecture and scheduling algorithms (resembling cooperative multitasking) to assign priorities to tasks, yielding to the browser main thread to keep interactions smooth."
+  },
+  {
+    "text": "Compare the performance trade-offs of Context API versus fine-grained reactivity stores like Signals.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Context API triggers re-renders on all consuming components when context value updates unless carefully memoized. Signals track fine-grained subscriptions, updating only the exact DOM nodes dependent on the changed value."
+  },
+  {
+    "text": "How would you write a custom accessibility audit test in Jest for keyboard navigation traps?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Simulate Tab and Shift+Tab keydown events recursively across focusable elements inside a modal or container, ensuring focus stays trapped within the designated boundary."
+  },
+  {
+    "text": "Explain the Flyweight design pattern and how it applies to rendering large lists in the DOM.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "The Flyweight pattern minimizes memory usage by sharing state across multiple objects. In list virtualization, a fixed pool of DOM nodes is reused and repositioned as the user scrolls through massive datasets."
+  },
+  {
+    "text": "How do CSS Houdini Paint Worklets work, and what performance benefits do they provide?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Paint Worklets allow developers to write custom JavaScript to programmatically draw CSS backgrounds and borders. They run in a separate worker thread, reducing main-thread congestion and enabling complex dynamic styling."
+  },
+  {
+    "text": "What is the mechanics of double buffering in React's reconciliation process?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "React maintains two fiber trees: current and workInProgress. Work is built on the wip tree in memory, and once complete, pointers are swapped atomically to commit changes in a single efficient commit phase."
+  },
+  {
+    "text": "Detail how you would architect a resilient offline-first state synchronization engine for a Progressive Web App.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Combine IndexedDB for local persistence, Service Workers for request interception, and a queue-based conflict-resolution strategy (like CRDTs or last-write-wins) to sync mutations when connectivity returns."
+  },
+  {
+    "text": "How does subpixel rendering and layout rounding impact high-DPI display performance and visual artifacts?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Browsers calculate layouts using floating-point numbers but render on physical pixels. Rounding discrepancies can cause 1px gaps or blurry borders, which can be mitigated by careful transform usage and integer dimension alignment."
+  },
+  {
+    "text": "Tell me about a time you had to refactor a monolithic, spaghetti frontend codebase with zero test coverage.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Discuss writing characterization tests first, breaking changes down into incremental vertical slices, establishing CI/CD safeguards, and collaborating closely with stakeholders to minimize downtime."
+  },
+  {
+    "text": "Describe a scenario where a third-party script caused severe performance degradation on your site. How did you isolate and resolve it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Explain using performance profiling and Long Tasks API, leveraging Partytown or web workers to offload the script, or sandboxing it within an iframe."
+  },
+  {
+    "text": "How do you lead architectural alignment across multiple cross-functional frontend teams?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Emphasize establishing RFC processes, forming frontend chapters, standardizing design systems, and fostering a culture of knowledge sharing and technical governance."
+  },
+  {
+    "text": "A critical production web app is experiencing intermittent memory leaks only after 4 hours of heavy usage by power users. How do you investigate?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Take heap snapshots at regular intervals during automated or manual load testing, compare snapshots to find accumulating objects or detached DOM nodes, and trace retained object paths back to their source."
+  },
+  {
+    "text": "Implement a virtualized list component from scratch that handles dynamic item heights efficiently.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Write a component that tracks scroll position, maintains a dynamic height cache array, calculates visible item ranges via binary search, and absolutely positions rendered rows accordingly."
+  },
+  {
+    "text": "Analyze the exact lifecycle and garbage collection implications of closures inside custom React hooks.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Closures capture variables from their outer lexical scope. If uncleaned timers or event listeners reference these closures, they can retain component instances in memory, preventing garbage collection and causing subtle memory leaks."
+  },
+  {
+    "text": "How do CSS Containment and Layout Worklets interact with browser composite layers and GPU acceleration?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Containment bounds style and layout recalculations. When combined with will-change or transform properties, it promotes the contained subtree to its own composite layer, enabling hardware-accelerated painting and composition on the GPU."
+  },
+  {
+    "text": "Compare the memory allocation and garbage collection patterns of immutable data structures versus mutable proxies in state management.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Immutable structures (like structural sharing in Immer) create new object references for modified paths, generating garbage collection pressure for old nodes. Mutable proxies track mutations via traps, minimizing allocations but requiring strict transactional boundaries."
+  },
+  {
+    "text": "How does React 19's Server Actions architecture fundamentally alter the boundary between client and server state?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Server Actions allow asynchronous functions to be executed on the server directly from client components, bridging RPC patterns with React's form lifecycle and automatic optimistic updates without manual API boilerplate."
+  },
+  {
+    "text": "Describe the implementation details of a concurrent state reconciliation scheduler that handles prioritization and task yielding.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "A scheduler uses requestIdleCallback or MessageChannel to slice execution time into frames. It checks remaining time via performance.now(), yielding back to the main thread when budgets are exceeded to ensure input responsiveness."
+  },
+  {
+    "text": "You discover that a popular third-party dependency has an unfixable memory leak in its event listener cleanup. How do you patch or replace it enterprise-wide?",
+    "type": "SITUATIONAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Create a local wrapper module or monkey-patch the library prototype safely at runtime, while concurrently building a lightweight internal replacement or submitting a pull request upstream to fix the core issue."
+  },
+  {
+    "text": "Implement a full concurrent state management system with fine-grained subscription mechanics and dependency tracking.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "Write a robust store class supporting reactive atoms, automatic dependency collection via active context stack tracking, and scheduled batch updates."
+  },
+  {
+    "text": "What is the purpose of the useCallback hook?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The useCallback hook caches a function definition between renders unless its dependencies change. This prevents unnecessary re-renders of child components that rely on referential equality for props."
+  },
+  {
+    "text": "Explain the difference between position: relative and position: absolute.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Relative positioning shifts an element relative to its normal position without altering the document flow. Absolute positioning removes the element from the flow entirely and positions it relative to its nearest positioned ancestor."
+  },
+  {
+    "text": "How do you pass data from a parent component to a child component in React?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Data is passed from parent to child using props, which are read-only attributes passed down the component tree."
+  },
+  {
+    "text": "What is semantic HTML and why does it matter for accessibility?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Semantic HTML uses tags that clearly describe their meaning to both the browser and developer, such as <nav>, <article>, and <header>. This provides built-in accessibility and screen reader support without needing extra ARIA attributes."
+  },
+  {
+    "text": "What is the primary role of a mock function in Jest?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Mock functions let you test links between code by letting you spy on function calls, record arguments passed, and customize return values during testing."
+  },
+  {
+    "text": "What is the difference between margin and padding in CSS?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Padding creates space inside an element's border, while margin creates space outside the element's border."
+  },
+  {
+    "text": "What is the purpose of the useEffect dependency array?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The dependency array tells React when to re-run the effect. If any value in the array changes between renders, the effect executes again."
+  },
+  {
+    "text": "How do you include external CSS stylesheets in a React component?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "You can import CSS files directly into the JavaScript component file, or use CSS Modules and styled-components for scoped styling."
+  },
+  {
+    "text": "What is a React portal?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Portals provide a way to render children into a DOM node that exists outside the hierarchy of the parent component."
+  },
+  {
+    "text": "Why should images on a webpage have alt attributes?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Alt attributes provide alternative text descriptions for screen reader users and display if the image fails to load."
+  },
+  {
+    "text": "Tell me about a time you resolved a conflict within your development team regarding code style.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Focus on introducing automated tools like Prettier and ESLint to remove subjective debates and establish objective standards."
+  },
+  {
+    "text": "How do you manage your daily tasks when working on multiple frontend features simultaneously?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Highlight using prioritization frameworks, time blocking, and clear communication with product owners regarding timelines."
+  },
+  {
+    "text": "Share an example of when you helped a colleague debug a tricky issue.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Describe listening to their problem, pair programming to inspect network requests or component state, and finding the root cause together."
+  },
+  {
+    "text": "How do you stay updated with rapidly changing frontend technologies?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Mention reading newsletters, following key community contributors, building side projects, and attending tech meetups."
+  },
+  {
+    "text": "A team member pushes unformatted code that breaks your build pipeline. How do you handle this situation constructively?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Reach out privately to help them fix the build, and suggest setting up pre-commit hooks using Husky to prevent similar issues in the future."
+  },
+  {
+    "text": "Write a simple React functional component that accepts a username prop and greets the user.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Provide a component returning a greeting header using destructuring for props."
+  },
+  {
+    "text": "Explain how the useReducer hook works compared to useState.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "useReducer is preferable for complex state logic involving multiple sub-values or when the next state depends on the previous one. It accepts a reducer function and an initial state, returning the current state and a dispatch method."
+  },
+  {
+    "text": "How do CSS custom properties (variables) differ from preprocessor variables (Sass/LESS)?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "CSS custom properties are dynamic, live in the browser's computed styles, and cascade according to the DOM tree. Sass variables are static, compiled away, and scoped lexically."
+  },
+  {
+    "text": "What is code splitting and how do React.lazy and Suspense enable it?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Code splitting breaks your bundle into smaller chunks loaded on demand. React.lazy lets you render a dynamic import as a regular component, while Suspense displays fallback UI while the chunk loads."
+  },
+  {
+    "text": "Explain lifting state up in React and when you should use it.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Lifting state up involves moving state from child components to their closest common ancestor so that multiple sibling components can share and synchronize that state."
+  },
+  {
+    "text": "What are Jest mock implementations and how do they differ from simple return values?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "While mockReturnValue sets a static return value, mockImplementation allows you to supply custom logic, execute callbacks, or dynamically compute responses based on arguments passed to the mock."
+  },
+  {
+    "text": "What is the purpose of the HTML `inert` attribute in accessibility and UI design?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The inert attribute marks a DOM subtree as non-interactive and invisible to screen readers, making it ideal for managing focus and accessibility when modals or side drawers are open."
+  },
+  {
+    "text": "Explain the Render Props pattern in React.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A render prop is a technique for sharing code between React components using a prop whose value is a function that returns a React element."
+  },
+  {
+    "text": "How do CSS media queries interact with container queries?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Media queries style elements based on viewport dimensions, whereas container queries style elements based on the size of their direct container. This allows for truly modular, context-independent components."
+  },
+  {
+    "text": "What are React error boundaries and what can they not catch?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Error boundaries are React components that catch JavaScript errors anywhere in their child component tree. They cannot catch errors in event handlers, asynchronous code, server-side rendering, or errors thrown in the boundary itself."
+  },
+  {
+    "text": "Describe the concept of optimistic UI updates in state management.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Optimistic updates immediately update the local UI to reflect a user action before receiving confirmation from the server, rolling back or syncing if the request fails."
+  },
+  {
+    "text": "Tell me about a time you identified and fixed a performance bottleneck in a production release.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Discuss monitoring tool alerts, analyzing bundle size or network waterfalls, implementing code splitting or caching, and verifying the results."
+  },
+  {
+    "text": "How do you handle scope creep when building a frontend feature with a fixed deadline?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Focus on collaborating with product managers to evaluate feature priority, negotiating MVP requirements, and pushing extra requests to future sprints."
+  },
+  {
+    "text": "Describe how you approach writing comprehensive tests for a legacy component that lacks test coverage.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Explain mapping core user behaviors, writing integration tests first to lock down existing behavior, and then refactoring with confidence."
+  },
+  {
+    "text": "Share an experience where you had to onboard a new developer onto your frontend stack.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Highlight providing clear documentation, setting up paired coding sessions, and assigning well-defined starter tickets to build confidence."
+  },
+  {
+    "text": "A critical UI component is throwing intermittent errors in production that you cannot reproduce locally. How do you approach debugging this?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Check error monitoring tools like Sentry for stack traces and user session replays, add detailed logging around suspect areas, and review recent production deployments."
+  },
+  {
+    "text": "Write a custom React hook named useLocalStorage that synchronizes state with browser localStorage.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Provide a hook utilizing useState and useEffect to read from and write to localStorage safely with JSON serialization."
+  },
+  {
+    "text": "How does React 18 automatic batching work across asynchronous events?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "React 18 batches multiple state updates into a single re-render, even inside promises, setTimeout, and native event handlers, significantly improving application performance."
+  },
+  {
+    "text": "Explain how CSS specificity calculation works with shadow DOM encapsulation.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Shadow DOM provides style encapsulation. Styles inside a shadow root do not leak out, and external styles do not pierce the shadow boundary except through explicitly defined CSS shadow parts and variables."
+  },
+  {
+    "text": "What are memory leaks caused by closures in React event listeners and how do you prevent them?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Closures capture variables in their lexical scope. If event listeners or subscriptions are not removed in a useEffect cleanup function, they retain references to component instances, preventing garbage collection."
+  },
+  {
+    "text": "How do you implement architectural state persistence with automatic schema migrations in IndexedDB?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use versioning flags in IndexedDB connection requests, handling upgrade callbacks to execute data migration scripts between object store schemas when the application updates."
+  },
+  {
+    "text": "What is the difference between mutation testing and traditional unit testing?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Mutation testing introduces small changes (mutations) to your source code and checks if your unit tests fail. It evaluates the quality and effectiveness of your test suite rather than just code coverage percentages."
+  },
+  {
+    "text": "Explain the mechanics of layout shifts (CLS) and how browser rendering engines calculate them.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "CLS measures unexpected movement of visible elements. It is calculated by multiplying the impact fraction (viewport area affected) by the distance fraction (how far elements moved) when elements render without reserved dimensions."
+  },
+  {
+    "text": "How do you architect a plugin system in a React application using dynamic module federation?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Module Federation allows independent builds to share JavaScript modules at runtime. Plugins are exposed as remote entry points loaded dynamically by a host container with shared dependency mappings."
+  },
+  {
+    "text": "What are the performance implications of React Server Components (RSCs) regarding bundle size and client hydration?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "RSCs execute entirely on the server, sending zero JavaScript to the client for server-only components. This reduces bundle size and eliminates hydration cost for static parts of the page."
+  },
+  {
+    "text": "How do you test complex state machines implemented in XState using React Testing Library?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use `@xstate/react` bindings in your component, and test state transitions by dispatching events through UI interactions and asserting on the resulting rendered states and emitted service events."
+  },
+  {
+    "text": "Detail how CSS Houdini Layout Worklets allow developers to create custom display types.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Layout Worklets let you write custom layout algorithms in JavaScript, similar to flexbox or grid. They run in a separate thread, enabling custom layout behavior without blocking main-thread rendering."
+  },
+  {
+    "text": "Tell me about a time you had to pitch a major architectural rewrite to skeptical engineering leadership.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Focus on gathering metrics on technical debt, presenting a clear ROI analysis, mitigating risks through a phased rollout, and aligning with business goals."
+  },
+  {
+    "text": "Describe a challenging race condition you diagnosed in an asynchronous frontend data flow.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Explain the scenario where out-of-order network responses corrupted state, and how you implemented request cancellation tokens or race-condition guards to fix it."
+  },
+  {
+    "text": "How do you foster a team culture where accessibility and performance are prioritized from day one rather than as afterthoughts?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Discuss integrating automated accessibility checks in CI pipelines, conducting design reviews with an a11y focus, and gamifying performance budgets."
+  },
+  {
+    "text": "An enterprise web app crashes on mobile devices with low memory when rendering a large table. How do you investigate and resolve this?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Profile memory usage using mobile device emulation in Chrome DevTools, implement list virtualization to render only visible rows, and optimize object allocations in table cell renderers."
+  },
+  {
+    "text": "Implement a deep-equality hook or utility function in JavaScript that handles circular references.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Write a recursive comparison function using a WeakMap or Set to track visited object references and prevent infinite loops during circular checks."
+  },
+  {
+    "text": "Analyze the exact memory overhead and garbage collection characteristics of closures versus class instances in high-frequency rendering loops.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Closures allocated inside render loops recreate function objects on every execution, increasing memory churn and triggering frequent garbage collection cycles. Class instances or memoized references avoid unnecessary allocations."
+  },
+  {
+    "text": "How do CSS subgrid and container queries combine to create fully fluid, responsive component architectures?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Container queries adapt component styles based on parent container size, while subgrid aligns nested items to parent tracks. Combining them enables components to adapt to any layout context while maintaining internal structural alignment."
+  },
+  {
+    "text": "Explain how React's concurrent reconciler handles race conditions in asynchronous transitions using task priorities.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "React assigns expiration times and priorities to updates. If a higher-priority update occurs during a transition, React abandons the current work-in-progress tree, prioritizes the urgent task, and restarts the transition later."
+  },
+  {
+    "text": "What are the security implications of client-side state hydration vulnerabilities in Server-Side Rendered applications?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Unsanitized server state serialized into HTML can lead to Stored XSS or prototype pollution when hydrated on the client, requiring strict serialization escaping and secure data transfer protocols."
+  },
+  {
+    "text": "Detail how you would architect a zero-runtime CSS-in-JS solution leveraging build-time static extraction.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Extract dynamic styles into atomic CSS classes at build time using AST transforms and bundler plugins, replacing runtime style injection with static class name composition for optimal performance."
+  },
+  {
+    "text": "Your team's core React application suffers from cascading re-renders across 200 component levels during deep state updates. How do you re-architect it without rewriting the entire app?",
+    "type": "SITUATIONAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Introduce fine-grained state stores or Context splitting for isolated branches, apply React.memo strategically with stable callbacks, and push state down closer to where it is consumed."
+  },
+  {
+    "text": "Implement a complete event emitter class in JavaScript with support for once, off, on, and asynchronous asyncEmit listeners.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "Write an event emitter handling subscription arrays, listener wrapping for one-time execution, and Promise.all execution for async listeners."
+  },
+  {
+    "text": "What is the primary purpose of the useTransition hook?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The useTransition hook allows you to mark state updates as non-blocking transitions, preventing urgent UI updates like typing from lagging behind heavy computations."
+  },
+  {
+    "text": "Explain the difference between CSS position: absolute and position: fixed.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Absolute positioning positions an element relative to its nearest positioned ancestor, whereas fixed positioning positions the element relative to the viewport, keeping it in place during scrolling."
+  },
+  {
+    "text": "How do you conditionally apply classes in React?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "You can conditionally apply classes using template literals with ternary operators, logical AND operators, or utility libraries like clsx and classnames."
+  },
+  {
+    "text": "What is screen reader accessibility testing?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "It is the process of navigating a web application using screen reader software like VoiceOver or NVDA to ensure content is read correctly and elements are fully navigable."
+  },
+  {
+    "text": "What is the purpose of beforeEach in Jest test suites?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The beforeEach function runs before every test in a test block, making it ideal for setting up test data or resetting mocks to maintain test isolation."
+  },
+  {
+    "text": "Tell me about a time you handled a tight deadline while maintaining code quality.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Focus on scope reduction, prioritizing core requirements, writing essential unit tests, and communicating transparently with stakeholders."
+  },
+  {
+    "text": "How do you approach learning a new testing library?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Mention reading official documentation, practicing with small examples, and applying the library to an existing side project."
+  },
+  {
+    "text": "A teammate submits a pull request with missing test coverage. How do you approach them?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Leave friendly and constructive comments highlighting the missing scenarios, and offer to pair program on writing the initial unit tests."
+  },
+  {
+    "text": "Write a React component that renders a button with an accessible aria-label.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Provide a button element with an explicit aria-label attribute and an onClick handler prop."
+  },
+  {
+    "text": "How does the useLayoutEffect hook differ from useEffect?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "useLayoutEffect fires synchronously after all DOM mutations, before the browser paints. This makes it ideal for reading layout measurements or preventing visual flickers, whereas useEffect runs asynchronously after paint."
+  },
+  {
+    "text": "Explain the concept of specificity in CSS and how it is calculated.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "CSS specificity determines which style rules are applied based on selector weights: inline styles have the highest weight, followed by IDs, classes/attributes/pseudo-classes, and element selectors/pseudo-elements."
+  },
+  {
+    "text": "What is state colocation and why is it beneficial in React applications?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "State colocation involves keeping state as close as possible to where it is actually used. This improves code maintainability, reduces unnecessary prop drilling, and prevents broad component re-renders."
+  },
+  {
+    "text": "How do you test custom React hooks using React Testing Library?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "You use the renderHook utility from React Testing Library to execute the hook within a test wrapper, allowing you to inspect returned values and trigger state updates."
+  },
+  {
+    "text": "What is the purpose of ARIA live regions?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "ARIA live regions notify screen reader users of dynamic content updates on the page without requiring them to move focus, using attributes like aria-live=\"polite\" or \"assertive\"."
+  },
+  {
+    "text": "Describe a time when you refactored a complex state management architecture.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Highlight analyzing the pain points of the old system, designing a cleaner replacement, planning a migration strategy, and verifying correctness."
+  },
+  {
+    "text": "How do you handle disagreement during a technical design review?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Emphasize listening to alternative viewpoints, relying on data and prototyping to test hypotheses, and reaching consensus focused on project goals."
+  },
+  {
+    "text": "A user reports that a form submission button is clickable multiple times, creating duplicate records. How do you fix this?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Disable the submit button and show a loading spinner immediately upon form submission until the asynchronous request completes."
+  },
+  {
+    "text": "Write a custom React hook named useWindowSize that tracks and returns the browser window dimensions.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Provide a hook using useState and useEffect that listens to window resize events, updates state, and cleans up the event listener on unmount."
+  },
+  {
+    "text": "How does React's synthetic event system work, and why does it exist?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Synthetic events are cross-browser wrappers around the browser's native events. They ensure consistent behavior across different browsers and improve performance through event delegation at the root level."
+  },
+  {
+    "text": "Explain the CSS containment specification and how it impacts performance.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "The CSS contain property tells the browser that a specific DOM subtree is isolated from the rest of the page. This prevents layout and style changes from propagating outside the element, speeding up rendering."
+  },
+  {
+    "text": "What are the performance bottlenecks associated with deeply nested component trees in React Context?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Every consumer component tied to a context will re-render whenever the context value updates, regardless of whether the specific slice of data they care about changed, leading to cascading re-renders."
+  },
+  {
+    "text": "Tell me about a time you optimized a web application to pass Core Web Vitals with flying colors.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Explain analyzing LCP, FID/INP, and CLS metrics using Lighthouse and RUM data, and implementing targeted fixes like image optimization, font preloading, and reducing main-thread blocking."
+  },
+  {
+    "text": "Implement a memoize function in JavaScript that caches the results of a function based on its arguments.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Write a higher-order function that stores previous arguments and results in a Map or cache object, returning cached results on subsequent calls with identical arguments."
+  },
+  {
+    "text": "What is the main advantage of Server-Side Rendering (SSR) over Client-Side Rendering (CSR)?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "SSR renders the initial HTML on the server, resulting in faster First Contentful Paint (FCP) and better search engine optimization (SEO) compared to CSR."
+  },
+  {
+    "text": "Explain what a CSS pseudo-class is and give an example.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A pseudo-class defines a special state of an element, such as :hover when the user moves their mouse over it or :focus when an element receives keyboard focus."
+  },
+  {
+    "text": "What is the purpose of the key prop in React lists?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The key prop helps React identify which items have changed, been added, or been removed in lists, ensuring efficient DOM reconciliation."
+  },
+  {
+    "text": "What does WCAG stand for?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "WCAG stands for Web Content Accessibility Guidelines, which are international standards for making web content more accessible to people with disabilities."
+  },
+  {
+    "text": "What is unit testing in frontend development?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Unit testing involves testing individual units of code, such as functions or small components, in isolation to ensure they work as expected."
+  },
+  {
+    "text": "Share an experience where you had to debug a difficult production bug under time pressure.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Mention staying calm, reproducing the issue, checking error logs, collaborating with teammates, and deploying a hotfix efficiently."
+  },
+  {
+    "text": "How do you handle constructive criticism from senior developers?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Highlight being open-minded, asking for specific examples, and applying the feedback to improve future code quality."
+  },
+  {
+    "text": "A stakeholder asks for a major feature change one day before release. How do you handle this request?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Explain the risks to stability and timeline, propose pushing the change to a fast-follow release, and align on project priorities."
+  },
+  {
+    "text": "Write a simple HTML form input with an associated label element.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Provide a <label> with a 'for' attribute matching the input's 'id' attribute to ensure proper accessibility."
+  },
+  {
+    "text": "How does React's batching mechanism optimize rendering performance?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Batching groups multiple state updates into a single re-render cycle instead of triggering a separate render for each individual update, reducing unnecessary DOM operations."
+  },
+  {
+    "text": "What is the difference between CSS Flexbox and CSS Grid?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Flexbox is designed for one-dimensional layouts (rows or columns), while CSS Grid is designed for two-dimensional layouts, handling rows and columns simultaneously."
+  },
+  {
+    "text": "What is component composition in React and why is it preferred over inheritance?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Composition involves combining simpler components using props like `children` to build complex UIs. It is preferred over inheritance because React encourages code reuse through composition rather than deep class hierarchies."
+  },
+  {
+    "text": "How do you test user interactions like typing and clicking in React Testing Library?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "You use userEvent from `@testing-library/user-event` to simulate realistic user interactions such as typing into inputs or clicking buttons."
+  },
+  {
+    "text": "What is focus management in web accessibility?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Focus management ensures that keyboard focus moves logically through interactive elements and is correctly redirected when modals open or close, allowing keyboard-only users to navigate smoothly."
+  },
+  {
+    "text": "Tell me about a time you improved the accessibility of an existing web application.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Describe auditing the app with automated tools, adding missing alt texts and ARIA attributes, fixing keyboard navigation traps, and verifying with screen readers."
+  },
+  {
+    "text": "How do you prioritize bug fixes versus new feature development in a sprint?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Discuss evaluating bug severity and impact on users, aligning with product managers, and allocating dedicated capacity for maintenance."
+  },
+  {
+    "text": "A third-party API is experiencing intermittent downtime, causing your frontend application to crash. How do you handle this?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Implement error boundaries, try-catch blocks around async calls, graceful fallback UI states, and retry logic with exponential backoff."
+  },
+  {
+    "text": "Write a JavaScript function that takes an array of numbers and returns the sum using reduce.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Provide a clean ES6 arrow function using Array.prototype.reduce to accumulate the sum."
+  },
+  {
+    "text": "Explain how React fiber architecture enables asynchronous rendering.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Fiber breaks rendering work into incremental units (fibers) that can be paused, aborted, or prioritized based on urgency, ensuring the main thread remains responsive to user interactions."
+  },
+  {
+    "text": "What are the security risks of dangerouslySetInnerHTML in React and how do you mitigate them?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "dangerouslySetInnerHTML can expose applications to Cross-Site Scripting (XSS) attacks if user-supplied input is rendered. Mitigate this by sanitizing HTML inputs using libraries like DOMPurify before rendering."
+  },
+  {
+    "text": "Describe how you would architect a scalable design system component library in a large organization.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use atomic design principles, headless component primitives for flexibility, CSS tokens for theming, automated visual regression testing, and robust documentation via Storybook."
+  },
+  {
+    "text": "Tell me about a time you mentored a junior engineer who was struggling with complex asynchronous JavaScript concepts.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Explain breaking down event loops, promises, and async/await using visual diagrams and pair programming exercises until they gained confidence."
+  },
+  {
+    "text": "Implement a debounce function in JavaScript with cancel and flush methods.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Write a function returning a debounced wrapper that includes methods to cancel pending timeouts and immediately execute pending calls."
+  },
+  {
+    "text": "Explain how CSS flexbox handles overflowing content by default.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "By default, flex items have a min-width of auto, meaning they will not shrink below their minimum content size even if it causes overflow. To allow items to shrink below their content size, you must explicitly set min-width: 0 on the flex items."
+  },
+  {
+    "text": "What does a React ref return and how does mutating it differ from state changes?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A ref returns a mutable object with a current property holding the referenced value. Mutating this property does not trigger a component re-render, unlike updating state."
+  },
+  {
+    "text": "What is the difference between unit testing and integration testing in frontend development?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Unit tests isolate and verify the smallest testable pieces of code, such as individual pure functions or isolated components. Integration tests check how multiple units, like a component interacting with a custom hook or context, work together."
+  },
+  {
+    "text": "How do you make an image accessible to screen readers using HTML and CSS?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Informative images require a descriptive alt attribute, while purely decorative images should have an empty alt attribute (alt=\"\") so screen readers ignore them. ARIA labels can also be used if the surrounding context isn't sufficient."
+  },
+  {
+    "text": "What is state lifting in React?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "State lifting is the practice of moving shared state from multiple child components up to their closest common ancestor. This allows the parent to manage the state and pass it down via props to the children that need it."
+  },
+  {
+    "text": "Describe the core concept of the Virtual DOM.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The Virtual DOM is a lightweight JavaScript representation of the actual DOM tree kept in memory. React compares this virtual tree with a previous snapshot using diffing algorithms to calculate the minimal set of changes needed before updating the real DOM."
+  },
+  {
+    "text": "When should you use CSS Grid instead of Flexbox?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "CSS Grid is best suited for two-dimensional layouts where you need to control both rows and columns simultaneously. Flexbox is designed for one-dimensional layouts, either a row or a column."
+  },
+  {
+    "text": "What is accessibility (a11y) semantic HTML, and why does it matter?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Semantic HTML uses tags that convey the meaning of their content, such as <article>, <nav>, and <button>. Screen readers and assistive technologies rely on these tags to navigate and understand the page structure."
+  },
+  {
+    "text": "How do you prevent a form submission default action in React?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "You call event.preventDefault() inside the form's onSubmit event handler function. This stops the browser from performing a full page reload upon submission."
+  },
+  {
+    "text": "What is the difference between visibility: hidden and display: none in CSS?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "display: none removes the element from the DOM rendering tree entirely, freeing up its space. visibility: hidden hides the element visually, but it still occupies its original space in the layout."
+  },
+  {
+    "text": "What is prop drilling and how can you solve it?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Prop drilling is the process of passing data through multiple nested child components just to reach a deeply nested component. It can be solved using the React Context API or state management libraries like Redux or Zustand."
+  },
+  {
+    "text": "What is the purpose of a key prop in React lists?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Keys help React identify which items have changed, been added, or been removed in lists. They should be stable, unique identifiers rather than array indices to maintain proper component state across re-renders."
+  },
+  {
+    "text": "What is the difference between rem and em CSS units?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "rem units are relative to the root html element's font size, making sizing predictable across the document. em units are relative to the font size of the parent element, which can lead to compounding sizing issues."
+  },
+  {
+    "text": "How do you test a button click event in React Testing Library?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "You query the button using screen.getByRole('button', { name: /text/i }) and then use the userEvent.click() method from user-event library. Finally, you assert that the expected side effect or state change occurred."
+  },
+  {
+    "text": "What is a controlled component in React forms?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A controlled component is a form element whose value is driven by React state. Every user input triggers a change handler that updates the state, ensuring React remains the single source of truth."
+  },
+  {
+    "text": "Explain the concept of specificity in CSS selectors.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Specificity is the weight assigned to CSS selectors that determines which style declarations take precedence when multiple rules match an element. Inline styles, IDs, classes, and element selectors each hold distinct weight tiers."
+  },
+  {
+    "text": "What is the primary benefit of using custom hooks?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Custom hooks allow you to extract component logic into reusable functions. This promotes code reuse and keeps components clean and focused on presentation."
+  },
+  {
+    "text": "What is First Contentful Paint (FCP) in web performance?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "FCP is a performance metric that measures the time from when the page starts loading to when any part of the page's content is rendered on the screen. It gives users the first visual feedback that the page is loading."
+  },
+  {
+    "text": "How do you handle unhandled state updates in unmounted React components?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "In class components or older React versions, this caused memory leak warnings, typically solved with an isMounted flag. In modern React with hooks, asynchronous operations should use cleanup functions or AbortController to cancel pending requests when components unmount."
+  },
+  {
+    "text": "Explain how CSS containment works to improve rendering performance.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The CSS containment property allows an author to isolate a subtree of the DOM from the rest of the page. By using values like layout, paint, or size, the browser can optimize rendering by avoiding recalculating layout and styling for unaffected elements."
+  },
+  {
+    "text": "What are React Server Components (RSCs) and how do they differ from client components?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "RSCs execute entirely on the server and send only rendered HTML or serialized UI trees to the client, shipping zero JavaScript for those components to the browser. Client components run on both the server (for SSR) and client, supporting interactivity, state, and browser APIs."
+  },
+  {
+    "text": "Describe the Observer pattern and how it applies to frontend development.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The Observer pattern defines a subscription mechanism where an object notifies multiple other objects about any state changes. In frontend development, this is seen in reactive state stores, event emitters, and modern browser APIs like IntersectionObserver."
+  },
+  {
+    "text": "How does React fiber architecture optimize rendering?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "React Fiber is a reimplementation of the reconciliation algorithm that enables incremental rendering of the virtual DOM. It breaks down rendering work into chunks, allowing React to pause, abort, or prioritize tasks based on priority updates and user input."
+  },
+  {
+    "text": "Explain the Composite pattern and how it can be used for UI component structures.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The Composite pattern lets you compose objects into tree structures to represent part-whole hierarchies. In UIs, this is commonly seen in composite components like a Menu containing MenuItems, allowing clients to treat individual objects and compositions uniformly."
+  },
+  {
+    "text": "What is layout thrashing and how do you prevent it?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Layout thrashing occurs when JavaScript repeatedly reads and writes to the DOM synchronously, forcing the browser to perform multiple reflows in a single frame. It is prevented by batching all DOM reads together and then batching all DOM writes."
+  },
+  {
+    "text": "How do atomic design principles influence component architecture?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Atomic design breaks interfaces down into hierarchical categories: atoms, molecules, organisms, templates, and pages. This methodology helps developers build scalable, modular component libraries by promoting consistency and reusability."
+  },
+  {
+    "text": "What is the difference between debounce and throttle, and when would you use each?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Debounce delays function execution until a specified quiet period has passed since the last invocation, ideal for search inputs. Throttle limits function execution to at most once per specified time interval, ideal for scroll or resize handlers."
+  },
+  {
+    "text": "How do you implement code splitting in a React application?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Code splitting is implemented using dynamic imports with React.lazy and rendering the resulting components inside a Suspense boundary. This breaks the bundle into smaller chunks that load only when needed."
+  },
+  {
+    "text": "What is the purpose of aria-live regions in web accessibility?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Aria-live regions inform assistive technologies that dynamic content updates are happening outside of standard user focus. Screen readers will announce these updates immediately or politely depending on the configured politeness setting."
+  },
+  {
+    "text": "Explain the Singleton pattern and discuss its risks in modern frontend applications.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The Singleton pattern restricts instantiation of a class to a single object, often used for global services or caches. In frontend apps, overuse can introduce tight coupling, global state bugs, and difficulties in unit testing due to shared mutable state."
+  },
+  {
+    "text": "How do you optimize CSS delivery for faster page loads?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "You can optimize CSS delivery by extracting and inlining critical CSS required for above-the-fold content, deferring non-critical stylesheets, and minifying assets to reduce payload size."
+  },
+  {
+    "text": "What are React batching updates and how has it changed in React 18?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Batching groups multiple state updates into a single re-render for performance. Before React 18, updates inside promises, timeouts, or native event handlers weren't batched; React 18 introduced automatic batching across all contexts."
+  },
+  {
+    "text": "What is state normalization in state management libraries like Redux?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "State normalization involves structuring state like a database, keeping items in a flat lookup table indexed by ID with references pointing to related items. This avoids deep nested data structures, making updates and lookups O(1)."
+  },
+  {
+    "text": "How does the CSS subgrid feature work?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "CSS subgrid allows nested grid items to inherit the track definitions of their parent grid. This enables alignment of nested elements across different grid containers without hardcoding dimensions."
+  },
+  {
+    "text": "How do you mock API requests in Jest and React Testing Library?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "You can use jest.mock() to mock modules like axios or fetch, or use libraries like MSW (Mock Service Worker) to intercept network requests at the network level, providing realistic responses during tests."
+  },
+  {
+    "text": "Explain the Strategy pattern and provide a frontend use case.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The Strategy pattern allows you to define a family of algorithms, encapsulate each one into a separate class or object, and make them interchangeable at runtime. A common frontend use case is switching between different sorting or validation strategies dynamically."
+  },
+  {
+    "text": "What is the difference between server-side rendering (SSR) and incremental static regeneration (ISR)?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "SSR generates HTML on the server on every incoming request. ISR allows you to statically generate pages at build time and incrementally update them in the background on a per-page basis when new requests come in."
+  },
+  {
+    "text": "How do you optimize long lists in React to prevent UI lag?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "You use windowing or virtualization libraries like react-window or react-virtualized. These libraries render only the items currently visible in the viewport, reusing DOM nodes as the user scrolls."
+  },
+  {
+    "text": "How do you implement a custom reconciler using React Fiber?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "You use React's reconciler package (react-reconciler) to create a custom host config defining how nodes are created, appended, and updated. This allows React to render to non-DOM targets like canvas, terminal, or native mobile elements."
+  },
+  {
+    "text": "Explain the memory management implications of closures in React hooks.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Hooks capture variables in closures during render. If event listeners or timers inside useEffect reference stale closures, they can maintain references to unmounted component trees or outdated state, preventing garbage collection and causing memory leaks."
+  },
+  {
+    "text": "How do browser layout engines handle sub-pixel rendering and fractional transforms?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Browsers calculate layouts using floating-point numbers rather than strict integers. However, rasterization maps these to physical pixels, which can cause blurry edges unless hardware acceleration or crisp edges styling hints are applied."
+  },
+  {
+    "text": "Describe how concurrent rendering in React manages interruptions and tearing.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Concurrent rendering uses transition priorities to yield the main thread during heavy rendering tasks. To prevent UI tearing where mixed states render simultaneously, React leverages useSyncExternalStore or internal queuing to ensure atomic UI commits."
+  },
+  {
+    "text": "What are the core architectural challenges of building a micro-frontend framework?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Challenges include cross-app bundle duplication, CSS scope isolation to prevent style leaks, runtime state sharing, version synchronization of shared libraries like React, and establishing robust lifecycle communication between disparate remotes."
+  },
+  {
+    "text": "How do you optimize JavaScript memory consumption using WeakMap and WeakSet?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "WeakMap and WeakSet hold weak references to object keys, meaning they do not prevent garbage collection if the key object has no other references. This makes them ideal for caching DOM node metadata or associating private state without causing memory leaks."
+  },
+  {
+    "text": "Explain the mechanics of CSS painting worklets and Houdini APIs.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "CSS Houdini gives developers low-level access to the browser's CSS engine via worklets that run in a separate thread. A paint worklet allows you to programmatically draw custom backgrounds and graphics using a canvas-like 2D context directly tied to CSS properties."
+  },
+  {
+    "text": "How do you profile and debug re-renders in a complex React application at the bytecode level?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "You use Chrome DevTools Performance profiler alongside React DevTools Profiler to analyze flame graphs and identify wasted renders. For deep optimization, you examine V8 profiler outputs to track garbage collection pauses and hot execution paths."
+  }
+]

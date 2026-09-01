@@ -1,0 +1,1166 @@
+[
+  {
+    "text": "What is the primary purpose of AWS IAM policies?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "AWS IAM policies define permissions for users, groups, and roles, determining what actions they can perform on which AWS resources. They are written in JSON and can be attached as managed or inline policies."
+  },
+  {
+    "text": "Explain the concept of an Azure Resource Group.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "An Azure Resource Group is a logical container into which Azure resources like web apps, databases, and storage accounts are deployed and managed. It helps organize resources for lifecycle management and access control."
+  },
+  {
+    "text": "What is Google Cloud IAM and how does it differ from AWS IAM?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "GCP IAM allows administrators to authorize who can take action on specific resources by assigning roles to users or service accounts. Unlike AWS which relies heavily on inline and managed policies attached directly, GCP uses policy bindings consisting of members and roles."
+  },
+  {
+    "text": "What is a serverless architecture pattern?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Serverless architecture allows developers to build and run applications without managing servers, relying on fully managed services like AWS Lambda or Azure Functions. Code execution is event-driven, and billing is based on actual consumption rather than pre-allocated capacity."
+  },
+  {
+    "text": "How do you check for unused EBS volumes in AWS to optimize costs?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "You can identify unattached Elastic Block Store volumes via the AWS EC2 console, AWS Trusted Advisor, or by writing a script using the AWS CLI or SDK to list volumes with a status of available."
+  },
+  {
+    "text": "What is the principle of least privilege in cloud security?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The principle of least privilege dictates that a user, program, or process should only have the bare minimum permissions necessary to perform its intended function. This minimizes the security blast radius if credentials are compromised."
+  },
+  {
+    "text": "Tell me about a time you had to explain a complex cloud concept to a non-technical stakeholder.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Focus on using analogies, avoiding heavy technical jargon, and focusing on business outcomes like cost savings or reliability. Highlight how you verified their understanding before proceeding."
+  },
+  {
+    "text": "Describe a situation where you had to quickly learn a new cloud service or feature.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Explain your learning methodology, such as reading official documentation, building a proof of concept, and consulting community forums. Emphasize the timeline and the successful application of the new knowledge."
+  },
+  {
+    "text": "How do you handle a minor disagreement with a developer regarding infrastructure design?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Emphasize listening to their perspective, evaluating the trade-offs based on data and project requirements, and reaching a collaborative consensus. Prioritize team cohesion and project goals over ego."
+  },
+  {
+    "text": "A developer accidentally hardcodes AWS credentials in a public code repository. What is your immediate action?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Immediately revoke and delete the exposed credentials in the AWS IAM console to prevent unauthorized access. Then, scan the repository history to ensure removal and review monitoring logs for suspicious activity."
+  },
+  {
+    "text": "Write a basic Python script using boto3 to list all running EC2 instances in an AWS region.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Import boto3, create an ec2 client, and call describe_instances with a filter for running state. Iterate through the reservations and instances to print their IDs."
+  },
+  {
+    "text": "Explain the difference between vertical and horizontal scaling in cloud architecture.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Vertical scaling involves increasing the capacity of a single resource, such as upgrading an instance size, while horizontal scaling involves adding more instances to handle load. Horizontal scaling is generally preferred for cloud-native resiliency."
+  },
+  {
+    "text": "What is an AWS VPC and what are its core components?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A Virtual Private Cloud is an isolated virtual network dedicated to your AWS account. Core components include subnets, route tables, internet gateways, and security groups or network ACLs."
+  },
+  {
+    "text": "How does Azure Virtual Network peering work?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Azure VNet peering connects two Azure virtual networks seamlessly using the Microsoft backbone network. Traffic between peered virtual networks is private and routes through the Microsoft backbone without traversing the public internet."
+  },
+  {
+    "text": "What is Google Cloud VPC network and how is it global?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "GCP VPC is a global software-defined network spanning multiple regions, allowing resources in different global regions to communicate internally. Subnets within the VPC, however, are regional."
+  },
+  {
+    "text": "What is the difference between AWS S3 Standard and S3 Glacier for cost optimization?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "S3 Standard is optimized for frequently accessed data with higher storage costs and low retrieval latency. S3 Glacier is designed for archive data with significantly lower storage costs but retrieval times ranging from minutes to hours."
+  },
+  {
+    "text": "What is multi-factor authentication (MFA) and why is it mandatory for root accounts?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "MFA requires a user to provide two or more verification factors to gain access, adding a crucial layer of security. It is mandatory for root accounts because a compromised root account grants full control over all cloud resources."
+  },
+  {
+    "text": "Describe a time when you identified a cost wastage in the cloud and how you fixed it.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Detail how you discovered the idle resources or inefficient sizing, the metrics you used to prove it, and the resulting financial savings for the company."
+  },
+  {
+    "text": "How do you prioritize your tasks when multiple teams request cloud infrastructure changes simultaneously?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Explain that you evaluate urgency, business impact, and alignment with overall strategic goals. Emphasize transparent communication with stakeholders regarding timelines."
+  },
+  {
+    "text": "An application in Azure is experiencing intermittent database connection timeouts. Where do you start troubleshooting?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Start by checking Azure Monitor and database metrics like CPU and connection counts. Next, verify network security groups, firewalls, and application connection string configurations."
+  },
+  {
+    "text": "Write a simple Bash script using the AWS CLI to create an S3 bucket with versioning enabled.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Use aws s3api create-bucket with the bucket name and region, followed by aws s3api put-bucket-versioning with status enabled."
+  },
+  {
+    "text": "What is the Strangler Fig pattern in application migration?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The Strangler Fig pattern is an incremental migration strategy where legacy system functionality is gradually replaced by new cloud-native services. Over time, the new system strangles and replaces the old monolith piece by piece."
+  },
+  {
+    "text": "Explain the architecture of a serverless event-driven pipeline using AWS EventBridge, SQS, and Lambda.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "AWS EventBridge receives events from various sources and routes them to a target SQS queue for buffering. Lambda functions then poll the SQS queue to process messages asynchronously, ensuring decoupling and fault tolerance."
+  },
+  {
+    "text": "How do you design a cost-optimized multi-region active-active database strategy?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Implement globally distributed databases like Amazon Aurora Global or Google Cloud Spanner with read replicas in secondary regions. Optimize cross-region replication traffic and use local reads to reduce latency while balancing compute costs."
+  },
+  {
+    "text": "What are the security implications of using cross-account IAM roles in AWS?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Cross-account roles allow secure resource sharing without duplicating credentials, but require strict trust policies and external IDs. Misconfigured trust policies can lead to unauthorized access across organizational boundaries."
+  },
+  {
+    "text": "How would you migrate a 50TB on-premises Oracle database to AWS with minimal downtime?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use AWS Database Migration Service (DMS) combined with AWS Snowball for initial seed data transport if network bandwidth is limited. Once the initial load is complete, configure ongoing replication to synchronize changes until cutover."
+  },
+  {
+    "text": "Explain how AWS Lambda cold starts occur and how to mitigate them.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A cold start happens when a function is invoked and a new execution environment must be provisioned and initialized, causing latency. Mitigation strategies include provisioned concurrency, keeping package sizes small, and choosing lightweight runtimes."
+  },
+  {
+    "text": "Describe your strategy for implementing least privilege access in a large enterprise cloud environment with thousands of users.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Leverage centralized identity providers via SAML/OIDC, implement ABAC and RBAC models, utilize AWS IAM Access Analyzer to audit existing permissions, and automate permission requests through workflows."
+  },
+  {
+    "text": "Tell me about a time when a cloud migration project failed or faced severe roadblocks, and how you handled it.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Describe the root cause of the roadblock, your accountability, the pivot strategy you implemented, and the lessons learned that ensured ultimate project recovery."
+  },
+  {
+    "text": "How do you manage pushback from finance or leadership when proposing a higher-cost, high-reliability architecture?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Focus on risk quantification, calculating the potential cost of downtime versus the investment in architecture resiliency, and presenting phased implementation options."
+  },
+  {
+    "text": "Describe a scenario where you had to lead a post-mortem after a major cloud outage. What was your approach?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Emphasize a blameless culture, focusing on process and system failures rather than individuals. Detail how you gathered timeline facts and drove actionable remediation items."
+  },
+  {
+    "text": "A critical production Kubernetes cluster in GCP is running out of IP addresses in its VPC subnet. How do you resolve this without downtime?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Add a secondary IP range to the existing GKE subnet in GCP, which allows the cluster to allocate new IP addresses to pods without recreating the cluster or causing downtime."
+  },
+  {
+    "text": "Write a CloudFormation template snippet or Terraform code to create an S3 bucket with server-side encryption enabled.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Define an aws_s3_bucket resource in Terraform with a nested server_side_encryption_configuration block specifying AES256 or AWS KMS as the default encryption algorithm."
+  },
+  {
+    "text": "Compare AWS Transit Gateway, VPC Peering, and VPN Hub-and-Spoke models.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "VPC peering connects pairs of VPCs with a full mesh overhead becoming complex at scale. Transit Gateway acts as a cloud router acting as a hub, simplifying management and routing for hundreds of VPCs and on-prem networks. VPN Hub-and-Spoke relies on virtual appliances for routing."
+  },
+  {
+    "text": "What is the purpose of Azure Front Door and how does it differ from Azure Application Gateway?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Azure Front Door is a global Layer 7 load balancer providing CDN and acceleration for global web applications. Application Gateway is a regional load balancer focused on internal and external HTTP/HTTPS traffic routing for a single region."
+  },
+  {
+    "text": "Explain the architecture of Google Cloud Anthos and its use cases.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Anthos is a managed application platform that extends GCP services and GKE to on-premises and other clouds. It enables consistent Kubernetes-based operations, service mesh management, and configuration management across hybrid environments."
+  },
+  {
+    "text": "How do you implement FinOps practices to manage and reduce cloud spending continuously?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Establish tagging standards for resource attribution, implement automated anomaly detection and alerting, review rightsizing recommendations regularly, and leverage commitment-based discounts like Savings Plans and Reserved Instances."
+  },
+  {
+    "text": "How do you protect data at rest and data in transit across a multi-cloud enterprise architecture?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Encrypt data at rest using cloud-native key management services like AWS KMS, Azure Key Vault, or GCP KMS with customer-managed keys. Ensure data in transit is encrypted using TLS 1.3 across all endpoints and internal microservices."
+  },
+  {
+    "text": "Describe how you would design a disaster recovery plan with a low RTO and RPO for a tier-1 web application.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Implement a pilot light or warm standby strategy across multi-region cloud environments, utilizing asynchronous database replication and automated infrastructure deployment via Terraform triggered by failover pipelines."
+  },
+  {
+    "text": "Tell me about a time you mentored a junior architect or engineer. How did you approach it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Highlight assessing their current skill level, setting clear growth goals, providing constructive feedback on design reviews, and empowering them to lead small sub-projects independently."
+  },
+  {
+    "text": "How do you handle scope creep when working on a massive cloud migration initiative?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Explain that you document all changes, perform impact assessments on timeline and budget, and present the trade-offs to stakeholders to make informed decisions regarding scope adjustments."
+  },
+  {
+    "text": "An AWS Lambda function processing payment transactions starts timing out intermittently due to downstream API latency. How do you mitigate this?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Increase the Lambda timeout and memory allocation, implement exponential backoff with jitter for retries, and introduce an SQS queue between the caller and the processor to decouple and buffer requests."
+  },
+  {
+    "text": "Write a Python script using boto3 to schedule an AWS Cost Explorer report or fetch cost and usage data.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Import boto3, create a ce client, and call get_cost_and_usage with time period, granularity, and metrics parameters to retrieve spending data."
+  },
+  {
+    "text": "What are the architectural trade-offs between using containers on Kubernetes versus serverless containers like AWS Fargate?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Kubernetes provides granular control, advanced networking, and complex orchestration at the cost of operational overhead. Fargate eliminates server management and scales per container easily, but offers less low-level tuning and can be more expensive at high sustained scale."
+  },
+  {
+    "text": "Explain how Azure ExpressRoute differs from a standard Site-to-Site VPN.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Azure ExpressRoute connects your on-premises infrastructure to Microsoft cloud services via a private connection facilitated by a connectivity provider, bypassing the public internet for higher reliability and speed. Site-to-Site VPNs tunnel traffic encrypted over the public internet."
+  },
+  {
+    "text": "What is Google Cloud VPC Service Controls and how does it prevent data exfiltration?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "VPC Service Controls allow enterprises to define security perimeters around GCP managed services like Cloud Storage and BigQuery. It prevents data exfiltration by restricting access to authorized networks and identities, even across public APIs."
+  },
+  {
+    "text": "How do you optimize data transfer costs in a cloud architecture where services communicate heavily across availability zones and regions?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Keep traffic within the same availability zone where possible, use VPC endpoints (AWS PrivateLink) for accessing managed services without traversing NAT gateways, and compress payloads or cache responses to minimize inter-region data movement."
+  },
+  {
+    "text": "What is Zero Trust architecture, and how do you implement it in a cloud-native environment?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Zero Trust assumes no implicit trust granted to assets or user accounts based on their physical or network location. Implementation involves continuous identity verification, micro-segmentation, device health validation, and strict encryption for all traffic."
+  },
+  {
+    "text": "Describe your approach to designing a multi-tenant cloud SaaS architecture with strict tenant isolation.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Choose between silo, pooled, or hybrid multi-tenant models based on compliance needs. Implement tenant-aware data partitioning, schema segregation, row-level security in databases, and IAM policies restricted by tenant context tags."
+  },
+  {
+    "text": "Describe a situation where you had to push back on a business requirement because it violated architectural best practices.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Explain the business demand, the specific architectural risk it posed, how you communicated this risk with data, and the alternative solution you designed that satisfied the business goal safely."
+  },
+  {
+    "text": "You discover that a database containing sensitive customer PII has been exposed publicly via a misconfigured security group. Walk through your immediate incident response.",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Immediately remediate the security group to remove public access, isolate the database instance, notify the security and legal teams, analyze access logs to determine if data was exfiltrated, and initiate incident disclosure protocols."
+  },
+  {
+    "text": "Write a Terraform module structure to deploy a secure VPC with public and private subnets, NAT gateways, and route tables.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Write main.tf defining aws_vpc, aws_subnet resources for public and private zones, an aws_internet_gateway, aws_nat_gateway resources with elastic IPs, and associated route tables with explicit associations."
+  },
+  {
+    "text": "Explain the architectural pattern of CQRS (Command Query Responsibility Segregation) and when to use it in cloud systems.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "CQRS separates read and update operations for a data store, often using different databases optimized for reads and writes respectively. It is useful in complex domain-driven designs where read and write workloads scale independently."
+  },
+  {
+    "text": "What is an AWS Well-Architected Framework and its core pillars?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The AWS Well-Architected Framework helps architects build secure, high-performing, resilient, and efficient infrastructure. Its six pillars are Operational Excellence, Security, Reliability, Performance Efficiency, Cost Optimization, and Sustainability."
+  },
+  {
+    "text": "How do Azure Availability Zones differ from Availability Sets?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Availability Sets protect against hardware failures within a single datacenter by spreading VMs across update and fault domains. Availability Zones protect against datacenter-level failures by using physically separate zones within an Azure region."
+  },
+  {
+    "text": "What are Google Cloud Preemptible VMs and Spot VMs?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Spot VMs and Preemptible VMs are heavily discounted compute instances that run on GCP excess capacity. GCP can reclaim these instances with a 30-second warning when capacity is needed elsewhere, making them ideal for fault-tolerant batch workloads."
+  },
+  {
+    "text": "What is the role of an API Gateway in modern microservices architecture?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "An API Gateway acts as a single entry point for all client requests, handling routing, composition, authentication, rate limiting, and SSL termination before forwarding requests to backend microservices."
+  },
+  {
+    "text": "What is infrastructure as code (IaC) and what are its benefits?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "IaC is the management and provisioning of infrastructure through machine-readable definition files rather than physical hardware configuration. Benefits include consistency, version control, repeatability, and faster deployment cycles."
+  },
+  {
+    "text": "How do you handle security patching for cloud-native virtual machine fleets?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Implement automated patching pipelines using tools like AWS Systems Manager Patch Manager or Azure Update Management. Regularly rebuild golden machine images with updated OS patches and perform rolling deployments of instances."
+  },
+  {
+    "text": "Tell me about a time you managed a major stakeholder conflict during an architecture design phase.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Detail how you identified conflicting priorities, facilitated a workshop to align technical requirements with business objectives, and forged a compromise that satisfied all core stakeholders."
+  },
+  {
+    "text": "An automated CI/CD pipeline has deployed a buggy infrastructure update that breaks networking across all staging environments. What is your troubleshooting priority?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Immediately roll back the infrastructure change using your IaC version control history or pipeline rollback mechanism. Once stability is restored, investigate the root cause in the code review and testing stages."
+  },
+  {
+    "text": "Write a Python script using boto3 to create an IAM role with a trust policy for AWS Lambda.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Define a JSON trust policy allowing lambda.amazonaws.com to assume the role, then use iam.create_role to create the role and attach required policies like basic execution."
+  },
+  {
+    "text": "Explain the concept of event sourcing and its architecture in cloud applications.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Event sourcing stores the state of a system as a sequence of immutable state-changing events rather than current state snapshots. This allows for reliable auditing, time travel debugging, and rebuilding state by replaying events."
+  },
+  {
+    "text": "How does AWS Shield provide DDoS protection?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "AWS Shield Standard is automatically applied to all AWS customers to protect against common network and transport layer DDoS attacks. AWS Shield Advanced provides enhanced detection, mitigation, 24/7 access to the DDoS Response Team, and financial protection against scaling spikes."
+  },
+  {
+    "text": "What are Azure Managed Identities and how do they eliminate credential management overhead?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Managed Identities provide an Azure AD identity for Azure resources, allowing applications to authenticate to services that support Azure AD without embedding credentials in code. Azure manages the identity and rotates credentials automatically."
+  },
+  {
+    "text": "How do you design a high-throughput, real-time data ingestion pipeline on Google Cloud?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use Google Cloud Pub/Sub for scalable message ingestion, stream data using Dataflow (Apache Beam) for real-time transformation, and store results in BigQuery for analytics or Cloud Bigtable for low-latency lookups."
+  },
+  {
+    "text": "What is the architectural significance of edge computing in cloud strategies?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Edge computing processes data closer to the source or end-user using services like AWS Outposts, Azure Stack, or Cloudflare Workers. It reduces latency, minimizes bandwidth usage for core cloud datacenters, and enables local offline operations."
+  },
+  {
+    "text": "How do you audit and enforce compliance policies across a multi-account AWS organization?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use AWS Control Tower and AWS Organizations to set up guardrails and SCPs across all accounts. Combine AWS Config for compliance monitoring and AWS Security Hub for centralized security findings."
+  },
+  {
+    "text": "Describe a time when you had to convince leadership to adopt a brand new cloud technology stack.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Explain how you built a compelling business case backed by a small proof of concept, risk analysis, ROI projection, and clear migration steps to win executive buy-in."
+  },
+  {
+    "text": "A cloud environment is experiencing an unexplained surge in data egress charges. How do you track down the source?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Enable and analyze VPC Flow Logs or cloud monitoring tools to identify which instances or services are transferring high volumes of data externally. Check for misconfigured S3 replication, database cross-region queries, or compromised endpoints."
+  },
+  {
+    "text": "Write a bash script using the Azure CLI to create a resource group and a Linux virtual machine inside it.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use az group create to make the resource group, then use az vm create with parameters for name, image, admin username, and generated SSH keys."
+  },
+  {
+    "text": "What is the difference between synchronous and asynchronous replication in cloud storage and databases?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Synchronous replication writes data to primary and replica locations simultaneously, ensuring zero data loss (RPO=0) at the cost of higher latency. Asynchronous replication writes to the primary first and syncs to replicas later, improving latency with a risk of minor data loss during failures."
+  },
+  {
+    "text": "Explain how zero-downtime database migrations are executed using the dual-write pattern.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Applications are updated to write to both the old and new databases simultaneously while reading from the old. Once historical data is backfilled and validation passes, read traffic is switched to the new database before deprecating the old writes."
+  },
+  {
+    "text": "What is the purpose of a Service Mesh like Istio or AWS App Mesh in microservice architectures?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "A service mesh manages service-to-service communication, providing features like traffic management, security encryption via mutual TLS, observability, and resiliency policies without modifying application code."
+  },
+  {
+    "text": "How do you design a disaster recovery strategy for stateful Kubernetes workloads across regions?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Use persistent volume snapshots replicated across regions, implement GitOps for declarative cluster state management with ArgoCD, and coordinate database replication alongside DNS failover via Route 53 or Azure Traffic Manager."
+  },
+  {
+    "text": "What are the security implications and best practices for managing Kubernetes secrets in cloud environments?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Kubernetes secrets are base64 encoded by default, not encrypted at rest. Best practices include enabling envelope encryption with KMS, using external secret stores like HashiCorp Vault or AWS Secrets Manager, and implementing RBAC to restrict access."
+  },
+  {
+    "text": "How do you architect a global content delivery network with custom edge security rules?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use a CDN like CloudFront or Azure CDN integrated with a Web Application Firewall (WAF). Write custom edge functions using Lambda@Edge or Cloudflare Workers to handle authentication, geolocation routing, and request header manipulation."
+  },
+  {
+    "text": "Describe a time when you inherited a poorly architected legacy cloud environment. What was your step-by-step remediation plan?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Explain how you performed an immediate security and cost assessment, prioritized critical vulnerabilities, established baseline IaC templates, and executed a phased refactoring roadmap without interrupting business operations."
+  },
+  {
+    "text": "An attacker has gained access to a cloud management console via compromised admin credentials. What is your containment protocol?",
+    "type": "SITUATIONAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Immediately isolate compromised user credentials, revoke active session tokens, review CloudTrail or activity logs for unauthorized changes, rotate root and access keys, and evaluate provisioned backdoors or rogue resources."
+  },
+  {
+    "text": "Write a Python script using boto3 to find and terminate all EBS volumes not attached to any EC2 instance.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "List all EBS volumes using describe_volumes with a filter for status available, iterate through the list, and call delete_volume for each unattached volume ID found."
+  },
+  {
+    "text": "Explain how AWS Outposts extends AWS infrastructure to on-premises datacenters.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "AWS Outposts delivers fully managed AWS infrastructure and services to virtually any on-premises or co-location facility, allowing customers to run low-latency workloads locally while connecting back to the main AWS region."
+  },
+  {
+    "text": "What is the architectural difference between choreography and orchestration in event-driven systems?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Choreography relies on microservices listening and reacting to events independently without a central coordinator. Orchestration uses a centralized engine, such as AWS Step Functions, to manage the workflow and direct services explicitly."
+  },
+  {
+    "text": "How do you design an autoscaling strategy for stateful applications like relational databases in the cloud?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Stateful databases scale vertically by upgrading instance sizes or horizontally by adding read replicas for read-heavy workloads. Write scaling requires sharding strategies or distributed cloud-native databases like Aurora Global or Spanner."
+  },
+  {
+    "text": "What are the compliance and architectural considerations when storing HIPAA-regulated data in public clouds?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Sign a Business Associate Agreement (BAA) with the cloud provider, encrypt all PHI data at rest and in transit using approved key management, implement strict IAM access logging via CloudTrail, and configure data loss prevention controls."
+  },
+  {
+    "text": "How do you implement chaos engineering in a cloud-native architecture to test resilience?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Use tools like Chaos Mesh or AWS Fault Injection Simulator to introduce controlled failures, such as terminating instances, injecting network latency, or exhausting CPU, while monitoring system behavior and auto-recovery mechanisms."
+  },
+  {
+    "text": "Describe a scenario where you had to lead an emergency architecture redesign under extreme time pressure due to an unexpected market expansion.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Highlight how you triaged core requirements, delegated design tasks across sub-teams, maintained communication transparency with leadership, and delivered a scalable temporary architecture that was later refactored."
+  },
+  {
+    "text": "A multi-region active-active deployment suffers a split-brain scenario where database replication fails between regions. How do you handle write consistency?",
+    "type": "SITUATIONAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Implement conflict resolution strategies such as Last-Write-Wins using synchronized NTP timestamps, route writes to a single designated primary region during the partition, or utilize vector clocks for distributed conflict resolution."
+  },
+  {
+    "text": "Write a complex Terraform configuration that creates an auto-scaling group of EC2 instances behind an Application Load Balancer with scaling policies based on CPU utilization.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "Define aws_lb, aws_lb_target_group, aws_launch_template, aws_autoscaling_group connected to the target group, and aws_autoscaling_policy resources tied to CloudWatch metrics for CPU utilization."
+  },
+  {
+    "text": "Explain the architectural mechanics of service discovery in Kubernetes clusters.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Kubernetes uses internal DNS and Services to expose pods. When a service is created, Kubernetes assigns an internal IP address and registers a DNS entry, allowing pods to communicate using service names while the cluster handles load balancing."
+  },
+  {
+    "text": "What is the purpose of AWS Organizations Service Control Policies (SCPs)?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "SCPs are JSON policies that specify the maximum permissions for organizational units or accounts in an AWS Organization, acting as guardrails that override individual IAM policies."
+  },
+  {
+    "text": "How do you optimize network routing costs across multi-account AWS environments using VPC endpoints?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Implement Interface VPC Endpoints with AWS PrivateLink or Gateway VPC Endpoints for services like S3 and DynamoDB. This allows workloads in private subnets to access AWS services internally without traversing NAT gateways or incurring data transfer fees."
+  },
+  {
+    "text": "What is Azure Bastion and why is it used instead of public IP addresses on jump hosts?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Azure Bastion is a fully managed PaaS service that provides secure RDP and SSH connectivity to virtual machines directly over SSL via the Azure portal, eliminating the need to expose VMs to the public internet with public IP addresses."
+  },
+  {
+    "text": "How does Google Cloud Armor protect web applications against SQL injection and cross-site scripting?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Cloud Armor is a managed Web Application Firewall and DDoS defense service that provides pre-configured WAF rules targeting OWASP Top 10 vulnerabilities, allowing administrators to inspect HTTP requests and block malicious payloads at the network edge."
+  },
+  {
+    "text": "Describe your strategy for migrating an enterprise Active Directory domain to Azure Active Directory or AWS Managed Microsoft AD.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Establish Azure AD Connect for hybrid identity synchronization or deploy AWS Managed Microsoft AD with a trust relationship to on-premises domains, ensuring seamless transition of user authentication and group policies."
+  },
+  {
+    "text": "Tell me about a time you identified a critical security flaw in a production architecture just before release. How did you handle it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Explain how you immediately notified project leads, documented the vulnerability risk, collaborated with the development team to patch the flaw before launch, and updated review processes to catch similar issues earlier."
+  },
+  {
+    "text": "An external audit discovers that your S3 buckets lack encryption and logging. How do you remediate this across hundreds of accounts?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Deploy an automated remediation script or AWS Config conformance pack across all accounts that enforces default encryption and enables S3 server access logging or CloudTrail data events."
+  },
+  {
+    "text": "Write a Python script using boto3 that checks all S3 buckets in an account and prints whether public access block is enabled.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use s3.list_buckets to get all buckets, then iterate through them calling s3.get_public_access_block for each bucket name, handling exceptions if the configuration is absent."
+  },
+  {
+    "text": "Explain how AWS Direct Connect Gateway enables hybrid multi-region connectivity.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "A Direct Connect Gateway allows you to connect your on-premises network to multiple VPCs across different AWS regions using a single dedicated private connection, eliminating the need to set up separate circuits for each region."
+  },
+  {
+    "text": "What is the architectural role of Azure Traffic Manager?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Azure Traffic Manager is a DNS-based traffic load balancer that enables you to distribute traffic optimally to services across global Azure regions or external endpoints using various routing methods like priority, weighted, or performance."
+  },
+  {
+    "text": "How do you implement least privilege access for service accounts in Google Cloud Kubernetes Engine (GKE)?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use Workload Identity to securely bind Kubernetes service accounts to Google Cloud service accounts, allowing individual pods to access GCP APIs with scoped permissions without storing long-lived service account keys."
+  },
+  {
+    "text": "What are the architectural considerations when implementing serverless databases like AWS Aurora Serverless or Azure Cosmos DB?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Consider auto-scaling latency during traffic spikes, connection management scaling limits, cost implications under continuous heavy loads, and proper partition key design for Cosmos DB to ensure even data distribution."
+  },
+  {
+    "text": "How do you design an audit logging architecture that ensures logs are tamper-proof in the cloud?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Configure log export to a centralized security account with immutable storage features like AWS S3 Object Lock in compliance mode, enabling log file validation and restricting administrative access to prevent deletion or modification."
+  },
+  {
+    "text": "Describe your approach to designing a cloud-native backup and retention policy for enterprise disaster recovery.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Define RPO and RTO requirements per application tier, automate snapshot schedules using AWS Backup or Azure Backup, implement cross-region copy rules, and establish lifecycle policies to transition backups to cold storage for cost efficiency."
+  },
+  {
+    "text": "Tell me about a time you had to balance technical debt reduction with delivering new features in a cloud roadmap.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Explain how you negotiated with product owners to allocate a specific percentage of each sprint or quarter to refactoring technical debt, demonstrating long-term velocity and stability benefits."
+  },
+  {
+    "text": "A containerized application running in an ECS cluster begins leaking memory and crashing every few hours. How do you diagnose and resolve this?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Review CloudWatch logs and container metrics for memory consumption trends, inspect application profiling data for leaks, adjust task memory limits, and configure ECS container health checks with automatic task replacement."
+  },
+  {
+    "text": "Write a bash script using the AWS CLI to enable CloudTrail across all regions and log to an existing S3 bucket.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use aws cloudtrail create-trail with the name and s3-bucket-name parameters, followed by aws cloudtrail update-trail --is-multi-region-trail --include-global-service-events to apply it globally."
+  },
+  {
+    "text": "Explain how IAM condition keys enhance security policies in AWS.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "IAM condition keys allow you to specify fine-grained constraints for when a policy statement applies, such as restricting access based on source IP addresses, MFA status, time of day, or specific tags."
+  },
+  {
+    "text": "What is the architectural pattern of a CQRS with Event Sourcing (ES) combination?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Combining CQRS and Event Sourcing stores all domain events in an event store, projecting them into optimized read models. This provides complete audit trails, high scalability, and decoupled read/write workloads."
+  },
+  {
+    "text": "How do you design a cost-effective disaster recovery environment for non-critical enterprise applications?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Implement a backup-and-restore or pilot light strategy where lightweight core infrastructure is kept running while database snapshots are restored only when a disaster recovery event is declared."
+  },
+  {
+    "text": "What are the core components of Azure Security Center or Microsoft Defender for Cloud?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Defender for Cloud provides cloud workload protection, security posture management, vulnerability assessments, and secure score recommendations across Azure, hybrid, and multi-cloud environments."
+  },
+  {
+    "text": "How do you implement data residency compliance requirements in a global cloud architecture?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Deploy localized infrastructure instances within specific geographic regions, configure data storage buckets and databases with strict regional binding rules, and use regional routing policies to ensure user data never crosses legal boundaries."
+  },
+  {
+    "text": "Describe your methodology for conducting an architecture review for a new cloud project.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Review system requirements against the Well-Architected pillars, evaluate threat models and security posture, analyze cost estimations, review scalability bottlenecks, and ensure alignment with enterprise standards."
+  },
+  {
+    "text": "Tell me about a time you failed to anticipate a scaling bottleneck in a cloud system. How did you resolve it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Detail the architectural oversight, the impact on performance during traffic spikes, how you performed load testing to identify the exact bottleneck, and the redesign implemented to prevent future occurrences."
+  },
+  {
+    "text": "An external API dependency used by your cloud service goes down indefinitely. How do you maintain application availability?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Implement circuit breaker patterns to fail fast, serve cached fallback data or degraded functionality to users, and route traffic to alternative redundant service providers if available."
+  },
+  {
+    "text": "Write a Terraform resource block for an AWS IAM role with a trust policy allowing EC2 instances to assume it.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Define an aws_iam_role resource with a json-encoded assume_role_policy document specifying ec2.amazonaws.com as the principal service."
+  },
+  {
+    "text": "Explain the architectural differences between AWS ECS and EKS.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "ECS is an AWS-proprietary container orchestration service optimized for simplicity and deep AWS integration. EKS is a managed Kubernetes service offering standard Kubernetes APIs, portability, and a vast open-source ecosystem."
+  },
+  {
+    "text": "What is the purpose of Azure Key Vault and how does it integrate with Azure applications?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Azure Key Vault securely stores secrets, keys, and certificates. Applications access them using managed identities or service principals, removing hardcoded secrets from configuration files."
+  },
+  {
+    "text": "How do you design a secure multi-region disaster recovery database replica using GCP Cloud Spanner?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Configure a multi-region Cloud Spanner instance across strategic regions with read-write capabilities in primary zones and read replicas in secondary zones, leveraging Spanner's built-in synchronous consensus replication."
+  },
+  {
+    "text": "What is the architectural impact of choosing regional versus global services in cloud design?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Regional services are contained within a single region, offering high performance and localized compliance but requiring manual multi-region replication for disaster recovery. Global services span multiple regions natively, providing high availability and lower latency for global users."
+  },
+  {
+    "text": "How do you enforce automated security guardrails in CI/CD pipelines using DevSecOps principles?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Integrate static code analysis, software composition analysis, secret scanning tools like GitGuardian, and IaC security scanning tools like Checkov or TFSec directly into pipeline stages to block vulnerable deployments."
+  },
+  {
+    "text": "Describe your strategy for managing cloud architecture documentation and diagramming in an enterprise.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Use code-based diagramming tools like Diagrams or PlantUML stored in Git repositories alongside IaC code, combined with automated architecture discovery tools to ensure documentation stays synchronized with actual deployments."
+  },
+  {
+    "text": "Tell me about a time you had to mediate a disagreement between security teams and development teams regarding release velocity.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Explain how you established automated security testing gates in the pipeline, satisfying security requirements without slowing down developer deployment frequency."
+  },
+  {
+    "text": "A sudden surge in bot traffic is depleting your application database connection pool. How do you mitigate this immediately?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Enable rate limiting and WAF rules at the edge to block abusive IP addresses, scale up database connection limits temporarily if capacity allows, and deploy caching layers to absorb read requests."
+  },
+  {
+    "text": "Write a Python script using boto3 to restart all stopped EC2 instances with a specific tag key-value pair.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use describe_instances with filters for stopped state and specific tags, extract the instance IDs, and call start_instances with the gathered IDs."
+  },
+  {
+    "text": "What is the primary purpose of AWS IAM?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "AWS Identity and Access Management enables you to securely manage access to AWS services and resources. It allows you to create and manage AWS users and groups, and use permissions to allow and deny their access to AWS resources."
+  },
+  {
+    "text": "What is a Google Cloud VPC?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A Google Cloud Virtual Private Cloud provides networking functionality for your Compute Engine virtual machine instances. It offers global networking capabilities, allowing resources to connect securely across regions without a public IP."
+  },
+  {
+    "text": "How do you enable multi-factor authentication in AWS IAM?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "You enable MFA by associating a virtual or hardware MFA device with an IAM user. This requires the user to provide a code from the device in addition to their password during login."
+  },
+  {
+    "text": "What is an AWS Lambda function?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "AWS Lambda is a serverless, event-driven compute service that lets you run code for virtually any type of application or backend service without provisioning or managing servers."
+  },
+  {
+    "text": "Tell me about a time you explained a complex cloud concept to a non-technical stakeholder.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Candidates should describe the scenario, use an effective analogy like renting versus buying a house for cloud infrastructure, and highlight the positive outcome of alignment."
+  },
+  {
+    "text": "How do you prioritize your tasks when migrating multiple workloads simultaneously?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Look for a structured approach involving business impact, technical complexity, risk assessment, and stakeholder alignment to determine the migration sequence."
+  },
+  {
+    "text": "Describe a time you collaborated with a security team to resolve a compliance issue in the cloud.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "The answer should detail the specific compliance gap, the cross-functional communication strategy, and the remediation steps taken to secure the environment."
+  },
+  {
+    "text": "How do you handle a situation where a cloud cost optimization initiative disrupts a development team?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Emphasize empathy, open dialogue, establishing shared tagging standards, and finding a balance between financial efficiency and engineering velocity."
+  },
+  {
+    "text": "What is your approach to learning a new cloud provider service rapidly?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Candidates should mention hands-on labs, reading official documentation, building proof-of-concept projects, and comparing it to known services in other clouds."
+  },
+  {
+    "text": "A developer accidentally hardcodes AWS credentials in a public code repository. What immediate steps do you take?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Instantly deactivate and delete the exposed access keys, review CloudTrail logs for unauthorized activity, rotate any compromised secrets, and implement automated scanning to prevent recurrence."
+  },
+  {
+    "text": "An application in Azure is experiencing high latency due to a distant database. How do you address this?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Implement caching layers using Azure Cache for Redis, deploy read replicas closer to the user region, or optimize database queries and indexing."
+  },
+  {
+    "text": "Write a basic Python script using boto3 to list all running EC2 instances in a region.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Import boto3, create an EC2 client, call describe_instances with a filter for running state, and iterate through the response to print instance IDs."
+  },
+  {
+    "text": "Write an AWS IAM policy in JSON that grants read-only access to a specific S3 bucket.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "The JSON policy should include Version, Statement with Effect Allow, Actions s3:Get* and s3:List*, and Resource pointing to arn:aws:s3:::bucket-name and its contents."
+  },
+  {
+    "text": "Explain the difference between horizontal and vertical scaling in cloud architecture.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Horizontal scaling involves adding more instances to your resource pool, while vertical scaling increases the capacity of an existing instance, such as adding more CPU or RAM."
+  },
+  {
+    "text": "How does AWS Auto Scaling integrate with Application Load Balancers?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The ALB routes incoming traffic across multiple targets. Auto Scaling registers newly launched instances automatically with the target group associated with the load balancer and deregisters terminating instances."
+  },
+  {
+    "text": "What is the purpose of Azure ExpressRoute?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Azure ExpressRoute lets you create private connections between Azure datacenters and infrastructure on your premises or in a colocation environment without traversing the public internet."
+  },
+  {
+    "text": "Explain Google Cloud Interconnect and its use cases.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Cloud Interconnect provides high-speed, low-latency connections between your on-premises network and Google's network, ideal for large data transfers and hybrid cloud architectures."
+  },
+  {
+    "text": "What is the Strangler Fig pattern in cloud migration?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "It is a software development pattern where you incrementally migrate a legacy system by gradually replacing specific pieces of functionality with new cloud-native services until the old system is completely replaced."
+  },
+  {
+    "text": "How do you implement blue-green deployments in AWS?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "You maintain two identical environments, blue and green. New code is deployed to the idle environment, tested, and traffic is shifted via Route 53 DNS or ALB target group weight shifts."
+  },
+  {
+    "text": "What are the core pillars of the AWS Well-Architected Framework?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Operational Excellence, Security, Reliability, Performance Efficiency, Cost Optimization, and Sustainability."
+  },
+  {
+    "text": "Explain the difference between Azure Reserved Instances and Spot VMs.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Reserved Instances provide significant discounts for a 1- or 3-year commitment with guaranteed capacity. Spot VMs offer unused Azure capacity at steep discounts but can be evicted with short notice when Azure needs the capacity back."
+  },
+  {
+    "text": "How do you optimize AWS S3 storage costs using lifecycle policies?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "You define rules to automatically transition objects between storage classes, such as moving infrequently accessed data from Standard to Standard-IA or Glacier, and expiring temporary files after a set period."
+  },
+  {
+    "text": "What is FinOps in the context of cloud architecture?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "FinOps is an operational framework and cultural practice that brings together technology, finance, and business to drive financial accountability and enable organizations to get maximum value from cloud spending."
+  },
+  {
+    "text": "How do AWS Security Groups differ from Network ACLs?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Security Groups operate at the instance level and are stateful, meaning return traffic is automatically allowed. Network ACLs operate at the subnet level, are stateless, and require explicit rules for both inbound and outbound traffic."
+  },
+  {
+    "text": "Explain the concept of IAM Role Assumption and cross-account access.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Role assumption allows a trusted entity to temporarily delegate permissions. Cross-account access uses IAM roles with trust policies to let users in one AWS account securely access resources in another account."
+  },
+  {
+    "text": "What is Azure Role-Based Access Control (RBAC)?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Azure RBAC is an authorization system built on Azure Resource Manager that provides fine-grained access management of Azure resources, using role definitions, security principals, and scopes."
+  },
+  {
+    "text": "How do Google Cloud IAM service accounts work?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A service account is a special Google account that belongs to your application rather than an individual end user. It is used to authenticate and authorize programmatic access to GCP resources."
+  },
+  {
+    "text": "What is the difference between AWS SNS and SQS?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "SNS is a publish-subscribe service designed for push-based, one-to-many messaging. SQS is a message queue service designed for point-to-point, pull-based messaging and decoupling components."
+  },
+  {
+    "text": "How do you handle cold starts in serverless functions?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "You can mitigate cold starts by using provisioned concurrency, keeping functions warm with scheduled pings, writing lighter code packages, and choosing runtimes with faster initialization times like Node.js or Python."
+  },
+  {
+    "text": "What is AWS EventBridge and how is it used in serverless architectures?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "EventBridge is a serverless event bus service that connects applications using data from your own apps, SaaS products, and AWS services, routing events to targets like Lambda or Step Functions."
+  },
+  {
+    "text": "Describe a time when you had to convince a skeptical team to adopt a new serverless architecture.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The candidate should explain how they addressed concerns regarding vendor lock-in and debugging by presenting a proof-of-concept, highlighting reduced operational overhead and cost savings."
+  },
+  {
+    "text": "Tell me about a time when a cloud migration went over budget and how you course-corrected.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Look for accountability, root cause analysis of the cost overrun, transparent communication with leadership, and corrective actions like pausing non-critical migrations and implementing cost monitoring."
+  },
+  {
+    "text": "Describe how you handled a major security audit finding in an enterprise cloud environment.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The response should highlight prompt triage, risk assessment, cross-functional remediation efforts, and the implementation of automated guardrails to prevent future audit findings."
+  },
+  {
+    "text": "How do you manage disagreements with senior management regarding cloud vendor lock-in?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Emphasize presenting a balanced risk-benefit analysis, exploring abstraction layers like containers or Terraform if multi-cloud is mandated, and aligning with business agility goals."
+  },
+  {
+    "text": "Tell me about a time you optimized a cloud application that was failing under unexpected peak load.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Detail the diagnostic process using observability tools, immediate mitigation steps, architectural redesigns like caching or queuing, and post-incident reviews."
+  },
+  {
+    "text": "Your organization's monthly AWS bill unexpectedly spikes by 40%. Walk through your troubleshooting steps.",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Check AWS Cost Explorer and Cost Anomaly Detection, analyze billing data by service and tag, inspect CloudTrail for unauthorized resource creation, and identify unattached EBS volumes or idle compute instances."
+  },
+  {
+    "text": "A monolithic legacy application with a tightly coupled SQL database needs to be migrated to AWS with zero downtime.",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use AWS Database Migration Service for ongoing replication, set up read replicas, gradually refactor application tiers into containers using ECS or EKS, and use DNS routing to cut over traffic."
+  },
+  {
+    "text": "An external API your serverless application depends on frequently times out, causing function failures.",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Implement asynchronous processing using SQS, add exponential backoff and retry logic, introduce a caching layer for API responses, and use a Circuit Breaker pattern via AWS Step Functions."
+  },
+  {
+    "text": "You need to grant an external vendor secure, temporary access to specific AWS resources without creating IAM users.",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Create an IAM role with a trust policy restricting access to the vendor's AWS account or SAML identity provider, and apply least-privilege permission boundaries."
+  },
+  {
+    "text": "A multi-region active-active deployment in Azure is experiencing data consistency issues across databases.",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Evaluate the database replication model, switch from eventual consistency to strong consistency where required, implement conflict resolution logic, or use distributed locking mechanisms."
+  },
+  {
+    "text": "Write a Terraform configuration to provision an AWS S3 bucket with server-side encryption enabled and public access blocked.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Define aws_s3_bucket, aws_s3_bucket_server_side_encryption_configuration with AES256 or KMS, and aws_s3_bucket_public_access_block resources with all boolean flags set to true."
+  },
+  {
+    "text": "Write a bash script using the AWS CLI to find and delete all unattached EBS volumes in a specific region.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use aws ec2 describe-volumes with query filters for status available, extract volume IDs, and loop through them to execute aws ec2 delete-volume."
+  },
+  {
+    "text": "Write an Azure Resource Manager template or Bicep file to deploy a standard Linux Virtual Machine.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The Bicep or ARM template should define a virtual network, subnet, network interface, public IP, and a linuxvirtualmachine resource with admin credentials."
+  },
+  {
+    "text": "Write a Python function using AWS Step Functions SDK to define a simple state machine with a task and a choice state.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Import stepfunctions definitions, create a Task state pointing to a Lambda function, create a Choice state with branching rules, and chain them together into a Workflow."
+  },
+  {
+    "text": "Design a highly available, multi-region disaster recovery architecture for a Tier-1 financial application.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Implement an active-active or active-passive multi-region architecture using Route 53 latency-based routing, database multi-region replication with low RPO/RTO, automated failover, and continuous chaos engineering."
+  },
+  {
+    "text": "Explain how to design a zero-trust network architecture within Google Cloud Platform.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Utilize Identity-Aware Proxy for authenticated access without VPNs, VPC Service Controls to prevent data exfiltration, microsegmentation with firewall rules, and end-to-end encryption for data in transit and at rest."
+  },
+  {
+    "text": "How do you architect a large-scale data lake on AWS while ensuring compliance with GDPR and data privacy laws?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use S3 bucket policies and Lake Formation for fine-grained access control, KMS for encryption with customer-managed keys, AWS Macie for PII discovery, and implement automated data lifecycle tagging for right-to-be-forgotten requests."
+  },
+  {
+    "text": "Compare and contrast AWS Transit Gateway, VPC Peering, and Cloud Hub architectures.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "VPC peering connects pairs of VPCs directly with no centralized management. Transit Gateway acts as a cloud router acting as a hub-and-spoke model for VPCs and VPNs. Cloud Hub uses a VPN gateway router to connect multiple branch offices."
+  },
+  {
+    "text": "How do you design an event-driven microservices architecture using AWS EventBridge, SQS, and Lambda with idempotency?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "EventBridge routes domain events to SQS queues, which buffer and trigger Lambda functions. Idempotency is handled by storing processed event IDs in DynamoDB with conditional writes to prevent duplicate execution."
+  },
+  {
+    "text": "Explain advanced cost optimization strategies for large Kubernetes clusters running on Amazon EKS.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Combine Karpenter for rapid node provisioning, use Spot instances for stateless workloads with fallback to On-Demand, implement namespace quotas, right-size pods using Vertical Pod Autoscalers, and use KEDA for event-driven scaling."
+  },
+  {
+    "text": "How do you implement attribute-based access control in AWS IAM?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "ABAC defines permissions based on tags. You use condition keys in IAM policies, such as aws:PrincipalTag/Department matching aws:ResourceTag/Department, allowing dynamic permission scaling without updating policy documents."
+  },
+  {
+    "text": "Describe the architecture of a secure multi-tenant SaaS application on Azure.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use Azure Front Door for global routing, isolated or pooled database models with row-level security or dedicated databases per tenant, Azure Key Vault with per-tenant keys, and Azure AD B2C for tenant identity management."
+  },
+  {
+    "text": "How do you design a high-throughput, low-latency streaming data pipeline using Google Cloud Pub/Sub and Dataflow?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Pub/Sub ingests raw event streams globally. Dataflow reads from Pub/Sub, executes windowed transformations using Apache Beam, and sinks processed data into BigQuery and Bigtable with exactly-once processing guarantees."
+  },
+  {
+    "text": "What are the architectural considerations when migrating a 100TB Oracle database to AWS Aurora PostgreSQL?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use AWS Schema Conversion Tool to refactor PL/SQL to PL/pgSQL, AWS DMS for initial load and change data capture, thorough query performance tuning, application refactoring, and extensive load testing before cutover."
+  },
+  {
+    "text": "Tell me about a time when an architectural decision you made failed in production and how you handled the post-mortem.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Look for radical transparency, taking personal accountability, conducting a blameless post-mortem, quickly remediating the root cause, and institutionalizing new design reviews to prevent recurrence."
+  },
+  {
+    "text": "Describe a scenario where you had to push back against executive pressure to choose an inappropriate cloud technology.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "The answer should demonstrate data-driven decision making, risk articulation, presenting alternative options that meet business objectives, and maintaining a collaborative executive relationship."
+  },
+  {
+    "text": "How do you lead a geographically dispersed engineering team through a high-stakes cloud infrastructure migration?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Emphasize asynchronous communication protocols, clear ownership matrices, rigorous documentation, automated testing, and regular virtual synchronization sessions to maintain momentum."
+  },
+  {
+    "text": "Tell me about a time you identified a critical security vulnerability in a third-party cloud service integration.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Detail the discovery process, responsible disclosure to the vendor, immediate mitigation steps to protect internal systems, and architectural hardening to isolate third-party risks."
+  },
+  {
+    "text": "A critical enterprise application suffers from cascading failures during traffic spikes due to a downstream bottleneck.",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Implement the bulkhead and circuit breaker patterns, add rate limiting and request throttling at the API gateway, introduce asynchronous queues, and configure aggressive autoscaling with pre-warmed capacity."
+  },
+  {
+    "text": "You discover that a rogue administrator has created unauthorized IAM users and provisioned expensive crypto-mining resources.",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Immediately isolate compromised accounts by applying an explicit deny all policy, terminate unauthorized instances, revoke all active sessions, conduct forensic analysis via CloudTrail, and trigger incident response protocols."
+  },
+  {
+    "text": "An enterprise requires all data stored in the cloud to be encrypted with customer-managed keys that can be revoked instantly.",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Implement AWS KMS or Azure Key Vault with Customer Managed Keys, enforce encryption across all storage and database services via SCPs or Azure Policies, and establish procedures for immediate key disabling during security incidents."
+  },
+  {
+    "text": "Write a complete Terraform module structure that provisions a secure VPC with public, private, and database subnets, NAT gateways, and route tables.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Define variables for CIDR blocks, create aws_vpc, aws_subnet resources for each tier, aws_internet_gateway, aws_eip, aws_nat_gateway, and corresponding route table associations."
+  },
+  {
+    "text": "Write a Python script utilizing AWS Lambda and Boto3 that automatically detects and remediates public S3 buckets by applying a block public access policy.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Create a Lambda handler triggered by EventBridge S3 bucket creation events, use boto3 s3control or s3 client to call put_public_access_block, and log the remediation action to CloudWatch."
+  },
+  {
+    "text": "Write a complex SQL query for Google BigQuery that analyzes partitioned log data to calculate a rolling 7-day average of error rates per microservice.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Use BigQuery analytic functions like AVG() OVER (PARTITION BY microservice ORDER BY date ROWS BETWEEN 6 PRECEDING AND CURRENT ROW) on a date-partitioned table grouping by service and date."
+  },
+  {
+    "text": "How would you architect a global financial ledger system requiring strict eventual consistency, high availability, and auditability across multiple cloud providers?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Design a hybrid multi-cloud architecture using distributed consensus protocols like Raft across regions, immutable append-only ledger databases like AWS QLDB or blockchain technologies, and asynchronous message replication with cryptographic hashing for audit verification."
+  },
+  {
+    "text": "Detail the architectural blueprint for achieving a multi-region active-active disaster recovery strategy with a near-zero RPO and RTO for a petabyte-scale database.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Utilize distributed SQL databases like CockroachDB or AWS Aurora Global Databases with multi-master or fast-failover configurations, distributed global load balancing with Geo-DNS, conflict-free replicated data types, and continuous automated failover testing."
+  },
+  {
+    "text": "Explain how to design an enterprise-grade cloud landing zone with automated governance, guardrails, and compliance enforcement from scratch.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Implement AWS Control Tower or Azure Enterprise Scale Landing Zones using Terraform or CDK, enforcing Service Control Policies, centralized logging via Security Hub and SIEM integration, automated account provisioning, and continuous compliance checks using AWS Config."
+  },
+  {
+    "text": "Describe your strategy for scaling a serverless event-driven architecture processing 100,000 events per second while managing downstream database connection limits.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Use SQS or Kinesis as an ingestion buffer, integrate Amazon RDS Proxy or Azure SQL connection poolers to manage database connections, tune Lambda concurrency limits, and batch records to optimize database write operations."
+  },
+  {
+    "text": "A sophisticated nation-state actor has compromised an enterprise cloud tenant through a supply chain dependency. Walk through your advanced threat hunting and eradication plan.",
+    "type": "SITUATIONAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Isolate the environment, analyze GuardDuty and CloudTrail logs for lateral movement, invalidate all active session tokens and IAM credentials, rotate all cryptographic secrets, rebuild compromised infrastructure from known-good IaC templates, and perform forensic disk imaging."
+  },
+  {
+    "text": "Write an advanced Python script utilizing boto3 and concurrent.futures that performs an automated security audit across 50 AWS accounts, checking for unencrypted EBS volumes and public S3 buckets, and outputs a consolidated JSON report.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "Assume roles across target accounts using STS, use ThreadPoolExecutor to concurrently query EC2 and S3 APIs across regions, aggregate findings into a structured dictionary, and serialize the output to a JSON file."
+  }
+]

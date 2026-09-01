@@ -1,0 +1,1202 @@
+[
+  {
+    "text": "What is the primary purpose of the async and await keywords in Python?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "They are used to define and work with coroutines, enabling asynchronous programming through cooperative multitasking. `async` declares a native coroutine, while `await` pauses the coroutine execution until the awaited result is ready, allowing the event loop to run other tasks."
+  },
+  {
+    "text": "How do you write a simple decorator that prints 'Hello' before executing the target function?",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Define a wrapper function inside an outer function that accepts `*args` and `**kwargs`. Print the message inside the wrapper before calling the original function, and return the wrapper from the decorator function."
+  },
+  {
+    "text": "What is the difference between a list and a tuple in terms of mutability and memory allocation?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Lists are mutable and dynamically sized, often over-allocating memory for future appends. Tuples are immutable and fixed-size, allowing Python to optimize memory usage and cache them more efficiently."
+  },
+  {
+    "text": "How do you specify a return type of an integer in a Python function using type hints?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "You use the arrow syntax `->` after the parameter list, followed by the `int` type keyword, like `def my_func() -> int:`."
+  },
+  {
+    "text": "What tool or file is traditionally used to define dependencies and metadata for modern Python packaging?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The `pyproject.toml` file is the modern standard (PEP 517/621) used to define project metadata, build systems, and dependencies."
+  },
+  {
+    "text": "Can you describe a time when you had to debug a difficult asynchronous race condition?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Candidates should share a specific scenario involving async code, explain how they identified the interleaved execution issue, and describe how they implemented synchronization primitives or redesigned the data flow to fix it."
+  },
+  {
+    "text": "What happens if a test function in pytest fails an assert statement?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Pytest catches the `AssertionError`, marks the test as failed, and generates a detailed failure report showing the exact values and line of code that caused the mismatch."
+  },
+  {
+    "text": "How do you define a basic route in Flask that accepts a GET request?",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "You use the `@app.route('/path')` decorator above a function definition, which defaults to handling GET requests and returns a string or response object."
+  },
+  {
+    "text": "Tell me about a time you optimized a slow-running data structure lookup in Python.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The candidate should detail a situation where lists or loops caused performance bottlenecks, explaining how they switched to a hash-based structure like a set or dictionary to achieve O(1) lookups."
+  },
+  {
+    "text": "You inherit a legacy Django project where views are tightly coupled with business logic. How do you refactor it?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Explain moving business logic into service layers or domain modules, keeping views thin to handle only HTTP requests and responses, and utilizing serializers or forms for validation."
+  },
+  {
+    "text": "What is an event loop, and how does Python's asyncio module utilize it?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The event loop is the core of every asyncio application, running in a thread to monitor all registered tasks, execute callbacks, and switch context when an awaited coroutine yields control."
+  },
+  {
+    "text": "Write a Python decorator that measures and prints the execution time of a function.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Import `time`, use `functools.wraps`, record `time.perf_counter()` before and after calling the wrapped function with `*args` and `**kwargs`, and print the difference."
+  },
+  {
+    "text": "Explain how generator functions work and why they are memory efficient compared to returning lists.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Generators use the `yield` keyword to produce items one at a time on demand. This avoids loading an entire collection into memory at once, making them ideal for processing large streams of data."
+  },
+  {
+    "text": "How do fixtures work in pytest, and what is their primary use case?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Fixtures are functions decorated with `@pytest.fixture` used to establish a baseline state, set up test data, or provide shared resources (like database connections) to test functions cleanly."
+  },
+  {
+    "text": "What is the difference between Django's Model.objects.filter() and Model.objects.get()?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "`filter()` returns a QuerySet containing all objects matching the criteria (or empty if none), whereas `get()` returns a single model instance and raises a `DoesNotExist` exception if zero or a `MultipleObjectsReturned` exception if multiple objects match."
+  },
+  {
+    "text": "How do you declare a Pydantic model for request validation in FastAPI?",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Import `BaseModel` from `pydantic`, create a subclass with typed attributes, and use it as a parameter type hint in a FastAPI path operation function."
+  },
+  {
+    "text": "What are Python dictionaries under the hood, and how has their implementation changed recently?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Python dicts use a hash table with a compact array layout where indices are stored separately from entries (since Python 3.6), preserving insertion order while significantly reducing memory overhead."
+  },
+  {
+    "text": "Explain the concept of runtime type checking in Python and how type hints relate to it.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Type hints do not enforce types at runtime by default; Python is dynamically typed. Tools like `mypy` perform static analysis, while runtime enforcement requires third-party libraries like Pydantic or Beartype."
+  },
+  {
+    "text": "What is the difference between a source distribution (sdist) and a built distribution (wheel) in packaging?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "An sdist is an archive containing source code and setup files that must be compiled upon installation. A wheel is a pre-built distribution format containing compiled artifacts, making installation faster and avoiding build dependencies on the target machine."
+  },
+  {
+    "text": "Describe a situation where your async code blocked the main thread and how you resolved it.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "The candidate should describe calling a blocking I/O or CPU-bound function inside an async loop, and explain how they fixed it using `loop.run_in_executor()` or moving the task to a separate process pool."
+  },
+  {
+    "text": "How do you mock an external API call using unittest.mock in Python?",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use the `@patch` decorator or `with patch('module.function') as mock_obj:` context manager, and configure `mock_obj.return_value.json.return_value` to return expected test data."
+  },
+  {
+    "text": "Write a FastAPI path operation that asynchronously fetches data from an external service.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Define an `async def` function decorated with `@app.get('/')`, use `await` with an HTTP client (like `httpx.AsyncClient`) to fetch data, and return a dictionary or Pydantic model."
+  },
+  {
+    "text": "What is a defaultdict, and when should you choose it over a standard dictionary?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A `defaultdict` from the `collections` module automatically initializes missing keys with a default factory function (like `int` or `list`), eliminating the need for `dict.setdefault()` or `KeyError` checks."
+  },
+  {
+    "text": "How do Protocol classes work in the `typing` module (Structural Subtyping)?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Protocols allow duck typing with static type checkers. A class is considered compliant with a `Protocol` if it has the matching methods and attributes, without needing to explicitly inherit from it."
+  },
+  {
+    "text": "What is the purpose of virtual environments, and how do pip and virtualenv interact?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Virtual environments isolate Python packages for a specific project to avoid version conflicts. `pip` is the package installer used within an active virtual environment to install dependencies into that environment's isolated directory."
+  },
+  {
+    "text": "How would you handle a production database connection leak in a high-traffic Django application?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Identify the leak source using database logs or Django debug tools, ensure long-running background tasks or custom threads properly close connections, and configure appropriate connection timeouts and pooling settings."
+  },
+  {
+    "text": "Write a generator function that yields Fibonacci numbers up to n terms.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Initialize `a, b = 0, 1`, use a `for` loop up to `n`, `yield` the current value of `a`, and update `a, b = b, a + b`."
+  },
+  {
+    "text": "Explain how Django's Middleware works and provide an example use case.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Middleware is a hook framework that processes requests globally before they reach views and responses before they leave. Examples include authentication checks, request logging, or adding CORS headers."
+  },
+  {
+    "text": "What is the difference between Flask (micro-framework) and FastAPI (ASGI framework), and when would you choose one over the other?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Flask is synchronous, WSGI-based, and highly extensible. FastAPI is ASGI-native, supports async/await out of the box, and automatically generates OpenAPI docs via Pydantic. Choose FastAPI for high-throughput async APIs, and Flask for simple, traditional apps."
+  },
+  {
+    "text": "How do you implement custom exception handling in FastAPI?",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Define a custom exception class, and register an exception handler using the `@app.exception_handler(CustomException)` decorator to return a customized JSONResponse."
+  },
+  {
+    "text": "What are Python descriptors, and how do they power features like @property?",
+    "type": "EXPERT",
+    "difficulty": "HARD",
+    "expected_answer": "Descriptors are objects implementing `__get__`, `__set__`, or `__delete__`. When stored as class attributes, they control attribute access on instances, forming the underlying mechanism for properties, methods, and classmethods."
+  },
+  {
+    "text": "Write a decorator that accepts an argument (e.g., @repeat(num_times=3)) to run a function multiple times.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Create a decorator factory function that accepts arguments and returns a standard decorator, which in turn returns a wrapper function that loops execution `num_times`."
+  },
+  {
+    "text": "How do you implement a generator that consumes values using .send()?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "A generator can receive values sent to it by assigning the yield expression to a variable, like `received = yield value`. Before sending values other than None, the generator must be primed by calling `next()` or `.send(None)`."
+  },
+  {
+    "text": "Explain property-based testing using Hypothesis and how it differs from traditional unit testing.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Traditional unit testing uses fixed example inputs. Property-based testing defines invariants or properties that must hold true for a vast, automatically generated range of inputs, helping uncover edge cases developers wouldn't think to test."
+  },
+  {
+    "text": "What is the difference between select_related() and prefetch_related() in Django ORM?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "`select_related()` performs an SQL JOIN to fetch foreign key and one-to-one relationships in a single query. `prefetch_related()` runs separate queries for each relationship (like many-to-many or reverse foreign keys) and joins them in Python memory."
+  },
+  {
+    "text": "How do you type-hint a function that accepts any callable taking a string and returning an integer?",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Use `Callable[[str], int]` imported from the `typing` module as the type hint for the parameter."
+  },
+  {
+    "text": "What is the significance of the `__init__.py` file in modern Python packaging?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "In Python 3.3+, implicit namespace packages mean `__init__.py` is no longer strictly required to make a directory a package, but it is still used to execute package initialization code or define `__all__`."
+  },
+  {
+    "text": "Tell me about a time you refactored a monolithic Django app into modular apps. What challenges did you face?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Candidates should discuss circular import issues, breaking tightly coupled database models, refactoring cross-app imports, and how they structured shared services or utilities cleanly."
+  },
+  {
+    "text": "How do you write a test for a function that raises a specific exception in pytest?",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Use the context manager `with pytest.raises(SpecificException):` followed by the code that is expected to trigger the exception."
+  },
+  {
+    "text": "How do you structure a dependency injection pattern in FastAPI?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "FastAPI uses the `Depends` class. You create a callable function or class instance that provides resources (like DB sessions) and pass it to path operation parameters using `Depends(get_db)`."
+  },
+  {
+    "text": "What are coroutines, tasks, and futures in Python's asyncio library?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "A coroutine is a function defined with `async def`. A task wraps a coroutine to schedule it concurrently on the event loop. A future is a low-level object representing the eventual result of an asynchronous operation."
+  },
+  {
+    "text": "Write a custom decorator that caches the return value of a function based on its arguments.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use a dictionary inside the closure of the decorator to map argument tuples to return values, checking the cache before executing the function."
+  },
+  {
+    "text": "Explain how yield from works when delegating to sub-generators.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "`yield from` establishes a transparent bidirectional channel between the caller and a sub-generator, forwarding values yielded by the sub-generator and passing values sent via `.send()` directly to it."
+  },
+  {
+    "text": "How do you test asynchronous endpoints in FastAPI using pytest?",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use the `pytest-asyncio` plugin along with `httpx.AsyncClient` wrapped in an async test function to make asynchronous requests against the FastAPI app."
+  },
+  {
+    "text": "What are Django Signals, and what are the best practices for using them?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Signals allow decoupled senders to notify receivers when certain actions occur. Best practices include keeping them lightweight, avoiding complex business logic or circular imports, and preferring explicit method calls when possible."
+  },
+  {
+    "text": "How do you use TypeVar in Python to create generic functions or classes?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Import `TypeVar` from `typing`, define a type variable like `T = TypeVar('T')`, and use it in function signatures to indicate that the return type matches the input type."
+  },
+  {
+    "text": "What is the purpose of MANIFEST.in in Python packaging?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "It is used to specify non-Python files (like READMEs, license files, static assets, or templates) that should be included in a source distribution (`sdist`) when building a package."
+  },
+  {
+    "text": "You notice your FastAPI application's memory usage is growing uncontrollably under load. How do you investigate?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use memory profiling tools like `tracemalloc` or `mprof`, inspect for unclosed resource connections or global state caches growing indefinitely, and analyze memory snapshots to find leaking objects."
+  },
+  {
+    "text": "How do you parameterize tests in pytest to run with multiple sets of data?",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use the `@pytest.mark.parametrize('param1, param2', [(val1, val2), (val3, val4)])` decorator above the test function and accept those parameters as arguments."
+  },
+  {
+    "text": "What is the difference between Flask's request context and application context?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "The application context (`current_app`, `g`) keeps track of application-level data across requests. The request context (`request`, `session`) holds HTTP-specific request data and is tied to the incoming HTTP request lifecycle."
+  },
+  {
+    "text": "How does the GIL (Global Interpreter Lock) affect multithreading vs. asyncio in Python?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "The GIL prevents multiple native threads from executing Python bytecodes at once, limiting CPU-bound multithreading. Asyncio operates on a single thread using cooperative multitasking, making it ideal for I/O-bound tasks without GIL contention."
+  },
+  {
+    "text": "Write a decorator that verifies if a user is authenticated before allowing access to a function.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Check an authentication state or token from function arguments or context, and raise a `PermissionError` or return an unauthorized response if not authenticated."
+  },
+  {
+    "text": "What is the difference between an iterator and an iterable in Python?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "An iterable is any object with an `__iter__()` method that returns an iterator. An iterator is an object with both `__iter__()` and `__next__()` methods that produces the next value when called and raises `StopIteration` when exhausted."
+  },
+  {
+    "text": "How do you write a custom mock class or patch a class method in a unit test?",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use `unittest.mock.MagicMock` or `@patch('module.ClassName.method_name')` to substitute the method with a mock object that can have `return_value` or `side_effect` configured."
+  },
+  {
+    "text": "What are Django's generic class-based views (CBVs), and why might you use them?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "CBVs provide pre-packaged view implementations for common patterns (like ListView, DetailView, CreateView), reducing boilerplate code by promoting inheritance and mixins."
+  },
+  {
+    "text": "How do you use Literal and Union types for strict type validation?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "`Literal` restricts values to specific exact values (e.g., `Literal['active', 'pending']`), while `Union` (or the `|` operator) allows a value to be one of several types (e.g., `int | str`)."
+  },
+  {
+    "text": "What is the difference between pip, poetry, and conda?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "`pip` is Python's standard package installer. `Poetry` is a modern dependency manager and packaging tool handling lockfiles and publishing. `Conda` is a cross-platform package and environment manager that handles non-Python binary dependencies as well."
+  },
+  {
+    "text": "Describe a scenario where you had to refactor a slow Django ORM query causing N+1 query problems.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The candidate should explain identifying the problem using tools like Django Debug Toolbar, explaining how accessing related fields in a loop triggered separate queries, and how they fixed it with `select_related` or `prefetch_related`."
+  },
+  {
+    "text": "How do you mock datetime.now() in a test to return a fixed date and time?",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Because `datetime` is a built-in C extension, you typically patch the module where `datetime` is imported using `@patch('module.datetime')` or use a library like `freezegun`."
+  },
+  {
+    "text": "What is dependency injection in FastAPI, and how does it leverage Python type hints?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "FastAPI inspects the type hints of path operation parameters combined with `Depends()` to automatically resolve, instantiate, and inject required dependencies such as database sessions or authenticated users."
+  },
+  {
+    "text": "Explain how `asyncio.gather()` works and how it differs from `asyncio.as_completed()`.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "`asyncio.gather()` runs multiple coroutines concurrently and waits until all of them complete, returning results in order. `asyncio.as_completed()` returns an iterator yielding futures as they finish, allowing you to process results as soon as they are ready."
+  },
+  {
+    "text": "Write a decorator that logs the arguments and return value of any function it decorates.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use `functools.wraps`, print or log `args` and `kwargs` before calling the function, capture the result, log the result, and return it."
+  },
+  {
+    "text": "What is the iterator protocol in Python, and how can you implement it in a custom class?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The iterator protocol requires an object to implement `__iter__()` (returning self) and `__next__()` (returning the next item or raising `StopIteration`)."
+  },
+  {
+    "text": "What is code coverage in testing, and how do you measure it in pytest?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Code coverage measures which lines of code are executed during tests. In pytest, it is measured using the `pytest-cov` plugin by running `pytest --cov=my_module`."
+  },
+  {
+    "text": "How do you implement custom middleware in Django?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Create a callable class or function that takes a `get_response` callable. The instance acts as middleware by implementing `__call__(self, request)` where it can process the request, call `get_response(request)`, and process the response."
+  },
+  {
+    "text": "How do TypedDict and NamedTuple compare for structuring dictionary and tuple data with type hints?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "`NamedTuple` defines immutable, tuple-like objects with named fields and runtime type support. `TypedDict` defines dictionaries with specific keys and value types for static type checking without runtime structural changes."
+  },
+  {
+    "text": "What is the purpose of the `__all__` variable in a Python module?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "`__all__` is a list of strings defining the public symbols exported by a module when a user runs `from module import *`."
+  },
+  {
+    "text": "Tell me about a time you had to troubleshoot a failing test suite in a continuous integration (CI) pipeline that passed locally.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Candidates should discuss environment discrepancies such as differing Python versions, missing test dependencies, timezone issues, or database state pollution in CI."
+  },
+  {
+    "text": "How do you use pytest monkeypatch fixture to modify environment variables during a test?",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Accept `monkeypatch` as a test parameter and call `monkeypatch.setenv('VAR_NAME', 'test_value')`."
+  },
+  {
+    "text": "What are Blueprints in Flask, and why are they useful?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Blueprints are used to organize a Flask application into distinct components and modules, allowing developers to group routes, templates, and static files logically."
+  },
+  {
+    "text": "How does `asyncio.create_task()` differ from awaiting a coroutine directly?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Awaiting a coroutine pauses execution until that coroutine finishes sequentially. Wrapping it with `asyncio.create_task()` schedules the coroutine to run concurrently on the event loop immediately."
+  },
+  {
+    "text": "Write a retry decorator that attempts to run a function up to 3 times if an exception occurs.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Use a `for` loop ranging 3 times inside the wrapper, wrap the function call in a `try...except` block, and re-raise the exception if all attempts fail."
+  },
+  {
+    "text": "What is the difference between a generator expression and a list comprehension?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A list comprehension evaluates immediately and returns a full list in memory. A generator expression uses parentheses and evaluates lazily, yielding items one by one to save memory."
+  },
+  {
+    "text": "How do you configure and use database transactions in Django tests?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Django wraps each test in a database transaction and rolls it back afterward for speed. For tests requiring explicit transaction commits, you can use `TransactionTestCase`."
+  },
+  {
+    "text": "What is Pydantic's `@field_validator` and when do you use it?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "It is a decorator used in Pydantic v2 to validate or transform specific field values during model parsing, raising a `ValueError` if validation fails."
+  },
+  {
+    "text": "How do you create custom generic types using `Generic` and `TypeVar` in Python?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Inherit from `Generic[T]` where `T = TypeVar('T')`, allowing you to type hint classes that operate on parameterized types (e.g., a custom container class `class Stack(Generic[T]):`)."
+  },
+  {
+    "text": "What is the role of `setup.py` vs `pyproject.toml` in modern Python packaging?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "`setup.py` was traditionally used as an executable build script. `pyproject.toml` is the modern, declarative configuration file defined by PEP 517/621 that standardizes build systems and metadata."
+  },
+  {
+    "text": "Describe how you would design a rate-limiting middleware for a Flask or FastAPI application.",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Explain using a fast store like Redis to track request counts per client IP with sliding window or token bucket algorithms, and returning an HTTP 429 status code if the limit is exceeded."
+  },
+  {
+    "text": "How do you test database rollback behavior in pytest without Django?",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Use a pytest fixture that initiates a database connection and transaction before the test runs, and calls `connection.rollback()` in the teardown phase after `yield`."
+  },
+  {
+    "text": "What is the ASGI specification, and how does it improve upon WSGI?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "WSGI is synchronous and handles only traditional HTTP requests. ASGI (Asynchronous Server Gateway Interface) supports asynchronous execution, WebSockets, and long-polling in addition to standard HTTP."
+  },
+  {
+    "text": "What is a coroutine deadlock, and how can it happen in asyncio?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "It occurs when coroutines wait indefinitely for each other or for synchronization primitives (like unreleased locks or events) without yielding control properly to the event loop."
+  },
+  {
+    "text": "Write a decorator that restricts function execution to user roles passed as decorator arguments.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Create a decorator factory taking allowed roles, check if the current user has the required role inside the wrapper function, and raise an authorization error otherwise."
+  },
+  {
+    "text": "How do you inspect the local variables and state of a generator using introspection?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "You can inspect a generator's current execution frame using `generator.gi_frame` and access its local variables via `generator.gi_frame.f_locals`."
+  },
+  {
+    "text": "What are factory fixtures and parameterized factories in pytest using pytest-factoryboy?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "They integrate Factory Boy with pytest fixtures, allowing developers to generate complex test model instances with dynamic attributes cleanly inside tests."
+  },
+  {
+    "text": "How do you implement custom pagination in Django REST Framework (DRF)?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Subclass `rest_framework.pagination.PageNumberPagination` (or `LimitOffsetPagination`), override methods like `get_paginated_response`, and configure it globally or on specific views."
+  },
+  {
+    "text": "What is the difference between `Any`, `Union`, and `Optional` in Python type hinting?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "`Any` disables type checking for that variable. `Union` specifies that a value can be one of multiple types. `Optional[T]` is shorthand for `Union[T, None]`."
+  },
+  {
+    "text": "What is the difference between publishing a package to PyPI vs TestPyPI?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "TestPyPI is a separate instance of PyPI meant for testing packaging, uploads, and installation processes without polluting the production PyPI repository."
+  },
+  {
+    "text": "How would you handle graceful shutdown in a FastAPI application running background worker tasks?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use FastAPI's lifespan event handlers (`@asynccontextmanager`), track active background tasks, and implement cleanup logic that waits for running tasks to finish before shutting down the server."
+  },
+  {
+    "text": "How do you write a test for a function that outputs to stdout in pytest?",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use the built-in pytest `capsys` fixture to capture stdout and assert against `capsys.readouterr().out`."
+  },
+  {
+    "text": "What are Django forms and ModelForms, and how do they handle data validation?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Forms handle HTML form rendering and input validation. ModelForms automatically generate form fields and validation logic directly from Django database models, saving database instances upon validation."
+  },
+  {
+    "text": "How does `asyncio.Lock()` work in asynchronous programming?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "It is a cooperative locking primitive used to ensure mutual exclusion in async code. Coroutines acquire the lock using `async with lock:`, preventing other tasks from entering the critical section until released."
+  },
+  {
+    "text": "Write a decorator that caches function results on disk using `functools` or file storage.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Use `functools.cache` or `@functools.lru_cache`, or implement a custom disk-backed cache using `pickle` and file hashing of arguments."
+  },
+  {
+    "text": "What is tail recursion and does Python optimize it?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Tail recursion is a recursive pattern where the recursive call is the final operation in the function. Python does not optimize tail recursion (Guido van Rossum intentionally rejected it), so deep recursion will raise a `RecursionError`."
+  },
+  {
+    "text": "What is mutation testing, and how does it evaluate test suite quality?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Mutation testing introduces small changes (mutants) into source code and runs the test suite. If tests fail ('kill' the mutant), the test suite is effective; if tests pass, the tests lack sufficient assertions."
+  },
+  {
+    "text": "How do you configure database connection pooling in Flask with SQLAlchemy?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Configure engine options such as `pool_size`, `max_overflow`, and `pool_recycle` when initializing SQLAlchemy via `create_engine()` or Flask-SQLAlchemy extension settings."
+  },
+  {
+    "text": "What is the difference between `TypeVar` bounds and constraints?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "A bound (`bound=ClassName`) restricts the TypeVar to a specific class or its subclasses. Constraints (`TypeVar('T', int, str)`) restrict the TypeVar strictly to the listed types."
+  },
+  {
+    "text": "How do you specify optional dependencies in `pyproject.toml`?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Under the project optional dependencies section (e.g., `[project.optional-dependencies]`), define named lists of extra packages like `dev = ['pytest', 'black']`."
+  },
+  {
+    "text": "You are tasked with migrating a Flask monolith to FastAPI. What architectural steps do you take?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Break out business logic into independent services, rewrite route handlers to use async/await where beneficial, replace Flask request objects and extensions with FastAPI dependencies and Pydantic models, and migrate incrementally using API gateways."
+  },
+  {
+    "text": "How do you test exception logging in Python using pytest?",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use the pytest `caplog` fixture to capture log records and assert that the expected log level and error message were recorded during execution."
+  },
+  {
+    "text": "What is the purpose of Django's CSRF protection middleware?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "It protects against Cross-Site Request Forgery attacks by verifying that incoming POST/PUT/DELETE requests include a valid secret token associated with the user's session."
+  },
+  {
+    "text": "How do you implement a custom context manager using generator functions with `@contextmanager`?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Import `contextmanager` from `contextlib`, write a generator function that yields the resource, and place setup code before `yield` and cleanup code in a `try...finally` block or after `yield`."
+  },
+  {
+    "text": "Write a Python generator that reads a large log file line by line searching for a keyword.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Open the file with `open(filepath, 'r')`, iterate over lines with a `for` line loop, check if the keyword is in the line, and `yield` the line if it matches."
+  },
+  {
+    "text": "Explain how Python's `asyncio.Queue` works and when to use it.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "`asyncio.Queue` is a FIFO queue designed for async/await code. It is used in producer-consumer patterns to coordinate concurrent tasks passing data between each other asynchronously."
+  },
+  {
+    "text": "What is monkey patching, and why is it often used in unit testing?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Monkey patching is dynamically modifying or replacing modules, classes, or functions at runtime. In testing, it is used to mock out slow or external dependencies like databases or network calls."
+  },
+  {
+    "text": "How do you use FastAPI's BackgroundTasks for deferred operations?",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Add `background_tasks: BackgroundTasks` as a path operation parameter, and call `background_tasks.add_task(func, *args)` to execute tasks after the response has been sent."
+  },
+  {
+    "text": "What are Django Migrations, and how does Django detect schema changes?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Migrations are Python files representing changes to Django models. Django detects changes by comparing current model definitions against the state recorded in the latest migration files."
+  },
+  {
+    "text": "How do you use Self type from the `typing` module in Python 3.11+?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "`Self` is used as a return type hint for methods that return an instance of their own class (e.g., method chaining or builder patterns), ensuring static type safety for subclasses."
+  },
+  {
+    "text": "What is the difference between a source build backend like Hatch, Flit, and Poetry?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "They are modern build backends implementing PEP 517. `Flit` is lightweight for pure Python packages, `Hatch` is extensible and environment-aware, and `Poetry` is a full dependency and packaging management suite."
+  },
+  {
+    "text": "How do you handle database connection pooling in an asynchronous FastAPI application?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use an async-native database driver like `asyncpg` or `databases`, or SQLAlchemy 2.0 with an async engine (`create_async_engine`) and async sessionmaker managed via FastAPI lifecycle events or dependency injection."
+  },
+  {
+    "text": "Write a test using pytest to verify that a function completes within a specified timeout limit.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use the `pytest-timeout` plugin and decorate the test with `@pytest.mark.timeout(2)` to fail the test if it takes longer than 2 seconds."
+  },
+  {
+    "text": "What is the purpose of Django's select_for_update() method?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "It returns a queryset that locks rows until the end of the transaction, preventing concurrent database transactions from modifying or reading the locked rows until the current transaction completes."
+  },
+  {
+    "text": "How do you write a recursive generator using `yield from` to traverse a nested dictionary?",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Iterate through dictionary items; if a value is a dict, use `yield from` to recursively call the generator function; otherwise, yield the key-value pair."
+  },
+  {
+    "text": "Explain how Python handles name mangling for private attributes in classes.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Class attributes prefixed with double underscores (e.g., `__private`) have their names automatically mangled to `_ClassName__private` to prevent accidental overriding in subclasses."
+  },
+  {
+    "text": "What are pytest markers, and how do you use them to filter test runs?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Markers are labels applied to tests using `@pytest.mark.marker_name` to categorize them. You can filter tests during execution using the `-m` flag (e.g., `pytest -m slow`)."
+  },
+  {
+    "text": "How do you configure CORS middleware in FastAPI?",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Import `CORSMiddleware` from `fastapi.middleware.cors`, and add it to the app using `app.add_middleware(CORSMiddleware, allow_origins=['*'], ...)`."
+  },
+  {
+    "text": "What is the difference between `@classmethod`, `@staticmethod`, and regular instance methods?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Instance methods receive the instance (`self`) as the first argument. Class methods receive the class (`cls`) and can modify class-state. Static methods receive neither and act like regular functions scoped inside a class."
+  },
+  {
+    "text": "How do you implement custom type validators using Annotated in Python?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Combine a base type with validation functions using `Annotated[int, Field(gt=0)]` or custom callable validators, which static type checkers and validation libraries like Pydantic can process."
+  },
+  {
+    "text": "What is the role of wheel tags (e.g., py3-none-any.whl) in Python distribution?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Wheel tags define compatibility based on Python version/implementation (`py3`), ABI (`none`), and platform (`any`), ensuring pip only installs wheels compatible with the target environment."
+  },
+  {
+    "text": "What does the async keyword do when placed before a function definition in Python?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "It transforms the function into a coroutine function that, when called, returns a coroutine object instead of executing immediately. The function body is designed to be cooperatively scheduled by an event loop using await."
+  },
+  {
+    "text": "How do you write a simple decorator in Python that prints 'Before' and 'After' function execution?",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Define an inner wrapper function inside the decorator function that prints the start message, calls the original function with *args and **kwargs, prints the end message, and returns the wrapper."
+  },
+  {
+    "text": "What is the primary difference between a list and a generator in terms of memory usage?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Lists store all their elements in memory simultaneously, whereas generators compute and yield items one at a time on demand, resulting in O(1) memory complexity."
+  },
+  {
+    "text": "How do you assert that a specific exception is raised using the unittest framework?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "You use the context manager 'with self.assertRaises(ExceptionType):' wrapping the code block that is expected to throw the error."
+  },
+  {
+    "text": "What is the main difference in routing syntax between Flask and FastAPI?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Flask uses standard decorator syntax like '@app.route(\"/path\")', while FastAPI uses HTTP method-specific decorators such as '@app.get(\"/path\")' with integrated type validation."
+  },
+  {
+    "text": "What is the average time complexity of searching for an item in a Python dictionary?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "O(1) on average due to the underlying hash table implementation, though worst-case can be O(N) in rare collision scenarios."
+  },
+  {
+    "text": "How do you add type hints to a function parameter that can be either an integer or a string?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "You use the union operator like 'def func(param: int | str):' or the Union type from the typing module, 'def func(param: Union[int, str]):'."
+  },
+  {
+    "text": "What is the purpose of the pyproject.toml file in modern Python packaging?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "It serves as the standardized configuration file for build systems, tool settings, and project metadata as defined by PEP 518 and PEP 621."
+  },
+  {
+    "text": "Tell me about a time when you had to debug a stubborn bug in production. How did you approach it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Describe reproducing the issue in a staging environment, analyzing logs and metrics systematically, applying a targeted fix, and adding regression tests to prevent recurrence."
+  },
+  {
+    "text": "Imagine a junior developer asks you why their generator can only be iterated over once. How would you explain this?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Explain that generators are stateful iterators that consume and yield values on the fly without storing them; once exhausted, their internal pointer reaches the end and cannot be reset automatically."
+  },
+  {
+    "text": "What does the await keyword do inside an async function?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "It pauses the execution of the current coroutine until the awaited task or coroutine completes, allowing the event loop to run other pending tasks in the meantime."
+  },
+  {
+    "text": "Write a Python decorator that logs the execution time of any function it decorates.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use time.perf_counter() before and after calling the wrapped function inside a wrapper function, print or log the delta, and use functools.wraps."
+  },
+  {
+    "text": "How do you use the yield from statement in a generator?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "It delegates part of its operations to another generator or iterable, efficiently yielding all values from the sub-generator directly to the caller."
+  },
+  {
+    "text": "What are fixtures in pytest and how do they differ from setUp/tearDown methods in unittest?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Pytest fixtures use dependency injection where test functions request fixtures as arguments, offering granular scoping (function, module, session) compared to rigid class-level setUp/tearDown methods."
+  },
+  {
+    "text": "Explain how Django's ORM handles database migrations and the purpose of makemigrations.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Makemigrations inspects changes in models.py and generates python migration script files representing those schema alterations, which are later applied via migrate."
+  },
+  {
+    "text": "Write a function that takes a list of integers and returns a new list with duplicates removed while preserving the original insertion order.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Return list(dict.fromkeys(input_list)) or use a set combined with a list comprehension checking seen items."
+  },
+  {
+    "text": "What is the difference between Optional[T] and Union[T, None] in Python type hinting?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "They are functionally identical; Optional[T] is simply a shorthand alias for Union[T, None] indicating that a variable can hold type T or None."
+  },
+  {
+    "text": "What is the difference between setup.py and pyproject.toml?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "setup.py is an executable Python script used for building packages historically, whereas pyproject.toml is a declarative configuration file standardizing build backends and tool configurations."
+  },
+  {
+    "text": "Describe a situation where a code review comment you made led to a constructive technical disagreement with a colleague. How did you resolve it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Emphasize focusing on objective code metrics, readability, and team standards, discussing trade-offs calmly, and reaching consensus through testing or documentation."
+  },
+  {
+    "text": "Suppose a FastAPI endpoint is running slowly due to blocking synchronous I/O. How would you handle this situation?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Convert the synchronous function to run in an external threadpool using run_in_threadpool or redefine the route as a standard def function so FastAPI executes it in an external thread pool automatically."
+  },
+  {
+    "text": "How does Python's asyncio handle concurrency compared to multi-threading?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Asyncio uses cooperative multitasking within a single thread and event loop, whereas multi-threading uses preemptive multitasking managed by the operating system, subject to the GIL."
+  },
+  {
+    "text": "How do you create a decorator that accepts arguments in Python?",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Write a three-tier function structure where the outer function takes decorator arguments, returns the actual decorator, which in turn returns the wrapper function."
+  },
+  {
+    "text": "What is the difference between a generator function and a generator expression?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A generator function uses the yield keyword inside a standard def block, while a generator expression uses comprehension-like syntax inside parentheses, e.g., (x for x in range(10))."
+  },
+  {
+    "text": "What is mocking in unit testing and when should you use unittest.mock.MagicMock?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Mocking replaces external dependencies with controlled stubs. MagicMock is used when the tested code expects the mock object to support magic methods like __len__, __iter__, or arithmetic operations."
+  },
+  {
+    "text": "How does Flask's application context differ from request context?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The application context binds application-level data (like db connections) and lasts for the app lifecycle, while the request context holds HTTP-specific data (like request headers) and lasts only for the duration of a request."
+  },
+  {
+    "text": "Implement a custom class that acts as a context manager using the __enter__ and __exit__ methods.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Define __enter__ to initialize resource and return self, and __exit__ to handle cleanup, catching exceptions if necessary by returning True."
+  },
+  {
+    "text": "How do Protocol classes (structural subtyping) differ from traditional ABCs in Python's typing module?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Protocols implement structural subtyping (duck typing checked statically), meaning classes don't need to explicitly inherit from the Protocol, whereas ABCs require explicit inheritance (nominal subtyping)."
+  },
+  {
+    "text": "What steps are required to distribute a custom Python package to PyPI using modern tools like poetry or flit?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Configure pyproject.toml with metadata and dependencies, build source and wheel distributions using the build tool or poetry build, and upload to PyPI using twine or poetry publish."
+  },
+  {
+    "text": "Tell me about a time you had to refactor a massive, tightly coupled Python module. What strategy did you use?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Mention writing comprehensive integration tests first, breaking the module down incrementally into smaller single-responsibility components, and applying design patterns."
+  },
+  {
+    "text": "You inherit a legacy Django project where views contain hundreds of lines of business logic and raw SQL queries. How would you refactor this?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Extract business logic into service layers or domain models, replace raw SQL with Django ORM queries or Manager methods, and move validations into serializers or forms."
+  },
+  {
+    "text": "Explain how asyncio.gather() differs from asyncio.wait().",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "gather() takes coroutines, runs them concurrently, preserves return value order, and raises exceptions immediately or aggregates them; wait() returns a tuple of two sets (done and pending) giving finer control over completion conditions."
+  },
+  {
+    "text": "Write a decorator that caches the return value of a function based on its arguments, implementing a simple memoization pattern.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Create a dictionary inside the decorator closure, check if args/kwargs exist in cache before calling the function, and store the result if absent."
+  },
+  {
+    "text": "What is a generator coroutine (PEP 342) and how did it pave the way for async/await?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "PEP 342 introduced send(), throw(), and close() methods to generators, allowing data and exceptions to be sent back into a suspended generator, establishing the foundation for cooperative asynchronous scheduling."
+  },
+  {
+    "text": "Explain how to use pytest-cov to measure test coverage and interpret branch coverage.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Run pytest --cov=my_module --cov-branch to track code execution. Branch coverage ensures that every possible branch of conditional statements (if/else) has been evaluated in both true and false directions."
+  },
+  {
+    "text": "What is dependency injection in FastAPI, and how do yield dependencies handle cleanup?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "FastAPI's Depends system injects dependencies into path operations. Dependencies using yield execute setup code before yielding the value, and any code after the yield statement runs during cleanup after the response is sent."
+  },
+  {
+    "text": "Implement a Trie (Prefix Tree) data structure with insert and search methods in Python.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Define a TrieNode with a dictionary of children and a boolean end_of_word flag. The Trie class handles insertion by traversing/creating nodes and search by checking node existence and flags."
+  },
+  {
+    "text": "How do Generic types and TypeVars work when creating reusable data structures with type hints?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "TypeVar defines a placeholder for generic types, and classes inheriting from Generic[T] allow static type checkers to verify type safety across collections or container classes."
+  },
+  {
+    "text": "What is a namespace package and how does it differ from a regular package?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Namespace packages (PEP 420) lack an __init__.py file and allow spreading a single Python package across multiple directories on the search path, unlike regular packages which require __init__.py."
+  },
+  {
+    "text": "Describe a project where you had to choose between Django and FastAPI. What criteria drove your decision?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Highlight evaluating requirements like out-of-the-box admin panels, ORM complexity, asynchronous performance needs, auto-generated OpenAPI docs, and team familiarity."
+  },
+  {
+    "text": "You discover that a junior developer wrote an async function containing blocking third-party library calls that are freezing the entire event loop. How do you resolve this?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Explain offloading the blocking call to a separate process or thread pool using loop.run_in_executor() or asyncio.to_thread() to prevent blocking the event loop thread."
+  },
+  {
+    "text": "What is an event loop in asyncio, and how does it execute scheduled callbacks and tasks?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "The event loop is the core mechanism running async code. It maintains a queue of ready tasks and callbacks, continuously polling I/O selectors and resuming suspended coroutines when their awaited events complete."
+  },
+  {
+    "text": "Write a decorator that retries a function execution up to N times if a specific exception is raised, with exponential backoff.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Implement a nested wrapper using a loop with range(retries), catching the target exception, sleeping for base * (2 ** attempt), and re-raising if retries exhaust."
+  },
+  {
+    "text": "How do you implement custom iteration in a class using __iter__ and __next__?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "__iter__ returns the iterator object itself (often self), and __next__ computes and returns the next value, raising StopIteration when there are no more elements."
+  },
+  {
+    "text": "How do you test asynchronous code using pytest, and what plugin is required?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "You install the pytest-asyncio plugin and use the @pytest.mark.asyncio decorator on test functions, allowing them to be defined with async def."
+  },
+  {
+    "text": "Explain Django's middleware architecture and write the conceptual skeleton of custom middleware.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Middleware is a hook framework into Django's request/response processing. It is a callable taking get_response, returning a callable that takes a request, processes it before/after calling get_response, and returns a response."
+  },
+  {
+    "text": "Implement a Least Recently Used (LRU) Cache from scratch using OrderedDict or a doubly linked list with a hash map.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Use collections.OrderedDict; on get, move item to end; on put, popitem(last=False) if capacity exceeded before inserting the new key-value pair."
+  },
+  {
+    "text": "What is TypeVarTuple and how does it enable variadic generics in Python type hinting?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Introduced in PEP 646, TypeVarTuple allows type hints for a variable number of type parameters, commonly used for multidimensional array libraries like NumPy or tensor shapes."
+  },
+  {
+    "text": "Explain how wheel and sdist formats differ during package installation.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "An sdist (source distribution) contains raw source code and requires building on the target machine (running setup.py/build scripts), whereas a wheel is a built distribution ready for direct installation."
+  },
+  {
+    "text": "Tell me about a time you optimized a slow data pipeline in Python. What tools did you use and what was the impact?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Detail using cProfile or memory_profiler to find bottlenecks, replacing loops with vectorization or generators, introducing multiprocessing, and achieving significant speedups."
+  },
+  {
+    "text": "Your team's CI/CD pipeline fails intermittently because an async integration test has a race condition. How do you diagnose and fix it?",
+    "type": "SITUATIONAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Use structured logging or debugger breakpoints to trace execution order, replace arbitrary sleep calls with explicit event-driven assertions or locks, and isolate shared state across test runs."
+  },
+  {
+    "text": "How do Python generators interact with garbage collection, and what happens if a generator is abandoned mid-execution?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Abandoned generators holding resources may leak them until garbage collection reclaims the generator object, which invokes its tp_dealloc handler and triggers a GeneratorExit exception inside the generator."
+  },
+  {
+    "text": "Write a class-based decorator that counts how many times any decorated function has been called across the entire application.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Implement __init__ to store the function and a class-level or instance counter, and define __call__ to increment the counter and execute the wrapped function."
+  },
+  {
+    "text": "What is the yield statement's return value when data is sent into a generator via generator.send(value)?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "The yield expression evaluates to the value passed into the send() method when the generator resumes execution."
+  },
+  {
+    "text": "Explain property-based testing and give an example using the Hypothesis library in Python.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Property-based testing verifies code against a broad range of generated inputs matching specified invariants. Using @given(st.integers()), Hypothesis automatically searches for edge cases failing the assertion."
+  },
+  {
+    "text": "How does Django handle database connection pooling in production deployments?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Django closes database connections at the end of every request by default. For pooling, external tools like PgBouncer or third-party database backend packages are required since Django lacks built-in persistent connection pooling."
+  },
+  {
+    "text": "Implement a custom data structure representing a Circular Buffer (Ring Buffer) with fixed capacity using a list or array.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Maintain head, tail, and size pointers along with a fixed-size list. Implement enqueue and dequeue methods that wrap indices modulo capacity."
+  },
+  {
+    "text": "What is runtime protocol checking (runtime_checkable) and how does it impact performance?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Applying @runtime_checkable to a Protocol enables isinstance() and issubclass() checks at runtime by inspecting class attributes, which introduces minor runtime overhead compared to static-only typing."
+  },
+  {
+    "text": "How do PEP 517 build systems work and why were they introduced?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "PEP 517 standardized a decoupled build interface separating frontend installation tools from backend build systems, eliminating direct execution of setup.py."
+  },
+  {
+    "text": "Describe a scenario where you had to convince your engineering leads to adopt a new testing paradigm or framework across a large codebase.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Emphasize building a proof of concept, demonstrating metrics on code reliability and developer velocity, conducting internal workshops, and migrating incrementally."
+  },
+  {
+    "text": "A production service using asyncio starts experiencing memory leaks over several days due to unawaited coroutines or dangling tasks. How do you investigate and fix this?",
+    "type": "SITUATIONAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Use tracemalloc or memory profiling tools to trace allocations, inspect asyncio.all_tasks() to find dangling tasks, and ensure all created tasks are explicitly tracked, awaited, or cancelled."
+  },
+  {
+    "text": "What are Task Groups introduced in Python 3.11, and how do they improve structured concurrency over asyncio.gather()?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "TaskGroups provide structured concurrency via an async context manager. If any task in the group fails, others are automatically cancelled, and multiple exceptions are cleanly aggregated into an ExceptionGroup."
+  },
+  {
+    "text": "Write a decorator that validates type annotations of function arguments at runtime based on type hints.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Inspect function.__annotations__, compare argument types against isinstance() inside the wrapper, and raise TypeError if validation fails."
+  },
+  {
+    "text": "How do generator pipelines differ from standard list comprehension chains in terms of performance and memory?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Generator pipelines execute lazily and evaluate elements one by one, avoiding the creation of intermediate lists and consuming minimal memory, whereas list comprehensions allocate memory for intermediate collections at each step."
+  },
+  {
+    "text": "What are test doubles, and what is the difference between a mock, stub, fake, and spy?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Stubs provide canned answers; fakes have working implementations (like in-memory databases); mocks verify expectations and behavior; spies record calls made to them for later verification."
+  },
+  {
+    "text": "Explain how Flask handles request handling under the hood with Werkzeug and WSGI.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Flask delegates WSGI compliance to Werkzeug. The WSGI server calls the Flask app callable with environ and start_response; Flask creates a Request object via Werkzeug, dispatches to routes, and returns a WSGI response."
+  },
+  {
+    "text": "Implement a thread-safe Queue data structure from scratch using threading primitives (locks and condition variables).",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Use a collections.deque for storage, a threading.Lock for mutual exclusion, and threading.Condition to notify waiting threads when items are added or removed."
+  },
+  {
+    "text": "How do TypedDict and NamedTuple differ in Python, and when should you use each?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "NamedTuple creates immutable, tuple-like classes with named fields and runtime overhead; TypedDict provides static type checking for dictionaries without runtime class overhead or immutability enforcement."
+  },
+  {
+    "text": "What is the purpose of MANIFEST.in in Python packaging and when is it necessary?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "MANIFEST.in specifies non-Python files (like documentation, templates, or static assets) that should be included in a source distribution (sdist) alongside standard Python modules."
+  },
+  {
+    "text": "Tell me about a time when you inherited a project with zero tests. How did you prioritize what to test first?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Mention identifying core business logic, critical user paths, and bug-prone modules, starting with high-level integration tests before writing detailed unit tests."
+  },
+  {
+    "text": "A junior developer introduces circular imports across multiple modules in a Django application. How would you guide them to fix this architectural issue?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Explain identifying shared dependencies, extracting common code into neutral utility modules, moving imports inside functions where necessary, or redesigning the module boundaries."
+  },
+  {
+    "text": "How does the AsyncIterator protocol work, and how do you implement an asynchronous generator in Python?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Async iterators implement __aiter__ returning an object with an __anext__ coroutine method. Async generators use async def and yield syntax, allowing await statements inside the generator body."
+  },
+  {
+    "text": "Write a Python generator function that implements an infinite Fibonacci sequence.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Initialize a=0, b=1, use a while True loop to yield a, and update a, b = b, a + b."
+  },
+  {
+    "text": "What is the difference between iterable, iterator, and generator in Python?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "An iterable has an __iter__ method returning an iterator. An iterator has a __next__ method yielding items. A generator is a specialized iterator created via functions with yield or generator expressions."
+  },
+  {
+    "text": "How do you test database-dependent code in Django without persisting changes permanently across tests?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Django test cases automatically wrap each test method in a database transaction that is rolled back upon completion, or use test database serialization for faster setups."
+  },
+  {
+    "text": "Explain how FastAPI utilizes Pydantic for data validation and serialization.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "FastAPI leverages Pydantic models to automatically parse request bodies, query parameters, and headers against defined types, validating input and serializing response data into JSON."
+  },
+  {
+    "text": "Implement a function that flattens a nested list of arbitrary depth containing integers and lists.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use recursion or an iterative approach with a stack; check if an element is an instance of list, and if so, recurse or extend the stack."
+  },
+  {
+    "text": "What are ParamSpec and Concatenate in Python type hinting, and how are they used with decorators?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "ParamSpec captures the parameter types of a callable to type-hint decorators preserving signature types, while Concatenate allows adding or modifying parameters in decorated functions."
+  },
+  {
+    "text": "How do entry points work in Python packaging (setup.cfg or pyproject.toml)?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Entry points allow installed packages to expose console scripts or plugins that other packages or the OS can invoke directly without explicitly importing the module."
+  },
+  {
+    "text": "Describe a time when you had to optimize an API response time that was suffering from the N+1 query problem in an ORM.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Explain identifying the issue via query logging or APM tools, applying eager loading (select_related / prefetch_related in Django or joinedload in SQLAlchemy), and measuring the performance gain."
+  },
+  {
+    "text": "You notice that a Flask application's request latency spikes during peak hours due to synchronous database queries. Propose a migration path to an asynchronous architecture.",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Propose migrating from Flask to FastAPI or Quart for native async support, replacing synchronous database drivers with async drivers like asyncpg, and updating endpoint handlers to async def."
+  },
+  {
+    "text": "How do coroutines differ from traditional threads and greenlets?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Threads are preemptive OS-managed units. Greenlets are cooperative micro-threads with stack-switching. Coroutines are language-level constructs using cooperative scheduling via explicit yield or await points."
+  },
+  {
+    "text": "Write a generator function that reads a large log file line by line and yields only lines containing a specific keyword.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Open the file using with open(path) as f, iterate over f in a loop, check if keyword in line, and yield line."
+  }
+]

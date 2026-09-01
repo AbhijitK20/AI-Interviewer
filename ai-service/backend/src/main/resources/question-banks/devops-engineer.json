@@ -1,0 +1,572 @@
+[
+  {
+    "text": "What is the difference between a Linux process and a container?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A container uses Linux kernel namespaces and cgroups to isolate a process and its resource usage from the rest of the system. While it shares the host kernel, a standard Linux process operates within the global namespace and shares resources directly without isolation boundaries."
+  },
+  {
+    "text": "Explain the role of `systemd` in modern Linux distributions.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "systemd is an init system and system manager that manages user space processes and boots the Linux user space. It handles service startup dependencies, parallelizes startup tasks, and manages system logging through the journal daemon."
+  },
+  {
+    "text": "What is the primary purpose of version control in Infrastructure as Code?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Version control tracks changes made to infrastructure definitions, enabling audit trails, seamless rollbacks of misconfigurations, and collaborative code reviews via pull requests before applying changes to live environments."
+  },
+  {
+    "text": "Describe the core difference between symmetric and asymmetric encryption.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Symmetric encryption uses a single shared key for both encryption and decryption, making it fast but difficult to distribute securely. Asymmetric encryption uses a key pair\u2014public and private\u2014where data encrypted with one can only be decrypted by the other, solving the key exchange problem."
+  },
+  {
+    "text": "What is continuous integration?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Continuous integration is a development practice where developers frequently merge code changes into a central repository, after which automated builds and tests are run to detect integration bugs early."
+  },
+  {
+    "text": "What is an immutable infrastructure deployment pattern?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Immutable infrastructure is a model where servers are never modified after they are deployed. If updates or fixes are needed, new servers are built from a common image and the old ones are decommissioned, preventing configuration drift."
+  },
+  {
+    "text": "Explain the function of a reverse proxy.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A reverse proxy sits in front of backend web servers and forwards client requests to those servers. It provides benefits such as load balancing, SSL termination, caching, and masking the internal network topology for security."
+  },
+  {
+    "text": "What does 'Shift Left' mean in DevOps security?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Shift Left means moving security practices and testing earlier in the software development lifecycle, rather than addressing vulnerabilities only at the deployment or production stage."
+  },
+  {
+    "text": "What is the difference between horizontal and vertical scaling?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Vertical scaling involves adding more power, such as CPU or RAM, to an existing server, while horizontal scaling involves adding more instances or servers to distribute the load across a pool."
+  },
+  {
+    "text": "What is the purpose of an exit code in a shell script?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "An exit code is an integer returned by a command or script upon completion. An exit code of 0 generally indicates success, while any non-zero value indicates an error or specific failure condition, used by CI/CD pipelines to determine step success."
+  },
+  {
+    "text": "What is the difference between a Docker image and a Docker container?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A Docker image is a read-only, static template containing application code, libraries, and dependencies. A Docker container is a running, instanced state of that image with a writable layer added on top."
+  },
+  {
+    "text": "How do you check the disk space usage of a Linux directory?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "You use the `du` command with flags like `-sh` (summary, human-readable) to check a specific directory's size, or `df -h` to check available disk space across all mounted filesystems."
+  },
+  {
+    "text": "What is a Kubernetes Pod?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A Pod is the smallest deployable computing unit in Kubernetes, representing a single or multi-container group that shares network namespaces, storage volumes, and lifecycle configuration."
+  },
+  {
+    "text": "What is the primary benefit of using a managed cloud database versus self-hosting?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Managed databases offload operational overhead such as automated backups, patching, scaling, high availability setups, and hardware provisioning to the cloud provider."
+  },
+  {
+    "text": "What is the difference between TCP and UDP?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "TCP is a connection-oriented, reliable protocol that guarantees packet delivery and order. UDP is connectionless and unverified, prioritizing speed over reliability, making it ideal for streaming or DNS lookups."
+  },
+  {
+    "text": "What is an artifact in a CI/CD pipeline?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "An artifact is a compiled or packaged file, such as a binary, container image, or zip file, produced during the build phase that is then passed along to testing and deployment stages."
+  },
+  {
+    "text": "What is the purpose of a health check in load balancing?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Health checks periodically probe backend servers to verify their operational status; if a server fails to respond correctly, the load balancer automatically stops routing traffic to it."
+  },
+  {
+    "text": "What is the role of an SSH public key?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "An SSH public key is placed on a remote server to cryptographically authenticate users holding the corresponding private key, allowing secure, passwordless remote login."
+  },
+  {
+    "text": "What is the function of `git clone` versus `git pull`?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "`git clone` downloads a complete repository from a remote source for the first time, while `git pull` fetches and merges changes from a remote repository into your current local branch."
+  },
+  {
+    "text": "What is a VPC (Virtual Private Cloud)?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A VPC is an isolated, private network environment provisioned within a public cloud provider, allowing users to define IP address ranges, subnets, route tables, and gateways."
+  },
+  {
+    "text": "Tell me about a time you had to learn a new tool or technology quickly under pressure. (STAR)",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Look for a structured STAR response highlighting the candidate's learning agility, resourcefulness, and ability to deliver results within a tight deadline."
+  },
+  {
+    "text": "Describe a situation where you disagreed with a colleague on a technical approach. How did you resolve it? (STAR)",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Evaluates communication, conflict resolution, and teamwork skills, focusing on data-driven compromise and professional maturity."
+  },
+  {
+    "text": "Give an example of a time you automated a tedious manual task. What was the impact? (STAR)",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Measures proactive mindset, scripting abilities, and appreciation for efficiency and reducing human error."
+  },
+  {
+    "text": "Tell me about a time you missed a critical detail that caused an issue in development or staging. How did you handle it? (STAR)",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Assesses accountability, transparency, and a growth mindset in handling mistakes without placing blame."
+  },
+  {
+    "text": "Describe how you prioritize your daily tasks when multiple high-priority requests come in at once. (STAR)",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Looks for time management, stakeholder communication, and alignment with business value."
+  },
+  {
+    "text": "How do you handle a scenario where a non-technical stakeholder asks for an impossible deployment timeline?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Candidate should explain how they politely push back with data, explain risks, offer scoped-down alternatives, and maintain collaborative stakeholder management."
+  },
+  {
+    "text": "You notice a developer accidentally committed an API secret key to a public git repository. What are your immediate first steps?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Revoke the leaked credential immediately, check access logs for unauthorized use, rewrite git history if possible, and educate the developer on secret management best practices."
+  },
+  {
+    "text": "A junior engineer asks you why we use containers instead of just running apps directly on virtual machines. How do you explain it simply?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Explain that containers share the host OS kernel making them lightweight and fast to start, whereas VMs require a full guest operating system overhead, improving resource density and portability."
+  },
+  {
+    "text": "Write a bash one-liner to find all files in the current directory modified more than 30 days ago.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "find . -type f -mtime +30"
+  },
+  {
+    "text": "Write a simple Python script snippet that reads a list of IP addresses from a file and pings each one, printing whether it is reachable.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Using subprocess or os module to execute ping command per line read from file and checking return codes."
+  },
+  {
+    "text": "Explain how Linux cgroups manage resource limits for containers.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Control Groups (cgroups) restrict, account for, and isolate the resource usage (CPU, memory, disk I/O, network) of a collection of processes, preventing a single container from starving host resources."
+  },
+  {
+    "text": "What is a multi-stage Docker build and why is it useful?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Multi-stage builds allow multiple `FROM` instructions in a single Dockerfile, enabling developers to use heavy build environments in early stages and copy only the compiled binaries or artifacts into a minimal production image, significantly reducing image size and attack surface."
+  },
+  {
+    "text": "How does Kubernetes implement Service Discovery?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Kubernetes uses internal DNS (CoreDNS) and abstract Service objects that assign a stable internal IP and load-balance traffic to a dynamic set of backend Pods matching selector labels."
+  },
+  {
+    "text": "Explain the difference between Terraform state and actual cloud infrastructure.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Terraform state is a JSON file mapping resource declarations to real-world resource IDs. Drift occurs when infrastructure is modified outside of Terraform, causing discrepancies between the state file and actual cloud reality."
+  },
+  {
+    "text": "What is the difference between a Liveness Probe and a Readiness Probe in Kubernetes?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A Liveness probe determines if a container needs to be restarted if it is deadlocked or broken. A Readiness probe determines if a container is ready to accept incoming network traffic, removing it from service endpoints if it is overloaded or starting up."
+  },
+  {
+    "text": "How do Prometheus scrape targets work?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Prometheus uses a pull-based model where it periodically makes HTTP GET requests to configured endpoints (targets) to scrape time-series metrics formatted in plain text."
+  },
+  {
+    "text": "What is a blue-green deployment strategy?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "It involves maintaining two identical production environments (Blue and Green). One is live while the other is idle; deployments are tested on the idle environment, and traffic is switched over instantly via a router or load balancer once verified."
+  },
+  {
+    "text": "Explain how RBAC (Role-Based Access Control) works in Kubernetes.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "RBAC uses Roles/ClusterRoles to define sets of permissions (verbs like get, list, create on resources like pods, services) and RoleBindings/ClusterRoleBindings to associate those permissions with specific users, groups, or service accounts."
+  },
+  {
+    "text": "What is the purpose of an Ansible playbook?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "An Ansible playbook is a YAML-formatted file that defines a series of automated tasks, configurations, and deployment steps to be executed against remote servers over SSH in an idempotent manner."
+  },
+  {
+    "text": "What is the difference between symmetric and asymmetric routing in cloud VPCs?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Symmetric routing ensures packets take the exact same path in reverse when returning, while asymmetric routing allows return packets to take a different network path, which can cause issues with stateful firewalls."
+  },
+  {
+    "text": "How does TLS termination work at a load balancer?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The load balancer decrypts incoming HTTPS traffic from clients using its SSL certificate, and then forwards plain HTTP traffic to backend application servers over a secure internal network."
+  },
+  {
+    "text": "What is infrastructure drift and how can it be prevented?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Drift is when manual, out-of-band changes diverge live infrastructure from its defined code state. It is prevented by enforcing strict GitOps workflows, disabling manual console access, and running automated continuous IaC plans."
+  },
+  {
+    "text": "Explain how Linux inode tables work and what happens when they run out.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "An inode stores metadata about a file (permissions, owner, size) excluding its actual data content. If inode count reaches 100% usage, the filesystem cannot create new files even if free storage space is physically available."
+  },
+  {
+    "text": "What are the main components of a Helm chart?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A Helm chart includes Chart.yaml (metadata), values.yaml (default configuration values), templates/ (Kubernetes manifest templates), and charts/ (dependency charts)."
+  },
+  {
+    "text": "How do you secure container images in a CI/CD pipeline?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "By integrating automated vulnerability scanners (like Trivy or Grype) into the build pipeline to block images with critical CVEs from being pushed to container registries."
+  },
+  {
+    "text": "What is the difference between Prometheus and Grafana?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Prometheus is a monitoring system and time-series database that collects and stores metrics. Grafana is a visualization and dashboarding tool that queries Prometheus (and other sources) to render graphs and alerts."
+  },
+  {
+    "text": "Explain how a Git webhook triggers an automated CI/CD pipeline.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "When an event occurs in Git (like a push or pull request), the repository sends an HTTP POST payload to a CI/CD server webhook listener, which automatically authenticates and kicks off the corresponding pipeline job."
+  },
+  {
+    "text": "What is the role of a service mesh like Istio?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A service mesh manages microservices communication via sidecar proxies, handling traffic routing, mutual TLS encryption, retries, circuit breaking, and telemetry observation without application code changes."
+  },
+  {
+    "text": "What is the difference between horizontal pod autoscaling (HPA) and cluster autoscaling?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "HPA increases or decreases the number of Pod replicas based on CPU/memory usage, while cluster autoscaling adds or removes underlying worker nodes in the Kubernetes cluster when pods cannot fit or nodes are underutilized."
+  },
+  {
+    "text": "How do you troubleshoot a high CPU load on a Linux server?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use tools like `top` or `htop` to identify resource-heavy processes, `pidstat` or `ps` to inspect thread details, and `perf` or profiling tools to trace CPU cycles and bottleneck functions."
+  },
+  {
+    "text": "Tell me about a time you diagnosed a complex production bug that spanned multiple systems. (STAR)",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Look for systematic troubleshooting methodology, collaboration across teams, and calm demeanor under pressure."
+  },
+  {
+    "text": "Describe a project where you introduced a new DevOps tool or practice to your team. How did you gain adoption? (STAR)",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Evaluates change management, documentation skills, empathy for developers, and ability to demonstrate clear ROI."
+  },
+  {
+    "text": "Tell me about a time an infrastructure deployment failed during a release window. How did you handle the rollback and post-incident review? (STAR)",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Assesses incident management, adherence to rollback runbooks, and blameless post-mortem culture."
+  },
+  {
+    "text": "Describe a time you had to mentor a junior team member on code quality or infrastructure security best practices. (STAR)",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Measures leadership, communication style, patience, and commitment to team growth."
+  },
+  {
+    "text": "Tell me about a situation where requirements changed halfway through an infrastructure migration. How did you adapt? (STAR)",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Looks for flexibility, modular design practices, and clear communication regarding scope adjustments."
+  },
+  {
+    "text": "Production response latency spikes by 500% right after a routine Friday afternoon deployment. What is your immediate incident response workflow?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Acknowledge alert, declare incident if needed, check monitoring dashboards for metrics, review recent deployment diffs, trigger rollback if necessary, and communicate status to stakeholders."
+  },
+  {
+    "text": "A developer needs root access to production servers to debug a persistent memory leak. Company policy forbids this. How do you handle the request?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Explain the security policy, offer safe alternatives such as temporary JIT (Just-In-Time) access via privileged session management, or provide sanitized logs, profiling dumps, and ephemeral debug pods."
+  },
+  {
+    "text": "Your cloud bill unexpectedly doubled over the last month. How do you approach finding and fixing the root cause?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use cloud cost management tools (AWS Cost Explorer, GCP Billing) to drill down by service, region, and tags, identify unattached disks, oversized instances, or runaway data transfer, and implement budget alerts."
+  },
+  {
+    "text": "Write a Python script to parse a JSON log file and count the frequency of each HTTP status code.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Open JSON file, iterate through log entries using `json.load()` or `json.loads()`, extract status code keys, and accumulate counts in a dictionary or collections.Counter."
+  },
+  {
+    "text": "Write a robust bash script loop that checks if a specific TCP port on a remote host is open, retrying up to 5 times with a 2-second delay.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Using netcat (`nc`), `timeout`, or `/dev/tcp` inside a `for` loop with conditional checks and `sleep 2`."
+  },
+  {
+    "text": "How do Linux namespaces provide container isolation?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Namespaces wrap global system resources into abstractions so that processes within a containerized namespace see only their own isolated subset of resources (e.g., PID, NET, MNT, IPC, UTS, USER)."
+  },
+  {
+    "text": "Explain how Kubernetes network policies enforce microsegmentation.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Network policies use label selectors and IP blocks to control traffic flow at the IP address or port level (OSI Layer 3/4) between pods or namespaces, denying all traffic by default when a policy is applied."
+  },
+  {
+    "text": "What is GitOps and how does it differ from traditional CI/CD deployment?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "GitOps uses Git as the single source of truth for declarative infrastructure and application state. Unlike push-based CI/CD where pipelines push changes out, a pull-based GitOps agent (like ArgoCD) continuously monitors Git and pulls changes into the cluster."
+  },
+  {
+    "text": "Explain how Terraform handles module composition and dependency inversion.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Terraform modules encapsulate reusable resource configurations. Dependency inversion is managed via explicit `depends_on` or implicit attribute references where child modules accept inputs and return outputs, chaining execution order automatically."
+  },
+  {
+    "text": "What are eBPF programs and how are they revolutionizing Linux observability and security?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "eBPF allows running sandboxed C programs inside the Linux kernel without changing kernel source code or loading modules, enabling high-performance packet filtering, tracing, and security monitoring with low overhead."
+  },
+  {
+    "text": "How does TLS mutual authentication (mTLS) work in zero-trust architectures?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "mTLS ensures both client and server cryptographically authenticate each other through X.509 digital certificates before any application data is exchanged, encrypting and validating all traffic across the network."
+  },
+  {
+    "text": "Describe the internals of how Kubernetes schedules a Pod onto a worker node.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "The scheduler watches unassigned pods via the API server, runs a two-phase filtering (predicates) and scoring (priorities) algorithm based on resource requirements, affinity, and taints, and then writes the node binding back to the API server."
+  },
+  {
+    "text": "What is the difference between Canary deployments and Feature Flags?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Canary deployments route a small percentage of overall production traffic to a new server/pod version to test infrastructure stability. Feature flags wrap specific code blocks in conditional logic to enable or disable features dynamically for specific users without new deployments."
+  },
+  {
+    "text": "How do you manage database schema migrations safely in a zero-downtime CI/CD pipeline?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Using the Expand-Contract pattern (backward-compatible changes): first deploy code that supports old and new schemas, run migrations to add columns/tables, deploy code using new schema, and finally drop old columns in a subsequent release."
+  },
+  {
+    "text": "Explain how container image layers work in copy-on-write filesystems like OverlayFS.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "OverlayFS combines multiple underlying read-only image layers and a single writable upper layer into a unified view. When a file is modified, it is copied from a lower read-only layer up to the upper writable layer for modification."
+  },
+  {
+    "text": "What is the role of Prometheus remote write in large-scale metric architectures?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Remote write allows Prometheus to stream ingested time-series data to external long-term storage backends (like Thanos, Cortex, or Mimir), overcoming local disk retention limits."
+  },
+  {
+    "text": "How do you prevent split-brain syndrome in high-availability distributed systems?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "By using quorum-based consensus algorithms (like Raft or Paxos) where nodes require an absolute majority (N/2 + 1) of active votes to elect a leader or commit state changes, preventing isolated partitions from operating independently."
+  },
+  {
+    "text": "Explain how IAM role assumption works via AWS STS (Security Token Service).",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "STS allows applications or users to request temporary, short-lived AWS credentials by making an API call referencing a target IAM role and passing necessary trust policy conditions or external IDs."
+  },
+  {
+    "text": "What is the difference between soft limits and hard limits in Linux resource management (`ulimit`)?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Soft limits are advisory resource thresholds that a process can exceed temporarily after receiving a warning signal, while hard limits act as absolute ceilings set by the system administrator that cannot be exceeded without superuser privileges."
+  },
+  {
+    "text": "How does DNS propagation work and why do TTLs matter during a domain migration?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "TTL (Time To Live) determines how long recursive resolvers cache DNS records. Lowering TTLs hours before a migration ensures clients quickly fetch updated record IPs, minimizing downtime during the transition."
+  },
+  {
+    "text": "Describe how you would implement immutable backups for disaster recovery against ransomware.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "By using cloud storage object lock features in compliance mode (WORM - Write Once, Read Many), ensuring backup files cannot be deleted or modified by any user or IAM role until the retention period expires."
+  },
+  {
+    "text": "Tell me about a time you led a major cross-functional infrastructure project that faced severe resistance or delays. How did you succeed? (STAR)",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Evaluates strategic leadership, stakeholder persuasion, problem-solving under uncertainty, and delivery tracking."
+  },
+  {
+    "text": "Describe a catastrophic failure or outage you were personally responsible for resolving. What did you learn and what systemic changes followed? (STAR)",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Looks for profound accountability, calm crisis management, deep root-cause analysis, and implementation of preventative guardrails."
+  },
+  {
+    "text": "Tell me about a time you had to make a high-stakes technical decision with incomplete information and limited time. (STAR)",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Assesses calculated risk-taking, decision-making frameworks, and ability to handle ambiguous, fast-moving situations."
+  },
+  {
+    "text": "Describe how you balanced security compliance requirements with engineering velocity in a high-growth startup environment. (STAR)",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Evaluates pragmatic engineering, ability to automate compliance checks, and collaboration with security teams."
+  },
+  {
+    "text": "A zero-day vulnerability is announced in a widely used library present in 200+ microservices. Outline your immediate emergency remediation strategy.",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Assess blast radius using SBOM and artifact scanners, patch base images or dependencies, automate rebuilding via CI/CD, deploy hotfixes to critical services first, and implement temporary WAF rules or network blocks."
+  },
+  {
+    "text": "An automated CI/CD pipeline starts experiencing intermittent, non-reproducible build failures due to race conditions in parallel test suites. How do you diagnose and fix it?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Isolate tests, analyze test runners for resource starvation, introduce deterministic test ordering or mock shared external dependencies, and isolate test databases to prevent state collision."
+  },
+  {
+    "text": "A rogue container is consuming 100% of I/O bandwidth on a Kubernetes worker node, causing neighboring pods to time out. How do you isolate and resolve the issue without rebooting the node?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use `crictl` or `docker` commands combined with `iotop` and `pidstat` to identify the offending container process, apply ephemeral resource limits or delete the pod via `kubectl delete pod --force`, and investigate storage class I/O limits."
+  },
+  {
+    "text": "Write a Python script that acts as a webhook receiver, parses incoming JSON alerts from Prometheus, and triggers a PagerDuty API incident.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Using Flask or FastAPI to handle POST requests, extracting alert details, and making an authenticated requests.post call to the PagerDuty Events API."
+  },
+  {
+    "text": "Write a robust Terraform configuration snippet using dynamic blocks to generate multiple ingress security group rules from a list of port objects.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Using `resource \"aws_security_group\"` with a `dynamic \"ingress\"` block iterating over a variable list using `for_each`."
+  },
+  {
+    "text": "Explain the internals of how containerd and runc interact with the Linux kernel to execute containers.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "containerd manages the container lifecycle (image transfer, storage, network attachment) and uses runc\u2014an OCI-compliant CLI tool\u2014to interface with the Linux kernel via system calls like `clone()`, setting up namespaces, cgroups, and pivot_root to spawn container processes."
+  },
+  {
+    "text": "How would you design a multi-region active-active disaster recovery architecture with zero RPO and sub-second RTO for a relational database?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Achieving true active-active with zero RPO and sub-second RTO for relational databases is extremely difficult due to CAP theorem limits. It requires distributed SQL databases (like CockroachDB or AWS Aurora Global with synchronous replication in constrained topologies) combined with geo-routing DNS."
+  },
+  {
+    "text": "Explain the inner workings of Kubernetes CNI (Container Network Interface) plugins like Calico or Cilium.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "CNI plugins configure network interfaces when pods start. Cilium utilizes eBPF maps to bypass iptables overhead entirely, routing packets directly at the socket/XDP layer, while Calico typically uses IP-in-IP or BGP routing between host nodes."
+  },
+  {
+    "text": "How do distributed consensus algorithms like Raft handle network partitions and split votes?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Raft uses randomized election timeouts so nodes time out at different intervals, preventing split votes. During partitions, minority partitions cannot achieve quorum and reject log appends, ensuring consistency when the partition heals."
+  },
+  {
+    "text": "Describe how you would build a zero-trust software supply chain security pipeline from code commit to cluster admission.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Integrate signed commits (GPG), SCA/SAST scans, SLSA provenance generation during builds, cryptographic image signing (Cosign), and admission controllers (Kyverno or OPA Gatekeeper) in Kubernetes to enforce signature verification and vulnerability policies before deployment."
+  },
+  {
+    "text": "Tell me about a time you architected an entire foundational platform migration under extreme executive scrutiny with zero margin for error. (STAR)",
+    "type": "BEHAVIORAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Demonstrates executive presence, elite technical vision, rigorous risk mitigation, and flawless execution under high pressure."
+  },
+  {
+    "text": "Describe a scenario where you identified a systemic architectural flaw that everyone else had normalized for years. How did you build consensus and drive the multi-quarter re-architecture? (STAR)",
+    "type": "BEHAVIORAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Measures long-term technical leadership, cultural influence, strategic planning, and persistence in driving organizational change."
+  },
+  {
+    "text": "A sophisticated malicious actor has achieved lateral movement inside your Kubernetes cluster. Outline your comprehensive containment, forensic preservation, and eradication plan.",
+    "type": "SITUATIONAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Isolate compromised nodes/namespaces via network policies, snapshot persistent volumes and node memory for forensics before termination, revoke affected service account tokens, rotate all cluster secrets and certificates, and analyze audit logs to identify the initial entry vector."
+  },
+  {
+    "text": "Design a globally distributed CI/CD runner architecture that autoscales across multiple public clouds based on queue depth while maintaining strict isolation between untrusted builds.",
+    "type": "SYSTEM_DESIGN",
+    "difficulty": "EXPERT",
+    "expected_answer": "Use webhook routers feeding into a centralized queue (SQS/RabbitMQ), controller workers querying queue depth and provisioning ephemeral microVMs (Firecracker) or isolated Kubernetes pods on spot instances across AWS/GCP, with encrypted storage and ephemeral caches."
+  },
+  {
+    "text": "Design an enterprise-grade observability platform capable of ingesting 10 million metrics per second with 99.99% durability and multi-tenant isolation.",
+    "type": "SYSTEM_DESIGN",
+    "difficulty": "EXPERT",
+    "expected_answer": "Deploy an agent tier (Grafana Agent/Prometheus) pushing to Kafka as a decoupling ingestion buffer, consumed by scalable stateless time-series scrapers/ingestors writing to object storage (S3) via columnar formats (Parquet/Thanos/Mimir blocks), with tenant ID labels enforced at ingestion and query layers."
+  }
+]

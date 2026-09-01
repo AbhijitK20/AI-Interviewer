@@ -1,0 +1,1202 @@
+[
+  {
+    "text": "What is the primary difference between INNER JOIN and LEFT JOIN in SQL?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "An INNER JOIN returns only the records that have matching values in both tables, whereas a LEFT JOIN returns all records from the left table and the matched records from the right table. If there is no match, the right side will contain NULL values."
+  },
+  {
+    "text": "How do you handle missing values in a dataset during data cleaning?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Missing values can be handled by removing the rows or columns if the missingness is minimal, or by imputing the missing values using statistical measures like the mean, median, or mode. The choice depends on the amount of missing data and the potential impact on bias."
+  },
+  {
+    "text": "What is a Key Performance Indicator (KPI)?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A KPI is a measurable value that demonstrates how effectively a company is achieving key business objectives. Organizations use KPIs to evaluate their success at reaching targets."
+  },
+  {
+    "text": "How do you create a basic bar chart in Tableau?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "To create a basic bar chart in Tableau, drag a dimension to the Columns shelf and a measure to the Rows shelf. Tableau automatically generates a bar chart, which can be further customized with colors and labels."
+  },
+  {
+    "text": "What is the purpose of the VLOOKUP function in Excel?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "VLOOKUP is used to search for a value in the leftmost column of a table and return a value in the same row from a specified column. It helps in combining data from different tables based on a common identifier."
+  },
+  {
+    "text": "Tell me about a time when you had to explain a complex technical concept to a non-technical stakeholder.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Focus on using relatable analogies, avoiding jargon, and checking for understanding. Highlight the positive outcome of the communication and how it helped the stakeholder make a decision."
+  },
+  {
+    "text": "Describe a situation where you found an error in your report after sharing it. How did you handle it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Emphasize accountability, quick communication to stakeholders with the corrected information, and the implementation of a proactive review step to prevent future occurrences."
+  },
+  {
+    "text": "You are asked to pull a weekly report, but the data source is temporarily down. What do you do?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "I would notify stakeholders immediately about the delay, check if a cached or alternative data source is available, and provide an estimated time of delivery once the system is restored."
+  },
+  {
+    "text": "Write a SQL query to select all columns from a table named employees where the department is Sales.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "SELECT * FROM employees WHERE department = 'Sales'; This query uses the SELECT statement with a wildcard and a simple WHERE clause to filter the rows."
+  },
+  {
+    "text": "Write a SQL query to count the total number of rows in an orders table.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "SELECT COUNT(*) FROM orders; The COUNT function with an asterisk counts all records in the specified table."
+  },
+  {
+    "text": "Explain the difference between WHERE and HAVING clauses in SQL.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The WHERE clause filters rows before any groupings and aggregations are performed, while the HAVING clause filters the results after groupings and aggregations have been applied using GROUP BY."
+  },
+  {
+    "text": "How do you identify and treat outliers in a numerical dataset?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Outliers can be identified using visual plots like boxplots or statistical methods such as the Interquartile Range (IQR) rule or Z-scores. Treatment involves removing them if they are data entry errors, or retaining/transforming them if they represent valid extreme variations."
+  },
+  {
+    "text": "What are the core principles of effective data visualization?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Core principles include choosing the right chart type for the data, minimizing clutter, using color purposefully to highlight key insights, and ensuring clear labeling and titles for the audience."
+  },
+  {
+    "text": "How do you design a dashboard that tracks trend analysis over time?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I use line charts or area charts on the horizontal time axis to display trends, include date filters for flexibility, and highlight period-over-period growth rates using summary cards."
+  },
+  {
+    "text": "How do you structure an executive report for maximum impact?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "An executive report should start with a high-level summary and key takeaways, followed by actionable recommendations, and place detailed supporting data in an appendix or lower section."
+  },
+  {
+    "text": "How do you use Index-Match or XLOOKUP instead of VLOOKUP in Excel?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "XLOOKUP and INDEX-MATCH allow for searching in any direction, are not broken by inserting new columns, and provide more flexibility and robustness than traditional VLOOKUP formulas."
+  },
+  {
+    "text": "How do you optimize performance in a slow-loading Tableau workbook?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Optimization involves reducing the number of marks on views, using extracts instead of live connections, simplifying complex calculations, and filtering out unnecessary data before loading."
+  },
+  {
+    "text": "Describe a time when you identified a negative trend in business metrics and proposed a solution.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Describe how you monitored the data, discovered the drop, investigated the root cause, and presented a data-backed recommendation that helped reverse the trend."
+  },
+  {
+    "text": "Tell me about a project where you had to balance competing priorities from different business units.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Highlight stakeholder management, prioritization frameworks based on business impact, and clear communication regarding timelines and deliverables."
+  },
+  {
+    "text": "How do you handle a stakeholder who insists on including too many metrics on a single dashboard?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Explain how you would consult them on their primary business questions, educate them on cognitive overload, and propose a tiered dashboard design with summary metrics upfront and details on secondary pages."
+  },
+  {
+    "text": "You notice a sudden spike in daily active users on a Tuesday. What steps do you take to investigate?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I would first verify if it is organic or bot traffic, check for marketing campaigns or product launches on that day, and segment the data by device, geography, or channel to isolate the root cause."
+  },
+  {
+    "text": "A department head disagrees with the trend analysis findings in your report because it contradicts their intuition. How do you respond?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I would remain professional, review the underlying data, methodology, and definitions together to ensure alignment, and remain open to exploring additional segments they believe were missed."
+  },
+  {
+    "text": "Write a SQL query to find the second highest salary from an employee table.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "SELECT MAX(salary) FROM employee WHERE salary < (SELECT MAX(salary) FROM employee); This uses a subquery to exclude the maximum salary and then finds the maximum of the remaining set."
+  },
+  {
+    "text": "Write a SQL query to calculate the running total of sales ordered by date.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "SELECT date, sales, SUM(sales) OVER (ORDER BY date) as running_total FROM sales_table; This utilizes a window function with an ORDER BY clause inside the OVER clause."
+  },
+  {
+    "text": "Write a SQL query to return customers who have placed more than 5 orders.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "SELECT customer_id FROM orders GROUP BY customer_id HAVING COUNT(order_id) > 5; This groups the records by customer and filters the aggregated count using the HAVING clause."
+  },
+  {
+    "text": "Explain window functions in SQL and provide a common use case.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Window functions perform calculations across a set of table rows that are somehow related to the current row without collapsing the rows like GROUP BY does. Common use cases include calculating moving averages, rankings, and cumulative sums."
+  },
+  {
+    "text": "How do you detect and handle data leakage in analytical modeling or reporting?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Data leakage occurs when information from outside the training or observation dataset is improperly used to create a model or report. It is prevented by strictly segregating time-based splits, avoiding future information in historical calculations, and conducting rigorous peer reviews."
+  },
+  {
+    "text": "How do you establish a KPI framework for a new product with no historical data?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "In the absence of historical data, I base KPIs on industry benchmarks, product lifecycle goals, funnel conversion stages, and proxy metrics from similar established products, while setting up tracking to iterate rapidly."
+  },
+  {
+    "text": "How do you implement Level of Detail (LOD) expressions in Tableau and when would you use them?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "LOD expressions (FIXED, INCLUDE, EXCLUDE) allow you to compute values at a different level of granularity than the view in Tableau. They are used for complex aggregations like cohort analysis, finding customer-level metrics within a transaction-level view, or removing filtering effects."
+  },
+  {
+    "text": "What advanced Excel techniques can automate monthly reporting workflows?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Automation can be achieved using Power Query for data ingestion and transformation, dynamic named ranges, pivot tables connected to data models, and VBA or Office Scripts for repetitive tasks."
+  },
+  {
+    "text": "Describe a time when data was insufficient or ambiguous, yet you had to deliver a critical business recommendation.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Explain how you framed assumptions clearly, conducted sensitivity analysis, communicated the uncertainty transparently to leadership, and provided a phased recommendation."
+  },
+  {
+    "text": "Tell me about a complex data pipeline or reporting project that failed or fell behind schedule. What did you learn?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Focus on the root causes of failure such as scope creep or poor requirement gathering, how you managed stakeholder expectations, and concrete process improvements implemented afterward."
+  },
+  {
+    "text": "You discover that a core business metric has been calculated incorrectly for the past six months, impacting past executive presentations. What is your immediate and long-term action plan?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Immediately notify key stakeholders and leadership with transparency, recalculate the correct numbers, determine the root error, and establish an automated unit-testing or validation layer for future reporting."
+  },
+  {
+    "text": "Write a SQL query using a Common Table Expression (CTE) to find the top 3 departments by average employee salary.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "WITH DeptAvg AS (SELECT department, AVG(salary) as avg_sal FROM employees GROUP BY department) SELECT department FROM DeptAvg ORDER BY avg_sal DESC LIMIT 3; This uses a CTE to calculate averages first and then limits the top ranked departments."
+  },
+  {
+    "text": "Write a SQL query to identify duplicate rows in a table and keep only the one with the minimum ID.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "DELETE FROM table WHERE id NOT IN (SELECT MIN(id) FROM table GROUP BY duplicate_column_1, duplicate_column_2); This uses a subquery with grouping to find the keeper IDs and deletes everything else."
+  },
+  {
+    "text": "How do query optimization engines execute complex joins, and how can understanding indexes improve query performance?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Query engines use algorithms like Hash Join, Merge Join, and Nested Loop. B-tree and bitmap indexes allow the engine to bypass full table scans by locating row pointers directly, drastically reducing disk I/O for selective filters."
+  },
+  {
+    "text": "How do you design a scalable enterprise reporting architecture that balances self-service BI with data governance?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "By creating a centralized, certified data warehouse layer with standardized semantic models and approved metrics, while providing business users with certified data connectors to build ad-hoc reports in a governed self-service environment."
+  },
+  {
+    "text": "Describe a scenario where you had to perform deep statistical trend analysis to separate seasonality from structural business growth.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Detail the time-series decomposition methods used, such as moving averages or multiplicative models, how you presented findings to executives, and how the insights guided long-term strategic planning."
+  },
+  {
+    "text": "Write a SQL query using self-joins or conditional aggregation to calculate month-over-month user retention rates.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "SELECT m1.month, COUNT(DISTINCT m2.user_id)::float / COUNT(DISTINCT m1.user_id) as retention_rate FROM user_activity m1 LEFT JOIN user_activity m2 ON m1.user_id = m2.user_id AND m2.month = m1.month + 1 GROUP BY m1.month; This links user activity across consecutive time periods to calculate retention."
+  },
+  {
+    "text": "What is the difference between UNION and UNION ALL in SQL?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "UNION combines the result sets of two or more queries and removes duplicate rows, whereas UNION ALL combines the results including all duplicates. UNION ALL is faster because it does not perform the sorting operation needed to filter duplicates."
+  },
+  {
+    "text": "How do you check for duplicate records in a table using SQL?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "You can check for duplicates by grouping by the columns that should be unique and using the HAVING clause with COUNT greater than 1."
+  },
+  {
+    "text": "What is data normalization?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Data normalization is the process of structuring a relational database to reduce data redundancy and improve data integrity by organizing columns and tables."
+  },
+  {
+    "text": "What does ETL stand for?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "ETL stands for Extract, Transform, and Load. It is the process of gathering data from various sources, cleaning and restructuring it, and loading it into a destination database or data warehouse."
+  },
+  {
+    "text": "How do you filter data in Excel without deleting rows?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "You can use Excel's built-in Filter feature on table headers, apply slicers, or use the FILTER function in newer versions of Excel to display only relevant data."
+  },
+  {
+    "text": "Why is data storytelling important in reporting?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Data storytelling combines data, visuals, and narrative to communicate insights clearly and persuasively, helping stakeholders understand complex findings and take action."
+  },
+  {
+    "text": "What is a scatter plot best used for?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A scatter plot is best used to display and compare the relationship or correlation between two continuous numerical variables."
+  },
+  {
+    "text": "How do you handle a request for a report when you do not have all the required data?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "I explain the data limitations to the stakeholder, discuss alternative metrics or proxy data we can use immediately, and plan to incorporate the full data once available."
+  },
+  {
+    "text": "Tell me about your experience working with cross-functional teams.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Focus on collaboration, active listening, understanding different team goals, and aligning data outputs to meet shared project objectives."
+  },
+  {
+    "text": "A stakeholder asks you to add twenty new charts to an existing single-page dashboard. What is your response?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "I would explain the risk of visual clutter and cognitive overload, and suggest creating a multi-tab dashboard or prioritizing the top metrics that answer their core questions."
+  },
+  {
+    "text": "Write a SQL query to find all users whose email ends with gmail.com.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "SELECT * FROM users WHERE email LIKE '%@gmail.com'; This uses the LIKE operator with a wildcard to filter pattern matches."
+  },
+  {
+    "text": "Write a SQL query to update the status of an order to 'Shipped' where order_id is 1045.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "UPDATE orders SET status = 'Shipped' WHERE order_id = 1045; This uses the UPDATE statement combined with SET and WHERE clauses."
+  },
+  {
+    "text": "What is a subquery in SQL and when should you use a JOIN instead?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A subquery is a query nested inside another SQL statement. JOINs are generally preferred over subqueries when you need to retrieve columns from multiple tables in the final output, as JOINs are often more readable and performant."
+  },
+  {
+    "text": "How do you deal with inconsistent string formatting during data cleaning?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Inconsistent string formatting is handled using string manipulation functions such as trimming whitespace, converting text to lowercase or uppercase, and applying regular expressions or lookup tables to standardize values."
+  },
+  {
+    "text": "What is the difference between lagging and leading indicators?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Lagging indicators measure historical performance and outcomes, such as total revenue, whereas leading indicators measure factors that predict future performance, such as customer pipeline or website traffic."
+  },
+  {
+    "text": "How do you create a calculated field in Tableau?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "You right-click in the data pane, select Create Calculated Field, and write formulas using Tableau functions, dimensions, and measures to build custom metrics."
+  },
+  {
+    "text": "How do you use Pivot Tables in Excel to summarize large datasets?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Pivot Tables allow you to drag and drop fields into rows, columns, values, and filters to quickly aggregate, group, and summarize large amounts of data without writing formulas."
+  },
+  {
+    "text": "How do you present insights to an audience with mixed technical expertise?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I structure the presentation with a high-level executive summary for non-technical members, explain key terms simply, and keep technical methodology in an appendix for deeper technical dives."
+  },
+  {
+    "text": "What is cohort analysis and how do you visualize it?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Cohort analysis groups users based on a shared characteristic or acquisition date and tracks their behavior over time. It is typically visualized using heatmaps or stacked bar charts."
+  },
+  {
+    "text": "Describe a time when you discovered an unexpected trend in data that changed the direction of a project.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Explain how you validated the finding, communicated the discovery to the team, and adapted the project goals based on the new insight."
+  },
+  {
+    "text": "Tell me about a time when you had to manage tight deadlines for multiple reporting requests.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Highlight prioritization strategies, communication with stakeholders regarding trade-offs, and how you delivered key deliverables on time."
+  },
+  {
+    "text": "You notice that data in a monthly report does not match the weekly reports leading up to it. How do you troubleshoot?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I would check for differences in date filtering, timezone handling, data aggregation levels, or late-arriving data updates between the weekly and monthly datasets."
+  },
+  {
+    "text": "A manager asks you to manipulate a metric definition to make performance look better than it is. How do you handle this?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I would professionally explain the importance of maintaining data integrity and objective reporting, while offering to present additional contextual metrics that highlight positive aspects of performance."
+  },
+  {
+    "text": "Write a SQL query to list all products with a price greater than the average price of all products.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "SELECT * FROM products WHERE price > (SELECT AVG(price) FROM products); This uses a subquery to calculate the overall average price dynamically."
+  },
+  {
+    "text": "Write a SQL query to retrieve the top 5 customers by total purchase amount.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "SELECT customer_id, SUM(amount) as total_spent FROM purchases GROUP BY customer_id ORDER BY total_spent DESC LIMIT 5; This aggregates purchases by customer, sorts in descending order, and limits results."
+  },
+  {
+    "text": "Write a SQL query to pivot rows into columns using conditional aggregation.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "SELECT department, SUM(CASE WHEN month = 'Jan' THEN sales ELSE 0 END) as jan_sales FROM sales GROUP BY department; This uses conditional CASE statements inside an aggregate function to pivot row data into columns."
+  },
+  {
+    "text": "How do indexes work in relational databases and when can they degrade performance?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Indexes improve read performance by creating structured lookup pointers, but they can degrade write performance because every insert, update, or delete requires the index to be maintained."
+  },
+  {
+    "text": "How do you approach data imputation for skewed distributions?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "For skewed distributions, using the mean can introduce bias. It is generally better to use the median, mode, or advanced predictive imputation methods like KNN."
+  },
+  {
+    "text": "What is Simpson's Paradox and how do you guard against it in trend analysis?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Simpson's Paradox occurs when a trend appears in different groups of data but reverses or disappears when the groups are combined. Guard against it by always segmenting data and checking for confounding variables."
+  },
+  {
+    "text": "How do you design a robust Tableau data source using relationships versus joins?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Relationships are flexible and dynamic, operating at their native level of detail and avoiding duplication issues common in traditional joins, making them ideal for multi-table analysis."
+  },
+  {
+    "text": "How do you manage version control for complex Excel financial models or scripts?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Version control is managed by using strict naming conventions with timestamps, maintaining a changelog tab within the workbook, and storing backup copies in a version-controlled repository."
+  },
+  {
+    "text": "Describe a time when you built a reporting solution that scaled across an entire organization.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Discuss the scalability challenges, user adoption strategies, performance tuning, and how you gathered feedback for continuous improvement."
+  },
+  {
+    "text": "Tell me about a time when you uncovered a critical data error in a published report that affected business decisions.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Explain how you discovered the error, immediately alerted stakeholders, corrected the models, and put safeguards in place to ensure it never happened again."
+  },
+  {
+    "text": "You are given a dataset with millions of rows and multiple complex joins that times out when querying. How do you optimize it?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "I would analyze the execution plan, add appropriate indexes on join and filter columns, pre-aggregate data using intermediate tables or materialized views, and filter rows early in the query."
+  },
+  {
+    "text": "Write a SQL query using a recursive CTE to generate a date series for the current month.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "WITH RECURSIVE dates AS (SELECT CURRENT_DATE - EXTRACT(DAY FROM CURRENT_DATE)::int + 1 as dt UNION ALL SELECT dt + 1 FROM dates WHERE dt < CURRENT_DATE) SELECT * FROM dates; This uses recursion to build a sequential list of dates."
+  },
+  {
+    "text": "Write a SQL query to find customers who made purchases in every month of the past year.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "SELECT customer_id FROM purchases WHERE purchase_date >= CURRENT_DATE - INTERVAL '1 year' GROUP BY customer_id HAVING COUNT(DISTINCT DATE_TRUNC('month', purchase_date)) = 12; This groups by customer and verifies they have 12 distinct months of activity."
+  },
+  {
+    "text": "Explain the internals of query execution plans and how query cost estimation works.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Query execution plans outline the steps the database engine takes to retrieve data, estimated based on table statistics, index distributions, and cost models that weigh disk I/O and CPU usage."
+  },
+  {
+    "text": "How do you design an anomaly detection system for core business KPIs?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "An anomaly detection system combines time-series forecasting models, moving baseline thresholds, and statistical control charts to automatically flag significant deviations in core metrics."
+  },
+  {
+    "text": "Describe a project where you redesigned a legacy data warehouse reporting schema to support real-time analytics.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Detail the architectural shift from batch loading to streaming or incremental loads, stakeholder management, and the performance gains achieved."
+  },
+  {
+    "text": "Write an advanced SQL query using window functions to calculate a 3-month moving average of sales with a trailing window.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "SELECT month, sales, AVG(sales) OVER (ORDER BY month ROWS BETWEEN 2 PRECEDING AND CURRENT ROW) as moving_avg FROM monthly_sales; This uses a framing clause within the window function to compute the moving average."
+  },
+  {
+    "text": "What is the difference between TRUNCATE, DELETE, and DROP in SQL?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "DELETE removes specific rows and can use a WHERE clause, TRUNCATE removes all rows quickly without logging individual row deletions, and DROP removes the entire table structure from the database."
+  },
+  {
+    "text": "What is a primary key?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A primary key is a column or set of columns that uniquely identifies each row in a table. It cannot contain NULL values and must contain unique values."
+  },
+  {
+    "text": "How do you remove leading and trailing spaces from text in Excel?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "You can use the TRIM function in Excel, which removes all extra spaces from text except for single spaces between words."
+  },
+  {
+    "text": "What is the primary purpose of a line chart?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A line chart is primarily used to display information that changes continuously over time, showing trends and patterns at equal intervals."
+  },
+  {
+    "text": "What is a foreign key?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A foreign key is a column or group of columns in a table that links to the primary key of another table, establishing a relationship between them."
+  },
+  {
+    "text": "Tell me about a time you received critical feedback on your analysis. How did you respond?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Focus on remaining open-minded, listening to the feedback without defensiveness, and applying the suggestions to improve your analytical output."
+  },
+  {
+    "text": "How do you prioritize your daily tasks when working on multiple ad-hoc analytical requests?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "I assess requests based on business impact, urgency, and stakeholder needs, and communicate my priority list clearly with my manager."
+  },
+  {
+    "text": "You notice that a report you generated is being ignored by the team. What do you do?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "I would reach out to stakeholders to gather feedback on whether the report answers their current needs or if the format needs adjustment."
+  },
+  {
+    "text": "Write a SQL query to find the total revenue from an order_items table.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "SELECT SUM(quantity * price) as total_revenue FROM order_items; This uses the SUM aggregation function multiplied across two columns."
+  },
+  {
+    "text": "Write a SQL query to list all unique cities from a customer table.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "SELECT DISTINCT city FROM customers; This uses the DISTINCT keyword to eliminate duplicate city entries."
+  },
+  {
+    "text": "What is the difference between an INNER JOIN and a FULL OUTER JOIN?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "An INNER JOIN returns only records with matches in both tables, whereas a FULL OUTER JOIN returns all records from both tables, filling in NULLs where matches do not exist."
+  },
+  {
+    "text": "How do you handle duplicate rows during data cleaning?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Duplicate rows are handled by identifying unique identifiers across the dataset, filtering out redundant entries using distinct operations or row numbering functions, and keeping the most relevant record."
+  },
+  {
+    "text": "What is cohort retention and how is it measured?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Cohort retention measures the percentage of users from a specific group who return to use a product or service over successive time periods after their initial engagement."
+  },
+  {
+    "text": "How do you create interactive filters in Tableau dashboards?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Interactive filters are created by adding dimensions or measures to the filter shelf and selecting the option to show filter controls on the dashboard view."
+  },
+  {
+    "text": "What is conditional formatting in Excel and how is it used?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Conditional formatting changes the appearance of cells based on their values, such as highlighting cells above a threshold, making it easier to spot trends and outliers visually."
+  },
+  {
+    "text": "How do you decide which visualization tool (Tableau, Power BI, Excel) to use for a project?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The choice depends on the scale of the data, user familiarity, required interactivity, licensing costs, and whether deep statistical exploration or quick ad-hoc analysis is needed."
+  },
+  {
+    "text": "How do you approach investigating a sudden drop in a key business metric?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I break down the metric across various dimensions such as geography, time, device, and user segment to isolate where the drop occurred, then check for data pipeline or external market factors."
+  },
+  {
+    "text": "Describe a time when you found a critical insight in data that was overlooked by others.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Explain the context, the analytical technique you used, how you validated the finding, and the impact your insight had on the business."
+  },
+  {
+    "text": "Tell me about a time when you had to work with messy, unstructured data.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Describe your cleaning workflow, tools used, patience required, and how you ensured the resulting dataset was reliable for analysis."
+  },
+  {
+    "text": "You receive conflicting data requests from two different managers. How do you resolve this?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I would facilitate a discussion between both managers to align priorities, understand business impact, and negotiate timelines or scope adjustments."
+  },
+  {
+    "text": "A stakeholder wants to track a vanity metric that does not align with business goals. How do you advise them?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I would gently explain the limitations of vanity metrics in driving actionable decisions and propose alternative actionable KPIs that tie directly to company objectives."
+  },
+  {
+    "text": "Write a SQL query to find employees who earn more than the department average.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "SELECT e.* FROM employees e WHERE salary > (SELECT AVG(salary) FROM employees WHERE department = e.department); This uses a correlated subquery to compare individual salaries to department averages."
+  },
+  {
+    "text": "Write a SQL query to calculate the percentage growth of monthly revenue.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "WITH monthly AS (SELECT month, SUM(revenue) as rev FROM sales GROUP BY month) SELECT month, rev, (rev - LAG(rev, 1) OVER (ORDER BY month)) / LAG(rev, 1) OVER (ORDER BY month) * 100 as growth_pct FROM monthly; This uses LAG window function to compute percentage change."
+  },
+  {
+    "text": "Write a SQL query to return the top 3 products in each category based on sales.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "WITH ranked AS (SELECT category, product, sales, ROW_NUMBER() OVER (PARTITION BY category ORDER BY sales DESC) as rn FROM products) SELECT * FROM ranked WHERE rn <= 3; This uses ROW_NUMBER with partitioning to rank items within categories."
+  },
+  {
+    "text": "How do you optimize a data cleaning script that processes large volumes of data inefficiently?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Optimization involves vectorizing operations, avoiding iterative row-by-row loops, using chunking or parallel processing, and pushing transformations down to the database level."
+  },
+  {
+    "text": "What is multicollinearity and how does it impact data analysis and modeling?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Multicollinearity occurs when independent variables in a regression model are highly correlated, making coefficient estimates unstable and difficult to interpret."
+  },
+  {
+    "text": "How do you design a dashboard layout that minimizes cognitive load for users?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "I use the Z-pattern reading layout, place high-level KPIs at the top left, limit color palettes to purposeful highlights, and group related charts logically."
+  },
+  {
+    "text": "What are the performance implications of using complex calculated fields in Tableau data sources?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Complex calculations executed at runtime can slow down rendering times. It is often faster to compute these calculations in the SQL data warehouse layer or use extracts."
+  },
+  {
+    "text": "How do you handle data drift in analytical reporting over time?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Data drift is handled by setting up automated monitoring of data distributions, retraining models or updating reporting baselines, and maintaining robust metadata tracking."
+  },
+  {
+    "text": "Describe a time when you had to influence a strategic decision using only data visualization.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Highlight how you designed clear, compelling visuals that revealed a hidden trend, making the business case undeniable to executive leadership."
+  },
+  {
+    "text": "Tell me about a time when your analysis led to a project failure or incorrect conclusion. How did you recover?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Focus on root cause analysis of the error, transparent communication with stakeholders, and the preventative measures adopted to ensure future accuracy."
+  },
+  {
+    "text": "Your automated daily data pipeline fails, and reports are missing before a board meeting in two hours. What is your action plan?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "I would check the error logs, manually run a cached or fallback snapshot if available, notify leadership of the delay, and manually pull the critical metrics needed for the board meeting."
+  },
+  {
+    "text": "Write a SQL query using conditional aggregation to pivot rows into columns for multiple metrics simultaneously.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "SELECT department, SUM(CASE WHEN year = 2022 THEN revenue ELSE 0 END) as rev_2022, SUM(CASE WHEN year = 2022 THEN profit ELSE 0 END) as profit_2022 FROM financials GROUP BY department; This uses conditional aggregation across multiple target columns."
+  },
+  {
+    "text": "Write a SQL query to identify gaps in a sequence of sequential invoice numbers.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "SELECT t1.invoice_id + 1 AS gap_start FROM invoices t1 WHERE NOT EXISTS (SELECT 1 FROM invoices t2 WHERE t2.invoice_id = t1.invoice_id + 1); This uses a correlated subquery to find missing sequential numbers."
+  },
+  {
+    "text": "How do you architect a data governance framework for self-service reporting environments?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "By establishing certified datasets, role-based access controls, standardized metadata dictionaries, and review processes for user-promoted reports to maintain data integrity."
+  },
+  {
+    "text": "Explain how query optimization engines handle cost-based optimization versus rule-based optimization.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Rule-based optimization follows static built-in heuristics to execute queries, whereas cost-based optimization evaluates multiple execution plans using table statistics to choose the path with the lowest resource cost."
+  },
+  {
+    "text": "Describe a time when you designed a predictive trend model that accounted for external macroeconomic shocks.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Detail the external variables integrated, the modeling approach, stakeholder engagement, and how the model helped the company navigate market volatility."
+  },
+  {
+    "text": "Write an advanced SQL query to find the median value of a column without using a built-in median function.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "SELECT AVG(val) FROM (SELECT val, ROW_NUMBER() OVER (ORDER BY val) as rn, COUNT(*) OVER () as cnt FROM data) t WHERE rn BETWEEN cnt / 2.0 AND cnt / 2.0 + 1; This calculates the median using row numbering and average of middle values."
+  },
+  {
+    "text": "How do you handle missing values in a dataset during the data cleaning phase?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Missing values can be handled by dropping the rows or columns if they exceed a certain threshold of missingness. Alternatively, they can be imputed using statistical metrics such as the mean, median, mode, or advanced predictive modeling techniques."
+  },
+  {
+    "text": "What is the purpose of a bar chart in data visualization?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A bar chart is used to compare categorical data using rectangular bars with lengths proportional to the values they represent. It effectively highlights differences or rankings across distinct categories."
+  },
+  {
+    "text": "Define a Key Performance Indicator (KPI) and give a common business example.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A KPI is a measurable value that demonstrates how effectively a company is achieving key business objectives. A common example is Customer Acquisition Cost in marketing or Monthly Recurring Revenue in SaaS."
+  },
+  {
+    "text": "What is trend analysis in the context of data analytics?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Trend analysis is the practice of collecting information and attempting to spot a pattern, or trend, in the data over a specified period. It helps organizations make predictions and strategic decisions based on historical performance."
+  },
+  {
+    "text": "What are the key components of an effective executive summary report?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "An executive summary should briefly state the business problem, highlight key findings, present actionable insights, and outline clear recommendations. It must be concise enough for busy stakeholders to grasp immediately."
+  },
+  {
+    "text": "How do you use VLOOKUP in Microsoft Excel?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "VLOOKUP searches for a value in the leftmost column of a table and returns a value in the same row from a specified column index. The syntax is VLOOKUP lookup value, table array, col index num, range lookup."
+  },
+  {
+    "text": "What is a calculated field in Tableau?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A calculated field allows you to create new data fields from existing data within your Tableau data source using formulas and functions. It enables custom aggregations, conditional formatting, and data transformations."
+  },
+  {
+    "text": "Tell me about a time when you had to explain a complex data concept to a nontechnical stakeholder.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Describe a specific instance where you avoided jargon, used analogies, and focused on business impact. Highlight how you verified their understanding and the positive outcome of the communication."
+  },
+  {
+    "text": "Describe a situation where you had to clean a very messy dataset under a tight deadline.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Explain how you prioritized which errors to fix first, such as critical nulls or duplicates. Emphasize your efficiency, tools used, and how you delivered clean data on time."
+  },
+  {
+    "text": "What would you do if you noticed a discrepancy between a report you generated and one generated by a finance team member?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "I would calmly reach out to the finance team member to compare our underlying data sources, filters, and calculation logic. Investigating collaboratively ensures alignment and prevents sharing conflicting numbers with leadership."
+  },
+  {
+    "text": "Write a SQL query to find the top 5 highest salaries from an employees table.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "SELECT salary FROM employees ORDER BY salary DESC LIMIT 5; This query sorts the salary column in descending order and restricts the output to the first five rows."
+  },
+  {
+    "text": "How do you identify and treat outliers in a numerical dataset during data cleaning?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Outliers can be identified using statistical methods like Z-scores or the Interquartile Range method. Depending on the context, they can be capped, removed, or kept if they represent valid extreme business events."
+  },
+  {
+    "text": "When should you use a scatter plot instead of a line chart?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A scatter plot is used to display the relationship between two continuous numerical variables without time dependency. A line chart is specifically designed to show trends and changes in data sequentially over continuous time intervals."
+  },
+  {
+    "text": "How do you cascade KPIs from a company level down to a departmental level?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Cascading KPIs involves aligning departmental metrics directly with broader corporate strategic goals. For example, if company revenue is the top-level KPI, marketing departments might track lead generation volume while sales tracks conversion rate."
+  },
+  {
+    "text": "What is seasonality in trend analysis, and how do you account for it?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Seasonality refers to predictable variations that recur at regular intervals over a year, such as holiday shopping spikes. It is accounted for by comparing year-over-year metrics or by applying seasonal adjustment algorithms."
+  },
+  {
+    "text": "What structural elements make a weekly reporting dashboard truly actionable?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "An actionable dashboard features high-level summary cards, clear visual indicators of status against targets, drill-down capabilities, and contextual commentary explaining why metrics fluctuated."
+  },
+  {
+    "text": "How do you use INDEX and MATCH in Excel, and why is it preferred over VLOOKUP?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "INDEX returns the value of a cell in a specified row and column, while MATCH finds the position of a lookup value. It is preferred over VLOOKUP because it is not restricted by column order and performs better on large workbooks."
+  },
+  {
+    "text": "Explain the difference between dimensions and measures in Tableau.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Dimensions contain qualitative values such as names, dates, or geographic data and are used to categorize and slice data. Measures contain numerical quantitative values that can be aggregated, such as sales or profit."
+  },
+  {
+    "text": "Describe a time when your analysis led to a significant change in business strategy.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Share a detailed story identifying the problem, your analytical approach, the surprising insight you uncovered, and how management implemented your recommendations to achieve positive results."
+  },
+  {
+    "text": "Tell me about a time when you received ambiguous requirements for a reporting project. How did you handle it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Explain how you asked clarifying questions, created wireframes or mockups to align expectations, and kept stakeholders informed throughout the iterative development process."
+  },
+  {
+    "text": "You are asked to analyze user churn, but your initial dataset has inconsistent date formats and missing customer IDs. What is your step-by-step plan?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "First, drop or isolate rows with missing customer IDs if they cannot be recovered. Second, standardize all date fields into a uniform datetime format. Third, perform exploratory data analysis to validate row counts and begin churn modeling."
+  },
+  {
+    "text": "Write a SQL query using a CTE to calculate the running total of sales by date.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "WITH DailySales AS (SELECT sale_date, SUM(amount) as daily_total FROM sales GROUP BY sale_date) SELECT sale_date, SUM(daily_total) OVER (ORDER BY sale_date) as running_total FROM DailySales;"
+  },
+  {
+    "text": "What is a self-join in SQL, and when would you use it?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "A self-join is a regular join where a table is joined with itself. It is used to compare rows within the same table, such as finding employees who report to the same manager or analyzing hierarchical organizational data."
+  },
+  {
+    "text": "How do you programmatically detect and remove duplicate records in a large dataset that lack a unique primary key?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "You can use window functions like ROW_NUMBER partitioned over all relevant business columns, assigning a sequence number to duplicates. Rows where the row number is greater than one can then be filtered out."
+  },
+  {
+    "text": "How do you design a dashboard to prevent cognitive overload for executive users?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Follow the 5-second rule, limit the dashboard to 5 to 7 key visualizations, use clear typographic hierarchy, apply color purposefully, and organize content using a top-down approach from macro KPIs to micro details."
+  },
+  {
+    "text": "What is the limitation of lagging KPIs, and how do you balance them with leading KPIs?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Lagging KPIs measure historical outcomes, meaning by the time a negative trend is spotted, it is already too late to fix. Leading KPIs predict future performance, so balancing them allows teams to take proactive corrective action."
+  },
+  {
+    "text": "How do you decompose a time series into trend, seasonality, and residual components?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Time series decomposition separates the data using additive or multiplicative models. The trend represents long-term progression, seasonality captures periodic repeating fluctuations, and residuals represent random noise."
+  },
+  {
+    "text": "What are the performance implications of complex Excel formulas versus Power Query transformations?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Volatile formulas like INDIRECT or OFFSET recalculate every time any cell changes, slowing down workbooks. Power Query handles data transformation upstream and loads only the final clean data model, ensuring much better performance."
+  },
+  {
+    "text": "Explain how Tableau data blending differs from data joins and when you should use blending.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Joins combine data from the same database before aggregation, while blending queries separate data sources independently and merges the results at an aggregate level in Tableau. Blending is ideal when combining data from different granularities or unconnected databases."
+  },
+  {
+    "text": "Describe a project where your data analysis revealed that the initial business hypothesis was completely wrong. How did you pivot?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Explain how you validated your surprising findings, communicated the pivot transparently to stakeholders without sounding defensive, and redirected the analysis to answer the new questions that emerged."
+  },
+  {
+    "text": "A key stakeholder insists on adding 20 different charts onto a single dashboard page. How do you push back professionally?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "I would validate their desire for comprehensive information while explaining how cognitive overload reduces decision-making efficiency. I would propose breaking the dashboard into thematic tabs or prioritizing the top 5 KPIs with drill-through options."
+  },
+  {
+    "text": "Write a SQL query to find the second highest salary in a department without using LIMIT.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "SELECT MAX(salary) FROM employees WHERE salary < (SELECT MAX(salary) FROM employees); For departmental granularity, you would incorporate a correlated subquery or a DENSE_RANK window function."
+  },
+  {
+    "text": "Explain query execution order in SQL and why it matters for writing efficient code.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "SQL executes in order from FROM, ON, JOIN, WHERE, GROUP BY, HAVING, SELECT, DISTINCT, ORDER BY, to LIMIT. Understanding this prevents errors such as trying to reference a SELECT alias inside a WHERE clause."
+  },
+  {
+    "text": "How do you optimize an extremely slow SQL query involving multiple joins and aggregations on millions of rows?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "I would analyze the query execution plan to identify table scans, ensure proper indexing on join and filter columns, rewrite subqueries as joins or CTEs, and partition large tables if necessary."
+  },
+  {
+    "text": "Discuss advanced anomaly detection techniques used in trend analysis for high-frequency financial data.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Techniques include ARIMA modeling for residual errors, Isolation Forests, Autoencoders, and Seasonal Hybrid ESD tests, which account for both trend drift and cyclic seasonality automatically."
+  },
+  {
+    "text": "Write a SQL query using window functions to calculate a 3-period moving average of sales.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "SELECT sale_date, amount, AVG(amount) OVER (ORDER BY sale_date ROWS BETWEEN 2 PRECEDING AND CURRENT ROW) as moving_avg FROM sales;"
+  },
+  {
+    "text": "What is a SQL window function and how does it differ from a GROUP BY aggregation?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A window function performs calculations across a set of table rows that are somehow related to the current row, without collapsing the rows into a single summary output like GROUP BY does."
+  },
+  {
+    "text": "How do you handle character encoding errors or corrupted text data during data cleaning?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Character encoding errors like UTF-8 mismatch can be handled by specifying the correct encoding parameter when reading files, stripping non-printable characters, or replacing invalid byte sequences."
+  },
+  {
+    "text": "Why are dual-axis charts often discouraged in professional reporting?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Dual-axis charts use two independent Y-axes on a single plot, which can easily mislead viewers into perceiving correlations or proportional relationships that do not actually exist due to arbitrary scaling."
+  },
+  {
+    "text": "What is the difference between leading and lagging KPIs?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Leading KPIs are predictive and measure activities that drive future outcomes, whereas lagging KPIs measure historical results and output after the fact."
+  },
+  {
+    "text": "How do you perform a cohort analysis using trend reporting techniques?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Cohort analysis groups users based on a shared characteristic or acquisition date, tracking their behavior and retention metrics over successive time periods to reveal long-term engagement trends."
+  },
+  {
+    "text": "How do you structure a root cause analysis report after a sudden drop in website traffic?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Start with a high-level summary of the drop, segment traffic by source, device, and page to isolate the anomaly, investigate external factors like algorithm changes or tracking code errors, and conclude with remediation steps."
+  },
+  {
+    "text": "What are Excel Pivot Tables, and how do they streamline data aggregation?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Pivot tables allow users to quickly summarize, analyze, explore, and present large amounts of data without writing complex formulas by dragging and dropping fields into rows, columns, and values."
+  },
+  {
+    "text": "How do you optimize Tableau dashboard rendering performance for large datasets?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Performance can be optimized by extracting data instead of using live connections, hiding unused fields, reducing the number of marks and filters on a single view, and using context filters."
+  },
+  {
+    "text": "Describe a time when you found a critical data error in a report just before a major presentation.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Explain how you stayed calm, quickly audited the error, communicated transparently with stakeholders about the delay or correction, and fixed the issue with time to spare."
+  },
+  {
+    "text": "You inherit a legacy SQL script with 5 nested subqueries that takes 2 hours to run. How do you approach refactoring it?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "I would analyze the execution plan, break the subqueries down into readable CTEs, ensure proper indexing on join keys, and test the outputs incrementally to verify data integrity."
+  },
+  {
+    "text": "Write a SQL query to identify duplicate rows in a customer table based on email address.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "SELECT email, COUNT(*) FROM customers GROUP BY email HAVING COUNT(*) > 1;"
+  },
+  {
+    "text": "What is a CROSS JOIN in SQL and when is it useful?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A CROSS JOIN produces the Cartesian product of the two tables, returning every possible combination of rows. It is useful for generating combination matrices or calendar date grids."
+  },
+  {
+    "text": "How do you deal with mixed data types in a single column during data cleaning?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Mixed data types, such as strings and numbers in one column, should be audited to determine the intended type. Cast the valid values into a unified format and handle corrupted or misplaced values as nulls."
+  },
+  {
+    "text": "What is the purpose of a box plot in statistical visualization?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A box plot displays the summary of a set of data including the minimum, first quartile, median, third quartile, and maximum, highlighting the spread and skewness of the distribution as well as outliers."
+  },
+  {
+    "text": "How do you establish baseline metrics for a new product feature?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Establish baselines by analyzing historical pre-launch user behavior over a statistically significant control window, ensuring you account for seasonality and external market variables."
+  },
+  {
+    "text": "What is cohort retention analysis and how is it visualized?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Cohort retention analysis tracks the percentage of users who return to use a product over time. It is typically visualized using a triangular heat map with acquisition periods on the y-axis and time elapsed on the x-axis."
+  },
+  {
+    "text": "What are best practices for designing color palettes in data reports?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Use sequential color palettes for ordered numerical data, diverging palettes for data with a meaningful midpoint, and categorical palettes for distinct groups. Always ensure accessibility for colorblind users."
+  },
+  {
+    "text": "How do you handle circular references in Excel?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A circular reference occurs when a formula refers to its own cell. It can be identified via error checking tools, resolved by restructuring the formula logic, or enabled via iterative calculation settings if mathematically required."
+  },
+  {
+    "text": "What is the difference between extract and live connections in Tableau?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A live connection queries the underlying database directly in real-time, while an extract takes a static snapshot of the data stored locally in Tableau's memory for faster performance."
+  },
+  {
+    "text": "Tell me about a time when you disagreed with a manager regarding data interpretation.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Describe how you presented your data-driven evidence respectfully, listened to their perspective, and worked together to validate the findings without undermining workplace relationships."
+  },
+  {
+    "text": "A stakeholder wants to track 50 different metrics on a single executive report. How do you advise them?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I would advise them that tracking too many metrics dilutes focus. I would help them pare the list down to 5 core KPIs and place the remaining exploratory metrics into secondary drill-down tabs."
+  },
+  {
+    "text": "Write a SQL query to calculate the percentage of total sales contributed by each product category.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "SELECT category, SUM(sales) * 100.0 / SUM(SUM(sales)) OVER() FROM products GROUP BY category;"
+  },
+  {
+    "text": "What is a correlated subquery in SQL and how does it execute?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "A correlated subquery is a subquery that depends on values from the outer query for its values. It executes row by row, meaning the inner query evaluates once for every single row processed by the outer query."
+  },
+  {
+    "text": "How do you impute missing values in time-series data without introducing bias?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Time-series imputation can be done using linear interpolation, forward-filling for short gaps, or seasonal decomposition imputation to preserve underlying trends and cyclical patterns."
+  },
+  {
+    "text": "Why might a pie chart be misleading when displaying more than four categories?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Human eyes struggle to accurately compare angles and slice areas when there are too many segments. Bar charts are much more effective for comparing values across multiple categories."
+  },
+  {
+    "text": "How do you align operational KPIs with high-level corporate strategic objectives?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "By mapping business drivers using a balanced scorecard approach, ensuring every operational metric directly impacts financial, customer, or internal process goals."
+  },
+  {
+    "text": "What statistical methods can be used to distinguish a true business trend from random noise?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Moving averages, exponential smoothing, and hypothesis testing like Mann-Kendall tests or regression analysis can separate systematic trends from random fluctuations."
+  },
+  {
+    "text": "How do you structure a post-mortem report after an analytical model or dashboard fails?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Include a timeline of events, identify the root cause of failure, assess the business impact, and outline preventative measures and protocol updates to avoid recurrence."
+  },
+  {
+    "text": "What is Power Query in Excel, and how does it transform data extraction?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Power Query is a data connection and transformation technology that enables users to import data from various sources, clean it using a repeatable step-by-step interface, and load it into Excel."
+  },
+  {
+    "text": "How do LOD expressions work in Tableau, and when would you use them?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Level of Detail expressions allow you to compute values at a different granularity than the visual level of detail in Tableau using INCLUDE, EXCLUDE, or FIXED keywords."
+  },
+  {
+    "text": "Describe a time when you automated a tedious manual reporting process.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Explain the manual process, the tools you used to automate it such as SQL scripts or Power Query, the hours saved, and how you trained others to use the new solution."
+  },
+  {
+    "text": "You discover that a data pipeline has been dropping 5% of incoming records for the past three months. What do you do?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "I would immediately notify engineering to halt and fix the pipeline, assess the business impact on historical reports, audit backfilled data recovery options, and issue a corrected stakeholder update."
+  },
+  {
+    "text": "Write a SQL query using conditional aggregation to pivot rows into columns.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "SELECT department, SUM(CASE WHEN month = 'Jan' THEN salary ELSE 0 END) AS Jan_Sal, SUM(CASE WHEN month = 'Feb' THEN salary ELSE 0 END) AS Feb_Sal FROM employees GROUP BY department;"
+  },
+  {
+    "text": "How do you address text normalization issues such as capitalization and whitespace during data cleaning?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Text normalization involves applying string functions to trim leading and trailing whitespace, convert text to lowercase or uppercase, and remove special characters to ensure consistent grouping."
+  },
+  {
+    "text": "What makes a data visualization accessible for visually impaired users?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Accessibility involves using high-contrast color combinations, providing text alternatives and tooltips, avoiding color as the sole indicator of meaning, and ensuring screen reader compatibility."
+  },
+  {
+    "text": "What is a vanity metric and why should data analysts avoid prioritizing them?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A vanity metric is a measurement that looks impressive on paper, such as total registered downloads, but does not correlate with actual business growth or revenue, like active engagement."
+  },
+  {
+    "text": "How do you identify cyclical patterns versus linear trends in historical data?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Linear trends show steady directional movement over long horizons, while cyclical patterns display non-fixed wave-like fluctuations tied to broader economic cycles rather than fixed seasonal intervals."
+  },
+  {
+    "text": "What are the essential elements of a monthly business review reporting deck?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A monthly review deck should include high-level financial and operational KPI scorecards, variance analysis against targets, deep dives into key operational drivers, and strategic recommendations."
+  },
+  {
+    "text": "How do you use XLOOKUP in Excel, and why is it superior to HLOOKUP and VLOOKUP?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "XLOOKUP searches a range or array and returns an item corresponding to the first match found. It is superior because it can search in any direction, defaults to exact matches, and handles missing values gracefully."
+  },
+  {
+    "text": "How do you create interactive parameters in Tableau to give users dynamic control?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Parameters in Tableau are created as dynamic variables that can replace constant values in calculated fields, filters, or reference lines, allowing users to alter views dynamically."
+  },
+  {
+    "text": "Tell me about a time when you had to deal with incomplete data and still deliver an analysis.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Describe how you acknowledged the data limitations, applied sound assumptions or proxies, clearly communicated caveats in your report, and provided actionable insights despite the gaps."
+  },
+  {
+    "text": "An executive asks you to prove that a recent marketing campaign caused a spike in sales, but there was also a seasonal holiday during the same week. How do you analyze this?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "I would use controlled comparison methods, such as looking at historical holiday performance or comparing markets where the campaign ran against control markets where it did not, isolating the incremental lift."
+  },
+  {
+    "text": "Write a SQL query to find customers who have placed orders in every single month of the current year.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "SELECT customer_id FROM orders WHERE EXTRACT(YEAR FROM order_date) = 2023 GROUP BY customer_id HAVING COUNT(DISTINCT EXTRACT(MONTH FROM order_date)) = 12;"
+  },
+  {
+    "text": "What is a Full Outer Join and what are common use cases for it?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A Full Outer Join returns all records when there is a match in either left or right table records. It is used when reconciling two different data systems to identify records present in only one or both sources."
+  },
+  {
+    "text": "How do you handle invalid date formats and timezone discrepancies during data cleaning?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Invalid dates should be parsed into standard ISO datetime formats and missing or corrupt values handled appropriately. Timezone discrepancies are resolved by converting all timestamps into a unified universal time zone."
+  },
+  {
+    "text": "When is a stacked bar chart preferable to a grouped bar chart?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A stacked bar chart is preferable when you want to show the total magnitude of a category alongside the relative breakdown of its sub-components, whereas grouped charts are better for comparing sub-components directly."
+  },
+  {
+    "text": "What is the difference between lagging indicators and diagnostic metrics in performance reporting?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Lagging indicators measure final business results, while diagnostic metrics examine the underlying causes and behaviors that explain why those results occurred."
+  }
+]

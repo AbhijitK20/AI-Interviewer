@@ -1,0 +1,1202 @@
+[
+  {
+    "text": "What is the primary difference between 3NF and Dimensional Modeling (Star Schema)?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "3NF focuses on minimizing redundancy and is optimized for OLTP systems, whereas Dimensional Modeling de-normalizes data into fact and dimension tables optimized for analytical queries (OLAP)."
+  },
+  {
+    "text": "Can you explain what an idempotency key is in the context of ETL pipelines?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "An idempotency key is a unique identifier included in a request ensuring that if the same operation is executed multiple times due to retries, it only produces the intended side effect once."
+  },
+  {
+    "text": "Write a SQL query to find the second highest salary from an Employee table.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "SELECT MAX(salary) FROM Employee WHERE salary < (SELECT MAX(salary) FROM Employee); You can also use LIMIT/OFFSET or DENSE_RANK depending on the SQL dialect."
+  },
+  {
+    "text": "Tell me about a time when you had to deal with incomplete data from a third-party API. How did you handle it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Look for a structured approach: identifying the missing data, communicating with the vendor, implementing fallback defaults or validation checks, and documenting the edge case for downstream consumers."
+  },
+  {
+    "text": "What is the difference between a transformation and an action in Apache Spark?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Transformations (like map, filter) are lazy operations that build a DAG of execution plans, whereas actions (like collect, count, save) trigger actual computation and return results or write data."
+  },
+  {
+    "text": "How do you define a DAG in Apache Airflow?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A DAG (Directed Acyclic Graph) is a Python script that organizes tasks with directional dependencies, ensuring there are no infinite loops and defining the execution order and schedule."
+  },
+  {
+    "text": "What is a Kafka topic partition, and why are they used?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Partitions are ordered, immutable sequences of records within a Kafka topic. They allow horizontal scalability and parallel processing by distributing records across multiple brokers and consumers."
+  },
+  {
+    "text": "How do you handle a situation where a downstream stakeholder claims your dashboard numbers are wrong?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Verify the source data, check recent pipeline logs for failures or schema changes, reproduce the metric query locally, and transparently communicate findings while implementing a fix."
+  },
+  {
+    "text": "Write a Python snippet to parse a JSON string and extract a specific nested key safely.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Use json.loads() and safely access keys using dict.get() or libraries like jmespath to avoid KeyError exceptions on missing nested fields."
+  },
+  {
+    "text": "What is data profiling, and why is it important before building data quality checks?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Data profiling examines source data to collect statistics like null counts, distinct values, and data types. This baseline helps define accurate, meaningful data quality rules."
+  },
+  {
+    "text": "Explain the concept of slowly changing dimensions (SCD) Type 1.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "SCD Type 1 overwrites old attribute values with new ones, meaning history is not preserved and past facts reflect current dimension attributes."
+  },
+  {
+    "text": "What is the role of a deduplication step in an ingestion pipeline?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "It removes duplicate records caused by at-least-once delivery mechanisms in streaming or retried batch extraction jobs, ensuring unique primary keys downstream."
+  },
+  {
+    "text": "Write a SQL query to identify duplicate rows in a table based on a column named 'transaction_id'.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "SELECT transaction_id, COUNT(*) FROM transactions GROUP BY transaction_id HAVING COUNT(*) > 1;"
+  },
+  {
+    "text": "Describe a project where you optimized an inefficient script. What was your approach?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Mention profiling the bottleneck, testing hypotheses (e.g., indexing, removing loops), rewriting the code, and measuring performance improvements."
+  },
+  {
+    "text": "What is a Spark DataFrame?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A distributed collection of data organized into named columns, conceptually equivalent to a table in a relational database or a data frame in R/Python, optimized via Catalyst."
+  },
+  {
+    "text": "What is an Airflow Sensor?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A special type of operator in Airflow that waits for a specific condition\u2014like a file arrival, database entry, or external API status\u2014to be met before letting downstream tasks proceed."
+  },
+  {
+    "text": "What is a Kafka Consumer Group?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A group of consumers that cooperate to consume data from a set of topics, where each partition is consumed by exactly one consumer within the group to enable load balancing."
+  },
+  {
+    "text": "Imagine a pipeline fails due to a network timeout on an external API. How would you handle it programmatically?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Implement exponential backoff and retry logic using decorators like tenacity or built-in Airflow retry parameters to handle transient network issues automatically."
+  },
+  {
+    "text": "Write a PySpark snippet to read a CSV file with header and infer schema.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "df = spark.read.option('header', 'true').option('inferSchema', 'true').csv('path/to/file.csv')"
+  },
+  {
+    "text": "What is data lineage and why is it useful?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Data lineage tracks the origin, movement, and transformation of data across its lifecycle, helping with impact analysis, debugging, and regulatory compliance."
+  },
+  {
+    "text": "Explain SCD Type 2 and when you should use it.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "SCD Type 2 preserves historical changes by adding new rows with version numbers, effective date ranges, and a current flag. Use it when historical reporting against historical attributes is required."
+  },
+  {
+    "text": "How do you handle late-arriving data in a micro-batch ETL pipeline?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use watermarking in streaming frameworks to define a threshold for how late data can be processed, and design target tables or partitions to accept updates or reprocessing runs."
+  },
+  {
+    "text": "Write a SQL query using window functions to calculate a 7-day moving average of sales.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "SELECT date, sales, AVG(sales) OVER (ORDER BY date ROWS BETWEEN 6 PRECEDING AND CURRENT ROW) as moving_avg FROM daily_sales;"
+  },
+  {
+    "text": "Tell me about a time you had a disagreement with a software engineer regarding data schema design. How did you resolve it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Focus on balancing application operational requirements (fast writes/OLTP) with analytical needs (fast reads/OLAP), collaborating on trade-offs, and potentially implementing an intermediary transformation layer."
+  },
+  {
+    "text": "How does Spark manage memory across executors, and what is shuffle memory?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Spark divides memory into execution and storage pools. Shuffle memory is part of the execution pool used during operations like joins and aggregations to buffer intermediate data spilled to disk if memory is exceeded."
+  },
+  {
+    "text": "Explain how Airflow handles task retries and SLAs.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Retries are configured via task parameters (retries, retry_delay) to automatically re-run failed tasks. SLAs define a time window for task completion, triggering alerts or callbacks if breached."
+  },
+  {
+    "text": "What is log compaction in Apache Kafka, and why is it used?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Log compaction ensures that Kafka retains at least the last known value for each key within a partition log, turning the topic into a changelog, ideal for state stores and reference data."
+  },
+  {
+    "text": "You notice a critical production pipeline running significantly slower than usual without throwing errors. What steps do you take?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Check resource utilization (CPU, memory, disk I/O), analyze executor/worker logs for data skew or GC pauses, inspect recent data volume surges, and examine execution plans for inefficient query or transform steps."
+  },
+  {
+    "text": "Write a PySpark script to perform an aggregation (groupby and sum) on a large dataset.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "result_df = df.groupBy('category').agg({'amount': 'sum'}).withColumnRenamed('sum(amount)', 'total_amount')"
+  },
+  {
+    "text": "What is schema evolution in data lakes, and how do Parquet or Delta Lake handle it?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Schema evolution allows altering table schemas over time. Formats like Delta Lake support ACID transactions that automatically update metadata to add columns, safely handle type widening, or prevent incompatible changes."
+  },
+  {
+    "text": "What are the trade-offs between normalized and denormalized data models in data warehousing?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Normalized models reduce data redundancy and update anomalies but require expensive multi-table joins. Denormalized models speed up read queries at the cost of storage space and complex update synchronization."
+  },
+  {
+    "text": "How would you implement data quality monitoring for missing values in a daily batch pipeline?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use data quality frameworks like Great Expectations or Soda to run assertions post-ingestion, checking percentage of nulls against threshold limits, and failing the pipeline or alerting if violated."
+  },
+  {
+    "text": "Write a SQL query to pivot rows into columns (e.g., monthly sales into monthly columns).",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "SELECT employee_id, SUM(CASE WHEN month='Jan' THEN sales ELSE 0 END) AS Jan, SUM(CASE WHEN month='Feb' THEN sales ELSE 0 END) AS Feb FROM sales GROUP BY employee_id;"
+  },
+  {
+    "text": "Describe a situation where a pipeline failure impacted business operations. How did you communicate and remediate?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Emphasize prompt notification of stakeholders, estimation of impact, rapid root-cause analysis, deploying a hotfix, and conducting a blameless post-mortem with preventive measures."
+  },
+  {
+    "text": "Explain Spark Broadcast Joins and when the Catalyst optimizer chooses them.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A broadcast join sends a small dataframe to all worker nodes, avoiding expensive shuffles. The optimizer chooses it when the table size is below the threshold set by 'spark.sql.autoBroadcastJoinThreshold'."
+  },
+  {
+    "text": "How do you handle dynamic task mapping in Airflow 2.x?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Dynamic task mapping allows a DAG to generate a variable number of task instances at runtime based on the output of an upstream task, replacing older anti-patterns like SubDAGs."
+  },
+  {
+    "text": "What is the role of the Kafka Zookeeper (or KRaft) quorum?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "It manages cluster metadata, elects controller brokers, and tracks cluster health and broker configurations. KRaft replaces Zookeeper with an internal event-based quorum for better scalability."
+  },
+  {
+    "text": "An upstream source changes a primary key from integer to string without notice, breaking your ingestion job. How do you respond?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Catch the schema mismatch error, isolate the failed batch, coordinate with the upstream team to establish schema contracts, and update the data type casting logic in your ingestion layer."
+  },
+  {
+    "text": "Write a Python script using pandas to handle missing values by filling numerical columns with the median.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "for col in df.select_dtypes(include='number').columns: df[col] = df[col].fillna(df[col].median())"
+  },
+  {
+    "text": "What is data observability, and how does it differ from traditional data monitoring?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Monitoring tells you when something is broken (e.g., job failed), while observability helps you understand why (e.g., schema drift, volume anomaly, data freshness issues) across the entire pipeline."
+  },
+  {
+    "text": "Explain the concept of Data Vault modeling and its primary components.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Data Vault is designed for enterprise data warehouses, consisting of Hubs (business keys), Links (relationships between hubs), and Satellites (descriptive attributes with history)."
+  },
+  {
+    "text": "How do you detect and handle data drift in a real-time feature pipeline?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use statistical tests (like Kolmogorov-Smirnov or Population Stability Index) comparing incoming streaming distributions against a reference baseline, triggering alerts or retraining pipelines when thresholds are exceeded."
+  },
+  {
+    "text": "Optimize the following slow SQL query involving multiple JOINs, subqueries, and large unindexed tables.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Rewrite subqueries into JOINs or CTEs, ensure appropriate indexes exist on join/filter keys, prune columns early, and check execution plans to avoid full table scans."
+  },
+  {
+    "text": "Tell me about a time you architected a data platform from scratch. What major challenges did you face and how did you overcome them?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Focus on requirement gathering, technology selection (storage, compute, orchestration), addressing security/governance, scaling bottlenecks, and aligning with business stakeholders."
+  },
+  {
+    "text": "How does Spark's Catalyst Optimizer work under the hood?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "It processes logical plans through four phases: Analysis (resolving names/types), Logical Optimization (rule-based rewrites like predicate pushdown), Physical Planning (generating multiple physical plans), and Code Generation (generating Java bytecode via Whole-Stage Codegen)."
+  },
+  {
+    "text": "Explain how Airflow's Executor model works (e.g., Celery vs Kubernetes Executor).",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "The scheduler defines work, and executors dispatch it. Celery uses a broker and worker pool to run tasks in background workers, while Kubernetes Executor spawns an isolated pod for every single task instance."
+  },
+  {
+    "text": "How do you guarantee exactly-once semantics in a Kafka-to-Kafka streaming application?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use Kafka Streams with 'read_committed' isolation level, idempotent producers enabled, and transactional APIs that atomically write output records and consumer offsets."
+  },
+  {
+    "text": "A mission-critical batch job is experiencing intermittent out-of-memory (OOM) errors on worker nodes. Walk through your debugging process.",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Analyze cluster logs and heap dumps, check for memory leaks, identify unpersisted dataframe recomputations, check for data skew causing uneven partition loads, and adjust executor memory configurations or partition counts."
+  },
+  {
+    "text": "Write a PySpark UDF or Pandas UDF to compute a complex custom mathematical transformation on grouped data efficiently.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Use Pandas UDF (PyArrow-backed) instead of standard Python UDFs to leverage vectorized operations, significantly reducing serialization overhead between JVM and Python workers."
+  },
+  {
+    "text": "What are the architectural considerations when choosing between a Data Lakehouse and a traditional Data Warehouse?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Lakehouses combine object storage cost-efficiency with ACID transactions and structured governance (Delta/Iceberg), whereas data warehouses offer mature enterprise tooling, higher concurrency, and strict relational performance."
+  },
+  {
+    "text": "How do you design a multi-tenant data warehouse with strict data isolation and cost allocation requirements?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Use schema-level or database-level isolation paired with row-level security (RLS), and leverage warehouse resource pools, tags, or separate compute clusters to attribute and cap compute costs per tenant."
+  },
+  {
+    "text": "Explain the internals of Kafka's replication protocol and how high watermarks are maintained.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Follower replicas fetch messages from the leader. The high watermark is the highest offset replicated to all in-sync replicas (ISRs), ensuring clients only read committed messages that will survive broker failures."
+  },
+  {
+    "text": "Design a distributed algorithm or PySpark workflow to detect complex cyclical fraud rings in a graph of 10 billion transactions.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "Use GraphFrames or Spark GraphX to build the graph, apply distributed triangle counting or strongly connected components algorithms, and leverage iterative graph processing (Pregel API) to detect cycles."
+  },
+  {
+    "text": "Describe the most challenging data architecture failure you experienced, how you resolved it, and what governance policies you implemented to prevent recurrence.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Highlight a systemic failure (e.g., silent data corruption or cascading pipeline failure), crisis management, root cause analysis, and establishing automated testing, contracts, and observability frameworks."
+  },
+  {
+    "text": "How would you design a zero-downtime migration of a petabyte-scale data warehouse from one cloud provider to another?",
+    "type": "SITUATIONAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Implement dual-write ingestion pipelines, historical bulk migration via snapshots, continuous CDC replication for incremental updates, shadow testing of queries, and a gradual traffic switchover."
+  },
+  {
+    "text": "What is the difference between an Anchor Modeler and Anchor Modeling compared to traditional data vault?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Anchor Modeling pushes normalization to the extreme, treating every attribute, tie, and entity as separate anchor tables with time-stamped metadata, reducing nulls and restructuring impact compared to standard Data Vault."
+  },
+  {
+    "text": "How do you tune Spark shuffle partitions and avoid shuffle spill in skewed joins?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Adjust 'spark.sql.shuffle.partitions', use AQE (Adaptive Query Execution) for dynamic coalescing and skew join optimization, or apply salting techniques to split heavily skewed keys."
+  },
+  {
+    "text": "Write a custom Airflow operator from scratch that implements health checks and graceful failure handling.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "Inherit from BaseOperator, implement `__init__` for parameters, override the `execute` method with custom logic, and utilize Airflow task lifecycle hooks (`on_failure_callback`) for robust handling."
+  },
+  {
+    "text": "How do you design a real-time event-driven architecture using Kafka and Flink (or Spark Structured Streaming) with sub-second end-to-end latency?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Optimize Kafka broker configurations for low batch sizes/acks, tune stateful streaming backends (e.g., RocksDB), minimize network hops, and design memory-efficient windowing and state management."
+  },
+  {
+    "text": "What are the core internals of Apache Iceberg file layouts, and how do manifest lists enable time travel?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Iceberg organizes metadata into snapshots, manifest lists, and manifest files. Manifest lists track data files for a specific snapshot version, allowing queries against past snapshots to reference their exact historical manifest files effortlessly."
+  },
+  {
+    "text": "What is data governance and why is metadata management its core pillar?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Data governance establishes policies for data quality, security, and usage. Metadata management acts as its foundation by tracking what data exists, where it lives, how it is transformed, and who owns it."
+  },
+  {
+    "text": "Explain the difference between batch and streaming ingestion architectures.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Batch ingestion processes data in scheduled chunks (e.g., hourly or daily), making it cost-effective and simple to manage. Streaming ingestion processes events continuously in real-time, offering low latency but higher infrastructure complexity."
+  },
+  {
+    "text": "Write a SQL query to calculate the running total of revenue per customer.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "SELECT customer_id, order_date, amount, SUM(amount) OVER (PARTITION BY customer_id ORDER BY order_date) as running_total FROM orders;"
+  },
+  {
+    "text": "Tell me about a time when you had to onboard a junior engineer onto your data team. How did you mentor them?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Focus on setting clear expectations, pairing them on initial tasks, providing constructive feedback during code reviews, and gradually increasing task autonomy."
+  },
+  {
+    "text": "What is the purpose of partitioning in distributed storage systems like S3 or HDFS?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Partitioning organizes data into hierarchical folders based on specific column values (e.g., year/month/day), allowing query engines to skip irrelevant data and significantly improve read performance."
+  },
+  {
+    "text": "What is an Airflow connection and where are sensitive credentials stored?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "An Airflow connection stores external system credentials and connection parameters. Sensitive data should be stored securely using backend secrets managers like HashiCorp Vault, AWS Secrets Manager, or encrypted environment variables."
+  },
+  {
+    "text": "What is the role of a Kafka Producer in event streaming?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A Kafka producer is the client application responsible for publishing records to one or more Kafka topics, handling serialization, partitioning strategies, and acknowledgments."
+  },
+  {
+    "text": "An automated alert triggers because a key data source is delayed by two hours. What is your immediate course of action?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Check pipeline logs and upstream vendor status pages to identify the bottleneck, assess downstream impact, and notify key stakeholders of the delay."
+  },
+  {
+    "text": "Write a Python script to filter a list of dictionaries for items matching a specific attribute value.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "filtered_list = [item for item in data_list if item.get('status') == 'active']"
+  },
+  {
+    "text": "What is the primary benefit of using columnar file formats like Parquet over row-based formats like CSV?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Columnar formats store data by column rather than row, enabling better compression ratios, efficient encoding, and allowing query engines to read only the columns needed for a query."
+  },
+  {
+    "text": "Explain what surrogate keys are and why they are preferred over natural keys in data warehouses.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Surrogate keys are artificially generated unique identifiers (e.g., auto-incrementing integers or UUIDs) used in data warehouses. They insulate dimensional models from changes in source natural keys and improve join performance."
+  },
+  {
+    "text": "How do you handle schema drift in an automated ingestion pipeline?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Implement schema evolution policies (e.g., automatic column addition via Delta Lake/Iceberg), or route schema-violating records to a dead-letter queue (DLQ) for review and alerting."
+  },
+  {
+    "text": "Write a SQL query to find customers who made purchases in both January and February.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "SELECT customer_id FROM purchases WHERE MONTH(date) = 1 INTERSECT SELECT customer_id FROM purchases WHERE MONTH(date) = 2;"
+  },
+  {
+    "text": "Describe a time when you optimized a slow query or pipeline under tight pressure. How did you approach it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Emphasize triaging the issue, identifying the bottleneck using monitoring tools, applying quick tactical fixes (like indexing or partitioning), and following up with robust architectural improvements."
+  },
+  {
+    "text": "What is persistence caching in Spark, and when should you use `persist()` instead of `cache()`?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "`cache()` stores data in memory using default storage levels (`MEMORY_AND_DISK`), whereas `persist()` allows you to explicitly specify storage levels such as disk-only, serialization, or replication based on memory constraints."
+  },
+  {
+    "text": "How do you implement CI/CD for Airflow DAG deployments?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use a version-controlled repository (Git), automated testing pipelines for DAG syntax checks and unit tests (e.g., pytest-airflow), and CI/CD tools (GitHub Actions, GitLab CI) to sync DAG files to the Airflow S3/Git-sync storage bucket."
+  },
+  {
+    "text": "Explain how Kafka consumer offset management works and the difference between auto-commit and manual commit.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Consumers track their reading progress using offsets stored in a internal Kafka topic. Auto-commit periodically commits offsets automatically, risking data loss if processing fails, whereas manual commit ensures offsets are committed only after successful processing."
+  },
+  {
+    "text": "Your team needs to backfill two years of historical data into a newly modified pipeline schema. How would you plan and execute this?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Verify pipeline idempotency, chunk the backfill into manageable time intervals (e.g., monthly partitions) to avoid resource exhaustion, run tests on a subset of data, and schedule backfills during off-peak hours."
+  },
+  {
+    "text": "Write a PySpark script to drop duplicates based on a subset of columns and handle missing values.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "cleaned_df = df.dropna(subset=['id']).dropDuplicates(['id', 'timestamp'])"
+  },
+  {
+    "text": "What is data cataloging, and how does it assist data discovery and compliance?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A data catalog maintains a centralized inventory of data assets, including metadata, descriptions, ownership, and lineage. It helps users discover trusted datasets and aids compliance by tracking PII and sensitive data."
+  },
+  {
+    "text": "What are the common antipatterns in dimensional modeling?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Common antipatterns include creating giant single tables (snowflaking gone wrong), putting mutable attributes in fact tables without proper versioning, and using generic multi-value attributes instead of bridge tables."
+  },
+  {
+    "text": "How do you design a reliable Change Data Capture (CDC) pipeline from a transactional database to a data lake?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use log-based CDC tools (like Debezium reading database transaction logs) to capture inserts, updates, and deletes with low operational overhead, streaming changes to Kafka and landing them into an ACID data lake table format."
+  },
+  {
+    "text": "Write a complex SQL query using Common Table Expressions (CTEs) and window functions to perform sessionization on clickstream data.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "WITH lagged AS (SELECT user_id, timestamp, LAG(timestamp) OVER (PARTITION BY user_id ORDER BY timestamp) as prev_time FROM clicks), flagged AS (SELECT *, CASE WHEN timestamp - prev_time > INTERVAL 30 MINUTE OR prev_time IS NULL THEN 1 ELSE 0 END as new_session FROM lagged) SELECT *, SUM(new_session) OVER (PARTITION BY user_id ORDER BY timestamp) as session_id FROM flagged;"
+  },
+  {
+    "text": "Tell me about a time when you convinced leadership to adopt a completely new data technology stack. What was your strategy?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Highlight a compelling business case, conducting a proof-of-concept (PoC) with clear metrics (cost reduction, performance gain), addressing risk mitigation, and translating technical benefits into business value."
+  },
+  {
+    "text": "How does Spark manage shuffling performance, and what are the differences between SortMergeJoin and BroadcastHashJoin?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "SortMergeJoin sorts both datasets on the join key and merges them, requiring expensive shuffles and sorts. BroadcastHashJoin broadcasts the smaller dataset to all executors, eliminating the shuffle phase entirely for the large dataset."
+  },
+  {
+    "text": "How do you implement robust error handling and dead-letter queues (DLQs) in Airflow pipelines?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use task-level failure callbacks to route failed payloads or error metadata to a DLQ table or notification channel, ensuring the main pipeline execution can isolate errors without halting the entire workflow."
+  },
+  {
+    "text": "Explain Kafka transactional guarantees and how two-phase commit is implemented across brokers and producers.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Kafka transactions use a Transaction Coordinator broker. Producers interact with the coordinator to initiate a transaction, write messages across multiple partitions, and commit atomically using a two-phase commit protocol recorded in the transaction log."
+  },
+  {
+    "text": "A real-time fraud detection pipeline is experiencing high consumer lag and growing memory consumption during traffic spikes. How do you mitigate this?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Increase Kafka topic partitions and scale consumer instances, optimize consumer processing logic or state stores (e.g., tuning RocksDB), and implement backpressure mechanisms or auto-scaling rules based on lag metrics."
+  },
+  {
+    "text": "Write a PySpark script to implement a custom stateful stream processing operation using mapGroupsWithState.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "def update_state(key, iterator, state): ...; query = df.groupBy('user_id').mapGroupsWithState(update_state, OutputMode.Update(), GroupStateTimeout.ProcessingTimeTimeout()).start()"
+  },
+  {
+    "text": "What are the architectural considerations when building a multi-region active-active data pipeline with conflict resolution?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Consider replication latency, network partitioning, and eventual consistency. Implement deterministic conflict resolution strategies like Last-Write-Wins (LWW) with synchronized clocks, CRDTs, or business-logic-driven reconciliation."
+  },
+  {
+    "text": "How do you design an enterprise-grade data mesh architecture with decentralized domain ownership while maintaining global data discoverability and governance?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Treat data as a product owned by domain teams, enforce global interoperability through standardized data contracts, provide self-serve data platform infrastructure, and implement centralized federation for compliance and governance."
+  },
+  {
+    "text": "Write an optimized SQL query with recursive CTEs to traverse a deeply nested hierarchical organizational tree and compute aggregate metrics.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "WITH RECURSIVE org_tree AS (SELECT id, manager_id, budget, 1 as level FROM employees WHERE manager_id IS NULL UNION ALL SELECT e.id, e.manager_id, e.budget, ot.level + 1 FROM employees e JOIN org_tree ot ON e.manager_id = ot.id) SELECT id, SUM(budget) FROM org_tree GROUP BY id;"
+  },
+  {
+    "text": "Describe a high-stakes crisis where data pipelines corrupted a core financial reporting system. How did you handle remediation, communication, and prevent future failures?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Focus on immediate containment (pausing pipelines, rolling back data), transparent stakeholder communication, rigorous root-cause analysis, and implementing immutable auditing, data quality gates, and automated rollback scripts."
+  },
+  {
+    "text": "How would you optimize a Spark application suffering from extreme garbage collection (GC) pauses and executor memory bottlenecks?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Tune JVM garbage collection algorithms (e.g., G1GC), adjust memory fractions (spark.memory.fraction), reduce object creation overhead by leveraging off-heap memory or Tungsten binary format, and increase executor memory limits."
+  },
+  {
+    "text": "How do you architect an Airflow deployment for high availability, handling thousands of concurrent tasks without scheduler bottlenecks?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Deploy multiple Airflow schedulers with active-active HA enabled, use a robust distributed executor like Celery or Kubernetes, scale the metadata database vertically/horizontally, and optimize DAG parsing intervals and file sizes."
+  },
+  {
+    "text": "Explain the internals of Kafka's log storage engine, including zero-copy transfers, page cache utilization, and index file structures.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Kafka relies on Linux page cache for disk I/O instead of maintaining in-memory caches. It uses zero-copy (sendfile) system calls to transfer data directly from page cache to socket network buffers, bypassing user space, and uses sparse index and log segment files for $O(1)$ disk lookups."
+  },
+  {
+    "text": "A critical streaming analytics pipeline experiences severe network saturation and message drops between ingestion and processing clusters during a flash sale. How do you re-architect it?",
+    "type": "SITUATIONAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Introduce a resilient buffering layer (e.g., Kafka clusters with increased partition capacity and retention), implement client-side compression (LZ4/ZSTD), configure backpressure, and set up auto-scaling compute clusters based on consumer lag metrics."
+  },
+  {
+    "text": "Write a distributed join algorithm in PySpark from scratch using lower-level RDD transformations (map, groupByKey/cogroup) without using DataFrame APIs.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "rdd1_mapped = rdd1.map(lambda x: (x[0], x[1])); rdd2_mapped = rdd2.map(lambda x: (x[0], x[1])); joined_rdd = rdd1_mapped.cogroup(rdd2_mapped).flatMapValues(lambda v: product_function(v[0], v[1]))"
+  },
+  {
+    "text": "What are the trade-offs between append-only immutable logs and mutable table storage in modern lakehouse architectures?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Append-only logs offer maximum write performance, simplicity, and auditability but require compaction and read-time aggregation to resolve state. Mutable table formats handle updates and deletes via copy-on-write or merge-on-read mechanisms, trading write complexity and metadata overhead for efficient updates."
+  },
+  {
+    "text": "What is data normalization and why is it used in operational databases?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Normalization organizes data into multiple related tables to reduce redundancy and prevent update anomalies, ensuring data integrity in OLTP systems."
+  },
+  {
+    "text": "What is the primary purpose of a data staging area in an ETL pipeline?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A staging area provides a temporary, intermediate storage location to ingest raw data quickly before running transformations, cleansing, and loading into the data warehouse."
+  },
+  {
+    "text": "Write a SQL query to select all records where a date field is within the last 30 days.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "SELECT * FROM events WHERE event_date >= CURRENT_DATE - INTERVAL '30 days';"
+  },
+  {
+    "text": "Tell me about a time you missed a project deadline. What happened and how did you manage expectations?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Focus on early communication, identifying blockers transparently, re-prioritizing tasks with stakeholders, and delivering incremental value."
+  },
+  {
+    "text": "What is lazy evaluation in Spark, and what triggers execution?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Lazy evaluation means Spark doesn't compute transformations immediately; instead, it builds a logical execution plan. Execution is triggered only when an action is called."
+  },
+  {
+    "text": "What is the function of the Airflow Webserver?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The webserver provides a user interface to monitor DAG execution status, inspect task logs, trigger manual runs, and manage administrative settings."
+  },
+  {
+    "text": "What is a Kafka message key, and why is it optional?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A message key determines which partition a record is routed to via hashing. It is optional; if omitted, records are distributed round-robin across partitions."
+  },
+  {
+    "text": "An upstream API changes its rate limits unexpectedly, causing your ingestion pipeline to fail. How do you handle it?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Implement rate limiting/throttling in the extraction script, add exponential backoff retries, and contact the API provider to request limit increases."
+  },
+  {
+    "text": "Write a Python snippet to read a CSV file line by line and print each row.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "import csv\nwith open('file.csv', mode='r') as f:\n    reader = csv.reader(f)\n    for row in reader:\n        print(row)"
+  },
+  {
+    "text": "What is data cleansing, and what are common cleansing steps?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Data cleansing detects and corrects corrupt, inaccurate, or duplicate records. Common steps include removing whitespaces, standardizing date formats, handling nulls, and filtering out outliers."
+  },
+  {
+    "text": "Explain the concept of a factless fact table.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A factless fact table records events or relationships (e.g., student attendance or product coverage) where there are no numerical metrics or measures to aggregate, only foreign keys."
+  },
+  {
+    "text": "How do you handle data quality checks in a cloud data warehouse without adding significant latency?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Run lightweight, non-blocking metadata assertions or sample-based validation queries immediately after loading, or use asynchronous tools that analyze tables post-load without holding up downstream consumers."
+  },
+  {
+    "text": "Write a SQL query to calculate the median salary from an Employee table without using built-in median functions.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "SELECT AVG(salary) FROM (SELECT salary, ROW_NUMBER() OVER (ORDER BY salary) as rn, COUNT(*) OVER () as cnt FROM Employee) t WHERE rn BETWEEN cnt/2.0 AND cnt/2.0 + 1;"
+  },
+  {
+    "text": "Describe a time when you had to refactor a messy, legacy ETL pipeline. What was your strategy to ensure zero data regression?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Mention writing comprehensive automated tests, comparing output dataframes between old and new pipelines (shadow running), and validating metrics with business stakeholders."
+  },
+  {
+    "text": "How does Spark handle fault tolerance across distributed nodes?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Spark achieves fault tolerance through lineage graphs (RDDs). If a partition is lost, Spark recomputes only the lost partition using the recorded deterministic transformations."
+  },
+  {
+    "text": "What are Airflow SubDAGs, and why are they generally discouraged in modern Airflow versions?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "SubDAGs group related tasks inside a parent DAG. They are discouraged because they suffer from performance bottlenecks, deadlock issues, and poor UI rendering, and have been replaced by TaskGroups or dynamic mapping."
+  },
+  {
+    "text": "What is the difference between at-least-once, at-most-once, and exactly-once delivery semantics in Kafka?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "At-least-once ensures no messages are lost but can result in duplicates. At-most-once ensures no duplicates but can lose messages. Exactly-once guarantees each message is processed precisely once without loss or duplication."
+  },
+  {
+    "text": "A batch job running inside an orchestrator has a hard dependency on an external FTP server that frequently goes down. How do you design around this?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Implement resilient file-polling sensors with timeout limits, cache the last successfully retrieved file locally as a fallback, and alert operations while failing gracefully."
+  },
+  {
+    "text": "Write a PySpark script to join two dataframes on multiple keys and select specific columns.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "joined_df = df1.join(df2, ['id', 'date'], 'inner').select('id', 'date', 'df1.value', 'df2.amount')"
+  },
+  {
+    "text": "What is data masking, and when should it be applied in a pipeline?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Data masking obfuscates sensitive data (like PII or credit card numbers) by replacing characters with symbols. It should be applied during ingestion or staging for non-production environments and analytics users lacking clearance."
+  },
+  {
+    "text": "How do you design a high-performance star schema for billions of rows in a columnar data warehouse?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Denormalize dimensions where appropriate, partition fact tables by date or high-cardinality keys, cluster/sort data by frequently filtered columns, and utilize appropriate data types to minimize storage overhead."
+  },
+  {
+    "text": "How do you build a resilient, real-time streaming ETL architecture that gracefully recovers from network partitions and downstream database outages?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use Kafka as an immutable ingestion buffer with long retention, configure robust consumer watermarking and retry policies, and implement dead-letter queues alongside circuit breaker patterns for downstream databases."
+  },
+  {
+    "text": "Write a SQL query to solve the gaps-and-islands problem (identifying consecutive sequences of dates or status codes).",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "WITH numbered AS (SELECT date, status, ROW_NUMBER() OVER (ORDER BY date) - ROW_NUMBER() OVER (PARTITION BY status ORDER BY date) as grp FROM events) SELECT status, MIN(date) as start_date, MAX(date) as end_date FROM numbered GROUP BY status, grp;"
+  },
+  {
+    "text": "Describe a time when you mentored a team through a major architectural failure. How did you restore team morale and ensure technical recovery?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Focus on maintaining calm, conducting a blameless post-mortem, dividing recovery tasks effectively, empowering engineers, and fostering a learning culture."
+  },
+  {
+    "text": "Explain Spark's memory management model (Unified Memory Manager) and how execution and storage memory interact.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "The Unified Memory Manager shares a single memory pool between execution (joins, sorts) and storage (caching, broadcasting). Either pool can borrow memory from the other up to a set boundary, evicting cached blocks if execution needs more space."
+  },
+  {
+    "text": "How do you handle schema versioning and DAG backward compatibility when deploying updates to Airflow in a multi-team environment?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Enforce semantic versioning for shared DAG templates and custom operators, run rigorous integration tests in staging environments, and use separate DAG namespaces or deployment prefixes to isolate teams."
+  },
+  {
+    "text": "How do you optimize Kafka cluster performance under extremely high throughput with thousands of topics and partitions?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Tune operating system network and file descriptor limits, use fast NVMe storage, optimize JVM garbage collection settings, balance partition distribution across brokers, and adjust batch sizes and compression codecs on producers."
+  },
+  {
+    "text": "A critical reporting pipeline fails intermittently due to database connection pool exhaustion. How do you re-architect the data access layer?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Implement connection pooling with proper timeouts and maximum limits, use bulk inserts/copies instead of single-row transactions, and introduce rate-limiting or queuing on the application side to smooth out connection spikes."
+  },
+  {
+    "text": "Write a PySpark script to implement custom windowing with watermarking and drop late data in a streaming DataFrame.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "windowed_df = streaming_df.withWatermark('timestamp', '10 minutes').groupBy(window(col('timestamp'), '5 minutes'), col('category')).count()"
+  },
+  {
+    "text": "What are the nuances of implementing ACID transactions in distributed cloud object storage (S3/GCS) using table formats like Delta Lake or Apache Iceberg?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Because object stores lack native atomic multi-file rename operations, table formats use an optimistic concurrency control (OCC) log or transaction log (JSON/Avro files) pointing to immutable data files, resolving conflicts via atomic commits to a metadata catalog."
+  },
+  {
+    "text": "How do you design a globally distributed, low-latency feature store for real-time machine learning inference and batch training?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Use a dual-storage architecture: a low-latency key-value store (like DynamoDB or Redis) for real-time online inference, and an offline columnar store (like Iceberg or Delta Lake) for historical point-in-time correct batch training."
+  },
+  {
+    "text": "Write a distributed map-reduce-like aggregation in PySpark without using `groupBy`, implementing custom combining and reduce logic using `rdd.aggregateByKey`.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "rdd.aggregateByKey(zeroValue, seqFunc, combFunc)"
+  },
+  {
+    "text": "Describe a scenario where you had to lead a complete data platform migration while maintaining zero downtime for hundreds of active machine learning models and reports.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Focus on phased migration strategies, dual-running systems, establishing abstraction layers (e.g., views or API gateways), extensive validation testing, and close cross-functional communication."
+  },
+  {
+    "text": "How would you diagnose and resolve a severe metadata lock contention issue in a Hive Metastore backed data lakehouse?",
+    "type": "SITUATIONAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Identify locking transactions via metastore logs or database query inspection, terminate hung sessions, migrate from legacy Hive Metastore to modern decoupled catalogs (like Nessie or AWS Glue), and implement optimized transaction batching."
+  },
+  {
+    "text": "What is data profiling?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The process of examining source data to collect statistics, structures, and data types to understand quality and anomalies."
+  },
+  {
+    "text": "Write a SQL query to count the number of employees in each department.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "SELECT department_id, COUNT(*) FROM employees GROUP BY department_id;"
+  },
+  {
+    "text": "What is an Airflow Operator?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A template for executing a specific task, such as running a bash command, executing a SQL query, or transferring data between systems."
+  },
+  {
+    "text": "What is a Kafka broker?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A Kafka broker is a server node in a Kafka cluster that stores messages and serves client read/write requests."
+  },
+  {
+    "text": "Write a Python function to check if a string is a palindrome.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "def is_palindrome(s):\n    return s == s[::-1]"
+  },
+  {
+    "text": "What is a Fact Table in dimensional modeling?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A fact table contains quantitative measurements (metrics) resulting from a business process, along with foreign keys pointing to dimension tables."
+  },
+  {
+    "text": "Write a SQL query to find top 3 highest salaries per department using window functions.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "WITH ranked AS (SELECT department_id, salary, DENSE_RANK() OVER (PARTITION BY department_id ORDER BY salary DESC) as rnk FROM employees) SELECT * FROM ranked WHERE rnk <= 3;"
+  },
+  {
+    "text": "What is Spark Catalyst Optimizer?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Spark's query optimization framework that automatically transforms logical query plans into optimized physical execution plans."
+  },
+  {
+    "text": "Explain Kafka consumer rebalancing.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The process where partition ownership is reassigned among consumers in a consumer group, triggered by members joining or leaving."
+  },
+  {
+    "text": "Write a PySpark script to parse a date string column into a timestamp format.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "from pyspark.sql.functions import to_timestamp\ndf = df.withColumn('timestamp', to_timestamp('date_str', 'yyyy-MM-dd HH:mm:ss'))"
+  },
+  {
+    "text": "What is Anchor Modeling?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "An extreme form of data modeling where entities, attributes, and relationships are stored in separate, highly granular tables."
+  },
+  {
+    "text": "Write an optimized SQL query to perform a full outer join and handle null matches using COALESCE.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "SELECT COALESCE(a.id, b.id) as id, a.val, b.val FROM table_a a FULL OUTER JOIN table_b b ON a.id = b.id;"
+  },
+  {
+    "text": "Explain how Spark Structured Streaming handles micro-batch execution engines.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "It treats streaming as a continuous series of small, bounded batch queries, reading data from sources, processing via Catalyst, and writing results to sinks atomically."
+  },
+  {
+    "text": "How do you implement custom partitioners in Apache Kafka?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Implement the Partitioner interface in Java/Scala, define custom hashing or routing logic in the `partition()` method, and configure the producer to use your class."
+  },
+  {
+    "text": "Write a complete PySpark Structured Streaming job that reads from a Kafka topic, parses JSON payloads, and writes to a Delta Lake table.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "df = spark.readStream.format('kafka').option('kafka.bootstrap.servers', 'host:9092').option('subscribe', 'topic').load(); parsed = df.selectExpr('CAST(value AS STRING)').select(from_json('value', schema).alias('data')).select('data.*'); parsed.writeStream.format('delta').outputMode('append').start('/path/to/table')"
+  },
+  {
+    "text": "What is the primary difference between third normal form (3NF) and dimensional modeling (Star Schema)?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "3NF focuses on minimizing redundancy and preventing update anomalies through normalization, ideal for OLTP systems. Dimensional modeling optimizes for read performance and business reporting by grouping data into facts and dimensions, ideal for data warehousing."
+  },
+  {
+    "text": "Explain the concept of slowly changing dimensions (SCD) Type 2.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "SCD Type 2 tracks historical changes by creating a new record for a dimension when an attribute changes. It typically utilizes effective start dates, end dates, and a current flag to maintain a complete audit trail."
+  },
+  {
+    "text": "How do you handle schema evolution in Delta Lake or Apache Iceberg?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Schema evolution allows safely adding, dropping, or renaming columns without rewriting the underlying data files. Storage layers like Delta and Iceberg handle this through metadata updates using protocols like mergeSchema in Spark."
+  },
+  {
+    "text": "Describe how you would design a multi-tenant data warehouse architecture to ensure strict data isolation.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "I would use a combination of physical separation (separate schemas or databases per tenant) and logical separation using Row-Level Security (RLS). Integration layers would enforce tenant IDs at ingestion, while storage partitioning optimizes query costs."
+  },
+  {
+    "text": "What is the difference between a full load and an incremental load in an ETL pipeline?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A full load replaces all existing target data with the complete source dataset, which is simple but inefficient for large volumes. An incremental load processes only new or modified records since the last run using watermarks or change data capture (CDC)."
+  },
+  {
+    "text": "How do you implement idempotency in an ETL pipeline?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Idempotency is achieved by ensuring that running the same pipeline multiple times yields the same result without side effects. This is done using deterministic keys, upserts (merge operations), and tracking processed batch IDs."
+  },
+  {
+    "text": "Explain the architecture of a Lambda vs. Kappa data architecture.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Lambda architecture uses both a batch layer for accurate, delayed processing and a speed layer for real-time approximations, merging views at serving time. Kappa architecture eliminates the batch layer entirely, processing all data through a single streaming engine using log compaction."
+  },
+  {
+    "text": "How do you design an enterprise data lineage tracking system across distributed data stores?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "I would integrate open-source lineage tools like OpenLineage with orchestration engines (Airflow) and processing frameworks (Spark) to automatically extract inputs, outputs, and transformations. Metadata is pushed to a central graph database for visualization and impact analysis."
+  },
+  {
+    "text": "What are data quality dimensions, and how do you monitor them?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Key data quality dimensions include accuracy, completeness, consistency, timeliness, and uniqueness. They are monitored using automated validation tools like Great Expectations or Soda, running assertions post-ingestion and alerting via Slack or PagerDuty."
+  },
+  {
+    "text": "How do you handle schema drift in incoming JSON data streams?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Schema drift is handled by reading data with schema inference disabled, capturing raw events into a variant or string column, and using processing logic to dynamically map or quarantine unexpected fields using dead-letter queues."
+  },
+  {
+    "text": "Design an automated data quality framework that auto-remediates minor anomalies.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "The framework runs validation rules using libraries like Great Expectations upon ingestion. If anomalies like nulls or formatting issues occur within acceptable thresholds, predefined fallback logic (imputation, string parsing) auto-corrects records before writing."
+  },
+  {
+    "text": "How would you architect a real-time data anomaly detection system processing millions of events per second?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "I would use Kafka for stream ingestion, Flink for stateful stream processing and sliding-window statistical calculations, and an ML model scoring service integrated via sidecars. Anomalies are flagged instantly and written to a priority alerting topic."
+  },
+  {
+    "text": "What is the difference between at-least-once, at-most-once, and exactly-once processing semantics?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "At-least-once ensures no messages are lost but duplicates may occur. At-most-once guarantees messages are never duplicated but some may be lost. Exactly-once guarantees each message is processed as if it occurred precisely once, avoiding both loss and duplication."
+  },
+  {
+    "text": "How do windowing operations work in stream processing frameworks like Apache Flink?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Windowing groups unbounded streams into finite chunks based on time (tumbling, sliding, session) or counts. Flink handles out-of-order data using watermarks, which are timestamps tracking the progress of event time relative to processing time."
+  },
+  {
+    "text": "How do you prevent backpressure issues in distributed stream processing pipelines?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Backpressure occurs when downstream operators process slower than upstream producers. It is mitigated by tuning buffer pool sizes, scaling out worker nodes, optimizing state backends (e.g., RocksDB), and ensuring efficient batching in sinks."
+  },
+  {
+    "text": "Explain the internals of Kafka's log compaction and how it differs from log retention.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Log retention deletes messages based on time or size limits, acting as a queue. Log compaction retains the latest message for each unique key in a topic, effectively turning the log into a changelog or database-style key-value store."
+  },
+  {
+    "text": "What is an SQL execution plan, and how do you read it?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "An execution plan is a roadmap generated by the database optimizer detailing how it will retrieve data. Reading it involves identifying costly operations like full table scans, nested loop joins, and missing indexes."
+  },
+  {
+    "text": "How do you optimize a slow-running SQL query with multiple joins and aggregations?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I optimize it by filtering data early using WHERE clauses before joining, ensuring appropriate indexes exist on join and filter columns, rewriting subqueries as joins or CTEs, and avoiding unnecessary SELECT * statements."
+  },
+  {
+    "text": "Explain the differences between clustered and non-clustered indexes.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "A clustered index sorts and stores the actual data rows in the table based on the key; a table can have only one. A non-clustered index is a separate structure containing the index key and a pointer to the data row, allowing multiple per table."
+  },
+  {
+    "text": "How does cost-based optimization (CBO) work in modern distributed SQL engines like Trino or Presto?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "CBO uses table and column statistics (row counts, histograms, null fractions) collected by analyzers to estimate the cost of various execution plans. The engine selects the plan with the lowest estimated CPU, memory, and network I/O cost."
+  },
+  {
+    "text": "What is the role of the Catalyst Optimizer in Apache Spark?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Catalyst is Spark SQL's query optimization framework that uses Scala features to transform logical query plans into optimized physical execution plans through rule-based and cost-based optimizations."
+  },
+  {
+    "text": "How do you avoid data skew in Apache Spark join operations?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Data skew is avoided by identifying skewed keys, filtering out nulls, using broadcast joins for small tables, or applying salt keys to distribute heavily loaded partitions across multiple tasks."
+  },
+  {
+    "text": "Explain how Spark manages memory internally using execution and storage memory.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Spark splits unified memory between execution (shuffles, joins, aggregations) and storage (cached RDDs, broadcast variables). If execution needs more space, it can evict storage memory up to a boundary, provided storage is not actively locked."
+  },
+  {
+    "text": "How would you optimize a Spark job that is failing due to OutOfMemory (OOM) errors during a massive shuffle?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "I would increase `spark.sql.shuffle.partitions` to reduce partition sizes, increase executor memory and off-heap memory, enable adaptive query execution (AQE), and optimize code to reduce shuffle data volume via map-side aggregations."
+  },
+  {
+    "text": "What is the difference between an Airflow DAG, a task, and an operator?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A DAG (Directed Acyclic Graph) is the overall workflow structure. An operator is a template for creating a specific task (e.g., BashOperator). A task is an instantiated, runnable instance of an operator within a DAG."
+  },
+  {
+    "text": "How do you pass data between tasks in Apache Airflow?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Data is passed between tasks using XComs (cross-communications) for small payloads or by reading/writing to shared external storage (like S3 or a database) for large datasets."
+  },
+  {
+    "text": "Explain how Airflow's scheduler works and how task concurrency is controlled.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "The scheduler parses DAG files, evaluates triggers, and queues tasks ready for execution. Concurrency is controlled globally via `max_active_runs_per_dag` and `parallelism`, and locally at the task level using pools and `max_active_tis_per_dag`."
+  },
+  {
+    "text": "How would you design a distributed, multi-region Airflow deployment with high availability?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "I would use the Celery or Kubernetes executor with a shared highly-available PostgreSQL metadata database backed by a distributed file system for DAG synchronization. The scheduler runs with HA enabled, and stateless webservers are load-balanced across regions."
+  },
+  {
+    "text": "What is the function of a Kafka consumer group?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A consumer group is a set of consumer instances that cooperate to consume data from a Kafka topic. Kafka ensures each partition is read by only one consumer within a specific group, enabling horizontal scalability."
+  },
+  {
+    "text": "How does Kafka guarantee message ordering within a topic?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Kafka guarantees message order only within a specific partition, not across the entire topic. Producers ensure order by assigning messages to the same partition using a consistent key or partitioner."
+  },
+  {
+    "text": "Explain how Kafka cluster replication and leader election work.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Each partition has one leader broker handling writes and reads, and multiple follower brokers replicating the data. In-Sync Replicas (ISRs) track up-to-date followers; if a leader fails, ZooKeeper or KRaft elects a new leader from the ISR list."
+  },
+  {
+    "text": "How do you tune Kafka producer and consumer configurations for ultra-low latency versus high throughput?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "For low latency, set producer `linger.ms=0` and `batch.size=0`, and configure consumers with small fetch sizes. For high throughput, increase `linger.ms` and `batch.size`, enable compression (LZ4/ZSTD), and use larger fetch buffers on consumers."
+  },
+  {
+    "text": "Tell me about a time you had to troubleshoot a failing production data pipeline under pressure.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I would explain how I isolated the root cause, communicated status updates to stakeholders, implemented a hotfix or rollback, and later conducted a blameless post-mortem to prevent recurrence."
+  },
+  {
+    "text": "How do you handle disagreements with a software engineering team about data schema changes that break your pipelines?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I would emphasize proactive communication, establishing a contract-first development approach (like schemas in schema registries), and discussing the downstream business impact with data stakeholders."
+  },
+  {
+    "text": "Describe a project where you significantly improved data pipeline performance. What was your approach?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "I would highlight profiling bottlenecks, proposing architectural or code optimizations, measuring impact via metrics, and successfully delivering measurable cost or time reductions."
+  },
+  {
+    "text": "How do you prioritize your workload when multiple stakeholders demand new data pipelines simultaneously?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "I evaluate requests based on business value, ROI, and strategic alignment, working closely with product managers and stakeholders to establish transparent priority queues."
+  },
+  {
+    "text": "Explain how you mentor junior data engineers on best coding and design practices.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I focus on code reviews, pair programming, writing documentation, and encouraging automated testing to build their confidence and technical depth."
+  },
+  {
+    "text": "Talk about a time a data quality issue escaped to production. How did you handle it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "I would discuss immediately halting ingestion, isolating corrupted data, communicating transparently with consumers, backfilling corrected data, and adding automated tests to catch similar issues."
+  },
+  {
+    "text": "How do you stay updated with rapidly evolving data engineering technologies?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "I read industry blogs, follow open-source release notes, participate in community forums, and experiment with new tools in sandbox environments."
+  },
+  {
+    "text": "Describe a situation where you had to refactor legacy code that had no documentation or tests.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "I would explain how I wrote integration tests to capture current behavior, refactored incrementally in small safe steps, and added documentation during the process."
+  },
+  {
+    "text": "What is your approach to conducting constructive code reviews?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "I focus on logic, scalability, security, and readability while maintaining a polite, collaborative tone and explaining the 'why' behind suggestions."
+  },
+  {
+    "text": "Share an experience where a data architecture you designed failed to scale. How did you remediate it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "I would detail the symptoms of scaling failure, take accountability, redesign the bottlenecked component (e.g., shifting from batch to stream or re-partitioning storage), and document learnings."
+  },
+  {
+    "text": "Your daily Spark ETL pipeline has suddenly started taking 4x longer to run. Walk through your troubleshooting steps.",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I would check the Spark UI for shuffle read/write spikes, investigate data volume changes or skewness, verify cluster resource allocation, and check for executor garbage collection pauses."
+  },
+  {
+    "text": "A Kafka consumer is lagging significantly behind the producer. How do you resolve this?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I would scale out the consumer group by adding partitions and consumers, optimize processing logic within the consumer loop, and check for downstream bottlenecks in sinks."
+  },
+  {
+    "text": "Upstream source systems have unexpectedly introduced duplicate records into your append-only data lake. How do you clean this up?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "I would write a deduplication job using Spark or SQL with window functions (e.g., `ROW_NUMBER()`) partitioned by business keys and ordered by ingestion timestamp, overwriting the affected partitions cleanly."
+  },
+  {
+    "text": "An Airflow DAG has failed halfway through processing a 10-hour job. How do you recover without duplicating downstream data?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "I would ensure the task is idempotent, inspect task logs, fix the root cause, and use Airflow's clear or retry mechanisms with task-level idempotency safeguards to resume safely."
+  },
+  {
+    "text": "Write a Python function using PySpark to read a CSV file, remove rows with null values in critical columns, and write it out as a partitioned Parquet file.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "def clean_and_write(spark, input_path, output_path, cols):\n    df = spark.read.option('header', 'true').csv(input_path)\n    cleaned = df.dropna(subset=cols)\n    cleaned.write.partitionBy(cols[0]).parquet(output_path)"
+  },
+  {
+    "text": "Write an SQL query to find the top 3 highest-paid employees in each department using window functions.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "WITH ranked AS (\n    SELECT *, DENSE_RANK() OVER (PARTITION BY department ORDER BY salary DESC) as rk\n    FROM employees\n)\nSELECT * FROM ranked WHERE rk <= 3;"
+  },
+  {
+    "text": "Write a Python function using Airflow PythonOperator that calculates the execution date plus 7 days and pushes it to XCom.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "def push_future_date(**context):\n    execution_date = context['execution_date']\n    future_date = execution_date + timedelta(days=7)\n    context['ti'].xcom_push(key='future_date', value=str(future_date))"
+  },
+  {
+    "text": "Write a Python script using KafkaPython to consume messages from a topic and print them until interrupted.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "from kafka import KafkaConsumer\nconsumer = KafkaConsumer('my-topic', bootstrap_servers=['localhost:9092'])\nfor msg in consumer:\n    print(msg.value.decode('utf-8'))"
+  },
+  {
+    "text": "Write a PySpark script to perform an aggregation that calculates the average and max value of a metric grouped by category and timestamp hour.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "from pyspark.sql.functions import col, avg, max, hour\ndf.groupBy('category', hour('timestamp').alias('hour')) \\\n  .agg(avg('metric').alias('avg_val'), max('metric').alias('max_val')) \\\n  .show()"
+  },
+  {
+    "text": "Write an advanced SQL query to compute a 7-day rolling average of daily sales.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "SELECT sale_date, daily_sales,\nAVG(daily_sales) OVER (ORDER BY sale_date ROWS BETWEEN 6 PRECEDING AND CURRENT ROW) as rolling_avg\nFROM daily_sales_table;"
+  }
+]

@@ -1,0 +1,1148 @@
+[
+  {
+    "text": "What is the primary goal of threat modeling in application security?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The primary goal is to systematically identify, quantify, and address security risks and potential attack vectors before code is deployed. It helps architects and developers visualize system components, data flows, and trust boundaries to build secure systems by design."
+  },
+  {
+    "text": "Explain the STRIDE methodology and give an example of a Spoofing threat.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "STRIDE stands for Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, and Elevation of Privilege. A Spoofing threat involves an attacker illegally accessing and using an authentication credential, such as stealing a user's session cookie or IP address."
+  },
+  {
+    "text": "Describe how you would construct a Data Flow Diagram (DFD) for threat modeling.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A DFD maps out processes, data stores, external entities, and data flows between them using standardized symbols. You identify trust boundaries where data crosses from one security context to another, which are prime locations for potential threat injection."
+  },
+  {
+    "text": "How do you evaluate attack trees during the threat modeling process?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Attack trees provide a conceptual diagram showing how an asset can be targeted, with the root being the ultimate goal and leaves being specific attack methods. You evaluate them by assigning probabilities and costs to each branch to determine the most viable paths for attackers."
+  },
+  {
+    "text": "Explain the difference between CVSS score and actual exploitability in risk assessment.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "CVSS provides a standardized numerical score representing the severity of a vulnerability based on static characteristics. Actual exploitability considers the specific environment context, compensating controls, and whether real-world exploit code currently exists in the wild."
+  },
+  {
+    "text": "What is authenticated versus unauthenticated vulnerability scanning?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Unauthenticated scanning assesses a target from an external network perspective, simulating an outsider looking for exposed services. Authenticated scanning logs into the system with credentials to inspect local files, registry settings, and installed software versions comprehensively."
+  },
+  {
+    "text": "How do you prioritize vulnerabilities when your scanner reports thousands of findings?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Prioritization requires combining CVSS severity with asset criticality, exposure level to the internet, and intelligence feeds like CISA KEV to identify actively exploited flaws. This ensures remediation efforts target the risks that pose the highest actual business impact."
+  },
+  {
+    "text": "Describe the Common Vulnerability Scoring System v3.1 vector string breakdown.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A CVSS vector string encodes metric values like Attack Vector, Attack Complexity, Privileges Required, User Interaction, Scope, and the CIA triad impacts. Each component uses shorthand letters and modifiers to concisely communicate how a vulnerability can be triggered."
+  },
+  {
+    "text": "How would you identify and remediate zero-day vulnerabilities in a legacy environment?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Since no patch exists, you rely on anomaly detection, behavioral monitoring, virtual patching through WAFs or IPS rules, and network segmentation. You must isolate the affected component until the vendor releases an official update or a workaround is validated."
+  },
+  {
+    "text": "Walk through the NIST Incident Response lifecycle phases.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The NIST IR lifecycle consists of four phases: Preparation, Detection and Analysis, Containment, Eradication and Recovery, and Post-Incident Activity. Preparation involves readiness, while the final phase ensures lessons learned are applied to prevent recurrence."
+  },
+  {
+    "text": "What is the difference between containment, eradication, and recovery in IR?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Containment limits the spread of the incident by isolating infected systems. Eradication removes the root cause and malicious artifacts, such as malware or backdoors. Recovery restores systems to normal operational status after validating their integrity."
+  },
+  {
+    "text": "How do you preserve chain of custody during digital forensics collection?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Chain of custody requires documenting who collected the evidence, when, where, and how, along with cryptographic hashes of disk images to prove integrity. Every transfer must be logged so the evidence remains legally admissible in court."
+  },
+  {
+    "text": "Explain how you analyze memory dumps during a sophisticated malware investigation.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "You use tools like Volatility to inspect RAM for injected DLLs, hidden processes, active network connections, and unencrypted credentials. This uncovers fileless malware and rootkits that evade traditional hard drive forensics."
+  },
+  {
+    "text": "What is symmetric versus asymmetric encryption? Give an example use case for each.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Symmetric encryption uses the same key for encryption and decryption, ideal for bulk data encryption like AES-256 for databases. Asymmetric uses a public and private key pair, ideal for secure key exchange or digital signatures like RSA or ECC."
+  },
+  {
+    "text": "Explain how TLS 1.3 handshake improves security and performance over TLS 1.2.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "TLS 1.3 reduces the handshake to 1-RTT, improves session resumption with 0-RTT, and removes outdated cryptographic algorithms and ciphers. This eliminates downgrade attacks and speeds up connection establishment."
+  },
+  {
+    "text": "What is a cryptographic salt and why is it essential for password hashing?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A salt is random data added to an input password before hashing to ensure identical passwords yield different hash outputs. This defeats precomputed dictionary attacks like rainbow tables."
+  },
+  {
+    "text": "Describe the mechanics of a Diffie-Hellman key exchange.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Diffie-Hellman allows two parties to establish a shared secret over an insecure channel without transmitting the secret itself using modular arithmetic. By combining private numbers with public generators and prime moduli, both sides independently calculate the identical shared key."
+  },
+  {
+    "text": "What is Role-Based Access Control versus Attribute-Based Access Control?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "RBAC assigns permissions to specific organizational roles, and users inherit permissions based on their assigned role. ABAC evaluates dynamic attributes such as user clearance, resource classification, time of day, and location to make fine-grained access decisions."
+  },
+  {
+    "text": "Explain the principle of least privilege and how you enforce it in cloud environments.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "PoLP dictates that users and systems should only have the minimum necessary access to perform their functions. In the cloud, this is enforced through granular IAM policies, regular access reviews, and role assumption instead of persistent administrator accounts."
+  },
+  {
+    "text": "How does OAuth 2.0 differ from OpenID Connect?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "OAuth 2.0 is an authorization framework that grants third-party applications limited access to resources without sharing credentials. OpenID Connect is an authentication layer built on top of OAuth 2.0 that verifies user identity and provides profile information via ID tokens."
+  },
+  {
+    "text": "What are the core phases of a penetration testing engagement?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The core phases are Pre-engagement scoping, Information Gathering, Vulnerability Analysis, Exploitation, Post-Exploitation, and Reporting. Each phase builds upon the previous one to identify and demonstrate security weaknesses."
+  },
+  {
+    "text": "Explain the difference between black-box, white-box, and grey-box penetration testing.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Black-box testing provides zero prior knowledge to testers, simulating an external attacker. White-box testing provides full architectural knowledge and source code. Grey-box testing provides partial knowledge, such as user credentials or internal network diagrams."
+  },
+  {
+    "text": "How do you perform a buffer overflow attack conceptually?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "An attacker sends more data to a program buffer than it can hold, overwriting adjacent memory space including the stack pointer or return address. By injecting malicious shellcode and redirecting execution flow to it, the attacker achieves arbitrary code execution."
+  },
+  {
+    "text": "Describe how Server-Side Request Forgery occurs and how to prevent it.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "SSRF happens when an application fetches a remote resource based on user-supplied input without validating the URL, allowing attackers to target internal services. Prevention involves using allowlists for domains, disabling HTTP redirections, and blocking access to internal metadata IP addresses."
+  },
+  {
+    "text": "Can you describe a time when you discovered a critical vulnerability in production and how you handled it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Candidates should explain the discovery process, immediate containment measures taken, coordination with engineering teams to deploy a patch, and post-incident review to prevent future occurrences."
+  },
+  {
+    "text": "Tell me about a time you had to explain a complex technical security risk to non-technical stakeholders.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Look for clear communication, avoidance of jargon, use of business analogies, and framing the risk in terms of financial or reputational impact to secure stakeholder buy-in."
+  },
+  {
+    "text": "How do you stay updated with rapidly evolving cybersecurity threats and emerging technologies?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Candidates should mention reading threat intel reports, participating in security communities, following reputable researchers, and engaging in continuous hands-on labs or CTFs."
+  },
+  {
+    "text": "Describe a situation where you disagreed with a developer or product manager regarding a security control. How did you resolve it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The response should highlight collaborative problem-solving, risk-based compromise, empathy for business velocity, and finding a secure design pattern that met functional requirements."
+  },
+  {
+    "text": "Tell me about a time an incident response went wrong or didn't go according to plan. What did you learn?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "An effective answer demonstrates accountability, honest reflection, analysis of systemic failures, and concrete process improvements implemented afterward."
+  },
+  {
+    "text": "Production is experiencing an active DDoS attack that is overwhelming your primary web servers. What are your immediate steps?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Engage cloud mitigation services like Cloudflare or AWS Shield, analyze traffic patterns to apply rate-limiting or IP blocking rules at the edge, and scale up backend resources if applicable while keeping management updated."
+  },
+  {
+    "text": "An external audit reveals that a database containing PII has been exposed to the public internet without authentication for three months. What is your action plan?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Immediately isolate the database, initiate an incident response investigation to determine if exfiltration occurred, review access logs, consult legal and compliance teams regarding notification requirements, and implement strict firewall rules and IAM policies."
+  },
+  {
+    "text": "A developer pushes hardcoded AWS credentials to a public GitHub repository. What immediate remediation steps do you take?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Revoke and rotate the compromised credentials immediately, scan CloudTrail logs to check if they were used maliciously, work with GitHub to remove the commit history, and implement pre-commit secret scanning hooks."
+  },
+  {
+    "text": "Write a Python function that parses a log file line by line and extracts all unique IP addresses using regular expressions.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "The function should open the file, iterate through lines, apply an IPv4 regex pattern, and add matches to a Python set to ensure uniqueness before returning."
+  },
+  {
+    "text": "Write a Python script to check if a specific TCP port is open on a given remote host using socket connections.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The script should use the socket module, set a timeout, instantiate an AF_INET SOCK_STREAM socket, attempt to connect to the target IP and port, and handle exceptions cleanly."
+  },
+  {
+    "text": "Explain how threat modeling changes when shifting from a monolithic architecture to microservices.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Microservices increase the attack surface by multiplying the number of internal APIs, communication channels, and deployment pipelines. Threat modeling must focus heavily on inter-service authentication, service mesh security, and east-west traffic encryption."
+  },
+  {
+    "text": "How do you conduct a threat modeling session using the PASTA methodology?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "PASTA is a risk-centric framework consisting of seven stages: define objectives, define technical scope, application decomposition, threat analysis, vulnerability analysis, attack modeling, and risk analysis. It aligns technical security with business objectives."
+  },
+  {
+    "text": "What is a threat matrix and how does it assist in threat intelligence integration?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A threat matrix maps specific threat actor groups to their known tactics, techniques, and procedures, often utilizing frameworks like MITRE ATT&CK. It helps security engineers anticipate specific attack behaviors and tune detection rules accordingly."
+  },
+  {
+    "text": "How do you evaluate threat models for cloud-native serverless architectures?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "You examine event sources, function IAM execution roles, environment variable secrets management, and third-party API dependencies. The focus shifts from OS hardening to function-level least privilege and secure payload handling."
+  },
+  {
+    "text": "What is the difference between vulnerability assessment and penetration testing?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Vulnerability assessment is an automated, broad scan to identify known weaknesses without exploiting them. Penetration testing is a human-led, targeted simulation of real attacks to chain vulnerabilities and achieve specific security objectives."
+  },
+  {
+    "text": "Explain how dependency-checking tools prevent supply chain vulnerabilities.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Tools like Snyk or Dependabot scan third-party libraries and software packages in package manifests against databases like NVD to alert developers when vulnerable dependencies are included in the build."
+  },
+  {
+    "text": "How do you handle false positives reported by automated vulnerability scanners?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "You manually verify the finding through reproduction or code review, document why it is a false positive, and configure scanner exclusion rules or tune signatures to reduce noise for future scans."
+  },
+  {
+    "text": "What is container vulnerability scanning and how does it differ from host scanning?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Container scanning inspects individual image layers, including base OS packages and application dependencies bundled inside the container. Host scanning evaluates the underlying virtual machine or bare-metal operating system."
+  },
+  {
+    "text": "How would you design a continuous vulnerability management program for a fast-paced CI/CD pipeline?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Integrate SAST, SCA, and secret scanning directly into developer pull requests, container image scanning into the artifact registry build phase, and dynamic application testing in staging environments to catch flaws early."
+  },
+  {
+    "text": "What are Indicators of Compromise (IoCs) and Indicators of Attack (IoAs)?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "IoCs are forensic artifacts indicating a past security breach, such as malicious hashes or IP addresses. IoAs focus on behavioral signals that show an attacker's intent and execution steps in real-time, regardless of the tools used."
+  },
+  {
+    "text": "Describe the role of a SIEM in modern incident response operations.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A SIEM aggregates log data from endpoints, networks, and cloud services, normalizes it, and applies correlation rules to detect suspicious activity and generate alerts for analysts."
+  },
+  {
+    "text": "How do you perform log analysis when investigating a suspected pass-the-hash attack?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "You examine Windows Event logs, specifically Event ID 4624 for logon types associated with NTLM authentication, and look for anomalies where a single user account authenticates across multiple workstations simultaneously without Kerberos tickets."
+  },
+  {
+    "text": "What steps are involved in performing network forensics during an active data exfiltration incident?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Capture full packet captures, analyze DNS queries for tunneling, inspect flow logs for high-volume outbound data transfers to rare external IPs, and correlate findings with endpoint connection history."
+  },
+  {
+    "text": "Explain the concept of perfect forward secrecy and why it matters.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "PFS ensures that session keys derived from public key cryptography are not compromised if the long-term private key is compromised in the future. It protects past intercepted encrypted communications from being decrypted later."
+  },
+  {
+    "text": "What is homomorphic encryption and what are its primary industry use cases?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Homomorphic encryption allows computations to be performed directly on encrypted data without decrypting it first. Use cases include secure cloud computing, medical data analysis, and privacy-preserving machine learning."
+  },
+  {
+    "text": "Compare RSA and Elliptic Curve Cryptography in terms of key size and security.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "ECC provides equivalent cryptographic security to RSA with significantly smaller key sizes, resulting in faster computations, lower storage requirements, and reduced bandwidth overhead during handshakes."
+  },
+  {
+    "text": "How do digital certificates and Public Key Infrastructure (PKI) establish trust?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "PKI relies on Certificate Authorities that sign public keys, binding an entity's identity to its key. Browsers and operating systems trust root CAs pre-installed in their trust stores, validating certificate chains recursively."
+  },
+  {
+    "text": "What is attribute-based encryption and how does it differ from traditional access control?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "ABE embeds access policies directly into the ciphertext using attributes, meaning data can only be decrypted by users whose private key attributes satisfy the policy, decoupling access control from storage servers."
+  },
+  {
+    "text": "Explain the mechanics of Multi-Factor Authentication bypass techniques.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Attackers bypass MFA using session hijacking, AiTM phishing proxies that capture session cookies and tokens in real-time, MFA fatigue attacks by bombarding users with push notifications, or exploiting flawed API recovery flows."
+  },
+  {
+    "text": "What is the function of a Bastion Host in network access control?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A bastion host is a specially hardened server placed on a network perimeter designed to withstand attacks, serving as the sole gateway for administrative access to internal private networks."
+  },
+  {
+    "text": "How do you implement Zero Trust Network Access (ZTNA) in a remote work environment?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "ZTNA verifies device health, user identity, and contextual risk for every single application connection request, refusing implicit trust to any network segment and utilizing encrypted micro-perimeters."
+  },
+  {
+    "text": "Describe how Kerberos authentication works within an Active Directory domain.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A user authenticates to the Key Distribution Center to receive a Ticket Granting Ticket. The TGT is then presented to the Ticket Granting Service to request service tickets, which grant access to specific network resources without re-entering credentials."
+  },
+  {
+    "text": "What is a Cross-Site Scripting attack and what are the differences between Stored and Reflected XSS?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "XSS injects malicious scripts into trusted websites viewed by other users. Reflected XSS immediately bounces malicious input off a server response, while Stored XSS saves the payload in a database to execute whenever victims load the affected page."
+  },
+  {
+    "text": "Explain how an Insecure Direct Object Reference vulnerability occurs and how to fix it.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "IDOR happens when an application exposes a direct reference to an internal implementation object, like a database ID, allowing users to manipulate parameters to access unauthorized records. Fix it by implementing robust server-side authorization checks."
+  },
+  {
+    "text": "What is SQL injection and how do parameterized queries prevent it?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "SQLi occurs when untrusted user input is directly concatenated into a database query string. Parameterized queries prevent this by separating user data from SQL command code, ensuring inputs are treated strictly as data parameters."
+  },
+  {
+    "text": "Describe the concept of Server-Side Template Injection and its potential impact.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "SSTI occurs when user input is unsafely embedded into a web template engine, allowing attackers to inject template directives. This can lead to Remote Code Execution on the server depending on the template engine's capabilities."
+  },
+  {
+    "text": "Tell me about a time when you had to convince leadership to invest in a security tool or process.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Look for a structured pitch using risk quantification, cost-benefit analysis, compliance requirements, and alignment with overall business growth goals."
+  },
+  {
+    "text": "Describe a scenario where you made a mistake during a security assessment. How did you handle it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The candidate should show accountability, transparent communication with affected parties, swift remediation of the error, and implementation of checks to prevent repetition."
+  },
+  {
+    "text": "How do you handle working with a team member who consistently bypasses security guidelines for the sake of speed?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "An ideal answer focuses on empathy, understanding their deadline pressures, educating them on the long-term cost of shortcuts, and collaborating to streamline security into their workflow."
+  },
+  {
+    "text": "Tell me about a time you had to mentor a junior security engineer. What approach did you take?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Look for patience, hands-on guidance, encouraging independent problem-solving, and providing constructive feedback in a supportive learning environment."
+  },
+  {
+    "text": "You notice unusual outbound traffic from a database server to an unknown foreign IP address during off-hours. What are your immediate troubleshooting steps?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Block the destination IP at the firewall immediately, isolate the database server from the network, capture memory and disk artifacts for forensic analysis, and check authentication logs for compromise."
+  },
+  {
+    "text": "An audit discovers that an employee who left the company three months ago still has active administrative access to production systems. How do you respond?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Revoke the credentials immediately, perform a comprehensive audit of all activity logs associated with that account during the past three months, notify management and legal, and automate offboarding processes to prevent recurrence."
+  },
+  {
+    "text": "Write a Python function that takes a string and returns its SHA-256 cryptographic hash hexadecimal representation.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Import the hashlib module, encode the input string to bytes using UTF-8, pass it to hashlib.sha256(), and return the hexdigest."
+  },
+  {
+    "text": "Write a Python script that sanitizes user input against basic SQL injection keywords and common malicious patterns.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use regular expressions or string replacement to strip or escape dangerous characters like single quotes, semicolons, and SQL keywords such as UNION and DROP, though noting parameterized queries are the true fix."
+  },
+  {
+    "text": "How do you incorporate threat modeling into an Agile development sprint cycle?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Perform lightweight threat modeling during feature backlog refinement or sprint planning sessions, updating the threat model iteratively as user stories and architecture evolve rather than doing a massive upfront design."
+  },
+  {
+    "text": "What is privilege abuse analysis in advanced threat modeling?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Privilege abuse modeling examines how legitimate users or compromised privileged accounts can misuse their authorized access rights to exfiltrate data or sabotage systems without triggering traditional malware alerts."
+  },
+  {
+    "text": "Explain how threat modeling applies to IoT and smart device ecosystems.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "IoT threat modeling must account for physical tampering, insecure wireless communication protocols, unencrypted local storage, lack of secure firmware update mechanisms, and hardcoded default credentials."
+  },
+  {
+    "text": "What is the purpose of a threat modeling tool like Microsoft Threat Modeling Tool or IriusRisk?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "These tools automate the drawing of architecture diagrams, automatically generate threat lists based on rules engines, and track remediation tasks linked to specific components."
+  },
+  {
+    "text": "How do you evaluate the effectiveness of an enterprise vulnerability assessment program?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Measure metrics such as Mean Time to Remediate across different severity levels, percentage of asset coverage, repeat vulnerability rates, and reduction in critical findings over time."
+  },
+  {
+    "text": "What is a credentialed vulnerability scan and what are its advantages?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A credentialed scan logs into the target system using administrative credentials to inspect local software versions, missing patches, and misconfigurations that unauthenticated network scans cannot see."
+  },
+  {
+    "text": "How do you handle vulnerability management for third-party SaaS applications?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Since you cannot scan SaaS infrastructure directly, you rely on reviewing SOC 2 Type II reports, evaluating vendor security questionnaires, monitoring for third-party data breaches, and enforcing strict SSO and API policies."
+  },
+  {
+    "text": "Explain how exploit maturity ratings affect vulnerability remediation priority.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Vulnerabilities with proof-of-concept exploits available or active exploitation in the wild are prioritized over theoretical vulnerabilities with no public exploit code, drastically lowering real-world risk."
+  },
+  {
+    "text": "What is the difference between threat hunting and incident response?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Incident response is reactive, triggered by alerts to contain and remediate active security events. Threat hunting is proactive, searching enterprise networks and endpoints for advanced threats that bypassed existing security controls."
+  },
+  {
+    "text": "How do you conduct an investigation on compromised cloud storage buckets?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Analyze cloud storage access logs to identify listing and download requests from unknown IPs, review IAM policies for public exposure grants, and check object version history for malicious modifications or deletions."
+  },
+  {
+    "text": "What is the purpose of containment playbooks in security operations?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Playbooks provide standardized, step-by-step instructions for analysts to follow during specific types of security incidents, ensuring consistent and rapid containment and reducing human error during high-stress situations."
+  },
+  {
+    "text": "Explain how email header analysis helps in investigating a targeted phishing attack.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Email headers reveal the actual routing path, SPF, DKIM, and DMARC authentication results, origin IP addresses, and intermediate mail servers, helping determine if the message was spoofed or sent from a compromised domain."
+  },
+  {
+    "text": "What is quantum cryptography and how will it impact current encryption standards?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Quantum computing leverages quantum mechanics to solve complex mathematical problems exponentially faster, threatening to break RSA and ECC via Shor's algorithm, necessitating the transition to post-quantum cryptography."
+  },
+  {
+    "text": "Explain the mechanics of a man-in-the-middle attack on encrypted channels.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "An attacker positions themselves between a client and server, intercepting communications by presenting forged certificates or performing ARP poisoning, allowing them to decrypt, inspect, and re-encrypt traffic if certificate validation is bypassed."
+  },
+  {
+    "text": "What are digital signatures and how do they ensure non-repudiation?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A digital signature is created by hashing a message and encrypting the hash with the sender's private key. Anyone with the public key can verify the signature, proving the message originated from the sender and cannot be denied."
+  },
+  {
+    "text": "How does SSL/TLS session resumption work?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Session resumption allows a client and server to bypass the full TLS handshake by reusing previously negotiated session parameters or tickets, reducing CPU overhead and latency on reconnection."
+  },
+  {
+    "text": "What is discretionary access control versus mandatory access control?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "DAC allows resource owners to grant access permissions to other users. MAC restricts access based on centralized, system-wide security labels and classifications where users cannot alter permissions."
+  },
+  {
+    "text": "How do you secure API access using JSON Web Tokens?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Sign JWTs with strong cryptographic keys, include short expiration times, use appropriate audience and issuer claims, store them securely on the client side, and validate signatures on every API request."
+  },
+  {
+    "text": "What is the function of a Privileged Access Management solution?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "PAM solutions discover, manage, audit, and secure privileged accounts, providing features like password vaulting, session recording, just-in-time elevation, and multi-factor authentication for administrative access."
+  },
+  {
+    "text": "Explain how directory traversal attacks work and how to mitigate them.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Directory traversal uses sequences like dot-dot-slash to manipulate file path parameters, allowing attackers to access unauthorized files outside the web root. Mitigate by using safe path resolution APIs and strict input validation."
+  },
+  {
+    "text": "What is a blind SQL injection and how is it exploited?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Blind SQLi occurs when an application does not return query results or error messages in HTTP responses. Attackers exploit it by asking true-or-false questions and analyzing application behavior or response time delays."
+  },
+  {
+    "text": "Describe the security implications of insecure deserialization.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Insecure deserialization happens when untrusted data is converted back into complex objects without validation, allowing attackers to manipulate serialized data structures to achieve remote code execution."
+  },
+  {
+    "text": "Tell me about a time you had to pivot your security strategy mid-project due to unexpected constraints.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Look for flexibility, analytical decision-making under pressure, clear communication with teams, and successful delivery of security goals despite changing parameters."
+  },
+  {
+    "text": "Describe a scenario where you had to give negative performance feedback to a colleague.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "An effective response highlights empathy, constructive framing, focusing on objective behaviors rather than personal traits, and establishing actionable improvement goals."
+  },
+  {
+    "text": "A critical zero-day vulnerability is announced for a library your company uses extensively, but no patch is available. How do you handle communications and defense?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Convenee an emergency incident response team, evaluate exposure across repositories, implement temporary workarounds or WAF rules, notify executive leadership, and monitor for exploitation attempts until an official patch is released."
+  },
+  {
+    "text": "Write a Python script that parses an Apache web access log and counts the number of requests per IP address, returning the top 5 most frequent IPs.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use regular expressions to extract IP addresses from each log line, store counts in a collections.Counter object, and use .most_common(5) to retrieve the top five IPs."
+  },
+  {
+    "text": "What is STRIDE-per-element and how does it refine traditional threat modeling?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "STRIDE-per-element applies the specific STRIDE threat categories to every individual component, data flow, and trust boundary in a data flow diagram, ensuring comprehensive coverage of complex system architectures."
+  },
+  {
+    "text": "How do you threat model a cloud migration project moving from on-premises to AWS?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Analyze shared responsibility boundaries, IAM trust relationships, VPC peering and security groups, S3 bucket exposure settings, and cloud-native logging configurations to identify misconfigurations before deployment."
+  },
+  {
+    "text": "What is a threat model review gate in the software development lifecycle?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A review gate is a mandatory security checkpoint where the completed threat model must be signed off by security engineering before code can be merged into production or proceed to penetration testing."
+  },
+  {
+    "text": "Explain how threat modeling helps in defining security testing requirements.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Threat models identify high-risk components and specific abuse cases, which directly inform penetration testers and QA engineers on where to focus manual testing efforts and custom test cases."
+  },
+  {
+    "text": "What is CVSS Environmental and Temporal metrics scoring?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Temporal metrics adjust the score based on exploit code maturity and patch availability over time. Environmental metrics customize the score based on the specific organization's asset criticality and security controls."
+  },
+  {
+    "text": "How do you perform static vulnerability analysis on infrastructure-as-code templates?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use tools like Checkov, Tfsec, or KICS to scan Terraform, CloudFormation, or Kubernetes manifests against security policies and best practices before deployment."
+  },
+  {
+    "text": "What is runtime application self-protection and how does it assist in vulnerability mitigation?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "RASP embeds security instrumentation directly into the application runtime environment to detect and block attacks in real-time by analyzing application behavior and data flows."
+  },
+  {
+    "text": "Explain the concept of vulnerability chaining in security assessments.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Vulnerability chaining involves combining multiple low- or medium-severity flaws that individually pose minimal risk, allowing an attacker to exploit them sequentially to achieve high-impact compromise."
+  },
+  {
+    "text": "What is the importance of volatile memory preservation during incident response?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Volatile memory contains active network connections, running processes, decryption keys, and injected code that would be lost if the machine is powered down, making RAM capture critical for deep forensic analysis."
+  },
+  {
+    "text": "How do you investigate a ransomware infection across enterprise endpoints?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Isolate infected hosts immediately, identify the initial patient zero and vector, analyze endpoint logs for lateral movement via RDP or PsExec, check shadow copies, and assess if data exfiltration occurred prior to encryption."
+  },
+  {
+    "text": "What is the role of threat intelligence feeds in incident containment?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Threat feeds provide up-to-date lists of malicious IPs, domains, and file hashes that can be ingested into firewalls, SIEMs, and EDR platforms to block known indicators during an active incident."
+  },
+  {
+    "text": "Explain how timeline analysis aids post-incident forensic investigations.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Timeline analysis correlates timestamps from file systems, registry keys, event logs, and network traffic into a chronological sequence of events to reconstruct the exact narrative of an attacker's activity."
+  },
+  {
+    "text": "What is quantum key distribution and how does it secure communications?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "QKD uses photons and quantum mechanics to securely distribute cryptographic keys between parties, ensuring that any interception attempt alters the quantum state and is immediately detected."
+  },
+  {
+    "text": "Explain how side-channel attacks threaten cryptographic implementations.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Side-channel attacks exploit physical information leaked during cryptographic operations, such as power consumption, electromagnetic emissions, or processing time, to extract secret keys without breaking the algorithm math."
+  },
+  {
+    "text": "What is message authentication code and how does it differ from digital signatures?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A MAC uses a symmetric shared secret key to authenticate a message and ensure integrity. Digital signatures use asymmetric public-private key pairs and provide non-repudiation, which MACs do not."
+  },
+  {
+    "text": "How do you manage cryptographic key lifecycles in cloud applications?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use a Cloud Key Management Service to handle key generation, rotation, access control, and secure destruction, ensuring keys are rotated regularly and never hardcoded in application repositories."
+  },
+  {
+    "text": "What is the role of a Policy Enforcement Point in access control architecture?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The PEP intercepts access requests to resources and coordinates with a Policy Decision Point to evaluate authorization rules before allowing or denying the connection."
+  },
+  {
+    "text": "Explain how risk-adaptive access control functions in modern identity platforms.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Risk-adaptive access control continuously calculates user risk scores based on behavioral analytics, impossible travel, device trust, and anomaly detection, dynamically adjusting authentication requirements in real-time."
+  },
+  {
+    "text": "What is the principle of separation of duties in enterprise access management?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Separation of duties divides critical tasks and administrative privileges among multiple individuals to prevent fraud, errors, and malicious activities by ensuring no single person holds total control."
+  },
+  {
+    "text": "Explain how Cross-Site Request Forgery works and how to prevent it.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "CSRF tricks a authenticated user into executing unwanted actions on a web application where they are currently logged in. Prevent it by using anti-CSRF tokens, SameSite cookie attributes, and requiring re-authentication for sensitive actions."
+  },
+  {
+    "text": "What is XML External Entity injection and how do you prevent it?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "XXE occurs when XML input containing a reference to an external entity is processed by a weakly configured XML parser, leading to local file disclosure or SSRF. Prevent it by disabling external entity processing in parser configurations."
+  },
+  {
+    "text": "Describe the security risks associated with prototype pollution in JavaScript applications.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Prototype pollution allows an attacker to inject properties into JavaScript base object prototypes, which can propagate across all objects in the application and lead to remote code execution, denial of service, or property injection."
+  },
+  {
+    "text": "Tell me about a time you identified a systemic security flaw rather than just fixing a single symptom.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Look for root cause analysis, systemic redesign of policies or pipelines, and long-term organizational risk reduction rather than quick temporary patches."
+  },
+  {
+    "text": "Write a Python script that validates whether a given string is a strong password meeting length, complexity, and character variety requirements.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Check the string length against a minimum threshold, and use regular expressions or character set checks to verify the presence of uppercase letters, lowercase letters, numbers, and special characters."
+  },
+  {
+    "text": "What is STRIDE and how is it used in threat modeling?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "STRIDE is a threat modeling framework created by Microsoft that categorizes risks into Spoofing, Tampering, Repudiation, Information disclosure, Denial of service, and Elevation of privilege. Engineers use it during the design phase to systematically identify and mitigate vulnerabilities in software architecture before deployment."
+  },
+  {
+    "text": "Explain the difference between symmetric and asymmetric encryption.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Symmetric encryption uses a single shared key for both encryption and decryption, making it fast and efficient for large volumes of data. Asymmetric encryption uses a key pair consisting of a public key for encryption and a private key for decryption, providing better security for key exchange and digital signatures."
+  },
+  {
+    "text": "What is the primary objective of a vulnerability assessment?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The primary objective is to identify, quantify, and prioritize security vulnerabilities in systems, networks, and applications. Unlike penetration testing, it focuses on discovery and reporting rather than active exploitation of those flaws."
+  },
+  {
+    "text": "What does RBAC stand for in access control systems?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "RBAC stands for Role-Based Access Control. It restricts system access to authorized users based on their specific organizational roles rather than individual identity, simplifying administrative overhead and enforcing the principle of least privilege."
+  },
+  {
+    "text": "Name the standard phases of the Incident Response lifecycle according to NIST.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The four main phases defined by NIST SP 800-61 are Preparation, Detection and Analysis, Containment, Eradication and Recovery, and Post-Incident Activity. These phases guide organizations through structured handling of security breaches."
+  },
+  {
+    "text": "What is the difference between a vulnerability scan and a penetration test?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A vulnerability scan is an automated, broad assessment that identifies known weaknesses using signature databases. A penetration test is a manual or simulated attack by security professionals aimed at actively exploiting those vulnerabilities to determine real-world business impact."
+  },
+  {
+    "text": "Describe the principle of least privilege.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The principle of least privilege dictates that users, processes, and systems should only have the bare minimum permissions necessary to perform their specific functions. This limits the blast radius if an account or system component is compromised."
+  },
+  {
+    "text": "What is salting in the context of password hashing?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Salting involves adding a unique, random string of data to each password before it is hashed. This ensures that identical passwords result in completely different hash outputs, effectively neutralizing precomputed rainbow table attacks."
+  },
+  {
+    "text": "What is the purpose of an intrusion detection system (IDS)?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "An IDS monitors network traffic or system activities for malicious policy violations and generates alerts for security analysts. It operates passively to detect anomalies or known attack signatures without blocking traffic directly."
+  },
+  {
+    "text": "What is an attack surface in threat modeling?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The attack surface represents the sum of all accessible endpoints, entry points, interfaces, and code paths where an unauthorized user can try to enter data or extract data from a system. Minimizing it reduces overall security risk."
+  },
+  {
+    "text": "Explain the concept of defense in depth.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Defense in depth is a security strategy that deploys multiple independent layers of security controls throughout a system architecture. If one defensive layer fails, subsequent layers remain operational to prevent unauthorized access or data exfiltration."
+  },
+  {
+    "text": "What is the role of a packet analyzer like Wireshark during incident response?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Wireshark captures and inspects raw network traffic packets in real time or from capture files. During an incident, analysts use it to investigate malicious communications, protocol anomalies, and command-and-control traffic."
+  },
+  {
+    "text": "What is Multi-Factor Authentication (MFA)?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "MFA is an authentication method that requires a user to provide two or more distinct verification factors to gain access. These factors typically combine something you know, something you have, and something you are."
+  },
+  {
+    "text": "What is a zero-day vulnerability?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A zero-day vulnerability is an undisclosed software flaw that is actively exploited by attackers before the vendor becomes aware of it or releases a patch. Because there is no fix available, they pose severe operational risks."
+  },
+  {
+    "text": "What is the CIA triad?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The CIA triad is a foundational information security model consisting of Confidentiality, Integrity, and Availability. Every security control, policy, and architecture decision is evaluated against how well it protects these three pillars."
+  },
+  {
+    "text": "Tell me about a time you had to explain a complex technical security risk to a non-technical stakeholder.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "The candidate should describe a specific scenario, outline how they translated technical jargon into business language focused on risk and cost, and explain the positive outcome or decision reached."
+  },
+  {
+    "text": "How do you prioritize multiple critical security alerts when working under high pressure?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "The response should highlight a structured approach involving triage based on potential impact, asset criticality, exploitability, and organizational policy, demonstrating composure and clear methodology."
+  },
+  {
+    "text": "Describe a situation where you disagreed with a team member on a security implementation. How did you resolve it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "The answer should reflect professional communication, active listening, reliance on data or industry standards to guide the discussion, and a collaborative path toward a secure resolution."
+  },
+  {
+    "text": "Tell me about a time you missed a vulnerability or incident indicator. What did you learn?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "A strong response demonstrates accountability, a commitment to continuous improvement, and specific procedural changes implemented to prevent similar oversights in the future."
+  },
+  {
+    "text": "How do you stay updated with rapidly evolving cybersecurity threats and technologies?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "The candidate should mention specific reliable sources such as threat intel feeds, security blogs, industry conferences, certifications, and hands-on labs or community forums."
+  },
+  {
+    "text": "You notice a critical vulnerability in a production system just as a major product release is about to go live. What do you do?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "The engineer should immediately notify the development and leadership teams, quantify the risk, and propose delaying the release or implementing a compensating control if immediate patching is not feasible."
+  },
+  {
+    "text": "A user reports receiving multiple unexpected MFA push notifications on their phone. How do you handle this scenario?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Treat this as potential MFA fatigue or credential compromise. Immediately lock the user account, terminate all active sessions, check logs for suspicious login attempts, and initiate an investigation."
+  },
+  {
+    "text": "Write a Python function that validates whether a given string meets basic password complexity requirements.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "The function should check minimum length, presence of uppercase and lowercase letters, numbers, and special characters, returning a boolean value based on these checks."
+  },
+  {
+    "text": "Write a Python script that parses a log file line and extracts IP addresses using regular expressions.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "The script should open a file, read line by line, apply a standard IPv4 regex pattern, and print or store any matched IP addresses found in the text."
+  },
+  {
+    "text": "Explain how PASTA (Process for Attack Simulation and Threat Analysis) differs from traditional threat modeling.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "PASTA is a risk-centric, seven-stage threat modeling methodology that aligns technical security requirements with business objectives. Unlike purely architecture-focused models, it integrates threat intelligence and business impact analysis into the evaluation."
+  },
+  {
+    "text": "How does Perfect Forward Secrecy (PFS) work in TLS handshakes?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "PFS ensures that session keys derived from Diffie-Hellman key exchanges are not compromised even if the server's long-term private key is stolen in the future. It generates unique, ephemeral key pairs for every individual session."
+  },
+  {
+    "text": "Describe the Common Vulnerability Scoring System (CVSS) metric groups.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "CVSS is structured around three metric groups: Base metrics that capture constant intrinsic characteristics, Temporal metrics that measure characteristics evolving over time, and Environmental metrics that tailor the score to a specific organization's infrastructure."
+  },
+  {
+    "text": "Compare DAC, MAC, and ABAC access control models.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Discretionary Access Control allows resource owners to manage permissions; Mandatory Access Control relies on centralized security labels enforced by the OS; Attribute-Based Access Control evaluates dynamic environmental, user, and resource attributes to grant access."
+  },
+  {
+    "text": "What steps are involved in performing volatile data collection during a live incident response on a Linux host?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Volatile data collection includes capturing system date, logged-in users, active network connections via netstat or ss, running process lists, loaded kernel modules, and system memory before shutting down or rebooting the machine."
+  },
+  {
+    "text": "What is the difference between authenticated and unauthenticated vulnerability scans?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Unauthenticated scans view the target from an external perspective, identifying only network-visible service flaws. Authenticated scans log into the system with credentials to evaluate internal file permissions, missing software patches, and deep configuration settings."
+  },
+  {
+    "text": "Explain how Server-Side Request Forgery (SSRF) works and how to prevent it.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "SSRF occurs when an attacker tricks a vulnerable web application into making HTTP requests to an arbitrary internal or external system. Prevention involves whitelisting allowed destination URLs and disabling unused URL schema handlers."
+  },
+  {
+    "text": "How do you implement certificate pinning in mobile applications?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Certificate pinning hardcodes or bundles the server's specific SSL certificate or public key hash within the application binary. This prevents man-in-the-middle attacks using fraudulent or rogue Certificate Authorities."
+  },
+  {
+    "text": "What is post-exploitation in penetration testing?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Post-exploitation refers to the activities performed after gaining initial access to a target system. This includes maintaining persistence, escalating privileges, harvesting credentials, and pivoting to other internal network segments."
+  },
+  {
+    "text": "Describe the function of a SIEM and how log normalization aids analysis.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A SIEM aggregates, correlates, and analyzes log data across enterprise infrastructure. Log normalization converts disparate log formats into a standardized schema so security analysts can query events and build correlation rules efficiently."
+  },
+  {
+    "text": "What is a blind SQL injection and how do you detect it?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Blind SQL injection occurs when an application executes a database query injected by an attacker but does not return database error messages or query results in the HTTP response. Detection relies on observing application behavior changes, such as boolean logic differences or time delays."
+  },
+  {
+    "text": "Explain the role of OAuth 2.0 and OpenID Connect in modern identity federation.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "OAuth 2.0 is an authorization framework that allows third-party applications to obtain limited access to user resources without exposing credentials. OpenID Connect is an identity layer built on top of OAuth 2.0 that handles user authentication and profile information."
+  },
+  {
+    "text": "What is data leakage prevention (DLP) and how does it operate?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "DLP tools inspect data in motion, at rest, and in use to detect and prevent unauthorized transmission of sensitive information. They use content inspection, regex pattern matching, and contextual analysis to block policy violations."
+  },
+  {
+    "text": "How does a reverse proxy enhance application security?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A reverse proxy sits in front of backend web servers, acting as an intermediary for client requests. It provides SSL termination, hides backend server topologies, filters malicious traffic, and often integrates Web Application Firewall capabilities."
+  },
+  {
+    "text": "What is memory dumping and why is it useful during malware analysis?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Memory dumping captures the contents of a system or process RAM space to disk for forensic inspection. It is useful for uncovering fileless malware, unpacked payloads, injected code, and encryption keys that do not persist on storage drives."
+  },
+  {
+    "text": "Describe a time when you identified a systemic security flaw during a routine threat modeling session. How did you communicate it to engineering?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The answer should detail the specific architectural flaw discovered, the collaborative approach used to demonstrate risk to developers, and how remediation was integrated into the sprint backlog."
+  },
+  {
+    "text": "Tell me about a high-stress incident where containment actions disrupted normal business operations. How did you handle the stakeholder fallout?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A strong response illustrates clear justification for emergency containment, calm communication under pressure, transparent post-incident debriefs, and steps taken to balance operational uptime with security posture."
+  },
+  {
+    "text": "How do you handle a development team that consistently pushes back on security requirements due to tight delivery deadlines?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The candidate should explain how they build empathy with developers, perform risk-based prioritization, offer pragmatic compensating controls, and foster a shared security culture."
+  },
+  {
+    "text": "Describe a project where you automated a security process. What tools did you use and what was the business value?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The response should highlight manual bottlenecks identified, scripting or orchestration tools utilized, and quantifiable improvements in response time or detection coverage."
+  },
+  {
+    "text": "Tell me about an instance where a third-party vendor introduced a security risk. How did you evaluate and mitigate it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The answer should cover vendor risk assessment procedures, collaboration with legal and procurement teams, and implementation of strict technical access boundaries."
+  },
+  {
+    "text": "You discover that a junior administrator has improperly configured a cloud storage bucket containing PII, making it publicly accessible. What immediate and long-term steps do you take?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Immediately restrict public access to the bucket, review access logs to determine if unauthorized downloads occurred, notify compliance teams, and implement automated guardrails like SCPs or CI/CD scanning to prevent recurrence."
+  },
+  {
+    "text": "An external penetration testing team reports a critical Remote Code Execution vulnerability in your legacy customer portal. The vendor who built it is out of business. How do you respond?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Immediately isolate the portal or place a WAF virtual patch in front of it. Conduct a code review to apply emergency patches internally, and formulate a plan to deprecate or rewrite the legacy system."
+  },
+  {
+    "text": "Write a Python script that connects to a local SQLite database and safely executes a parameterized query to prevent SQL injection.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The script should establish a connection, use placeholders such as question marks in the SQL statement, pass parameters as a tuple in the execute method, and commit the transaction."
+  },
+  {
+    "text": "Write a Python script that takes a URL, sends an HTTP GET request, and checks if security headers like HSTS and CSP are present in the response.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The script should use the requests library, inspect the response headers dictionary for specific keys like Strict-Transport-Security and Content-Security-Policy, and report their presence or absence."
+  },
+  {
+    "text": "Explain how data flow diagrams (DFDs) are constructed and utilized during threat modeling.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "DFDs map out processes, data stores, external entities, and data flows across system boundaries. Security engineers analyze these diagrams to trace trust boundaries and identify where sensitive data is exposed to potential threats."
+  },
+  {
+    "text": "How do cryptographic hash collisions impact digital signature integrity?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "A collision occurs when two different inputs produce the exact same hash output. If an attacker finds a collision in a weak hash algorithm, they can substitute a malicious file or document for a legitimate one without invalidating the attached digital signature."
+  },
+  {
+    "text": "Describe the mechanics of a Kerberoasting attack and how to mitigate it.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Kerberoasting allows any authenticated domain user to request a service ticket for any Service Principal Name, which is then encrypted with the service account's password hash and brute-forced offline. Mitigation involves using strong, complex passwords or group managed service accounts with AES encryption."
+  },
+  {
+    "text": "What is an OAuth 2.0 authorization code flow with PKCE, and why is it necessary for public clients?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "PKCE adds a dynamically generated code verifier and challenge to the authorization code flow, protecting public clients like mobile or single-page apps from authorization code interception attacks where client secrets cannot be securely stored."
+  },
+  {
+    "text": "Explain how memory corruption vulnerabilities like heap overflow differ from stack overflow.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Stack overflows overwrite return addresses and local variables stored in the contiguous stack frame. Heap overflows corrupt adjacent memory chunks and metadata pointers on the heap, often requiring complex manipulation of heap allocators to achieve code execution."
+  },
+  {
+    "text": "What is threat hunting and how does it differ from traditional security monitoring?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Threat hunting is a proactive, human-led investigation to detect and isolate advanced adversaries lurking undetected in an environment. Traditional monitoring is largely reactive and signature-based, relying on automated alerts triggered by known IOCs."
+  },
+  {
+    "text": "Detail the inner workings of an XML External Entity (XXE) injection attack.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "XXE occurs when untrusted XML input is processed by a weakly configured XML parser that evaluates external entity references. Attackers exploit this to read local files, conduct server-side request forgery, or perform denial of service attacks."
+  },
+  {
+    "text": "How do you secure container workloads in a Kubernetes cluster against container escape?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Container escape prevention involves running containers as non-root users, utilizing read-only root filesystems, dropping unnecessary Linux capabilities, enforcing seccomp and AppArmor profiles, and keeping the container runtime and host kernel updated."
+  },
+  {
+    "text": "Explain the architecture of a public key infrastructure (PKI) and the trust chain validation process.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "PKI comprises root CAs, intermediate CAs, and end-entity certificates. Trust validation involves traversing the certificate chain from the leaf certificate back to a trusted root CA in the local store while checking expiration dates, digital signatures, and revocation lists."
+  },
+  {
+    "text": "What are Active Directory Golden Ticket attacks and how do attackers achieve persistence?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "A Golden Ticket attack involves compromising the KRBTGT account password hash to forge valid Kerberos Ticket Granting Tickets. This grants the attacker domain admin privileges and persistent access that survives regular user password resets."
+  },
+  {
+    "text": "Describe how side-channel attacks work against cryptographic implementations.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Side-channel attacks infer cryptographic keys or sensitive data by measuring physical characteristics of hardware executing encryption algorithms, such as power consumption, electromagnetic radiation, execution timing, or acoustic emissions."
+  },
+  {
+    "text": "What is memory layout randomization (ASLR) and how do attackers bypass it?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "ASLR randomly arranges the address space positions of key data areas in a process memory address space. Attackers bypass ASLR by utilizing information disclosure vulnerabilities to leak memory pointers or by exploiting non-randomized modules loaded in the process."
+  },
+  {
+    "text": "Explain how Server-Side Template Injection (SSTI) leads to Remote Code Execution.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "SSTI occurs when user input is unsafely embedded into a server-side template engine, allowing attackers to inject template directives. Because template engines have access to application internals, crafted payloads can evaluate arbitrary system commands."
+  },
+  {
+    "text": "How do you architect secure microservices communication using mutual TLS (mTLS)?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "mTLS ensures that both client and server authenticate each other through cryptographic certificates before data exchange. In microservices, a service mesh automates certificate rotation, identity verification, and encrypted tunneling between service pods."
+  },
+  {
+    "text": "Describe the technical steps involved in forensic timeline reconstruction during a sophisticated malware investigation.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Timeline reconstruction requires extracting MACB metadata from filesystem artifacts, parsing Windows Registry hives, correlating event logs, analyzing browser histories, and aligning timestamps across all collected systems to establish chronological sequence of adversary actions."
+  },
+  {
+    "text": "Describe a scenario where your threat model failed to predict a novel attack vector in production. How did you update your modeling process?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "The candidate should explain the blind spot in the original threat model, how the attack manifested, and the structural changes made to future threat modeling frameworks to account for that class of vulnerability."
+  },
+  {
+    "text": "Tell me about a time you had to lead an incident response for an active nation-state or sophisticated APT intrusion. How did you coordinate containment without alerting the threat actor?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "A strong answer highlights advanced containment strategy, out-of-band communications, covert monitoring to map adversary infrastructure, and collaboration with specialized external incident response partners."
+  },
+  {
+    "text": "An auditor uncovers a severe cryptographic implementation flaw in a core product weeks before launch, threatening compliance certification. How do you lead the mitigation effort under extreme time constraints?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Perform rapid impact analysis, coordinate emergency refactoring with senior engineers, engage compliance auditors early to review proposed hotfixes, and document compensating controls if full architectural redesign is impossible before launch."
+  },
+  {
+    "text": "Write a Python script that implements a basic RSA key generation and encryption/decryption routine using a cryptographic library like cryptography.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "The script should generate public and private RSA key pairs, serialize them, use the public key to encrypt a plaintext message, and use the private key to successfully decrypt it back to the original text."
+  },
+  {
+    "text": "Write a Python script that parses a PCAP file using Scapy, extracts all HTTP GET request paths, and checks for potential directory traversal patterns.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "The script should read a packet capture file, filter for TCP packets on port 80 containing HTTP traffic, parse the request path for strings like dot-dot-slash, and output suspicious requests."
+  },
+  {
+    "text": "Evaluate the mathematical foundations of homomorphic encryption and discuss its practical limitations in modern cloud security.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Homomorphic encryption allows computations to be performed on ciphertext without decryption, preserving confidentiality. Practical limitations include massive computational overhead, significant ciphertext expansion, and high latency that make real-time cloud operations challenging."
+  },
+  {
+    "text": "Analyze the architectural security trade-offs between Zero Trust Network Architecture (ZTNA) and traditional perimeter-based VPNs.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Traditional VPNs grant broad internal network access once authenticated, creating a wide blast radius if compromised. ZTNA continuously verifies user identity and device posture for every individual application request, eliminating implicit trust zones but increasing complexity."
+  },
+  {
+    "text": "Describe how differential privacy works and explain its role in preventing inference attacks on large datasets.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Differential privacy adds calibrated statistical noise to dataset queries so that individual records cannot be identified or inferred. It protects against re-identification and auxiliary data linkage attacks while preserving the overall statistical accuracy of analytical outputs."
+  },
+  {
+    "text": "You are tasked with designing an incident response plan for a major ransomware attack affecting both on-premises and multi-cloud environments. Detail your orchestration strategy.",
+    "type": "SITUATIONAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "The design must include immediate network segmentation to halt lateral spread, isolation of cloud control planes and backup systems, forensic preservation of immutable logs, coordination with legal and law enforcement, and a staged recovery protocol ensuring clean images."
+  },
+  {
+    "text": "Write a Python script implementing a custom polymorphic shellcode encoder and decoder stub to evade simple signature-based detection.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "The script should take a sample byte array, apply a dynamic encoding operation with a randomized key, and generate a self-contained decryption stub that decodes and executes the payload at runtime."
+  }
+]

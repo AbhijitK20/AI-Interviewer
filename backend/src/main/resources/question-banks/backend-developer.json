@@ -1,0 +1,1202 @@
+[
+  {
+    "text": "What is the primary difference between a URI and a URL in API design?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A URI (Uniform Resource Identifier) is a broader term that identifies a resource, either by location, name, or both. A URL (Uniform Resource Locator) is a specific type of URI that not only identifies a resource but also provides the means of locating it over the network."
+  },
+  {
+    "text": "Explain the concept of statelessness in RESTful APIs.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Statelessness means that the server does not store any client context or session state between requests. Every request from the client must contain all the necessary information, such as authentication tokens and parameters, for the server to understand and process it."
+  },
+  {
+    "text": "What does an HTTP status code in the 4xx range typically signify?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "4xx status codes indicate client-side errors, meaning the request contains bad syntax, cannot be fulfilled, or lacks proper authorization. Common examples include 400 Bad Request, 401 Unauthorized, and 404 Not Found."
+  },
+  {
+    "text": "Why is indexing a database column beneficial for query performance?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "An index creates a separate, highly optimized data structure (like a B-tree) that allows the database engine to locate rows quickly without scanning the entire table. This drastically reduces read times for queries filtering by that column, though it adds overhead to write operations."
+  },
+  {
+    "text": "What is the difference between SQL and NoSQL databases?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "SQL databases are relational, structured, use predefined schemas, and emphasize ACID compliance, making them great for complex relationships. NoSQL databases are non-relational, highly flexible, often schema-less, and designed for horizontal scalability and rapid data ingestion."
+  },
+  {
+    "text": "What is caching and why is it used in backend development?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Caching involves storing frequently accessed data in a fast, temporary storage layer (like memory) to serve future requests faster. It reduces latency, decreases database load, and improves overall application scalability and responsiveness."
+  },
+  {
+    "text": "What is the primary benefit of a microservices architecture over a monolith?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Microservices break an application into small, independent services that can be developed, deployed, and scaled individually. This allows different teams to work concurrently on different parts of the system using diverse technology stacks."
+  },
+  {
+    "text": "Why should passwords never be stored in plain text?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Storing passwords in plain text leaves them completely exposed if the database is breached, compromising user accounts across multiple services. Instead, they should be hashed using strong algorithms like bcrypt with a unique salt."
+  },
+  {
+    "text": "What is horizontal scaling compared to vertical scaling?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Horizontal scaling involves adding more machines or instances to handle increased load, providing better fault tolerance. Vertical scaling means adding more power (CPU, RAM) to a single existing server, which has hardware limits."
+  },
+  {
+    "text": "What is the purpose of try-catch blocks in error handling?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Try-catch blocks allow developers to gracefully intercept runtime errors or exceptions instead of letting the application crash. They enable fallback behavior, proper resource cleanup, and clean error logging."
+  },
+  {
+    "text": "What is the difference between symmetric and asymmetric encryption?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Symmetric encryption uses the same secret key for both encryption and decryption, making it fast but requiring secure key sharing. Asymmetric encryption uses a public key to encrypt and a private key to decrypt, offering better security for key exchange."
+  },
+  {
+    "text": "What is a message queue in distributed systems?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A message queue is a component that enables asynchronous communication between services by temporarily holding messages until they are processed. It decouples producers from consumers, preventing traffic spikes from overwhelming downstream systems."
+  },
+  {
+    "text": "Tell me about a time you had a disagreement with a team member over a technical decision. How did you resolve it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "The candidate should describe a specific conflict, focusing on active listening, objective data, or prototyping to compare approaches. Resolution should highlight collaboration and prioritizing project goals over ego."
+  },
+  {
+    "text": "Describe a situation where a project deadline was fast approaching and you realized you couldn't finish all your tasks. What did you do?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Look for early communication with stakeholders, transparent assessment of risks, and proposing a scoped-down MVP or alternative plan rather than staying silent until the deadline."
+  },
+  {
+    "text": "Give an example of how you handle constructive criticism during a code review.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "The candidate should express openness to feedback, viewing code reviews as a learning opportunity rather than a personal attack. They should explain how they ask clarifying questions and iterate quickly."
+  },
+  {
+    "text": "Describe a time when you had to learn a new technology or framework quickly. How did you approach it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Expect a structured learning approach, such as reading official documentation, building a small proof-of-concept project, and seeking guidance from experienced peers."
+  },
+  {
+    "text": "How do you prioritize your daily tasks when dealing with multiple competing bug fixes and feature requests?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "The candidate should mention assessing business impact, urgency, and dependency mapping. They should also emphasize communication with product managers and team leads to align expectations."
+  },
+  {
+    "text": "A production database query is running slowly, causing API timeouts. What immediate steps do you take?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "First, identify the offending query using monitoring tools or slow query logs. Second, analyze its execution plan using EXPLAIN to check for missing indexes or sequential scans, and apply a quick mitigation like caching or indexing if safe."
+  },
+  {
+    "text": "An external third-party API your service relies on goes down. How do you handle this gracefully in your code?",
+    "type": "SITUATIONAL",
+    "difficulty": "EASY",
+    "expected_answer": "Implement circuit breakers, fallback responses, or cached stale data to prevent cascading failures. Ensure the application returns a meaningful error or degraded experience rather than hanging indefinitely."
+  },
+  {
+    "text": "Write a function to check if a given string is a palindrome, ignoring non-alphanumeric characters.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "The code should sanitize the string using regex to keep only alphanumeric characters, convert it to lowercase, and check if it equals its reverse. It should run in O(n) time complexity."
+  },
+  {
+    "text": "Write a function that flattens a nested array of integers up to a single level.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "The function should iterate through the input array, check if elements are arrays, and concatenate them into a single-level result array using native methods or a simple loop."
+  },
+  {
+    "text": "Design a RESTful API endpoint structure for managing user profiles and their associated addresses.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use plural nouns and hierarchical nesting like GET /users, GET /users/{userId}, and GET /users/{userId}/addresses. Employ standard HTTP methods (GET, POST, PUT, DELETE) to perform CRUD operations on these resources."
+  },
+  {
+    "text": "How do you handle API versioning, and what are the trade-offs of URL path versioning versus header versioning?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "API versioning ensures backward compatibility when breaking changes occur. URL path versioning (e.g., /api/v1/users) is explicit, easy to test in a browser, and cacheable, but can clutter endpoints; header versioning keeps URLs clean but is harder to test and debug."
+  },
+  {
+    "text": "Explain HATEOAS in RESTful API design. Why is it rarely used in practice?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "HATEOAS (Hypermedia As The Engine Of Application State) means responses include links to related actions the client can take next. It is rarely used because it increases payload size, adds architectural complexity, and most front-end clients hardcode route structures anyway."
+  },
+  {
+    "text": "What is a composite index, and how does the leftmost prefix rule apply to it?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A composite index covers multiple columns in a specific order. The leftmost prefix rule dictates that the database can only use the index if the query filters by the leading columns of the index, starting from the leftmost column."
+  },
+  {
+    "text": "Explain the difference between clustered and non-clustered database indexes.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A clustered index determines the physical order of data rows in a table, meaning a table can only have one. A non-clustered index is a separate structure containing column values and pointers to the actual data rows, allowing multiple non-clustered indexes per table."
+  },
+  {
+    "text": "What is database connection pooling, and why is it critical for high-throughput applications?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Connection pooling maintains a cache of active database connections so they can be reused across multiple requests rather than opening and closing a new connection every time. This prevents connection overhead, reduces latency, and protects the database from running out of connection limits."
+  },
+  {
+    "text": "Compare Redis and Memcached. When would you choose one over the other?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Memcached is a simple, multi-threaded key-value store optimized for raw speed and pure caching. Redis is single-threaded, feature-rich, supports complex data types (lists, sets, hashes), and offers persistence and replication, making it better for state management and pub/sub."
+  },
+  {
+    "text": "Explain cache eviction policies like LRU, LFU, and FIFO.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "LRU (Least Recently Used) evicts items that haven't been accessed for the longest time. LFU (Least Frequently Used) evicts items with the lowest access count. FIFO (First In, First Out) evicts the oldest items added to the cache regardless of usage."
+  },
+  {
+    "text": "What is cache stampede (thundering herd problem), and how do you prevent it?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Cache stampede occurs when a heavily requested cache key expires, causing multiple concurrent threads to query the underlying database simultaneously to regenerate it. It can be prevented using techniques like probabilistic early expiration, mutex locks, or background refresh."
+  },
+  {
+    "text": "How do service discovery mechanisms work in a microservices architecture?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Service discovery allows microservices to dynamically find and communicate with each other without hardcoding IP addresses. Services register themselves with a central registry (like Consul or Eureka) upon startup, and clients query this registry to route requests."
+  },
+  {
+    "text": "What is the role of an API Gateway in a microservices ecosystem?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "An API Gateway acts as a single reverse proxy entry point for all client requests, handling cross-cutting concerns like authentication, SSL termination, rate limiting, request routing, and response aggregation."
+  },
+  {
+    "text": "Explain the CQRS (Command Query Responsibility Segregation) pattern.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "CQRS separates read operations (Queries) from write operations (Commands) using different models or even separate databases. This allows independent scaling, optimized read performance, and simpler domain models for writes."
+  },
+  {
+    "text": "What is SQL injection, and how can developers prevent it?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "SQL injection occurs when untrusted user input is directly concatenated into a SQL query string, allowing attackers to manipulate database commands. Prevention involves using parameterized queries, prepared statements, or ORMs that automatically escape input."
+  },
+  {
+    "text": "Explain Cross-Site Scripting (XSS) and how to mitigate it.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "XSS happens when malicious scripts are injected into trusted websites viewed by other users, often stealing session tokens. Mitigation involves context-aware output encoding, implementing a strict Content Security Policy (CSP), and sanitizing user inputs."
+  },
+  {
+    "text": "What is the difference between symmetric rate limiting and token bucket algorithms?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A fixed window rate limiter counts requests per fixed time interval, which can cause traffic spikes at window boundaries. The token bucket algorithm allows a certain burst capacity while steadily refilling tokens at a constant rate, providing smoother traffic management."
+  },
+  {
+    "text": "How does sharding differ from partitioning in relational databases?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Partitioning divides a large table into smaller pieces within the same database instance or server. Sharding (horizontal partitioning) distributes data across multiple independent database servers or nodes to scale writes and storage."
+  },
+  {
+    "text": "What is the purpose of implementing idempotency in API design?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Idempotency ensures that making the same API request multiple times produces the same result as making it once. This is crucial for handling network retries safely without accidentally charging a customer twice or duplicating database records."
+  },
+  {
+    "text": "Explain how JSON Web Tokens (JWT) work and what their security implications are.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A JWT is a compact, URL-safe token signed digitally that contains claims about a user, enabling stateless authentication. Security implications include the inability to easily revoke them before expiration, vulnerability to secret key compromise, and the risk of storing sensitive data in the payload."
+  },
+  {
+    "text": "What is the difference between OAuth 2.0 and OpenID Connect (OIDC)?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "OAuth 2.0 is an authorization framework that grants third-party applications limited access to resources without sharing credentials. OpenID Connect is an authentication layer built on top of OAuth 2.0 that standardizes identity verification and user profile sharing."
+  },
+  {
+    "text": "Explain the difference between at-least-once, at-most-once, and exactly-once message delivery in message queues.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "At-least-once guarantees no messages are lost but can result in duplicates due to retries. At-most-once guarantees no duplicates but risks losing messages if a failure occurs. Exactly-once ensures each message is processed precisely once, though it requires heavy coordination overhead."
+  },
+  {
+    "text": "Describe a project where you had to refactor a messy, legacy backend codebase. How did you ensure you didn't introduce regression bugs?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Look for strategies like writing comprehensive unit and integration tests before refactoring, breaking changes into small incremental PRs, and setting up robust CI/CD pipelines and monitoring."
+  },
+  {
+    "text": "Tell me about a time when a system outage or major bug occurred in production. How did you handle the incident and post-mortem process?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The candidate should demonstrate calmness under pressure, systematic root cause analysis, effective communication with stakeholders, and a blameless post-mortem focused on preventive action items."
+  },
+  {
+    "text": "How do you mentor junior developers on writing clean, scalable, and maintainable backend code?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Expect a supportive approach involving pair programming, constructive and educational code reviews, sharing design patterns, and encouraging them to understand the 'why' behind architectural choices."
+  },
+  {
+    "text": "Describe a scenario where you had to balance technical debt reduction with delivering a critical business feature.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The candidate should explain how they quantified the risk of technical debt to product managers, negotiated time to tackle high-priority refactoring alongside feature work, or adopted an iterative approach."
+  },
+  {
+    "text": "Your API is experiencing a sudden 10x traffic spike due to a marketing campaign, causing CPU usage to hit 100%. What is your mitigation strategy?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Immediately scale out instances horizontally if auto-scaling is available, enable rate limiting to shed excess load, activate aggressive caching for read-heavy routes, and drop non-essential background worker tasks."
+  },
+  {
+    "text": "A microservice is repeatedly timing out when calling another internal service. How do you troubleshoot and resolve this dependency issue?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Check distributed tracing logs and metrics to identify bottlenecks, verify network connectivity and DNS resolution, check if the downstream service is deadlocked or overloaded, and ensure circuit breakers and proper timeouts are configured."
+  },
+  {
+    "text": "Write a function that groups an array of objects by a specific property key.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The code should iterate through the array, extract the value of the specified key for each item, and accumulate items into an object or map where keys are the property values and values are arrays of matching objects."
+  },
+  {
+    "text": "Write a function implementing a basic debounce mechanism that delays invoking a callback until after a specified wait time.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The function should accept a callback and delay time, returning a wrapper function that clears any existing timer using clearTimeout and sets a new setTimeout before executing the callback."
+  },
+  {
+    "text": "Write a function to find the first non-repeating character in a stream or string of characters.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use a hash map or frequency array to count character occurrences in a first pass, then iterate through the string again to return the first character with a count of one. Runs in O(n) time."
+  },
+  {
+    "text": "Explain how distributed transactions work and the trade-offs of using the Two-Phase Commit (2PC) protocol.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Distributed transactions ensure atomicity across multiple databases. 2PC coordinates this via a prepare phase and a commit phase, but it suffers from severe performance bottlenecks, high latency, and blocking issues if the coordinator fails."
+  },
+  {
+    "text": "What is the Saga pattern, and how does it handle distributed transactions in microservices without locking?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "The Saga pattern manages distributed transactions as a sequence of local transactions where each step updates data in a single service. If a step fails, the saga executes a series of compensating transactions to undo the changes made by preceding steps."
+  },
+  {
+    "text": "Explain database isolation levels and how they prevent dirty reads, non-repeatable reads, and phantom reads.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Isolation levels (Read Uncommitted, Read Committed, Repeatable Read, Serializable) dictate how transaction modifications are visible to others. Higher levels prevent concurrency anomalies like dirty reads or phantoms using locks or MVCC at the cost of concurrency and performance."
+  },
+  {
+    "text": "How does Multi-Version Concurrency Control (MVCC) work in relational databases?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "MVCC maintains multiple historical versions of data rows so that readers do not block writers and writers do not block readers. Each transaction sees a snapshot of the database at a specific point in time, determined by transaction IDs and undo logs."
+  },
+  {
+    "text": "What is bloom filter, and in what scenarios is it used in backend systems?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "A Bloom filter is a space-efficient probabilistic data structure used to test whether an element is a member of a set. It can yield false positives but never false negatives, making it ideal for checking cache or database existence before running expensive queries."
+  },
+  {
+    "text": "Explain how Consistent Hashing works and why it is essential for distributed caching and database sharding.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Consistent hashing maps both servers and keys onto a circular ring space. When a node is added or removed, only a small fraction of keys need to be remapped, minimizing disruption in distributed caches and sharded databases compared to traditional modulo hashing."
+  },
+  {
+    "text": "What is gRPC, and how does it differ from traditional REST APIs in terms of performance and protocol?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "gRPC is a high-performance RPC framework developed by Google that uses HTTP/2 for transport and Protocol Buffers (protobuf) for binary serialization. It is significantly faster, more compact, and supports bidirectional streaming compared to JSON-over-HTTP REST APIs."
+  },
+  {
+    "text": "Explain how OAuth 2.0 PKCE (Proof Key for Code Exchange) works and why it is necessary for public clients.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "PKCE prevents authorization code interception attacks in public clients (like mobile or single-page apps) that cannot securely store a client secret. The client generates a random verifier, hashes it to create a challenge sent in the auth request, and proves possession by sending the verifier when exchanging the code."
+  },
+  {
+    "text": "What are Distributed Consensus algorithms like Raft or Paxos, and what problem do they solve?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Distributed consensus algorithms allow a cluster of nodes to agree on a single state or value even if some nodes fail or network partitions occur. They form the backbone of fault-tolerant distributed databases, coordination services like ZooKeeper, and leader election."
+  },
+  {
+    "text": "Explain the concept of zero-downtime deployment and the strategies used to achieve it.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Zero-downtime deployment updates an application without interrupting user requests. Strategies include Blue-Green deployments (switching routers between two identical environments), Rolling updates (replacing instances incrementally), and Canary releases (testing on a subset of users first)."
+  },
+  {
+    "text": "How do you design a system to handle high concurrency using event-driven architecture and backpressure?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Event-driven architecture decouples components via asynchronous message streams. Backpressure is a flow control mechanism where consumers signal producers to slow down data emission when they reach capacity, preventing memory exhaustion and crashes."
+  },
+  {
+    "text": "Walk me through how you designed a mission-critical backend feature from scratch, covering architecture, scalability, and edge cases.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "The candidate should provide a structured system design narrative: requirement gathering, capacity estimation, high-level architecture, database schema, caching strategy, failure handling, and monitoring."
+  },
+  {
+    "text": "Tell me about a time when you identified a severe performance bottleneck in a distributed system. How did you diagnose and remediate it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Expect deep technical details on using profiling tools, APMs, log analysis, load testing, and systematic elimination of bottlenecks like database lock contention, memory leaks, or inefficient network payloads."
+  },
+  {
+    "text": "Your primary database is experiencing high replication lag between the primary and read replicas, causing users to see stale data after updates. How do you mitigate this?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Implement read-after-write consistency by routing immediate read requests from a user who just performed an update directly to the primary database. Investigate heavy write volume or network congestion causing the lag and optimize long-running queries."
+  },
+  {
+    "text": "Write a function implementing an LRU (Least Recently Used) Cache with O(1) time complexity for both get and put operations.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Combine a hash map for O(1) key lookups with a doubly linked list to track usage order in O(1) time. Moving items to the head on access and evicting from the tail on capacity overflow fulfills the requirements."
+  },
+  {
+    "text": "Write a function to solve the Word Break problem: given a string and a dictionary of words, determine if the string can be segmented into space-separated dictionary words.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Use dynamic programming where dp[i] represents whether the substring from 0 to i can be segmented. Iterate with nested loops checking word boundaries, storing intermediate boolean results to achieve O(n^2) time complexity."
+  },
+  {
+    "text": "Explain the CAP theorem and discuss how real-world distributed databases like Cassandra and MongoDB handle partitions.",
+    "type": "EXPERT",
+    "difficulty": "EXPERT",
+    "expected_answer": "The CAP theorem states a distributed system can only provide two of Consistency, Availability, and Partition Tolerance simultaneously. Since network partitions are inevitable, systems must choose between CP (consistent, like HBase/MongoDB) and AP (available, like Cassandra)."
+  },
+  {
+    "text": "What is the Byzantine Generals Problem, and how do blockchain and distributed ledgers solve it?",
+    "type": "EXPERT",
+    "difficulty": "EXPERT",
+    "expected_answer": "The Byzantine Generals Problem deals with distributed nodes reaching consensus even when some nodes are malicious or communicate false information. Blockchains solve this using cryptographic proofs and consensus mechanisms like Proof-of-Work or Proof-of-Stake."
+  },
+  {
+    "text": "Design a globally distributed rate limiter that works across multiple data centers with minimal latency.",
+    "type": "EXPERT",
+    "difficulty": "EXPERT",
+    "expected_answer": "Use a hybrid approach combining local token bucket limiters in each data center for ultra-low latency with asynchronous background synchronization across regions using Redis Enterprise clusters or CRDTs (Conflict-free Replicated Data Types) for eventual consistency."
+  },
+  {
+    "text": "Write a thread-safe implementation of a connection pool manager in a concurrent backend language.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "The implementation must use mutexes, semaphores, or atomic operations to safely manage borrowing and returning connections across multiple threads without race conditions, handling exhaustion and timeouts gracefully."
+  },
+  {
+    "text": "What is the difference between PUT and PATCH methods in REST?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "PUT replaces the entire resource with the provided representation, whereas PATCH applies partial modifications to the resource."
+  },
+  {
+    "text": "What does ACID stand for in database transactions?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Atomicity, Consistency, Isolation, and Durability. These properties guarantee reliable processing of database transactions."
+  },
+  {
+    "text": "What is database normalization?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Normalization is the process of organizing database tables to minimize data redundancy and dependency by dividing large tables into smaller ones."
+  },
+  {
+    "text": "What is CORS in web security?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Cross-Origin Resource Sharing is an HTTP-header based mechanism that allows a server to indicate any origins other than its own from which a browser should permit loading resources."
+  },
+  {
+    "text": "What is a reverse proxy?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A reverse proxy is a server that sits behind firewall networks and forwards client requests to backend servers, often providing load balancing and SSL termination."
+  },
+  {
+    "text": "What is environment configuration management?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "It is the practice of separating application settings and secrets from source code using environment variables or dedicated secret stores."
+  },
+  {
+    "text": "What is a dead letter queue in message systems?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A dead letter queue is a holding queue for messages that cannot be successfully processed or consumed after maximum retry attempts."
+  },
+  {
+    "text": "Why do we use UUIDs instead of auto-incrementing integers in distributed systems?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Auto-incrementing IDs can cause collisions and bottlenecks across distributed databases, whereas UUIDs can be generated independently and uniquely anywhere."
+  },
+  {
+    "text": "What is database denormalization and when is it used?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Denormalization introduces redundancy into a database to improve read performance by avoiding costly joins, typically used in read-heavy scaling scenarios."
+  },
+  {
+    "text": "Explain the role of database write-ahead logging (WAL).",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "WAL ensures durability by writing changes to a log on disk before applying them to the actual database files, allowing recovery after crashes."
+  },
+  {
+    "text": "What is a circuit breaker pattern in microservices?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "It stops calls to a failing downstream service temporarily, returning a fallback response to prevent cascading system failures."
+  },
+  {
+    "text": "How do you prevent brute-force attacks on login endpoints?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use rate limiting, account lockouts, CAPTCHA verification, and IP-based blocking after multiple failed login attempts."
+  },
+  {
+    "text": "What is database replication and what are its primary types?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Replication copies data across multiple servers. The primary types are master-slave (leader-follower) and master-master (multi-leader)."
+  },
+  {
+    "text": "Explain the concept of optimistic versus pessimistic locking in databases.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Pessimistic locking locks records for the duration of a transaction to prevent conflicts, while optimistic locking assumes conflicts are rare and checks version numbers upon commit."
+  },
+  {
+    "text": "What are database deadlocks and how do relational databases resolve them?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Deadlocks occur when two or more transactions hold locks and wait for each other indefinitely. Databases resolve this by detecting cycles in wait-for graphs and aborting one transaction."
+  },
+  {
+    "text": "Explain how distributed tracing works across microservices.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Distributed tracing propagates a unique correlation ID (trace context) through HTTP headers and message metadata across all service boundaries to track request paths and latencies."
+  },
+  {
+    "text": "What is zero-copy data transfer and why is it efficient?",
+    "type": "EXPERT",
+    "difficulty": "EXPERT",
+    "expected_answer": "Zero-copy avoids shifting data between user-space and kernel-space memory buffers multiple times, drastically reducing CPU cycles and memory bandwidth usage during file transfers."
+  },
+  {
+    "text": "Explain Raft leader election and how split-vote scenarios are handled.",
+    "type": "EXPERT",
+    "difficulty": "EXPERT",
+    "expected_answer": "Raft nodes transition to candidates and request votes during timeouts. Split votes are handled by utilizing randomized election timeouts so nodes retry at staggered intervals."
+  },
+  {
+    "text": "Tell me about a time you mentored a team member who was struggling with performance.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The candidate should highlight empathy, setting clear and measurable goals, providing regular actionable feedback, and celebrating improvements."
+  },
+  {
+    "text": "Describe a time you had to deliver bad news to stakeholders about a delayed milestone.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Look for early transparent communication, ownership of the issue, clear explanation of the root cause, and a revised recovery plan."
+  },
+  {
+    "text": "How do you handle scope creep when working on complex backend projects?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The candidate should explain how they document project scope early, communicate trade-offs to product owners, and evaluate schedule impacts before adding new requirements."
+  },
+  {
+    "text": "Tell me about a time you automated a manual or tedious deployment process.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Look for initiative, understanding of CI/CD tooling (like GitHub Actions or Jenkins), and the measurable time saved for the engineering team."
+  },
+  {
+    "text": "Describe a scenario where you identified a security vulnerability in existing code.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "The candidate should describe discovering the flaw, following responsible disclosure, patching it quickly, and adding preventative automated tests."
+  },
+  {
+    "text": "You notice memory usage on a Node.js/Go/Java backend service steadily increasing every day until it crashes. How do you investigate?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Capture heap dumps or profiling snapshots over time, analyze object allocation rates to locate memory leaks, and check for unclosed event listeners, unbounded caches, or database connection leaks."
+  },
+  {
+    "text": "An external API provider introduces a breaking change with zero advance notice. How do you mitigate the impact?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Quickly implement adapter layers or hotfixes to map the new response format, enable fallback logic or cached responses, and communicate with the provider for a permanent fix."
+  },
+  {
+    "text": "Write a function to deep-clone a nested JavaScript/Python object without losing reference types.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "The recursive function should check for null, handle primitive types, instantiate new objects or arrays based on type, and use a WeakMap or visited set to prevent infinite loops on circular references."
+  },
+  {
+    "text": "Write a function to merge two sorted linked lists into a single sorted linked list.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use a dummy head node and a pointer to iterate through both lists, appending the smaller node at each step until one list is exhausted, then append the remainder."
+  },
+  {
+    "text": "Write a function to implement a basic pub/sub event emitter class.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The class should maintain a map of event names to arrays of callback functions, with methods for subscribe (on), unsubscribe (off), and publish (emit)."
+  },
+  {
+    "text": "What is the difference between vertical partitioning and horizontal partitioning?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Vertical partitioning splits a table by columns (e.g., separating rarely used large text columns), while horizontal partitioning (sharding) splits a table by rows based on criteria like ID range."
+  },
+  {
+    "text": "What is the purpose of TLS/SSL termination in load balancers?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "It decrypts incoming HTTPS traffic at the load balancer level, offloading CPU-intensive cryptography from backend application servers and simplifying internal network traffic."
+  },
+  {
+    "text": "Explain the concept of eventual consistency.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Eventual consistency is a consistency model where, if no new updates are made, all replicas will eventually converge to the same value given enough time."
+  },
+  {
+    "text": "What is database sharding key selection and why is it critical?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "The sharding key determines how data is distributed across shards. A poor choice leads to data hot-spots where one shard handles 90% of traffic, defeating the purpose of sharding."
+  },
+  {
+    "text": "Explain how database query execution plans work.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "An execution plan is a roadmap generated by the database optimizer detailing how SQL queries will be executed, showing index usage, join algorithms, and estimated scan costs."
+  },
+  {
+    "text": "What are the security risks of exposing stack traces in production API responses?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Stack traces expose internal file paths, framework versions, database structures, and software vulnerabilities that attackers can exploit."
+  },
+  {
+    "text": "What is rate limiting by sliding window log?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Sliding window log tracks timestamp logs for every request in a sorted set or cache, cleaning up old entries and counting requests within the rolling time window for high precision."
+  },
+  {
+    "text": "Explain the purpose of API request validation middleware.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "It inspects incoming payloads against a predefined schema before reaching controllers, ensuring type safety, required fields, and preventing malformed data entry."
+  },
+  {
+    "text": "What is a distributed lock and when do you need one?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "A distributed lock synchronizes access to shared resources across multiple microservice instances, preventing race conditions during operations like scheduled jobs or inventory decrements."
+  },
+  {
+    "text": "Explain the difference between synchronous and asynchronous replication in databases.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Synchronous replication waits for replicas to acknowledge writes before confirming success to the client, guaranteeing zero data loss at the cost of latency. Asynchronous replication confirms immediately, risking data loss if the primary fails before replication."
+  },
+  {
+    "text": "What is the role of a reverse proxy cache like Varnish or Nginx?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "It caches static or dynamic HTTP responses directly at the proxy layer, serving repeated requests instantly without hitting the backend application servers."
+  },
+  {
+    "text": "How do you handle database schema migrations in a zero-downtime deployment environment?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use the expand-contract pattern: first deploy code compatible with both old and new schemas, run migrations to add new columns or tables, and deploy final code that removes old dependencies."
+  },
+  {
+    "text": "What is the purpose of database query parameterization?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Parameterization separates SQL code from user-supplied data values, neutralizing SQL injection vectors by ensuring inputs are never treated as executable query syntax."
+  },
+  {
+    "text": "Tell me about a time you successfully optimized a sluggish API endpoint.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Look for methodical profiling, identifying N+1 query problems or missing indexes, implementing caching, and validating performance gains with benchmarks."
+  },
+  {
+    "text": "Describe how you handle team disagreements regarding code style or architectural standards.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "The candidate should mention establishing linting rules, formatting tools, team consensus meetings, and focusing on maintainability rather than personal preference."
+  },
+  {
+    "text": "Your cache cluster runs out of memory during peak traffic. What happens and how do you handle it?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Depending on eviction policies, older keys will be evicted or writes will fail. Handle it by setting appropriate TTLs, increasing cluster memory, or implementing fallbacks to query the database safely."
+  },
+  {
+    "text": "Write a function to validate whether a string of parentheses, brackets, and braces is balanced.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Use a stack data structure to push opening brackets and pop when encountering matching closing brackets, returning false if mismatched or if stack is non-empty at the end."
+  },
+  {
+    "text": "Write a function to find the longest substring without repeating characters in a given string.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use a sliding window approach with a hash set or map tracking character indices, adjusting the left pointer when a duplicate character is encountered while updating maximum length."
+  },
+  {
+    "text": "What is the difference between optimistic concurrency control and pessimistic locking?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Optimistic locking checks for version conflicts at commit time, whereas pessimistic locking acquires exclusive locks upfront to prevent concurrent modifications."
+  },
+  {
+    "text": "What is the purpose of HTTP compression (like Gzip or Brotli) in backend responses?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "It shrinks the size of HTTP payloads before transmission, reducing network bandwidth consumption and improving load times for clients."
+  },
+  {
+    "text": "Explain how database connection leaks occur and how to debug them.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Leaks happen when database connections are checked out of a pool but never explicitly released due to unhandled exceptions or logic bugs. Debug them by monitoring active pool metrics and adding connection timeout logging."
+  },
+  {
+    "text": "What is an OAuth 2.0 Refresh Token and how should it be stored securely?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A refresh token is a long-lived credential used to obtain new access tokens without re-authenticating. It should be stored securely in HttpOnly, Secure, SameSite cookies to prevent XSS theft."
+  },
+  {
+    "text": "What is the difference between containerization (Docker) and virtualization (VMs)?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Containers share the host OS kernel and virtualize at the operating system level, making them lightweight and fast. VMs virtualize entire hardware stacks including guest OSs, requiring more resources."
+  },
+  {
+    "text": "Explain the concept of database index fragmentation and how to fix it.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Fragmentation occurs when index pages become logically disorganized or physically scattered due to frequent inserts, updates, and deletes, degrading sequential scan performance. Fix it by rebuilding or reorganizing the index."
+  },
+  {
+    "text": "What is the role of a message broker like RabbitMQ or Apache Kafka?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A message broker facilitates decoupled asynchronous communication between message producers and consumers, buffering data and ensuring reliable message delivery."
+  },
+  {
+    "text": "How do you secure environment secrets in containerized deployment environments?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use dedicated secret managers like AWS Secrets Manager, HashiCorp Vault, or Kubernetes Secrets injected securely at runtime rather than baking secrets into container images."
+  },
+  {
+    "text": "What is horizontal auto-scaling and what metrics typically trigger it?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Horizontal auto-scaling automatically adds or removes server instances based on load metrics such as CPU utilization, memory usage, request queue depth, or custom application metrics."
+  },
+  {
+    "text": "Tell me about a time you had to investigate a complex bug with little documentation or context.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Look for methodical debugging steps, writing reproduction tests, analyzing logs, and documenting findings for future developers."
+  },
+  {
+    "text": "Your backend application suddenly starts throwing OutOfMemory errors under load. What steps do you take?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Capture core dumps or memory profiles, identify large memory allocations or lingering object references, check for unbounded data queries or unbounded pagination, and scale up/out temporarily."
+  },
+  {
+    "text": "Write a function implementing a basic LRUCache with fixed capacity.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Maintain a Map object or doubly linked list where insertion order corresponds to recency, deleting the oldest entry when size exceeds capacity during updates."
+  },
+  {
+    "text": "Write a function to implement binary search on a sorted array of integers.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Maintain left and right pointers, calculate the middle index, and compare the target to the middle element, halving the search space until found or pointers cross. Runs in O(log n) time."
+  },
+  {
+    "text": "What is the purpose of API request throttling?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Throttling limits the number of requests a client can make within a specific time frame to protect services from abuse, scraping, and overloading."
+  },
+  {
+    "text": "Explain how database triggers work and their potential performance impact.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Triggers are stored procedures that automatically execute in response to specific events (INSERT, UPDATE, DELETE) on a table. Excessive or complex triggers can silently slow down write operations and complicate debugging."
+  },
+  {
+    "text": "What is the difference between horizontal and vertical message scaling in Kafka (partitions vs brokers)?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Adding Kafka brokers scales cluster storage and network I/O across machines, while adding partitions within a topic enables parallel processing and scales consumer throughput."
+  },
+  {
+    "text": "What is Content Security Policy (CSP) and how does it protect web apps?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "CSP is an HTTP header that restricts the domains from which scripts, images, and other resources can be loaded and executed, mitigating XSS and data injection attacks."
+  },
+  {
+    "text": "Explain the concept of database query plan caching.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Query plan caching stores the compiled execution plan of a SQL query in memory so subsequent executions can skip the optimization phase, saving CPU cycles."
+  },
+  {
+    "text": "What is the purpose of HTTP/2 server push?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Server push allows the server to send resources to the client before they are explicitly requested, reducing latency by preemptively filling the browser cache."
+  },
+  {
+    "text": "How do you handle graceful shutdowns in a backend server?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Listen for termination signals (SIGTERM), stop accepting new incoming requests, finish processing active requests, close database connections and message queues safely, and then exit."
+  },
+  {
+    "text": "Tell me about a time you optimized a continuous integration (CI) pipeline to improve build times.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Look for caching strategies, parallelizing test suites, removing redundant steps, and measuring the resulting time savings for the team."
+  },
+  {
+    "text": "A third-party database dependency starts experiencing intermittent latency spikes. How do you mitigate user-facing errors?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Implement query timeouts, circuit breakers, fallback responses, and serve stale data from read-through caches to prevent database latency from locking up backend threads."
+  },
+  {
+    "text": "Write a function to reverse a singly linked list in-place.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Maintain previous, current, and next pointers, iteratively updating current.next to point to previous until reaching the end of the list. Runs in O(n) time and O(1) space."
+  },
+  {
+    "text": "Write a function to calculate the Fibonacci number at position n using memoization.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Use recursion combined with a cache (hash map or array) to store previously calculated Fibonacci values, reducing exponential time complexity down to O(n)."
+  },
+  {
+    "text": "What is API rate limiting by token bucket algorithm?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A token bucket holds tokens up to a maximum capacity, refilling at a constant rate. Each request consumes a token; if the bucket is empty, requests are rejected."
+  },
+  {
+    "text": "Explain the difference between strong consistency and eventual consistency.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Strong consistency guarantees that every read receives the most recent write immediately, whereas eventual consistency guarantees that reads will eventually return recent updates after replication propagation."
+  },
+  {
+    "text": "What is the purpose of database connection timeout settings?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Timeouts prevent application threads from hanging indefinitely when database servers become unresponsive or network partitions occur."
+  },
+  {
+    "text": "What is database sharding join overhead and how do engineers mitigate it?",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Joins across sharded databases require scatter-gather queries or distributed coordination which is extremely slow. Mitigate it by denormalizing data or using application-level joins."
+  },
+  {
+    "text": "Explain how webhook architectures work and how to ensure webhook delivery reliability.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Webhooks allow servers to push real-time event notifications to client endpoints via HTTP POST. Ensure reliability using exponential backoff retries, signature verification, and delivery logging."
+  },
+  {
+    "text": "What is the role of an API request ID or correlation ID?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A correlation ID is a unique identifier attached to an incoming request and passed downstream across all logs and microservices to simplify debugging and tracing."
+  },
+  {
+    "text": "Tell me about a time you had to convince leadership to invest in technical improvements.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "The candidate should explain how they translated technical debt into business impact metrics, such as downtime cost, developer velocity, or customer churn risk."
+  },
+  {
+    "text": "Write a function to find all permutations of a given string or array of unique characters.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Use backtracking recursion to swap elements or build permutations incrementally, adding valid completed permutations to a result collection."
+  },
+  {
+    "text": "What is the primary purpose of RESTful API design?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "REST uses standard HTTP methods to provide a stateless, scalable architecture for client-server communication. It treats server data as resources that can be created, read, updated, or deleted using standard URIs."
+  },
+  {
+    "text": "Describe the difference between SQL and NoSQL databases.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "SQL databases are relational, structured, and use rigid schemas with ACID compliance, making them ideal for complex queries. NoSQL databases are non-relational, highly scalable, and use flexible schemas like documents or key-value stores."
+  },
+  {
+    "text": "What is the main benefit of implementing a cache in a backend system?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Caching stores frequently accessed data in fast storage layers like RAM, drastically reducing database load and improving response times. It helps scale applications efficiently by serving repetitive requests without hitting primary databases."
+  },
+  {
+    "text": "What is a microservice architecture?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Microservices structure an application as a collection of loosely coupled, independently deployable services organized around business capabilities. Each service runs its own process and communicates via lightweight mechanisms, typically HTTP APIs or message brokers."
+  },
+  {
+    "text": "What does HTTPS stand for and why is it important?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "HTTPS stands for HyperText Transfer Protocol Secure, encrypting communication between clients and servers using TLS/SSL. It prevents man-in-the-middle attacks, ensures data integrity, and protects sensitive user information."
+  },
+  {
+    "text": "Define horizontal versus vertical scaling.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Vertical scaling involves adding more power (CPU, RAM) to an existing machine, which has physical limits. Horizontal scaling adds more machines to a cluster, distributing the load and offering virtually limitless scalability."
+  },
+  {
+    "text": "Why is proper error handling crucial in backend applications?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Proper error handling prevents application crashes, maintains security by hiding sensitive stack traces, and provides clients with meaningful status codes and messages. It ensures system reliability and aids in effective debugging and monitoring."
+  },
+  {
+    "text": "What is token-based authentication?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Token-based authentication issues a signed digital token (like a JWT) to users upon successful login. Subsequent requests include this token, allowing the server to verify the user's identity without querying the database for a session on every request."
+  },
+  {
+    "text": "What is a message queue?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A message queue is a form of asynchronous service-to-service communication where producers send messages to a queue, and consumers process them asynchronously. It decouples components, smooths traffic spikes, and ensures reliable delivery."
+  },
+  {
+    "text": "Explain the role of an API gateway in microservices.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "An API gateway acts as a single entry point for all client requests, routing them to appropriate microservices. It handles cross-cutting concerns like rate limiting, SSL termination, authentication, and request aggregation."
+  },
+  {
+    "text": "What is database normalization and why is it used?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Normalization organizes database tables to reduce data redundancy and improve data integrity. It involves dividing large tables into smaller ones and defining relationships between them."
+  },
+  {
+    "text": "What is the purpose of an HTTP status code?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "HTTP status codes standardise the outcome of a client's request to a server. They are grouped into categories like 2xx (success), 4xx (client error), and 5xx (server error) to indicate what happened."
+  },
+  {
+    "text": "What is cache invalidation?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Cache invalidation is the process of removing or updating stale data in a cache when the underlying source data changes. It is notoriously difficult because maintaining cache consistency requires precise timing and event triggers."
+  },
+  {
+    "text": "What is the difference between synchronous and asynchronous communication?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Synchronous communication requires the sender to wait for a response before proceeding, blocking execution. Asynchronous communication allows the sender to continue working after dispatching a message, handling the response later via callbacks or events."
+  },
+  {
+    "text": "What is SQL injection?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "SQL injection is a vulnerability where malicious SQL statements are inserted into entry fields for execution. It can allow attackers to bypass authentication, read, modify, or delete data in the database."
+  },
+  {
+    "text": "What is a database index?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A database index is a data structure, typically a B-tree, that improves the speed of data retrieval operations on a database table at the cost of additional storage and slower writes."
+  },
+  {
+    "text": "What is load balancing?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Load balancing distributes incoming network traffic across multiple backend servers to ensure no single server becomes a bottleneck. It improves overall application responsiveness, availability, and fault tolerance."
+  },
+  {
+    "text": "What is the role of a dead-letter queue (DLQ)?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A dead-letter queue stores messages that could not be successfully processed by a consumer after a set number of retries. It allows developers to isolate, analyze, and debug failed messages without blocking the main processing pipeline."
+  },
+  {
+    "text": "Tell me about a time you had to handle a production bug under pressure.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Look for a calm, structured approach to incident management, identifying root causes, and implementing effective hotfixes while communicating transparently with stakeholders."
+  },
+  {
+    "text": "How do you prioritize your tasks when working on multiple backend features simultaneously?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Evaluates organizational skills, alignment with business value, impact, and communication with product managers and team leads regarding trade-offs."
+  },
+  {
+    "text": "Describe a situation where you disagreed with a teammate's technical decision. How did you resolve it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Assesses collaboration, emotional intelligence, data-driven decision making, and willingness to compromise for the good of the project."
+  },
+  {
+    "text": "Tell me about a time you learned a new technology quickly to meet a project deadline.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Demonstrates adaptability, continuous learning mindset, resourcefulness, and pragmatic execution under time constraints."
+  },
+  {
+    "text": "How do you handle constructive feedback on your code during code reviews?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Looks for a growth mindset, lack of ego, active listening, and appreciation for code quality and team standards."
+  },
+  {
+    "text": "Write a function to reverse a string in your primary programming language.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Tests basic syntax fluency and algorithmic thinking by iterating or utilizing built-in language constructs efficiently."
+  },
+  {
+    "text": "Write a function to check if a given string is a palindrome.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Evaluates string manipulation, pointer techniques, or array reversal comparisons with edge-case handling for spaces and casing."
+  },
+  {
+    "text": "Write a simple function that parses a query string into a key-value dictionary.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Tests string splitting, parsing logic, and handling of URL-encoded characters in a clean, readable implementation."
+  },
+  {
+    "text": "Implement a basic rate limiter token check function that returns true if a request is allowed.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Demonstrates understanding of tracking simple state, timestamps, or counters for basic request throttling."
+  },
+  {
+    "text": "Write a function to validate if a string matches a basic email format using regex or logic.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Assesses pattern matching capabilities, regular expression syntax, and handling common validation edge cases."
+  },
+  {
+    "text": "How do you design idempotent REST APIs, and why is it important?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Idempotent APIs ensure that making the same request multiple times produces the same result as making it once, preventing duplicate side effects during network retries. This is achieved using unique request IDs, idempotent HTTP verbs (GET, PUT, DELETE), and careful transaction handling."
+  },
+  {
+    "text": "Explain database sharding and the challenges associated with it.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Sharding splits a large database horizontally across multiple independent servers to distribute storage and query load. Challenges include handling cross-shard joins, rebalancing data, maintaining consistent hashing, and managing distributed transactions."
+  },
+  {
+    "text": "What is the circuit breaker pattern, and how does it prevent cascading failures?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The circuit breaker pattern wraps a remote service call in a monitor that trips when failures exceed a threshold, failing fast instead of waiting for timeouts. This stops failing services from exhausting thread pools and cascading outages across microservices."
+  },
+  {
+    "text": "Explain the mechanics of OAuth 2.0 Authorization Code Flow with PKCE.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "PKCE adds a cryptographically random code verifier and challenge to the standard auth code flow, preventing interception attacks. It is essential for public clients like SPAs and mobile apps that cannot securely store a client secret."
+  },
+  {
+    "text": "How do you handle database migration zero-downtime deployments?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Zero-downtime migrations use the Expand-Contract pattern: expand schema to support old and new code, deploy new code reading/writing both, then contract by dropping old columns once legacy code is removed."
+  },
+  {
+    "text": "What are the trade-offs between eventual consistency and strong consistency in distributed databases?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Strong consistency ensures all replicas return the latest write immediately, trading off higher latency and lower availability under network partitions. Eventual consistency prioritizes availability and performance, allowing replicas to converge over time."
+  },
+  {
+    "text": "How do you implement distributed tracing across microservices?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Distributed tracing injects a unique trace ID and span ID into HTTP headers or message metadata at the entry point. Services propagate these headers to downstream calls, allowing monitoring tools to reconstruct end-to-end request flows."
+  },
+  {
+    "text": "What strategies do you use to prevent cascading failures in event-driven message queue architectures?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Strategies include setting maximum retry limits, utilizing dead-letter queues, implementing exponential backoff with jitter, and applying backpressure mechanisms to prevent consumer overload."
+  },
+  {
+    "text": "Explain the OWASP Top 10 vulnerability: Broken Object Level Authorization (BOLA).",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "BOLA occurs when an API endpoint fails to verify if the authenticated user has permission to access a specific resource object ID passed in the request. Attackers can exploit this by swapping object IDs to access unauthorized data."
+  },
+  {
+    "text": "What is connection pooling and why is it critical for backend database performance?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Connection pooling maintains a cache of established database connections that can be reused by incoming requests. This avoids the high latency overhead of opening and closing TCP/TLS connections to the database on every request."
+  },
+  {
+    "text": "How does write-ahead logging (WAL) ensure durability in relational databases?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "WAL requires changes to be written to a persistent log file on disk before the actual database pages are modified. This guarantees that in the event of a crash, the database can recover by replaying or rolling back logged transactions."
+  },
+  {
+    "text": "Compare write-through and write-back (write-behind) caching strategies.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Write-through caching writes data to the cache and the database simultaneously, ensuring high consistency at the cost of write latency. Write-back caching writes to the cache first and asynchronously updates the database later, boosting write performance but risking data loss if the cache fails."
+  },
+  {
+    "text": "What is service discovery in a microservices architecture?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Service discovery allows microservices to dynamically locate each other's network addresses without hardcoding IP addresses. Services register themselves with a registry (like Consul or Eureka), which clients query for routing."
+  },
+  {
+    "text": "What is CORS (Cross-Origin Resource Sharing) and how do you configure it securely?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "CORS is a security mechanism enforced by browsers that restricts web pages from making requests to a different domain than the one that served the page. Secure configuration involves explicitly defining allowed origins, methods, and credentials rather than using wildcards."
+  },
+  {
+    "text": "How do horizontal scaling and load balancing work together in web architectures?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Horizontal scaling provides the additional server instances needed to handle increased load, while the load balancer sits in front of them to route incoming requests evenly across those instances."
+  },
+  {
+    "text": "What is backpressure in reactive streams and data pipelines?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Backpressure is a flow control mechanism that allows consumers to signal producers to slow down data emission when they are overwhelmed. It prevents memory exhaustion and crashes in high-throughput systems."
+  },
+  {
+    "text": "Explain JSON Web Token (JWT) structure and security considerations.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A JWT consists of a header, payload, and signature separated by dots, encoded in Base64Url. Security considerations include avoiding sensitive info in payloads since it is only encoded, validating signatures properly, and handling token revocation safely."
+  },
+  {
+    "text": "How do you structure global error handling middleware in an Express or similar backend framework?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Global error handling middleware catches uncaught exceptions or next(err) calls downstream, normalizes error formats, logs operational versus programmer errors, and returns consistent JSON error responses with proper status codes."
+  },
+  {
+    "text": "What is the difference between at-least-once and exactly-once message delivery semantics?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "At-least-once delivery ensures no messages are lost by retrying until acknowledged, which can lead to duplicates. Exactly-once guarantees each message is processed precisely once, typically requiring idempotent consumers or transactional broker setups."
+  },
+  {
+    "text": "Describe a time when a database query caused performance degradation in production and how you fixed it.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Highlights analytical troubleshooting using execution plans, adding appropriate indexes, rewriting inefficient queries, and monitoring post-fix metrics."
+  },
+  {
+    "text": "Tell me about a time you designed a system component from scratch. What challenges did you face?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Assesses architectural vision, requirement gathering, anticipation of scaling bottlenecks, and iterative refinement."
+  },
+  {
+    "text": "How do you handle technical debt when management pushes for rapid feature delivery?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Shows balance between business urgency and code maintainability, documenting debt, and negotiating dedicated refactoring sprints."
+  },
+  {
+    "text": "Describe a time when a security vulnerability was discovered in your code. How did you handle it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Evaluates accountability, rapid incident response, patch deployment, and post-mortem continuous improvement."
+  },
+  {
+    "text": "Tell me about a time you mentored a junior developer on API design or database optimization.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Shows leadership, empathy, communication skills, and ability to foster technical growth in others."
+  }
+]

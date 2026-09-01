@@ -1,0 +1,1202 @@
+[
+  {
+    "text": "What is the difference between SQL and NoSQL databases?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "SQL databases are relational, table-based, and have a fixed schema, making them ideal for complex queries. NoSQL databases are non-relational, document or key-value based, offer dynamic schemas, and scale horizontally with ease."
+  },
+  {
+    "text": "Explain the concept of RESTful APIs.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "RESTful APIs use HTTP requests to perform CRUD operations on resources identified by URLs. They are stateless, meaning every request from a client must contain all the necessary context to process it."
+  },
+  {
+    "text": "How do you handle CORS errors in a full-stack application?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "CORS errors are handled by configuring the backend server to include specific headers like Access-Control-Allow-Origin. Alternatively, a reverse proxy can be used in development to forward requests and avoid cross-origin restrictions."
+  },
+  {
+    "text": "What is semantic HTML and why is it important?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Semantic HTML uses tags that clearly describe their meaning to both the browser and the developer, such as <article> or <nav>. It improves accessibility for screen readers and enhances SEO rankings."
+  },
+  {
+    "text": "Explain the role of environment variables in software deployment.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Environment variables store configuration settings and sensitive credentials outside the source code. This practice prevents secrets from being committed to version control and allows the same code to run in different environments."
+  },
+  {
+    "text": "What is the purpose of unit testing?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Unit testing verifies that individual components or functions of software work correctly in isolation. It helps catch bugs early in development and facilitates safe refactoring of codebases."
+  },
+  {
+    "text": "Tell me about a time you had to fix a bug under tight deadlines.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Look for a structured approach: identifying the root cause, communicating clearly with stakeholders about the timeline, and implementing a tested fix without introducing regression bugs."
+  },
+  {
+    "text": "How do you keep your technical skills up to date?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "A strong response includes reading engineering blogs, building side projects, taking online courses, and participating in tech communities or code reviews."
+  },
+  {
+    "text": "Describe a situation where you had a disagreement with a team member over a technical choice. How did you resolve it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "The candidate should emphasize listening to the other perspective, relying on data or prototyping to test both ideas, and focusing on what is best for the product."
+  },
+  {
+    "text": "Write a function to reverse a string in JavaScript.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "You can split the string into an array of characters, reverse the array, and join it back into a string using str.split('').reverse().join('')."
+  },
+  {
+    "text": "Write a function that checks if a given string is a palindrome.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Clean the string to remove non-alphanumeric characters, convert it to lowercase, reverse it, and compare it to the original cleaned string."
+  },
+  {
+    "text": "Write a function to find the maximum number in an array of numbers.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "You can use Math.max(...arr) or iterate through the array with a loop keeping track of the highest value encountered so far."
+  },
+  {
+    "text": "What is database indexing and how does it improve query performance?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "An index is a data structure, usually a B-tree, that improves the speed of data retrieval operations on a database table at the cost of slower writes and extra storage. It allows the database to find rows without scanning the entire table."
+  },
+  {
+    "text": "Explain JWT (JSON Web Tokens) and how they work in authentication.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "JWT is a compact, URL-safe means of representing claims to be transferred between two parties. The server signs the token upon successful login, and the client sends it in the authorization header for subsequent requests."
+  },
+  {
+    "text": "What is the difference between Server-Side Rendering (SSR) and Client-Side Rendering (CSR)?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "CSR renders the page in the browser using JavaScript, which can result in slower initial load times but fast subsequent navigation. SSR renders the HTML on the server for every request, improving initial load and SEO."
+  },
+  {
+    "text": "How does Redis work as a caching layer?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Redis stores key-value pairs in memory rather than on disk, yielding extremely fast read and write operations. It is often used to cache frequent database queries or session data to reduce database load."
+  },
+  {
+    "text": "Describe the core principles of CI/CD pipelines.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Continuous Integration automatically builds and tests code changes whenever pushed to version control. Continuous Deployment automatically pushes those verified changes to production environments."
+  },
+  {
+    "text": "What are database transactions and what does ACID stand for?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "ACID stands for Atomicity, Consistency, Isolation, and Durability, representing the properties that guarantee reliable database transactions. If any part of a transaction fails, all changes within it are rolled back."
+  },
+  {
+    "text": "How do you manage state in a large-scale React application?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "State is managed by lifting local state when needed, using Context API for medium scope, or utilizing state management libraries like Redux Toolkit or Zustand for complex, global state."
+  },
+  {
+    "text": "Explain the concept of database sharding.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Sharding is a horizontal partitioning technique where large databases are split into smaller, independent pieces called shards distributed across multiple servers to improve scalability."
+  },
+  {
+    "text": "What is the difference between optimistic and pessimistic locking?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Pessimistic locking locks a record as soon as it is read to prevent concurrent updates. Optimistic locking assumes conflicts are rare, checking version numbers or timestamps upon write to detect if data changed in the meantime."
+  },
+  {
+    "text": "How do WebSockets differ from HTTP polling?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "HTTP polling requires the client to repeatedly request data from the server at intervals. WebSockets maintain a persistent, full-duplex TCP connection allowing real-time, bidirectional data flow without overhead."
+  },
+  {
+    "text": "Describe a time you optimized a slow-performing API or web page.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Look for profiling the bottleneck using tools, implementing caching or database indexing, and measuring the performance improvement quantitatively."
+  },
+  {
+    "text": "Tell me about a time when a deployment failed in production. How did you handle it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The candidate should explain how they quickly rolled back the deployment, investigated the root cause in a calm manner, and implemented safeguards to prevent recurrence."
+  },
+  {
+    "text": "How do you handle technical debt when working on fast-paced product features?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "An ideal answer demonstrates balancing business needs with code quality, documenting technical debt, and negotiating dedicated sprints or task tickets to refactor."
+  },
+  {
+    "text": "Write a function to debounce another function in JavaScript.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Return a wrapper function that clears any existing timeout using clearTimeout and sets a new setTimeout to execute the original function after a specified delay."
+  },
+  {
+    "text": "Write a function to flatten a nested array of arbitrary depth.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "You can use recursion or the built-in arr.flat(Infinity) method to iterate through elements and flatten sub-arrays into a single-level array."
+  },
+  {
+    "text": "Implement a basic LRU (Least Recently Used) Cache class.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use a combination of a Map or object for O(1) lookups and a doubly linked list or ordered keys array to keep track of usage order and evict the oldest item when capacity is exceeded."
+  },
+  {
+    "text": "Design a scalable URL shortener like bit.ly.",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Focus on database selection for fast lookups, generating unique short hashes using base62 encoding, caching frequent redirects with Redis, and handling high read-to-write ratios."
+  },
+  {
+    "text": "How would you handle a sudden spike in traffic that is crashing your backend API?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Immediate actions include scaling horizontally, enabling rate limiting, activating caching layers like CDN or Redis, and shedding non-critical load using circuit breakers."
+  },
+  {
+    "text": "Design a real-time chat application architecture.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use WebSockets for real-time messaging, a message broker like Kafka or Redis Pub/Sub to scale across multiple server instances, and a database like MongoDB or Cassandra to store message history."
+  },
+  {
+    "text": "Explain distributed consensus algorithms like Raft or Paxos.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Distributed consensus algorithms ensure that a cluster of nodes agrees on a state or value even if some nodes fail. Raft achieves this by electing a leader who manages log replication across follower nodes."
+  },
+  {
+    "text": "How do database isolation levels (Read Committed, Repeatable Read, Serializable) prevent concurrency anomalies?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Isolation levels control the visibility of uncommitted changes and concurrent reads. Higher levels prevent phenomena like dirty reads, non-repeatable reads, and phantom reads by enforcing stricter locking or multi-version concurrency control (MVCC)."
+  },
+  {
+    "text": "What is OAuth 2.0 and how does the Authorization Code Grant flow with PKCE work?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "OAuth 2.0 is an authorization framework. PKCE adds a dynamically generated code verifier and challenge to the authorization code flow, securing public clients like mobile or single-page apps against interception attacks."
+  },
+  {
+    "text": "Describe how blue-green deployment and canary releases work.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Blue-green deployment maintains two identical production environments, switching router traffic instantly from old to new. Canary releases roll out updates to a small subset of users first to monitor for errors before full deployment."
+  },
+  {
+    "text": "How do Content Delivery Networks (CDNs) work and how do you handle cache invalidation?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "CDNs cache static assets on edge servers globally close to users. Invalidation is managed using cache-control headers, versioned asset filenames, or API purge requests."
+  },
+  {
+    "text": "Tell me about a time you had to troubleshoot a complex race condition in a distributed system.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Look for deep logging, analysis of distributed traces, reproducing the concurrency bug, and implementing distributed locks or idempotent API designs."
+  },
+  {
+    "text": "Describe a project where you redesigned a monolithic architecture into microservices. What challenges did you face?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "The candidate should discuss breaking down database boundaries, handling distributed transactions, establishing service discovery, and managing network latency."
+  },
+  {
+    "text": "Write a function to perform deep cloning of a JavaScript object, handling circular references.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Use a recursive function that tracks visited objects in a Map or WeakMap to prevent infinite recursion when circular references are encountered."
+  },
+  {
+    "text": "Implement a rate limiter (e.g., token bucket or leaky bucket algorithm) in code.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Maintain a bucket capacity and refill rate per user key using timestamp tracking, ensuring requests are rejected or delayed when the token count drops to zero."
+  },
+  {
+    "text": "How would you design a global-scale notification system supporting push, email, and SMS?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use a pub/sub queueing system to decouple notification creation from delivery, worker pools to process provider-specific API calls, and retry mechanisms with exponential backoff for failed deliveries."
+  },
+  {
+    "text": "Design a distributed rate limiter for a multi-region microservices architecture.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Use Redis clusters across regions with atomic sliding window algorithms, or a token bucket approach backed by eventually consistent replication with local in-memory caching for low latency."
+  },
+  {
+    "text": "Explain CAP theorem and how modern distributed databases choose consistency versus availability.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "The CAP theorem states a distributed system can only provide two of Consistency, Availability, and Partition Tolerance. Since network partitions are inevitable, systems choose between CP (rejecting writes during splits) or AP (allowing divergent writes and resolving via conflict resolution)."
+  },
+  {
+    "text": "Describe a scenario where your system experienced a cascading failure and how you re-architected it to be resilient.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Look for implementation of circuit breakers, bulkhead isolation, load shedding, and timeouts to prevent downstream service failures from taking down the entire system."
+  },
+  {
+    "text": "Implement a distributed lock mechanism using Redis.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "Use the Redlock algorithm or SET resource_name my_random_value NX PX 30000 command to acquire a lock with a timeout, ensuring only the owner holding the unique random value can release it via a Lua script."
+  },
+  {
+    "text": "What is the difference between a forward proxy and a reverse proxy?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "A forward proxy sits in front of clients to hide their identity and control outbound access. A reverse proxy sits in front of servers to handle incoming requests, distribute load, and provide SSL termination."
+  },
+  {
+    "text": "Explain the purpose of the `package.json` file in Node.js projects.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "It serves as the manifest file containing project metadata, dependency versions, and script definitions for running tests, builds, and server execution."
+  },
+  {
+    "text": "What is the box model in CSS?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The CSS box model describes every element as a rectangular box consisting of margins, borders, padding, and the actual content area."
+  },
+  {
+    "text": "How do you handle error handling in asynchronous JavaScript?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Asynchronous errors are handled using try/catch blocks with async/await syntax or by attaching .catch() callback handlers to promises."
+  },
+  {
+    "text": "What is version control and why do we use Git?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Version control tracks history and changes made to source code. Git is a distributed version control system that enables collaborative development, branching, and merging."
+  },
+  {
+    "text": "Tell me about a time you helped a junior developer debug an issue.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Focus on patience, guiding them through the problem-solving process rather than just giving the answer, and explaining the underlying concepts."
+  },
+  {
+    "text": "Write a function that returns the Fibonacci sequence up to n numbers.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Initialize an array with [0, 1] and use a loop to push the sum of the last two numbers until the array reaches length n."
+  },
+  {
+    "text": "What is the difference between SQL JOIN types (INNER, LEFT, RIGHT, FULL)?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "INNER JOIN returns records with matching values in both tables. LEFT JOIN returns all records from the left table and matched ones from the right, while RIGHT JOIN does the reverse. FULL JOIN returns all records when there is a match in either table."
+  },
+  {
+    "text": "Explain how middleware works in Express.js.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Middleware functions have access to the request, response, and next middleware function in the application's request-response cycle. They can execute code, modify request objects, end the request cycle, or call next()."
+  },
+  {
+    "text": "What are React hooks and why were they introduced?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Hooks let functional components use state and lifecycle features without writing class components. They solve issues like complex component wrappers and hard-to-reuse stateful logic."
+  },
+  {
+    "text": "How do you secure a REST API against common vulnerabilities like SQL injection and XSS?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "SQL injection is prevented by using parameterized queries or ORMs. Cross-Site Scripting (XSS) is mitigated by sanitizing user input and encoding output data before rendering in the browser."
+  },
+  {
+    "text": "What is Docker and how does it differ from traditional virtualization?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Docker uses containerization to package an application and its dependencies together, sharing the host OS kernel. Traditional VMs run a full guest operating system on top of a hypervisor, making containers lighter and faster."
+  },
+  {
+    "text": "Tell me about a time you had to learn a new technology stack quickly for a project.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Highlight resources used such as official documentation, building quick proof-of-concepts, and seeking guidance from experienced peers."
+  },
+  {
+    "text": "Write a function that flattens a query string into a JavaScript object.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Split the query string by '&', then split each key-value pair by '=' and decode URI components to populate the resulting object."
+  },
+  {
+    "text": "How would you design a caching strategy for a high-traffic e-commerce product catalog?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use a CDN for static images and product pages, Redis for frequently accessed product details with TTL expiration, and cache invalidation hooks triggered upon product updates."
+  },
+  {
+    "text": "What are database deadlocks and how do you resolve them?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "A deadlock occurs when two or more transactions hold locks while waiting for locks held by the others. Databases resolve this by aborting one transaction, while developers prevent them by acquiring locks in a consistent order."
+  },
+  {
+    "text": "Explain how HTTPS and TLS handshake secure network communication.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "TLS handshake establishes a secure connection by exchanging cryptographic certificates, agreeing on encryption algorithms, and generating shared session keys for symmetric encryption of all transmitted data."
+  },
+  {
+    "text": "Describe the architecture of Event-Driven Systems and Event Sourcing.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Event-driven systems communicate asynchronously via events published to brokers. Event sourcing stores state changes as an immutable sequence of events rather than just current state."
+  },
+  {
+    "text": "Tell me about a time you identified a security vulnerability in production code.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Discuss how the vulnerability was discovered, the steps taken to assess impact and patch it urgently, and post-incident reviews conducted."
+  },
+  {
+    "text": "Implement a custom Promise class with .then() and .catch() methods.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Manage internal state (pending, fulfilled, rejected), store callback queues for .then/.catch handlers, and execute them asynchronously when resolve or reject are called."
+  },
+  {
+    "text": "How would you design a zero-downtime database schema migration for a table with 100 million rows?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use expansion and contraction patterns: add new columns/tables safely, dual-write from application code, backfill historical data in batches, and eventually drop old schemas."
+  },
+  {
+    "text": "Explain zero-trust network architecture and how microsegmentation is applied in Kubernetes.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Zero-trust assumes no implicit trust inside a network perimeter, requiring authentication and authorization for every request. In Kubernetes, this is achieved using NetworkPolicies for microsegmentation and service meshes like Istio for mTLS."
+  },
+  {
+    "text": "Describe a critical system outage you led the resolution for. What was the root cause and long-term fix?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Look for calm leadership under pressure, effective communication with executives and customers, thorough post-mortem analysis, and systemic architectural improvements."
+  },
+  {
+    "text": "Implement a basic garbage collection simulation or mark-and-sweep algorithm.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "Traverse object graphs starting from root references to mark reachable nodes, then sweep through memory allocations to free any unmarked objects."
+  },
+  {
+    "text": "What is the difference between CSS Flexbox and Grid?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Flexbox is designed for one-dimensional layouts (rows or columns), while CSS Grid is built for two-dimensional layouts (rows and columns simultaneously)."
+  },
+  {
+    "text": "Explain what an HTTP status code is and give examples of 2xx, 4xx, and 5xx.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "HTTP status codes are server responses indicating the outcome of a request. 2xx means success (e.g., 200 OK), 4xx means client error (e.g., 404 Not Found), and 5xx means server error (e.g., 500 Internal Server Error)."
+  },
+  {
+    "text": "What is the purpose of a CSS preprocessor like Sass or LESS?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "CSS preprocessors extend standard CSS with features like variables, nested rules, mixins, and functions, making large stylesheets more maintainable."
+  },
+  {
+    "text": "How do you check if a property exists in a JavaScript object?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "You can use the `in` operator (e.g., `'prop' in obj`), `obj.hasOwnProperty('prop')`, or check if `obj.prop !== undefined`."
+  },
+  {
+    "text": "What is the role of a build tool like Vite or Webpack?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Build tools bundle, transpile, and optimize frontend source code, assets, and dependencies into production-ready static files."
+  },
+  {
+    "text": "Describe a time when you received constructive feedback. How did you apply it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Show openness to learning, active reflection on the feedback, and measurable steps taken to improve performance."
+  },
+  {
+    "text": "Write a function that capitalizes the first letter of every word in a sentence.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Split the sentence into words, capitalize the first character of each word, and join them back together into a string."
+  },
+  {
+    "text": "What is database normalization and what are the first three normal forms?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Normalization organizes database tables to reduce data redundancy. 1NF eliminates repeating groups, 2NF removes partial dependencies on composite keys, and 3NF removes transitive dependencies."
+  },
+  {
+    "text": "Explain how GraphQL differs from REST APIs.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "GraphQL allows clients to request exactly the data they need in a single query, preventing over-fetching and under-fetching common in REST multi-endpoint architectures."
+  },
+  {
+    "text": "What is the Virtual DOM in React and how does reconciliation work?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "The Virtual DOM is an in-memory representation of the real DOM. Reconciliation is the process where React diffs the new Virtual DOM tree against the previous one to compute the minimal set of changes needed for the real DOM."
+  },
+  {
+    "text": "How do you implement session management using cookies?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Upon authentication, the server sets a session identifier cookie on the client with flags like HttpOnly, Secure, and SameSite, which the browser automatically sends back on subsequent requests."
+  },
+  {
+    "text": "What is Infrastructure as Code (IaC) and what are its benefits?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "IaC manages and provisions cloud computing infrastructure through machine-readable definition files rather than manual configuration. Benefits include consistency, reproducibility, and version control for environments."
+  },
+  {
+    "text": "Tell me about a project where you successfully mentored a team member.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Highlight setting clear goals, providing regular code reviews, encouraging autonomy, and celebrating their professional growth."
+  },
+  {
+    "text": "Write a function that performs a binary search on a sorted array.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Maintain left and right pointers, find the middle index, and adjust pointers based on whether the target is greater than or less than the middle element until found."
+  },
+  {
+    "text": "How would you handle failing database migrations in a CI/CD pipeline?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Ensure migrations are backward compatible, test them in staging environments matching production, and use automated rollback scripts if a migration step fails."
+  },
+  {
+    "text": "Explain database replication strategies (Master-Slave, Master-Master) and their trade-offs.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Master-slave directs all writes to a primary node and reads to replicas, offering scalability for reads but lag on replicas. Master-master allows writes on multiple nodes, introducing conflict resolution challenges."
+  },
+  {
+    "text": "How do service workers enable Progressive Web Apps (PWAs) to work offline?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Service workers act as programmable network proxies between the app and the network, using the Cache API to intercept fetch requests and serve cached assets when offline."
+  },
+  {
+    "text": "Describe how container orchestration platforms like Kubernetes manage pod lifecycle and scaling.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Kubernetes schedules containers into pods across worker nodes, monitors health using liveness and readiness probes, and automatically scales workloads horizontally based on metrics."
+  },
+  {
+    "text": "Tell me about a time when you had to refactor a massive legacy codebase without breaking existing features.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Discuss writing comprehensive integration tests before refactoring, breaking changes into small incremental PRs, and maintaining feature parity throughout."
+  },
+  {
+    "text": "Implement an event emitter pattern in JavaScript (on, off, emit).",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Maintain a dictionary mapping event names to arrays of listener callback functions, with methods to add, remove, and trigger them with arguments."
+  },
+  {
+    "text": "How would you design a distributed tracing system for microservices?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Inject correlation IDs into HTTP headers across service calls, collect spans and traces asynchronously using agents like OpenTelemetry, and index them in storage for visualization."
+  },
+  {
+    "text": "Explain how distributed transactions are handled across microservices using the Saga pattern.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "The Saga pattern manages distributed transactions through a sequence of local transactions where each step updates data and publishes events. If a step fails, compensating transactions are executed to roll back previous changes."
+  },
+  {
+    "text": "Describe a time you diagnosed a severe memory leak in a Node.js or frontend application.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Detail using heap snapshots, Chrome DevTools or Node.js profiling tools, analyzing retained object paths, and fixing dangling event listeners or global variables."
+  },
+  {
+    "text": "Implement a concurrent task scheduler with rate limiting and max concurrency limits in JavaScript.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "Maintain an active task counter and queue, launching new promises as slots open up until all queued asynchronous tasks complete successfully."
+  },
+  {
+    "text": "What is the DOM and how do browsers render web pages?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "The DOM is a programming interface representing HTML as a tree structure. Browsers render pages by parsing HTML/CSS, building DOM/CSSOM trees, combining them into a render tree, and performing layout and painting."
+  },
+  {
+    "text": "Explain the difference between `let`, `const`, and `var` in JavaScript.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "`var` is function-scoped and hoisted with undefined. `let` and `const` are block-scoped with temporal dead zones, where `const` prevents re-assignment of the variable reference."
+  },
+  {
+    "text": "What are HTTP methods and what is the difference between GET and POST?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "HTTP methods indicate the desired action for a resource. GET retrieves data and should be idempotent and safe, while POST submits data to create or process a resource and is typically non-idempotent."
+  },
+  {
+    "text": "How do you link a stylesheet to an HTML document?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "By using the `<link>` tag inside the `<head>` section, specifying `rel=\"stylesheet\"` and the `href` attribute pointing to the CSS file."
+  },
+  {
+    "text": "What is responsive web design?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Responsive web design ensures web pages render well on various devices and window sizes by using flexible grids, flexible images, and CSS media queries."
+  },
+  {
+    "text": "Tell me about a time you worked effectively in a cross-functional team.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Highlight clear communication with product managers, designers, and QA engineers, focusing on shared goals and timely delivery."
+  },
+  {
+    "text": "Write a function to check if a number is prime.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Return false for numbers less than or equal to 1, and iterate from 2 up to the square root of the number checking for any divisors."
+  },
+  {
+    "text": "What is connection pooling in databases and why is it important?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Connection pooling maintains a cache of active database connections so they can be reused for future requests, avoiding the high overhead of establishing a new TCP connection and authentication for every query."
+  },
+  {
+    "text": "Explain how Single Page Applications (SPAs) handle routing.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "SPAs use client-side routing via the HTML5 History API or hash changes to update the view without triggering a full page reload from the server."
+  },
+  {
+    "text": "What is the role of an ORM (Object-Relational Mapping) tool?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "An ORM maps database tables to object-oriented classes and rows to instances, allowing developers to interact with the database using programming language syntax instead of raw SQL."
+  },
+  {
+    "text": "How do you manage environment secrets securely in production cloud environments?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Secrets are stored in dedicated vault services like AWS Secrets Manager, HashiCorp Vault, or environment secret stores provided by container orchestrators, and injected securely at runtime."
+  },
+  {
+    "text": "What is the difference between synchronous and asynchronous programming?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Synchronous code executes sequentially, blocking further execution until the current operation finishes. Asynchronous code allows other operations to run while waiting for tasks like network requests to complete."
+  },
+  {
+    "text": "Tell me about a time you improved the deployment process for your team.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Discuss automating manual deployment steps with CI/CD pipelines, reducing deployment time, and minimizing human error."
+  },
+  {
+    "text": "Write a function to deep merge two JavaScript objects.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Iterate through keys of both objects, recursively merging nested object values while overwriting primitive values."
+  },
+  {
+    "text": "How would you design the database schema for a multi-tenant SaaS application?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Choose between shared database with tenant_id column, separate schemas per tenant, or separate databases per tenant based on security, cost, and isolation requirements."
+  },
+  {
+    "text": "Explain the mechanics of database query execution plans and how to analyze them.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Query execution plans show how a database engine will execute a SQL statement, detailing steps like index scans, table scans, and joins. Analyzing them using EXPLAIN helps identify performance bottlenecks."
+  },
+  {
+    "text": "How do Server-Sent Events (SSE) compare to WebSockets?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "SSE provides unidirectional real-time data streaming from server to client over standard HTTP, whereas WebSockets provide bidirectional full-duplex communication over a persistent TCP connection."
+  },
+  {
+    "text": "Describe how blue-green database migrations are performed with minimal downtime.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Create a new database schema alongside the old one, replicate data continuously, apply dual-writes from application code, and switch traffic over once synchronization is verified."
+  },
+  {
+    "text": "Tell me about a time you handled a disagreement regarding architectural design in your team.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Highlight creating a Request for Comments (RFC) document, evaluating trade-offs objectively, and building consensus through collaborative prototyping."
+  },
+  {
+    "text": "Implement a memoize function that caches results of expensive function calls with custom cache keys.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Return a wrapper function that checks if a computed result exists in a cache map using a custom key generation function before computing and storing it."
+  },
+  {
+    "text": "How would you design a geo-distributed caching tier for a global e-commerce platform?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Deploy regional Redis clusters close to user regions, implement asynchronous invalidation messages via message brokers, and handle eventual consistency for catalog updates."
+  },
+  {
+    "text": "Explain how garbage collection works in V8 JavaScript engine and how to avoid memory leaks.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "V8 uses a generational garbage collector with Scavenge (young generation) and Mark-Sweep-Compact (old generation) algorithms. Avoid leaks by removing event listeners, clearing timers, and nullifying circular references."
+  },
+  {
+    "text": "Describe a situation where you had to debug a performance bottleneck spanning frontend rendering, network, and backend database.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Discuss end-to-end tracing, profiling each tier systematically using browser profilers, APM tools, and database query analysis to pinpoint and resolve the root cause."
+  },
+  {
+    "text": "Implement a lock-free queue or thread-safe FIFO queue in JavaScript.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "Use atomic operations or immutable data structures to manage head and pointer indices safely without blocking execution threads."
+  },
+  {
+    "text": "What is the difference between cookies, localStorage, and sessionStorage?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Cookies are sent with every HTTP request and have expiration dates. localStorage persists data across browser sessions until explicitly cleared. sessionStorage stores data only for the duration of the page session."
+  },
+  {
+    "text": "Explain the concept of code hoisting in JavaScript.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Hoisting is JavaScript's default behavior of moving declarations to the top of their scope during the compilation phase before code execution."
+  },
+  {
+    "text": "What is an API endpoint?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "An API endpoint is a specific URL where an API receives requests for a resource on a server."
+  },
+  {
+    "text": "How do you add a class to an element using vanilla JavaScript?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "You use the `classList.add()` method on the targeted DOM element, e.g., `element.classList.add('className')`."
+  },
+  {
+    "text": "What is the purpose of Git branches?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Git branches allow developers to diverge from the main codebase to work on features, bug fixes, or experiments in isolation before merging them back."
+  },
+  {
+    "text": "Tell me about a time you successfully managed multiple concurrent tasks.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "Highlight prioritization techniques, time management tools, and communication with stakeholders regarding deliverables."
+  },
+  {
+    "text": "Write a function that returns the factorial of a number.",
+    "type": "CODING",
+    "difficulty": "EASY",
+    "expected_answer": "Use recursion or a simple loop multiplying numbers from 1 up to n."
+  },
+  {
+    "text": "What is database partitioning and how does it differ from sharding?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Partitioning splits a single database logical table into smaller pieces within the same database instance. Sharding distributes those pieces across entirely separate physical database servers."
+  },
+  {
+    "text": "Explain how authentication and authorization differ.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Authentication verifies who a user is (e.g., login with credentials), while authorization determines what resources and actions an authenticated user is permitted to access."
+  },
+  {
+    "text": "What are React custom hooks and why are they useful?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Custom hooks are JavaScript functions whose names start with `use` and that may call other hooks. They allow component logic to be extracted into reusable functions."
+  },
+  {
+    "text": "How do you handle error logging and monitoring in a production full-stack application?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "By integrating error tracking services like Sentry or Datadog, capturing unhandled exceptions on frontend and backend, and setting up alerts for error rate spikes."
+  },
+  {
+    "text": "What is the purpose of reverse proxy servers like Nginx?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Nginx acts as a reverse proxy to handle incoming client traffic, load balance across multiple backend instances, serve static files, and handle SSL termination."
+  },
+  {
+    "text": "Tell me about a time you encountered a difficult bug in production. How did you investigate it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Discuss reviewing error logs, reproducing the issue in a staging environment, applying targeted fixes, and adding regression tests."
+  },
+  {
+    "text": "Write a function that groups an array of objects by a specific property key.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use Array.prototype.reduce to accumulate items into an object where keys are the property values and values are arrays of matching items."
+  },
+  {
+    "text": "How would you secure sensitive data stored in a PostgreSQL database?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Use encryption at rest for storage volumes, encryption in transit via SSL/TLS connections, column-level hashing/encryption for sensitive fields like passwords, and strict role-based access control."
+  },
+  {
+    "text": "Explain how distributed locks work and when they are necessary.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Distributed locks coordinate access to shared resources across multiple server instances in a distributed system, preventing race conditions when standard in-memory locks are insufficient."
+  },
+  {
+    "text": "Describe the internals of how React fiber architecture works.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "React Fiber is a reimplementation of the React reconciliation algorithm that breaks rendering work into incremental units, allowing prioritization, pausing, and resumption of rendering tasks."
+  },
+  {
+    "text": "How do you implement rate-limiting per user in an API gateway?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use Redis with sliding window counter or token bucket algorithms, identifying users via API keys or JWT tokens extracted at the gateway level."
+  },
+  {
+    "text": "Tell me about a time you had to make a difficult technical compromise due to business pressures.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "Highlight documenting technical debt, communicating risks clearly to stakeholders, and scheduling refactoring tasks for future sprints."
+  },
+  {
+    "text": "Implement a currying function in JavaScript that takes any function and returns its curried equivalent.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "Return a recursive function that accumulates arguments until the expected number of arguments is reached, then executes the original function."
+  },
+  {
+    "text": "How would you design a real-time collaborative document editing tool like Google Docs?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "Use Operational Transformation (OT) or Conflict-free Replicated Data Types (CRDTs) over WebSockets to sync document changes across clients in real-time."
+  },
+  {
+    "text": "Explain the internals of database multi-version concurrency control (MVCC).",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "MVCC allows multiple transactions to access data concurrently without locking by maintaining multiple physical versions of data rows, where each transaction sees a snapshot of data based on its start time."
+  },
+  {
+    "text": "Describe a time you successfully resolved a catastrophic production incident under intense pressure.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "Emphasize methodical diagnosis, delegating tasks clearly during war-room sessions, mitigating impact swiftly, and conducting a blameless post-mortem."
+  },
+  {
+    "text": "Implement an asynchronous map function that runs mapper promises with a concurrency limit.",
+    "type": "CODING",
+    "difficulty": "EXPERT",
+    "expected_answer": "Iterate through the array while maintaining a pool of active promises, spawning new ones as slots free up until all results are gathered in order."
+  },
+  {
+    "text": "Explain how you would design a scalable URL shortener like bit.ly, covering hash generation and collision handling.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "I would use a Base62 encoding scheme derived from a counter or hash of the long URL. Collisions can be handled by appending a salt or utilizing a database uniqueness constraint with retry logic, while caching frequently accessed short URLs in Redis ensures fast redirection."
+  },
+  {
+    "text": "How do you handle API versioning when breaking changes are unavoidable?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I prefer URI path versioning (e.g., /api/v1/resource) as it is explicit and easy for clients to consume. When introducing breaking changes, I maintain the legacy version for a deprecation period while communicating updates via response headers and documentation."
+  },
+  {
+    "text": "Describe the process of designing a relational database schema for an e-commerce platform's shopping cart.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I would create 'users', 'products', 'carts', and 'cart_items' tables. The 'carts' table links users to their active cart, while 'cart_items' acts as a join table holding product IDs, quantities, and timestamps, indexed appropriately for fast retrieval."
+  },
+  {
+    "text": "What strategies do you use to synchronize state between a single-page frontend and a microservices backend?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "I utilize optimistic UI updates on the frontend for immediate feedback while handling rollbacks if the backend request fails. For real-time updates, WebSockets or Server-Sent Events (SSE) keep the client state synchronized across distributed services."
+  },
+  {
+    "text": "Walk me through setting up a zero-downtime deployment pipeline using blue-green deployment strategies.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "I maintain two identical production environments, Blue and Green. New code is deployed to the idle environment, run through smoke tests, and traffic is gradually shifted via a load balancer, allowing instant rollback if anomalies are detected."
+  },
+  {
+    "text": "How do you approach end-to-end testing for a full-stack application involving third-party payment gateways?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I use testing frameworks like Cypress or Playwright combined with mock servers or sandbox environments provided by the payment gateway. This allows simulating successful and failed transactions without hitting live financial APIs."
+  },
+  {
+    "text": "Explain how to configure a multi-stage Dockerfile for a Node.js and React full-stack application.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A multi-stage build uses one container stage to install dependencies and build the React static assets and TypeScript backend, and a second, leaner runtime stage that copies only the built artifacts and production dependencies, significantly reducing image size."
+  },
+  {
+    "text": "Compare JWT and session-based authentication in terms of scalability and security.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Sessions require server-side storage and lookups, making them less scalable across distributed systems unless centralized in Redis, whereas JWTs are stateless and self-contained. However, JWTs are harder to invalidate instantly without a token blacklist."
+  },
+  {
+    "text": "How do you implement a distributed caching strategy using Redis to reduce database load for high-read APIs?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "I use a cache-aside pattern where the application checks Redis first, querying the database and populating the cache on a miss. To prevent stampedes, I implement cache locking and randomize Time-To-Live (TTL) values across keys."
+  },
+  {
+    "text": "Tell me about a time when a critical bug slipped into production on release day. How did you handle it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I immediately notified the team and stakeholders, initiated a rollback to the previous stable version to restore service, and then performed a root-cause analysis. I documented the findings and added automated regression tests to prevent recurrence."
+  },
+  {
+    "text": "Describe a situation where you had to refactor a legacy monolithic backend while it was actively in use.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "I used the Strangler Fig pattern, routing specific API paths to the new microservice architecture while leaving the rest of the monolith intact. This allowed incremental migration and testing with zero downtime for our active user base."
+  },
+  {
+    "text": "How do you prioritize your backlog when both frontend UI polish and backend performance optimization are requested?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I evaluate business impact and user experience, collaborating with product managers to assess whether backend latency is actively blocking user actions. If performance threatens system stability, it takes precedence over aesthetic UI polish."
+  },
+  {
+    "text": "Share an experience where you had a disagreement with a backend engineer regarding API contract design.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "We disagreed on payload structures causing over-fetching; I favored GraphQL while they wanted strict REST endpoints. We resolved it by agreeing on a flexible query-parameter filtering approach for REST that met frontend needs without overhauling the backend stack."
+  },
+  {
+    "text": "Tell me about a time you optimized a slow-loading full-stack web application. What metrics did you track?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "I tracked Core Web Vitals such as LCP and FID alongside backend API response times. By implementing database indexing, query optimization, and frontend code-splitting, we reduced page load time by 60% and improved user retention."
+  },
+  {
+    "text": "You notice a sudden spike in database CPU utilization during peak traffic hours. What are your immediate steps?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "I would check running queries using process lists to identify slow or unindexed queries, check connection pool exhaustion, and temporarily enable read replicas or cache frequently hit endpoints if possible."
+  },
+  {
+    "text": "An external API your application relies on goes down completely. How do you maintain application availability?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "I would implement circuit breakers to fail fast, serve cached fallback data or graceful degradation messages to the user, and queue outgoing requests if retries are viable once the service recovers."
+  },
+  {
+    "text": "A junior developer merges code that disables CORS protection globally. What is your immediate reaction and fix?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I would immediately revert the commit or push an emergency patch to restrict CORS policies to trusted origins. Afterward, I would conduct a brief knowledge-sharing session on web security and update our CI linter rules."
+  },
+  {
+    "text": "Write a function to debounce an API search input in JavaScript to prevent excessive backend requests.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A function that takes a callback and delay, returning a wrapper that clears any existing timeout using clearId and sets a new setTimeout before invoking the callback."
+  },
+  {
+    "text": "Design a system architecture for a real-time chat application handling millions of concurrent users.",
+    "type": "TECHNICAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "I would use WebSocket servers managed by a load balancer, backed by a pub/sub message broker like Redis or Apache Kafka to distribute messages across server instances, and persist chat history in a scalable NoSQL database like Cassandra."
+  },
+  {
+    "text": "How do you handle pagination efficiently in a SQL database when dealing with millions of rows?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "I avoid OFFSET/LIMIT pagination for large datasets because it scans discarded rows. Instead, I use keyset pagination (cursor-based pagination) utilizing the last seen indexed column value (e.g., WHERE id > last_id LIMIT n)."
+  },
+  {
+    "text": "Describe the implementation of Role-Based Access Control (RBAC) in a full-stack application.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "RBAC assigns permissions to roles and roles to users. On the backend, middleware checks user permissions against requested routes or resources, while the frontend conditionally renders UI components based on the user's decoded token roles."
+  },
+  {
+    "text": "What is database sharding, and when should you choose it over vertical scaling?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Sharding involves horizontally partitioning a database across multiple machines based on a sharding key. It is chosen when vertical scaling hits hardware limits and write throughput or storage size exceeds a single database instance's capacity."
+  },
+  {
+    "text": "Explain how Server-Side Rendering (SSR) differs from Incremental Static Regeneration (ISR).",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "SSR generates HTML on every single request, ensuring fresh data. ISR generates static pages at build time and allows background revalidation and updates of specific pages on demand without rebuilding the entire site."
+  },
+  {
+    "text": "How do you secure API endpoints against common vulnerabilities like CSRF, XSS, and SQL injection?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I use parameterized queries to prevent SQL injection, sanitize and escape user inputs to stop XSS, and implement anti-CSRF tokens or SameSite cookie attributes to prevent cross-site request forgery."
+  },
+  {
+    "text": "What are database deadlocks, and how can application developers prevent them?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Deadlocks occur when two transactions hold locks and wait for each other to release them. Developers can prevent them by acquiring locks in a consistent, predetermined order across all transactions and keeping transactions short."
+  },
+  {
+    "text": "How do you manage environment configuration secrets safely across development, staging, and production environments?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "I use secret management services like AWS Secrets Manager, HashiCorp Vault, or encrypted environment files stored securely in CI/CD pipelines, ensuring secrets are never committed to version control."
+  },
+  {
+    "text": "Explain the concept of eventual consistency in distributed databases.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Eventual consistency guarantees that if no new updates are made, all replicas will eventually converge to the same value, sacrificing immediate strong consistency for higher availability and partition tolerance."
+  },
+  {
+    "text": "Describe your approach to logging and distributed tracing in a microservices architecture.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "I use structured JSON logging and propagate a unique correlation ID (Trace ID) across all service requests. Tools like Jaeger or OpenTelemetry help visualize the request lifecycle across multiple services."
+  },
+  {
+    "text": "How do you handle database migrations safely without causing downtime in a live production environment?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "I follow the expand-and-contract pattern: first add new columns/tables without removing old ones, deploy application code supporting both, and only drop old schema elements in a subsequent deployment after complete migration."
+  },
+  {
+    "text": "Tell me about a time you had to mentor a junior developer on writing clean, maintainable code.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EASY",
+    "expected_answer": "I paired with them on code reviews, explaining the 'why' behind SOLID principles and modular design, and encouraged them to write unit tests alongside their features to build good engineering habits."
+  },
+  {
+    "text": "Describe a project where requirements changed drastically mid-development. How did you adapt?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I reassessed the architecture with the team to identify reusable components, communicated realistic timelines to stakeholders, and broke down the new scope into iterative delivery milestones."
+  },
+  {
+    "text": "How do you handle technical debt when management pushes strictly for new feature delivery?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I quantify technical debt in terms of risk, security vulnerability, or velocity slowdown, and negotiate allocating a percentage of every sprint (e.g., 20%) toward refactoring high-impact areas."
+  },
+  {
+    "text": "Tell me about a time when a performance issue was difficult to reproduce locally. How did you debug it?",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "I used APM tools and production error tracking to analyze production metrics, replicated the exact data scale and network latency in a staging environment, and isolated the bottleneck using profiling tools."
+  },
+  {
+    "text": "Share an experience where you successfully persuaded a team to adopt a new technology stack.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I built a proof-of-concept demonstrating performance improvements and developer velocity gains, presented a clear migration risk assessment, and ran a small pilot project before full team adoption."
+  },
+  {
+    "text": "A critical frontend bundle fails to load for 5% of users due to a CDN cache corruption issue. What do you do?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I would immediately purge the CDN cache, verify asset versioning hashes, and push an emergency deployment with cache-busting query strings or new file names if necessary."
+  },
+  {
+    "text": "You discover that sensitive user PII was accidentally logged to a public monitoring tool. What are your steps?",
+    "type": "SITUATIONAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "I would immediately notify security and legal teams, purge the logs from the monitoring tool, rotate affected credentials if applicable, and implement log sanitization middleware to prevent future leaks."
+  },
+  {
+    "text": "Your API is experiencing a volumetric DDoS attack. How do you mitigate it?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "I would engage cloud-native WAF and DDoS mitigation services like Cloudflare or AWS Shield, apply rate limiting at the gateway level, and block malicious IP subnets exhibiting anomalous traffic patterns."
+  },
+  {
+    "text": "Write a backend middleware function in Node.js/Express that implements rate limiting based on client IP.",
+    "type": "CODING",
+    "difficulty": "MEDIUM",
+    "expected_answer": "A middleware that checks a Redis store for the client IP request count within a rolling time window, increments it, and returns a 429 status code if the threshold is exceeded."
+  },
+  {
+    "text": "Explain how GraphQL solves over-fetching and under-fetching compared to traditional REST APIs.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "GraphQL provides a single endpoint where clients specify exactly what data fields they need in the query, preventing over-fetching unnecessary data and eliminating under-fetching by resolving nested relationships in one request."
+  },
+  {
+    "text": "What is the role of an API Gateway in a microservices architecture?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "An API Gateway acts as a single entry point for all client requests, handling routing, SSL termination, rate limiting, authentication, and cross-cutting concerns before forwarding traffic to internal microservices."
+  },
+  {
+    "text": "How do ACID properties ensure data integrity in relational databases?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Atomicity ensures all operations in a transaction succeed or fail together; Consistency keeps data valid; Isolation prevents concurrent transactions from interfering; Durability ensures committed data survives system crashes."
+  },
+  {
+    "text": "Discuss the trade-offs between monolithic and microservices architectures.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Monoliths are easier to build, test, and deploy initially but become hard to scale and maintain as they grow. Microservices offer independent scalability and deployment flexibility at the cost of distributed system complexity and network latency."
+  },
+  {
+    "text": "What are WebSockets and how do they differ from HTTP polling?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "HTTP polling requires the client to repeatedly request updates, creating unnecessary network overhead. WebSockets establish a persistent, full-duplex TCP connection, allowing both server and client to send data instantly."
+  },
+  {
+    "text": "Explain how database indexing works and list the drawbacks of creating too many indexes.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Indexes use data structures like B-Trees to speed up data retrieval by avoiding full table scans. Drawbacks include increased storage overhead and slower write operations, as indexes must be updated on every insert, update, or delete."
+  },
+  {
+    "text": "How do you implement secure password hashing in a backend application?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "I use strong, salted hashing algorithms designed to be computationally expensive, such as bcrypt, Argon2, or PBKDF2, preventing rainbow table and brute-force attacks."
+  },
+  {
+    "text": "What is container orchestration, and why is Kubernetes widely adopted?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Container orchestration automates the deployment, scaling, and management of containers. Kubernetes is widely adopted because of its robust declarative configuration, self-healing, load balancing, and rolling update capabilities."
+  },
+  {
+    "text": "Explain the concept of Cache Invalidation and name the most common strategies.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Cache invalidation ensures stale data is removed or updated when the underlying source changes. Common strategies include cache-aside, write-through, write-around, and time-to-live (TTL) expiration."
+  },
+  {
+    "text": "How do you structure a scalable full-stack monorepo for multiple packages and applications?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "I use tools like Nx, Turborepo, or Yarn Workspaces to manage shared UI components, utility libraries, and backend services, utilizing dependency caching and task pipelines to speed up builds and tests."
+  },
+  {
+    "text": "Describe a time when you had to optimize a complex database query with multiple joins.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I analyzed the query execution plan using EXPLAIN, identified missing composite indexes, eliminated redundant subqueries by rewriting them with CTEs, and reduced query execution time by over 80%."
+  },
+  {
+    "text": "Tell me about a time you introduced automated testing to a legacy codebase with zero test coverage.",
+    "type": "BEHAVIORAL",
+    "difficulty": "HARD",
+    "expected_answer": "I started by writing integration tests for critical user journeys before touching code, then introduced unit tests for helper functions during routine refactoring, gradually building confidence and coverage over time."
+  },
+  {
+    "text": "How do you handle disagreements within the team regarding architectural standards or coding styles?",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I advocate for objective discussions backed by data, benchmarks, or industry best practices, and document our final consensus in a shared architecture decision record (ADR) or linter configuration."
+  },
+  {
+    "text": "Share an experience where you had to debug a difficult memory leak in a Node.js backend.",
+    "type": "BEHAVIORAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "I captured heap snapshots using Chrome DevTools or Clinic.js, compared snapshots over time to find detached DOM elements or growing closures, and fixed an unclosed event listener inside a recurring cron job."
+  },
+  {
+    "text": "Tell me about a time when you balanced writing clean code with meeting a very aggressive deadline.",
+    "type": "BEHAVIORAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I focused on writing clean, testable code for core business logic while taking deliberate shortcuts on non-critical UI details, documenting the technical debt in our tracker to refactor post-launch."
+  },
+  {
+    "text": "Your CI/CD pipeline fails intermittently during the integration test stage due to flaky tests. How do you resolve this?",
+    "type": "SITUATIONAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "I would isolate and analyze the failing tests to identify race conditions, asynchronous timing issues, or shared test state, rewrite them using explicit assertions and waits, and quarantine them temporarily if needed."
+  },
+  {
+    "text": "A database migration script accidentally runs twice in production, causing duplicate records. How do you fix it?",
+    "type": "SITUATIONAL",
+    "difficulty": "HARD",
+    "expected_answer": "I would halt further operations, write a cleanup script to remove duplicates based on unique business identifiers, add idempotency checks to migration scripts, and review deployment automation."
+  },
+  {
+    "text": "An upstream microservice starts returning responses 5x slower than usual, causing thread pool exhaustion in your service. What do you do?",
+    "type": "SITUATIONAL",
+    "difficulty": "EXPERT",
+    "expected_answer": "I would immediately enable circuit breakers and request timeouts to stop thread accumulation, fallback to cached or default responses, and scale out the downstream dependency if possible."
+  },
+  {
+    "text": "Write a recursive function in JavaScript to flatten a deeply nested JSON object into a single-level key-value pair object.",
+    "type": "CODING",
+    "difficulty": "HARD",
+    "expected_answer": "A function iterating over object keys, checking if values are objects, and recursively calling itself with concatenated key paths (e.g., 'parent.child') until all levels are flattened."
+  },
+  {
+    "text": "Explain the concept of optimistic vs. pessimistic locking in database transactions.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Pessimistic locking locks records as soon as they are read to prevent concurrent modifications. Optimistic locking assumes conflicts are rare, allows concurrent reads without locks, and checks a version column upon update to abort if modified."
+  },
+  {
+    "text": "How do Content Security Policies (CSP) enhance web application security?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "CSP restricts the domains from which scripts, stylesheets, and images can be loaded and executed, significantly mitigating Cross-Site Scripting (XSS) and data injection attacks."
+  }
+]
