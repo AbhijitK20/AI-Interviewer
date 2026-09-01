@@ -37,10 +37,8 @@ const Interview = () => {
     // Pre-warm ai-service (wakes up Render free tier in background)
     const aiUrl = import.meta.env.VITE_AI_SERVICE_URL || 'https://ai-interviewer-ai-service-qpxr.onrender.com'
     fetch(`${aiUrl}/ai/voices`).catch(() => {})
-    // Show anti-cheat modal on first load
-    if (!antiCheatAccepted) {
-      setShowAntiCheat(true)
-    }
+    // Anti-cheat modal disabled for testing
+    setAntiCheatAccepted(true)
     return () => {
       if (audioStreamRef.current) {
         audioStreamRef.current.getTracks().forEach(track => track.stop())
