@@ -179,26 +179,16 @@ class VoiceService:
         try:
             import edge_tts
 
-            # Use more natural voice settings
-            natural_voices = {
-                "en-US-AriaNeural": "en-US-AndrewNeural",
-                "en-US-GuyNeural": "en-US-AndrewNeural",
-                "en-US-JennyNeural": "en-US-JennyNeural",
-                "en-GB-SoniaNeural": "en-GB-SoniaNeural",
-                "en-IN-NeerjaNeural": "en-IN-NeerjaNeural",
-            }
-            natural_voice = natural_voices.get(voice, "en-US-AndrewNeural")
-
-            # Slightly slower rate for more natural speech
+            # AndrewNeural is the most natural-sounding male voice from Microsoft
             adjusted_rate = max(0.85, min(rate, 1.1))
             rate_pct = int((adjusted_rate - 1) * 100)
             rate_str = f"+{rate_pct}%" if rate_pct >= 0 else f"{rate_pct}%"
 
             communicate = edge_tts.Communicate(
                 text,
-                natural_voice,
+                "en-US-AndrewNeural",
                 rate=rate_str,
-                pitch="+0Hz"
+                pitch="-5Hz"
             )
 
             audio_buffer = io.BytesIO()
