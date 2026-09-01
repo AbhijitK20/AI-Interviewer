@@ -113,6 +113,9 @@ const Interview = () => {
           score: evalData.score,
           grade: evalData.grade,
           feedback: evalData.feedback,
+          strengths: evalData.strengths,
+          weaknesses: evalData.weaknesses,
+          sampleResponse: evalData.sampleResponse,
           communicationScore: evalData.communicationScore,
           technicalDepth: evalData.technicalDepth,
         })
@@ -126,17 +129,22 @@ const Interview = () => {
     }
   }
 
-  const handleContinue = () => {
+  const handleContinue = async () => {
     setFeedback(null)
     setAnswer('')
 
     if (interview.currentQuestionIndex + 1 >= interview.totalQuestions) {
-      api.post(`/interviews/${id}/end`).then(() => navigate(`/report/${id}`))
+      setSubmitting(true)
+      try {
+        await api.post(`/interviews/${id}/end`)
+      } catch (e) {
+        console.error('Failed to end interview:', e)
+      }
+      navigate(`/report/${id}`)
     } else {
-      api.get(`/interviews/${id}/next-question`).then((res) => {
-        setCurrentQuestion(res.data)
-        setInterview({ ...interview, currentQuestionIndex: interview.currentQuestionIndex + 1 })
-      })
+      const res = await api.get(`/interviews/${id}/next-question`)
+      setCurrentQuestion(res.data)
+      setInterview({ ...interview, currentQuestionIndex: interview.currentQuestionIndex + 1 })
     }
   }
 
@@ -364,10 +372,19 @@ const Interview = () => {
 
                   <button
                     onClick={handleContinue}
-                    className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-brand text-white rounded-xl hover:opacity-90 transition-opacity text-sm font-medium"
+                    disabled={submitting}
+                    className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-brand text-white rounded-xl hover:opacity-90 transition-opacity text-sm font-medium disabled:opacity-70"
                   >
-                    Continue to Next Question
-                    <ChevronRight className="w-4 h-4" />
+                    {submitting ? (
+                      <>
+                        <div className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent" />
+                        Generating Report...
+                      </>
+                    ) : interview.currentQuestionIndex + 1 >= interview.totalQuestions ? (
+                      <>View Report<ChevronRight className="w-4 h-4" /></>
+                    ) : (
+                      <>Continue to Next Question<ChevronRight className="w-4 h-4" /></>
+                    )}
                   </button>
                 </div>
               ) : (

@@ -28,7 +28,19 @@ import {
   FileDown,
   Sparkles,
 } from 'lucide-react'
-const PDFReportGenerator = lazy(() => import('../components/report/PDFReportGenerator'))
+const PDFReportGenerator = lazy(() =>
+  import('../components/report/PDFReportGenerator').catch(() => ({
+    default: () => (
+      <button
+        onClick={() => window.print()}
+        className="inline-flex items-center justify-center px-4 py-2.5 rounded-xl font-semibold text-sm bg-primary-600 hover:bg-primary-700 active:scale-95 text-white shadow-sm shadow-primary-500/20 transition-all"
+      >
+        <FileDown className="w-4 h-4 mr-2" />
+        <span>Download PDF Report</span>
+      </button>
+    ),
+  }))
+)
 import { useAuth } from '../context/AuthContext'
 
 class PDFErrorBoundary extends Component {
