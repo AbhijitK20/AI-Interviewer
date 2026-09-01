@@ -38,20 +38,18 @@ class VoiceService:
 
         result = b""
 
-        # Hybrid: try Gemini first, auto-fallback to edge-tts on rate limit
+        # Edge-tts: primary (free, unlimited, fast, natural male voice)
+        result = await self._synthesize_edge(text, voice, rate)
+        if result and len(result) > 100:
+            self._cache_put(key, result)
+            return result
+
+        # Gemini TTS: quality upgrade when available (limited to 10/day free tier)
         if self.gemini_api_key:
             result = await self._synthesize_gemini(text)
             if result and len(result) > 100:
                 self._cache_put(key, result)
                 return result
-            # Gemini failed (likely rate limited), fall back silently
-            print("[VoiceService] Gemini TTS unavailable, falling back to edge-tts")
-
-        # Edge-tts: free, unlimited, fast
-        result = await self._synthesize_edge(text, voice, rate)
-        if result and len(result) > 100:
-            self._cache_put(key, result)
-            return result
 
         return self._mock_synthesize()
 
