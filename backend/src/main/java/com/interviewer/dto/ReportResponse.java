@@ -23,5 +23,6 @@ public class ReportResponse {
     private String weaknesses;
     private String recommendations;
     private String recommendationLevel;
+    private String questionBreakdown;
     private LocalDateTime createdAt;
 }

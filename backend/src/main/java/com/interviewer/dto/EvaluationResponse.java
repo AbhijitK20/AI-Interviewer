@@ -14,6 +14,7 @@ public class EvaluationResponse {
     private Integer score;
     private String grade;
     private String feedback;
+    private String sampleResponse;
     private String confidenceLevel;
     private String communicationScore;
     private String technicalDepth;

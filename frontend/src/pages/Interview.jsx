@@ -331,35 +331,35 @@ const Interview = () => {
               {feedback ? (
                 /* Quick Feedback Panel */
                 <div className="mt-4 bg-gradient-to-br from-ink-50 to-white border border-ink-200 rounded-xl p-5">
-                  <div className="flex items-center justify-between mb-3">
-                    <h3 className="text-sm font-bold text-ink-900">Feedback</h3>
-                    <div className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold ${
-                      feedback.score >= 70 ? 'bg-emerald-100 text-emerald-700' :
-                      feedback.score >= 40 ? 'bg-amber-100 text-amber-700' :
-                      'bg-red-100 text-red-700'
-                    }`}>
-                      {feedback.score >= 70 ? <ThumbsUp className="w-3 h-3" /> :
-                       feedback.score >= 40 ? <Minus className="w-3 h-3" /> :
-                       <ThumbsDown className="w-3 h-3" />}
-                      {feedback.score}/100 · {feedback.grade}
-                    </div>
+                  <h3 className="text-sm font-bold text-ink-900 mb-3">Feedback</h3>
+
+                  <div className="space-y-3 mb-4">
+                    <p className="text-sm text-ink-700 leading-relaxed">{feedback.feedback}</p>
+
+                    {feedback.strengths && (
+                      <div>
+                        <p className="text-xs font-semibold text-emerald-600 mb-1">Strengths</p>
+                        <p className="text-sm text-ink-600">{feedback.strengths}</p>
+                      </div>
+                    )}
+
+                    {feedback.weaknesses && (
+                      <div>
+                        <p className="text-xs font-semibold text-amber-600 mb-1">Areas to Improve</p>
+                        <p className="text-sm text-ink-600">{feedback.weaknesses}</p>
+                      </div>
+                    )}
                   </div>
 
-                  <p className="text-sm text-ink-700 leading-relaxed mb-4">{feedback.feedback}</p>
-
-                  {(feedback.communicationScore || feedback.technicalDepth) && (
-                    <div className="flex gap-3 mb-4">
-                      {feedback.communicationScore && (
-                        <span className="text-xs px-2 py-1 bg-blue-50 text-blue-700 rounded-full">
-                          Communication: {feedback.communicationScore}
-                        </span>
-                      )}
-                      {feedback.technicalDepth && (
-                        <span className="text-xs px-2 py-1 bg-violet-50 text-violet-700 rounded-full">
-                          Technical: {feedback.technicalDepth}
-                        </span>
-                      )}
-                    </div>
+                  {feedback.sampleResponse && (
+                    <details className="mb-4">
+                      <summary className="text-xs font-semibold text-primary-600 cursor-pointer hover:text-primary-700">
+                        Sample Response
+                      </summary>
+                      <p className="mt-2 text-sm text-ink-600 leading-relaxed bg-white border border-ink-100 rounded-lg p-3">
+                        {feedback.sampleResponse}
+                      </p>
+                    </details>
                   )}
 
                   <button

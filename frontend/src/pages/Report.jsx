@@ -264,6 +264,7 @@ const Report = () => {
   const categoryScores = safeParseChartData(report.categoryScores, defaultCategories)
   const strengths = safeParseArray(report.strengths)
   const weaknesses = safeParseArray(report.weaknesses)
+  const questionBreakdown = report.questionBreakdown || []
 
   const getGradeColor = (grade) => {
     if (!grade) return 'bg-primary-50 text-primary-700 border-primary-200'
@@ -483,6 +484,70 @@ const Report = () => {
           </div>
         </div>
       </div>
+
+      {/* Question Review Section */}
+      {questionBreakdown.length > 0 && (
+        <div className="bg-white rounded-2xl shadow-card border border-ink-100 p-6">
+          <div className="flex items-center space-x-2 mb-6">
+            <div className="p-2 rounded-xl bg-primary-50 text-primary-600">
+              <BookOpen className="h-5 w-5" />
+            </div>
+            <h2 className="text-lg font-bold text-ink-900">Question Review</h2>
+          </div>
+
+          <div className="space-y-6">
+            {questionBreakdown.map((q, index) => (
+              <div key={index} className="border border-ink-100 rounded-xl overflow-hidden">
+                {/* Question Header */}
+                <div className="bg-ink-50 px-5 py-3 border-b border-ink-100">
+                  <div className="flex items-center justify-between">
+                    <p className="text-sm font-bold text-ink-900">Question {index + 1}</p>
+                    {q.score != null && (
+                      <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${
+                        q.score >= 70 ? 'bg-emerald-100 text-emerald-700' :
+                        q.score >= 40 ? 'bg-amber-100 text-amber-700' :
+                        'bg-red-100 text-red-700'
+                      }`}>
+                        {q.score}/100
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-sm text-ink-800 mt-1">{q.question}</p>
+                </div>
+
+                {/* Answer & Feedback */}
+                <div className="px-5 py-4 space-y-4">
+                  {/* Candidate Answer */}
+                  <div>
+                    <p className="text-xs font-semibold text-ink-500 uppercase tracking-wider mb-1">Your Answer</p>
+                    <p className="text-sm text-ink-700 bg-ink-50 rounded-lg p-3">{q.answer || 'No answer provided'}</p>
+                  </div>
+
+                  {/* Feedback */}
+                  {q.feedback && (
+                    <div>
+                      <p className="text-xs font-semibold text-ink-500 uppercase tracking-wider mb-1">Review</p>
+                      <p className="text-sm text-ink-700">{q.feedback}</p>
+                    </div>
+                  )}
+
+                  {/* Sample Response */}
+                  {q.sampleResponse && (
+                    <details className="group">
+                      <summary className="text-xs font-semibold text-primary-600 cursor-pointer hover:text-primary-700">
+                        View Sample Response
+                      </summary>
+                      <p className="mt-2 text-sm text-ink-600 bg-primary-50 border border-primary-100 rounded-lg p-3 leading-relaxed">
+                        {q.sampleResponse}
+                      </p>
+                    </details>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   )
 }

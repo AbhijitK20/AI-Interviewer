@@ -129,6 +129,7 @@ public class AiServiceClient {
                     evalMap.put("score", eval.getScore());
                     evalMap.put("grade", eval.getGrade());
                     evalMap.put("feedback", eval.getFeedback());
+                    evalMap.put("sample_response", eval.getSampleResponse() != null ? eval.getSampleResponse() : "");
                     evalMap.put("strengths", eval.getStrengths());
                     evalMap.put("weaknesses", eval.getWeaknesses());
                     evaluations.add(evalMap);

@@ -161,7 +161,7 @@ public class InterviewService {
             );
 
             if (evalResult != null && !evalResult.isEmpty()) {
-                Evaluation evaluation = Evaluation.builder()
+                Evaluation                 evaluation = Evaluation.builder()
                         .session(session)
                         .score(evalResult.get("score") != null ? ((Number) evalResult.get("score")).intValue() : 0)
                         .grade((String) evalResult.getOrDefault("grade", "F"))
@@ -170,6 +170,7 @@ public class InterviewService {
                         .strengths(evalResult.get("strengths") != null ? toJson(evalResult.get("strengths")) : null)
                         .weaknesses(evalResult.get("weaknesses") != null ? toJson(evalResult.get("weaknesses")) : null)
                         .improvementSuggestions((String) evalResult.get("improvement_suggestions"))
+                        .sampleResponse((String) evalResult.getOrDefault("sample_response", ""))
                         .confidenceLevel((String) evalResult.get("confidence_level"))
                         .communicationScore((String) evalResult.get("communication_score"))
                         .technicalDepth((String) evalResult.get("technical_depth"))
@@ -332,6 +333,7 @@ public class InterviewService {
                     .score(session.getEvaluation().getScore())
                     .grade(session.getEvaluation().getGrade())
                     .feedback(session.getEvaluation().getFeedback())
+                    .sampleResponse(session.getEvaluation().getSampleResponse())
                     .build());
         }
 

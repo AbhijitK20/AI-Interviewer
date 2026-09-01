@@ -48,6 +48,10 @@ public class Evaluation {
     @Column(columnDefinition = "TEXT")
     private String improvementSuggestions;
 
+    @Lob
+    @Column(columnDefinition = "TEXT")
+    private String sampleResponse;
+
     @Column(length = 30)
     private String confidenceLevel;
 

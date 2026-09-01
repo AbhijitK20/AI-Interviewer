@@ -40,6 +40,7 @@ public class ReportController {
                 .weaknesses(report.getWeaknesses())
                 .recommendations(report.getRecommendations())
                 .recommendationLevel(report.getRecommendationLevel())
+                .questionBreakdown(report.getQuestionBreakdown())
                 .createdAt(report.getCreatedAt())
                 .build();
 
