@@ -264,7 +264,12 @@ const Report = () => {
   const categoryScores = safeParseChartData(report.categoryScores, defaultCategories)
   const strengths = safeParseArray(report.strengths)
   const weaknesses = safeParseArray(report.weaknesses)
-  const questionBreakdown = report.questionBreakdown || []
+  const questionBreakdown = (() => {
+    const raw = report.questionBreakdown
+    if (!raw) return []
+    if (Array.isArray(raw)) return raw
+    try { return JSON.parse(raw) } catch { return [] }
+  })()
 
   const getGradeColor = (grade) => {
     if (!grade) return 'bg-primary-50 text-primary-700 border-primary-200'
