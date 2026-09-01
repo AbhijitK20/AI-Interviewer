@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import api from '../services/api'
-import { Send, SkipForward, MessageSquare, Mic, Code } from 'lucide-react'
+import { Send, SkipForward, MessageSquare, Mic, Code, ChevronRight, ThumbsUp, ThumbsDown, Minus } from 'lucide-react'
 import VoiceRecorder from '../components/interview/VoiceRecorder'
 import VoicePlayer from '../components/interview/VoicePlayer'
 import CodingEnvironment from '../components/interview/CodingEnvironment'
@@ -29,6 +29,7 @@ const Interview = () => {
   const [bodyAnalysis, setBodyAnalysis] = useState(null)
   const [showAntiCheat, setShowAntiCheat] = useState(false)
   const [antiCheatAccepted, setAntiCheatAccepted] = useState(false)
+  const [feedback, setFeedback] = useState(null)
 
   const audioStreamRef = useRef(null)
 
@@ -101,25 +102,41 @@ const Interview = () => {
 
     setSubmitting(true)
     try {
-      await api.post(`/interviews/${id}/answer`, {
+      const response = await api.post(`/interviews/${id}/answer`, {
         sessionId: currentQuestion.id,
         answer: answer,
       })
 
-      setAnswer('')
-
-      if (interview.currentQuestionIndex + 1 >= interview.totalQuestions) {
-        await api.post(`/interviews/${id}/end`)
-        navigate(`/report/${id}`)
+      const evalData = response.data?.evaluation
+      if (evalData) {
+        setFeedback({
+          score: evalData.score,
+          grade: evalData.grade,
+          feedback: evalData.feedback,
+          communicationScore: evalData.communicationScore,
+          technicalDepth: evalData.technicalDepth,
+        })
       } else {
-        const questionResponse = await api.get(`/interviews/${id}/next-question`)
-        setCurrentQuestion(questionResponse.data)
-        setInterview({ ...interview, currentQuestionIndex: interview.currentQuestionIndex + 1 })
+        setFeedback({ score: 0, grade: '-', feedback: 'Answer submitted.' })
       }
     } catch (error) {
       console.error('Failed to submit answer:', error)
     } finally {
       setSubmitting(false)
+    }
+  }
+
+  const handleContinue = () => {
+    setFeedback(null)
+    setAnswer('')
+
+    if (interview.currentQuestionIndex + 1 >= interview.totalQuestions) {
+      api.post(`/interviews/${id}/end`).then(() => navigate(`/report/${id}`))
+    } else {
+      api.get(`/interviews/${id}/next-question`).then((res) => {
+        setCurrentQuestion(res.data)
+        setInterview({ ...interview, currentQuestionIndex: interview.currentQuestionIndex + 1 })
+      })
     }
   }
 
@@ -311,23 +328,67 @@ const Interview = () => {
                 </>
               )}
 
-              <div className="mt-4 flex justify-between">
-                <button
-                  onClick={handleEndInterview}
-                  className="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 hover:bg-gray-50"
-                >
-                  <SkipForward className="h-4 w-4 mr-2" />
-                  End Interview
-                </button>
-                <button
-                  onClick={handleSubmitAnswer}
-                  disabled={submitting || !answer.trim()}
-                  className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 disabled:opacity-50"
-                >
-                  <Send className="h-4 w-4 mr-2" />
-                  {submitting ? 'Submitting...' : 'Submit Answer'}
-                </button>
-              </div>
+              {feedback ? (
+                /* Quick Feedback Panel */
+                <div className="mt-4 bg-gradient-to-br from-ink-50 to-white border border-ink-200 rounded-xl p-5">
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="text-sm font-bold text-ink-900">Feedback</h3>
+                    <div className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold ${
+                      feedback.score >= 70 ? 'bg-emerald-100 text-emerald-700' :
+                      feedback.score >= 40 ? 'bg-amber-100 text-amber-700' :
+                      'bg-red-100 text-red-700'
+                    }`}>
+                      {feedback.score >= 70 ? <ThumbsUp className="w-3 h-3" /> :
+                       feedback.score >= 40 ? <Minus className="w-3 h-3" /> :
+                       <ThumbsDown className="w-3 h-3" />}
+                      {feedback.score}/100 · {feedback.grade}
+                    </div>
+                  </div>
+
+                  <p className="text-sm text-ink-700 leading-relaxed mb-4">{feedback.feedback}</p>
+
+                  {(feedback.communicationScore || feedback.technicalDepth) && (
+                    <div className="flex gap-3 mb-4">
+                      {feedback.communicationScore && (
+                        <span className="text-xs px-2 py-1 bg-blue-50 text-blue-700 rounded-full">
+                          Communication: {feedback.communicationScore}
+                        </span>
+                      )}
+                      {feedback.technicalDepth && (
+                        <span className="text-xs px-2 py-1 bg-violet-50 text-violet-700 rounded-full">
+                          Technical: {feedback.technicalDepth}
+                        </span>
+                      )}
+                    </div>
+                  )}
+
+                  <button
+                    onClick={handleContinue}
+                    className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-brand text-white rounded-xl hover:opacity-90 transition-opacity text-sm font-medium"
+                  >
+                    Continue to Next Question
+                    <ChevronRight className="w-4 h-4" />
+                  </button>
+                </div>
+              ) : (
+                <div className="mt-4 flex justify-between">
+                  <button
+                    onClick={handleEndInterview}
+                    className="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 hover:bg-gray-50"
+                  >
+                    <SkipForward className="h-4 w-4 mr-2" />
+                    End Interview
+                  </button>
+                  <button
+                    onClick={handleSubmitAnswer}
+                    disabled={submitting || !answer.trim()}
+                    className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 disabled:opacity-50"
+                  >
+                    <Send className="h-4 w-4 mr-2" />
+                    {submitting ? 'Submitting...' : 'Submit Answer'}
+                  </button>
+                </div>
+              )}
             </div>
           )}
         </div>
