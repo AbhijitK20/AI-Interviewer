@@ -187,7 +187,8 @@ const VoiceRecorder = ({ onTranscript, onRecordingChange, disabled = false }) =>
       const formData = new FormData()
       formData.append('audio', audioBlob, 'recording.webm')
 
-      const response = await fetch('/api/voice/transcribe', {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080'
+      const response = await fetch(`${apiUrl}/api/voice/transcribe`, {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,

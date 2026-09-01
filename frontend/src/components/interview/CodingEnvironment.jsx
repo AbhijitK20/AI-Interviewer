@@ -218,7 +218,8 @@ const CodingEnvironment = ({ problem, onSubmit, timeLimit = 30 }) => {
     try {
       const selectedLang = LANGUAGES.find((l) => l.id === language)
 
-      const response = await fetch('/api/coding/execute', {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080'
+      const response = await fetch(`${apiUrl}/api/coding/execute`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -252,7 +253,8 @@ const CodingEnvironment = ({ problem, onSubmit, timeLimit = 30 }) => {
     try {
       const selectedLang = LANGUAGES.find((l) => l.id === language)
 
-      const response = await fetch('/api/coding/submit', {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080'
+      const response = await fetch(`${apiUrl}/api/coding/submit`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

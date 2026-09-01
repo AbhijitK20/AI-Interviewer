@@ -119,8 +119,9 @@ const VoicePlayer = ({ text, voice = 'en-US-AndrewNeural', rate = 0.9, autoPlay 
     // Try server TTS first
     try {
       const token = localStorage.getItem('token')
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080'
       if (token && text) {
-        const response = await fetch('/api/voice/synthesize', {
+        const response = await fetch(`${apiUrl}/api/voice/synthesize`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
