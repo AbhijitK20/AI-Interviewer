@@ -118,18 +118,15 @@ const VoicePlayer = ({ text, voice = 'en-US-AndrewNeural', rate = 0.9, autoPlay 
     stopAll()
     setIsLoading(true)
 
-    // Try server TTS first
+    // Try server TTS first - call ai-service directly (backend proxy returns empty bytes)
     try {
-      const token = localStorage.getItem('token')
-      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080'
-      console.log('[VoicePlayer] Trying server TTS:', apiUrl)
-      console.log('[VoicePlayer] Token exists:', !!token)
-      if (token && text) {
-        const response = await fetch(`${apiUrl}/api/voice/synthesize`, {
+      const aiServiceUrl = import.meta.env.VITE_AI_SERVICE_URL || 'https://ai-interviewer-ai-service-qpxr.onrender.com'
+      console.log('[VoicePlayer] Trying ai-service TTS:', aiServiceUrl)
+      if (text) {
+        const response = await fetch(`${aiServiceUrl}/ai/synthesize`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${token}`,
           },
           body: JSON.stringify({ text, voice, rate }),
         })
