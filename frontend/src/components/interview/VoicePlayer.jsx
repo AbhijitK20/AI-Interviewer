@@ -6,17 +6,33 @@ const VoicePlayer = ({ text, voice = 'en-US-AndrewNeural', rate = 0.9, autoPlay 
   const [isMuted, setIsMuted] = useState(false)
   const [progress, setProgress] = useState(0)
 
-  const audioRef = useRef(null)
+  const audioCtxRef = useRef(null)
+  const sourceRef = useRef(null)
+  const audioBufferRef = useRef(null)
+  const startTimeRef = useRef(0)
+  const pausedAtRef = useRef(0)
+  const durationRef = useRef(0)
   const utteranceRef = useRef(null)
-  const blobUrlRef = useRef(null)
 
   const stopAll = useCallback(() => {
-    try { audioRef.current?.pause() } catch {}
+    try {
+      if (sourceRef.current) {
+        sourceRef.current.onended = null
+        sourceRef.current.stop()
+        sourceRef.current.disconnect()
+        sourceRef.current = null
+      }
+    } catch {}
     try { window.speechSynthesis?.cancel() } catch {}
-    if (blobUrlRef.current) URL.revokeObjectURL(blobUrlRef.current)
-    audioRef.current = null
+    if (audioCtxRef.current && audioCtxRef.current.state !== 'closed') {
+      try { audioCtxRef.current.close() } catch {}
+    }
+    audioCtxRef.current = null
+    audioBufferRef.current = null
     utteranceRef.current = null
-    blobUrlRef.current = null
+    startTimeRef.current = 0
+    pausedAtRef.current = 0
+    durationRef.current = 0
     setIsPlaying(false)
     setProgress(0)
     onSpeakingChange?.(false)
@@ -44,11 +60,11 @@ const VoicePlayer = ({ text, voice = 'en-US-AndrewNeural', rate = 0.9, autoPlay 
     return true
   }, [text, rate, isMuted, onSpeakingChange])
 
-  // Fetch and play server TTS with Web Audio API (background upgrade)
-  const upgradeToServerAudio = useCallback(async () => {
+  // Fetch server TTS audio (returns decoded AudioBuffer)
+  const fetchServerAudio = useCallback(async () => {
     try {
       const token = localStorage.getItem('token')
-      if (!token) return
+      if (!token) return null
 
       const response = await fetch('/api/voice/synthesize', {
         method: 'POST',
@@ -59,65 +75,116 @@ const VoicePlayer = ({ text, voice = 'en-US-AndrewNeural', rate = 0.9, autoPlay 
         body: JSON.stringify({ text, voice, rate }),
       })
 
-      if (!response.ok) return
+      if (!response.ok) return null
 
       const audioBlob = await response.blob()
-      if (audioBlob.size < 100) return
+      if (audioBlob.size < 100) return null
 
-      // Stop web speech, play server audio with Web Audio API
-      window.speechSynthesis?.cancel()
-
-      const audioCtx = new (window.AudioContext || window.webkitAudioContext)()
+      const AudioContextClass = window.AudioContext || window.webkitAudioContext
+      const audioCtx = new AudioContextClass()
       if (audioCtx.state === 'suspended') await audioCtx.resume()
 
       const arrayBuffer = await audioBlob.arrayBuffer()
       const audioBuffer = await audioCtx.decodeAudioData(arrayBuffer)
 
-      const source = audioCtx.createBufferSource()
-      source.buffer = audioBuffer
-      source.connect(audioCtx.destination)
+      return { audioCtx, audioBuffer }
+    } catch (err) {
+      console.warn('Server audio fetch failed:', err.message)
+      return null
+    }
+  }, [text, voice, rate])
 
-      source.onended = () => {
+  // Start/resume playing from the AudioContext
+  const playFromBuffer = useCallback((audioCtx, audioBuffer, offset = 0) => {
+    // Stop any existing source
+    if (sourceRef.current) {
+      try {
+        sourceRef.current.onended = null
+        sourceRef.current.stop()
+        sourceRef.current.disconnect()
+      } catch {}
+    }
+
+    const source = audioCtx.createBufferSource()
+    source.buffer = audioBuffer
+    source.connect(audioCtx.destination)
+
+    source.onended = () => {
+      // Only mark as finished if we're actually at the end
+      if (audioCtx.currentTime >= startTimeRef.current + durationRef.current - 0.1) {
         setIsPlaying(false)
         setProgress(100)
         onSpeakingChange?.(false)
       }
-
-      let startTime = audioCtx.currentTime
-      let duration = audioBuffer.duration
-
-      source.start(0)
-      audioRef.current = { pause: () => audioCtx.suspend(), currentTime: 0 }
-
-      // Update progress
-      const updateProgress = () => {
-        if (audioCtx.state === 'closed') return
-        const elapsed = audioCtx.currentTime - startTime
-        setProgress(Math.min((elapsed / duration) * 100, 100))
-        if (elapsed < duration) requestAnimationFrame(updateProgress)
-      }
-      requestAnimationFrame(updateProgress)
-    } catch (err) {
-      console.warn('Server audio upgrade failed:', err.message)
     }
-  }, [text, voice, rate, onSpeakingChange])
+
+    source.start(0, offset)
+    sourceRef.current = source
+    startTimeRef.current = audioCtx.currentTime - offset
+    durationRef.current = audioBuffer.duration
+    audioCtxRef.current = audioCtx
+    audioBufferRef.current = audioBuffer
+    pausedAtRef.current = offset
+    setIsPlaying(true)
+    onSpeakingChange?.(true)
+
+    // Update progress
+    const updateProgress = () => {
+      if (!audioCtxRef.current || audioCtxRef.current.state === 'closed') return
+      const elapsed = audioCtxRef.current.currentTime - startTimeRef.current
+      const pct = Math.min((elapsed / durationRef.current) * 100, 100)
+      setProgress(pct)
+      if (pct < 100 && isPlaying) requestAnimationFrame(updateProgress)
+    }
+    requestAnimationFrame(updateProgress)
+  }, [onSpeakingChange, isPlaying])
 
   // Main play handler - called from user click (preserves gesture)
-  const play = useCallback(() => {
+  const play = useCallback(async () => {
+    // If we have a paused buffer, resume from where we left off
+    if (audioBufferRef.current && audioCtxRef.current && pausedAtRef.current > 0) {
+      const ctx = audioCtxRef.current
+      if (ctx.state === 'suspended') await ctx.resume()
+      playFromBuffer(ctx, audioBufferRef.current, pausedAtRef.current)
+      return
+    }
+
     // STEP 1: Speak IMMEDIATELY with browser speech (preserves user gesture)
     speakImmediate()
 
     // STEP 2: Upgrade to server TTS in background (async, no gesture needed)
-    setTimeout(() => upgradeToServerAudio(), 100)
-  }, [speakImmediate, upgradeToServerAudio])
+    const result = await fetchServerAudio()
+    if (result) {
+      // Cancel browser speech
+      window.speechSynthesis?.cancel()
 
-  const pause = useCallback(() => {
-    if (audioRef.current) {
-      try { audioRef.current.pause() } catch {}
+      // Start playing server audio
+      playFromBuffer(result.audioCtx, result.audioBuffer, 0)
+    }
+  }, [speakImmediate, fetchServerAudio, playFromBuffer])
+
+  const pause = useCallback(async () => {
+    // Pause browser speech
+    if (window.speechSynthesis?.speaking) {
+      window.speechSynthesis.pause()
       setIsPlaying(false)
       onSpeakingChange?.(false)
-    } else if (window.speechSynthesis?.speaking) {
-      window.speechSynthesis.pause()
+      return
+    }
+
+    // Pause Web Audio API
+    if (audioCtxRef.current && audioCtxRef.current.state === 'running') {
+      // Save current position
+      pausedAtRef.current = audioCtxRef.current.currentTime - startTimeRef.current
+
+      // Stop the source node
+      if (sourceRef.current) {
+        sourceRef.current.onended = null
+        sourceRef.current.stop()
+        sourceRef.current.disconnect()
+        sourceRef.current = null
+      }
+
       setIsPlaying(false)
       onSpeakingChange?.(false)
     }

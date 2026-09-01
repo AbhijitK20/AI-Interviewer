@@ -1,5 +1,6 @@
 import os
 import asyncio
+import io
 from typing import Optional, List, Dict
 
 
@@ -9,6 +10,7 @@ class VoiceService:
         self.tts_provider = os.getenv("TTS_PROVIDER", "mock")
         self.deepgram_api_key = os.getenv("DEEPGRAM_API_KEY", "")
         self.elevenlabs_api_key = os.getenv("ELEVENLABS_API_KEY", "")
+        self.gemini_api_key = os.getenv("GEMINI_API_KEY", os.getenv("GOOGLE_API_KEY", os.getenv("LLM_API_KEY", "")))
 
     async def transcribe(self, audio_data: bytes) -> str:
         if self.provider == "mock":
@@ -23,14 +25,20 @@ class VoiceService:
         return self._mock_transcribe()
 
     async def synthesize(self, text: str, voice: str = "en-US-GuyNeural", rate: float = 0.9) -> bytes:
-        # Try ElevenLabs first (best quality)
+        # Try Gemini TTS first (best quality, natural voices)
+        if self.tts_provider == "gemini" and self.gemini_api_key:
+            result = await self._synthesize_gemini(text)
+            if result and len(result) > 100:
+                return result
+
+        # Try ElevenLabs (high quality)
         if self.tts_provider == "elevenlabs" and self.elevenlabs_api_key:
             result = await self._synthesize_elevenlabs(text, voice)
             if result and len(result) > 100:
                 return result
 
         # Fall back to edge-tts (free, good quality)
-        if self.tts_provider in ("edge", "elevenlabs", "mock"):
+        if self.tts_provider in ("edge", "elevenlabs", "mock", "gemini"):
             result = await self._synthesize_edge(text, voice, rate)
             if result and len(result) > 100:
                 return result
@@ -97,19 +105,55 @@ class VoiceService:
 
         return self._mock_transcribe()
 
+    async def _synthesize_gemini(self, text: str) -> bytes:
+        """Use Gemini 2.5 Flash TTS for high-quality natural speech."""
+        try:
+            from google import genai
+            from google.genai import types
+
+            client = genai.Client(api_key=self.gemini_api_key)
+
+            # Gemini 2.5 Flash TTS
+            response = client.models.generate_content(
+                model="gemini-2.5-flash-tts",
+                contents=text,
+                config=types.GenerateContentConfig(
+                    response_modalities=["AUDIO"],
+                    speech_config=types.SpeechConfig(
+                        voice_config=types.VoiceConfig(
+                            prebuilt_voice_config=types.PrebuiltVoiceConfig(
+                                voice_name="Kore"  # Natural female voice
+                            )
+                        )
+                    ),
+                ),
+            )
+
+            # Extract audio data from response
+            if response.candidates and len(response.candidates) > 0:
+                parts = response.candidates[0].content.parts
+                for part in parts:
+                    if hasattr(part, 'inline_data') and part.inline_data:
+                        return part.inline_data.data
+                    if hasattr(part, 'audio') and part.audio:
+                        return part.audio
+
+        except Exception as e:
+            print(f"Gemini TTS error: {e}")
+
+        return self._mock_synthesize()
+
     async def _synthesize_edge(self, text: str, voice: str, rate: float) -> bytes:
         try:
             import edge_tts
-            import io
 
             # Use more natural voice settings
-            # en-US-GuyNeural and en-US-AndrewNeural sound more human
             natural_voices = {
-                "en-US-AriaNeural": "en-US-AndrewNeural",  # More natural male
-                "en-US-GuyNeural": "en-US-AndrewNeural",   # Natural male
-                "en-US-JennyNeural": "en-US-JennyNeural",  # Good female
-                "en-GB-SoniaNeural": "en-GB-SoniaNeural",  # British female
-                "en-IN-NeerjaNeural": "en-IN-NeerjaNeural", # Indian female
+                "en-US-AriaNeural": "en-US-AndrewNeural",
+                "en-US-GuyNeural": "en-US-AndrewNeural",
+                "en-US-JennyNeural": "en-US-JennyNeural",
+                "en-GB-SoniaNeural": "en-GB-SoniaNeural",
+                "en-IN-NeerjaNeural": "en-IN-NeerjaNeural",
             }
             natural_voice = natural_voices.get(voice, "en-US-AndrewNeural")
 
