@@ -126,6 +126,7 @@ public class AiServiceClient {
                     Map<String, Object> evalMap = new HashMap<>();
                     evalMap.put("question", session.getQuestion().getText());
                     evalMap.put("answer", session.getCandidateAnswer());
+                    evalMap.put("expected_answer", session.getQuestion().getExpectedAnswer() != null ? session.getQuestion().getExpectedAnswer() : "");
                     evalMap.put("score", eval.getScore());
                     evalMap.put("grade", eval.getGrade());
                     evalMap.put("feedback", eval.getFeedback());

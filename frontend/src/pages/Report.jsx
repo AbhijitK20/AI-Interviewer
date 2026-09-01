@@ -548,6 +548,18 @@ const Report = () => {
                     </div>
                   )}
 
+                  {/* Expected Answer */}
+                  {q.expectedAnswer && (
+                    <details className="group">
+                      <summary className="text-xs font-semibold text-emerald-600 cursor-pointer hover:text-emerald-700">
+                        View Expected Answer
+                      </summary>
+                      <p className="mt-2 text-sm text-ink-600 bg-emerald-50 border border-emerald-100 rounded-lg p-3 leading-relaxed">
+                        {q.expectedAnswer}
+                      </p>
+                    </details>
+                  )}
+
                   {/* Sample Response */}
                   {q.sampleResponse && (
                     <details className="group">

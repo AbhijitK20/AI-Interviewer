@@ -15,6 +15,7 @@ public class SessionResponse {
     private String questionText;
     private String questionType;
     private String difficulty;
+    private String expectedAnswer;
     private String candidateAnswer;
     private String aiFollowUp;
     private String followUpAnswer;

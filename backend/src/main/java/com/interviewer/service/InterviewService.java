@@ -322,6 +322,7 @@ public class InterviewService {
                 .questionText(session.getQuestion().getText())
                 .questionType(session.getQuestion().getType().name())
                 .difficulty(session.getQuestion().getDifficulty().name())
+                .expectedAnswer(session.getQuestion().getExpectedAnswer())
                 .candidateAnswer(session.getCandidateAnswer())
                 .aiFollowUp(session.getAiFollowUp())
                 .followUpAnswer(session.getFollowUpAnswer())

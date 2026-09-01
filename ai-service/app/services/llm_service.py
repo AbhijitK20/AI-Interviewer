@@ -155,9 +155,11 @@ Return as JSON with fields: required_skills, experience_level, key_responsibilit
             question_breakdown.append({
                 "question": eval_item.get("question", ""),
                 "answer": eval_item.get("answer", ""),
+                "expected_answer": eval_item.get("expected_answer", ""),
                 "score": eval_item.get("score", 0),
                 "grade": eval_item.get("grade", "F"),
                 "feedback": eval_item.get("feedback", ""),
+                "sample_response": eval_item.get("sample_response", ""),
             })
 
         unique_strengths = list(set(all_strengths))[:5]
