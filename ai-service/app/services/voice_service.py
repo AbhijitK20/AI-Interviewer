@@ -115,7 +115,7 @@ class VoiceService:
 
             # Gemini 2.5 Flash TTS
             response = client.models.generate_content(
-                model="gemini-2.5-flash-tts",
+                model="gemini-2.5-flash-preview-tts",
                 contents=text,
                 config=types.GenerateContentConfig(
                     response_modalities=["AUDIO"],
