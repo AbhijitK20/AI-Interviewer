@@ -1,6 +1,8 @@
 import os
 import asyncio
 import io
+import hashlib
+import time
 from typing import Optional, List, Dict
 
 
@@ -11,51 +13,64 @@ class VoiceService:
         self.deepgram_api_key = os.getenv("DEEPGRAM_API_KEY", "")
         self.elevenlabs_api_key = os.getenv("ELEVENLABS_API_KEY", "")
         self.gemini_api_key = os.getenv("GEMINI_API_KEY", os.getenv("GOOGLE_API_KEY", os.getenv("LLM_API_KEY", "")))
+        # In-memory cache: text_hash -> audio_bytes (avoids re-synthesizing same text)
+        self._cache: Dict[str, bytes] = {}
+        self._cache_max = 200
+
+    def _cache_key(self, text: str, voice: str) -> str:
+        return hashlib.md5(f"{text}:{voice}".encode()).hexdigest()
 
     async def transcribe(self, audio_data: bytes) -> str:
         if self.provider == "mock":
             return self._mock_transcribe()
-
         if self.provider == "deepgram":
             return await self._transcribe_deepgram(audio_data)
-
         if self.provider == "whisper":
             return await self._transcribe_whisper(audio_data)
-
         return self._mock_transcribe()
 
     async def synthesize(self, text: str, voice: str = "en-US-GuyNeural", rate: float = 0.9) -> bytes:
-        # Try Gemini TTS first (best quality, natural voices)
-        if self.tts_provider == "gemini" and self.gemini_api_key:
+        # Check cache first
+        key = self._cache_key(text, voice)
+        if key in self._cache:
+            print(f"[VoiceService] Cache hit for: {text[:40]}...")
+            return self._cache[key]
+
+        result = b""
+
+        # Hybrid: try Gemini first, auto-fallback to edge-tts on rate limit
+        if self.gemini_api_key:
             result = await self._synthesize_gemini(text)
             if result and len(result) > 100:
+                self._cache_put(key, result)
                 return result
+            # Gemini failed (likely rate limited), fall back silently
+            print("[VoiceService] Gemini TTS unavailable, falling back to edge-tts")
 
-        # Try ElevenLabs (high quality)
-        if self.tts_provider == "elevenlabs" and self.elevenlabs_api_key:
-            result = await self._synthesize_elevenlabs(text, voice)
-            if result and len(result) > 100:
-                return result
-
-        # Fall back to edge-tts (free, good quality)
-        if self.tts_provider in ("edge", "elevenlabs", "mock", "gemini"):
-            result = await self._synthesize_edge(text, voice, rate)
-            if result and len(result) > 100:
-                return result
+        # Edge-tts: free, unlimited, fast
+        result = await self._synthesize_edge(text, voice, rate)
+        if result and len(result) > 100:
+            self._cache_put(key, result)
+            return result
 
         return self._mock_synthesize()
+
+    def _cache_put(self, key: str, value: bytes):
+        if len(self._cache) >= self._cache_max:
+            # Remove oldest entry
+            oldest = next(iter(self._cache))
+            del self._cache[oldest]
+        self._cache[key] = value
 
     def _mock_transcribe(self) -> str:
         return "This is a mock transcription of the candidate's response."
 
     def _mock_synthesize(self) -> bytes:
-        # Return empty bytes for mock - browser will use Web Speech API
         return b""
 
     async def _transcribe_deepgram(self, audio_data: bytes) -> str:
         try:
             import httpx
-
             async with httpx.AsyncClient() as client:
                 response = await client.post(
                     "https://api.deepgram.com/v1/listen",
@@ -64,31 +79,22 @@ class VoiceService:
                         "Content-Type": "audio/webm",
                     },
                     content=audio_data,
-                    params={
-                        "model": "nova-2",
-                        "language": "en",
-                        "smart_format": "true",
-                    },
+                    params={"model": "nova-2", "language": "en", "smart_format": "true"},
                     timeout=30.0,
                 )
-
                 if response.status_code == 200:
                     result = response.json()
                     return result["results"]["channels"][0]["alternatives"][0]["transcript"]
         except Exception as e:
             print(f"Deepgram transcription error: {e}")
-
         return self._mock_transcribe()
 
     async def _transcribe_whisper(self, audio_data: bytes) -> str:
         try:
-            # Use OpenAI Whisper API
             import httpx
-
             openai_api_key = os.getenv("OPENAI_API_KEY", "")
             if not openai_api_key:
                 return self._mock_transcribe()
-
             async with httpx.AsyncClient() as client:
                 response = await client.post(
                     "https://api.openai.com/v1/audio/transcriptions",
@@ -97,25 +103,20 @@ class VoiceService:
                     data={"model": "whisper-1"},
                     timeout=60.0,
                 )
-
                 if response.status_code == 200:
                     return response.json()["text"]
         except Exception as e:
             print(f"Whisper transcription error: {e}")
-
         return self._mock_transcribe()
 
     async def _synthesize_gemini(self, text: str) -> bytes:
-        """Use Gemini 2.5 Flash TTS for high-quality natural speech."""
+        """Gemini 2.5 Flash TTS - high quality, male voice (Puck). Returns empty on rate limit."""
         try:
             from google import genai
             from google.genai import types
-            import struct
-            import io
 
             client = genai.Client(api_key=self.gemini_api_key)
 
-            # Gemini 2.5 Flash TTS
             response = client.models.generate_content(
                 model="gemini-2.5-flash-preview-tts",
                 contents=text,
@@ -124,51 +125,48 @@ class VoiceService:
                     speech_config=types.SpeechConfig(
                         voice_config=types.VoiceConfig(
                             prebuilt_voice_config=types.PrebuiltVoiceConfig(
-                                voice_name="Kore"  # Natural female voice
+                                voice_name="Puck"
                             )
                         )
                     ),
                 ),
             )
 
-            # Extract audio data from response
             if response.candidates and len(response.candidates) > 0:
                 parts = response.candidates[0].content.parts
                 for part in parts:
                     if hasattr(part, 'inline_data') and part.inline_data:
-                        raw_pcm = part.inline_data.data
-                        mime = getattr(part.inline_data, 'mime_type', '')
-                        # Convert raw PCM to WAV for browser playback
-                        return self._pcm_to_wav(raw_pcm, sample_rate=24000, channels=1, sample_width=2)
+                        return self._pcm_to_wav(part.inline_data.data, sample_rate=24000, channels=1, sample_width=2)
                     if hasattr(part, 'audio') and part.audio:
-                        raw_pcm = part.audio
-                        return self._pcm_to_wav(raw_pcm, sample_rate=24000, channels=1, sample_width=2)
+                        return self._pcm_to_wav(part.audio, sample_rate=24000, channels=1, sample_width=2)
 
         except Exception as e:
-            print(f"Gemini TTS error: {e}")
+            err_str = str(e)
+            if "429" in err_str or "RESOURCE_EXHAUSTED" in err_str or "quota" in err_str.lower():
+                print(f"[VoiceService] Gemini rate limited - will use edge-tts")
+            else:
+                print(f"Gemini TTS error: {e}")
 
-        return self._mock_synthesize()
+        return b""
 
     def _pcm_to_wav(self, pcm_data: bytes, sample_rate: int = 24000, channels: int = 1, sample_width: int = 2) -> bytes:
-        """Convert raw PCM audio to WAV format for browser playback."""
         import struct
         import io
 
         data_size = len(pcm_data)
         output = io.BytesIO()
 
-        # WAV header
         output.write(b'RIFF')
-        output.write(struct.pack('<I', 36 + data_size))  # file size - 8
+        output.write(struct.pack('<I', 36 + data_size))
         output.write(b'WAVE')
         output.write(b'fmt ')
-        output.write(struct.pack('<I', 16))  # chunk size
-        output.write(struct.pack('<H', 1))  # PCM format
+        output.write(struct.pack('<I', 16))
+        output.write(struct.pack('<H', 1))
         output.write(struct.pack('<H', channels))
         output.write(struct.pack('<I', sample_rate))
-        output.write(struct.pack('<I', sample_rate * channels * sample_width))  # byte rate
-        output.write(struct.pack('<H', channels * sample_width))  # block align
-        output.write(struct.pack('<H', sample_width * 8))  # bits per sample
+        output.write(struct.pack('<I', sample_rate * channels * sample_width))
+        output.write(struct.pack('<H', channels * sample_width))
+        output.write(struct.pack('<H', sample_width * 8))
         output.write(b'data')
         output.write(struct.pack('<I', data_size))
         output.write(pcm_data)
@@ -179,23 +177,13 @@ class VoiceService:
         try:
             import edge_tts
 
-            # AndrewNeural is the most natural-sounding male voice from Microsoft
-            natural_voices = {
-                "en-US-AriaNeural": "en-US-AndrewNeural",
-                "en-US-GuyNeural": "en-US-AndrewNeural",
-                "en-US-JennyNeural": "en-US-JennyNeural",
-                "en-GB-SoniaNeural": "en-GB-SoniaNeural",
-                "en-IN-NeerjaNeural": "en-IN-NeerjaNeural",
-            }
-            natural_voice = natural_voices.get(voice, "en-US-AndrewNeural")
-
             adjusted_rate = max(0.85, min(rate, 1.1))
             rate_pct = int((adjusted_rate - 1) * 100)
             rate_str = f"+{rate_pct}%" if rate_pct >= 0 else f"{rate_pct}%"
 
             communicate = edge_tts.Communicate(
                 text,
-                natural_voice,
+                "en-US-AndrewNeural",
                 rate=rate_str,
                 pitch="+0Hz"
             )
@@ -214,38 +202,27 @@ class VoiceService:
     async def _synthesize_elevenlabs(self, text: str, voice: str) -> bytes:
         try:
             import httpx
-
-            # Map generic voice names to ElevenLabs voice IDs
             voice_map = {
-                "en-US-AriaNeural": "21m00Tcm4TlvDq8ikWAM",   # Rachel (female)
-                "en-US-JennyNeural": "EXAVITQu4vr4xnSDxMaL",  # Bella (female)
-                "en-US-GuyNeural": "pNInz6obpgDQGcFmaJgB",    # Adam (male)
-                "en-GB-SoniaNeural": "EXAVITQu4vr4xnSDxMaL",  # Bella (female UK-ish)
-                "en-IN-NeerjaNeural": "21m00Tcm4TlvDq8ikWAM", # Rachel (default)
+                "en-US-AriaNeural": "21m00Tcm4TlvDq8ikWAM",
+                "en-US-JennyNeural": "EXAVITQu4vr4xnSDxMaL",
+                "en-US-GuyNeural": "pNInz6obpgDQGcFmaJgB",
+                "en-GB-SoniaNeural": "EXAVITQu4vr4xnSDxMaL",
+                "en-IN-NeerjaNeural": "21m00Tcm4TlvDq8ikWAM",
             }
             voice_id = voice_map.get(voice, "21m00Tcm4TlvDq8ikWAM")
-
             async with httpx.AsyncClient() as client:
                 response = await client.post(
                     f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}",
-                    headers={
-                        "xi-api-key": self.elevenlabs_api_key,
-                        "Content-Type": "application/json",
-                    },
-                    json={
-                        "text": text,
-                        "model_id": "eleven_monolingual_v1",
-                    },
+                    headers={"xi-api-key": self.elevenlabs_api_key, "Content-Type": "application/json"},
+                    json={"text": text, "model_id": "eleven_monolingual_v1"},
                     timeout=30.0,
                 )
-
                 if response.status_code == 200:
                     return response.content
                 else:
                     print(f"ElevenLabs TTS error: HTTP {response.status_code} - {response.text[:200]}")
         except Exception as e:
             print(f"ElevenLabs TTS error: {e}")
-
         return self._mock_synthesize()
 
     def get_available_voices(self) -> List[Dict[str, str]]:
