@@ -5,77 +5,51 @@ const VoicePlayer = ({ text, voice = 'en-US-AndrewNeural', rate = 0.9, autoPlay 
   const [isPlaying, setIsPlaying] = useState(false)
   const [isMuted, setIsMuted] = useState(false)
   const [progress, setProgress] = useState(0)
-  const [status, setStatus] = useState('')
 
-  const sourceRef = useRef(null)
-  const audioCtxRef = useRef(null)
-  const startTimeRef = useRef(0)
-  const durationRef = useRef(0)
-  const animRef = useRef(null)
+  const audioRef = useRef(null)
+  const utteranceRef = useRef(null)
+  const blobUrlRef = useRef(null)
 
   const stopAll = useCallback(() => {
-    try { sourceRef.current?.stop() } catch (_e) { /* ignore */ }
-    try { audioCtxRef.current?.close() } catch (_e) { /* ignore */ }
-    if (animRef.current) cancelAnimationFrame(animRef.current)
-    sourceRef.current = null
-    audioCtxRef.current = null
+    try { audioRef.current?.pause() } catch {}
+    try { window.speechSynthesis?.cancel() } catch {}
+    if (blobUrlRef.current) URL.revokeObjectURL(blobUrlRef.current)
+    audioRef.current = null
+    utteranceRef.current = null
+    blobUrlRef.current = null
     setIsPlaying(false)
     setProgress(0)
-    setStatus('')
     onSpeakingChange?.(false)
   }, [onSpeakingChange])
 
-  const playAudioWithWebAudio = useCallback(async (audioBlob) => {
-    const audioCtx = new (window.AudioContext || window.webkitAudioContext)()
-    audioCtxRef.current = audioCtx
+  // Speak immediately using browser speech (preserves user gesture)
+  const speakImmediate = useCallback(() => {
+    if (!text || !window.speechSynthesis) return false
 
-    // Resume context if suspended (autoplay policy)
-    if (audioCtx.state === 'suspended') {
-      await audioCtx.resume()
-    }
+    window.speechSynthesis.cancel()
+    const u = new SpeechSynthesisUtterance(text)
+    u.rate = rate
+    u.volume = isMuted ? 0 : 1
 
-    const arrayBuffer = await audioBlob.arrayBuffer()
-    const audioBuffer = await audioCtx.decodeAudioData(arrayBuffer)
+    const voices = window.speechSynthesis.getVoices()
+    const en = voices.find(v => v.lang.startsWith('en'))
+    if (en) u.voice = en
 
-    const source = audioCtx.createBufferSource()
-    source.buffer = audioBuffer
-    source.connect(audioCtx.destination)
-    sourceRef.current = source
+    u.onstart = () => { setIsPlaying(true); onSpeakingChange?.(true) }
+    u.onend = () => { setIsPlaying(false); setProgress(100); onSpeakingChange?.(false) }
+    u.onerror = () => { setIsPlaying(false); onSpeakingChange?.(false) }
 
-    durationRef.current = audioBuffer.duration
-    startTimeRef.current = audioCtx.currentTime
+    utteranceRef.current = u
+    window.speechSynthesis.speak(u)
+    return true
+  }, [text, rate, isMuted, onSpeakingChange])
 
-    source.onended = () => {
-      setIsPlaying(false)
-      setProgress(100)
-      setStatus('')
-      onSpeakingChange?.(false)
-    }
-
-    source.start(0)
-    setIsPlaying(true)
-    setStatus('neural')
-    onSpeakingChange?.(true)
-
-    // Update progress
-    const updateProgress = () => {
-      if (audioCtx.state === 'closed') return
-      const elapsed = audioCtx.currentTime - startTimeRef.current
-      const pct = Math.min((elapsed / durationRef.current) * 100, 100)
-      setProgress(pct)
-      if (pct < 100) {
-        animRef.current = requestAnimationFrame(updateProgress)
-      }
-    }
-    animRef.current = requestAnimationFrame(updateProgress)
-  }, [onSpeakingChange])
-
-  const speakWithServerTTS = useCallback(async () => {
+  // Fetch and play server TTS with Web Audio API (background upgrade)
+  const upgradeToServerAudio = useCallback(async () => {
     try {
       const token = localStorage.getItem('token')
-      if (!token) throw new Error('No auth token')
+      if (!token) return
 
-      setStatus('loading...')
       const response = await fetch('/api/voice/synthesize', {
         method: 'POST',
         headers: {
@@ -85,68 +59,74 @@ const VoicePlayer = ({ text, voice = 'en-US-AndrewNeural', rate = 0.9, autoPlay 
         body: JSON.stringify({ text, voice, rate }),
       })
 
-      if (!response.ok) throw new Error('TTS unavailable')
+      if (!response.ok) return
 
       const audioBlob = await response.blob()
-      if (audioBlob.size < 100) throw new Error('Empty audio')
+      if (audioBlob.size < 100) return
 
-      // Play with Web Audio API (works in Brave, no autoplay issues)
-      await playAudioWithWebAudio(audioBlob)
+      // Stop web speech, play server audio with Web Audio API
+      window.speechSynthesis?.cancel()
+
+      const audioCtx = new (window.AudioContext || window.webkitAudioContext)()
+      if (audioCtx.state === 'suspended') await audioCtx.resume()
+
+      const arrayBuffer = await audioBlob.arrayBuffer()
+      const audioBuffer = await audioCtx.decodeAudioData(arrayBuffer)
+
+      const source = audioCtx.createBufferSource()
+      source.buffer = audioBuffer
+      source.connect(audioCtx.destination)
+
+      source.onended = () => {
+        setIsPlaying(false)
+        setProgress(100)
+        onSpeakingChange?.(false)
+      }
+
+      let startTime = audioCtx.currentTime
+      let duration = audioBuffer.duration
+
+      source.start(0)
+      audioRef.current = { pause: () => audioCtx.suspend(), currentTime: 0 }
+
+      // Update progress
+      const updateProgress = () => {
+        if (audioCtx.state === 'closed') return
+        const elapsed = audioCtx.currentTime - startTime
+        setProgress(Math.min((elapsed / duration) * 100, 100))
+        if (elapsed < duration) requestAnimationFrame(updateProgress)
+      }
+      requestAnimationFrame(updateProgress)
     } catch (err) {
-      console.error('TTS failed:', err.message)
-      setStatus('TTS failed: ' + err.message)
-      // Last resort: try web speech
-      tryWebSpeechFallback()
+      console.warn('Server audio upgrade failed:', err.message)
     }
-  }, [text, voice, rate, playAudioWithWebAudio, onSpeakingChange])
+  }, [text, voice, rate, onSpeakingChange])
 
-  const tryWebSpeechFallback = useCallback(() => {
-    if (!('speechSynthesis' in window) || !text) return
-
-    window.speechSynthesis.cancel()
-    const u = new SpeechSynthesisUtterance(text)
-    u.rate = rate
-    u.volume = isMuted ? 0 : 1
-    const voices = window.speechSynthesis.getVoices()
-    const en = voices.find(v => v.lang.startsWith('en'))
-    if (en) u.voice = en
-
-    u.onstart = () => { setIsPlaying(true); setStatus('browser'); onSpeakingChange?.(true) }
-    u.onend = () => { setIsPlaying(false); setProgress(100); onSpeakingChange?.(false) }
-    u.onerror = () => { setIsPlaying(false); setStatus('Speech not available'); onSpeakingChange?.(false) }
-
-    window.speechSynthesis.speak(u)
-  }, [text, rate, isMuted, onSpeakingChange])
-
+  // Main play handler - called from user click (preserves gesture)
   const play = useCallback(() => {
-    speakWithServerTTS()
-  }, [speakWithServerTTS])
+    // STEP 1: Speak IMMEDIATELY with browser speech (preserves user gesture)
+    speakImmediate()
+
+    // STEP 2: Upgrade to server TTS in background (async, no gesture needed)
+    setTimeout(() => upgradeToServerAudio(), 100)
+  }, [speakImmediate, upgradeToServerAudio])
 
   const pause = useCallback(() => {
-    if (audioCtxRef.current && audioCtxRef.current.state === 'running') {
-      audioCtxRef.current.suspend()
+    if (audioRef.current) {
+      try { audioRef.current.pause() } catch {}
       setIsPlaying(false)
       onSpeakingChange?.(false)
-    } else if (audioCtxRef.current && audioCtxRef.current.state === 'suspended') {
-      audioCtxRef.current.resume()
-      setIsPlaying(true)
-      onSpeakingChange?.(true)
+    } else if (window.speechSynthesis?.speaking) {
+      window.speechSynthesis.pause()
+      setIsPlaying(false)
+      onSpeakingChange?.(false)
     }
   }, [onSpeakingChange])
 
-  const toggleMute = useCallback(() => {
-    setIsMuted((prev) => !prev)
-  }, [])
+  const toggleMute = useCallback(() => setIsMuted(p => !p), [])
 
   useEffect(() => { stopAll() }, [text])
   useEffect(() => () => { stopAll() }, [])
-
-  useEffect(() => {
-    const v = () => window.speechSynthesis?.getVoices()
-    window.speechSynthesis?.addEventListener('voiceschanged', v)
-    v()
-    return () => window.speechSynthesis?.removeEventListener('voiceschanged', v)
-  }, [])
 
   return (
     <div className="space-y-2">
@@ -185,12 +165,7 @@ const VoicePlayer = ({ text, voice = 'en-US-AndrewNeural', rate = 0.9, autoPlay 
         )}
       </div>
       <p className="text-xs text-ink-400">
-        {status === 'loading...' && 'Loading neural voice...'}
-        {status === 'neural' && isPlaying && 'AI Interviewer is speaking (neural voice)...'}
-        {status === 'browser' && isPlaying && 'AI Interviewer is speaking (browser voice)...'}
-        {status.startsWith('TTS failed') && 'Click play to retry'}
-        {status === 'Speech not available' && 'Speech synthesis not available in this browser'}
-        {!isPlaying && !status && 'Click play to hear the question'}
+        {isPlaying ? 'AI Interviewer is speaking...' : 'Click play to hear the question'}
       </p>
     </div>
   )
