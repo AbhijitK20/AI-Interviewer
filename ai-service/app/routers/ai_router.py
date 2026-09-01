@@ -150,7 +150,14 @@ async def transcribe_audio(audio: UploadFile = File(...)):
 async def synthesize_speech(request: SynthesizeRequest):
     try:
         audio_data = await voice_service.synthesize(request.text, request.voice, request.rate)
-        return Response(content=audio_data, media_type="audio/mpeg")
+        # Detect format from header
+        if audio_data[:4] == b'RIFF':
+            media_type = "audio/wav"
+        elif audio_data[:3] == b'ID3' or audio_data[:2] == b'\xff\xfb':
+            media_type = "audio/mpeg"
+        else:
+            media_type = "audio/mpeg"
+        return Response(content=audio_data, media_type=media_type)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 

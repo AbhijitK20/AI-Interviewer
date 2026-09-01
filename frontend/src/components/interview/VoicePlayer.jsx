@@ -1,8 +1,9 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
-import { Volume2, VolumeX, Play, Pause } from 'lucide-react'
+import { Volume2, VolumeX, Play, Pause, Loader2 } from 'lucide-react'
 
 const VoicePlayer = ({ text, voice = 'en-US-AndrewNeural', rate = 0.9, autoPlay = false, onSpeakingChange }) => {
   const [isPlaying, setIsPlaying] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
   const [isMuted, setIsMuted] = useState(false)
   const [progress, setProgress] = useState(0)
 
@@ -12,7 +13,7 @@ const VoicePlayer = ({ text, voice = 'en-US-AndrewNeural', rate = 0.9, autoPlay 
   const startTimeRef = useRef(0)
   const pausedAtRef = useRef(0)
   const durationRef = useRef(0)
-  const utteranceRef = useRef(null)
+  const animFrameRef = useRef(null)
 
   const stopAll = useCallback(() => {
     try {
@@ -27,76 +28,20 @@ const VoicePlayer = ({ text, voice = 'en-US-AndrewNeural', rate = 0.9, autoPlay 
     if (audioCtxRef.current && audioCtxRef.current.state !== 'closed') {
       try { audioCtxRef.current.close() } catch {}
     }
+    if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current)
     audioCtxRef.current = null
     audioBufferRef.current = null
-    utteranceRef.current = null
     startTimeRef.current = 0
     pausedAtRef.current = 0
     durationRef.current = 0
+    animFrameRef.current = null
     setIsPlaying(false)
+    setIsLoading(false)
     setProgress(0)
     onSpeakingChange?.(false)
   }, [onSpeakingChange])
 
-  // Speak immediately using browser speech (preserves user gesture)
-  const speakImmediate = useCallback(() => {
-    if (!text || !window.speechSynthesis) return false
-
-    window.speechSynthesis.cancel()
-    const u = new SpeechSynthesisUtterance(text)
-    u.rate = rate
-    u.volume = isMuted ? 0 : 1
-
-    const voices = window.speechSynthesis.getVoices()
-    const en = voices.find(v => v.lang.startsWith('en'))
-    if (en) u.voice = en
-
-    u.onstart = () => { setIsPlaying(true); onSpeakingChange?.(true) }
-    u.onend = () => { setIsPlaying(false); setProgress(100); onSpeakingChange?.(false) }
-    u.onerror = () => { setIsPlaying(false); onSpeakingChange?.(false) }
-
-    utteranceRef.current = u
-    window.speechSynthesis.speak(u)
-    return true
-  }, [text, rate, isMuted, onSpeakingChange])
-
-  // Fetch server TTS audio (returns decoded AudioBuffer)
-  const fetchServerAudio = useCallback(async () => {
-    try {
-      const token = localStorage.getItem('token')
-      if (!token) return null
-
-      const response = await fetch('/api/voice/synthesize', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({ text, voice, rate }),
-      })
-
-      if (!response.ok) return null
-
-      const audioBlob = await response.blob()
-      if (audioBlob.size < 100) return null
-
-      const AudioContextClass = window.AudioContext || window.webkitAudioContext
-      const audioCtx = new AudioContextClass()
-      if (audioCtx.state === 'suspended') await audioCtx.resume()
-
-      const arrayBuffer = await audioBlob.arrayBuffer()
-      const audioBuffer = await audioCtx.decodeAudioData(arrayBuffer)
-
-      return { audioCtx, audioBuffer }
-    } catch (err) {
-      console.warn('Server audio fetch failed:', err.message)
-      return null
-    }
-  }, [text, voice, rate])
-
-  // Start/resume playing from the AudioContext
   const playFromBuffer = useCallback((audioCtx, audioBuffer, offset = 0) => {
-    // Stop any existing source
     if (sourceRef.current) {
       try {
         sourceRef.current.onended = null
@@ -110,7 +55,6 @@ const VoicePlayer = ({ text, voice = 'en-US-AndrewNeural', rate = 0.9, autoPlay 
     source.connect(audioCtx.destination)
 
     source.onended = () => {
-      // Only mark as finished if we're actually at the end
       if (audioCtx.currentTime >= startTimeRef.current + durationRef.current - 0.1) {
         setIsPlaying(false)
         setProgress(100)
@@ -126,22 +70,42 @@ const VoicePlayer = ({ text, voice = 'en-US-AndrewNeural', rate = 0.9, autoPlay 
     audioBufferRef.current = audioBuffer
     pausedAtRef.current = offset
     setIsPlaying(true)
+    setIsLoading(false)
     onSpeakingChange?.(true)
 
-    // Update progress
     const updateProgress = () => {
       if (!audioCtxRef.current || audioCtxRef.current.state === 'closed') return
       const elapsed = audioCtxRef.current.currentTime - startTimeRef.current
       const pct = Math.min((elapsed / durationRef.current) * 100, 100)
       setProgress(pct)
-      if (pct < 100 && isPlaying) requestAnimationFrame(updateProgress)
+      if (pct < 100) animFrameRef.current = requestAnimationFrame(updateProgress)
     }
-    requestAnimationFrame(updateProgress)
-  }, [onSpeakingChange, isPlaying])
+    animFrameRef.current = requestAnimationFrame(updateProgress)
+  }, [onSpeakingChange])
 
-  // Main play handler - called from user click (preserves gesture)
+  // Fallback: browser speechSynthesis
+  const speakWithBrowser = useCallback(() => {
+    if (!text || !window.speechSynthesis) return
+
+    window.speechSynthesis.cancel()
+    const u = new SpeechSynthesisUtterance(text)
+    u.rate = rate
+    u.volume = isMuted ? 0 : 1
+
+    const voices = window.speechSynthesis.getVoices()
+    const en = voices.find(v => v.lang.startsWith('en'))
+    if (en) u.voice = en
+
+    u.onstart = () => { setIsPlaying(true); setIsLoading(false); onSpeakingChange?.(true) }
+    u.onend = () => { setIsPlaying(false); setIsLoading(false); setProgress(100); onSpeakingChange?.(false) }
+    u.onerror = () => { setIsPlaying(false); setIsLoading(false); onSpeakingChange?.(false) }
+
+    window.speechSynthesis.speak(u)
+  }, [text, rate, isMuted, onSpeakingChange])
+
+  // Main play handler
   const play = useCallback(async () => {
-    // If we have a paused buffer, resume from where we left off
+    // Resume from pause
     if (audioBufferRef.current && audioCtxRef.current && pausedAtRef.current > 0) {
       const ctx = audioCtxRef.current
       if (ctx.state === 'suspended') await ctx.resume()
@@ -149,22 +113,46 @@ const VoicePlayer = ({ text, voice = 'en-US-AndrewNeural', rate = 0.9, autoPlay 
       return
     }
 
-    // STEP 1: Speak IMMEDIATELY with browser speech (preserves user gesture)
-    speakImmediate()
+    stopAll()
+    setIsLoading(true)
 
-    // STEP 2: Upgrade to server TTS in background (async, no gesture needed)
-    const result = await fetchServerAudio()
-    if (result) {
-      // Cancel browser speech
-      window.speechSynthesis?.cancel()
+    // Try server TTS first
+    try {
+      const token = localStorage.getItem('token')
+      if (token && text) {
+        const response = await fetch('/api/voice/synthesize', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({ text, voice, rate }),
+        })
 
-      // Start playing server audio
-      playFromBuffer(result.audioCtx, result.audioBuffer, 0)
+        if (response.ok) {
+          const audioBlob = await response.blob()
+          if (audioBlob.size > 100) {
+            const AudioContextClass = window.AudioContext || window.webkitAudioContext
+            const audioCtx = new AudioContextClass()
+            if (audioCtx.state === 'suspended') await audioCtx.resume()
+
+            const arrayBuffer = await audioBlob.arrayBuffer()
+            const audioBuffer = await audioCtx.decodeAudioData(arrayBuffer)
+
+            playFromBuffer(audioCtx, audioBuffer, 0)
+            return
+          }
+        }
+      }
+    } catch (err) {
+      console.warn('Server TTS failed, falling back to browser speech:', err.message)
     }
-  }, [speakImmediate, fetchServerAudio, playFromBuffer])
+
+    // Fallback to browser speech
+    speakWithBrowser()
+  }, [text, voice, rate, stopAll, playFromBuffer, speakWithBrowser])
 
   const pause = useCallback(async () => {
-    // Pause browser speech
     if (window.speechSynthesis?.speaking) {
       window.speechSynthesis.pause()
       setIsPlaying(false)
@@ -172,19 +160,14 @@ const VoicePlayer = ({ text, voice = 'en-US-AndrewNeural', rate = 0.9, autoPlay 
       return
     }
 
-    // Pause Web Audio API
     if (audioCtxRef.current && audioCtxRef.current.state === 'running') {
-      // Save current position
       pausedAtRef.current = audioCtxRef.current.currentTime - startTimeRef.current
-
-      // Stop the source node
       if (sourceRef.current) {
         sourceRef.current.onended = null
         sourceRef.current.stop()
         sourceRef.current.disconnect()
         sourceRef.current = null
       }
-
       setIsPlaying(false)
       onSpeakingChange?.(false)
     }
@@ -200,14 +183,20 @@ const VoicePlayer = ({ text, voice = 'en-US-AndrewNeural', rate = 0.9, autoPlay 
       <div className="flex items-center space-x-3">
         <button
           onClick={isPlaying ? pause : play}
-          disabled={!text}
+          disabled={!text || isLoading}
           className={`flex items-center justify-center w-12 h-12 rounded-full transition-all ${
             isPlaying
               ? 'bg-red-500 hover:bg-red-600 shadow-lg'
               : 'bg-gradient-brand hover:opacity-90 shadow-md'
           } disabled:opacity-50 disabled:cursor-not-allowed`}
         >
-          {isPlaying ? <Pause className="w-5 h-5 text-white" /> : <Play className="w-5 h-5 text-white ml-0.5" />}
+          {isLoading ? (
+            <Loader2 className="w-5 h-5 text-white animate-spin" />
+          ) : isPlaying ? (
+            <Pause className="w-5 h-5 text-white" />
+          ) : (
+            <Play className="w-5 h-5 text-white ml-0.5" />
+          )}
         </button>
 
         <button onClick={toggleMute}
@@ -232,7 +221,7 @@ const VoicePlayer = ({ text, voice = 'en-US-AndrewNeural', rate = 0.9, autoPlay 
         )}
       </div>
       <p className="text-xs text-ink-400">
-        {isPlaying ? 'AI Interviewer is speaking...' : 'Click play to hear the question'}
+        {isLoading ? 'Loading voice...' : isPlaying ? 'AI Interviewer is speaking...' : 'Click play to hear the question'}
       </p>
     </div>
   )
