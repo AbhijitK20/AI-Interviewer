@@ -308,7 +308,7 @@ const Report = () => {
       </div>
 
       {/* Main Overview Banner */}
-      <div className="card p-6 md:p-8">
+      <div className="p-6 md:p-8" style={{ background: "var(--surface-1)", border: "1px solid var(--border)", borderRadius: "16px" }}>
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="space-y-2">
             <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full text-xs font-semibold badge-primary">
@@ -359,7 +359,7 @@ const Report = () => {
       {/* Analytics Charts */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Skill Radar */}
-        <div className="card p-6">
+        <div className="p-6" style={{ background: "var(--surface-1)", border: "1px solid var(--border)", borderRadius: "16px" }}>
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-lg font-bold" style={{ color: 'var(--color-ink)' }}>Skill Competency Radar</h2>
             <span className="text-xs" style={{ color: 'oklch(100% 0 0 / 0.4)' }}>Proficiency Breakdown</span>
@@ -377,7 +377,7 @@ const Report = () => {
         </div>
 
         {/* Category Scores */}
-        <div className="card p-6">
+        <div className="p-6" style={{ background: "var(--surface-1)", border: "1px solid var(--border)", borderRadius: "16px" }}>
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-lg font-bold" style={{ color: 'var(--color-ink)' }}>Category Performance</h2>
             <span className="text-xs" style={{ color: 'oklch(100% 0 0 / 0.4)' }}>Scores by Domain</span>
@@ -399,7 +399,7 @@ const Report = () => {
       {/* Strengths & Weaknesses */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Strengths */}
-        <div className="card p-6">
+        <div className="p-6" style={{ background: "var(--surface-1)", border: "1px solid var(--border)", borderRadius: "16px" }}>
           <div className="flex items-center space-x-2 mb-4">
             <div className="p-2 rounded-xl" style={{ background: 'oklch(50% 0.14 155 / 0.15)' }}>
               <TrendingUp className="h-5 w-5" style={{ color: 'oklch(75% 0.14 155)' }} />
@@ -421,7 +421,7 @@ const Report = () => {
         </div>
 
         {/* Weaknesses */}
-        <div className="card p-6">
+        <div className="p-6" style={{ background: "var(--surface-1)", border: "1px solid var(--border)", borderRadius: "16px" }}>
           <div className="flex items-center space-x-2 mb-4">
             <div className="p-2 rounded-xl" style={{ background: 'oklch(55% 0.15 85 / 0.15)' }}>
               <AlertCircle className="h-5 w-5" style={{ color: 'oklch(80% 0.15 85)' }} />
@@ -446,7 +446,7 @@ const Report = () => {
       {/* Summary and Recommendations */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Executive Summary */}
-        <div className="card p-6">
+        <div className="p-6" style={{ background: "var(--surface-1)", border: "1px solid var(--border)", borderRadius: "16px" }}>
           <div className="flex items-center space-x-2 mb-4">
             <div className="p-2 rounded-xl" style={{ background: 'oklch(65% 0.15 265 / 0.15)' }}>
               <BookOpen className="h-5 w-5" style={{ color: 'var(--color-accent)' }} />
@@ -485,7 +485,7 @@ const Report = () => {
 
       {/* Question Review Section */}
       {questionBreakdown.length > 0 && (
-        <div className="card p-6">
+        <div className="p-6" style={{ background: "var(--surface-1)", border: "1px solid var(--border)", borderRadius: "16px" }}>
           <div className="flex items-center space-x-2 mb-6">
             <div className="p-2 rounded-xl badge-primary">
               <BookOpen className="h-5 w-5" style={{ color: 'var(--color-accent)' }} />

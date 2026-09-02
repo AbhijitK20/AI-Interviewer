@@ -173,7 +173,7 @@ const JobDescriptions = () => {
       ) : (
         <div className="space-y-3">
           {jobDescriptions.map((jd) => (
-            <div key={jd.id} className="card flex items-center justify-between glass-hover">
+            <div key={jd.id} className="flex items-center justify-between" style={{ background: "var(--surface-1)", border: "1px solid var(--border)", borderRadius: "16px", padding: "24px", transition: "all 0.2s ease" }}>
               <div className="flex-1">
                 <div className="flex items-center">
                   <Briefcase className="h-5 w-5 mr-2" style={{ color: 'var(--color-accent)' }} />

@@ -76,10 +76,16 @@ html, body, #root {
   transition: all 0.2s ease;
 }
 
-  .card:hover {
-    border-color: var(--border-light);
-    box-shadow: 0 4px 12px oklch(0% 0 0 / 0.2);
-  }
+.card:hover {
+  border-color: var(--border-light);
+  box-shadow: 0 4px 12px oklch(0% 0 0 / 0.2);
+}
+
+.glass-hover:hover {
+  border-color: var(--border-light);
+  box-shadow: 0 4px 12px oklch(0% 0 0 / 0.2);
+  background: oklch(100% 0 0 / 0.04);
+}
 
   /* Buttons */
   .btn-primary {
