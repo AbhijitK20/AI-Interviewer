@@ -81,28 +81,32 @@ export const GlassButton = ({ children, className = '', ...props }) => (
   </motion.button>
 )
 
-// Glass Input
-export const GlassInput = ({ className = '', ...props }) => (
-  <input
-    className={className}
-    style={{
-      width: '100%',
-      padding: '12px 16px',
-      background: 'rgba(24,22,20,.8)',
-      border: '1px solid rgba(255,255,255,.13)',
-      borderRadius: '12px',
-      color: '#fff',
-      fontSize: '14px',
-      fontWeight: 400,
-      backdropFilter: 'blur(14px)',
-      transition: 'all 0.2s',
-      outline: 'none',
-    }}
-    onFocus={(e) => e.target.style.borderColor = 'rgba(99,102,241,.5)'}
-    onBlur={(e) => e.target.style.borderColor = 'rgba(255,255,255,.13)'}
-    {...props}
-  />
-)
+// Glass Input - supports as="textarea" prop
+export const GlassInput = ({ className = '', as, ...props }) => {
+  const Component = as === 'textarea' ? 'textarea' : 'input'
+  return (
+    <Component
+      className={className}
+      style={{
+        width: '100%',
+        padding: '12px 16px',
+        background: 'rgba(24,22,20,.8)',
+        border: '1px solid rgba(255,255,255,.13)',
+        borderRadius: '12px',
+        color: '#fff',
+        fontSize: '14px',
+        fontWeight: 400,
+        backdropFilter: 'blur(14px)',
+        transition: 'all 0.2s',
+        outline: 'none',
+        resize: as === 'textarea' ? 'none' : undefined,
+      }}
+      onFocus={(e) => e.target.style.borderColor = 'rgba(99,102,241,.5)'}
+      onBlur={(e) => e.target.style.borderColor = 'rgba(255,255,255,.13)'}
+      {...props}
+    />
+  )
+}
 
 // Glass Badge
 export const GlassBadge = ({ children, variant = 'default', className = '' }) => {

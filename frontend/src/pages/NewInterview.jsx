@@ -214,7 +214,7 @@ const NewInterview = () => {
                   <X className="w-4 h-4" />
                 </button>
               )}
-            </GlassCard>
+            </div>
 
             {showRoleDropdown && (
               <div className="absolute z-10 w-full mt-1 bg-white rounded-xl shadow-lg border border-ink-200 max-h-80 overflow-hidden">
@@ -329,7 +329,7 @@ const NewInterview = () => {
               Next
             </button>
           </div>
-        </div>
+        </GlassCard>
       )}
 
       {/* Step 2: Resume */}
