@@ -196,5 +196,125 @@
     "type": "CODING",
     "difficulty": "EXPERT",
     "expected_answer": "Initialize config, create CoreV1Api instance, list pods across all namespaces, iterate through pod status container statuses, check restartCount > 5, and print relevant pod names and namespaces."
+  },
+  {
+    "text": "Explain the difference between Docker and Kubernetes.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Docker: containerization. Kubernetes: container orchestration, scaling, management."
+  },
+  {
+    "text": "How do you set up a CI/CD pipeline?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Source control, build, test, deploy stages. Tools: GitHub Actions, Jenkins, GitLab CI."
+  },
+  {
+    "text": "What is infrastructure as code and why is it important?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Terraform, CloudFormation. Version control for infrastructure, reproducibility, collaboration."
+  },
+  {
+    "text": "Explain blue-green deployment strategy.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Two identical environments. Deploy to idle, switch traffic, keep old for rollback."
+  },
+  {
+    "text": "How do you monitor production systems?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Prometheus, Grafana, ELK stack, alerting, SLIs/SLOs, dashboards."
+  },
+  {
+    "text": "What is a service mesh and when would you use it?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Istio, Linkerd. Handles service-to-service communication, observability, security."
+  },
+  {
+    "text": "Explain the concept of immutable infrastructure.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Never modify running servers. Replace with new instances. Ensures consistency."
+  },
+  {
+    "text": "How do you handle secrets management in production?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Vault, AWS Secrets Manager, Kubernetes secrets, rotation policies, least privilege."
+  },
+  {
+    "text": "What is the difference between horizontal and vertical scaling?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Horizontal: add more machines. Vertical: add more resources to existing machine."
+  },
+  {
+    "text": "Explain container networking basics.",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Bridge, host, overlay networks. Port mapping, DNS resolution, service discovery."
+  },
+  {
+    "text": "How do you implement logging in a microservices architecture?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Structured logging, centralized aggregation (ELK), correlation IDs, log levels."
+  },
+  {
+    "text": "What is canary deployment?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Deploy to small subset of users first. Monitor for issues. Gradually increase traffic."
+  },
+  {
+    "text": "Explain the CAP theorem.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Consistency, Availability, Partition tolerance. Can only guarantee two of three."
+  },
+  {
+    "text": "How do you design a disaster recovery plan?",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "RPO/RTO targets, backup strategy, failover mechanism, testing, documentation."
+  },
+  {
+    "text": "What is GitOps and how does it work?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Git as source of truth for infrastructure. ArgoCD, Flux. Automated deployments from git changes."
+  },
+  {
+    "text": "Explain the difference between TCP and UDP.",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "TCP: reliable, ordered, connection-oriented. UDP: fast, unreliable, connectionless."
+  },
+  {
+    "text": "How do you optimize Docker image size?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Multi-stage builds, alpine base, .dockerignore, layer caching, minimal dependencies."
+  },
+  {
+    "text": "What is a load balancer and what are its types?",
+    "type": "TECHNICAL",
+    "difficulty": "EASY",
+    "expected_answer": "Distributes traffic. Types: L4 (TCP), L7 (HTTP), round-robin, least connections."
+  },
+  {
+    "text": "How do you handle database backups in production?",
+    "type": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "expected_answer": "Automated backups, point-in-time recovery, replication, offsite storage, testing restores."
+  },
+  {
+    "text": "Explain event-driven architecture.",
+    "type": "TECHNICAL",
+    "difficulty": "HARD",
+    "expected_answer": "Kafka, RabbitMQ. Decoupled services, async communication, event sourcing, CQRS."
   }
 ]

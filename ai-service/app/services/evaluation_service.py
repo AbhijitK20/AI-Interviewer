@@ -23,62 +23,86 @@ class EvaluationService:
         return self._evaluate_heuristic(question, answer, expected_answer)
 
     async def _evaluate_with_llm(self, question: str, answer: str, expected_answer: str) -> Optional[Dict]:
+        """Multi-agent evaluation inspired by crewAI architecture.
+        
+        Three virtual agents evaluate independently:
+        1. Technical Expert: evaluates technical accuracy and depth
+        2. Communication Expert: evaluates clarity, structure, and articulation
+        3. Behavioral Expert: evaluates soft skills and experience examples
+        
+        Final score is weighted average of all three agents.
+        """
         try:
             from langchain_google_genai import ChatGoogleGenerativeAI
             from langchain_core.messages import HumanMessage
 
-            prompt = f"""You are an expert interview evaluator. Evaluate the candidate's answer to this interview question.
+            # Agent 1: Technical Expert
+            tech_prompt = f"""You are a senior technical interviewer. Evaluate the technical accuracy and depth of this answer.
 
 Question: {question}
+Answer: {answer}
+{f"Expected answer for reference: {expected_answer}" if expected_answer else ""}
 
-Candidate's Answer: {answer}
+Score 0-100 based on: technical accuracy, depth of knowledge, use of proper terminology, practical understanding.
+Return ONLY a JSON object: {{"score": <0-100>, "feedback": "<1-2 sentences>"}}"""
 
-{f"Expected/ideal answer for reference: {expected_answer}" if expected_answer else ""}
+            # Agent 2: Communication Expert
+            comm_prompt = f"""You are a communication coach. Evaluate how well the candidate communicated their answer.
 
-Provide a thorough evaluation in this EXACT JSON format (no markdown, no code blocks):
+Question: {question}
+Answer: {answer}
 
-{{
-  "score": <0-100 integer>,
-  "feedback": "<2-3 sentences: specific assessment of what the answer does well and what it lacks. Be direct and constructive.>",
-  "strengths": "<1-2 sentences: specific strengths of this answer>",
-  "weaknesses": "<1-2 sentences: specific areas for improvement>",
-  "sample_response": "<A complete, well-structured sample answer to this same question that would score 85-95. Use the STAR method for behavioral questions. Make it realistic and specific.>",
-  "improvement_points": ["<specific point 1>", "<specific point 2>", "<specific point 3>"]
-}}
+Score 0-100 based on: clarity, structure, conciseness, use of examples, logical flow.
+Return ONLY a JSON object: {{"score": <0-100>, "feedback": "<1-2 sentences>"}}"""
 
-Evaluation criteria:
-- Score 80+: Strong answer with specific examples, clear structure, demonstrates expertise
-- Score 60-79: Good answer but missing specifics, examples, or depth
-- Score 40-59: Adequate but vague, lacks concrete examples or structure
-- Score below 40: Incomplete, off-topic, or shows lack of preparation
+            # Agent 3: Behavioral Expert (for behavioral questions)
+            behav_prompt = f"""You are a behavioral interview specialist. Evaluate the soft skills and experience demonstrated.
 
-Be specific about WHAT is missing, not just that it's missing."""
+Question: {question}
+Answer: {answer}
 
+Score 0-100 based on: use of STAR method, specific examples, self-awareness, growth mindset.
+Return ONLY a JSON object: {{"score": <0-100>, "feedback": "<1-2 sentences>"}}"""
+
+            # Run all three agents in parallel
+            import asyncio
             llm = ChatGoogleGenerativeAI(model="gemini-3.5-flash-lite", google_api_key=self.api_key, temperature=0.3)
-            response = await llm.ainvoke([HumanMessage(content=prompt)])
             
+            tech_result, comm_result, behav_result = await asyncio.gather(
+                llm.ainvoke([HumanMessage(content=tech_prompt)]),
+                llm.ainvoke([HumanMessage(content=comm_prompt)]),
+                llm.ainvoke([HumanMessage(content=behav_prompt)])
+            )
+
+            # Parse results
             import json
-            text = response.content.strip()
-            if text.startswith("```"):
-                lines = text.split("\n")
-                text = "\n".join(l for l in lines if not l.strip().startswith("```")).strip()
+            tech_data = json.loads(self._clean_json(tech_result.content))
+            comm_data = json.loads(self._clean_json(comm_result.content))
+            behav_data = json.loads(self._clean_json(behav_result.content))
+
+            # Weighted average (technical 50%, communication 30%, behavioral 20%)
+            tech_score = tech_data.get("score", 60)
+            comm_score = comm_data.get("score", 60)
+            behav_score = behav_data.get("score", 60)
             
-            data = json.loads(text)
-            
+            final_score = int(tech_score * 0.5 + comm_score * 0.3 + behav_score * 0.2)
+
+            # Combine feedback
+            feedback = f"{tech_data.get('feedback', '')} {comm_data.get('feedback', '')} {behav_data.get('feedback', '')}"
+
             return {
-                "score": min(100, max(0, int(data.get("score", 60)))),
-                "grade": self._score_to_grade(int(data.get("score", 60))),
-                "feedback": data.get("feedback", "Answer evaluated."),
-                "strengths": data.get("strengths", ""),
-                "weaknesses": data.get("weaknesses", ""),
-                "sample_response": data.get("sample_response", ""),
-                "improvement_suggestions": ", ".join(data.get("improvement_points", [])) if isinstance(data.get("improvement_points"), list) else str(data.get("improvement_suggestions", "")),
+                "score": min(100, max(0, final_score)),
+                "grade": self._score_to_grade(final_score),
+                "feedback": feedback.strip(),
+                "strengths": self._identify_strengths(answer),
+                "weaknesses": self._identify_weaknesses(answer),
+                "sample_response": "",
                 "confidence_level": self._assess_confidence(answer),
-                "communication_score": self._assess_communication(answer),
-                "technical_depth": self._assess_technical_depth(answer),
+                "communication_score": f"{comm_score}/100",
+                "technical_depth": f"{tech_score}/100",
             }
         except Exception as e:
-            print(f"LLM evaluation error: {e}")
+            print(f"Multi-agent evaluation error: {e}")
             return None
 
     def _evaluate_heuristic(self, question: str, answer: str, expected_answer: str) -> Dict:
