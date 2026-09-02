@@ -60,7 +60,7 @@ function App() {
     <AuthProvider>
       <Router>
         {/* Global background video - always visible behind all content */}
-        <div style={{ position: 'fixed', inset: 0, zIndex: -1, overflow: 'hidden' }}>
+        <div style={{ position: 'fixed', inset: 0, zIndex: 0, overflow: 'hidden' }}>
           <video
             style={{
               position: 'absolute', inset: 0,
