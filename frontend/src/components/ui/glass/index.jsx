@@ -10,9 +10,9 @@ export const GlassCard = ({ children, className = '', hover = true, ...props }) 
     style={{
       border: '1px solid rgba(255,255,255,.13)',
       borderRadius: 'clamp(12px, 1.52vh, 18px)',
-      background: 'linear-gradient(145deg, rgba(24,22,20,.80), rgba(5,12,14,.86))',
+      background: 'linear-gradient(145deg, rgba(24,22,20,.55), rgba(5,12,14,.65))',
       boxShadow: '0 2px 10px rgba(0,0,0,.44), 0 0 0 3px rgba(255,255,255,.035) inset, 0 0 0 1px rgba(0,0,0,.9)',
-      backdropFilter: 'blur(14px) saturate(108%)',
+      backdropFilter: 'blur(18px) saturate(120%)',
       transition: hover ? 'all 0.3s cubic-bezier(.16,1,.3,1)' : 'none',
     }}
     whileHover={hover ? { y: -2, boxShadow: '0 4px 20px rgba(0,0,0,.5), 0 0 0 3px rgba(255,255,255,.05) inset' } : {}}
