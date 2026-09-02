@@ -82,7 +82,7 @@ export const GlassButton = ({ children, className = '', ...props }) => (
 )
 
 // Glass Input - supports as="textarea" prop
-export const GlassInput = ({ className = '', as, ...props }) => {
+export const GlassInput = ({ className = '', as, style: propStyle, ...props }) => {
   const Component = as === 'textarea' ? 'textarea' : 'input'
   return (
     <Component
@@ -100,6 +100,7 @@ export const GlassInput = ({ className = '', as, ...props }) => {
         transition: 'all 0.2s',
         outline: 'none',
         resize: as === 'textarea' ? 'none' : undefined,
+        ...propStyle,
       }}
       onFocus={(e) => e.target.style.borderColor = 'rgba(99,102,241,.5)'}
       onBlur={(e) => e.target.style.borderColor = 'rgba(255,255,255,.13)'}
