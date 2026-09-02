@@ -22,7 +22,13 @@ const Layout = () => {
   ]
 
   return (
-    <div className="min-h-screen" style={{ background: 'var(--surface-0)' }}>
+    <div className="min-h-screen relative" style={{ background: 'var(--surface-0)' }}>
+      {/* Subtle gradient overlay for depth */}
+      <div className="fixed inset-0 pointer-events-none" style={{
+        background: 'radial-gradient(ellipse at 20% 50%, oklch(20% 0.02 265 / 0.12) 0%, transparent 50%), radial-gradient(ellipse at 80% 20%, oklch(18% 0.015 30 / 0.08) 0%, transparent 50%)',
+        zIndex: 0
+      }} />
+
       {/* Header */}
       <motion.header
         initial={{ y: -10, opacity: 0 }}
