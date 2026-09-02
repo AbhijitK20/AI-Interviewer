@@ -137,13 +137,28 @@ export const GlassBadge = ({ children, variant = 'default', className = '' }) =>
   )
 }
 
-// Subtle noise texture for inner pages
+// Background with video + blur for inner pages
 export const BackgroundVideo = () => (
-  <div style={{
-    position: 'fixed', inset: 0, zIndex: -1,
-    background: 'radial-gradient(ellipse at 30% 20%, rgba(99,102,241,.06) 0%, transparent 50%), radial-gradient(ellipse at 70% 80%, rgba(139,92,246,.04) 0%, transparent 50%)',
-    pointerEvents: 'none',
-  }} />
+  <div style={{ position: 'fixed', inset: 0, zIndex: -1, overflow: 'hidden' }}>
+    <video
+      style={{
+        position: 'absolute', inset: 0,
+        width: '100%', height: '100%',
+        objectFit: 'cover', objectPosition: 'center',
+        filter: 'blur(20px) brightness(0.4)',
+        transform: 'scale(1.1)',
+        pointerEvents: 'none', userSelect: 'none',
+      }}
+      autoPlay muted loop playsInline disablePictureInPicture aria-hidden="true"
+    >
+      <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260808_064556_051587f1-74a1-4336-8c05-4dde3594ed05.mp4" type="video/mp4" />
+    </video>
+    <div style={{
+      position: 'absolute', inset: 0,
+      background: 'linear-gradient(180deg, rgba(0,0,0,.3), rgba(0,0,0,.5) 50%, rgba(0,0,0,.7))',
+      pointerEvents: 'none',
+    }} />
+  </div>
 )
 
 // Entrance animation variants
