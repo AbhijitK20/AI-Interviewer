@@ -27,14 +27,14 @@
 }
 
 html {
-  background: var(--surface-0);
+  background: transparent;
   color: var(--color-ink);
   color-scheme: dark;
   font-family: "Geist", "Inter", ui-sans-serif, system-ui, sans-serif;
 }
 
 body {
-  background: var(--surface-0) !important;
+  background: transparent !important;
   color: var(--color-ink) !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
