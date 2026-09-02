@@ -452,32 +452,7 @@ const Interview = () => {
                 </label>
               ))}
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-              </label>
-              <label className="flex items-center space-x-2">
-                <input
-                  type="checkbox"
-                  checked={showBodyLanguage}
-                  onChange={(e) => setShowBodyLanguage(e.target.checked)}
-                  className="rounded border-gray-300 text-primary-600 focus:ring-primary-500"
-                />
-                <span className="text-sm text-gray-700">Body Language</span>
-              </label>
-              <label className="flex items-center space-x-2">
-                <input
-                  type="checkbox"
-                  checked={showProctoring}
-                  onChange={(e) => setShowProctoring(e.target.checked)}
-                  className="rounded border-gray-300 text-primary-600 focus:ring-primary-500"
-                />
-                <span className="text-sm text-gray-700">Proctoring</span>
-              </label>
-            </div>
-          </div>
+           </div>
         </div>
       </div>
     </div>
