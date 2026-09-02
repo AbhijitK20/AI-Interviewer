@@ -10,6 +10,7 @@ import Report from './pages/Report'
 import JobDescriptions from './pages/JobDescriptions'
 import Resumes from './pages/Resumes'
 import ProtectedRoute from './components/common/ProtectedRoute'
+import Profile from './pages/Profile'
 import Layout from './components/common/Layout'
 
 function AppRoutes() {
@@ -47,6 +48,7 @@ function AppRoutes() {
             <Route path="report/:id" element={<Report />} />
             <Route path="job-descriptions" element={<JobDescriptions />} />
             <Route path="resumes" element={<Resumes />} />
+            <Route path="profile" element={<Profile />} />
           </>
         )}
       </Route>
