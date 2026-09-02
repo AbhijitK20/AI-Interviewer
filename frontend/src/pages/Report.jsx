@@ -294,7 +294,7 @@ const Report = () => {
   }
 
   return (
-    <div className="relative min-h-screen pb-12">
+    <div className="min-h-screen relative pb-12" style={{ background: "#000", isolation: "isolate" }}>
       <BackgroundVideo />
       <div className="relative z-10 max-w-6xl mx-auto space-y-6 px-4 sm:px-6 lg:px-8 py-6">
       {/* Navigation & Actions */}
