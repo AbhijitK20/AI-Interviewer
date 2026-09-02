@@ -5,41 +5,48 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    /* OKLCH-based palette with midnight anchor (hue 40) */
-    --color-paper: oklch(14% 0.008 40);
-    --color-paper-2: oklch(18% 0.010 40);
-    --color-paper-3: oklch(22% 0.010 40);
-    --color-rule: oklch(30% 0.008 40);
-    --color-neutral: oklch(58% 0.008 40);
-    --color-muted: oklch(72% 0.006 40);
-    --color-ink: oklch(94% 0.006 80);
-    --color-accent: #6366f1;
-    --color-accent-soft: oklch(65% 0.15 265);
-    --color-focus: oklch(70% 0.19 55);
-    
-    /* Semantic tokens */
-    --surface-0: var(--color-paper);
-    --surface-1: var(--color-paper-2);
-    --surface-2: var(--color-paper-3);
-    --border: oklch(28% 0.008 40);
-    --border-light: oklch(35% 0.006 40);
-  }
+:root {
+  /* OKLCH-based palette with midnight anchor (hue 40) */
+  --color-paper: oklch(14% 0.008 40);
+  --color-paper-2: oklch(18% 0.010 40);
+  --color-paper-3: oklch(22% 0.010 40);
+  --color-rule: oklch(30% 0.008 40);
+  --color-neutral: oklch(58% 0.008 40);
+  --color-muted: oklch(72% 0.006 40);
+  --color-ink: oklch(94% 0.006 80);
+  --color-accent: #6366f1;
+  --color-accent-soft: oklch(65% 0.15 265);
+  --color-focus: oklch(70% 0.19 55);
+  
+  /* Semantic tokens */
+  --surface-0: var(--color-paper);
+  --surface-1: var(--color-paper-2);
+  --surface-2: var(--color-paper-3);
+  --border: oklch(28% 0.008 40);
+  --border-light: oklch(35% 0.006 40);
+}
 
-  html {
-    background: var(--surface-0);
-    color: var(--color-ink);
-    color-scheme: dark;
-    font-family: "Geist", "Inter", ui-sans-serif, system-ui, sans-serif;
-  }
+html {
+  background: var(--surface-0);
+  color: var(--color-ink);
+  color-scheme: dark;
+  font-family: "Geist", "Inter", ui-sans-serif, system-ui, sans-serif;
+}
 
-  body {
-    background: var(--surface-0);
-    color: var(--color-ink);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
+body {
+  background: var(--surface-0) !important;
+  color: var(--color-ink) !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Force dark backgrounds on all elements - override Tailwind preflight */
+*, *::before, *::after {
+  background-color: transparent;
+}
+
+html, body, #root {
+  background: var(--surface-0) !important;
 }
 
 @layer components {
@@ -60,14 +67,14 @@
     border: 1px solid oklch(100% 0 0 / 0.06);
   }
 
-  /* Cards */
-  .card {
-    background: var(--surface-1);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 24px;
-    transition: all 0.2s ease;
-  }
+/* Cards */
+.card {
+  background: var(--surface-1) !important;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  transition: all 0.2s ease;
+}
 
   .card:hover {
     border-color: var(--border-light);
