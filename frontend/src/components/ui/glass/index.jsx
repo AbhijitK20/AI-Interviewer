@@ -107,9 +107,6 @@ export const GlassInput = ({ className = '', as, ...props }) => {
     />
   )
 }
-    {...props}
-  />
-)
 
 // Glass Badge
 export const GlassBadge = ({ children, variant = 'default', className = '' }) => {
