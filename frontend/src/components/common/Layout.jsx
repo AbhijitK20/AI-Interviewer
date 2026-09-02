@@ -23,7 +23,7 @@ const Layout = () => {
   ]
 
   return (
-    <div style={{ position: 'fixed', inset: 0, background: '#000' }}>
+    <div style={{ position: 'fixed', inset: 0, background: '#000', isolation: 'isolate' }}>
       <BackgroundVideo />
       <div style={{ position: 'relative', zIndex: 1, height: '100%', overflowY: 'auto' }}>
         {/* Header */}
