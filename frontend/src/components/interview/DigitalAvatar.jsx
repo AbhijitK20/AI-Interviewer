@@ -43,10 +43,6 @@ const DigitalAvatar = ({ isSpeaking, emotion, name = 'AI Interviewer', message }
     concerned: 'rgba(248,113,113,.12)',
   }
 
-  // Use a realistic professional male avatar image
-  // This is a free-to-use professional headshot style
-  const avatarUrl = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 260'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%231a2332'/%3E%3Cstop offset='100%25' stop-color='%230f1520'/%3E%3C/linearGradient%3E%3ClinearGradient id='skin' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f0d0b4'/%3E%3Cstop offset='50%25' stop-color='%23e8c4a4'/%3E%3Cstop offset='100%25' stop-color='%23d9b894'/%3E%3C/linearGradient%3E%3ClinearGradient id='hair' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%232c1e12'/%3E%3Cstop offset='100%25' stop-color='%231a1008'/%3E%3C/linearGradient%3E%3ClinearGradient id='shirt' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%231c2836'/%3E%3Cstop offset='100%25' stop-color='%23101822'/%3E%3C/linearGradient%3E%3CradialGradient id='fl' cx='35%25' cy='30%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,255,255,.12)'/%3E%3Cstop offset='100%25' stop-color='rgba(255,255,255,0)'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cellipse cx='100' cy='250' rx='50' ry='6' fill='rgba(0,0,0,.3)'/%3E%3Cpath d='M45 185 Q45 170 65 160 L135 160 Q155 170 155 185 L155 260 L45 260 Z' fill='url(%23shirt)'/%3E%3Cpath d='M70 158 L85 153 L100 160 L115 153 L130 158' stroke='rgba(255,255,255,.1)' stroke-width='1' fill='none'/%3E%3Crect x='88' y='138' width='24' height='26' rx='5' fill='url(%23skin)'/%3E%3Cellipse cx='100' cy='98' rx='40' ry='48' fill='url(%23skin)'/%3E%3Cellipse cx='100' cy='98' rx='40' ry='48' fill='url(%23fl)'/%3E%3Cpath d='M60 80 Q60 50 100 44 Q140 50 140 80 Q140 62 100 56 Q60 62 60 80 Z' fill='url(%23hair)'/%3E%3Cpath d='M64 83 Q64 68 100 62 Q136 68 136 83 Q136 72 100 66 Q64 72 64 83 Z' fill='%231a1008' opacity='.5'/%3E%3Cellipse cx='60' cy='98' rx='6' ry='10' fill='%23d9b894'/%3E%3Cellipse cx='60' cy='98' rx='4' ry='7' fill='%23e0bc98'/%3E%3Cellipse cx='140' cy='98' rx='6' ry='10' fill='%23d9b894'/%3E%3Cellipse cx='140' cy='98' rx='4' ry='7' fill='%23e0bc98'/%3E%3Cellipse cx='84' cy='95' rx='9' ry='6' fill='%23faf8f5'/%3E%3Ccircle cx='84' cy='95' r='4.5' fill='%233d2b1f'/%3E%3Ccircle cx='84' cy='95' r='2.2' fill='%230a0a0a'/%3E%3Ccircle cx='85.5' cy='93.5' r='1' fill='white' opacity='.9'/%3E%3Cellipse cx='116' cy='95' rx='9' ry='6' fill='%23faf8f5'/%3E%3Ccircle cx='116' cy='95' r='4.5' fill='%233d2b1f'/%3E%3Ccircle cx='116' cy='95' r='2.2' fill='%230a0a0a'/%3E%3Ccircle cx='117.5' cy='93.5' r='1' fill='white' opacity='.9'/%3E%3Cpath d='M70 84 Q82 78 96 82' stroke='%232a1e14' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3Cpath d='M104 82 Q118 78 130 84' stroke='%232a1e14' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3Cpath d='M98 106 Q100 114 102 106' stroke='%23c8a088' stroke-width='1.2' fill='none'/%3E%3Cellipse cx='76' cy='108' rx='8' ry='4' fill='%23e8b4a0' opacity='.2'/%3E%3Cellipse cx='124' cy='108' rx='8' ry='4' fill='%23e8b4a0' opacity='.2'/%3E%3Cpath d='M86 122 Q100 124 114 122' stroke='%23c4756e' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"
-
   return (
     <div className="relative rounded-2xl overflow-hidden" style={{ background: 'linear-gradient(145deg, #080c14, #0d1525, #080c14)' }}>
       <div className="relative h-80 flex items-center justify-center overflow-hidden">
@@ -55,6 +51,7 @@ const DigitalAvatar = ({ isSpeaking, emotion, name = 'AI Interviewer', message }
           opacity: glowOpacity
         }} />
 
+        {/* Professional portrait using layered SVG */}
         <div className="relative" style={{
           transform: `rotate(${headTilt}deg)`,
           filter: `drop-shadow(0 12px 40px rgba(0,0,0,.5))`
@@ -62,7 +59,6 @@ const DigitalAvatar = ({ isSpeaking, emotion, name = 'AI Interviewer', message }
           <div className="w-48 h-60 rounded-2xl overflow-hidden relative" style={{
             background: 'linear-gradient(180deg, #1a2332 0%, #0f1520 100%)'
           }}>
-            {/* Layered SVG for realistic face */}
             <svg viewBox="0 0 200 260" className="w-full h-full">
               <defs>
                 <linearGradient id="skin2" x1="0%" y1="0%" x2="100%" y2="100%">
