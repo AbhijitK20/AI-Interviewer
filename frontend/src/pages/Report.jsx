@@ -1,3 +1,4 @@
+import { GlassCard, BackgroundVideo } from "../components/ui/glass"
 import { useState, useEffect, lazy, Suspense, Component } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import api from '../services/api'
@@ -293,7 +294,9 @@ const Report = () => {
   }
 
   return (
-    <div className="max-w-6xl mx-auto space-y-6 pb-12">
+    <div className="relative min-h-screen pb-12">
+      <BackgroundVideo />
+      <div className="relative z-10 max-w-6xl mx-auto space-y-6 px-4 sm:px-6 lg:px-8 py-6">
       {/* Navigation & Actions */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <Link to="/" className="btn-ghost">
@@ -308,7 +311,7 @@ const Report = () => {
       </div>
 
       {/* Main Overview Banner */}
-      <div className="p-6 md:p-8" style={{ background: "var(--surface-1)", border: "1px solid var(--border)", borderRadius: "16px" }}>
+      <div className="p-6 md:p-8">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="space-y-2">
             <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full text-xs font-semibold badge-primary">
