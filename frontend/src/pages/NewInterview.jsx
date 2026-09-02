@@ -3,6 +3,8 @@ import { useNavigate, useLocation, Link } from 'react-router-dom'
 import api from '../services/api'
 import { ArrowLeft, Briefcase, ChevronRight, Plus, ChevronDown, Search, X } from 'lucide-react'
 import { JOB_ROLES, JOB_CATEGORIES, searchRoles } from '../data/jobRoles'
+import { motion } from 'framer-motion'
+import { GlassCard, WhiteButton, GlassInput, GlassBadge, BackgroundVideo } from '../components/ui/glass'
 
 const NewInterview = () => {
   const navigate = useNavigate()
@@ -165,8 +167,8 @@ const NewInterview = () => {
       <p className="text-sm text-ink-500 mb-6">Set up your AI-powered mock interview</p>
 
       {error && (
-        <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm">
-          {error}
+        <div className="mb-4 p-3 rounded-xl" style={{ background: 'rgba(239,68,68,.1)', border: '1px solid rgba(239,68,68,.2)' }}>
+          <p className="text-sm" style={{ color: '#f87171' }}>{error}</p>
         </div>
       )}
 
@@ -174,49 +176,41 @@ const NewInterview = () => {
       <div className="flex items-center mb-8">
         {[1, 2, 3].map((s) => (
           <div key={s} className="flex items-center">
-            <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold transition-colors ${
-              step >= s ? 'bg-gradient-brand text-white' : 'bg-ink-100 text-ink-500'
-            }`}>
+            <div className="w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold transition-all"
+              style={{ background: step >= s ? '#6366f1' : 'rgba(255,255,255,.06)', color: step >= s ? '#fff' : 'rgba(255,255,255,.4)' }}>
               {s}
             </div>
-            <span className={`ml-2 text-sm font-medium ${step >= s ? 'text-primary-600' : 'text-ink-400'}`}>
+            <span className="ml-2 text-sm font-medium" style={{ color: step >= s ? '#818cf8' : 'rgba(255,255,255,.3)' }}>
               {s === 1 ? 'Job Role' : s === 2 ? 'Resume' : 'Details'}
             </span>
-            {s < 3 && <ChevronRight className="h-4 w-4 mx-3 text-ink-300" />}
+            {s < 3 && <ChevronRight className="h-4 w-4 mx-3" style={{ color: 'rgba(255,255,255,.15)' }} />}
           </div>
         ))}
       </div>
 
       {/* Step 1: Job Role Selection */}
       {step === 1 && (
-        <div className="bg-white rounded-2xl shadow-card border border-ink-100 p-6">
-          <h2 className="text-lg font-semibold mb-4 flex items-center">
-            <Briefcase className="h-5 w-5 mr-2 text-primary-600" />
+        <GlassCard className="p-6">
+          <h2 className="text-lg font-semibold mb-4 flex items-center" style={{ color: '#fff' }}>
+            <Briefcase className="h-5 w-5 mr-2" style={{ color: '#818cf8' }} />
             Select Job Role
           </h2>
 
           {/* Search / Dropdown */}
           <div className="relative mb-6" ref={dropdownRef}>
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-ink-400" />
-              <input
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: 'rgba(255,255,255,.3)' }} />
+              <GlassInput
                 type="text"
                 value={roleSearch}
-                onChange={(e) => {
-                  setRoleSearch(e.target.value)
-                  setShowRoleDropdown(true)
-                  setActiveCategory(null)
-                  if (!e.target.value) setSelectedRole(null)
-                }}
+                onChange={(e) => { setRoleSearch(e.target.value); setShowRoleDropdown(true); setActiveCategory(null); if (!e.target.value) setSelectedRole(null) }}
                 onFocus={() => setShowRoleDropdown(true)}
                 placeholder="Search job roles... (e.g., Frontend, Java, Data Scientist)"
-                className="w-full pl-10 pr-10 py-3 border border-ink-200 rounded-xl text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-shadow"
+                className="pl-10 pr-10"
               />
               {roleSearch && (
-                <button
-                  onClick={() => { setRoleSearch(''); setSelectedRole(null); setShowRoleDropdown(false) }}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-ink-400 hover:text-ink-600"
-                >
+                <button onClick={() => { setRoleSearch(''); setSelectedRole(null); setShowRoleDropdown(false) }}
+                  className="absolute right-3 top-1/2 -translate-y-1/2" style={{ color: 'rgba(255,255,255,.3)' }}>
                   <X className="w-4 h-4" />
                 </button>
               )}
@@ -340,7 +334,7 @@ const NewInterview = () => {
 
       {/* Step 2: Resume */}
       {step === 2 && (
-        <div className="bg-white rounded-2xl shadow-card border border-ink-100 p-6">
+        <div className="p-6">
           <h2 className="text-lg font-semibold mb-4">Add Resume (Optional)</h2>
 
           {resumes.length > 0 && (
@@ -411,7 +405,7 @@ const NewInterview = () => {
 
       {/* Step 3: Interview Details */}
       {step === 3 && (
-        <div className="bg-white rounded-2xl shadow-card border border-ink-100 p-6">
+        <div className="p-6">
           <h2 className="text-lg font-semibold mb-4">Interview Details</h2>
 
           <div className="space-y-4">
