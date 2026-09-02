@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react'
-import { User, Volume2, VolumeX } from 'lucide-react'
+import { useState, useEffect, useRef } from 'react'
 
 const DigitalAvatar = ({ isSpeaking, emotion, name = 'AI Interviewer', message }) => {
-  const [isMuted, setIsMuted] = useState(false)
   const [blinkState, setBlinkState] = useState(false)
   const [mouthOpen, setMouthOpen] = useState(0)
   const [headTilt, setHeadTilt] = useState(0)
+  const [eyeGaze, setEyeGaze] = useState({ x: 0, y: 0 })
+  const canvasRef = useRef(null)
 
   // Natural blinking
   useEffect(() => {
@@ -24,7 +24,18 @@ const DigitalAvatar = ({ isSpeaking, emotion, name = 'AI Interviewer', message }
     return () => clearInterval(tilt)
   }, [])
 
-  // Mouth animation
+  // Eye gaze (subtle random movement)
+  useEffect(() => {
+    const gaze = setInterval(() => {
+      setEyeGaze({
+        x: Math.sin(Date.now() / 3000) * 0.5,
+        y: Math.cos(Date.now() / 4000) * 0.3
+      })
+    }, 150)
+    return () => clearInterval(gaze)
+  }, [])
+
+  // Mouth animation when speaking
   useEffect(() => {
     if (isSpeaking) {
       const mouth = setInterval(() => {
@@ -36,122 +47,126 @@ const DigitalAvatar = ({ isSpeaking, emotion, name = 'AI Interviewer', message }
     }
   }, [isSpeaking])
 
+  // Emotion-based colors
+  const emotionColors = {
+    neutral: { cheek: '#e8b4a0', lip: '#c4756e', eye: '#4a3728' },
+    happy: { cheek: '#f0c0a0', lip: '#d4857e', eye: '#4a3728' },
+    thinking: { cheek: '#e0a898', lip: '#b8706a', eye: '#3a2718' },
+    concerned: { cheek: '#d8a090', lip: '#a86060', eye: '#3a2018' },
+  }
+  const colors = emotionColors[emotion] || emotionColors.neutral
+
   return (
-    <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 shadow-card">
-      <div className="relative h-80 flex items-center justify-center">
-        {/* Background glow */}
-        <div className="absolute inset-0 bg-gradient-to-b from-indigo-500/5 to-transparent" />
-        
-        {/* Professional Avatar */}
-        <svg viewBox="0 0 240 280" className="w-56 h-64 drop-shadow-2xl" style={{ transform: `rotate(${headTilt}deg)` }}>
+    <div className="relative rounded-2xl overflow-hidden shadow-2xl" style={{ background: 'linear-gradient(145deg, #0a0f1a, #0d1525, #0a0f1a)' }}>
+      <div className="relative h-80 flex items-center justify-center overflow-hidden">
+        {/* Ambient glow */}
+        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 40%, rgba(99,102,241,.08), transparent 70%)' }} />
+
+        {/* Professional Avatar SVG */}
+        <svg viewBox="0 0 240 280" className="w-56 h-64 drop-shadow-2xl" style={{ transform: `rotate(${headTilt}deg)`, filter: 'drop-shadow(0 8px 32px rgba(0,0,0,.4))' }}>
           <defs>
+            {/* Skin gradient */}
             <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#f0d0b0" />
-              <stop offset="100%" stopColor="#e0b890" />
+              <stop offset="50%" stopColor="#e8c4a0" />
+              <stop offset="100%" stopColor="#dbb890" />
             </linearGradient>
+            {/* Hair gradient */}
             <linearGradient id="hairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#2c1810" />
-              <stop offset="100%" stopColor="#1a0f0a" />
+              <stop offset="0%" stopColor="#2a1f14" />
+              <stop offset="100%" stopColor="#1a1008" />
             </linearGradient>
-            <linearGradient id="suitGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#1e3a5f" />
-              <stop offset="100%" stopColor="#152a45" />
+            {/* Shirt gradient */}
+            <linearGradient id="shirtGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#1a2332" />
+              <stop offset="100%" stopColor="#0f1520" />
             </linearGradient>
-            <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-              <feDropShadow dx="0" dy="2" stdDeviation="3" floodOpacity="0.3"/>
+            {/* Shadow */}
+            <filter id="shadow">
+              <feDropShadow dx="0" dy="4" stdDeviation="6" floodOpacity="0.3"/>
+            </filter>
+            {/* Lip sync filter */}
+            <filter id="lipSync">
+              <feMorphology operator="dilate" radius={mouthOpen * 0.3} />
             </filter>
           </defs>
-          
-          {/* Shoulders & Suit */}
-          <path d="M 40 230 Q 40 210 60 200 L 100 195 L 180 200 Q 200 210 200 230 L 200 280 L 40 280 Z" fill="url(#suitGrad)" filter="url(#shadow)" />
-          <path d="M 90 195 L 100 190 L 150 190 L 150 195 Z" fill="white" opacity="0.9" />
-          <line x1="120" y1="192" x2="120" y2="230" stroke="#c0392b" strokeWidth="2" />
-          
-          {/* Neck */}
-          <rect x="105" y="170" width="30" height="30" rx="12" fill="url(#skinGrad)" />
-          
-          {/* Head */}
-          <ellipse cx="120" cy="120" rx="50" ry="60" fill="url(#skinGrad)" filter="url(#shadow)" />
-          
-          {/* Hair */}
-          <path d="M 70 100 Q 70 55 120 50 Q 170 55 170 100 Q 165 85 120 80 Q 75 85 70 100" fill="url(#hairGrad)" />
-          <ellipse cx="120" cy="72" rx="48" ry="22" fill="url(#hairGrad)" />
-          
-          {/* Ears */}
-          <ellipse cx="68" cy="120" rx="7" ry="10" fill="url(#skinGrad)" stroke="#d4a574" strokeWidth="0.5" />
-          <ellipse cx="172" cy="120" rx="7" ry="10" fill="url(#skinGrad)" stroke="#d4a574" strokeWidth="0.5" />
-          
-          {/* Eyebrows */}
-          <path d={blinkState ? "M 85 103 Q 95 101 105 103" : "M 85 100 Q 95 97 105 100"} stroke="#2c1810" strokeWidth="2.5" fill="none" strokeLinecap="round" />
-          <path d={blinkState ? "M 135 103 Q 145 101 155 103" : "M 135 100 Q 145 97 155 100"} stroke="#2c1810" strokeWidth="2.5" fill="none" strokeLinecap="round" />
-          
-          {/* Eyes */}
-          <g opacity={blinkState ? 0.1 : 1}>
-            {/* Left eye */}
-            <ellipse cx="95" cy="112" rx="10" ry="7" fill="white" stroke="#d4d4d8" strokeWidth="0.5" />
-            <circle cx="96" cy="112" r="5" fill="#1e3a5f" />
-            <circle cx="97" cy="111" r="2" fill="#0f172a" />
-            <circle cx="98" cy="110" r="0.8" fill="white" />
-            
-            {/* Right eye */}
-            <ellipse cx="145" cy="112" rx="10" ry="7" fill="white" stroke="#d4d4d8" strokeWidth="0.5" />
-            <circle cx="144" cy="112" r="5" fill="#1e3a5f" />
-            <circle cx="143" cy="111" r="2" fill="#0f172a" />
-            <circle cx="142" cy="110" r="0.8" fill="white" />
-          </g>
-          
-          {/* Nose */}
-          <path d="M 117 125 Q 120 138 123 125" fill="none" stroke="#d4a574" strokeWidth="1.5" strokeLinecap="round" />
-          
-          {/* Mouth - animated */}
-          <path d={`M 105 ${148 + mouthOpen * 2} Q 120 ${152 + mouthOpen * 6} 135 ${148 + mouthOpen * 2}`} fill="#c0392b" stroke="#a02020" strokeWidth="0.5" />
-          
-          {/* Chin shadow */}
-          <ellipse cx="120" cy="168" rx="28" ry="6" fill="#d4a574" opacity="0.3" />
-          
-          {/* Shirt collar highlights */}
-          <path d="M 92 196 L 100 192 L 108 196" fill="none" stroke="white" strokeWidth="0.5" opacity="0.5" />
-          <path d="M 132 196 L 140 192 L 148 196" fill="none" stroke="white" strokeWidth="0.5" opacity="0.5" />
-        </svg>
-        
-        {/* Speaking indicator */}
-        {isSpeaking && (
-          <div className="absolute bottom-20 left-1/2 -translate-x-1/2 flex space-x-1">
-            {[...Array(5)].map((_, i) => (
-              <div
-                key={i}
-                className="w-1 bg-indigo-400 rounded-full animate-pulse"
-                style={{ height: `${4 + Math.random() * 10}px`, animationDelay: `${i * 0.1}s` }}
-              />
-            ))}
-          </div>
-        )}
-      </div>
 
-      {/* Info overlay */}
-      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 rounded-full bg-gradient-brand flex items-center justify-center shadow-lg">
-              <User className="w-5 h-5 text-white" />
-            </div>
+          {/* Shadow ellipse */}
+          <ellipse cx="120" cy="270" rx="60" ry="8" fill="rgba(0,0,0,.3)" filter="url(#shadow)" />
+
+          {/* Body / Shirt */}
+          <path d="M60 200 Q60 180 80 170 L160 170 Q180 180 180 200 L180 280 L60 280 Z" fill="url(#shirtGrad)" />
+          <path d="M75 175 L165 175" stroke="rgba(255,255,255,.1)" strokeWidth="1" />
+
+          {/* Neck */}
+          <rect x="105" y="155" width="30" height="20" rx="4" fill="url(#skinGrad)" />
+
+          {/* Head */}
+          <ellipse cx="120" cy="110" rx="45" ry="52" fill="url(#skinGrad)" />
+
+          {/* Hair */}
+          <path d="M75 90 Q75 60 120 55 Q165 60 165 90 Q165 75 120 70 Q75 75 75 90 Z" fill="url(#hairGrad)" />
+          <path d="M78 95 Q78 80 120 75 Q162 80 162 95 Q162 85 120 80 Q78 85 78 95 Z" fill="#1a1008" opacity=".6" />
+
+          {/* Ears */}
+          <ellipse cx="75" cy="110" rx="8" ry="12" fill="#dbb890" />
+          <ellipse cx="165" cy="110" rx="8" ry="12" fill="#dbb890" />
+
+          {/* Eyes */}
+          <g transform={`translate(${eyeGaze.x * 2}, ${eyeGaze.y * 2})`}>
+            {/* Left eye */}
+            <ellipse cx="102" cy="105" rx="10" ry={blinkState ? 1 : 6} fill="white" />
+            <circle cx="102" cy="105" r="4" fill={colors.eye} />
+            <circle cx="103" cy="104" r="1.5" fill="white" opacity=".8" />
+
+            {/* Right eye */}
+            <ellipse cx="138" cy="105" rx="10" ry={blinkState ? 1 : 6} fill="white" />
+            <circle cx="138" cy="105" r="4" fill={colors.eye} />
+            <circle cx="139" cy="104" r="1.5" fill="white" opacity=".8" />
+          </g>
+
+          {/* Eyebrows */}
+          <path d="M88 95 Q100 88 115 92" stroke="#2a1f14" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+          <path d="M125 92 Q140 88 152 95" stroke="#2a1f14" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+
+          {/* Nose */}
+          <path d="M118 115 Q120 122 122 115" stroke="#c4a080" strokeWidth="1.5" fill="none" />
+
+          {/* Cheeks (blush) */}
+          <ellipse cx="95" cy="118" rx="12" ry="6" fill={colors.cheek} opacity=".3" />
+          <ellipse cx="145" cy="118" rx="12" ry="6" fill={colors.cheek} opacity=".3" />
+
+          {/* Mouth */}
+          <path d={`M105 128 Q120 ${130 + mouthOpen * 4} 135 128`} stroke={colors.lip} strokeWidth="2" fill="none" strokeLinecap="round" />
+
+          {/* Collar */}
+          <path d="M85 170 L105 165 L120 170 L135 165 L155 170" stroke="rgba(255,255,255,.15)" strokeWidth="1.5" fill="none" />
+        </svg>
+
+        {/* Name badge */}
+        <div className="absolute bottom-4 left-4 right-4">
+          <div className="flex items-center justify-between">
             <div>
-              <p className="text-white font-semibold text-sm">{name}</p>
-              <p className="text-white/60 text-xs">{isSpeaking ? 'Speaking...' : 'Listening...'}</p>
+              <p className="text-sm font-semibold text-white">{name}</p>
+              <p className="text-xs text-white/50">AI Interviewer</p>
             </div>
+            <button
+              onClick={() => setIsMuted(!isMuted)}
+              className="p-2 rounded-lg transition-colors"
+              style={{ background: 'rgba(255,255,255,.1)' }}
+            >
+              {isMuted ? <VolumeX className="w-4 h-4 text-white/50" /> : <Volume2 className="w-4 h-4 text-white/70" />}
+            </button>
           </div>
-          <button onClick={() => setIsMuted(!isMuted)} className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors">
-            {isMuted ? <VolumeX className="w-4 h-4 text-white" /> : <Volume2 className="w-4 h-4 text-white" />}
-          </button>
         </div>
       </div>
 
-      {/* Message */}
+      {/* Message area */}
       {message && (
-        <div className="absolute top-4 left-4 right-4">
-          <div className="bg-white/95 backdrop-blur-sm rounded-xl p-3 shadow-lg border border-ink-100 max-w-sm">
-            <p className="text-sm text-ink-800 leading-relaxed">{message}</p>
-          </div>
+        <div className="px-4 py-3 border-t" style={{ borderColor: 'rgba(255,255,255,.06)' }}>
+          <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,.7)' }}>
+            {message.length > 120 ? message.substring(0, 120) + '...' : message}
+          </p>
         </div>
       )}
     </div>
