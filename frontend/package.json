@@ -23,6 +23,7 @@
     "@vladmandic/face-api": "^1.7.14",
     "axios": "^1.7.9",
     "clsx": "^2.1.1",
+    "framer-motion": "^13.1.1",
     "lucide-react": "^0.469.0",
     "playwright": "^1.62.1",
     "react": "^18.3.1",
