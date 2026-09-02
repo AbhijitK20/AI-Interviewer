@@ -1,6 +1,6 @@
 import { Outlet, Link, useNavigate, useLocation } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext'
-import { LogOut, Home, FileText, Briefcase, Menu, X } from 'lucide-react'
+import { LogOut, Home, Briefcase, FileText, Menu, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 
@@ -22,23 +22,23 @@ const Layout = () => {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-ink-50 via-white to-primary-50/30">
-      {/* Glass Navbar */}
-      <motion.nav
-        initial={{ y: -20, opacity: 0 }}
+    <div className="min-h-screen bg-surface-0">
+      {/* Header */}
+      <motion.header
+        initial={{ y: -10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5, ease: 'easeOut' }}
-        className="sticky top-0 z-50 bg-white/90 border-b border-ink-100 shadow-sm"
+        transition={{ duration: 0.4 }}
+        className="sticky top-0 z-50 bg-surface-1/80 backdrop-blur-xl border-b border-white/5"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             {/* Logo */}
             <div className="flex items-center">
               <Link to="/" className="flex items-center gap-2.5 group">
-                <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center shadow-lg shadow-primary-500/25 group-hover:shadow-primary-500/40 transition-shadow">
+                <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center shadow-lg shadow-primary-500/20">
                   <span className="text-white font-bold text-sm">AI</span>
                 </div>
-                <span className="text-lg font-bold text-ink-900">
+                <span className="text-lg font-bold text-white">
                   Interviewer
                 </span>
               </Link>
@@ -52,35 +52,28 @@ const Layout = () => {
                   to={path}
                   className={`relative px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 ${
                     location.pathname === path
-                      ? 'text-primary-700 bg-primary-50'
-                      : 'text-ink-500 hover:text-ink-700 hover:bg-ink-50'
+                      ? 'text-white bg-white/10'
+                      : 'text-white/50 hover:text-white hover:bg-white/5'
                   }`}
                 >
                   <Icon className="h-4 w-4 inline mr-1.5" />
                   {label}
-                  {location.pathname === path && (
-                    <motion.div
-                      layoutId="activeTab"
-                      className="absolute inset-0 bg-primary-50 rounded-xl -z-10"
-                      transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
-                    />
-                  )}
                 </Link>
               ))}
             </div>
 
             {/* Right side */}
             <div className="flex items-center gap-3">
-              <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-ink-50/80 border border-ink-100">
+              <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/5">
                 <div className="w-6 h-6 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center">
                   <span className="text-white text-xs font-bold">{user?.fullName?.charAt(0)}</span>
                 </div>
-                <span className="text-sm text-ink-600 font-medium">{user?.fullName}</span>
+                <span className="text-sm text-white/70 font-medium">{user?.fullName}</span>
               </div>
 
               <button
                 onClick={handleLogout}
-                className="inline-flex items-center px-3 py-2 text-sm font-medium text-ink-500 hover:text-red-600 hover:bg-red-50 rounded-xl transition-all duration-200"
+                className="inline-flex items-center px-3 py-2 text-sm font-medium text-white/50 hover:text-red-400 hover:bg-red-500/10 rounded-xl transition-all duration-200"
               >
                 <LogOut className="h-4 w-4" />
               </button>
@@ -88,7 +81,7 @@ const Layout = () => {
               {/* Mobile menu button */}
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
-                className="sm:hidden p-2 rounded-xl text-ink-500 hover:bg-ink-50"
+                className="sm:hidden p-2 rounded-xl text-white/50 hover:bg-white/5"
               >
                 {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
               </button>
@@ -104,7 +97,7 @@ const Layout = () => {
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="sm:hidden overflow-hidden border-t border-ink-100"
+              className="sm:hidden overflow-hidden border-t border-white/5"
             >
               <div className="px-4 py-3 space-y-1">
                 {navLinks.map(({ path, label, icon: Icon }) => (
@@ -114,8 +107,8 @@ const Layout = () => {
                     onClick={() => setMobileOpen(false)}
                     className={`flex items-center px-3 py-2.5 rounded-xl text-sm font-medium transition-all ${
                       location.pathname === path
-                        ? 'text-primary-700 bg-primary-50'
-                        : 'text-ink-500 hover:bg-ink-50'
+                        ? 'text-white bg-white/10'
+                        : 'text-white/50 hover:bg-white/5'
                     }`}
                   >
                     <Icon className="h-4 w-4 mr-2" />
@@ -126,17 +119,17 @@ const Layout = () => {
             </motion.div>
           )}
         </AnimatePresence>
-      </motion.nav>
+      </motion.header>
 
-      {/* Page content with animation */}
+      {/* Page content */}
       <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.3, ease: [.16,1,.3,1] }}
           >
             <Outlet />
           </motion.div>
