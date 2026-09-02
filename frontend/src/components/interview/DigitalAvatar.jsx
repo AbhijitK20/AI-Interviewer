@@ -1,24 +1,16 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Volume2, VolumeX } from 'lucide-react'
 
 const DigitalAvatar = ({ isSpeaking, emotion, name = 'AI Interviewer', message }) => {
   const [isMuted, setIsMuted] = useState(false)
   const [mouthOpen, setMouthOpen] = useState(0)
   const [headTilt, setHeadTilt] = useState(0)
-  const [glowIntensity, setGlowIntensity] = useState(0)
-  const [blinking, setBlinking] = useState(false)
-
-  useEffect(() => {
-    const blink = setInterval(() => {
-      setBlinking(true)
-      setTimeout(() => setBlinking(false), 120)
-    }, 2800 + Math.random() * 2500)
-    return () => clearInterval(blink)
-  }, [])
+  const canvasRef = useRef(null)
+  const imgRef = useRef(null)
 
   useEffect(() => {
     const tilt = setInterval(() => {
-      setHeadTilt(Math.sin(Date.now() / 2500) * 1.2)
+      setHeadTilt(Math.sin(Date.now() / 2500) * 1.5)
     }, 80)
     return () => clearInterval(tilt)
   }, [])
@@ -26,15 +18,106 @@ const DigitalAvatar = ({ isSpeaking, emotion, name = 'AI Interviewer', message }
   useEffect(() => {
     if (isSpeaking) {
       const mouth = setInterval(() => {
-        setMouthOpen(0.1 + Math.random() * 0.5)
-        setGlowIntensity(0.3 + Math.random() * 0.4)
-      }, 75)
+        setMouthOpen(Math.random())
+      }, 80)
       return () => clearInterval(mouth)
     } else {
       setMouthOpen(0)
-      setGlowIntensity(0)
     }
   }, [isSpeaking])
+
+  // Draw realistic avatar on canvas
+  useEffect(() => {
+    const canvas = canvasRef.current
+    if (!canvas) return
+    const ctx = canvas.getContext('2d')
+    
+    const draw = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      
+      // Draw base face with realistic skin tone
+      const gradient = ctx.createRadialGradient(90, 80, 0, 90, 80, 80)
+      gradient.addColorStop(0, '#f0d0b4')
+      gradient.addColorStop(0.5, '#e8c4a4')
+      gradient.addColorStop(1, '#d9b894')
+      
+      ctx.save()
+      ctx.translate(canvas.width / 2, canvas.height / 2)
+      ctx.rotate((headTilt * Math.PI) / 180)
+      ctx.translate(-canvas.width / 2, -canvas.height / 2)
+      
+      // Face
+      ctx.beginPath()
+      ctx.ellipse(90, 85, 42, 50, 0, 0, Math.PI * 2)
+      ctx.fillStyle = gradient
+      ctx.fill()
+      
+      // Hair
+      ctx.beginPath()
+      ctx.ellipse(90, 55, 38, 25, 0, Math.PI, Math.PI * 2)
+      ctx.fillStyle = '#2c1e12'
+      ctx.fill()
+      
+      // Eyes
+      ctx.fillStyle = '#fff'
+      ctx.beginPath()
+      ctx.ellipse(75, 80, 8, 5, 0, 0, Math.PI * 2)
+      ctx.fill()
+      ctx.beginPath()
+      ctx.ellipse(105, 80, 8, 5, 0, 0, Math.PI * 2)
+      ctx.fill()
+      
+      // Pupils
+      ctx.fillStyle = '#3d2b1f'
+      ctx.beginPath()
+      ctx.arc(75, 80, 3.5, 0, Math.PI * 2)
+      ctx.fill()
+      ctx.beginPath()
+      ctx.arc(105, 80, 3.5, 0, Math.PI * 2)
+      ctx.fill()
+      
+      // Catch lights
+      ctx.fillStyle = 'rgba(255,255,255,.9)'
+      ctx.beginPath()
+      ctx.arc(76.5, 78.5, 1, 0, Math.PI * 2)
+      ctx.fill()
+      ctx.beginPath()
+      ctx.arc(106.5, 78.5, 1, 0, Math.PI * 2)
+      ctx.fill()
+      
+      // Nose
+      ctx.strokeStyle = '#c8a088'
+      ctx.lineWidth = 1.2
+      ctx.beginPath()
+      ctx.moveTo(88, 95)
+      ctx.quadraticCurveTo(90, 102, 92, 95)
+      ctx.stroke()
+      
+      // Mouth
+      ctx.strokeStyle = '#c4756e'
+      ctx.lineWidth = 1.8
+      ctx.beginPath()
+      const mouthY = 110 + mouthOpen * 3
+      ctx.moveTo(76, 110)
+      ctx.quadraticCurveTo(90, mouthY, 104, 110)
+      ctx.stroke()
+      
+      // Collar
+      ctx.strokeStyle = 'rgba(255,255,255,.1)'
+      ctx.lineWidth = 1
+      ctx.beginPath()
+      ctx.moveTo(70, 148)
+      ctx.lineTo(85, 143)
+      ctx.lineTo(100, 148)
+      ctx.lineTo(115, 143)
+      ctx.lineTo(130, 148)
+      ctx.stroke()
+      
+      ctx.restore()
+    }
+    
+    draw()
+  }, [mouthOpen, headTilt])
 
   const emotionGlow = {
     neutral: 'rgba(99,102,241,.15)',
@@ -46,69 +129,18 @@ const DigitalAvatar = ({ isSpeaking, emotion, name = 'AI Interviewer', message }
   return (
     <div className="relative rounded-2xl overflow-hidden" style={{ background: 'linear-gradient(145deg, #080c14, #0d1525, #080c14)' }}>
       <div className="relative h-80 flex items-center justify-center overflow-hidden">
-        {/* Dynamic emotion glow */}
         <div className="absolute inset-0 transition-all duration-500" style={{
-          background: `radial-gradient(ellipse at 50% 40%, ${emotionGlow[emotion] || emotionGlow.neutral}, transparent 60%)`,
-          opacity: 0.5 + glowIntensity
+          background: `radial-gradient(ellipse at 50% 40%, ${emotionGlow[emotion] || emotionGlow.neutral}, transparent 60%)`
         }} />
+        
+        <canvas
+          ref={canvasRef}
+          width={180}
+          height={180}
+          className="w-44 h-44"
+          style={{ filter: 'drop-shadow(0 8px 24px rgba(0,0,0,.4))' }}
+        />
 
-        {/* Professional avatar using AI-generated face */}
-        <div className="relative" style={{
-          transform: `rotate(${headTilt}deg) scale(${1 + mouthOpen * 0.02})`,
-          filter: `drop-shadow(0 12px 40px rgba(0,0,0,.5))`
-        }}>
-          {/* Realistic face using CSS gradients and shadows */}
-          <div className="w-48 h-60 relative">
-            {/* Face base with realistic skin tone */}
-            <div className="absolute top-0 left-0 w-full h-full rounded-full overflow-hidden" style={{
-              background: 'radial-gradient(ellipse at 50% 40%, #f0d0b4 0%, #e8c4a4 50%, #d9b894 100%)',
-              boxShadow: '0 8px 32px rgba(0,0,0,.4), inset 0 2px 8px rgba(255,255,255,.1)'
-            }}>
-              {/* Face highlight */}
-              <div className="absolute inset-0" style={{
-                background: 'radial-gradient(ellipse at 35% 30%, rgba(255,255,255,.12), transparent 50%)'
-              }}/>
-              
-              {/* Hair */}
-              <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-44 h-20 rounded-b-full" style={{
-                background: 'linear-gradient(180deg, #2c1e12 0%, #1a1008 100%)',
-                clipPath: 'polygon(10% 100%, 0% 30%, 15% 0%, 85% 0%, 100% 30%, 90% 100%)'
-              }}/>
-              
-              {/* Eyes */}
-              <div className="absolute top-[35%] left-0 right-0 flex justify-center gap-8">
-                <div className="w-5 h-5 rounded-full bg-white relative" style={{ boxShadow: 'inset 0 1px 3px rgba(0,0,0,.3)' }}>
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-[#3d2b1f]"/>
-                  <div className="absolute top-[30%] left-[60%] w-1 h-1 rounded-full bg-white opacity-90"/>
-                </div>
-                <div className="w-5 h-5 rounded-full bg-white relative" style={{ boxShadow: 'inset 0 1px 3px rgba(0,0,0,.3)' }}>
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-[#3d2b1f]"/>
-                  <div className="absolute top-[30%] left-[60%] w-1 h-1 rounded-full bg-white opacity-90"/>
-                </div>
-              </div>
-
-              {/* Eyebrows */}
-              <div className="absolute top-[28%] left-0 right-0 flex justify-center gap-10">
-                <div className="w-5 h-0.5 bg-[#2a1e14] rounded-full -rotate-6"/>
-                <div className="w-5 h-0.5 bg-[#2a1e14] rounded-full rotate-6"/>
-              </div>
-
-              {/* Nose */}
-              <div className="absolute top-[48%] left-1/2 -translate-x-1/2 w-1.5 h-2 rounded-full" style={{ background: 'rgba(180,150,130,.3)' }}/>
-
-              {/* Mouth */}
-              <div className="absolute bottom-[22%] left-1/2 -translate-x-1/2" style={{ transform: `translateX(-50%) scaleY(${1 + mouthOpen * 0.4})` }}>
-                <div className="w-6 h-1 rounded-full" style={{ background: '#c4756e' }}/>
-              </div>
-
-              {/* Cheeks */}
-              <div className="absolute top-[45%] left-[15%] w-4 h-2 rounded-full" style={{ background: '#e8b4a0', opacity: .2 }}/>
-              <div className="absolute top-[45%] right-[15%] w-4 h-2 rounded-full" style={{ background: '#e8b4a0', opacity: .2 }}/>
-            </div>
-          </div>
-        </div>
-
-        {/* Name badge */}
         <div className="absolute bottom-4 left-4 right-4">
           <div className="flex items-center justify-between">
             <div>
