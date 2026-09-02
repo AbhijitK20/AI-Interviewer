@@ -103,7 +103,7 @@ const Dashboard = () => {
         >
           <Link
             to="/interview/new"
-            className="inline-flex items-center px-5 py-2.5 bg-gradient-to-r from-primary-600 to-primary-700 text-white font-medium rounded-xl hover:from-primary-700 hover:to-primary-800 transition-all shadow-lg shadow-primary-500/25 hover:shadow-primary-500/40 active:scale-95"
+            className="inline-flex items-center px-5 py-2.5 bg-primary-600 text-white font-medium rounded-xl hover:bg-primary-700 transition-all shadow-lg shadow-primary-500/25 hover:shadow-primary-500/40 active:scale-95"
           >
             <Plus className="h-4 w-4 mr-2" />
             New Interview
