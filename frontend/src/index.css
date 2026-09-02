@@ -45,8 +45,12 @@ body {
   background-color: transparent;
 }
 
-html, body, #root {
+html, body {
   background: var(--surface-0) !important;
+  min-height: 100vh;
+}
+
+#root {
   min-height: 100vh;
 }
 
