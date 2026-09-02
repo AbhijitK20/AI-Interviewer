@@ -9,12 +9,24 @@ jobs:
   keep-alive:
     runs-on: ubuntu-latest
     steps:
-      - name: Ping Backend
+      - name: Wake up Backend
         run: |
-          echo "Pinging backend..."
-          curl -s -o /dev/null -w "Backend: HTTP %{http_code}\n" https://ai-interviewer-backend-y6ks.onrender.com/api/auth/login || echo "Backend unreachable"
+          echo "Waking up backend..."
+          for i in 1 2 3; do
+            curl -s -o /dev/null -w "Backend attempt $i: HTTP %{http_code} (%{time_total}s)\n" \
+              https://ai-interviewer-backend-y6ks.onrender.com/api/auth/login \
+              -X POST -H "Content-Type: application/json" \
+              -d '{"email":"admin@interviewer.com","password":"admin123"}' \
+              --max-time 60 || true
+            sleep 5
+          done
           
-      - name: Ping AI Service
+      - name: Wake up AI Service
         run: |
-          echo "Pinging AI service..."
-          curl -s -o /dev/null -w "AI Service: HTTP %{http_code}\n" https://ai-interviewer-ai-service-qpxr.onrender.com/ai/voices || echo "AI Service unreachable"
+          echo "Waking up AI service..."
+          for i in 1 2 3; do
+            curl -s -o /dev/null -w "AI Service attempt $i: HTTP %{http_code} (%{time_total}s)\n" \
+              https://ai-interviewer-ai-service-qpxr.onrender.com/ai/voices \
+              --max-time 60 || true
+            sleep 5
+          done
