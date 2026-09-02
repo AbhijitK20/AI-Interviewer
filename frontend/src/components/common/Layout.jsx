@@ -3,7 +3,6 @@ import { useAuth } from '../../context/AuthContext'
 import { LogOut, Home, Briefcase, FileText, Menu, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
-import { BackgroundVideo } from '../ui/glass'
 
 const Layout = () => {
   const { user, logout } = useAuth()
@@ -23,8 +22,7 @@ const Layout = () => {
   ]
 
   return (
-    <div style={{ position: 'fixed', inset: 0, background: '#000', isolation: 'isolate' }}>
-      <BackgroundVideo />
+    <div style={{ position: 'fixed', inset: 0, background: 'transparent', isolation: 'isolate' }}>
       <div style={{ position: 'relative', zIndex: 1, height: '100%', overflowY: 'auto' }}>
         {/* Header */}
         <motion.header
