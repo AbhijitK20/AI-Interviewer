@@ -139,10 +139,10 @@ export const GlassBadge = ({ children, variant = 'default', className = '' }) =>
 
 // Background Video - matches Vantage
 export const BackgroundVideo = () => (
-  <>
+  <div style={{ position: 'absolute', inset: 0, zIndex: -3, overflow: 'hidden' }}>
     <video
       style={{
-        position: 'absolute', inset: 0, zIndex: -3,
+        position: 'absolute', inset: 0,
         width: '100%', height: '100%',
         objectFit: 'cover', objectPosition: 'center',
         pointerEvents: 'none', userSelect: 'none',
@@ -153,12 +153,12 @@ export const BackgroundVideo = () => (
     </video>
     <div
       style={{
-        position: 'absolute', inset: 0, zIndex: -2,
+        position: 'absolute', inset: 0,
         background: 'linear-gradient(180deg, rgba(0,0,0,.03), transparent 24%, transparent 82%, rgba(0,0,0,.05)), radial-gradient(ellipse at 44% 54%, transparent 30%, rgba(0,0,0,.055) 100%)',
         pointerEvents: 'none',
       }}
     />
-  </>
+  </div>
 )
 
 // Entrance animation variants
