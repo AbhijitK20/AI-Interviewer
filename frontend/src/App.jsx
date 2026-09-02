@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
-import { AuthProvider } from './context/AuthContext'
+import { AuthProvider, useAuth } from './context/AuthContext'
+import Landing from './pages/Landing'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import Dashboard from './pages/Dashboard'
@@ -11,30 +12,54 @@ import Resumes from './pages/Resumes'
 import ProtectedRoute from './components/common/ProtectedRoute'
 import Layout from './components/common/Layout'
 
-function App() {
+function AppRoutes() {
+  const { user, loading } = useAuth()
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-black flex items-center justify-center">
+        <div className="animate-spin rounded-full h-8 w-8 border-2 border-white/20 border-t-white"></div>
+      </div>
+    )
+  }
+
   return (
-    <AuthProvider>
-      <Router>
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route
-            path="/"
-            element={
-              <ProtectedRoute>
-                <Layout />
-              </ProtectedRoute>
-            }
-          >
+    <Routes>
+      <Route path="/login" element={user ? <Navigate to="/" replace /> : <Login />} />
+      <Route path="/register" element={user ? <Navigate to="/" replace /> : <Register />} />
+      <Route
+        path="/"
+        element={
+          user ? (
+            <ProtectedRoute>
+              <Layout />
+            </ProtectedRoute>
+          ) : (
+            <Landing />
+          )
+        }
+      >
+        {user && (
+          <>
             <Route index element={<Dashboard />} />
             <Route path="interview/new" element={<NewInterview />} />
             <Route path="interview/:id" element={<Interview />} />
             <Route path="report/:id" element={<Report />} />
             <Route path="job-descriptions" element={<JobDescriptions />} />
             <Route path="resumes" element={<Resumes />} />
-          </Route>
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
+          </>
+        )}
+      </Route>
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
+  )
+}
+
+function App() {
+  return (
+    <AuthProvider>
+      <Router>
+        <AppRoutes />
       </Router>
     </AuthProvider>
   )
