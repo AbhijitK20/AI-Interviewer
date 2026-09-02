@@ -161,7 +161,7 @@ const Interview = () => {
 
   if (loading) {
     return (
-      <div className="relative min-h-screen">
+      <div className="min-h-screen relative" style={{ background: "#000", isolation: "isolate" }}>
         <BackgroundVideo />
         <div className="relative z-10 flex items-center justify-center h-64">
           <div className="animate-spin rounded-full h-8 w-8" style={{ border: '2px solid rgba(255,255,255,.1)', borderTopColor: '#fff' }} />
@@ -181,7 +181,7 @@ const Interview = () => {
   const isCodingQuestion = currentQuestion.questionType === 'CODING'
 
   return (
-    <div className="relative min-h-screen">
+    <div className="min-h-screen relative" style={{ background: "#000", isolation: "isolate" }}>
       <BackgroundVideo />
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
       {/* Anti-Cheat Modal */}

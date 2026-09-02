@@ -33,7 +33,7 @@ const JobDescriptions = () => {
   }
 
   return (
-    <div className="relative min-h-screen">
+    <div className="min-h-screen relative" style={{ background: '#000', isolation: 'isolate' }}>
       <BackgroundVideo />
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <button onClick={() => navigate(-1)} className="mb-6 inline-flex items-center gap-2 text-sm font-medium" style={{ color: 'rgba(255,255,255,.5)' }}>

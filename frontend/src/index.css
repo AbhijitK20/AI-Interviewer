@@ -1,9 +1,17 @@
 /* AI Interviewer Design System */
 /* Based on hallmark anti-slop principles */
 
-@tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Override Tailwind preflight backgrounds */
+*, *::before, *::after {
+  background-color: transparent !important;
+}
+
+html, body, #root {
+  background: transparent !important;
+}
 
 :root {
   /* OKLCH-based palette with midnight anchor (hue 40) */
@@ -27,14 +35,14 @@
 }
 
 html {
-  background: var(--surface-0);
+  background: transparent;
   color: var(--color-ink);
   color-scheme: dark;
   font-family: "Geist", "Inter", ui-sans-serif, system-ui, sans-serif;
 }
 
 body {
-  background: var(--surface-0) !important;
+  background: transparent !important;
   color: var(--color-ink) !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -45,9 +53,20 @@ body {
   background-color: transparent;
 }
 
-html, body, #root {
+html, body {
   background: var(--surface-0) !important;
   min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Create stacking context for video backgrounds */
+.min-h-screen {
+  isolation: isolate;
+  position: relative;
+  background: transparent !important;
 }
 
 /* Subtle gradient overlay for depth on all inner pages */

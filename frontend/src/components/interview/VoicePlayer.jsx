@@ -20,19 +20,22 @@ const VoicePlayer = ({ text, voice = 'en-US-AndrewNeural', rate = 0.9, autoPlay 
     try {
       if (sourceRef.current) {
         sourceRef.current.onended = null
-        try { sourceRef.current.stop() } catch { /* ignore */ }
-        try { sourceRef.current.disconnect() } catch { /* ignore */ }
+        try { sourceRef.current.stop() } catch (e) { /* already stopped */ }
+        try { sourceRef.current.disconnect() } catch (e) { /* already disconnected */ }
         sourceRef.current = null
       }
-    } catch { /* ignore */ }
-    try { window.speechSynthesis?.cancel() } catch { /* ignore */ }
+    } catch (e) { /* ignore */ }
+    try { window.speechSynthesis?.cancel() } catch (e) { /* ignore */ }
     try {
-      if (audioCtxRef.current && audioCtxRef.current.state !== 'closed') {
-        audioCtxRef.current.close().catch(() => {})
+      if (audioCtxRef.current) {
+        const ctx = audioCtxRef.current
+        if (ctx.state !== 'closed') {
+          ctx.close().catch(() => {})
+        }
       }
-    } catch { /* ignore */ }
-    if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current)
+    } catch (e) { /* ignore */ }
     audioCtxRef.current = null
+    if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current)
     audioBufferRef.current = null
     startTimeRef.current = 0
     pausedAtRef.current = 0

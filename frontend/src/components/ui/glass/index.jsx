@@ -10,9 +10,9 @@ export const GlassCard = ({ children, className = '', hover = true, ...props }) 
     style={{
       border: '1px solid rgba(255,255,255,.13)',
       borderRadius: 'clamp(12px, 1.52vh, 18px)',
-      background: 'linear-gradient(145deg, rgba(24,22,20,.80), rgba(5,12,14,.86))',
+      background: 'linear-gradient(145deg, rgba(24,22,20,.55), rgba(5,12,14,.65))',
       boxShadow: '0 2px 10px rgba(0,0,0,.44), 0 0 0 3px rgba(255,255,255,.035) inset, 0 0 0 1px rgba(0,0,0,.9)',
-      backdropFilter: 'blur(14px) saturate(108%)',
+      backdropFilter: 'blur(18px) saturate(120%)',
       transition: hover ? 'all 0.3s cubic-bezier(.16,1,.3,1)' : 'none',
     }}
     whileHover={hover ? { y: -2, boxShadow: '0 4px 20px rgba(0,0,0,.5), 0 0 0 3px rgba(255,255,255,.05) inset' } : {}}
@@ -82,7 +82,7 @@ export const GlassButton = ({ children, className = '', ...props }) => (
 )
 
 // Glass Input - supports as="textarea" prop
-export const GlassInput = ({ className = '', as, ...props }) => {
+export const GlassInput = ({ className = '', as, style: propStyle, ...props }) => {
   const Component = as === 'textarea' ? 'textarea' : 'input'
   return (
     <Component
@@ -100,6 +100,7 @@ export const GlassInput = ({ className = '', as, ...props }) => {
         transition: 'all 0.2s',
         outline: 'none',
         resize: as === 'textarea' ? 'none' : undefined,
+        ...propStyle,
       }}
       onFocus={(e) => e.target.style.borderColor = 'rgba(99,102,241,.5)'}
       onBlur={(e) => e.target.style.borderColor = 'rgba(255,255,255,.13)'}
@@ -137,28 +138,28 @@ export const GlassBadge = ({ children, variant = 'default', className = '' }) =>
   )
 }
 
-// Background Video - matches Vantage
+// Background with video + blur for inner pages
 export const BackgroundVideo = () => (
-  <>
+  <div style={{ position: 'fixed', inset: 0, zIndex: -1, overflow: 'hidden' }}>
     <video
       style={{
-        position: 'absolute', inset: 0, zIndex: -3,
+        position: 'absolute', inset: 0,
         width: '100%', height: '100%',
         objectFit: 'cover', objectPosition: 'center',
+        filter: 'blur(20px) brightness(0.4)',
+        transform: 'scale(1.1)',
         pointerEvents: 'none', userSelect: 'none',
       }}
       autoPlay muted loop playsInline disablePictureInPicture aria-hidden="true"
     >
       <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260808_064556_051587f1-74a1-4336-8c05-4dde3594ed05.mp4" type="video/mp4" />
     </video>
-    <div
-      style={{
-        position: 'absolute', inset: 0, zIndex: -2,
-        background: 'linear-gradient(180deg, rgba(0,0,0,.03), transparent 24%, transparent 82%, rgba(0,0,0,.05)), radial-gradient(ellipse at 44% 54%, transparent 30%, rgba(0,0,0,.055) 100%)',
-        pointerEvents: 'none',
-      }}
-    />
-  </>
+    <div style={{
+      position: 'absolute', inset: 0,
+      background: 'linear-gradient(180deg, rgba(0,0,0,.3), rgba(0,0,0,.5) 50%, rgba(0,0,0,.7))',
+      pointerEvents: 'none',
+    }} />
+  </div>
 )
 
 // Entrance animation variants
