@@ -296,46 +296,39 @@ const Report = () => {
     <div className="max-w-6xl mx-auto space-y-6 pb-12">
       {/* Navigation & Actions */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <Link
-          to="/"
-          className="inline-flex items-center text-sm font-medium text-ink-600 hover:text-primary-600 transition-colors"
-        >
+        <Link to="/" className="btn-ghost">
           <ArrowLeft className="h-4 w-4 mr-1.5" />
           Back to Dashboard
         </Link>
         <PDFErrorBoundary>
-          <Suspense fallback={<div className="h-10 w-48 bg-ink-200 animate-pulse rounded-xl" />}>
+          <Suspense fallback={<div className="h-10 w-48 animate-pulse rounded-xl" style={{ background: 'var(--border)' }} />}>
             <PDFReportGenerator report={report} interview={interview} candidate={user} />
           </Suspense>
         </PDFErrorBoundary>
       </div>
 
       {/* Main Overview Banner */}
-      <div className="bg-white rounded-2xl shadow-card border border-ink-100 p-6 md:p-8">
+      <div className="card p-6 md:p-8">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="space-y-2">
-            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full text-xs font-semibold bg-primary-50 text-primary-700">
+            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full text-xs font-semibold badge-primary">
               <Sparkles className="h-3.5 w-3.5" />
               <span>Assessment Summary</span>
             </div>
-            <h1 className="text-2xl md:text-3xl font-bold text-ink-900">
+            <h1 className="text-2xl md:text-3xl font-bold" style={{ color: 'var(--color-ink)' }}>
               {interview?.title || 'Technical Interview Assessment'}
             </h1>
-            <p className="text-ink-500 text-sm">
+            <p className="text-sm" style={{ color: 'oklch(100% 0 0 / 0.5)' }}>
               {interview?.jobDescriptionTitle || 'Candidate'} •{' '}
               {interview?.companyName ? `${interview.companyName} • ` : ''}
               Completed on{' '}
               {report.createdAt
-                ? new Date(report.createdAt).toLocaleDateString(undefined, {
-                    year: 'numeric',
-                    month: 'short',
-                    day: 'numeric',
-                  })
+                ? new Date(report.createdAt).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })
                 : 'Recent'}
             </p>
           </div>
 
-          <div className="flex items-center gap-6 self-start md:self-auto bg-ink-50/60 p-4 rounded-2xl border border-ink-100">
+          <div className="flex items-center gap-6 self-start md:self-auto p-4 rounded-2xl" style={{ background: 'oklch(100% 0 0 / 0.03)', border: '1px solid var(--border)' }}>
             <div className="text-center">
               <div className="flex items-center justify-center space-x-1.5 text-primary-600">
                 <Award className="h-7 w-7" />
@@ -366,48 +359,36 @@ const Report = () => {
       {/* Analytics Charts */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Skill Radar */}
-        <div className="bg-white rounded-2xl shadow-card border border-ink-100 p-6">
+        <div className="card p-6">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-bold text-ink-900">Skill Competency Radar</h2>
-            <span className="text-xs text-ink-400">Proficiency Breakdown</span>
+            <h2 className="text-lg font-bold" style={{ color: 'var(--color-ink)' }}>Skill Competency Radar</h2>
+            <span className="text-xs" style={{ color: 'oklch(100% 0 0 / 0.4)' }}>Proficiency Breakdown</span>
           </div>
           <div className="h-[280px] w-full">
             <ResponsiveContainer width="100%" height="100%">
               <RadarChart data={radarData}>
-                <PolarGrid stroke="#e2e8f0" />
-                <PolarAngleAxis dataKey="skill" tick={{ fill: '#475569', fontSize: 12 }} />
-                <PolarRadiusAxis angle={30} domain={[0, 100]} stroke="#cbd5e1" />
-                <Radar
-                  name="Proficiency"
-                  dataKey="score"
-                  stroke="#6366f1"
-                  fill="#6366f1"
-                  fillOpacity={0.4}
-                />
+                <PolarGrid stroke="oklch(30% 0.008 40)" />
+                <PolarAngleAxis dataKey="skill" tick={{ fill: 'oklch(72% 0.006 40)', fontSize: 12 }} />
+                <PolarRadiusAxis angle={30} domain={[0, 100]} stroke="oklch(35% 0.006 40)" />
+                <Radar name="Proficiency" dataKey="score" stroke="#6366f1" fill="#6366f1" fillOpacity={0.3} />
               </RadarChart>
             </ResponsiveContainer>
           </div>
         </div>
 
         {/* Category Scores */}
-        <div className="bg-white rounded-2xl shadow-card border border-ink-100 p-6">
+        <div className="card p-6">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-bold text-ink-900">Category Performance</h2>
-            <span className="text-xs text-ink-400">Scores by Domain</span>
+            <h2 className="text-lg font-bold" style={{ color: 'var(--color-ink)' }}>Category Performance</h2>
+            <span className="text-xs" style={{ color: 'oklch(100% 0 0 / 0.4)' }}>Scores by Domain</span>
           </div>
           <div className="h-[280px] w-full">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={categoryScores} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />
-                <XAxis dataKey="category" tick={{ fill: '#475569', fontSize: 12 }} />
-                <YAxis domain={[0, 100]} tick={{ fill: '#475569', fontSize: 12 }} />
-                <Tooltip
-                  contentStyle={{
-                    borderRadius: '8px',
-                    borderColor: '#e2e8f0',
-                    boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
-                  }}
-                />
+                <CartesianGrid strokeDasharray="3 3" stroke="oklch(25% 0.008 40)" />
+                <XAxis dataKey="category" tick={{ fill: 'oklch(72% 0.006 40)', fontSize: 12 }} />
+                <YAxis domain={[0, 100]} tick={{ fill: 'oklch(72% 0.006 40)', fontSize: 12 }} />
+                <Tooltip contentStyle={{ borderRadius: '8px', background: 'var(--surface-2)', border: '1px solid var(--border)', color: 'var(--color-ink)' }} />
                 <Bar dataKey="score" fill="#6366f1" radius={[4, 4, 0, 0]} name="Score" />
               </BarChart>
             </ResponsiveContainer>
@@ -418,32 +399,32 @@ const Report = () => {
       {/* Strengths & Weaknesses */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Strengths */}
-        <div className="bg-white rounded-2xl shadow-card border border-ink-100 p-6">
+        <div className="card p-6">
           <div className="flex items-center space-x-2 mb-4">
-            <div className="p-2 rounded-xl bg-emerald-50 text-emerald-600">
-              <TrendingUp className="h-5 w-5" />
+            <div className="p-2 rounded-xl" style={{ background: 'oklch(50% 0.14 155 / 0.15)' }}>
+              <TrendingUp className="h-5 w-5" style={{ color: 'oklch(75% 0.14 155)' }} />
             </div>
-            <h2 className="text-lg font-bold text-ink-900">Key Strengths</h2>
+            <h2 className="text-lg font-bold" style={{ color: 'var(--color-ink)' }}>Key Strengths</h2>
           </div>
           {strengths.length > 0 ? (
             <ul className="space-y-3">
               {strengths.map((item, index) => (
-                <li key={index} className="flex items-start text-sm text-ink-700">
-                  <CheckCircle2 className="h-4 w-4 text-emerald-500 mr-2.5 mt-0.5 flex-shrink-0" />
+                <li key={index} className="flex items-start text-sm" style={{ color: 'oklch(100% 0 0 / 0.7)' }}>
+                  <CheckCircle2 className="h-4 w-4 mr-2.5 mt-0.5 flex-shrink-0" style={{ color: 'oklch(75% 0.14 155)' }} />
                   <span>{item}</span>
                 </li>
               ))}
             </ul>
           ) : (
-            <p className="text-sm text-ink-400 italic">No specific strengths recorded.</p>
+            <p className="text-sm italic" style={{ color: 'oklch(100% 0 0 / 0.35)' }}>No specific strengths recorded.</p>
           )}
         </div>
 
         {/* Weaknesses */}
-        <div className="bg-white rounded-2xl shadow-card border border-ink-100 p-6">
+        <div className="card p-6">
           <div className="flex items-center space-x-2 mb-4">
-            <div className="p-2 rounded-xl bg-amber-50 text-amber-600">
-              <AlertCircle className="h-5 w-5" />
+            <div className="p-2 rounded-xl" style={{ background: 'oklch(55% 0.15 85 / 0.15)' }}>
+              <AlertCircle className="h-5 w-5" style={{ color: 'oklch(80% 0.15 85)' }} />
             </div>
             <h2 className="text-lg font-bold text-ink-900">Areas for Improvement</h2>
           </div>
@@ -457,7 +438,7 @@ const Report = () => {
               ))}
             </ul>
           ) : (
-            <p className="text-sm text-ink-400 italic">No major weakness areas identified.</p>
+            <p className="text-sm italic" style={{ color: 'oklch(100% 0 0 / 0.35)' }}>No major weakness areas identified.</p>
           )}
         </div>
       </div>
@@ -465,37 +446,37 @@ const Report = () => {
       {/* Summary and Recommendations */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Executive Summary */}
-        <div className="bg-white rounded-2xl shadow-card border border-ink-100 p-6">
+        <div className="card p-6">
           <div className="flex items-center space-x-2 mb-4">
-            <div className="p-2 rounded-xl bg-indigo-50 text-indigo-600">
-              <BookOpen className="h-5 w-5" />
+            <div className="p-2 rounded-xl" style={{ background: 'oklch(65% 0.15 265 / 0.15)' }}>
+              <BookOpen className="h-5 w-5" style={{ color: 'var(--color-accent)' }} />
             </div>
-            <h2 className="text-lg font-bold text-ink-900">Executive Summary</h2>
+            <h2 className="text-lg font-bold" style={{ color: 'var(--color-ink)' }}>Executive Summary</h2>
           </div>
-          <p className="text-ink-700 text-sm leading-relaxed whitespace-pre-line">
+          <p className="text-sm leading-relaxed whitespace-pre-line" style={{ color: 'oklch(100% 0 0 / 0.7)' }}>
             {report.summary || 'The candidate has completed the evaluation process.'}
           </p>
         </div>
 
         {/* Recommendation Level & Guidance */}
-        <div className="bg-white rounded-2xl shadow-card border border-ink-100 p-6 flex flex-col justify-between">
+        <div className="card p-6 flex flex-col justify-between">
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <div className="p-2 rounded-xl bg-primary-50 text-primary-600">
-                <Award className="h-5 w-5" />
+              <div className="p-2 rounded-xl badge-primary">
+                <Award className="h-5 w-5" style={{ color: 'var(--color-accent)' }} />
               </div>
-              <h2 className="text-lg font-bold text-ink-900">Recommendations & Next Steps</h2>
+              <h2 className="text-lg font-bold" style={{ color: 'var(--color-ink)' }}>Recommendations</h2>
             </div>
-            <p className="text-ink-700 text-sm leading-relaxed mb-4 whitespace-pre-line">
-              {cleanRecommendations(report.recommendations) || 'Continue practicing hands-on problem solving and system architecture.'}
+            <p className="text-sm leading-relaxed mb-4 whitespace-pre-line" style={{ color: 'oklch(100% 0 0 / 0.7)' }}>
+              {cleanRecommendations(report.recommendations) || 'Continue practicing hands-on problem solving.'}
             </p>
           </div>
 
-          <div className="pt-4 border-t border-ink-100 flex items-center justify-between">
-            <span className="text-xs font-semibold text-ink-400 uppercase tracking-wider">
+          <div className="pt-4 flex items-center justify-between" style={{ borderTop: '1px solid var(--border)' }}>
+            <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: 'oklch(100% 0 0 / 0.4)' }}>
               Hiring Recommendation
             </span>
-            <span className="px-3 py-1 rounded-full text-xs font-bold bg-primary-50 text-primary-700 border border-primary-100">
+            <span className="badge badge-primary">
               {report.recommendationLevel || 'RECOMMENDED'}
             </span>
           </div>
@@ -504,69 +485,64 @@ const Report = () => {
 
       {/* Question Review Section */}
       {questionBreakdown.length > 0 && (
-        <div className="bg-white rounded-2xl shadow-card border border-ink-100 p-6">
+        <div className="card p-6">
           <div className="flex items-center space-x-2 mb-6">
-            <div className="p-2 rounded-xl bg-primary-50 text-primary-600">
-              <BookOpen className="h-5 w-5" />
+            <div className="p-2 rounded-xl badge-primary">
+              <BookOpen className="h-5 w-5" style={{ color: 'var(--color-accent)' }} />
             </div>
-            <h2 className="text-lg font-bold text-ink-900">Question Review</h2>
+            <h2 className="text-lg font-bold" style={{ color: 'var(--color-ink)' }}>Question Review</h2>
           </div>
 
           <div className="space-y-6">
             {questionBreakdown.map((q, index) => (
-              <div key={index} className="border border-ink-100 rounded-xl overflow-hidden">
+              <div key={index} className="rounded-xl overflow-hidden" style={{ border: '1px solid var(--border)' }}>
                 {/* Question Header */}
-                <div className="bg-ink-50 px-5 py-3 border-b border-ink-100">
+                <div className="px-5 py-3" style={{ background: 'oklch(100% 0 0 / 0.03)', borderBottom: '1px solid var(--border)' }}>
                   <div className="flex items-center justify-between">
-                    <p className="text-sm font-bold text-ink-900">Question {index + 1}</p>
+                    <p className="text-sm font-bold" style={{ color: 'var(--color-ink)' }}>Question {index + 1}</p>
                     {q.score != null && (
-                      <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${
-                        q.score >= 70 ? 'bg-emerald-100 text-emerald-700' :
-                        q.score >= 40 ? 'bg-amber-100 text-amber-700' :
-                        'bg-red-100 text-red-700'
+                      <span className={`badge ${
+                        q.score >= 70 ? 'badge-success' :
+                        q.score >= 40 ? 'badge-warning' :
+                        'badge-danger'
                       }`}>
                         {q.score}/100
                       </span>
                     )}
                   </div>
-                  <p className="text-sm text-ink-800 mt-1">{q.question}</p>
+                  <p className="text-sm mt-1" style={{ color: 'oklch(100% 0 0 / 0.8)' }}>{q.question}</p>
                 </div>
 
                 {/* Answer & Feedback */}
                 <div className="px-5 py-4 space-y-4">
-                  {/* Candidate Answer */}
                   <div>
-                    <p className="text-xs font-semibold text-ink-500 uppercase tracking-wider mb-1">Your Answer</p>
-                    <p className="text-sm text-ink-700 bg-ink-50 rounded-lg p-3">{q.answer || 'No answer provided'}</p>
+                    <p className="text-xs font-semibold uppercase tracking-wider mb-1" style={{ color: 'oklch(100% 0 0 / 0.4)' }}>Your Answer</p>
+                    <p className="text-sm card" style={{ color: 'oklch(100% 0 0 / 0.7)' }}>{q.answer || 'No answer provided'}</p>
                   </div>
 
-                  {/* Feedback */}
                   {q.feedback && (
                     <div>
-                      <p className="text-xs font-semibold text-ink-500 uppercase tracking-wider mb-1">Review</p>
-                      <p className="text-sm text-ink-700">{q.feedback}</p>
+                      <p className="text-xs font-semibold uppercase tracking-wider mb-1" style={{ color: 'oklch(100% 0 0 / 0.4)' }}>Review</p>
+                      <p className="text-sm" style={{ color: 'oklch(100% 0 0 / 0.7)' }}>{q.feedback}</p>
                     </div>
                   )}
 
-                  {/* Expected Answer */}
                   {q.expectedAnswer && (
                     <details className="group">
-                      <summary className="text-xs font-semibold text-emerald-600 cursor-pointer hover:text-emerald-700">
+                      <summary className="text-xs font-semibold cursor-pointer hover:opacity-80" style={{ color: 'oklch(75% 0.14 155)' }}>
                         View Expected Answer
                       </summary>
-                      <p className="mt-2 text-sm text-ink-600 bg-emerald-50 border border-emerald-100 rounded-lg p-3 leading-relaxed">
-                        {q.expectedAnswer}
+                      <p className="mt-2 text-sm card" style={{ color: 'oklch(100% 0 0 / 0.6)' }}>
                       </p>
                     </details>
                   )}
 
-                  {/* Sample Response */}
                   {q.sampleResponse && (
                     <details className="group">
-                      <summary className="text-xs font-semibold text-primary-600 cursor-pointer hover:text-primary-700">
+                      <summary className="text-xs font-semibold cursor-pointer hover:opacity-80" style={{ color: 'var(--color-accent)' }}>
                         View Sample Response
                       </summary>
-                      <p className="mt-2 text-sm text-ink-600 bg-primary-50 border border-primary-100 rounded-lg p-3 leading-relaxed">
+                      <p className="mt-2 text-sm card" style={{ color: 'oklch(100% 0 0 / 0.6)' }}>
                         {q.sampleResponse}
                       </p>
                     </details>

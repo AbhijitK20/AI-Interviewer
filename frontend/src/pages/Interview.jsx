@@ -160,7 +160,7 @@ const Interview = () => {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600"></div>
+        <div className="animate-spin rounded-full h-8 w-8" style={{ border: '2px solid var(--border)', borderTopColor: 'var(--color-ink)' }}></div>
       </div>
     )
   }
@@ -168,7 +168,7 @@ const Interview = () => {
   if (!interview || !currentQuestion) {
     return (
       <div className="text-center py-12">
-        <p className="text-gray-500">Interview not found or completed.</p>
+        <p style={{ color: 'oklch(100% 0 0 / 0.4)' }}>Interview not found or completed.</p>
       </div>
     )
   }
@@ -192,17 +192,20 @@ const Interview = () => {
         {/* Main Interview Area */}
         <div className="xl:col-span-2">
           {/* Header */}
-          <div className="bg-white rounded-2xl shadow-card border border-ink-100 p-6 mb-6">
+          <div className="card mb-6">
             <div className="flex justify-between items-center mb-4">
-              <h1 className="text-xl font-bold text-ink-900">{interview.title}</h1>
-              <span className="px-2.5 py-1 rounded-full text-xs font-medium bg-primary-50 text-primary-700">
+              <h1 className="text-xl font-bold" style={{ color: 'var(--color-ink)' }}>{interview.title}</h1>
+              <span className="badge badge-primary">
                 Question {interview.currentQuestionIndex + 1} of {interview.totalQuestions}
               </span>
             </div>
-            <div className="w-full bg-ink-100 rounded-full h-2 overflow-hidden">
+            <div className="w-full h-2 rounded-full overflow-hidden" style={{ background: 'oklch(100% 0 0 / 0.05)' }}>
               <div
-                className="h-2 rounded-full transition-all duration-500 bg-gradient-brand"
-                style={{ width: `${((interview.currentQuestionIndex + 1) / interview.totalQuestions) * 100}%` }}
+                className="h-2 rounded-full transition-all duration-500"
+                style={{
+                  width: `${((interview.currentQuestionIndex + 1) / interview.totalQuestions) * 100}%`,
+                  background: 'var(--color-accent)',
+                }}
               ></div>
             </div>
           </div>
@@ -220,21 +223,22 @@ const Interview = () => {
           )}
 
           {/* Question Card */}
-          <div className="bg-white rounded-2xl shadow-card border border-ink-100 p-6 mb-6">
+          <div className="card mb-6">
             <div className="flex items-start space-x-3">
               <div className="flex-shrink-0">
-                <div className="w-10 h-10 rounded-xl bg-gradient-brand flex items-center justify-center">
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center"
+                  style={{ background: 'var(--color-accent)' }}>
                   <MessageSquare className="h-5 w-5 text-white" />
                 </div>
               </div>
               <div className="flex-1">
-                <p className="text-sm font-semibold text-primary-600 mb-1">AI Interviewer</p>
-                <p className="text-ink-900">{currentQuestion.questionText}</p>
+                <p className="text-sm font-semibold mb-1" style={{ color: 'var(--color-accent)' }}>AI Interviewer</p>
+                <p style={{ color: 'var(--color-ink)' }}>{currentQuestion.questionText}</p>
                 <div className="mt-2 flex space-x-2">
-                  <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700">
+                  <span className="badge badge-primary">
                     {currentQuestion.questionType}
                   </span>
-                  <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-violet-50 text-violet-700">
+                  <span className="badge badge-warning">
                     {currentQuestion.difficulty}
                   </span>
                 </div>
@@ -253,56 +257,40 @@ const Interview = () => {
 
           {/* Follow-up Question */}
           {currentQuestion.aiFollowUp && (
-            <div className="bg-yellow-50 rounded-lg shadow p-6 mb-6 border border-yellow-200">
-              <p className="text-sm font-medium text-yellow-800 mb-1">Follow-up Question</p>
-              <p className="text-yellow-900">{currentQuestion.aiFollowUp}</p>
+            <div className="card mb-6" style={{ background: 'oklch(55% 0.15 85 / 0.1)', borderColor: 'oklch(55% 0.15 85 / 0.2)' }}>
+              <p className="text-sm font-medium mb-1" style={{ color: 'oklch(80% 0.15 85)' }}>Follow-up Question</p>
+              <p style={{ color: 'oklch(90% 0.12 85)' }}>{currentQuestion.aiFollowUp}</p>
             </div>
           )}
 
           {/* Input Mode Selector */}
-          <div className="bg-white rounded-lg shadow p-4 mb-6">
+          <div className="card mb-6">
             <div className="flex space-x-2">
-              <button
-                onClick={() => setInputMode('text')}
-                className={`flex items-center px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                  inputMode === 'text'
-                    ? 'bg-primary-600 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                <MessageSquare className="w-4 h-4 mr-2" />
-                Text
-              </button>
-              <button
-                onClick={() => setInputMode('voice')}
-                className={`flex items-center px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                  inputMode === 'voice'
-                    ? 'bg-primary-600 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                <Mic className="w-4 h-4 mr-2" />
-                Voice
-              </button>
-              {isCodingQuestion && (
+              {[
+                { mode: 'text', icon: MessageSquare, label: 'Text' },
+                { mode: 'voice', icon: Mic, label: 'Voice' },
+                ...(isCodingQuestion ? [{ mode: 'coding', icon: Code, label: 'Code' }] : []),
+              ].map(({ mode, icon: Icon, label }) => (
                 <button
-                  onClick={() => setInputMode('coding')}
-                  className={`flex items-center px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                    inputMode === 'coding'
-                      ? 'bg-primary-600 text-white'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                  }`}
+                  key={mode}
+                  onClick={() => setInputMode(mode)}
+                  className="flex items-center px-4 py-2 rounded-lg text-sm font-medium transition-all"
+                  style={{
+                    background: inputMode === mode ? 'var(--color-accent)' : 'oklch(100% 0 0 / 0.05)',
+                    color: inputMode === mode ? 'white' : 'oklch(100% 0 0 / 0.5)',
+                    border: `1px solid ${inputMode === mode ? 'var(--color-accent)' : 'oklch(100% 0 0 / 0.08)'}`,
+                  }}
                 >
-                  <Code className="w-4 h-4 mr-2" />
-                  Code
+                  <Icon className="w-4 h-4 mr-2" />
+                  {label}
                 </button>
-              )}
+              ))}
             </div>
           </div>
 
           {/* Answer Input */}
           {inputMode === 'coding' && isCodingQuestion ? (
-            <div className="bg-white rounded-lg shadow overflow-hidden mb-6 h-96">
+            <div className="card overflow-hidden mb-6 h-96">
               <CodingEnvironment
                 problem={{
                   id: currentQuestion.id,
@@ -313,7 +301,7 @@ const Interview = () => {
               />
             </div>
           ) : (
-            <div className="bg-white rounded-lg shadow p-6 mb-6">
+            <div className="card mb-6">
               {inputMode === 'voice' ? (
                 <VoiceRecorder
                   onTranscript={handleTranscript}
@@ -322,7 +310,7 @@ const Interview = () => {
                 />
               ) : (
                 <>
-                  <label htmlFor="answer" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="answer" className="block text-sm font-medium mb-2" style={{ color: 'oklch(100% 0 0 / 0.6)' }}>
                     Your Answer
                   </label>
                   <textarea
@@ -330,7 +318,7 @@ const Interview = () => {
                     rows={6}
                     value={answer}
                     onChange={(e) => setAnswer(e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-primary-500 focus:border-primary-500"
+                    className="input resize-none"
                     placeholder="Type your answer here..."
                   />
                 </>
@@ -338,16 +326,16 @@ const Interview = () => {
 
               {feedback ? (
                 /* Quick Feedback Panel */
-                <div className="mt-4 bg-gradient-to-br from-ink-50 to-white border border-ink-200 rounded-xl p-5">
-                  <h3 className="text-sm font-bold text-ink-900 mb-3">Feedback</h3>
+                <div className="mt-4 card" style={{ background: 'oklch(100% 0 0 / 0.03)' }}>
+                  <h3 className="text-sm font-bold mb-3" style={{ color: 'var(--color-ink)' }}>Feedback</h3>
 
                   <div className="space-y-3 mb-4">
-                    <p className="text-sm text-ink-700 leading-relaxed">{feedback.feedback}</p>
+                    <p className="text-sm leading-relaxed" style={{ color: 'oklch(100% 0 0 / 0.7)' }}>{feedback.feedback}</p>
 
                     {feedback.strengths && (
                       <div>
-                        <p className="text-xs font-semibold text-emerald-600 mb-1">Strengths</p>
-                        <p className="text-sm text-ink-600">{feedback.strengths}</p>
+                        <p className="text-xs font-semibold mb-1" style={{ color: 'oklch(75% 0.14 155)' }}>Strengths</p>
+                        <p className="text-sm" style={{ color: 'oklch(100% 0 0 / 0.5)' }}>{feedback.strengths}</p>
                       </div>
                     )}
 
@@ -361,10 +349,10 @@ const Interview = () => {
 
                   {feedback.sampleResponse && (
                     <details className="mb-4">
-                      <summary className="text-xs font-semibold text-primary-600 cursor-pointer hover:text-primary-700">
+                      <summary className="text-xs font-semibold cursor-pointer hover:opacity-80" style={{ color: 'var(--color-accent)' }}>
                         Sample Response
                       </summary>
-                      <p className="mt-2 text-sm text-ink-600 leading-relaxed bg-white border border-ink-100 rounded-lg p-3">
+                      <p className="mt-2 text-sm leading-relaxed card" style={{ color: 'oklch(100% 0 0 / 0.6)' }}>
                         {feedback.sampleResponse}
                       </p>
                     </details>
@@ -373,11 +361,11 @@ const Interview = () => {
                   <button
                     onClick={handleContinue}
                     disabled={submitting}
-                    className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-brand text-white rounded-xl hover:opacity-90 transition-opacity text-sm font-medium disabled:opacity-70"
+                    className="btn-primary w-full"
                   >
                     {submitting ? (
                       <>
-                        <div className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent" />
+                        <div className="animate-spin rounded-full h-4 w-4 border-2 border-black/20 border-t-black" />
                         Generating Report...
                       </>
                     ) : interview.currentQuestionIndex + 1 >= interview.totalQuestions ? (
@@ -389,17 +377,14 @@ const Interview = () => {
                 </div>
               ) : (
                 <div className="mt-4 flex justify-between">
-                  <button
-                    onClick={handleEndInterview}
-                    className="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 hover:bg-gray-50"
-                  >
+                  <button onClick={handleEndInterview} className="btn-ghost">
                     <SkipForward className="h-4 w-4 mr-2" />
                     End Interview
                   </button>
                   <button
                     onClick={handleSubmitAnswer}
                     disabled={submitting || !answer.trim()}
-                    className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 disabled:opacity-50"
+                    className="btn-primary"
                   >
                     <Send className="h-4 w-4 mr-2" />
                     {submitting ? 'Submitting...' : 'Submit Answer'}
@@ -433,7 +418,6 @@ const Interview = () => {
               onViolation={async (v) => {
                 console.log('Violation:', v)
                 if (v.type === 'interview_end') {
-                  // End interview properly before navigating away
                   try {
                     await api.post(`/interviews/${id}/end`)
                   } catch (e) {
@@ -448,17 +432,31 @@ const Interview = () => {
           )}
 
           {/* Toggle Panels */}
-          <div className="bg-white rounded-lg shadow p-4">
-            <h3 className="font-medium text-gray-900 mb-3">Analysis Panels</h3>
+          <div className="card">
+            <h3 className="font-medium mb-3" style={{ color: 'var(--color-ink)' }}>Analysis Panels</h3>
             <div className="space-y-2">
-              <label className="flex items-center space-x-2">
-                <input
-                  type="checkbox"
-                  checked={showAvatar}
-                  onChange={(e) => setShowAvatar(e.target.checked)}
-                  className="rounded border-gray-300 text-primary-600 focus:ring-primary-500"
-                />
-                <span className="text-sm text-gray-700">Digital Avatar</span>
+              {[
+                { label: 'Digital Avatar', checked: showAvatar, onChange: setShowAvatar },
+                { label: 'Body Language', checked: showBodyLanguage, onChange: setShowBodyLanguage },
+                { label: 'Proctoring', checked: showProctoring, onChange: setShowProctoring },
+              ].map(({ label, checked, onChange }) => (
+                <label key={label} className="flex items-center space-x-2 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={checked}
+                    onChange={(e) => onChange(e.target.checked)}
+                    className="rounded"
+                    style={{ borderColor: 'var(--border)', accentColor: 'var(--color-accent)' }}
+                  />
+                  <span className="text-sm" style={{ color: 'oklch(100% 0 0 / 0.6)' }}>{label}</span>
+                </label>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
               </label>
               <label className="flex items-center space-x-2">
                 <input
