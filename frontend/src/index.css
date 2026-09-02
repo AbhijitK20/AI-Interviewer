@@ -54,6 +54,7 @@ html, body, #root {
 .min-h-screen {
   isolation: isolate;
   position: relative;
+  background: transparent !important;
 }
 
 /* Subtle gradient overlay for depth on all inner pages */
