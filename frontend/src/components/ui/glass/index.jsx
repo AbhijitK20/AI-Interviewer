@@ -137,28 +137,13 @@ export const GlassBadge = ({ children, variant = 'default', className = '' }) =>
   )
 }
 
-// Background Video - matches Vantage
+// Subtle gradient background for inner pages (not full video)
 export const BackgroundVideo = () => (
-  <div style={{ position: 'absolute', inset: 0, zIndex: -3, overflow: 'hidden' }}>
-    <video
-      style={{
-        position: 'absolute', inset: 0,
-        width: '100%', height: '100%',
-        objectFit: 'cover', objectPosition: 'center',
-        pointerEvents: 'none', userSelect: 'none',
-      }}
-      autoPlay muted loop playsInline disablePictureInPicture aria-hidden="true"
-    >
-      <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260808_064556_051587f1-74a1-4336-8c05-4dde3594ed05.mp4" type="video/mp4" />
-    </video>
-    <div
-      style={{
-        position: 'absolute', inset: 0,
-        background: 'linear-gradient(180deg, rgba(0,0,0,.03), transparent 24%, transparent 82%, rgba(0,0,0,.05)), radial-gradient(ellipse at 44% 54%, transparent 30%, rgba(0,0,0,.055) 100%)',
-        pointerEvents: 'none',
-      }}
-    />
-  </div>
+  <div style={{
+    position: 'fixed', inset: 0, zIndex: -1,
+    background: 'radial-gradient(ellipse at 20% 50%, rgba(99,102,241,.08) 0%, transparent 50%), radial-gradient(ellipse at 80% 20%, rgba(139,92,246,.06) 0%, transparent 50%), radial-gradient(ellipse at 50% 100%, rgba(79,70,229,.05) 0%, transparent 40%)',
+    pointerEvents: 'none',
+  }} />
 )
 
 // Entrance animation variants
