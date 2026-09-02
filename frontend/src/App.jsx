@@ -66,17 +66,17 @@ function App() {
               position: 'absolute', inset: 0,
               width: '100%', height: '100%',
               objectFit: 'cover', objectPosition: 'center',
-              filter: 'blur(20px) brightness(0.4)',
-              transform: 'scale(1.1)',
+              filter: 'blur(16px) brightness(0.5)',
+              transform: 'scale(1.05)',
               pointerEvents: 'none', userSelect: 'none',
             }}
-            autoPlay muted loop playsInline disablePictureInPicture aria-hidden="true"
+            autoPlay muted loop playsInline disablePictureInpicture aria-hidden="true"
           >
             <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260808_064556_051587f1-74a1-4336-8c05-4dde3594ed05.mp4" type="video/mp4" />
           </video>
           <div style={{
             position: 'absolute', inset: 0,
-            background: 'linear-gradient(180deg, rgba(0,0,0,.3), rgba(0,0,0,.5) 50%, rgba(0,0,0,.7))',
+            background: 'linear-gradient(180deg, rgba(0,0,0,.2), rgba(0,0,0,.35) 50%, rgba(0,0,0,.5))',
             pointerEvents: 'none',
           }} />
         </div>
