@@ -1,6 +1,6 @@
 import { Outlet, Link, useNavigate, useLocation } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext'
-import { LogOut, Home, Briefcase, FileText, Menu, X } from 'lucide-react'
+import { LogOut, Home, Briefcase, FileText, Menu, X, User } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 
@@ -19,6 +19,7 @@ const Layout = () => {
     { path: '/', label: 'Dashboard', icon: Home },
     { path: '/job-descriptions', label: 'Job Descriptions', icon: Briefcase },
     { path: '/resumes', label: 'Resumes', icon: FileText },
+    { path: '/profile', label: 'Profile', icon: User },
   ]
 
   return (
