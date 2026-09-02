@@ -112,7 +112,7 @@ const Login = () => {
           </form>
 
           <p className="mt-6 text-center text-sm" style={{ color: 'rgba(255,255,255,.4)' }}>
-            Don't have an account?{' '}
+            Don&apos;t have an account?{' '}
             <Link to="/register" className="font-semibold hover:opacity-80" style={{ color: '#fff' }}>
               Create one
             </Link>

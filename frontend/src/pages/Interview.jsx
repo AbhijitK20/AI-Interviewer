@@ -11,7 +11,7 @@ import SpeechEmotionAnalyzer from '../components/interview/SpeechEmotionAnalyzer
 import DigitalAvatar from '../components/interview/DigitalAvatar'
 import AntiCheatModal from '../components/interview/AntiCheatModal'
 import { motion } from 'framer-motion'
-import { GlassCard, WhiteButton, GlassBadge, BackgroundVideo } from '../components/ui/glass'
+import { GlassCard, WhiteButton, GlassBadge, GlassInput, BackgroundVideo } from '../components/ui/glass'
 
 const Interview = () => {
   const { id } = useParams()
