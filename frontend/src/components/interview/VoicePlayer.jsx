@@ -20,15 +20,17 @@ const VoicePlayer = ({ text, voice = 'en-US-AndrewNeural', rate = 0.9, autoPlay 
     try {
       if (sourceRef.current) {
         sourceRef.current.onended = null
-        sourceRef.current.stop()
-        sourceRef.current.disconnect()
+        try { sourceRef.current.stop() } catch {}
+        try { sourceRef.current.disconnect() } catch {}
         sourceRef.current = null
       }
     } catch {}
     try { window.speechSynthesis?.cancel() } catch {}
-    if (audioCtxRef.current && audioCtxRef.current.state !== 'closed') {
-      try { audioCtxRef.current.close() } catch {}
-    }
+    try {
+      if (audioCtxRef.current && audioCtxRef.current.state !== 'closed') {
+        audioCtxRef.current.close().catch(() => {})
+      }
+    } catch {}
     if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current)
     audioCtxRef.current = null
     audioBufferRef.current = null
