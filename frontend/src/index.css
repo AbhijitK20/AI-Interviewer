@@ -5,6 +5,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Override Tailwind preflight backgrounds */
+*, *::before, *::after {
+  background-color: transparent !important;
+}
+
+html, body, #root {
+  background: transparent !important;
+}
+
 :root {
   /* OKLCH-based palette with midnight anchor (hue 40) */
   --color-paper: oklch(14% 0.008 40);
