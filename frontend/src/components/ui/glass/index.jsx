@@ -137,11 +137,11 @@ export const GlassBadge = ({ children, variant = 'default', className = '' }) =>
   )
 }
 
-// Subtle gradient background for inner pages (not full video)
+// Subtle gradient background for inner pages
 export const BackgroundVideo = () => (
   <div style={{
     position: 'fixed', inset: 0, zIndex: -1,
-    background: 'radial-gradient(ellipse at 20% 50%, rgba(99,102,241,.08) 0%, transparent 50%), radial-gradient(ellipse at 80% 20%, rgba(139,92,246,.06) 0%, transparent 50%), radial-gradient(ellipse at 50% 100%, rgba(79,70,229,.05) 0%, transparent 40%)',
+    background: 'radial-gradient(ellipse at 20% 50%, rgba(99,102,241,.15) 0%, transparent 50%), radial-gradient(ellipse at 80% 20%, rgba(139,92,246,.12) 0%, transparent 50%), radial-gradient(ellipse at 50% 100%, rgba(79,70,229,.1) 0%, transparent 40%)',
     pointerEvents: 'none',
   }} />
 )
