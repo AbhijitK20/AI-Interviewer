@@ -83,14 +83,14 @@ const Resumes = () => {
     <div className="max-w-4xl mx-auto">
       <button
         onClick={() => navigate(-1)}
-        className="flex items-center text-gray-600 hover:text-gray-900 mb-6"
+        className="flex items-center text-gray-600 hover:text-white mb-6"
       >
         <ArrowLeft className="h-4 w-4 mr-1" />
         Back
       </button>
 
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold text-gray-900">My Resumes</h1>
+        <h1 className="text-2xl font-bold text-white">My Resumes</h1>
         <button
           onClick={() => setShowForm(!showForm)}
           className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700"
@@ -101,18 +101,18 @@ const Resumes = () => {
       </div>
 
       {success && (
-        <div className="mb-4 rounded-md bg-green-50 p-4">
-          <p className="text-sm text-green-700">{success}</p>
+        <div className="mb-4 rounded-md bg-emerald-500/10 p-4">
+          <p className="text-sm text-emerald-400">{success}</p>
         </div>
       )}
 
       {/* Add form */}
       {showForm && (
-        <div className="bg-white rounded-lg shadow p-6 mb-6">
+        <div className="bg-surface-2 rounded-2xl shadow p-6 mb-6">
           <h2 className="text-lg font-medium mb-4">Add Resume</h2>
           {error && (
-            <div className="mb-4 rounded-md bg-red-50 p-4">
-              <p className="text-sm text-red-700">{error}</p>
+            <div className="mb-4 rounded-md bg-red-500/10 p-4">
+              <p className="text-sm text-red-400">{error}</p>
             </div>
           )}
 
@@ -120,22 +120,22 @@ const Resumes = () => {
             <button
               onClick={() => setPasteMode(false)}
               className={`flex-1 p-4 border rounded-lg text-center transition-colors ${
-                !pasteMode ? 'border-primary-500 bg-primary-50' : 'border-gray-200 hover:border-gray-300'
+                !pasteMode ? 'border-primary-500 bg-primary-500/10' : 'border-white/10 hover:border-white/10'
               }`}
             >
               <Upload className="h-6 w-6 mx-auto mb-2 text-primary-600" />
               <span className="text-sm font-medium">Upload File</span>
-              <p className="text-xs text-gray-500 mt-1">PDF, DOC, DOCX, TXT</p>
+              <p className="text-xs text-white/50 mt-1">PDF, DOC, DOCX, TXT</p>
             </button>
             <button
               onClick={() => setPasteMode(true)}
               className={`flex-1 p-4 border rounded-lg text-center transition-colors ${
-                pasteMode ? 'border-primary-500 bg-primary-50' : 'border-gray-200 hover:border-gray-300'
+                pasteMode ? 'border-primary-500 bg-primary-500/10' : 'border-white/10 hover:border-white/10'
               }`}
             >
               <FileText className="h-6 w-6 mx-auto mb-2 text-primary-600" />
               <span className="text-sm font-medium">Paste Text</span>
-              <p className="text-xs text-gray-500 mt-1">Copy-paste resume content</p>
+              <p className="text-xs text-white/50 mt-1">Copy-paste resume content</p>
             </button>
           </div>
 
@@ -147,10 +147,10 @@ const Resumes = () => {
                   type="file"
                   onChange={handleFileUpload}
                   accept=".pdf,.doc,.docx,.txt"
-                  className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-primary-50 file:text-primary-700 hover:file:bg-primary-100"
+                  className="block w-full text-sm text-white/50 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-primary-500/10 file:text-primary-700 hover:file:bg-primary-100"
                 />
               </label>
-              <p className="text-xs text-gray-500 mt-2">
+              <p className="text-xs text-white/50 mt-2">
                 Note: For PDF/DOC files, only text extraction is attempted. For best results, paste text directly.
               </p>
             </div>
@@ -161,7 +161,7 @@ const Resumes = () => {
                 onChange={(e) => setResumeText(e.target.value)}
                 placeholder="Paste your resume text here..."
                 rows={10}
-                className="w-full p-3 border border-gray-300 rounded-lg text-sm focus:ring-primary-500 focus:border-primary-500"
+                className="w-full p-3 border border-white/10 rounded-lg text-sm focus:ring-primary-500 focus:border-primary-500"
               />
               <button
                 onClick={handlePasteSubmit}
@@ -181,23 +181,23 @@ const Resumes = () => {
           <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600"></div>
         </div>
       ) : resumes.length === 0 ? (
-        <div className="text-center py-12 bg-white rounded-lg shadow">
-          <FileText className="mx-auto h-12 w-12 text-gray-400" />
-          <h3 className="mt-2 text-sm font-medium text-gray-900">No resumes yet</h3>
-          <p className="mt-1 text-sm text-gray-500">Add your resume to personalize interviews.</p>
+        <div className="text-center py-12 bg-surface-2 rounded-2xl shadow">
+          <FileText className="mx-auto h-12 w-12 text-white/30" />
+          <h3 className="mt-2 text-sm font-medium text-white">No resumes yet</h3>
+          <p className="mt-1 text-sm text-white/50">Add your resume to personalize interviews.</p>
         </div>
       ) : (
         <div className="space-y-3">
           {resumes.map((resume) => (
             <div
               key={resume.id}
-              className="bg-white rounded-lg shadow p-4 flex items-center justify-between hover:shadow-md transition-shadow"
+              className="bg-surface-2 rounded-2xl shadow p-4 flex items-center justify-between hover:shadow-lg transition-shadow"
             >
               <div className="flex items-center">
                 <FileText className="h-5 w-5 text-primary-600 mr-3" />
                 <div>
-                  <h3 className="font-medium text-gray-900">{resume.fileName}</h3>
-                  <p className="text-xs text-gray-500 mt-0.5">
+                  <h3 className="font-medium text-white">{resume.fileName}</h3>
+                  <p className="text-xs text-white/50 mt-0.5">
                     Added {resume.createdAt ? new Date(resume.createdAt).toLocaleDateString() : ''}
                   </p>
                 </div>
@@ -205,16 +205,16 @@ const Resumes = () => {
               <div className="flex items-center space-x-3">
                 <span className={`text-xs px-2 py-1 rounded-full ${
                   resume.status === 'PARSED'
-                    ? 'bg-green-100 text-green-700'
+                    ? 'bg-green-100 text-emerald-400'
                     : resume.status === 'FAILED'
-                    ? 'bg-red-100 text-red-700'
+                    ? 'bg-red-100 text-red-400'
                     : 'bg-yellow-100 text-yellow-700'
                 }`}>
                   {resume.status}
                 </span>
                 <button
                   onClick={() => handleDelete(resume.id)}
-                  className="p-2 text-gray-400 hover:text-red-600"
+                  className="p-2 text-white/30 hover:text-red-600"
                 >
                   <Trash2 className="h-4 w-4" />
                 </button>
