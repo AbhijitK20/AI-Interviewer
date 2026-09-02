@@ -50,6 +50,12 @@ html, body, #root {
   min-height: 100vh;
 }
 
+/* Create stacking context for video backgrounds */
+.min-h-screen {
+  isolation: isolate;
+  position: relative;
+}
+
 /* Subtle gradient overlay for depth on all inner pages */
 .min-h-screen::before {
   content: "";
