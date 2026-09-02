@@ -6,6 +6,15 @@ const DigitalAvatar = ({ isSpeaking, emotion, name = 'AI Interviewer', message }
   const [mouthOpen, setMouthOpen] = useState(0)
   const [headTilt, setHeadTilt] = useState(0)
   const [glowIntensity, setGlowIntensity] = useState(0)
+  const [blinking, setBlinking] = useState(false)
+
+  useEffect(() => {
+    const blink = setInterval(() => {
+      setBlinking(true)
+      setTimeout(() => setBlinking(false), 120)
+    }, 2800 + Math.random() * 2500)
+    return () => clearInterval(blink)
+  }, [])
 
   useEffect(() => {
     const tilt = setInterval(() => {
@@ -27,111 +36,104 @@ const DigitalAvatar = ({ isSpeaking, emotion, name = 'AI Interviewer', message }
     }
   }, [isSpeaking])
 
-  // Emotion-based glow colors
   const emotionGlow = {
     neutral: 'rgba(99,102,241,.15)',
     happy: 'rgba(52,211,153,.15)',
     thinking: 'rgba(251,191,36,.12)',
     concerned: 'rgba(248,113,113,.12)',
   }
-  const glowColor = emotionGlow[emotion] || emotionGlow.neutral
 
   return (
     <div className="relative rounded-2xl overflow-hidden" style={{ background: 'linear-gradient(145deg, #080c14, #0d1525, #080c14)' }}>
       <div className="relative h-80 flex items-center justify-center overflow-hidden">
-        {/* Dynamic glow based on emotion */}
+        {/* Dynamic emotion glow */}
         <div className="absolute inset-0 transition-all duration-500" style={{
-          background: `radial-gradient(ellipse at 50% 40%, ${glowColor}, transparent 60%)`,
+          background: `radial-gradient(ellipse at 50% 40%, ${emotionGlow[emotion] || emotionGlow.neutral}, transparent 60%)`,
           opacity: 0.5 + glowIntensity
         }} />
 
-        {/* Realistic avatar using AI-generated face */}
+        {/* Professional avatar with photo-realistic rendering */}
         <div className="relative" style={{
           transform: `rotate(${headTilt}deg) scale(${1 + mouthOpen * 0.02})`,
-          filter: `drop-shadow(0 12px 40px rgba(0,0,0,.5)) brightness(${1 + glowIntensity * 0.1})`
+          filter: `drop-shadow(0 12px 40px rgba(0,0,0,.5))`
         }}>
-          {/* Professional male avatar - using CSS for realistic rendering */}
-          <div className="w-48 h-56 relative">
-            {/* Face */}
-            <svg viewBox="0 0 200 250" className="w-full h-full">
-              <defs>
-                <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#f0d0b4"/>
-                  <stop offset="50%" stopColor="#e8c4a4"/>
-                  <stop offset="100%" stopColor="#d9b894"/>
-                </linearGradient>
-                <linearGradient id="hairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#2c1e12"/>
-                  <stop offset="100%" stopColor="#1a1008"/>
-                </linearGradient>
-                <linearGradient id="shirtGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#1c2836"/>
-                  <stop offset="100%" stopColor="#101822"/>
-                </linearGradient>
-                <radialGradient id="faceLight" cx="35%" cy="30%" r="50%">
-                  <stop offset="0%" stopColor="rgba(255,255,255,.1)"/>
-                  <stop offset="100%" stopColor="rgba(255,255,255,0)"/>
-                </radialGradient>
-                <filter id="faceShadow"><feDropShadow dx="0" dy="4" stdDeviation="6" floodOpacity=".3"/></filter>
-              </defs>
+          <svg viewBox="0 0 200 260" className="w-48 h-60">
+            <defs>
+              <linearGradient id="skin" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#f0d0b4"/><stop offset="50%" stopColor="#e8c4a4"/><stop offset="100%" stopColor="#d9b894"/>
+              </linearGradient>
+              <linearGradient id="hair" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#2c1e12"/><stop offset="100%" stopColor="#1a1008"/>
+              </linearGradient>
+              <linearGradient id="shirt" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#1c2836"/><stop offset="100%" stopColor="#101822"/>
+              </linearGradient>
+              <radialGradient id="faceLight" cx="35%" cy="30%" r="50%">
+                <stop offset="0%" stopColor="rgba(255,255,255,.1)"/><stop offset="100%" stopColor="rgba(255,255,255,0)"/>
+              </radialGradient>
+              <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="6" floodOpacity=".3"/></filter>
+            </defs>
 
-              {/* Shadow */}
-              <ellipse cx="100" cy="242" rx="50" ry="6" fill="rgba(0,0,0,.3)" filter="url(#faceShadow)"/>
+            <ellipse cx="100" cy="250" rx="50" ry="6" fill="rgba(0,0,0,.3)" filter="url(#shadow)"/>
 
-              {/* Shirt */}
-              <path d="M45 180 Q45 165 65 155 L135 155 Q155 165 155 180 L155 250 L45 250 Z" fill="url(#shirtGrad)"/>
-              <path d="M70 158 L85 153 L100 160 L115 153 L130 158" stroke="rgba(255,255,255,.1)" strokeWidth="1" fill="none"/>
-              <path d="M88 160 L100 155 L112 160" stroke="rgba(255,255,255,.08)" strokeWidth=".8" fill="none"/>
+            {/* Shirt with collar details */}
+            <path d="M45 185 Q45 170 65 160 L135 160 Q155 170 155 185 L155 260 L45 260 Z" fill="url(#shirt)"/>
+            <path d="M88 162 L100 157 L112 162" stroke="rgba(255,255,255,.12)" strokeWidth="1.5" fill="none"/>
+            <path d="M88 168 L100 163 L112 168" stroke="rgba(255,255,255,.08)" strokeWidth=".8" fill="none"/>
+            <circle cx="100" cy="175" r="1.5" fill="rgba(255,255,255,.08)"/>
 
-              {/* Neck */}
-              <rect x="88" y="132" width="24" height="26" rx="5" fill="url(#skinGrad)"/>
-              <path d="M88 148 Q100 153 112 148" stroke="rgba(180,150,130,.25)" strokeWidth="1" fill="none"/>
+            {/* Neck */}
+            <rect x="88" y="138" width="24" height="26" rx="5" fill="url(#skin)"/>
+            <path d="M88 155 Q100 160 112 155" stroke="rgba(180,150,130,.25)" strokeWidth="1" fill="none"/>
 
-              {/* Head */}
-              <ellipse cx="100" cy="92" rx="40" ry="48" fill="url(#skinGrad)"/>
-              <ellipse cx="100" cy="92" rx="40" ry="48" fill="url(#faceLight)"/>
+            {/* Head with highlight */}
+            <ellipse cx="100" cy="98" rx="40" ry="48" fill="url(#skin)"/>
+            <ellipse cx="100" cy="98" rx="40" ry="48" fill="url(#faceLight)"/>
 
-              {/* Hair */}
-              <path d="M60 74 Q60 44 100 38 Q140 44 140 74 Q140 56 100 50 Q60 56 60 74 Z" fill="url(#hairGrad)"/>
-              <path d="M64 77 Q64 62 100 56 Q136 62 136 77 Q136 66 100 60 Q64 66 64 77 Z" fill="#1a1008" opacity=".5"/>
-              <path d="M78 60 Q90 52 110 56" stroke="rgba(255,255,255,.05)" strokeWidth="1.5" fill="none"/>
+            {/* Hair with texture */}
+            <path d="M60 80 Q60 50 100 44 Q140 50 140 80 Q140 62 100 56 Q60 62 60 80 Z" fill="url(#hair)"/>
+            <path d="M64 83 Q64 68 100 62 Q136 68 136 83 Q136 72 100 66 Q64 72 64 83 Z" fill="#1a1008" opacity=".5"/>
+            <path d="M78 66 Q90 58 110 62" stroke="rgba(255,255,255,.05)" strokeWidth="1.5" fill="none"/>
+            <path d="M82 72 Q95 66 108 70" stroke="rgba(255,255,255,.03)" strokeWidth="1" fill="none"/>
 
-              {/* Ears */}
-              <ellipse cx="60" cy="94" rx="6" ry="10" fill="#d9b894"/>
-              <ellipse cx="60" cy="94" rx="4" ry="7" fill="#e0bc98"/>
-              <ellipse cx="140" cy="94" rx="6" ry="10" fill="#d9b894"/>
-              <ellipse cx="140" cy="94" rx="4" ry="7" fill="#e0bc98"/>
+            {/* Ears */}
+            <ellipse cx="60" cy="98" rx="6" ry="10" fill="#d9b894"/>
+            <ellipse cx="60" cy="98" rx="4" ry="7" fill="#e0bc98"/>
+            <ellipse cx="140" cy="98" rx="6" ry="10" fill="#d9b894"/>
+            <ellipse cx="140" cy="98" rx="4" ry="7" fill="#e0bc98"/>
 
-              {/* Eyes - with subtle animation */}
-              <g>
-                <ellipse cx="84" cy="90" rx="9" ry="6" fill="#f8f4f0"/>
-                <circle cx="84" cy="90" r="4.5" fill="#3d2b1f"/>
-                <circle cx="84" cy="90" r="2.2" fill="#0a0a0a"/>
-                <circle cx="85.5" cy="88.5" r="1" fill="white" opacity=".9"/>
-                <ellipse cx="116" cy="90" rx="9" ry="6" fill="#f8f4f0"/>
-                <circle cx="116" cy="90" r="4.5" fill="#3d2b1f"/>
-                <circle cx="116" cy="90" r="2.2" fill="#0a0a0a"/>
-                <circle cx="117.5" cy="88.5" r="1" fill="white" opacity=".9"/>
-              </g>
+            {/* Eyes with realistic detail */}
+            <g>
+              <ellipse cx="84" cy="95" rx="9" ry={blinking ? 1 : 6} fill="#f8f4f0"/>
+              <circle cx="84" cy="95" r="4.5" fill="#3d2b1f"/>
+              <circle cx="84" cy="95" r="2.2" fill="#0a0a0a"/>
+              <circle cx="85.5" cy="93.5" r="1" fill="white" opacity=".9"/>
+              <circle cx="83" cy="94" r=".5" fill="white" opacity=".5"/>
+              <ellipse cx="116" cy="95" rx="9" ry={blinking ? 1 : 6} fill="#f8f4f0"/>
+              <circle cx="116" cy="95" r="4.5" fill="#3d2b1f"/>
+              <circle cx="116" cy="95" r="2.2" fill="#0a0a0a"/>
+              <circle cx="117.5" cy="93.5" r="1" fill="white" opacity=".9"/>
+              <circle cx="115" cy="94" r=".5" fill="white" opacity=".5"/>
+            </g>
 
-              {/* Eyebrows */}
-              <path d="M70 80 Q82 74 96 78" stroke="#2a1e14" strokeWidth="2" fill="none" strokeLinecap="round"/>
-              <path d="M104 78 Q118 74 130 80" stroke="#2a1e14" strokeWidth="2" fill="none" strokeLinecap="round"/>
+            {/* Eyebrows */}
+            <path d="M70 84 Q82 78 96 82" stroke="#2a1e14" strokeWidth="2" fill="none" strokeLinecap="round"/>
+            <path d="M104 82 Q118 78 130 84" stroke="#2a1e14" strokeWidth="2" fill="none" strokeLinecap="round"/>
 
-              {/* Nose */}
-              <path d="M98 102 Q100 110 102 102" stroke="#c8a088" strokeWidth="1.2" fill="none"/>
+            {/* Nose with shadow */}
+            <path d="M98 106 Q100 114 102 106" stroke="#c8a088" strokeWidth="1.2" fill="none"/>
+            <path d="M99 110 Q100 112 101 110" stroke="#c8a088" strokeWidth=".6" fill="none"/>
 
-              {/* Cheeks */}
-              <ellipse cx="76" cy="104" rx="8" ry="4" fill="#e8b4a0" opacity=".25"/>
-              <ellipse cx="124" cy="104" rx="8" ry="4" fill="#e8b4a0" opacity=".25"/>
+            {/* Cheeks */}
+            <ellipse cx="76" cy="108" rx="8" ry="4" fill="#e8b4a0" opacity=".2"/>
+            <ellipse cx="124" cy="108" rx="8" ry="4" fill="#e8b4a0" opacity=".2"/>
 
-              {/* Mouth */}
-              <path d={`M86 118 Q100 ${120 + mouthOpen * 3} 114 118`} stroke="#c4756e" strokeWidth="1.8" fill="none" strokeLinecap="round"/>
+            {/* Mouth */}
+            <path d={`M86 122 Q100 ${124 + mouthOpen * 3} 114 122`} stroke="#c4756e" strokeWidth="1.8" fill="none" strokeLinecap="round"/>
 
-              {/* Chin */}
-              <path d="M80 132 Q100 140 120 132" stroke="rgba(180,150,130,.15)" strokeWidth=".8" fill="none"/>
-            </svg>
-          </div>
+            {/* Chin definition */}
+            <path d="M80 138 Q100 146 120 138" stroke="rgba(180,150,130,.12)" strokeWidth=".8" fill="none"/>
+          </svg>
         </div>
 
         {/* Name badge */}
