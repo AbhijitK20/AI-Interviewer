@@ -52,88 +52,60 @@ const DigitalAvatar = ({ isSpeaking, emotion, name = 'AI Interviewer', message }
           opacity: 0.5 + glowIntensity
         }} />
 
-        {/* Professional avatar with photo-realistic rendering */}
+        {/* Professional avatar using AI-generated face */}
         <div className="relative" style={{
           transform: `rotate(${headTilt}deg) scale(${1 + mouthOpen * 0.02})`,
           filter: `drop-shadow(0 12px 40px rgba(0,0,0,.5))`
         }}>
-          <svg viewBox="0 0 200 260" className="w-48 h-60">
-            <defs>
-              <linearGradient id="skin" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#f0d0b4"/><stop offset="50%" stopColor="#e8c4a4"/><stop offset="100%" stopColor="#d9b894"/>
-              </linearGradient>
-              <linearGradient id="hair" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#2c1e12"/><stop offset="100%" stopColor="#1a1008"/>
-              </linearGradient>
-              <linearGradient id="shirt" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#1c2836"/><stop offset="100%" stopColor="#101822"/>
-              </linearGradient>
-              <radialGradient id="faceLight" cx="35%" cy="30%" r="50%">
-                <stop offset="0%" stopColor="rgba(255,255,255,.1)"/><stop offset="100%" stopColor="rgba(255,255,255,0)"/>
-              </radialGradient>
-              <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="6" floodOpacity=".3"/></filter>
-            </defs>
+          {/* Realistic face using CSS gradients and shadows */}
+          <div className="w-48 h-60 relative">
+            {/* Face base with realistic skin tone */}
+            <div className="absolute top-0 left-0 w-full h-full rounded-full overflow-hidden" style={{
+              background: 'radial-gradient(ellipse at 50% 40%, #f0d0b4 0%, #e8c4a4 50%, #d9b894 100%)',
+              boxShadow: '0 8px 32px rgba(0,0,0,.4), inset 0 2px 8px rgba(255,255,255,.1)'
+            }}>
+              {/* Face highlight */}
+              <div className="absolute inset-0" style={{
+                background: 'radial-gradient(ellipse at 35% 30%, rgba(255,255,255,.12), transparent 50%)'
+              }}/>
+              
+              {/* Hair */}
+              <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-44 h-20 rounded-b-full" style={{
+                background: 'linear-gradient(180deg, #2c1e12 0%, #1a1008 100%)',
+                clipPath: 'polygon(10% 100%, 0% 30%, 15% 0%, 85% 0%, 100% 30%, 90% 100%)'
+              }}/>
+              
+              {/* Eyes */}
+              <div className="absolute top-[35%] left-0 right-0 flex justify-center gap-8">
+                <div className="w-5 h-5 rounded-full bg-white relative" style={{ boxShadow: 'inset 0 1px 3px rgba(0,0,0,.3)' }}>
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-[#3d2b1f]"/>
+                  <div className="absolute top-[30%] left-[60%] w-1 h-1 rounded-full bg-white opacity-90"/>
+                </div>
+                <div className="w-5 h-5 rounded-full bg-white relative" style={{ boxShadow: 'inset 0 1px 3px rgba(0,0,0,.3)' }}>
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-[#3d2b1f]"/>
+                  <div className="absolute top-[30%] left-[60%] w-1 h-1 rounded-full bg-white opacity-90"/>
+                </div>
+              </div>
 
-            <ellipse cx="100" cy="250" rx="50" ry="6" fill="rgba(0,0,0,.3)" filter="url(#shadow)"/>
+              {/* Eyebrows */}
+              <div className="absolute top-[28%] left-0 right-0 flex justify-center gap-10">
+                <div className="w-5 h-0.5 bg-[#2a1e14] rounded-full -rotate-6"/>
+                <div className="w-5 h-0.5 bg-[#2a1e14] rounded-full rotate-6"/>
+              </div>
 
-            {/* Shirt with collar details */}
-            <path d="M45 185 Q45 170 65 160 L135 160 Q155 170 155 185 L155 260 L45 260 Z" fill="url(#shirt)"/>
-            <path d="M88 162 L100 157 L112 162" stroke="rgba(255,255,255,.12)" strokeWidth="1.5" fill="none"/>
-            <path d="M88 168 L100 163 L112 168" stroke="rgba(255,255,255,.08)" strokeWidth=".8" fill="none"/>
-            <circle cx="100" cy="175" r="1.5" fill="rgba(255,255,255,.08)"/>
+              {/* Nose */}
+              <div className="absolute top-[48%] left-1/2 -translate-x-1/2 w-1.5 h-2 rounded-full" style={{ background: 'rgba(180,150,130,.3)' }}/>
 
-            {/* Neck */}
-            <rect x="88" y="138" width="24" height="26" rx="5" fill="url(#skin)"/>
-            <path d="M88 155 Q100 160 112 155" stroke="rgba(180,150,130,.25)" strokeWidth="1" fill="none"/>
+              {/* Mouth */}
+              <div className="absolute bottom-[22%] left-1/2 -translate-x-1/2" style={{ transform: `translateX(-50%) scaleY(${1 + mouthOpen * 0.4})` }}>
+                <div className="w-6 h-1 rounded-full" style={{ background: '#c4756e' }}/>
+              </div>
 
-            {/* Head with highlight */}
-            <ellipse cx="100" cy="98" rx="40" ry="48" fill="url(#skin)"/>
-            <ellipse cx="100" cy="98" rx="40" ry="48" fill="url(#faceLight)"/>
-
-            {/* Hair with texture */}
-            <path d="M60 80 Q60 50 100 44 Q140 50 140 80 Q140 62 100 56 Q60 62 60 80 Z" fill="url(#hair)"/>
-            <path d="M64 83 Q64 68 100 62 Q136 68 136 83 Q136 72 100 66 Q64 72 64 83 Z" fill="#1a1008" opacity=".5"/>
-            <path d="M78 66 Q90 58 110 62" stroke="rgba(255,255,255,.05)" strokeWidth="1.5" fill="none"/>
-            <path d="M82 72 Q95 66 108 70" stroke="rgba(255,255,255,.03)" strokeWidth="1" fill="none"/>
-
-            {/* Ears */}
-            <ellipse cx="60" cy="98" rx="6" ry="10" fill="#d9b894"/>
-            <ellipse cx="60" cy="98" rx="4" ry="7" fill="#e0bc98"/>
-            <ellipse cx="140" cy="98" rx="6" ry="10" fill="#d9b894"/>
-            <ellipse cx="140" cy="98" rx="4" ry="7" fill="#e0bc98"/>
-
-            {/* Eyes with realistic detail */}
-            <g>
-              <ellipse cx="84" cy="95" rx="9" ry={blinking ? 1 : 6} fill="#f8f4f0"/>
-              <circle cx="84" cy="95" r="4.5" fill="#3d2b1f"/>
-              <circle cx="84" cy="95" r="2.2" fill="#0a0a0a"/>
-              <circle cx="85.5" cy="93.5" r="1" fill="white" opacity=".9"/>
-              <circle cx="83" cy="94" r=".5" fill="white" opacity=".5"/>
-              <ellipse cx="116" cy="95" rx="9" ry={blinking ? 1 : 6} fill="#f8f4f0"/>
-              <circle cx="116" cy="95" r="4.5" fill="#3d2b1f"/>
-              <circle cx="116" cy="95" r="2.2" fill="#0a0a0a"/>
-              <circle cx="117.5" cy="93.5" r="1" fill="white" opacity=".9"/>
-              <circle cx="115" cy="94" r=".5" fill="white" opacity=".5"/>
-            </g>
-
-            {/* Eyebrows */}
-            <path d="M70 84 Q82 78 96 82" stroke="#2a1e14" strokeWidth="2" fill="none" strokeLinecap="round"/>
-            <path d="M104 82 Q118 78 130 84" stroke="#2a1e14" strokeWidth="2" fill="none" strokeLinecap="round"/>
-
-            {/* Nose with shadow */}
-            <path d="M98 106 Q100 114 102 106" stroke="#c8a088" strokeWidth="1.2" fill="none"/>
-            <path d="M99 110 Q100 112 101 110" stroke="#c8a088" strokeWidth=".6" fill="none"/>
-
-            {/* Cheeks */}
-            <ellipse cx="76" cy="108" rx="8" ry="4" fill="#e8b4a0" opacity=".2"/>
-            <ellipse cx="124" cy="108" rx="8" ry="4" fill="#e8b4a0" opacity=".2"/>
-
-            {/* Mouth */}
-            <path d={`M86 122 Q100 ${124 + mouthOpen * 3} 114 122`} stroke="#c4756e" strokeWidth="1.8" fill="none" strokeLinecap="round"/>
-
-            {/* Chin definition */}
-            <path d="M80 138 Q100 146 120 138" stroke="rgba(180,150,130,.12)" strokeWidth=".8" fill="none"/>
-          </svg>
+              {/* Cheeks */}
+              <div className="absolute top-[45%] left-[15%] w-4 h-2 rounded-full" style={{ background: '#e8b4a0', opacity: .2 }}/>
+              <div className="absolute top-[45%] right-[15%] w-4 h-2 rounded-full" style={{ background: '#e8b4a0', opacity: .2 }}/>
+            </div>
+          </div>
         </div>
 
         {/* Name badge */}
