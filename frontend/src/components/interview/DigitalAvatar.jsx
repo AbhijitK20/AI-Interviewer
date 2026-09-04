@@ -1,18 +1,39 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { Volume2, VolumeX } from 'lucide-react'
 
-const DigitalAvatar = ({ isSpeaking, emotion, name = 'AI Interviewer', message }) => {
+const DigitalAvatar = ({ isSpeaking, emotion, name = 'AI Interviewer', message, audioDuration = 0 }) => {
   const [isMuted, setIsMuted] = useState(false)
   const videoRef = useRef(null)
+  const speakTimeoutRef = useRef(null)
 
+  // Smooth video playback synced with speech
   useEffect(() => {
-    if (videoRef.current) {
-      if (isSpeaking) {
-        videoRef.current.play().catch(() => {})
-      } else {
-        videoRef.current.pause()
-        videoRef.current.currentTime = 0
-      }
+    if (!videoRef.current) return
+    const video = videoRef.current
+
+    if (isSpeaking) {
+      // Start video with slight delay to sync with TTS
+      speakTimeoutRef.current = setTimeout(() => {
+        video.currentTime = 0
+        // Adjust playback rate based on audio duration
+        if (audioDuration > 0) {
+          video.playbackRate = Math.max(0.8, Math.min(1.5, video.duration / audioDuration))
+        }
+        video.play().catch(() => {})
+      }, 150) // Small delay to sync with TTS start
+    } else {
+      // Smooth fade out - pause and hold last frame
+      clearTimeout(speakTimeoutRef.current)
+      video.pause()
+    }
+
+    return () => clearTimeout(speakTimeoutRef.current)
+  }, [isSpeaking, audioDuration])
+
+  // Reset video when not speaking
+  useEffect(() => {
+    if (!isSpeaking && videoRef.current) {
+      videoRef.current.currentTime = 0
     }
   }, [isSpeaking])
 
@@ -29,7 +50,7 @@ const DigitalAvatar = ({ isSpeaking, emotion, name = 'AI Interviewer', message }
         {/* Dynamic emotion glow */}
         <div className="absolute inset-0 transition-all duration-500" style={{
           background: `radial-gradient(ellipse at 50% 40%, ${emotionGlow[emotion] || emotionGlow.neutral}, transparent 60%)`,
-          opacity: 0.3
+          opacity: isSpeaking ? 0.5 : 0.2
         }} />
 
         {/* Realistic talking avatar video */}
@@ -40,6 +61,7 @@ const DigitalAvatar = ({ isSpeaking, emotion, name = 'AI Interviewer', message }
             style={{
               filter: 'drop-shadow(0 8px 32px rgba(0,0,0,.5))',
               maxHeight: '100%',
+              transition: 'filter 0.3s ease',
             }}
             muted
             loop
