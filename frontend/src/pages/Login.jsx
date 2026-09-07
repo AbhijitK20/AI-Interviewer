@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import { Mail, Lock, ArrowRight } from 'lucide-react'
 import { motion } from 'framer-motion'
@@ -12,6 +12,7 @@ const Login = () => {
   const [loading, setLoading] = useState(false)
   const { login } = useAuth()
   const navigate = useNavigate()
+  const [searchParams] = useSearchParams()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -19,7 +20,7 @@ const Login = () => {
     setLoading(true)
     try {
       await login(email, password)
-      navigate('/')
+      navigate(searchParams.get('returnTo') || '/', { replace: true })
     } catch (err) {
       setError(err.response?.data?.message || 'Login failed.')
     } finally {

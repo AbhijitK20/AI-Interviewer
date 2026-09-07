@@ -19,10 +19,15 @@ api.interceptors.request.use((config) => {
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    if (error.response?.status === 401) {
+    const status = error.response?.status
+    const hasAuthHeader = Boolean(error.config?.headers?.Authorization)
+
+    // Spring Security may return 403 for an expired token instead of 401.
+    if ((status === 401 || status === 403) && hasAuthHeader) {
       localStorage.removeItem('token')
       localStorage.removeItem('user')
-      window.location.href = '/login'
+      const returnTo = `${window.location.pathname}${window.location.search}`
+      window.location.href = `/login?returnTo=${encodeURIComponent(returnTo)}`
     }
     return Promise.reject(error)
   }
