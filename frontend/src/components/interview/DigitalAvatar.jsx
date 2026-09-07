@@ -1,150 +1,76 @@
-import { useState, useEffect, useRef, useMemo } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { Volume2, VolumeX } from 'lucide-react'
-import * as THREE from 'three'
 
-// 3D Head component with realistic shading
-function Head({ isSpeaking, emotion, headTilt }) {
-  const headRef = useRef()
-  const leftEyeRef = useRef()
-  const rightEyeRef = useRef()
-  const mouthRef = useRef()
-
-  // Skin material with realistic PBR
-  const skinMaterial = useMemo(() => new THREE.MeshStandardMaterial({
-    color: new THREE.Color('#e8c4a4'),
-    roughness: 0.7,
-    metalness: 0.1,
-    envMapIntensity: 0.5,
-  }), [])
-
-  // Hair material
-  const hairMaterial = useMemo(() => new THREE.MeshStandardMaterial({
-    color: new THREE.Color('#2c1e12'),
-    roughness: 0.9,
-    metalness: 0.0,
-  }), [])
-
-  // Eye material
-  const eyeWhiteMaterial = useMemo(() => new THREE.MeshStandardMaterial({
-    color: new THREE.Color('#f8f4f0'),
-    roughness: 0.3,
-    metalness: 0.0,
-  }), [])
-
-  // Iris material
-  const irisMaterial = useMemo(() => new THREE.MeshStandardMaterial({
-    color: new THREE.Color('#3d2b1f'),
-    roughness: 0.2,
-    metalness: 0.3,
-  }), [])
-
-  // Shirt material
-  const shirtMaterial = useMemo(() => new THREE.MeshStandardMaterial({
-    color: new THREE.Color('#1c2836'),
-    roughness: 0.8,
-    metalness: 0.0,
-  }), [])
-
-  // Animate head tilt
-  useFrame((state) => {
-    if (headRef.current) {
-      headRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.5) * 0.03
-      headRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.3) * 0.01
-    }
-  })
-
-  return (
-    <group ref={headRef}>
-      {/* Head */}
-      <mesh position={[0, 0.5, 0]} material={skinMaterial}>
-        <sphereGeometry args={[0.35, 32, 32]} />
-      </mesh>
-
-      {/* Hair */}
-      <mesh position={[0, 0.7, -0.05]} material={hairMaterial}>
-        <sphereGeometry args={[0.32, 32, 16, 0, Math.PI * 2, 0, Math.PI * 0.6]} />
-      </mesh>
-
-      {/* Left Eye */}
-      <group position={[-0.12, 0.55, 0.28]}>
-        <mesh material={eyeWhiteMaterial}>
-          <sphereGeometry args={[0.04, 16, 16]} />
-        </mesh>
-        <mesh position={[0, 0, 0.02]} ref={leftEyeRef} material={irisMaterial}>
-          <sphereGeometry args={[0.02, 16, 16]} />
-        </mesh>
-        <mesh position={[0.005, 0.005, 0.035]}>
-          <sphereGeometry args={[0.008, 8, 8]} />
-          <meshBasicMaterial color="white" />
-        </mesh>
-      </group>
-
-      {/* Right Eye */}
-      <group position={[0.12, 0.55, 0.28]}>
-        <mesh material={eyeWhiteMaterial}>
-          <sphereGeometry args={[0.04, 16, 16]} />
-        </mesh>
-        <mesh position={[0, 0, 0.02]} ref={rightEyeRef} material={irisMaterial}>
-          <sphereGeometry args={[0.02, 16, 16]} />
-        </mesh>
-        <mesh position={[0.005, 0.005, 0.035]}>
-          <sphereGeometry args={[0.008, 8, 8]} />
-          <meshBasicMaterial color="white" />
-        </mesh>
-      </group>
-
-      {/* Nose */}
-      <mesh position={[0, 0.45, 0.32]} rotation={[0.3, 0, 0]}>
-        <coneGeometry args={[0.02, 0.06, 8]} />
-        <meshStandardMaterial color="#c8a088" roughness={0.8} />
-      </mesh>
-
-      {/* Mouth */}
-      <mesh position={[0, 0.35, 0.3]} ref={mouthRef} scale={[1, isSpeaking ? 0.3 + Math.random() * 0.5 : 1, 1]}>
-        <boxGeometry args={[0.08, 0.015, 0.02]} />
-        <meshStandardMaterial color="#c4756e" roughness={0.6} />
-      </mesh>
-
-      {/* Neck */}
-      <mesh position={[0, 0.15, 0]} material={skinMaterial}>
-        <cylinderGeometry args={[0.1, 0.12, 0.15, 16]} />
-      </mesh>
-
-      {/* Body / Shirt */}
-      <mesh position={[0, -0.15, 0]} material={shirtMaterial}>
-        <cylinderGeometry args={[0.25, 0.3, 0.4, 16]} />
-      </mesh>
-    </group>
-  )
-}
-
-// Main avatar component
-const DigitalAvatar = ({ isSpeaking, emotion, name = 'AI Interviewer', message }) => {
+const DigitalAvatar = ({ isSpeaking, emotion, name = 'AI Interviewer', message, audioDuration = 0 }) => {
   const [isMuted, setIsMuted] = useState(false)
-  const [speaking, setSpeaking] = useState(false)
+  const videoRef = useRef(null)
+  const speakTimeoutRef = useRef(null)
 
+  // Smooth video playback synced with speech
   useEffect(() => {
-    setSpeaking(isSpeaking)
+    if (!videoRef.current) return
+    const video = videoRef.current
+
+    if (isSpeaking) {
+      // Start video with slight delay to sync with TTS
+      speakTimeoutRef.current = setTimeout(() => {
+        video.currentTime = 0
+        // Adjust playback rate based on audio duration
+        if (audioDuration > 0) {
+          video.playbackRate = Math.max(0.8, Math.min(1.5, video.duration / audioDuration))
+        }
+        video.play().catch(() => {})
+      }, 150) // Small delay to sync with TTS start
+    } else {
+      // Smooth fade out - pause and hold last frame
+      clearTimeout(speakTimeoutRef.current)
+      video.pause()
+    }
+
+    return () => clearTimeout(speakTimeoutRef.current)
+  }, [isSpeaking, audioDuration])
+
+  // Reset video when not speaking
+  useEffect(() => {
+    if (!isSpeaking && videoRef.current) {
+      videoRef.current.currentTime = 0
+    }
   }, [isSpeaking])
+
+  const emotionGlow = {
+    neutral: 'rgba(99,102,241,.15)',
+    happy: 'rgba(52,211,153,.15)',
+    thinking: 'rgba(251,191,36,.12)',
+    concerned: 'rgba(248,113,113,.12)',
+  }
 
   return (
     <div className="relative rounded-2xl overflow-hidden" style={{ background: 'linear-gradient(145deg, #080c14, #0d1525, #080c14)' }}>
-      <div className="relative h-80">
-        {/* 3D Canvas */}
-        <Canvas
-          camera={{ position: [0, 0, 1.5], fov: 45 }}
-          style={{ width: '100%', height: '100%' }}
-        >
-          {/* Lighting */}
-          <ambientLight intensity={0.4} />
-          <directionalLight position={[2, 3, 5]} intensity={0.8} color="#fff" />
-          <pointLight position={[-2, 1, 3]} intensity={0.3} color="#818cf8" />
-          <pointLight position={[2, -1, 3]} intensity={0.2} color="#f87171" />
+      <div className="relative h-80 flex items-center justify-center overflow-hidden">
+        {/* Dynamic emotion glow */}
+        <div className="absolute inset-0 transition-all duration-500" style={{
+          background: `radial-gradient(ellipse at 50% 40%, ${emotionGlow[emotion] || emotionGlow.neutral}, transparent 60%)`,
+          opacity: isSpeaking ? 0.5 : 0.2
+        }} />
 
-          {/* Head */}
-          <Head isSpeaking={speaking} emotion={emotion} />
-        </Canvas>
+        {/* Realistic talking avatar video */}
+        <div className="relative w-full h-full flex items-center justify-center">
+          <video
+            ref={videoRef}
+            className="h-full object-contain"
+            style={{
+              filter: 'drop-shadow(0 8px 32px rgba(0,0,0,.5))',
+              maxHeight: '100%',
+              transition: 'filter 0.3s ease',
+            }}
+            muted
+            loop
+            playsInline
+            preload="auto"
+          >
+            <source src="/talkingavatar.mp4" type="video/mp4" />
+          </video>
+        </div>
 
         {/* Name badge */}
         <div className="absolute bottom-4 left-4 right-4 z-10">
