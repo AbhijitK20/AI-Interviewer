@@ -8,7 +8,7 @@ import CodingEnvironment from '../components/interview/CodingEnvironment'
 import BodyLanguageAnalyzer from '../components/interview/BodyLanguageAnalyzer'
 import ProctoringMonitor from '../components/interview/ProctoringMonitor'
 import SpeechEmotionAnalyzer from '../components/interview/SpeechEmotionAnalyzer'
-import DigitalAvatar from '../components/interview/DigitalAvatar'
+import InterviewerOrb from '../components/interview/InterviewerOrb'
 import AntiCheatModal from '../components/interview/AntiCheatModal'
 import { motion } from 'framer-motion'
 import { GlassCard, WhiteButton, GlassBadge, GlassInput, BackgroundVideo } from '../components/ui/glass'
@@ -210,7 +210,11 @@ const Interview = () => {
           {/* Digital Avatar */}
           {showAvatar && (
             <div className="mb-6">
-              <DigitalAvatar isSpeaking={avatarSpeaking} emotion={avatarEmotion} name="AI Interviewer" message={currentQuestion.questionText} />
+              <InterviewerOrb
+                state={avatarSpeaking ? 'speaking' : 'idle'}
+                name="AI Interviewer"
+                message={currentQuestion.questionText}
+              />
             </div>
           )}
 
